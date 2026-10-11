@@ -13,28 +13,48 @@
 <link rel="icon" href="icon-192.png">
 <title>Mi Mundo de Juegos</title>
 <style>
-:root{--bg:#fff4fa;--ink:#3b2a4a;--pink:#ff7eb6;--purple:#9b6dff;--blue:#4cc9f0;--green:#5ad68a;--yellow:#ffd23f;--orange:#ff9f43;--red:#ff5d5d}
+/* ---------- Estilo global (fase 1) ---------- */
+:root{--bg:#fff6fb;--ink:#4a3a5c;--soft:#8a7a9c;--card:#ffffff;--line:rgba(74,58,92,.10);
+  --pink:#ff8fbf;--pink2:#ffd3e6;--purple:#a083ff;--lila2:#e7defe;--blue:#6cc8f5;--sky2:#d6f0ff;--green:#5fd39b;--mint2:#d4f7e6;
+  --yellow:#ffd46b;--lemon2:#fff3c4;--orange:#ffab73;--peach2:#ffe3d1;--red:#ff6f7d;
+  --shadow:0 6px 0 rgba(74,58,92,.10),0 10px 24px rgba(74,58,92,.08);--r:26px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
-html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:ui-rounded,"SF Pro Rounded","Arial Rounded MT Bold",system-ui,sans-serif;overscroll-behavior:none;touch-action:manipulation}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:ui-rounded,"SF Pro Rounded","Nunito","Arial Rounded MT Bold",system-ui,sans-serif;overscroll-behavior:none;touch-action:manipulation}
 button{font-family:inherit;cursor:pointer;color:var(--ink)}
-.screen{position:fixed;inset:0;display:none;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background:var(--bg)}
-.screen.on{display:flex}
+.screen{position:fixed;inset:0;display:none;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background:radial-gradient(circle at 8% 12%,#ffe1ef 0 90px,transparent 91px),radial-gradient(circle at 96% 30%,#e9e1ff 0 120px,transparent 121px),radial-gradient(circle at 12% 96%,#dff4ff 0 130px,transparent 131px),radial-gradient(circle at 90% 92%,#fff1c9 0 80px,transparent 81px),linear-gradient(160deg,#fff7fb,#f7f3ff)}
+.screen.on{display:flex;animation:scrIn .28s ease-out}
+@keyframes scrIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .bar{display:flex;align-items:center;gap:10px;padding:10px 12px;overflow-x:auto;flex:0 0 auto;scrollbar-width:none}
 .bar::-webkit-scrollbar{display:none}
-.title{font-size:28px;font-weight:900;flex:1;white-space:nowrap}
-.stars{font-size:24px;font-weight:900;background:#fff;padding:10px 16px;border-radius:20px;white-space:nowrap;box-shadow:0 3px 0 rgba(0,0,0,.08)}
-.btn{flex:0 0 auto;min-width:60px;height:60px;border:none;border-radius:18px;background:#fff;font-size:30px;box-shadow:0 4px 0 rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-weight:900;padding:0 10px;transition:transform .08s}
-.btn:active,.big:active,.qopt:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.12)}
-.btn.sel{background:#efe4ff;box-shadow:0 0 0 5px var(--purple) inset}
-.sep{width:2px;height:44px;background:rgba(0,0,0,.1);flex:0 0 auto}
-.menu{flex:1;display:grid;gap:18px;padding:18px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));align-content:center;overflow:auto}
-.big{border:none;border-radius:32px;font-size:28px;font-weight:900;color:#fff;padding:22px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 0 rgba(0,0,0,.15);min-height:170px;text-shadow:0 2px 0 rgba(0,0,0,.15)}
-.big .e{font-size:84px;line-height:1;text-shadow:none}
-.c1{background:linear-gradient(135deg,#ff8fb8,#ff5d9e)}.c2{background:linear-gradient(135deg,#b28dff,#8257f5)}.c3{background:linear-gradient(135deg,#6fd8ff,#2fa7e0)}
-.c4{background:linear-gradient(135deg,#7ee6a5,#33b86b)}.c5{background:linear-gradient(135deg,#ffd76a,#ffb020)}.c6{background:linear-gradient(135deg,#ffb27a,#ff7a3d)}
-.home-title{text-align:center;font-size:44px;font-weight:900;margin:18px 0 0;color:#ff5d9e;text-shadow:0 3px 0 #fff}
-.home-top{display:flex;justify-content:space-between;padding:10px 14px}
-#toast{position:fixed;left:50%;top:40%;transform:translate(-50%,-50%) scale(.6);background:#fff;padding:22px 34px;border-radius:30px;font-size:34px;font-weight:900;box-shadow:0 10px 40px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:.25s;z-index:99}
+.bar>[data-go]:first-child{position:sticky;left:0;z-index:3}
+.title{font-size:clamp(19px,5.2vw,28px);font-weight:900;flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stars{font-size:clamp(18px,4.6vw,24px);font-weight:900;background:var(--card);padding:10px 14px;border-radius:20px;white-space:nowrap;box-shadow:var(--shadow);flex:0 0 auto}
+.btn{flex:0 0 auto;min-width:58px;height:58px;border:none;border-radius:20px;background:var(--card);font-size:29px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-weight:900;padding:0 10px;transition:transform .12s cubic-bezier(.3,1.6,.5,1)}
+.btn:active,.qopt:active,.stkbtn:active,.dopt:active,.fl:active,.sw:active{transform:scale(.9)}
+.btn.sel{background:var(--lila2);box-shadow:0 0 0 4px var(--purple) inset,var(--shadow)}
+.sep{width:2px;height:44px;background:var(--line);flex:0 0 auto;border-radius:2px}
+.menu{flex:1;display:grid;gap:18px;padding:14px 18px 22px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-content:center;overflow:auto}
+.big{position:relative;overflow:hidden;border:none;border-radius:34px;font-size:clamp(22px,5.5vw,28px);font-weight:900;color:var(--ink);padding:18px 12px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:var(--shadow);min-height:170px;transition:transform .15s cubic-bezier(.3,1.6,.5,1)}
+.big:active{transform:scale(.96)}
+.big:before,.big:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.45);pointer-events:none}
+.big:before{width:120px;height:120px;right:-30px;top:-40px}
+.big:after{width:60px;height:60px;left:-14px;bottom:-18px}
+.big .e{font-size:84px;line-height:1}
+.ill{display:block;width:118px;height:118px;filter:drop-shadow(0 4px 0 rgba(74,58,92,.10))}
+.ill svg{width:100%;height:100%;display:block}
+.big:active .ill{animation:wiggle .35s}
+@keyframes wiggle{25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+.c1{background:linear-gradient(150deg,#ffe0ee,#ffc2dc)}.c2{background:linear-gradient(150deg,#efe7ff,#d8c9ff)}.c3{background:linear-gradient(150deg,#e2f5ff,#bfe6fb)}
+.c4{background:linear-gradient(150deg,#ddfaeb,#b8efd3)}.c5{background:linear-gradient(150deg,#fff6d3,#ffe49a)}.c6{background:linear-gradient(150deg,#ffeadb,#ffcfb0)}
+.home-title{text-align:center;font-size:clamp(34px,9vw,52px);font-weight:900;margin:4px 0 0;line-height:1.05;letter-spacing:-.5px}
+.home-title span:nth-child(1){color:#ff6fae}.home-title span:nth-child(2){color:#a083ff}.home-title span:nth-child(3){color:#3fb4ea}
+.home-sub{text-align:center;margin:6px 0 0}
+.home-sub svg{width:min(220px,55vw);height:auto}
+.home-top{display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
+#home .menu{max-width:1100px;margin:0 auto;width:100%}
+#home .big{min-height:200px}
+#toast{position:fixed;left:50%;top:40%;transform:translate(-50%,-50%) scale(.6);background:#fff;padding:22px 34px;border-radius:30px;font-size:30px;font-weight:900;box-shadow:0 10px 40px rgba(74,58,92,.2);opacity:0;pointer-events:none;transition:.25s;z-index:99;text-align:center;white-space:pre-line;max-width:90vw}
 #toast.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .conf{position:fixed;top:-60px;font-size:40px;z-index:98;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(115vh) rotate(540deg)}}
@@ -42,6 +62,9 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 @keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .shake{animation:shake .45s}
+.subbar{display:flex;justify-content:center;gap:12px;padding:0 12px 6px}
+@media (max-width:520px){.menu{grid-template-columns:1fr;gap:14px}.big{min-height:0;flex-direction:row;justify-content:flex-start;gap:16px;padding:14px 20px}.ill{width:92px;height:92px;flex:0 0 auto}#home .big{min-height:0}}
+@media (prefers-reduced-motion:reduce){.screen.on,.big:active .ill{animation:none}}
 
 /* Pintar */
 .pwrap{flex:1;display:flex;align-items:center;justify-content:center;padding:0 10px;min-height:0}
@@ -152,40 +175,41 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
     <div style="display:flex;gap:10px"><button class="btn" id="soundBtn">🔊</button><button class="btn" id="setBtn">⚙️</button></div>
     <div class="stars">⭐ <b class="sc">0</b></div>
   </div>
-  <h1 class="home-title">✨ Mi Mundo de Juegos ✨</h1>
+  <div class="home-sub"><span class="ill-inline" data-ill="arcoiris"></span></div>
+  <h1 class="home-title"><span>Mi Mundo</span> <span>de</span> <span>Juegos</span></h1>
   <div class="menu">
-    <button class="big c1" data-go="m-paint"><span class="e">🎨</span>Pintar</button>
-    <button class="big c2" data-go="m-role"><span class="e">🎭</span>Jugar a ser</button>
-    <button class="big c3" data-go="m-think"><span class="e">🧠</span>Pensar</button>
+    <button class="big c1" data-go="m-paint"><span class="ill" data-ill="pintar"></span>Pintar</button>
+    <button class="big c2" data-go="m-role"><span class="ill" data-ill="jugar"></span>Jugar a ser</button>
+    <button class="big c3" data-go="m-think"><span class="ill" data-ill="pensar"></span>Pensar</button>
   </div>
 </section>
 
 <section class="screen" id="m-paint">
-  <div class="bar"><button class="btn" data-go="home">⬅️</button><div class="title">🎨 Pintar</div><div class="stars">⭐ <b class="sc">0</b></div></div>
+  <div class="bar"><button class="btn" data-go="home">⬅️</button><div class="title">Pintar</div><div class="stars">⭐ <b class="sc">0</b></div></div>
   <div class="menu">
-    <button class="big c1" data-go="paint" data-arg="free"><span class="e">🖌️</span>Hoja en blanco</button>
-    <button class="big c5" data-go="tpl"><span class="e">🖍️</span>Colorear dibujos</button>
-    <button class="big c4" data-go="gallery"><span class="e">🖼️</span>Mis dibujos</button>
+    <button class="big c1" data-go="paint" data-arg="free"><span class="ill" data-ill="hoja"></span>Hoja en blanco</button>
+    <button class="big c5" data-go="tpl"><span class="ill" data-ill="colorear"></span>Colorear dibujos</button>
+    <button class="big c4" data-go="gallery"><span class="ill" data-ill="galeria"></span>Mis dibujos</button>
   </div>
 </section>
 
 <section class="screen" id="m-role">
-  <div class="bar"><button class="btn" data-go="home">⬅️</button><div class="title">🎭 Jugar a ser</div><div class="stars">⭐ <b class="sc">0</b></div></div>
+  <div class="bar"><button class="btn" data-go="home">⬅️</button><div class="title">Jugar a ser</div><div class="stars">⭐ <b class="sc">0</b></div></div>
   <div class="menu">
-    <button class="big c1" data-go="ice"><span class="e">🍦</span>Heladería</button>
-    <button class="big c2" data-go="dress"><span class="e">👗</span>Vestir</button>
-    <button class="big c4" data-go="scene"><span class="e">🏡</span>Mi mundo</button>
+    <button class="big c1" data-go="ice"><span class="ill" data-ill="helado"></span>Heladería</button>
+    <button class="big c2" data-go="dress"><span class="ill" data-ill="vestir"></span>Vestir</button>
+    <button class="big c4" data-go="scene"><span class="ill" data-ill="mundo"></span>Mi mundo</button>
   </div>
 </section>
 
 <section class="screen" id="m-think">
-  <div class="bar"><button class="btn" data-go="home">⬅️</button><div class="title">🧠 Pensar</div><div class="stars">⭐ <b class="sc">0</b></div></div>
+  <div class="bar"><button class="btn" data-go="home">⬅️</button><div class="title">Pensar</div><div class="stars">⭐ <b class="sc">0</b></div></div>
   <div class="menu">
-    <button class="big c2" data-go="memory"><span class="e">🃏</span>Parejas</button>
-    <button class="big c5" data-go="quiz" data-arg="contar"><span class="e">🔢</span>Contar</button>
-    <button class="big c3" data-go="quiz" data-arg="sigue"><span class="e">🔮</span>¿Qué sigue?</button>
-    <button class="big c6" data-go="quiz" data-arg="sombras"><span class="e">👤</span>Sombras</button>
-    <button class="big c4" data-go="quiz" data-arg="distinto"><span class="e">🔍</span>El diferente</button>
+    <button class="big c2" data-go="memory"><span class="ill" data-ill="parejas"></span>Parejas</button>
+    <button class="big c5" data-go="quiz" data-arg="contar"><span class="ill" data-ill="contar"></span>Contar</button>
+    <button class="big c3" data-go="quiz" data-arg="sigue"><span class="ill" data-ill="sigue"></span>¿Qué sigue?</button>
+    <button class="big c6" data-go="quiz" data-arg="sombras"><span class="ill" data-ill="sombras"></span>Sombras</button>
+    <button class="big c4" data-go="quiz" data-arg="distinto"><span class="ill" data-ill="lupa"></span>El diferente</button>
   </div>
 </section>
 
@@ -255,9 +279,8 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 
 <!-- MEMORIA -->
 <section class="screen" id="memory">
-  <div class="bar"><button class="btn" data-go="m-think">⬅️</button><div class="title">🃏 Parejas</div>
-    <button class="btn mlv" data-n="3">🐣</button><button class="btn mlv" data-n="6">🐥</button><button class="btn mlv" data-n="8">🐔</button>
-    <div class="stars">⭐ <b class="sc">0</b></div></div>
+  <div class="bar"><button class="btn" data-go="m-think">⬅️</button><div class="title">Parejas</div><div class="stars">⭐ <b class="sc">0</b></div></div>
+  <div class="subbar"><button class="btn mlv" data-n="3">🐣</button><button class="btn mlv" data-n="6">🐥</button><button class="btn mlv" data-n="8">🐔</button></div>
   <div class="memgrid" id="memgrid"></div>
 </section>
 
@@ -287,6 +310,55 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const DPR=Math.min(2,window.devicePixelRatio||1);
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
   set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+
+/* ---------- ilustraciones propias (SVG, mismo estilo en toda la app) ---------- */
+const INK='#4a3a5c',S=`stroke="${INK}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"`;
+const svg=(b,vb='0 0 120 120')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}">${b}</svg>`;
+const face=(x,y,k=1)=>`<circle cx="${x-9*k}" cy="${y}" r="${3.2*k}" fill="${INK}"/><circle cx="${x+9*k}" cy="${y}" r="${3.2*k}" fill="${INK}"/>`+
+  `<path d="M${x-5*k} ${y+7*k}q${5*k} ${5*k} ${10*k} 0" fill="none" stroke="${INK}" stroke-width="${3*k}" stroke-linecap="round"/>`+
+  `<circle cx="${x-15*k}" cy="${y+6*k}" r="${4*k}" fill="#ff8fbf" opacity=".55"/><circle cx="${x+15*k}" cy="${y+6*k}" r="${4*k}" fill="#ff8fbf" opacity=".55"/>`;
+const spark=(x,y,r,c='#ffd46b')=>`<path d="M${x} ${y-r}Q${x} ${y} ${x+r} ${y}Q${x} ${y} ${x} ${y+r}Q${x} ${y} ${x-r} ${y}Q${x} ${y} ${x} ${y-r}Z" fill="${c}"/>`;
+const heart=(x,y,s,c)=>`<path d="M${x} ${y+s*.9}C${x-s*1.4} ${y-s*.1} ${x-s*.6} ${y-s*1.1} ${x} ${y-s*.35}C${x+s*.6} ${y-s*1.1} ${x+s*1.4} ${y-s*.1} ${x} ${y+s*.9}Z" fill="${c}" ${S}/>`;
+const starP=(x,y,R,r)=>{let d='';for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,q=i%2?r:R;d+=(i?'L':'M')+(x+q*Math.cos(a)).toFixed(1)+' '+(y+q*Math.sin(a)).toFixed(1)}return d+'Z'};
+const ILL={
+  pintar:svg(`<path d="M60 16C33 16 14 35 14 58c0 21 15 38 34 38 8 0 10-5 7-10-3-6 1-11 7-11h11c18 0 32-11 32-28C105 30 85 16 60 16z" fill="#fff4e3" ${S}/>
+    <circle cx="40" cy="44" r="8" fill="#ff8fbf" ${S}/><circle cx="61" cy="33" r="8" fill="#ffd46b" ${S}/><circle cx="82" cy="42" r="8" fill="#5fd39b" ${S}/><circle cx="88" cy="63" r="7" fill="#6cc8f5" ${S}/><circle cx="36" cy="68" r="8" fill="#fff" ${S}/>
+    <g transform="rotate(35 88 92)"><rect x="83" y="70" width="11" height="40" rx="5.5" fill="#a083ff" ${S}/><rect x="83" y="62" width="11" height="10" fill="#e4dcef" ${S}/><path d="M83 62c0-10 5-16 5.5-21 .5 5 5.5 11 5.5 21z" fill="#ff8fbf" ${S}/></g>`),
+  jugar:svg(`<path d="M24 82L18 42L42 60L60 32L78 60L102 42L96 82Z" fill="#ffd46b" ${S}/><rect x="22" y="80" width="76" height="16" rx="6" fill="#ffb84d" ${S}/>
+    <circle cx="18" cy="40" r="6" fill="#ff8fbf" ${S}/><circle cx="60" cy="28" r="7" fill="#a083ff" ${S}/><circle cx="102" cy="40" r="6" fill="#6cc8f5" ${S}/>
+    <circle cx="40" cy="88" r="4" fill="#ff8fbf"/><circle cx="60" cy="88" r="4" fill="#5fd39b"/><circle cx="80" cy="88" r="4" fill="#6cc8f5"/>${face(60,63,.9)}${spark(104,16,9)}${spark(14,102,7,'#ff8fbf')}`),
+  pensar:svg(`<path d="M14 20l8 7M106 20l-8 7M6 52h9M114 52h-9" fill="none" ${S}/>
+    <path d="M60 14c-21 0-36 15-36 34 0 13 7 22 14 29 4 4 5 8 5 12h34c0-4 1-8 5-12 7-7 14-16 14-29 0-19-15-34-36-34z" fill="#fff3a8" ${S}/>
+    <rect x="43" y="89" width="34" height="9" rx="4" fill="#d8cfe8" ${S}/><rect x="47" y="98" width="26" height="9" rx="4" fill="#d8cfe8" ${S}/>${face(60,50,1.1)}`),
+  hoja:svg(`<path d="M28 12h42l22 22v72a6 6 0 0 1-6 6H28a6 6 0 0 1-6-6V18a6 6 0 0 1 6-6z" fill="#fff" ${S}/><path d="M70 12v22h22" fill="#f1ebfa" ${S}/>
+    <path d="M32 60q7-12 14 0t14 0t14 0" fill="none" stroke="#ff8fbf" stroke-width="6" stroke-linecap="round"/><path d="M32 82q7-10 14 0" fill="none" stroke="#6cc8f5" stroke-width="6" stroke-linecap="round"/>
+    <g transform="rotate(38 88 82)"><rect x="81" y="46" width="14" height="44" rx="3" fill="#ffd46b" ${S}/><path d="M81 90h14l-7 15z" fill="#ffe3d1" ${S}/><rect x="81" y="38" width="14" height="9" rx="3" fill="#ff8fbf" ${S}/></g>`),
+  colorear:svg(['#ff8fbf','#6cc8f5','#ffd46b'].map((c,i)=>`<g transform="rotate(${[-24,24,0][i]} 60 104)"><rect x="50" y="36" width="20" height="64" rx="5" fill="${c}" ${S}/><path d="M50 37L60 14L70 37Z" fill="${c}" ${S}/><rect x="50" y="52" width="20" height="9" fill="#fff" opacity=".75"/></g>`).join('')+face(60,80,.7)),
+  galeria:svg(`<rect x="12" y="20" width="96" height="82" rx="14" fill="#ffd46b" ${S}/><rect x="25" y="33" width="70" height="56" rx="7" fill="#d6f0ff" ${S}/>
+    <path d="M27 87L50 58L64 74L74 64L93 87Z" fill="#5fd39b" ${S}/><circle cx="80" cy="47" r="7" fill="#ffab73"/>${heart(60,18,7,'#ff8fbf')}`),
+  helado:svg(`<path d="M38 62L82 62L60 113Z" fill="#f2b56b" ${S}/><path d="M48 70L70 92M60 64L77 81M72 70L52 94" stroke="#d48d45" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="43" cy="58" r="18" fill="#9be8c4" ${S}/><circle cx="77" cy="58" r="18" fill="#ffb3d1" ${S}/><circle cx="60" cy="40" r="23" fill="#fff3c4" ${S}/>${face(60,42,.9)}
+    <path d="M60 17q3-9 13-11" fill="none" ${S}/><circle cx="60" cy="17" r="7" fill="#ff6f7d" ${S}/>`),
+  vestir:svg(`<path d="M60 26c0-4 3-6 6-7a7 7 0 1 0-7-7" fill="none" ${S}/><path d="M60 26L16 46h88Z" fill="none" ${S}/>
+    <path d="M46 40h28l7 16-8 6 17 46H30l17-46-8-6Z" fill="#ffb3d1" ${S}/><path d="M43 64h34" stroke="#a083ff" stroke-width="7" stroke-linecap="round"/>
+    ${heart(60,64,6,'#ffd46b')}<circle cx="44" cy="92" r="3.5" fill="#fff"/><circle cx="60" cy="98" r="3.5" fill="#fff"/><circle cx="76" cy="92" r="3.5" fill="#fff"/>`),
+  mundo:svg(`<path d="M8 106h104" fill="none" ${S}/><path d="M14 60L60 20L106 60Z" fill="#ff8fbf" ${S}/><rect x="26" y="56" width="68" height="50" rx="6" fill="#fff4e3" ${S}/>
+    <rect x="50" y="74" width="20" height="32" rx="9" fill="#a083ff" ${S}/><rect x="32" y="66" width="14" height="14" rx="3" fill="#d6f0ff" ${S}/><rect x="74" y="66" width="14" height="14" rx="3" fill="#d6f0ff" ${S}/>
+    ${heart(60,44,6,'#ffd46b')}<circle cx="104" cy="96" r="6" fill="#ffd46b" ${S}/><circle cx="14" cy="96" r="6" fill="#6cc8f5" ${S}/>`),
+  parejas:svg(`<g transform="rotate(-12 44 62)"><rect x="16" y="26" width="52" height="72" rx="11" fill="#c9b6ff" ${S}/>${spark(42,62,14,'#fff')}</g>
+    <g transform="rotate(10 78 60)"><rect x="52" y="22" width="52" height="72" rx="11" fill="#fff" ${S}/>${heart(78,58,10,'#ff8fbf')}</g>`),
+  contar:svg([[22,68,'#ffb3d1',1],[62,68,'#fff3a8',2],[42,28,'#b8efd3',3]].map(([x,y,c,n])=>`<rect x="${x}" y="${y}" width="38" height="38" rx="9" fill="${c}" ${S}/><text x="${x+19}" y="${y+29}" font-size="27" font-weight="900" text-anchor="middle" fill="${INK}" font-family="ui-rounded,system-ui,sans-serif">${n}</text>`).join('')),
+  sigue:svg(`<path d="M6 64Q60 84 114 64" fill="none" stroke="#d8cfe8" stroke-width="4" stroke-linecap="round"/><circle cx="18" cy="66" r="12" fill="#ff8fbf" ${S}/>
+    <rect x="35" y="59" width="22" height="22" rx="5" fill="#5fd39b" ${S}/><circle cx="74" cy="72" r="12" fill="#ff8fbf" ${S}/>
+    <rect x="88" y="42" width="28" height="32" rx="9" fill="#fff3a8" ${S}/><text x="102" y="67" font-size="24" font-weight="900" text-anchor="middle" fill="${INK}" font-family="ui-rounded,system-ui,sans-serif">?</text>${spark(30,26,9)}`),
+  sombras:svg(`<path d="${starP(72,70,36,16)}" fill="${INK}" opacity=".8"/><path d="${starP(50,52,36,16)}" fill="#ffd46b" ${S}/>${face(50,56,.75)}`),
+  lupa:svg(`<path d="M70 70L98 98" stroke="${INK}" stroke-width="18" stroke-linecap="round"/><path d="M70 70L98 98" stroke="#a083ff" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="50" cy="50" r="30" fill="#d6f0ff" ${S}/><path d="M34 42a18 18 0 0 1 14-12" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>${spark(54,54,12,'#ffd46b')}`),
+  arcoiris:svg(['#ff8fbf','#ffd46b','#5fd39b','#6cc8f5'].map((c,i)=>{const r=56-i*10;return`<path d="M${110-r} 66A${r} ${r} 0 0 1 ${110+r} 66" fill="none" stroke="${c}" stroke-width="10" stroke-linecap="round"/>`}).join('')+
+    `<g fill="#fff" ${S}><path d="M34 70a10 10 0 0 1 4-19 13 13 0 0 1 24 3 9 9 0 0 1 2 16z"/><path d="M156 70a9 9 0 0 1 2-16 13 13 0 0 1 24-3 10 10 0 0 1 4 19z"/></g>${spark(22,22,8)}${spark(200,26,7,'#a083ff')}${spark(110,6,6,'#ff8fbf')}`,'0 0 220 76'),
+};
+function paintIll(root=document){root.querySelectorAll('[data-ill]').forEach(el=>{el.innerHTML=ILL[el.dataset.ill]||''})}
+paintIll();
 
 /* ---------- sonido y voz ---------- */
 let soundOn=store.get('sound',true), actx=null;
@@ -350,7 +422,7 @@ function confetti(){
     document.body.appendChild(s);setTimeout(()=>s.remove(),3500);}
 }
 let toastT;
-function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('on'),1400)}
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('on'),t.length>30?3200:1400)}
 const PRAISE=['¡Muy bien!','¡Genial!','¡Eres una crack!','¡Bravo!','¡Fantástico!','¡Lo lograste!','¡Increíble!'];
 
 /* ---------- navegación ---------- */
@@ -532,7 +604,7 @@ const TPL={
     g.p([[130,350],[225,170],[320,350]]);g.p([[680,350],[775,170],[870,350]]);
     g.r(420,300,160,150);g.p([[400,300],[500,130],[600,300]]);
     g.l(225,170,225,95);g.p([[225,95],[290,115],[225,135]]);g.l(775,170,775,95);g.p([[775,95],[840,115],[775,135]]);g.l(500,130,500,60);g.p([[500,60],[565,80],[500,100]]);
-    g.d('M440,900 L440,760 Q500,680 560,760 L560,900');g.r(190,460,70,90);g.r(740,460,70,90);g.c(500,370,35);
+    g.d('M440,900 L440,760 Q500,680 560,760 L560,900');g.r(172,460,56,86);g.r(772,460,56,86);g.c(500,370,35);
     g.r(320,410,50,40);g.r(630,410,50,40);g.l(40,900,960,900);g.c(100,90,45);g.d('M850,80 Q880,40 920,70 Q960,70 950,110 L840,110 Q820,90 850,80 Z')},
   dinosaurio(g){g.d('M100,760 Q200,600 380,470 Q550,400 650,330 Q680,190 790,190 Q890,200 880,280 Q860,330 780,330 Q720,450 760,600 Q760,700 700,720 L700,860 L620,860 L610,730 L420,740 L410,860 L330,860 L320,730 Q220,730 100,760 Z');
     g.p([[265,545],[295,470],[335,512]]);g.p([[385,478],[425,405],[465,455]]);g.p([[505,425],[550,355],[585,400]]);
@@ -600,8 +672,19 @@ function importTpl(file){
     x.drawImage(im,(S-im.width*s)/2,(S-im.height*s)/2,im.width*s,im.height*s);
     const d=x.getImageData(0,0,S,S),p=d.data,L=new Float32Array(S*S);let sum=0;
     for(let i=0,k=0;k<L.length;i+=4,k++){L[k]=.3*p[i]+.59*p[i+1]+.11*p[i+2];sum+=L[k]}
-    const thr=Math.min(150,sum/L.length*.68),A=new Uint8Array(S*S);
-    for(let k=0;k<L.length;k++)A[k]=L[k]<thr?255:L[k]<thr+30?Math.round((thr+30-L[k])/30*255):0;
+    const thr=Math.min(150,sum/L.length*.68),A=new Uint8Array(S*S);let dark=0;
+    for(let k=0;k<L.length;k++){A[k]=L[k]<thr?255:L[k]<thr+30?Math.round((thr+30-L[k])/30*255):0;if(A[k]>200)dark++}
+    // si hay demasiada zona oscura es una foto, no un dibujo de líneas: en su lugar sacamos los bordes
+    const isPhoto=dark/L.length>.18;
+    if(isPhoto){
+      const B=new Float32Array(S*S),G=new Float32Array(S*S),hist=new Uint32Array(256);
+      for(let y=1;y<S-1;y++)for(let xx=1;xx<S-1;xx++){const k=y*S+xx;let t=0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)t+=L[k+dy*S+dx];B[k]=t/9}
+      for(let y=2;y<S-2;y++)for(let xx=2;xx<S-2;xx++){const k=y*S+xx;
+        const gx=B[k-S+1]+2*B[k+1]+B[k+S+1]-B[k-S-1]-2*B[k-1]-B[k+S-1],gy=B[k+S-1]+2*B[k+S]+B[k+S+1]-B[k-S-1]-2*B[k-S]-B[k-S+1];
+        G[k]=Math.min(255,Math.hypot(gx,gy)/4);hist[G[k]|0]++}
+      let acc=0,cut=255;for(let v=255;v>=0;v--){acc+=hist[v];if(acc>L.length*.07){cut=v;break}}cut=Math.max(cut,18);
+      for(let k=0;k<L.length;k++)A[k]=G[k]>=cut?255:0;
+    }
     // engorda un poco las líneas para que el cubo de pintura no se escape por huecos
     for(let y=0;y<S;y++)for(let xx=0;xx<S;xx++){const k=y*S+xx;let a=A[k];
       if(a<255){if(xx>0&&A[k-1]>a)a=A[k-1];if(xx<S-1&&A[k+1]>a)a=A[k+1];if(y>0&&A[k-S]>a)a=A[k-S];if(y<S-1&&A[k+S]>a)a=A[k+S]}
@@ -609,7 +692,7 @@ function importTpl(file){
     x.putImageData(d,0,0);
     const out=c.toDataURL('image/png'),id='u:'+Date.now();
     try{await idb.put({id,url:out})}catch(e){toast('No se pudo guardar 😢');return}
-    const ni=new Image();ni.onload=()=>{UTPL[id]=ni;onShow.tpl();toast('¡Lámina añadida! 🎉')};ni.src=out;
+    const ni=new Image();ni.onload=()=>{UTPL[id]=ni;onShow.tpl();toast(isPhoto?'Era una foto: he sacado los bordes ✏️\nFunciona mejor con dibujos para colorear':'¡Lámina añadida! 🎉')};ni.src=out;
   };
   im.onerror=()=>toast('Esa imagen no sirve 😢');im.src=url;
 }
