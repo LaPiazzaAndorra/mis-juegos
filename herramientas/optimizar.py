@@ -60,6 +60,9 @@ def main():
             errores.append(f'{f.name}: mide {im.size[0]} × {im.size[1]}, debe ser {LIENZO[0]} × {LIENZO[1]}')
             continue
         im = im.convert('RGBA')
+        # Alfa del 98–99 % (capa exportada sin estar al 100 %) → opaco: que no se transparente lo de detrás
+        r, g, b, a = im.split()
+        im = Image.merge('RGBA', (r, g, b, a.point(lambda v: 255 if v >= 250 else v)))
         caja = recorte(im)
         if not caja:
             errores.append(f'{f.name}: está vacía')

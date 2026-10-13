@@ -3,7 +3,8 @@
 <!-- Dibuja las láminas de la plantilla a partir de plantilla/plantilla.js.
      ?modo=guia     → lámina con cuadrícula, silueta, anclas y nombres
      ?modo=silueta  → capa transparente para usar como referencia en Procreate/Photoshop
-     ?modo=zonas    → zonas permitidas para cada tipo de pieza -->
+     ?modo=zonas    → zonas permitidas para cada tipo de pieza
+     &base=base-clara → silueta tomada de la base definitiva (por defecto, la de prueba) -->
 <style>html,body{margin:0;background:transparent}canvas{display:block}</style>
 </head><body><canvas id="c" width="2000" height="3500"></canvas>
 <script src="../plantilla/plantilla.js"></script>
@@ -20,7 +21,7 @@ function hline(y,t,color){g.strokeStyle=color;g.lineWidth=4;g.setLineDash([24,14
   label(`${t} · y ${y}`,40,y,{color,size:36})}
 function dot(p,t,right){const[x,y]=p;g.fillStyle='#ff3d8b';g.beginPath();g.arc(x,y,16,0,7);g.fill();g.strokeStyle='#fff';g.lineWidth=6;g.stroke();
   label(`${t} (${x}, ${y})`,right?x+34:x-34,y,{size:30,align:right?'left':'right',color:'#c2185b'})}
-const sil=new Image();sil.onload=draw;sil.onerror=draw;sil.src='../arte/originales/prueba-base-clara.png';
+const sil=new Image();sil.onload=draw;sil.onerror=draw;sil.src='../arte/originales/'+(new URLSearchParams(location.search).get('base')||'prueba-base-clara')+'.png';
 function silhouette(fill,stroke){
   const o=document.createElement('canvas');o.width=W;o.height=H;const og=o.getContext('2d');
   if(sil.naturalWidth){og.drawImage(sil,0,0);og.globalCompositeOperation='source-in';og.fillStyle=fill;og.fillRect(0,0,W,H)}
@@ -65,7 +66,8 @@ function draw(){
   label(`Eje central · x ${A.eje}`,A.eje+20,240,{color:'#1f8fc4',size:36});
   if(modo==='guia'){
     label('Mi Mundo de Juegos · Plantilla de la muñeca · 2000 × 3500 px',W/2,90,{size:52,align:'center',color:'#4a3a5c'});
-    label('De pie, de frente · brazos separados ~14° · pies algo abiertos · fondo transparente',W/2,160,{size:36,align:'center',color:'#8a7a9c'});
+    const ang=Math.round(Math.atan2(A.hombroIzq[0]-A.manoIzq[0],A.manoIzq[1]-A.hombroIzq[1])*180/Math.PI);
+    label(`De pie, de frente · brazos separados ~${ang}° · pies algo abiertos · fondo transparente`,W/2,160,{size:36,align:'center',color:'#8a7a9c'});
     label('Lienzo completo, sin recortar · sRGB · luz desde arriba a la izquierda',W/2,3420,{size:38,align:'center',color:'#8a7a9c'});
   }
   document.title='lista';

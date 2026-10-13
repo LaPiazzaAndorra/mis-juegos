@@ -17,6 +17,17 @@
 (function () {
   'use strict';
   const P = self.AV_PLANTILLA;
+  function vistas(A) {
+    const r = n => Math.round(n), vb = (x, y, w, h) => [x, y, w, h].map(r).join(' ');
+    const cab = A.barbilla[1] - A.coronilla[1], ojoW = A.ojoDer[0] - A.ojoIzq[0];
+    return {
+      full: vb(100, A.coronilla[1] - 200, 1800, A.suelo + 70 - (A.coronilla[1] - 200)),
+      cabeza: vb(A.eje - cab * .62, A.coronilla[1] - cab * .2, cab * 1.24, cab * 1.24),
+      ojos: vb(A.ojoIzq[0] - ojoW * .55, A.ojos - ojoW * .42, ojoW * 2.1, ojoW * .84),
+      cuerpo: vb(A.eje - 700, A.hombroIzq[1] - 240, 1400, A.suelo + 70 - (A.hombroIzq[1] - 240)),
+      pies: vb(A.eje - 400, A.tobilloIzq[1] - 200, 800, A.suelo + 70 - (A.tobilloIzq[1] - 200)),
+    };
+  }
   const comun = {
     version: 1,
     tipo: 'png',
@@ -26,7 +37,8 @@
     capas: ['peloDetras', 'cuerpo', 'ojos', 'ojosCerrados', 'boca', 'bocaAbierta', 'calcetines', 'zapatos', 'ropaAbajo', 'ropa',
       'brazoIzq', 'mangaIzq', 'brazoDer', 'mangaDer', 'peloDelante', 'accCabeza', 'accMano'],
     // Encuadres (viewBox en px del lienzo)
-    vistas: { full: '100 260 1800 3100', cabeza: '380 260 1240 1240', ojos: '560 880 880 360', cuerpo: '300 1450 1400 1950', pies: '600 2850 800 520' },
+    // Calculados a partir de la plantilla: se adaptan solos cuando cambian las medidas de la base.
+    vistas: vistas(P.anclas),
   };
   const castano = { id: 'castano', nombre: 'Castaño', c: { light: '#b07a52', base: '#7b4a2d', shade: '#55301b' } };
 
@@ -49,7 +61,7 @@
         estilos: [{ id: 'rizos', nombre: 'Rizos largos', capas: { peloDetras: 'pelo-rizos-detras-{pelo}', peloDelante: 'pelo-rizos-delante-{pelo}' } }],
         colores: [castano],
       },
-      ropa: [{ id: 'princesa', nombre: 'Princesa', capas: { ropa: 'ropa-princesa' } }],
+      ropa: [{ id: 'princesa', nombre: 'Vestido rosa', capas: { ropa: 'ropa-princesa' } }],
       zapatos: [{ id: 'princesa', nombre: 'Zapatos de princesa', capas: { zapatos: 'zapatos-princesa' } }],
       accesorios: [{ id: 'corona', nombre: 'Corona', capas: { accCabeza: 'acc-corona' } }],
       defecto: { piel: 'clara', ojos: { color: 'marron', forma: 'redondos' }, pelo: { estilo: 'rizos', color: 'castano' }, ropa: 'princesa', zapatos: 'princesa', accesorios: ['corona'] },

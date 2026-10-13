@@ -1,0 +1,1 @@
+Máscaras auxiliares (no van al juego). Ver plantilla/ASSETS.md.

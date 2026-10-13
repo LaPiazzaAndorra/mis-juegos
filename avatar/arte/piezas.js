@@ -16,12 +16,12 @@ self.AV_PIEZAS = {
    "w": 1880,
    "h": 2920,
    "v": {
-    "s": "avatar/arte/s/demo-diario.986d706d.webp",
-    "m": "avatar/arte/m/demo-diario.986d706d.webp"
+    "s": "avatar/arte/s/demo-diario.a9ff1f08.webp",
+    "m": "avatar/arte/m/demo-diario.a9ff1f08.webp"
    },
    "kb": {
-    "s": 139.2,
-    "m": 270.1
+    "s": 133.4,
+    "m": 254.2
    }
   },
   "prueba-base-clara": {
@@ -30,11 +30,11 @@ self.AV_PIEZAS = {
    "w": 1200,
    "h": 2840,
    "v": {
-    "s": "avatar/arte/s/prueba-base-clara.207c1b9a.webp",
-    "m": "avatar/arte/m/prueba-base-clara.207c1b9a.webp"
+    "s": "avatar/arte/s/prueba-base-clara.fde2dc92.webp",
+    "m": "avatar/arte/m/prueba-base-clara.fde2dc92.webp"
    },
    "kb": {
-    "s": 37.2,
+    "s": 37.3,
     "m": 67.7
    }
   },
@@ -44,12 +44,12 @@ self.AV_PIEZAS = {
    "w": 1200,
    "h": 2840,
    "v": {
-    "s": "avatar/arte/s/prueba-base-morena.9af090a5.webp",
-    "m": "avatar/arte/m/prueba-base-morena.9af090a5.webp"
+    "s": "avatar/arte/s/prueba-base-morena.6c4c878d.webp",
+    "m": "avatar/arte/m/prueba-base-morena.6c4c878d.webp"
    },
    "kb": {
-    "s": 35.3,
-    "m": 62.5
+    "s": 35.2,
+    "m": 63.1
    }
   },
   "prueba-pelo-melena-delante-castano": {
@@ -58,8 +58,8 @@ self.AV_PIEZAS = {
    "w": 1120,
    "h": 1300,
    "v": {
-    "s": "avatar/arte/s/prueba-pelo-melena-delante-castano.54976cd1.webp",
-    "m": "avatar/arte/m/prueba-pelo-melena-delante-castano.54976cd1.webp"
+    "s": "avatar/arte/s/prueba-pelo-melena-delante-castano.9671e9dc.webp",
+    "m": "avatar/arte/m/prueba-pelo-melena-delante-castano.9671e9dc.webp"
    },
    "kb": {
     "s": 19.9,
@@ -72,12 +72,12 @@ self.AV_PIEZAS = {
    "w": 1280,
    "h": 1820,
    "v": {
-    "s": "avatar/arte/s/prueba-pelo-melena-detras-castano.8075b724.webp",
-    "m": "avatar/arte/m/prueba-pelo-melena-detras-castano.8075b724.webp"
+    "s": "avatar/arte/s/prueba-pelo-melena-detras-castano.92154e31.webp",
+    "m": "avatar/arte/m/prueba-pelo-melena-detras-castano.92154e31.webp"
    },
    "kb": {
-    "s": 13.5,
-    "m": 23.9
+    "s": 13.4,
+    "m": 24.1
    }
   },
   "prueba-ropa-vestido-flores": {
@@ -86,8 +86,8 @@ self.AV_PIEZAS = {
    "w": 1080,
    "h": 1700,
    "v": {
-    "s": "avatar/arte/s/prueba-ropa-vestido-flores.2194ead5.webp",
-    "m": "avatar/arte/m/prueba-ropa-vestido-flores.2194ead5.webp"
+    "s": "avatar/arte/s/prueba-ropa-vestido-flores.9b03ccec.webp",
+    "m": "avatar/arte/m/prueba-ropa-vestido-flores.9b03ccec.webp"
    },
    "kb": {
     "s": 27.2,

@@ -83,3 +83,19 @@ decodifican antes de mostrarse (sin parpadeos) y se guardan sin conexión al pri
 Las piezas de `arte/originales/` actuales son **piezas técnicas de prueba** (la muñeca
 vectorial dividida en capas) y solo sirven para probar el circuito; se sustituyen por el
 arte definitivo con los mismos nombres o con los nuevos del catálogo.
+
+## Cuando llegue una base nueva (paso a paso)
+
+1. Copiar la base a `arte/originales/base-clara.png` y comprobarla con el comprobador.
+2. `python3 herramientas/medir_base.py arte/originales/base-clara.png` → informe;
+   con `--escribir` actualiza `plantilla/plantilla.js` (hombros, cintura, rodillas, manos, zonas…).
+3. Volver a dibujar las láminas: `herramientas/plantilla.html?modo=guia|silueta|zonas&base=base-clara`
+   (captura a 2000 × 3500) → `plantilla/plantilla-*.png`.
+4. `python3 herramientas/guias.py` → `plantilla/guias/` (una guía por pieza para dibujar encima).
+5. Borradores de variantes: `python3 herramientas/variantes.py piel …` y `… iris … --mascara …`.
+6. `python3 herramientas/optimizar.py` → `avatar/arte/`.
+7. Revisar en el juego con `index.html?arte=borrador` (muñeca premium aunque falten piezas).
+8. Subir la versión de `sw.js` si ha cambiado algún archivo de código.
+
+Los encuadres de las miniaturas de «Vestir» se calculan a partir de `plantilla.js`, y el
+comprobador también lee de ahí sus medidas: no hay que tocarlos a mano.

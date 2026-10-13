@@ -2,7 +2,8 @@
 // Las piezas de la muñeca (avatar/arte/…) se guardan al primer uso; sus nombres
 // llevan una huella del contenido, así nunca se muestra una versión antigua.
 importScripts('avatar/arte/piezas.js');
-const C='mis-juegos-v5',ARTE='mis-juegos-arte';
+// Subir la versión cada vez que cambie un archivo de FILES (no hace falta para el arte: lleva huella).
+const C='mis-juegos-v6',ARTE='mis-juegos-arte';
 const FILES=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./avatar/avatar.css','./avatar/catalogo.js','./avatar/catalogo-muneca.js',
   './avatar/motor.js','./avatar/arte/piezas.js','./plantilla/plantilla.js'];
 const PIEZAS=Object.values((self.AV_PIEZAS||{}).piezas||{}).flatMap(p=>Object.values(p.v).map(u=>'./'+u));
