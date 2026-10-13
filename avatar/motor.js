@@ -27,8 +27,10 @@
   // si no, las piezas provisionales. ?arte=prueba|demo|svg fuerza uno.
   const SETS = window.AV_MUNECAS || {};
   const pedido = (location.search.match(/[?&]arte=(\w+)/) || [])[1];
-  const tieneBase = M => !!M && M.piel.some(p => PZ[fill(p.capas.cuerpo, { piel: p.id })]);
-  const JUEGO = pedido === 'svg' ? null : pedido && tieneBase(SETS[pedido]) ? pedido : ['premium', 'prueba'].find(k => tieneBase(SETS[k])) || null;
+  // Un juego está listo cuando tiene al menos una piel, unos ojos, un peinado y una ropa con todas sus piezas
+  // (así nunca se ve, por ejemplo, la base premium sin ojos ni pelo mientras llegan las demás piezas).
+  const listo = M => !!M && disponibles(M).completo;
+  const JUEGO = pedido === 'svg' ? null : pedido && listo(SETS[pedido]) ? pedido : ['premium', 'prueba'].find(k => listo(SETS[k])) || null;
   const MODO = JUEGO ? 'png' : 'svg';
   const CAT = JUEGO ? disponibles(SETS[JUEGO]) : window.AV_CAT;
   const KEY = 'avatar', DRAFT = 'avatar_draft', VERSION = 1;
@@ -44,6 +46,7 @@
     C.pelo.estilos = M.pelo.estilos.filter(o => ok(o));
     C.pelo.colores = M.pelo.colores.filter(col => C.pelo.estilos.some(e => ok(e, { pelo: col.id })));
     C.ropa = M.ropa.filter(o => ok(o));
+    C.completo = !!(C.piel.length && C.ojos.colores.length && C.pelo.estilos.length && C.ropa.length);
     C.zapatos = (M.zapatos || []).filter(o => ok(o));
     C.accesorios = (M.accesorios || []).filter(o => ok(o));
     ['piel', 'ropa'].forEach(k => { if (!C[k].length) C[k] = [{ id: M.defecto[k], nombre: '', capas: {} }]; });
