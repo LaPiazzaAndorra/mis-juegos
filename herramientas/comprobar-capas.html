@@ -82,7 +82,7 @@ function comprobar(){
       r.push(out.length?['err',`Se sale de su zona (${out.join(', ')})`]:['ok',`Dentro de su zona (${z.nombre})`])}
     if(l.type==='base'){
       const s=suelo(l),dy=s-A.suelo;r.push([nivel(dy),`Planta de los pies en y ${s} (plantilla ${A.suelo}; ${dy>0?'+':''}${dy}px)`]);
-      const cx=centro(l,A.ojos,A.cintura),dx=Math.round(cx-A.eje);r.push([nivel(dx),`Eje del cuerpo en x ${Math.round(cx)} (plantilla ${A.eje}; ${dx>0?'+':''}${dx}px)`]);
+      const cx=centro(l,A.hombroIzq[1],A.cadera),dx=Math.round(cx-A.eje);r.push([nivel(dx),`Eje del cuerpo en x ${Math.round(cx)} (plantilla ${A.eje}; ${dx>0?'+':''}${dx}px)`]);
       const top=arriba(l,A.eje-80,A.eje+80);r.push([Math.abs(top-A.coronilla[1])>60?'warn':'ok',`Coronilla en y ${top} (plantilla ${A.coronilla[1]})`]);
     }
     if(base&&l!==base&&l.type!=='base'){

@@ -133,7 +133,8 @@
     opts.forEach(o => Object.entries(o.capas || {}).forEach(([k, t]) => { capas[k] = fill(t, ids); }));
     return CAT.capas.map(k => ({ k, id: capas[k], p: PZ[capas[k]] })).filter(c => c.id && c.p);
   }
-  const CLS = { ojosCerrados: 'av-closed', boca: 'av-mouth-c', bocaAbierta: 'av-mouth-o' };
+  // ojos abiertos (av-open) se ocultan al parpadear o dormir; así los ojos cerrados solo necesitan párpados y pestañas
+  const CLS = { ojos: 'av-open', ojosCerrados: 'av-closed', boca: 'av-mouth-c', bocaAbierta: 'av-mouth-o' };
   function svgPNG(s, opt) {
     const res = opt.res || 's', A = CAT.anclas;
     const img = c => {
@@ -151,7 +152,8 @@
       if (side) { arms[side].push(img(c)); return arms[side].length === 1 ? `@@${side}@@` : ''; }
       const cls = CLS[c.k];
       if (!cls) return img(c);
-      const hidden = (c.k === 'bocaAbierta') !== (opt.expr === 'feliz') || c.k === 'ojosCerrados';
+      const feliz = opt.expr === 'feliz';
+      const hidden = c.k === 'ojosCerrados' || (c.k === 'boca' && feliz) || (c.k === 'bocaAbierta' && !feliz);
       return `<g class="${cls}"${hidden ? ' display="none"' : ''}>${img(c)}</g>`;
     }).join('').replace('@@L@@', () => armG('L')).replace('@@R@@', () => armG('R'));
     return { defs: '', body, vb: opt.viewBox || CAT.vistas[opt.view || 'full'] || CAT.vistas.full, pie: [A.eje, A.suelo], sombra: [430, 60] };
@@ -200,12 +202,13 @@
     el.classList.add('av-host');
     const root = () => el.querySelector('svg.av');
     const later = (fn, ms) => { const t = setTimeout(fn, ms); timers.push(t); return t; };
-    const flag = (cls, ms) => { const r = root(); if (!r) return; r.classList.remove(cls); void r.getBoundingClientRect(); r.classList.add(cls); if (ms) later(() => r.classList.remove(cls), ms); };
+    const flag = (cls, ms) => { const r = root(); if (!r) return; r.classList.remove(cls); void r.getBoundingClientRect(); r.classList.add(cls); if (ms) later(() => { const n = root(); if (n) n.classList.remove(cls); }, ms); };
     function render() {
       const o = Object.assign({}, opt), res = resPara(el, o.view);
       if (res) o.res = res;
       const draw = () => {
-        const keep = root() ? [...root().classList].filter(c => c !== 'av') : [];
+        // Solo se conservan los estados duraderos; parpadeo, saludo o salto son momentáneos
+        const keep = root() ? [...root().classList].filter(c => c === 'sleep' || c === 'walk') : [];
         el.innerHTML = svg(st, o);
         keep.forEach(c => root().classList.add(c));
       };

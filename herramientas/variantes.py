@@ -11,6 +11,9 @@ retocarlos si hace falta) antes de usarlos en el juego.
   python3 herramientas/variantes.py iris arte/originales/ojos-marron.png arte/originales/ojos-azul.png \
           --mascara arte/originales/ojos-iris-mascara.png      (recomendado)
 
+  python3 herramientas/variantes.py mascara arte/originales/ojos-marron.png arte/mascaras/ojos-iris-mascara.png
+      → calcula la máscara del iris a partir de los ojos (no hace falta pintarla)
+
   Opciones:  --tono "#b97a52"   color medio de la piel de destino (piel)
              --tono "#3d8ee0"   color del iris de destino (iris)
 
@@ -133,7 +136,43 @@ def recolor_iris(lab, L, C, w, tono):
     return lab * (1 - w[..., None]) + nuevo * w[..., None], w
 
 
+def mascara_iris(px, lab):
+    """Máscara del iris: zona de color de cada ojo, con la pupila y los brillos dentro."""
+    from scipy import ndimage
+    L, C = lab[..., 0], np.hypot(lab[..., 1], lab[..., 2])
+    cand = (C > 12) & (L > 14) & (L < 78) & (px[..., 3] > 128)
+    lab_, n = ndimage.label(ndimage.binary_opening(cand, iterations=2))
+    if n < 2:
+        sys.exit('No encuentro los dos iris')
+    tam = ndimage.sum(np.ones_like(lab_), lab_, range(1, n + 1))
+    yy, xx = np.indices(L.shape)
+    m = np.zeros(L.shape, bool)
+    for k in 1 + np.argsort(tam)[-2:]:
+        ys, xs = np.nonzero(lab_ == k)
+        # El iris es un círculo: su ancho da el radio y su borde inferior (no lo tapa el párpado) el centro
+        r = (xs.max() - xs.min()) / 2 + 2
+        cx, cy = (xs.max() + xs.min()) / 2, ys.max() - r + 2
+        m |= np.hypot(xx - cx, yy - cy) <= r
+    blanco = (L > 82) & (C < 12)                    # esclerótica y brillos grandes fuera del iris
+    pestana = (L < 20) & (C < 9)                    # pestañas y línea del párpado
+    m &= (px[..., 3] > 128) & ~(blanco & ~ndimage.binary_fill_holes(cand)) & ~pestana
+    m = ndimage.binary_fill_holes(ndimage.binary_closing(m, iterations=2))
+    return ndimage.gaussian_filter(m.astype(float), 1.2)
+
+
 def main():
+    if len(sys.argv) >= 4 and sys.argv[1] == 'mascara':
+        im = Image.open(sys.argv[2]).convert('RGBA')
+        px = np.array(im).astype(float)
+        m = mascara_iris(px, a_lab(px[..., :3]))
+        out = np.zeros(px.shape, np.uint8); out[..., :3] = 255; out[..., 3] = (m * 255).astype(np.uint8)
+        Image.fromarray(out, 'RGBA').save(sys.argv[3], optimize=True)
+        ys, xs = np.nonzero(m > .5)
+        izq, der = xs < (xs.min() + xs.max()) / 2, xs >= (xs.min() + xs.max()) / 2
+        for n_, sel in (('izquierdo', izq), ('derecho', der)):
+            print(f'Iris {n_}: centro ({xs[sel].mean():.0f}, {ys[sel].mean():.0f}) · {xs[sel].max() - xs[sel].min()} × {ys[sel].max() - ys[sel].min()} px')
+        print(f'Máscara: {sys.argv[3]}')
+        return
     if len(sys.argv) < 4 or sys.argv[1] not in ('piel', 'iris'):
         sys.exit(__doc__)
     modo, ent, sal = sys.argv[1], Path(sys.argv[2]), Path(sys.argv[3])

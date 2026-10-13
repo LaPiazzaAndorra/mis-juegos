@@ -43,3 +43,4 @@ svg.av.walk .av-armR{animation:avSwingR .72s ease-in-out infinite}
 
 /* muñeca ilustrada (capas PNG): ojos cerrados al parpadear o dormir */
 svg.av.blink .av-closed,svg.av.sleep .av-closed{display:inline}
+svg.av.blink .av-open,svg.av.sleep .av-open{display:none}
