@@ -60,6 +60,8 @@ function analizar(img){
 }
 // Centro horizontal de los píxeles opacos entre dos alturas
 function centro(L,ya,yb,xa=0,xb=W){let s=0,n=0;for(let y=ya;y<yb;y+=2)for(let x=xa;x<xb;x+=2)if(L.a[y*L.w+x]>128){s+=x;n++}return n?s/n:null}
+// Caja del contenido opaco dentro de un rectángulo [x0,y0,x1,y1]
+function caja(L,xa,xb,ya,yb){let x0=1e9,y0=1e9,x1=-1,y1=-1;for(let y=ya;y<yb;y++)for(let x=xa;x<xb;x++)if(L.a[y*L.w+x]>128){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}return x1<0?null:[x0,y0,x1,y1]}
 function suelo(L){for(let y=L.h-1;y>=0;y--)for(let x=0;x<L.w;x+=2)if(L.a[y*L.w+x]>128)return y;return null}
 function arriba(L,xa,xb,y0=0){for(let y=y0;y<L.h;y++)for(let x=xa;x<xb;x++)if(L.a[y*L.w+x]>128)return y;return null}
 function nivel(dist){return Math.abs(dist)>T.error?'err':Math.abs(dist)>T.aviso?'warn':'ok'}
@@ -76,7 +78,7 @@ function comprobar(){
     r.push(halo>.3?['warn',`Posible halo blanco alrededor del recorte (${Math.round(halo*100)} % del borde es casi blanco)`]:['ok','Bordes limpios, sin halo blanco']);
     if(l.edge&&l.green/l.edge>.08)r.push(['warn',`Restos de fondo verde en el borde (${Math.round(l.green/l.edge*100)} % del borde)`]);
     if(l.opaque&&l.casi/l.opaque>.5)r.push(['warn',`La capa no está al 100 % de opacidad (${Math.round(l.casi/l.opaque*100)} % de la figura al 98–99 %): expórtala con la opacidad de la capa al 100 %. El optimizador lo corrige, pero conviene arreglarlo en el original`]);
-    if(l.edge>l.opaque*1.2)r.push(['warn','Mucha semitransparencia: revisa que la capa no se haya exportado con opacidad baja']);
+    if(l.edge>l.opaque*1.2&&!/cerrad/i.test(l.name))r.push(['warn','Mucha semitransparencia: revisa que la capa no se haya exportado con opacidad baja']);
     const z=P.zonas[l.type];
     if(z){const[x0,y0,x1,y1]=l.box,[zx0,zy0,zx1,zy1]=z.r,out=[x0<zx0&&`izquierda ${zx0-x0}px`,y0<zy0&&`arriba ${zy0-y0}px`,x1>zx1&&`derecha ${x1-zx1}px`,y1>zy1&&`abajo ${y1-zy1}px`].filter(Boolean);
       r.push(out.length?['err',`Se sale de su zona (${out.join(', ')})`]:['ok',`Dentro de su zona (${z.nombre})`])}
@@ -106,7 +108,19 @@ function comprobar(){
       if(l.type==='zapatos'){const s=suelo(l);r.push([s<A.suelo-5?'err':'ok',`Suela en y ${s} (debe quedar en ${A.suelo} o un poco por debajo)`]);
         let tot=0,cov=0;for(let y=A.tobilloIzq[1]+30;y<A.suelo;y+=2)for(let x=A.eje-260;x<A.eje+260;x+=2){const p=y*W+x;if(base.a[p]>128){tot++;if(l.a[p]>128)cov++}}
         const pc=tot?cov/tot:1;r.push([pc>=.95?'ok':pc>=.8?'warn':'err',`Tapa los pies (${Math.round(pc*100)} %)`])}
-      if(l.type==='ojos'){
+      const cerr=l.type==='ojos'&&/cerrad/i.test(l.name),abiertos=L.find(o=>o.ok&&o.type==='ojos'&&!/cerrad/i.test(o.name));
+      if(cerr){
+        // Ojos cerrados: cada ojo se compara con su ojo abierto (centro, ancho y altura del párpado)
+        if(!abiertos)r.push(['warn','Añade también los ojos abiertos para comprobar que los cerrados caen encima']);
+        else for(const[lado,x0,x1]of[['izquierdo',0,A.eje],['derecho',A.eje,W]]){
+          const cj=caja(l,x0,x1,860,1240),ca=caja(abiertos,x0,x1,860,1240);if(!cj||!ca)continue;
+          const dx=Math.round((cj[0]+cj[2])/2-(ca[0]+ca[2])/2),ancho=(cj[2]-cj[0])/(ca[2]-ca[0]),alto=(cj[3]-ca[1])/(ca[3]-ca[1]);
+          r.push([nivel(dx),`Ojo ${lado}: centrado sobre el abierto (${dx>0?'+':''}${dx}px)`]);
+          r.push([ancho<.8?'warn':'ok',`Ojo ${lado}: ancho ${Math.round(ancho*100)} % del ojo abierto${ancho<.8?' (algo estrecho: se verá el ojo más pequeño al parpadear)':''}`]);
+          r.push([alto<.45||alto>.85?'warn':'ok',`Ojo ${lado}: párpado al ${Math.round(alto*100)} % de la altura del ojo${alto<.45||alto>.85?' (lo natural es entre el 50 y el 80 %)':''}`]);
+        }
+      }
+      if(l.type==='ojos'&&!cerr){
         const cx=centro(l,860,1240),dx=Math.round(cx-A.eje);r.push([nivel(dx),`Ojos centrados en el eje (${dx>0?'+':''}${dx}px)`]);
         let sy=0,n=0,out=0;for(let y=860;y<1240;y+=2)for(let x=520;x<1480;x+=2){const p=y*W+x;if(l.a[p]>128){sy+=y;n++;if(base.a[p]<128)out++}}
         if(n){const dy=Math.round(sy/n-A.ojos);r.push([Math.abs(dy)>45?'err':Math.abs(dy)>25?'warn':'ok',`Altura de los ojos: ${dy>0?'+':''}${dy}px respecto a la línea de ojos`]);

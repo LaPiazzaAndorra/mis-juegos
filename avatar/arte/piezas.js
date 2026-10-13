@@ -38,6 +38,48 @@ self.AV_PIEZAS = {
     "m": 254.2
    }
   },
+  "ojos-azul": {
+   "x": 620,
+   "y": 920,
+   "w": 760,
+   "h": 240,
+   "v": {
+    "s": "avatar/arte/s/ojos-azul.34930fac.webp",
+    "m": "avatar/arte/m/ojos-azul.34930fac.webp"
+   },
+   "kb": {
+    "s": 9.3,
+    "m": 18.9
+   }
+  },
+  "ojos-cerrados-clara": {
+   "x": 640,
+   "y": 960,
+   "w": 720,
+   "h": 120,
+   "v": {
+    "s": "avatar/arte/s/ojos-cerrados-clara.7f24fbf9.webp",
+    "m": "avatar/arte/m/ojos-cerrados-clara.7f24fbf9.webp"
+   },
+   "kb": {
+    "s": 3.9,
+    "m": 6.9
+   }
+  },
+  "ojos-marron": {
+   "x": 620,
+   "y": 920,
+   "w": 760,
+   "h": 240,
+   "v": {
+    "s": "avatar/arte/s/ojos-marron.c0c9aad4.webp",
+    "m": "avatar/arte/m/ojos-marron.c0c9aad4.webp"
+   },
+   "kb": {
+    "s": 9.0,
+    "m": 18.4
+   }
+  },
   "prueba-base-clara": {
    "x": 400,
    "y": 440,

@@ -14,6 +14,11 @@ retocarlos si hace falta) antes de usarlos en el juego.
   python3 herramientas/variantes.py mascara arte/originales/ojos-marron.png arte/mascaras/ojos-iris-mascara.png
       → calcula la máscara del iris a partir de los ojos (no hace falta pintarla)
 
+  python3 herramientas/variantes.py cerrados ojos-cerrados-BORRADOR.png arte/originales/ojos-cerrados-clara.png \
+          --abiertos arte/originales/ojos-marron.png
+      → ojos cerrados finales: solo párpado y pestañas (sin piel ni fondos), cada ojo
+        centrado sobre su ojo abierto, al 92 % de su ancho y a la altura del párpado
+
   Opciones:  --tono "#b97a52"   color medio de la piel de destino (piel)
              --tono "#3d8ee0"   color del iris de destino (iris)
 
@@ -160,7 +165,40 @@ def mascara_iris(px, lab):
     return ndimage.gaussian_filter(m.astype(float), 1.2)
 
 
+def cerrados(ce, ab, ancho=.92, altura=.62):
+    """Ojos cerrados alineados con los abiertos: se quedan solo las líneas oscuras (pestañas)."""
+    L = ce[..., :3].mean(-1)
+    pest = ce.copy()
+    pest[..., 3] = ce[..., 3] * np.clip((125 - L) / 45, 0, 1)          # fuera piel, sombras claras y fondos
+    pest[..., 3] = np.where(pest[..., 3] < 24, 0, pest[..., 3])         # sin restos tenues
+    m, ma = pest[..., 3] > 128, ab[..., 3] > 128                         # se alinea por la parte opaca
+    out = Image.new('RGBA', (ce.shape[1], ce.shape[0]), (0, 0, 0, 0))
+    for lado in (-1, 1):
+        sel = lambda a: a & ((np.indices(a.shape)[1] < 1000) if lado < 0 else (np.indices(a.shape)[1] >= 1000))
+        ys, xs = np.nonzero(sel(m)); ya, xa = np.nonzero(sel(ma))
+        if not len(xs) or not len(xa):
+            sys.exit('Falta un ojo en alguna de las dos capas')
+        todo = np.nonzero(sel(pest[..., 3] > 0))
+        caja = (todo[1].min(), todo[0].min(), todo[1].max() + 1, todo[0].max() + 1)   # se recorta con su borde suave
+        abajo = ys.max() + 1 - caja[1]                                                  # fondo de la línea opaca
+        trozo = Image.fromarray(pest[caja[1]:caja[3], caja[0]:caja[2]].clip(0, 255).astype(np.uint8), 'RGBA')
+        k = (xa.max() - xa.min()) * ancho / (xs.max() - xs.min() + 1)
+        trozo = trozo.convert('RGBa').resize((round(trozo.width * k), round(trozo.height * k)), Image.LANCZOS).convert('RGBA')
+        cx = (xa.min() + xa.max()) / 2
+        fondo = ya.min() + (ya.max() - ya.min()) * altura                 # borde inferior del párpado cerrado
+        cxo = ((xs.min() + xs.max()) / 2 - caja[0]) * k                                 # centro de la parte opaca
+        out.alpha_composite(trozo, (round(cx - cxo), round(fondo - abajo * k)))
+        print(f'Ojo {"izquierdo" if lado < 0 else "derecho"}: ×{k:.2f}, centro x {cx:.0f}, párpado en y {fondo:.0f}')
+    return out
+
+
 def main():
+    if len(sys.argv) >= 4 and sys.argv[1] == 'cerrados':
+        ce = np.array(Image.open(sys.argv[2]).convert('RGBA')).astype(float)
+        ab = np.array(Image.open(sys.argv[sys.argv.index('--abiertos') + 1]).convert('RGBA'))
+        cerrados(ce, ab).save(sys.argv[3], optimize=True)
+        print(f'Ojos cerrados: {sys.argv[3]}')
+        return
     if len(sys.argv) >= 4 and sys.argv[1] == 'mascara':
         im = Image.open(sys.argv[2]).convert('RGBA')
         px = np.array(im).astype(float)
