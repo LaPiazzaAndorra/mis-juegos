@@ -64,3 +64,22 @@ hairFront: { img: 'avatar/capas/pelo-melena-frente-{pelo}.png' }
   escala de grises para teñirla por código, si la ilustración lo permite.
 * **Peso:** exportar optimizado (por ejemplo con pngquant); conviene que cada capa ocupe
   menos de 300 KB para que la app funcione bien sin conexión.
+
+## Muñeca ilustrada (capas PNG) · circuito completo
+
+1. Las piezas originales (2000 × 3500, transparentes) se guardan en `arte/originales/`
+   siguiendo `plantilla/INSTRUCCIONES.md`.
+2. `herramientas/comprobar-capas.html` comprueba que encajan (se abre en cualquier navegador).
+3. `python3 herramientas/optimizar.py` genera `avatar/arte/s|m/*.webp` y `avatar/arte/piezas.js`.
+4. `avatar/catalogo-muneca.js` dice qué pieza va en cada capa. Una opción solo aparece cuando
+   existen todas sus piezas.
+5. El juego usa la muñeca ilustrada en cuanto hay una base disponible (con `?arte=svg` se
+   vuelve a la muñeca vectorial de la primera prueba).
+
+Rendimiento en el iPhone: las piezas van recortadas a su contenido, en WebP, en dos tamaños
+(30 % y 50 %), y cada pantalla carga el más pequeño que se ve nítido. Las imágenes se
+decodifican antes de mostrarse (sin parpadeos) y se guardan sin conexión al primer uso.
+
+Las piezas de `arte/originales/` actuales son **piezas técnicas de prueba** (la muñeca
+vectorial dividida en capas) y solo sirven para probar el circuito; se sustituyen por el
+arte definitivo con los mismos nombres o con los nuevos del catálogo.

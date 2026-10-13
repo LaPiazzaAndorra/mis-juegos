@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comprobador de capas</title>
+<!-- Comprueba que las piezas PNG de la muñeca cumplen la plantilla y encajan entre sí.
+     Funciona sin conexión en iPhone, iPad u ordenador: abre esta página y elige los PNG.
+     Nombres esperados: base-clara.png · pelo-rizos-detras-castano.png · pelo-rizos-delante-castano.png ·
+     ropa-princesa.png · zapatos-… · acc-… -->
+<style>
+:root{--ink:#4a3a5c;--soft:#8a7a9c;--bg:#fff6fb;--ok:#2e9e6a;--warn:#c98a12;--err:#d6336c;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 ui-rounded,"Nunito",system-ui,sans-serif}
+header{padding:18px 16px 6px}h1{margin:0;font-size:24px}header p{margin:4px 0 0;color:var(--soft)}
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:16px;padding:12px 16px 32px}
+@media (max-width:820px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:22px;padding:14px;box-shadow:0 6px 0 rgba(74,58,92,.08),0 10px 24px rgba(74,58,92,.06)}
+.pick{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pick label{background:linear-gradient(150deg,#ffe0ee,#ffc2dc);border-radius:16px;padding:12px 18px;font-weight:900;cursor:pointer}
+.pick input{display:none}
+.tog{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tog label{background:#f5eefa;border-radius:12px;padding:6px 10px;font-weight:700;font-size:14px}
+#stage{position:relative;margin-top:12px;background:repeating-conic-gradient(#f3eef8 0 25%,#fff 0 50%) 0 0/24px 24px;border-radius:16px;overflow:hidden}
+#stage canvas{display:block;width:100%;height:auto}
+.file{border-top:1px solid #f0e6f6;padding:10px 2px}.file:first-child{border-top:0}
+.file h3{margin:0 0 4px;font-size:16px;word-break:break-all}.file .t{color:var(--soft);font-size:13px;font-weight:700}
+.r{margin:3px 0;font-size:14px}.r.ok:before{content:"✅ "}.r.warn:before{content:"⚠️ "}.r.err:before{content:"❌ "}
+.sum{font-weight:900;font-size:18px;margin-bottom:6px}.sum.ok{color:var(--ok)}.sum.warn{color:var(--warn)}.sum.err{color:var(--err)}
+.legend{font-size:13px;color:var(--soft);margin-top:8px}
+</style></head><body>
+<header><h1>Comprobador de capas de la muñeca</h1><p>Elige las piezas PNG (puedes elegir varias a la vez). Nada se sube a internet: todo se comprueba en este dispositivo.</p></header>
+<main>
+  <section class="card">
+    <div class="pick"><label>📂 Elegir PNG<input id="f" type="file" accept="image/png" multiple></label><span id="n" class="t"></span></div>
+    <div class="tog">
+      <label><input type="checkbox" id="tGuia" checked> Plantilla</label>
+      <label><input type="checkbox" id="tSil"> Contorno de la base</label>
+      <label><input type="checkbox" id="tHueco" checked> Huecos en rojo</label>
+      <label><input type="checkbox" id="tCajas"> Zonas</label>
+    </div>
+    <div id="stage"><canvas id="v" width="500" height="875"></canvas></div>
+    <div class="legend">Vista al 25 %. En rojo: partes del cuerpo que la ropa debería tapar y se ven (suele indicar un desplazamiento o un hueco).</div>
+  </section>
+  <section class="card"><div id="rep"><p class="t">Aún no hay piezas.</p></div></section>
+</main>
+<script src="../plantilla/plantilla.js"></script>
+<script>
+'use strict';
+const P=AV_PLANTILLA,A=P.anclas,W=P.lienzo.w,H=P.lienzo.h,T=P.tolerancia,K=.25;
+const ORDER=['pelo-detras','base','zapatos','ropa','pelo-delante','acc'];
+const L=[]; // {name,type,img,alpha,w,h,checks}
+const tipo=n=>{n=n.toLowerCase();if(n.startsWith('base-'))return'base';if(n.startsWith('pelo-')&&n.includes('-detras'))return'pelo-detras';if(n.startsWith('pelo-')&&n.includes('-delante'))return'pelo-delante';
+  if(n.startsWith('ropa-'))return'ropa';if(n.startsWith('zapatos-'))return'zapatos';if(n.startsWith('acc-'))return'acc';return null};
+function analizar(img){
+  const w=img.naturalWidth,h=img.naturalHeight,c=document.createElement('canvas');c.width=w;c.height=h;
+  const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(img,0,0);const d=g.getImageData(0,0,w,h).data;
+  const a=new Uint8Array(w*h);let x0=w,y0=h,x1=-1,y1=-1,edge=0,light=0,green=0,opaque=0;
+  for(let i=0,p=0;p<a.length;p++,i+=4){const v=d[i+3];a[p]=v;if(v>16){const x=p%w,y=(p/w)|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
+    if(v>250)opaque++;else if(v>16){edge++;if(d[i]>232&&d[i+1]>232&&d[i+2]>232)light++;if(d[i+1]>d[i]+40&&d[i+1]>d[i+2]+40)green++}}
+  let border=0,bt=0;const chk=p=>{bt++;if(a[p]===0)border++};
+  for(let x=0;x<w;x+=2){chk(x);chk((h-1)*w+x)}for(let y=0;y<h;y+=2){chk(y*w);chk(y*w+w-1)}
+  return{w,h,a,box:x1<0?null:[x0,y0,x1,y1],edge,light,green,opaque,border:border/bt};
+}
+// Centro horizontal de los píxeles opacos entre dos alturas
+function centro(L,ya,yb,xa=0,xb=W){let s=0,n=0;for(let y=ya;y<yb;y+=2)for(let x=xa;x<xb;x+=2)if(L.a[y*L.w+x]>128){s+=x;n++}return n?s/n:null}
+function suelo(L){for(let y=L.h-1;y>=0;y--)for(let x=0;x<L.w;x+=2)if(L.a[y*L.w+x]>128)return y;return null}
+function arriba(L,xa,xb,y0=0){for(let y=y0;y<L.h;y++)for(let x=xa;x<xb;x++)if(L.a[y*L.w+x]>128)return y;return null}
+function nivel(dist){return Math.abs(dist)>T.error?'err':Math.abs(dist)>T.aviso?'warn':'ok'}
+function comprobar(){
+  const base=L.find(l=>l.type==='base'&&l.ok);
+  L.forEach(l=>{
+    const r=[];l.checks=r;
+    if(!l.type){r.push(['err','Nombre no reconocido: debe empezar por base-, pelo-…-detras, pelo-…-delante, ropa-, zapatos- o acc-']);}
+    if(l.w!==W||l.h!==H){r.push(['err',`Tamaño ${l.w} × ${l.h}: debe ser exactamente ${W} × ${H} (lienzo completo, sin recortar ni escalar)`]);l.ok=false;return}
+    l.ok=true;
+    if(!l.box){r.push(['err','La imagen está vacía']);return}
+    r.push(l.border>.995?['ok','Fondo transparente']:['err',`El fondo no es transparente (${Math.round((1-l.border)*100)} % del borde tiene color)`]);
+    const halo=l.edge?l.light/l.edge:0;
+    r.push(halo>.3?['warn',`Posible halo blanco alrededor del recorte (${Math.round(halo*100)} % del borde es casi blanco)`]:['ok','Bordes limpios, sin halo blanco']);
+    if(l.edge&&l.green/l.edge>.08)r.push(['warn',`Restos de fondo verde en el borde (${Math.round(l.green/l.edge*100)} % del borde)`]);
+    if(l.edge>l.opaque*1.2)r.push(['warn','Mucha semitransparencia: revisa que la capa no se haya exportado con opacidad baja']);
+    const z=P.zonas[l.type];
+    if(z){const[x0,y0,x1,y1]=l.box,[zx0,zy0,zx1,zy1]=z.r,out=[x0<zx0&&`izquierda ${zx0-x0}px`,y0<zy0&&`arriba ${zy0-y0}px`,x1>zx1&&`derecha ${x1-zx1}px`,y1>zy1&&`abajo ${y1-zy1}px`].filter(Boolean);
+      r.push(out.length?['err',`Se sale de su zona (${out.join(', ')})`]:['ok',`Dentro de su zona (${z.nombre})`])}
+    if(l.type==='base'){
+      const s=suelo(l),dy=s-A.suelo;r.push([nivel(dy),`Planta de los pies en y ${s} (plantilla ${A.suelo}; ${dy>0?'+':''}${dy}px)`]);
+      const cx=centro(l,A.ojos,A.cintura),dx=Math.round(cx-A.eje);r.push([nivel(dx),`Eje del cuerpo en x ${Math.round(cx)} (plantilla ${A.eje}; ${dx>0?'+':''}${dx}px)`]);
+      const top=arriba(l,A.eje-80,A.eje+80);r.push([Math.abs(top-A.coronilla[1])>60?'warn':'ok',`Coronilla en y ${top} (plantilla ${A.coronilla[1]})`]);
+    }
+    if(base&&l!==base&&l.type!=='base'){
+      if(l.type==='ropa'){
+        // Base y ropa son simétricas: sus centros, fila a fila, deben coincidir.
+        const ya=A.hombroIzq[1]+120,yb=A.cintura,xa=A.cinturaIzq,xb=A.cinturaDer;
+        const cb=centro(base,A.hombroIzq[1],A.cadera),cr=centro(l,A.hombroIzq[1],A.cadera);
+        if(cr!=null){const dx=Math.round(cr-cb);r.push([nivel(dx),`Centrado respecto a la base: ${dx>0?'+':''}${dx}px en horizontal`])}
+        const sh=arriba(l,A.hombroDer[0]-30,A.hombroDer[0]+30,A.barbilla[1]+60);
+        const bh=arriba(base,A.hombroDer[0]-30,A.hombroDer[0]+30,A.barbilla[1]+60);
+        if(sh!=null&&bh!=null){const d=sh-bh;r.push([d>20?'err':d>6?'warn':d<-120?'warn':'ok',d>6?`El hombro de la base asoma ${d}px por encima de la prenda: ¿está bajada?`:d<-120?`La prenda empieza ${-d}px por encima del hombro: ¿está subida?`:`Hombros alineados con la base (${d}px)`])}
+        let tot=0,cov=0;for(let y=ya;y<yb;y+=2)for(let x=xa;x<xb;x+=2){const p=y*W+x;if(base.a[p]>128){tot++;if(l.a[p]>128)cov++}}
+        const pc=tot?cov/tot:1;r.push(pc>=.97?['ok',`Cubre el torso (${Math.round(pc*100)} %)`]:pc>=.85?['warn',`Deja ver el cuerpo en el torso (cubre ${Math.round(pc*100)} %): ¿hueco o desplazamiento?`]:['err',`Apenas cubre el torso (${Math.round(pc*100)} %): probablemente está desplazada`]);
+        const esc=arriba(l,A.eje-60,A.eje+60);if(esc!=null)r.push([esc<A.barbilla[1]?'warn':'ok',`Escote en y ${esc}`]);
+      }
+      if(l.type==='pelo-delante'||l.type==='pelo-detras'){
+        const ya=A.coronilla[1],yb=A.ojos,cb=centro(base,ya,yb),cp=centro(l,ya,yb);
+        if(cp!=null){const dx=Math.round(cp-cb),lv=Math.abs(dx)>90?'err':Math.abs(dx)>45?'warn':'ok';r.push([lv,`Centrado sobre la cabeza: ${dx>0?'+':''}${dx}px${lv!=='ok'?' (si el peinado es asimétrico a propósito, puede estar bien)':''}`])}
+        const tp=arriba(l,A.eje-200,A.eje+200);if(tp!=null)r.push([tp>A.coronilla[1]+20?'err':'ok',tp>A.coronilla[1]+20?`El pelo empieza en y ${tp}, por debajo de la coronilla (${A.coronilla[1]}): se verá la cabeza`:'Cubre la coronilla']);
+      }
+      if(l.type==='zapatos'){const s=suelo(l);r.push([s<A.suelo-5?'err':'ok',`Suela en y ${s} (debe quedar en ${A.suelo} o un poco por debajo)`])}
+    }else if(!base&&l.type&&l.type!=='base')r.push(['warn','Añade la base para comprobar que esta pieza encaja con ella']);
+  });
+  pintar();informe();
+}
+const guia=new Image();guia.src='../plantilla/plantilla-silueta.png';guia.onload=()=>pintar();
+function pintar(){
+  const v=document.getElementById('v'),g=v.getContext('2d');g.clearRect(0,0,v.width,v.height);
+  if(tGuia.checked&&guia.naturalWidth){g.globalAlpha=.6;g.drawImage(guia,0,0,v.width,v.height);g.globalAlpha=1}
+  const ok=L.filter(l=>l.ok);ok.slice().sort((a,b)=>ORDER.indexOf(a.type)-ORDER.indexOf(b.type)).forEach(l=>g.drawImage(l.img,0,0,v.width,v.height));
+  const base=ok.find(l=>l.type==='base'),ropa=ok.filter(l=>l.type==='ropa');
+  if(base&&tHueco.checked&&ropa.length){
+    const ya=A.hombroIzq[1]+120,yb=A.cintura,xa=A.cinturaIzq,xb=A.cinturaDer;g.fillStyle='rgba(255,0,60,.85)';
+    for(let y=ya;y<yb;y+=4)for(let x=xa;x<xb;x+=4){const p=y*W+x;if(base.a[p]>128&&!ropa.some(r=>r.a[p]>128))g.fillRect(x*K,y*K,1,1)}
+  }
+  if(base&&tSil.checked){const m=document.createElement('canvas');m.width=v.width;m.height=v.height;const mg=m.getContext('2d');mg.drawImage(base.img,0,0,v.width,v.height);
+    mg.globalCompositeOperation='source-in';mg.fillStyle='#ff00c8';mg.fillRect(0,0,v.width,v.height);
+    const e=document.createElement('canvas');e.width=v.width;e.height=v.height;const eg=e.getContext('2d');for(const[dx,dy]of[[1,0],[-1,0],[0,1],[0,-1]])eg.drawImage(m,dx,dy);
+    eg.globalCompositeOperation='destination-out';eg.drawImage(m,0,0);g.drawImage(e,0,0)}
+  if(tCajas.checked)Object.values(P.zonas).forEach(z=>{if(z.r[2]-z.r[0]>=W)return;g.strokeStyle=z.color;g.setLineDash([6,4]);g.strokeRect(z.r[0]*K,z.r[1]*K,(z.r[2]-z.r[0])*K,(z.r[3]-z.r[1])*K);g.setLineDash([])});
+}
+function informe(){
+  const rep=document.getElementById('rep');const all=L.flatMap(l=>l.checks||[]);const e=all.filter(c=>c[0]==='err').length,w=all.filter(c=>c[0]==='warn').length;
+  rep.innerHTML=`<div class="sum ${e?'err':w?'warn':'ok'}">${e?`❌ ${e} error${e>1?'es':''}`:w?`⚠️ ${w} aviso${w>1?'s':''}`:'✅ Todas las capas encajan'}</div>`+
+    L.map(l=>`<div class="file"><h3>${l.name}</h3><div class="t">${l.type?P.zonas[l.type].nombre:'Tipo desconocido'} · ${l.w} × ${l.h}</div>${(l.checks||[]).map(([k,t])=>`<div class="r ${k}">${t}</div>`).join('')}</div>`).join('');
+  window.resultado={errores:e,avisos:w,capas:L.map(l=>({nombre:l.name,tipo:l.type,resultados:l.checks}))};document.title=e?'errores':w?'avisos':'ok';
+}
+const tGuia=document.getElementById('tGuia'),tSil=document.getElementById('tSil'),tHueco=document.getElementById('tHueco'),tCajas=document.getElementById('tCajas');
+[tGuia,tSil,tHueco,tCajas].forEach(t=>t.onchange=pintar);
+document.getElementById('f').onchange=async e=>{
+  for(const f of e.target.files){
+    const url=URL.createObjectURL(f),img=new Image();img.src=url;await img.decode().catch(()=>{});
+    const i=L.findIndex(l=>l.name===f.name);const l=Object.assign({name:f.name,type:tipo(f.name),img},analizar(img));l.ok=l.w===W&&l.h===H;
+    if(i>=0)L[i]=l;else L.push(l);
+  }
+  document.getElementById('n').textContent=`${L.length} pieza${L.length>1?'s':''}`;comprobar();e.target.value='';
+};
+</script></body></html>

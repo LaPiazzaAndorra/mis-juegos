@@ -335,7 +335,10 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 </div></div>
 <div id="toast"></div>
 
+<script src="plantilla/plantilla.js"></script>
+<script src="avatar/arte/piezas.js"></script>
 <script src="avatar/catalogo.js"></script>
+<script src="avatar/catalogo-muneca.js"></script>
 <script src="avatar/motor.js"></script>
 <script>
 'use strict';
@@ -806,7 +809,7 @@ onShow.ice=()=>iceNew();
 // El personaje se dibuja por capas en avatar/catalogo.js y avatar/motor.js.
 // Guardado: «avatar» (personaje guardado) y «avatar_draft» (cambios en curso).
 // La clave antigua «doll» no se modifica.
-const AVC=window.AV_CAT;
+const AVC=Avatar.CAT; // muñeca ilustrada (capas PNG) o vectorial, según el arte disponible
 const DTABS=[['piel','🖐️','Piel'],['ojos','👀','Ojos'],['pelo','💇‍♀️','Pelo'],['ropa','👗','Ropa']];
 let avSt=Avatar.borrador(),dTab='ropa',avCtl=null;
 const avThumb=(st,view)=>`<span class="avthumb">${Avatar.svg(st,{view,sombra:view==='full'})}</span>`;
@@ -819,18 +822,21 @@ function avChange(patch){
   avSt=avWith(patch);Avatar.guardarBorrador(avSt);avCtl.set(avSt);avCtl.reaccionar();
   tone(660,.07,'triangle');tone(990,.09,'sine',.1,.07);dOpts();avSavedBadge();
 }
-function dTabs(){const t=$('#dtabs');t.innerHTML='';DTABS.forEach(([k,i,n])=>{const b=document.createElement('button');b.className='btn'+(k===dTab?' sel':'');b.innerHTML=`${i}<span>${n}</span>`;
+// Solo se muestran las pestañas con algo que elegir.
+const dTabOk=k=>k==='piel'?AVC.piel.length>1:k==='ojos'?AVC.ojos.colores.length>1:k==='pelo'?AVC.pelo.estilos.length>1||AVC.pelo.colores.length>1:AVC.ropa.length>1;
+function dTabs(){const t=$('#dtabs');t.innerHTML='';const vis=DTABS.filter(([k])=>dTabOk(k));if(vis.length&&!vis.some(([k])=>k===dTab))dTab=vis[0][0];vis.forEach(([k,i,n])=>{const b=document.createElement('button');b.className='btn'+(k===dTab?' sel':'');b.innerHTML=`${i}<span>${n}</span>`;
   b.onclick=()=>{dTab=k;dTabs();dOpts();sfx.pop()};t.appendChild(b)})}
 function dOpts(){
   const box=$('#dopts'),sc=box.scrollTop;box.innerHTML='';
   const sec=t=>{const d=document.createElement('div');d.className='dsec';d.textContent=t;box.appendChild(d)};
   const tile=(html,sel,on,cls='')=>{const b=document.createElement('button');b.className='avopt '+cls+(sel?' sel':'');b.innerHTML=html;b.onclick=on;box.appendChild(b)};
   const swatch=(bg,sel,on,label)=>{const b=document.createElement('button');b.className='swatch'+(sel?' sel':'');b.style.background=bg;b.setAttribute('aria-label',label);b.onclick=on;box.appendChild(b)};
+  if(!DTABS.some(([k])=>dTabOk(k))){sec('Pronto habrá más ropa, peinados y colores ✨');return}
   if(dTab==='piel')AVC.piel.forEach(o=>tile(avThumb(avWith({piel:o.id}),'cabeza')+o.nombre,avSt.piel===o.id,()=>avChange({piel:o.id})));
   if(dTab==='ojos')AVC.ojos.colores.forEach(o=>tile(avThumb(avWith({ojos:{color:o.id}}),'ojos')+o.nombre,avSt.ojos.color===o.id,()=>avChange({ojos:{color:o.id}}),'wide'));
   if(dTab==='pelo'){
-    sec('Peinado');AVC.pelo.estilos.forEach(o=>tile(avThumb(avWith({pelo:{estilo:o.id}}),'cabeza')+o.nombre,avSt.pelo.estilo===o.id,()=>avChange({pelo:{estilo:o.id}})));
-    sec('Color');AVC.pelo.colores.forEach(o=>swatch(`radial-gradient(circle at 35% 30%,${o.c.light},${o.c.base} 55%,${o.c.shade})`,avSt.pelo.color===o.id,()=>avChange({pelo:{color:o.id}}),o.nombre));
+    if(AVC.pelo.estilos.length>1){sec('Peinado');AVC.pelo.estilos.forEach(o=>tile(avThumb(avWith({pelo:{estilo:o.id}}),'cabeza')+o.nombre,avSt.pelo.estilo===o.id,()=>avChange({pelo:{estilo:o.id}})))}
+    if(AVC.pelo.colores.length>1){sec('Color');AVC.pelo.colores.forEach(o=>swatch(`radial-gradient(circle at 35% 30%,${o.c.light},${o.c.base} 55%,${o.c.shade})`,avSt.pelo.color===o.id,()=>avChange({pelo:{color:o.id}}),o.nombre))}
   }
   if(dTab==='ropa')AVC.ropa.forEach(o=>tile(avThumb(avWith({ropa:o.id}),'cuerpo')+o.nombre,avSt.ropa===o.id,()=>avChange({ropa:o.id}),'tall'));
   box.scrollTop=sc;
@@ -845,13 +851,11 @@ $('#dSave').onclick=()=>{
   toast('¡Personaje guardado! 💖');say('¡Me encanta! Ya puedo ir a Mi Mundo');
 };
 $('#dPhoto').onclick=()=>{
-  const W=712,H=1200,im=new Image();
-  im.onload=()=>{try{const c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
+  const W=712,H=1200;
+  Avatar.foto(avSt,W,H).then(av=>{const c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
     const bg=g.createRadialGradient(W/2,H*.38,40,W/2,H*.4,H*.75);bg.addColorStop(0,'#ffffff');bg.addColorStop(.45,'#ffeef6');bg.addColorStop(1,'#efe4ff');
-    g.fillStyle=bg;g.fillRect(0,0,W,H);g.drawImage(im,0,0,W,H);
-    addToGallery(c.toDataURL('image/jpeg',.88));tone(1200,.05,'square',.08);confetti();say('¡Foto guardada!')}catch(e){toast('No se pudo 😢')}};
-  im.onerror=()=>toast('No se pudo 😢');
-  im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(Avatar.svg(avSt,{expr:'feliz',w:W,h:H}));
+    g.fillStyle=bg;g.fillRect(0,0,W,H);g.drawImage(av,0,0);
+    addToGallery(c.toDataURL('image/jpeg',.88));tone(1200,.05,'square',.08);confetti();say('¡Foto guardada!')}).catch(()=>toast('No se pudo 😢'));
 };
 onShow.dress=()=>{avSt=Avatar.borrador();if(!avCtl)avCtl=Avatar.mount($('#avStage'),avSt);else avCtl.set(avSt);dTabs();dOpts();avSavedBadge();setTimeout(()=>avCtl.saludar(),350)};
 

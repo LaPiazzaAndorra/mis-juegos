@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Plantilla de la muñeca</title>
+<!-- Dibuja las láminas de la plantilla a partir de plantilla/plantilla.js.
+     ?modo=guia     → lámina con cuadrícula, silueta, anclas y nombres
+     ?modo=silueta  → capa transparente para usar como referencia en Procreate/Photoshop
+     ?modo=zonas    → zonas permitidas para cada tipo de pieza -->
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+</head><body><canvas id="c" width="2000" height="3500"></canvas>
+<script src="../plantilla/plantilla.js"></script>
+<script>
+const P=AV_PLANTILLA,A=P.anclas,W=2000,H=3500,modo=new URLSearchParams(location.search).get('modo')||'guia';
+const c=document.getElementById('c'),g=c.getContext('2d');
+const F=(s,w=700)=>`${w} ${s}px "Nunito","Arial Rounded MT Bold",system-ui,sans-serif`;
+function label(t,x,y,{size=34,color='#4a3a5c',align='left',bg='rgba(255,255,255,.88)'}={}){
+  g.font=F(size,800);const m=g.measureText(t).width,px=12,h=size+14,x0=align==='right'?x-m-px*2:align==='center'?x-m/2-px:x;
+  if(bg){g.fillStyle=bg;g.beginPath();g.roundRect(x0,y-h/2,m+px*2,h,12);g.fill()}
+  g.fillStyle=color;g.textBaseline='middle';g.fillText(t,x0+px,y+1);
+}
+function hline(y,t,color){g.strokeStyle=color;g.lineWidth=4;g.setLineDash([24,14]);g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke();g.setLineDash([]);
+  label(`${t} · y ${y}`,40,y,{color,size:36})}
+function dot(p,t,right){const[x,y]=p;g.fillStyle='#ff3d8b';g.beginPath();g.arc(x,y,16,0,7);g.fill();g.strokeStyle='#fff';g.lineWidth=6;g.stroke();
+  label(`${t} (${x}, ${y})`,right?x+34:x-34,y,{size:30,align:right?'left':'right',color:'#c2185b'})}
+const sil=new Image();sil.onload=draw;sil.onerror=draw;sil.src='../arte/originales/base-clara.png';
+function silhouette(fill,stroke){
+  const o=document.createElement('canvas');o.width=W;o.height=H;const og=o.getContext('2d');
+  if(sil.naturalWidth){og.drawImage(sil,0,0);og.globalCompositeOperation='source-in';og.fillStyle=fill;og.fillRect(0,0,W,H)}
+  // contorno: silueta desplazada en 8 direcciones
+  const e=document.createElement('canvas');e.width=W;e.height=H;const eg=e.getContext('2d');
+  for(let a=0;a<8;a++)eg.drawImage(o,Math.round(Math.cos(a*Math.PI/4)*6),Math.round(Math.sin(a*Math.PI/4)*6));
+  eg.globalCompositeOperation='source-in';eg.fillStyle=stroke;eg.fillRect(0,0,W,H);eg.globalCompositeOperation='source-over';eg.drawImage(o,0,0);
+  g.drawImage(e,0,0);
+}
+function grid(){
+  for(let x=0;x<=W;x+=100){g.strokeStyle=x%500?'rgba(74,58,92,.07)':'rgba(74,58,92,.18)';g.lineWidth=x%500?2:3;g.beginPath();g.moveTo(x,0);g.lineTo(x,H);g.stroke()}
+  for(let y=0;y<=H;y+=100){g.strokeStyle=y%500?'rgba(74,58,92,.07)':'rgba(74,58,92,.18)';g.lineWidth=y%500?2:3;g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke()}
+  g.font=F(26,700);g.fillStyle='rgba(74,58,92,.45)';for(let x=500;x<W;x+=500)g.fillText(x,x+8,30);for(let y=500;y<H;y+=500)g.fillText(y,W-90,y-12);
+}
+function skeleton(){
+  g.strokeStyle='rgba(160,131,255,.9)';g.lineWidth=8;g.lineCap='round';
+  const seg=(...pts)=>{g.beginPath();pts.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.stroke()};
+  seg(A.coronilla,A.barbilla);seg(A.hombroIzq,A.hombroDer);seg(A.hombroIzq,A.codoIzq,A.munecaIzq,A.manoIzq);seg(A.hombroDer,A.codoDer,A.munecaDer,A.manoDer);
+  seg([1000,A.barbilla[1]],[1000,A.cadera]);seg([A.rodillaIzq[0],A.cadera],A.rodillaIzq,A.tobilloIzq,A.pieIzq);seg([A.rodillaDer[0],A.cadera],A.rodillaDer,A.tobilloDer,A.pieDer);
+  seg([A.rodillaIzq[0],A.cadera],[A.rodillaDer[0],A.cadera]);
+}
+function draw(){
+  if(modo==='guia'||modo==='zonas'){g.fillStyle='#fffafd';g.fillRect(0,0,W,H);grid()}
+  // eje
+  g.strokeStyle='rgba(63,180,234,.8)';g.lineWidth=4;g.setLineDash([30,16]);g.beginPath();g.moveTo(A.eje,0);g.lineTo(A.eje,H);g.stroke();g.setLineDash([]);
+  if(modo==='zonas'){
+    silhouette('rgba(200,184,230,.55)','rgba(120,100,170,.9)');
+    Object.values(P.zonas).forEach((z,i)=>{if(z.r[2]-z.r[0]>=W)return;const[x0,y0,x1,y1]=z.r;g.strokeStyle=z.color;g.lineWidth=8;g.setLineDash([36,18]);g.strokeRect(x0+i*6,y0+i*6,x1-x0-i*12,y1-y0-i*12);g.setLineDash([]);
+      label(`${z.nombre}: x ${x0}–${x1}, y ${y0}–${y1}`,x0+30+i*6,y0+40+i*58,{color:z.color,size:34})});
+    label('Zonas permitidas por tipo de pieza',W/2,3420,{size:56,align:'center',color:'#4a3a5c'});return;
+  }
+  silhouette(modo==='silueta'?'rgba(160,131,255,.18)':'rgba(200,184,230,.55)',modo==='silueta'?'rgba(120,100,200,.75)':'rgba(120,100,170,.9)');
+  skeleton();
+  hline(A.coronilla[1],'Coronilla (cráneo, sin pelo)','#7b5cd6');hline(A.ojos,'Línea de ojos','#3fb4ea');hline(A.barbilla[1],'Barbilla','#7b5cd6');
+  hline(A.hombroIzq[1],'Hombros','#e0457b');hline(A.cintura,'Cintura','#e0457b');hline(A.cadera,'Cadera','#e0457b');
+  hline(A.rodillaIzq[1],'Rodillas','#2e9e6a');hline(A.tobilloIzq[1],'Tobillos','#2e9e6a');
+  g.strokeStyle='#ff3d8b';g.lineWidth=8;g.beginPath();g.moveTo(0,A.suelo);g.lineTo(W,A.suelo);g.stroke();label(`SUELO · planta de los pies · y ${A.suelo}`,40,A.suelo+44,{color:'#ff3d8b',size:38});
+  dot(A.ojoIzq,'Ojo',false);dot(A.ojoDer,'Ojo',true);dot(A.boca,'Boca',true);
+  dot(A.hombroIzq,'Hombro',false);dot(A.hombroDer,'Hombro',true);dot(A.codoIzq,'Codo',false);dot(A.codoDer,'Codo',true);
+  dot(A.munecaIzq,'Muñeca',false);dot(A.munecaDer,'Muñeca',true);dot(A.rodillaIzq,'Rodilla',false);dot(A.rodillaDer,'Rodilla',true);
+  dot(A.tobilloIzq,'Tobillo',false);dot(A.tobilloDer,'Tobillo',true);
+  label(`Eje central · x ${A.eje}`,A.eje+20,240,{color:'#1f8fc4',size:36});
+  if(modo==='guia'){
+    label('Mi Mundo de Juegos · Plantilla de la muñeca · 2000 × 3500 px',W/2,90,{size:52,align:'center',color:'#4a3a5c'});
+    label('De pie, de frente · brazos separados ~14° · pies algo abiertos · fondo transparente',W/2,160,{size:36,align:'center',color:'#8a7a9c'});
+    label('Lienzo completo, sin recortar · sRGB · luz desde arriba a la izquierda',W/2,3420,{size:38,align:'center',color:'#8a7a9c'});
+  }
+  document.title='lista';
+}
+</script></body></html>

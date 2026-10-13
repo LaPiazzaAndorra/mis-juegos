@@ -40,3 +40,6 @@ svg.av.walk .av-armR{animation:avSwingR .72s ease-in-out infinite}
 @keyframes avSpark{0%{transform:translate(-50%,-50%) scale(.2);opacity:0}25%{opacity:1}100%{transform:translate(calc(-50% + var(--dx)*4),calc(-50% + var(--dy)*4)) scale(1) rotate(90deg);opacity:0}}
 
 @media (prefers-reduced-motion:reduce){svg.av .av-body,svg.av .av-head{animation:none}}
+
+/* muñeca ilustrada (capas PNG): ojos cerrados al parpadear o dormir */
+svg.av.blink .av-closed,svg.av.sleep .av-closed{display:inline}

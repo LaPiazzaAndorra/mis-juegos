@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Piezas técnicas de prueba</title>
+<!-- Genera piezas PNG de 2000 × 3500 a partir de la muñeca vectorial de la primera prueba.
+     Solo sirven para probar el circuito (comprobador, optimizador, juego) mientras llega el arte real.
+     Uso: herramientas/piezas-prueba.html?pieza=base&piel=clara  (pieza: base | pelo-detras | pelo-delante | vestido) -->
+<style>html,body{margin:0;background:transparent}#c{position:relative;width:2000px;height:3500px}#c>svg{position:absolute;inset:0}</style>
+</head><body><div id="c"></div>
+<script src="../avatar/catalogo.js"></script>
+<script>window.AV_CAT_MUNECA=null;</script>
+<script src="../avatar/motor.js"></script>
+<script>
+const q=new URLSearchParams(location.search),pieza=q.get('pieza')||'base';
+const st={piel:q.get('piel')||'clara',pelo:{estilo:'melena',color:q.get('pelo')||'castano'},ropa:'vestido'};
+const O={viewBox:'0 0 400 700',w:2000,h:3500,sombra:false};
+const sk=AV_CAT.piel.find(p=>p.id===st.piel).c;
+const raw=b=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 700" width="2000" height="3500">${b}</svg>`;
+const feet=raw(`<path d="M171 618C164 636 168 652 184 653C198 653 200 640 197 618Z" fill="${sk.base}" stroke="${sk.line}" stroke-width="2.5"/><path d="M229 618C236 636 232 652 216 653C202 653 200 640 203 618Z" fill="${sk.base}" stroke="${sk.line}" stroke-width="2.5"/>`);
+const maillot=raw(`<path d="M156 324C176 334 224 334 244 324C252 332 254 346 250 362L240 440L234 470Q200 482 166 470L160 440L150 362C146 346 148 332 156 324Z" fill="#fdf3f8" stroke="#e2cfe0" stroke-width="2.5"/>`);
+const L=(capas,extra={})=>Avatar.svg(st,Object.assign({},O,{capas},extra));
+const parts={
+  base:[L(['legs']),feet,L(['arms'],{brazos:'piel'}),L(['neck']),maillot,L(['head'])],
+  'pelo-detras':[L(['hairBack'])],
+  'pelo-delante':[L(['hairFront'])],
+  vestido:[L(['legwear','shoes','bottom']),L(['arms'],{brazos:'mangas'}),L(['top'])],
+}[pieza];
+document.getElementById('c').innerHTML=parts.join('');
+</script></body></html>
