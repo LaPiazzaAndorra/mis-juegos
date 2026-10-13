@@ -876,9 +876,9 @@ function roomSVG(st){
 <linearGradient id="skn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241d5c"/><stop offset="1" stop-color="#5a45a8"/></linearGradient>
 <radialGradient id="gl"><stop offset="0" stop-color="#fff2b0" stop-opacity=".85"/><stop offset="1" stop-color="#fff2b0" stop-opacity="0"/></radialGradient>
 <linearGradient id="qt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb3d3"/><stop offset="1" stop-color="#f88dbb"/></linearGradient></defs>
-<rect x="-1000" y="-3000" width="3000" height="3380" fill="#f4eaff"/><rect x="-1000" y="-3000" width="3000" height="3380" fill="url(#wp)"/>
-<rect y="330" width="1000" height="56" fill="#ffd3e6"/><rect y="326" width="1000" height="10" rx="5" fill="#fff"/>
-<rect x="-1000" y="380" width="3000" height="900" fill="url(#fl)"/>${plank}<rect y="380" width="1000" height="10" fill="#d9a46e" opacity=".6"/>
+<rect x="-4000" y="-3000" width="9000" height="3380" fill="#f4eaff"/><rect x="-4000" y="-3000" width="9000" height="3380" fill="url(#wp)"/>
+<rect x="-4000" y="330" width="9000" height="56" fill="#ffd3e6"/><rect x="-4000" y="326" width="9000" height="10" fill="#fff"/>
+<rect x="-4000" y="380" width="9000" height="900" fill="url(#fl)"/>${plank}<rect x="-4000" y="380" width="9000" height="10" fill="#d9a46e" opacity=".6"/>
 <!-- ventana -->
 <g data-obj="ventana"><rect x="400" y="60" width="220" height="210" rx="22" fill="#fff" stroke="#e5d6f5" stroke-width="6"/>
  <rect x="414" y="74" width="192" height="182" rx="14" fill="url(#skd)" class="sky-d"/>
@@ -911,7 +911,7 @@ function roomSVG(st){
 <ellipse cx="560" cy="520" rx="230" ry="62" fill="#b8efd3"/><ellipse cx="560" cy="520" rx="190" ry="48" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="2 16" stroke-linecap="round"/>
 <!-- pelota -->
 <g data-obj="pelota"><ellipse cx="760" cy="562" rx="34" ry="8" fill="#000" opacity=".1"/><g class="ball"><circle cx="760" cy="526" r="34" fill="#ff6f9e" stroke="#d8578f" stroke-width="4"/><path d="M728 520Q760 500 792 520M730 536Q760 556 790 536" fill="none" stroke="#fff" stroke-width="7"/><circle cx="748" cy="510" r="6" fill="#fff" opacity=".6"/></g></g>
-<rect class="dim" x="-1000" y="-3000" width="3000" height="4300" fill="#1b1440" pointer-events="none"/>
+<rect class="dim" x="-4000" y="-3000" width="9000" height="4300" fill="#1b1440" pointer-events="none"/>
 </svg>`;
 }
 
@@ -975,7 +975,9 @@ onShow.scene=()=>{stkTabs();scLoad()};
 let hab=Object.assign({X:560,Y:560,noche:false,lampara:false},store.get('mm_hab',{})),worldAv=null,walkT=null;
 const habSave=()=>store.set('mm_hab',hab);
 const roomSv=()=>roomL.firstElementChild;
-function roomFit(){const sv=roomSv(),r=board.getBoundingClientRect();sv.setAttribute('preserveAspectRatio',r.width/r.height>=1.25?'xMidYMid slice':'xMidYMax meet')}
+// Pantallas medianas: la habitación llena el marco. Muy altas o muy apaisadas (iPhone en horizontal):
+// se ve entera y la pared y el suelo se prolongan por los lados o por arriba.
+function roomFit(){const sv=roomSv(),r=board.getBoundingClientRect(),q=r.width/r.height;sv.setAttribute('preserveAspectRatio',q>=1.25&&q<=2.2?'xMidYMid slice':q>2.2?'xMidYMid meet':'xMidYMax meet')}
 function roomCTM(){const m=roomSv().getScreenCTM(),r=board.getBoundingClientRect();return{k:m.a,ox:m.e-r.left,oy:m.f-r.top}}
 function roomSetup(){
   const on=!!SCENES[scKey].room;clearTimeout(walkT);walker.classList.toggle('on',on);
