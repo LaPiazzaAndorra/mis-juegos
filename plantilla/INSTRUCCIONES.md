@@ -1,5 +1,7 @@
 # Cómo crear las piezas de la muñeca
 
+> La lista exacta de archivos de la primera versión premium está en **`ASSETS.md`**.
+
 Guía para la **prueba de integración artística**: una muñeca base, un peinado y un vestido.
 Estilo: la lámina de referencia («Mi Avatar Mágico»): muñequita de rizos, ojos grandes,
 ropa elaborada, acabado de animación infantil y colores pastel.
@@ -107,7 +109,9 @@ Pedid **una sola imagen** de la muñeca vestida de princesa, de cuerpo entero, s
 Duplicad la capa tres veces y en cada copia dejad solo una parte:
 
 **a) Muñeca base (`base-clara.png`)**
-* Cuerpo completo: cabeza, cara, ojos, boca, orejas, cuello, brazos, manos, piernas y pies descalzos.
+* Cuerpo completo: cabeza, cara, boca, orejas, cuello, brazos, manos, piernas y pies descalzos.
+* **Los ojos van aparte** (`ojos-marron.png`, `ojos-azul.png`, `ojos-cerrados-…`): en la base,
+  piel lisa donde van los ojos; las cejas sí se quedan en la base. Lista completa en `ASSETS.md`.
 * El torso, con un **maillot o ropa interior sencilla** (blanco o rosa muy claro) ajustado al cuerpo.
 * **Hay que pintar lo que tapaban el pelo y el vestido:** la parte alta de la cabeza (cráneo
   liso, con el nacimiento del pelo suave), las orejas, los hombros, los brazos completos y

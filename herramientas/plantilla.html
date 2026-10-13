@@ -20,7 +20,7 @@ function hline(y,t,color){g.strokeStyle=color;g.lineWidth=4;g.setLineDash([24,14
   label(`${t} · y ${y}`,40,y,{color,size:36})}
 function dot(p,t,right){const[x,y]=p;g.fillStyle='#ff3d8b';g.beginPath();g.arc(x,y,16,0,7);g.fill();g.strokeStyle='#fff';g.lineWidth=6;g.stroke();
   label(`${t} (${x}, ${y})`,right?x+34:x-34,y,{size:30,align:right?'left':'right',color:'#c2185b'})}
-const sil=new Image();sil.onload=draw;sil.onerror=draw;sil.src='../arte/originales/base-clara.png';
+const sil=new Image();sil.onload=draw;sil.onerror=draw;sil.src='../arte/originales/prueba-base-clara.png';
 function silhouette(fill,stroke){
   const o=document.createElement('canvas');o.width=W;o.height=H;const og=o.getContext('2d');
   if(sil.naturalWidth){og.drawImage(sil,0,0);og.globalCompositeOperation='source-in';og.fillStyle=fill;og.fillRect(0,0,W,H)}

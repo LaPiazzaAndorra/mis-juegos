@@ -30,6 +30,7 @@ self.AV_PLANTILLA = {
     base:          { r: [380, 380, 1620, 3340], color: '#a083ff', nombre: 'Muñeca base' },
     'pelo-detras': { r: [100, 150, 1900, 2700], color: '#c98b55', nombre: 'Pelo (detrás)' },
     'pelo-delante':{ r: [150, 150, 1850, 2500], color: '#ff8f5a', nombre: 'Pelo (delante)' },
+    ojos:          { r: [560, 880, 1440, 1220], color: '#3d8ee0', nombre: 'Ojos' },
     ropa:          { r: [300, 1450, 1700, 3300], color: '#ff6fae', nombre: 'Ropa' },
     zapatos:       { r: [700, 2950, 1300, 3340], color: '#3fb4ea', nombre: 'Zapatos' },
     acc:           { r: [0, 0, 2000, 3500], color: '#5fd39b', nombre: 'Accesorios' },

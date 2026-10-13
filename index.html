@@ -810,7 +810,7 @@ onShow.ice=()=>iceNew();
 // Guardado: «avatar» (personaje guardado) y «avatar_draft» (cambios en curso).
 // La clave antigua «doll» no se modifica.
 const AVC=Avatar.CAT; // muñeca ilustrada (capas PNG) o vectorial, según el arte disponible
-const DTABS=[['piel','🖐️','Piel'],['ojos','👀','Ojos'],['pelo','💇‍♀️','Pelo'],['ropa','👗','Ropa']];
+const DTABS=[['piel','🖐️','Piel'],['ojos','👀','Ojos'],['pelo','💇‍♀️','Pelo'],['ropa','👗','Ropa'],['zapatos','👟','Zapatos'],['acc','👑','Adornos']];
 let avSt=Avatar.borrador(),dTab='ropa',avCtl=null;
 const avThumb=(st,view)=>`<span class="avthumb">${Avatar.svg(st,{view,sombra:view==='full'})}</span>`;
 const avWith=patch=>Avatar.normalizar(Object.assign({},avSt,patch,{ojos:Object.assign({},avSt.ojos,patch.ojos||{}),pelo:Object.assign({},avSt.pelo,patch.pelo||{})}));
@@ -823,7 +823,8 @@ function avChange(patch){
   tone(660,.07,'triangle');tone(990,.09,'sine',.1,.07);dOpts();avSavedBadge();
 }
 // Solo se muestran las pestañas con algo que elegir.
-const dTabOk=k=>k==='piel'?AVC.piel.length>1:k==='ojos'?AVC.ojos.colores.length>1:k==='pelo'?AVC.pelo.estilos.length>1||AVC.pelo.colores.length>1:AVC.ropa.length>1;
+const dTabOk=k=>k==='piel'?AVC.piel.length>1:k==='ojos'?AVC.ojos.colores.length>1:k==='pelo'?AVC.pelo.estilos.length>1||AVC.pelo.colores.length>1:
+  k==='zapatos'?(AVC.zapatos||[]).length>1:k==='acc'?(AVC.accesorios||[]).length>0:AVC.ropa.length>1;
 function dTabs(){const t=$('#dtabs');t.innerHTML='';const vis=DTABS.filter(([k])=>dTabOk(k));if(vis.length&&!vis.some(([k])=>k===dTab))dTab=vis[0][0];vis.forEach(([k,i,n])=>{const b=document.createElement('button');b.className='btn'+(k===dTab?' sel':'');b.innerHTML=`${i}<span>${n}</span>`;
   b.onclick=()=>{dTab=k;dTabs();dOpts();sfx.pop()};t.appendChild(b)})}
 function dOpts(){
@@ -839,6 +840,9 @@ function dOpts(){
     if(AVC.pelo.colores.length>1){sec('Color');AVC.pelo.colores.forEach(o=>swatch(`radial-gradient(circle at 35% 30%,${o.c.light},${o.c.base} 55%,${o.c.shade})`,avSt.pelo.color===o.id,()=>avChange({pelo:{color:o.id}}),o.nombre))}
   }
   if(dTab==='ropa')AVC.ropa.forEach(o=>tile(avThumb(avWith({ropa:o.id}),'cuerpo')+o.nombre,avSt.ropa===o.id,()=>avChange({ropa:o.id}),'tall'));
+  if(dTab==='zapatos')(AVC.zapatos||[]).forEach(o=>tile(avThumb(avWith({zapatos:o.id}),'pies')+o.nombre,avSt.zapatos===o.id,()=>avChange({zapatos:o.id}),'wide'));
+  if(dTab==='acc')(AVC.accesorios||[]).forEach(o=>{const on=avSt.accesorios.includes(o.id),next=on?avSt.accesorios.filter(a=>a!==o.id):avSt.accesorios.concat(o.id);
+    tile(avThumb(avWith({accesorios:avSt.accesorios.concat(on?[]:o.id)}),'cabeza')+o.nombre,on,()=>avChange({accesorios:next}))});
   box.scrollTop=sc;
 }
 $('#avStage').onclick=()=>{if(Math.random()<.5){avCtl.saludar();say(pick(['¡Hola!','¡Hola, Amaia!','¡Qué guapa estoy!']))}else{avCtl.saltar();tone(700,.08,'triangle')}};

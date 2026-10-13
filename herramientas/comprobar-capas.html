@@ -44,9 +44,9 @@ main{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:16
 <script>
 'use strict';
 const P=AV_PLANTILLA,A=P.anclas,W=P.lienzo.w,H=P.lienzo.h,T=P.tolerancia,K=.25;
-const ORDER=['pelo-detras','base','zapatos','ropa','pelo-delante','acc'];
+const ORDER=['pelo-detras','base','ojos','zapatos','ropa','pelo-delante','acc'];
 const L=[]; // {name,type,img,alpha,w,h,checks}
-const tipo=n=>{n=n.toLowerCase();if(n.startsWith('base-'))return'base';if(n.startsWith('pelo-')&&n.includes('-detras'))return'pelo-detras';if(n.startsWith('pelo-')&&n.includes('-delante'))return'pelo-delante';
+const tipo=n=>{n=n.toLowerCase();if(n.startsWith('base-'))return'base';if(n.startsWith('ojos-'))return'ojos';if(n.startsWith('pelo-')&&n.includes('-detras'))return'pelo-detras';if(n.startsWith('pelo-')&&n.includes('-delante'))return'pelo-delante';
   if(n.startsWith('ropa-'))return'ropa';if(n.startsWith('zapatos-'))return'zapatos';if(n.startsWith('acc-'))return'acc';return null};
 function analizar(img){
   const w=img.naturalWidth,h=img.naturalHeight,c=document.createElement('canvas');c.width=w;c.height=h;
@@ -67,7 +67,7 @@ function comprobar(){
   const base=L.find(l=>l.type==='base'&&l.ok);
   L.forEach(l=>{
     const r=[];l.checks=r;
-    if(!l.type){r.push(['err','Nombre no reconocido: debe empezar por base-, pelo-…-detras, pelo-…-delante, ropa-, zapatos- o acc-']);}
+    if(!l.type){r.push(['err','Nombre no reconocido: debe empezar por base-, ojos-, pelo-…-detras, pelo-…-delante, ropa-, zapatos- o acc-']);}
     if(l.w!==W||l.h!==H){r.push(['err',`Tamaño ${l.w} × ${l.h}: debe ser exactamente ${W} × ${H} (lienzo completo, sin recortar ni escalar)`]);l.ok=false;return}
     l.ok=true;
     if(!l.box){r.push(['err','La imagen está vacía']);return}
@@ -102,7 +102,15 @@ function comprobar(){
         if(cp!=null){const dx=Math.round(cp-cb),lv=Math.abs(dx)>90?'err':Math.abs(dx)>45?'warn':'ok';r.push([lv,`Centrado sobre la cabeza: ${dx>0?'+':''}${dx}px${lv!=='ok'?' (si el peinado es asimétrico a propósito, puede estar bien)':''}`])}
         const tp=arriba(l,A.eje-200,A.eje+200);if(tp!=null)r.push([tp>A.coronilla[1]+20?'err':'ok',tp>A.coronilla[1]+20?`El pelo empieza en y ${tp}, por debajo de la coronilla (${A.coronilla[1]}): se verá la cabeza`:'Cubre la coronilla']);
       }
-      if(l.type==='zapatos'){const s=suelo(l);r.push([s<A.suelo-5?'err':'ok',`Suela en y ${s} (debe quedar en ${A.suelo} o un poco por debajo)`])}
+      if(l.type==='zapatos'){const s=suelo(l);r.push([s<A.suelo-5?'err':'ok',`Suela en y ${s} (debe quedar en ${A.suelo} o un poco por debajo)`]);
+        let tot=0,cov=0;for(let y=A.tobilloIzq[1]+30;y<A.suelo;y+=2)for(let x=A.eje-260;x<A.eje+260;x+=2){const p=y*W+x;if(base.a[p]>128){tot++;if(l.a[p]>128)cov++}}
+        const pc=tot?cov/tot:1;r.push([pc>=.95?'ok':pc>=.8?'warn':'err',`Tapa los pies (${Math.round(pc*100)} %)`])}
+      if(l.type==='ojos'){
+        const cx=centro(l,860,1240),dx=Math.round(cx-A.eje);r.push([nivel(dx),`Ojos centrados en el eje (${dx>0?'+':''}${dx}px)`]);
+        let sy=0,n=0,out=0;for(let y=860;y<1240;y+=2)for(let x=520;x<1480;x+=2){const p=y*W+x;if(l.a[p]>128){sy+=y;n++;if(base.a[p]<128)out++}}
+        if(n){const dy=Math.round(sy/n-A.ojos);r.push([Math.abs(dy)>45?'err':Math.abs(dy)>25?'warn':'ok',`Altura de los ojos: ${dy>0?'+':''}${dy}px respecto a la línea de ojos`]);
+          r.push([out/n>.01?'err':'ok',out/n>.01?`El ${Math.round(out/n*100)} % de los ojos queda fuera de la cara: ¿desplazados?`:'Los ojos quedan dentro de la cara'])}
+      }
     }else if(!base&&l.type&&l.type!=='base')r.push(['warn','Añade la base para comprobar que esta pieza encaja con ella']);
   });
   pintar();informe();

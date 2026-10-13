@@ -23,23 +23,28 @@
   const byId = (list, id) => list.find(o => o.id === id) || list[0];
   const clone = o => JSON.parse(JSON.stringify(o));
   const PZ = (window.AV_PIEZAS && window.AV_PIEZAS.piezas) || {};
-  const MUN = window.AV_CAT_MUNECA;
-  const forceSvg = /[?&]arte=svg\b/.test(location.search);
-  const MODO = !forceSvg && MUN && MUN.piel.some(p => PZ[fill(p.capas.cuerpo, { piel: p.id })]) ? 'png' : 'svg';
-  const CAT = MODO === 'png' ? disponibles(MUN) : window.AV_CAT;
+  // Juego de piezas: el definitivo («premium») en cuanto existe su base;
+  // si no, las piezas provisionales. ?arte=prueba|demo|svg fuerza uno.
+  const SETS = window.AV_MUNECAS || {};
+  const pedido = (location.search.match(/[?&]arte=(\w+)/) || [])[1];
+  const tieneBase = M => !!M && M.piel.some(p => PZ[fill(p.capas.cuerpo, { piel: p.id })]);
+  const JUEGO = pedido === 'svg' ? null : pedido && tieneBase(SETS[pedido]) ? pedido : ['premium', 'prueba'].find(k => tieneBase(SETS[k])) || null;
+  const MODO = JUEGO ? 'png' : 'svg';
+  const CAT = JUEGO ? disponibles(SETS[JUEGO]) : window.AV_CAT;
   const KEY = 'avatar', DRAFT = 'avatar_draft', VERSION = 1;
   let uidN = 0;
-  function fill(t, ids) { return String(t).replace(/\{(\w+)\}/g, (_, k) => ids[k] || ''); }
+  function fill(t, ids) { return String(t).replace(/^\?/, '').replace(/\{(\w+)\}/g, (_, k) => ids[k] || ''); }
   // Deja en el catálogo solo las opciones cuyas piezas ya existen.
   function disponibles(M) {
     const C = clone(M), ids = (l) => l.map(o => o.id);
     const combos = []; ids(M.piel).forEach(piel => ids(M.pelo.colores).forEach(pelo => ids(M.ojos.colores).forEach(ojos => combos.push({ piel, pelo, ojos }))));
-    const ok = (o, fix) => Object.values(o.capas || {}).every(t => combos.some(c => PZ[fill(t, Object.assign({}, c, fix))]));
+    const ok = (o, fix) => Object.values(o.capas || {}).every(t => t[0] === '?' || combos.some(c => PZ[fill(t, Object.assign({}, c, fix))]));
     C.piel = M.piel.filter(o => ok(o, { piel: o.id }));
     C.ojos.colores = M.ojos.colores.filter(o => ok(o, { ojos: o.id }));
     C.pelo.estilos = M.pelo.estilos.filter(o => ok(o));
     C.pelo.colores = M.pelo.colores.filter(col => C.pelo.estilos.some(e => ok(e, { pelo: col.id })));
     C.ropa = M.ropa.filter(o => ok(o));
+    C.zapatos = (M.zapatos || []).filter(o => ok(o));
     C.accesorios = (M.accesorios || []).filter(o => ok(o));
     ['piel', 'ropa'].forEach(k => { if (!C[k].length) C[k] = [{ id: M.defecto[k], nombre: '', capas: {} }]; });
     if (!C.pelo.estilos.length) C.pelo.estilos = [{ id: 'ninguno', nombre: '', capas: {} }];
@@ -60,7 +65,9 @@
     s.pelo.estilo = byId(CAT.pelo.estilos, s.pelo.estilo).id;
     s.pelo.color = byId(CAT.pelo.colores, s.pelo.color).id;
     s.ropa = byId(CAT.ropa, s.ropa).id;
-    if (!Array.isArray(s.accesorios)) s.accesorios = [];
+    s.zapatos = CAT.zapatos && CAT.zapatos.length ? byId(CAT.zapatos, s.zapatos).id : null;
+    const accIds = (CAT.accesorios || []).map(o => o.id);
+    s.accesorios = Array.isArray(s.accesorios) ? s.accesorios.filter(a => accIds.includes(a)) : [];
     s.v = VERSION;
     return s;
   }
@@ -113,7 +120,8 @@
   // vienen recortadas y optimizadas, con su posición en el lienzo 2000 × 3500.
   function piezasDe(s) {
     const ids = { piel: s.piel, ojos: s.ojos.color, pelo: s.pelo.color };
-    const opts = [byId(CAT.piel, s.piel), byId(CAT.ojos.colores, s.ojos.color), byId(CAT.pelo.estilos, s.pelo.estilo), byId(CAT.ropa, s.ropa)]
+    const opts = [byId(CAT.piel, s.piel), byId(CAT.ojos.colores, s.ojos.color), byId(CAT.pelo.estilos, s.pelo.estilo), byId(CAT.ropa, s.ropa),
+      (CAT.zapatos || []).find(o => o.id === s.zapatos)].filter(Boolean)
       .concat(s.accesorios.map(a => (CAT.accesorios || []).find(o => o.id === a)).filter(Boolean));
     const capas = {};
     opts.forEach(o => Object.entries(o.capas || {}).forEach(([k, t]) => { capas[k] = fill(t, ids); }));
@@ -268,7 +276,7 @@
     return { piel: (d.skin | 0) >= 2 ? 'morena' : 'clara', pelo: { color: ['castano', 'negro', 'rubio', 'pelirrojo'][d.hc] || 'castano' } };
   }
   const Avatar = {
-    VERSION, MODO, CAT, svg, mount, foto, precargar, normalizar,
+    VERSION, MODO, JUEGO, CAT, svg, mount, foto, precargar, normalizar,
     cargar() { const a = ls.get(KEY); return a ? normalizar(a) : null; },
     guardar(e) { const s = normalizar(e); s.guardado = new Date().toISOString(); const ok = ls.set(KEY, s); if (ok) ls.set(DRAFT, s); return ok; },
     borrador() { const a = ls.get(DRAFT) || ls.get(KEY) || desdeMunecoAntiguo(); return normalizar(a); },
