@@ -10,6 +10,20 @@ self.AV_PIEZAS = {
   "m": 0.5
  },
  "piezas": {
+  "base-clara": {
+   "x": 480,
+   "y": 460,
+   "w": 1040,
+   "h": 2820,
+   "v": {
+    "s": "avatar/arte/s/base-clara.5682c2d0.webp",
+    "m": "avatar/arte/m/base-clara.5682c2d0.webp"
+   },
+   "kb": {
+    "s": 42.9,
+    "m": 80.1
+   }
+  },
   "demo-diario": {
    "x": 60,
    "y": 360,

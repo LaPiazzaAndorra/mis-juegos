@@ -17,27 +17,31 @@ ropa elaborada, acabado de animación infantil y colores pastel.
 | `plantilla-zonas.png` | Hasta dónde puede llegar cada tipo de pieza. |
 | `plantilla.js` | Las mismas medidas en datos (las usan el comprobador y el juego). |
 
-### Medidas fijas (lienzo 2000 × 3500 px)
+### Medidas fijas (lienzo 2000 × 3500 px) · plantilla v2, tomadas de la base premium V2.1 aprobada
 
 | Referencia | Posición |
 |---|---|
-| Eje central | x = 1000 |
+| Eje central | x = 999 |
 | **Suelo (planta de los pies, descalza)** | **y = 3275** |
-| Coronilla (cráneo, sin pelo) | y ≈ 460 |
+| Coronilla (cráneo, sin pelo) | y = 460 |
 | **Línea de ojos** | **y = 1040** (ojos en x ≈ 785 y 1215) |
 | Boca | y ≈ 1290 |
-| Barbilla | y ≈ 1480 |
-| Hombros | (780, 1690) y (1220, 1690) |
-| Codos | (714, 1957) y (1286, 1957) |
-| Muñecas | (650, 2214) y (1350, 2214) |
-| Cintura | y = 2150 |
-| Cadera | y = 2260 |
-| Rodillas | (922, 2700) y (1078, 2700) |
-| Tobillos | (922, 3140) y (1078, 3140) |
+| Barbilla | y = 1430 |
+| Hombros | (747, 1684) y (1254, 1684) |
+| Codos | (624, 2002) y (1376, 2001) |
+| Muñecas | (527, 2253) y (1472, 2252) |
+| Manos (punta de los dedos) | (491, 2346) y (1508, 2344) |
+| Cintura | y = 1896 (x 846–1160) |
+| Cadera / entrepierna | y = 2299 |
+| Rodillas | (887, 2545) y (1109, 2562) |
+| Tobillos | (850, 3044) y (1145, 3039) |
 
 **Postura:** de pie y de frente, con el peso en las dos piernas. Los brazos relajados y
-separados del cuerpo unos 14°, con las palmas hacia las piernas. Los pies algo separados
+separados del cuerpo unos 21°, con las palmas hacia las piernas. Los pies algo separados
 y un poco abiertos. Expresión: sonrisa tranquila con los ojos abiertos.
+
+**La base aprobada es `arte/originales/base-clara.png`: todas las piezas se dibujan encima de
+ella**, con la guía de su capa (`plantilla/guias/`) como referencia.
 
 > **Lo imprescindible:** el eje, el suelo y la línea de ojos deben coincidir.
 > La silueta marca proporciones orientativas. Cuando aprobemos la muñeca base,
