@@ -7,6 +7,9 @@
 - **Pendiente:** resolución real de 2000 × 3500, opacidad al 100 % y bordes limpios, separación de
   capas (cuerpo, ojos abiertos y cerrados, ropa), medidas y guías nuevas.
 - **Límites:** no sustituye a las piezas del juego ni se publica; se conservan la V2.1 y la referencia de D-012.
+- **14/10/2026:** la propietaria revisa y acepta guardar una **copia técnica** con solo la transparencia
+  corregida (`base-transparencia-corregida.png`, reproducible con `herramientas/corregir_transparencia.py`).
+  El original se conserva intacto; la copia no es arte de 2000 × 3500 ni una pieza definitiva.
 
 ## D-013 · Norma visual permanente: nenita de unos 5–6 años con la cara de D-012 · 14/10/2026
 - **Decisión de la propietaria:** la muñeca tiene aspecto de nenita de unos 5–6 años (orientación

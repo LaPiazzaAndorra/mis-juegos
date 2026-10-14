@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-14 — D-014: base visual de la muñeca nueva aprobada
+### 2026-10-14 — Copia técnica de la base D-014 con la transparencia corregida
+
+- **Solicitado por:** la propietaria, tras revisar la comparación antes/después.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `bc96825`, el de la entrada siguiente).
+- **Estado:** copia técnica guardada; no es pieza definitiva. Sin publicar.
+- **Cambios:** `docs/propuestas/base-aprobada-d013-2026-10-14/base-transparencia-corregida.png`
+  (SHA-256 `42a82a49…4a85`, el mismo archivo revisado), `COMPROBACIONES.txt` y `LEEME.md` con las dos
+  versiones diferenciadas; programa `herramientas/corregir_transparencia.py` (corregir, `--comprobar`,
+  `--comparar`); comparación en `docs/capturas/2026-10-14-base-transparencia/`. El original
+  `base-aprobada.png` no cambia (`f9c143fc…79a6`).
+- **Resultado:** solo canal alfa; RGB idéntico; interior a 255 (392 915 px); 12 654 restos (alfa ≤ 7)
+  eliminados; borde suave de 10 618 px con cambio máximo de 1; 948 × 1659 sin ampliar.
+- **Archivos:** los anteriores, más estado, decisiones (D-014), assets, arquitectura e índice de propuestas.
+- **Datos guardados afectados:** ninguno. Sin cambios en el juego, el catálogo, `arte/originales/` ni la caché.
+- **Pruebas:** `--comprobar` (coincidencia píxel a píxel), SHA-256 del original y de la copia
+  (también descargados de GitHub tras subir); comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit; el original no se ve afectado.
+
+### 2026-10-14 — `bc96825` · D-014: base visual de la muñeca nueva aprobada
 
 - **Solicitado por:** la propietaria («base visual aprobada conforme a D-013»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `0714cae`, el de la entrada siguiente).

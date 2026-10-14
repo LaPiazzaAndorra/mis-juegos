@@ -20,7 +20,7 @@ cambiar nada importante.
 | `arte/originales/` | PNG originales de 2000 × 3500 por capas. Los que empiezan por `prueba-` son piezas técnicas; `demo-diario.png` es la demostración de calidad. |
 | `arte/mascaras/` | Máscaras auxiliares (iris); no van al juego. |
 | `plantilla/` | `plantilla.js` (medidas de la base, fuente única), láminas y guías por pieza, `ASSETS.md`, `PELO.md`, `INSTRUCCIONES.md`. |
-| `herramientas/` | Comprobador de capas, validador de pelo, optimizador, medidor de la base, guías, variantes de color, copia de seguridad y comprobación de documentación. |
+| `herramientas/` | Comprobador de capas, validador de pelo, optimizador, medidor de la base, guías, variantes de color, corrección técnica de transparencia (`corregir_transparencia.py`), copia de seguridad y comprobación de documentación. |
 | `pruebas/` | Pruebas automáticas: regresión (`prueba-juego.js`) y copia de seguridad / versión de pruebas (`prueba-copia.js`). |
 | `docs/` | Documentación del proyecto; `docs/historico/` guarda versiones anteriores; `docs/capturas/`, capturas de prueba. |
 | `.github/` | Plantilla de pull request y comprobación automática de documentación. |

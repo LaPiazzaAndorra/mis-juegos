@@ -1,0 +1,14 @@
+# Comprobaciones de base-transparencia-corregida.png (14/10/2026)
+# python3 herramientas/corregir_transparencia.py base-aprobada.png base-transparencia-corregida.png
+tamaño 948 × 1659 (sin cambiar)
+colores RGB idénticos: True
+opacidad máxima real del interior: 254
+interior con alfa 255: antes 0, después 392915 de 392915
+restos exteriores eliminados: 12654 (alfa máximo 7)
+borde suave conservado: 10618 píxeles, cambio de alfa máx. 1, medio 0.24
+  alfa medio a 1 px fuera de la silueta: antes 117.9, después 118.4
+  alfa medio a 2 px fuera de la silueta: antes 7.7, después 7.4
+  alfa medio a 3 px fuera de la silueta: antes 3.2, después 2.4
+caja del contenido: antes (0, 19, 936, 1651) después (170, 171, 788, 1540)
+huella de píxeles (SHA-256 de RGBA): 953320c17bc09db0f25066657468c2717799f819ca114edf6ee5f9762da3dd19
+# --comprobar: ✅ coincide píxel a píxel con la corrección del original
