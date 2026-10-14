@@ -1,5 +1,18 @@
 # Registro de decisiones
 
+## D-012 · Nueva referencia visual de muñeca elegida · 14/10/2026
+- **Decisión de la propietaria:** «Sí esta me encanta» sobre la propuesta de cuerpo entero
+  conservada en `docs/propuestas/muneca-elegida-2026-10-14/referencia-aprobada.png`.
+  Se prefieren su carita, los ojos algo más separados y los rizos castaños de esa referencia.
+- **Actualiza D-007 y D-010 como dirección artística futura:** la V2.1 sigue intacta en el juego;
+  no se sustituye hasta preparar y aprobar una nueva base con sus capas y medidas.
+- **Límites:** aprobación estética de una referencia, no aprobación de capas todavía inexistentes
+  ni de publicación. La ropa de la propuesta es provisional. No se cambia `main`, ningún dato
+  guardado ni los identificadores del catálogo con esta decisión.
+- **Resolución:** la referencia tiene 948 × 1659 px; no cumple los requisitos de producción.
+- **Datos:** la propietaria comunica recuperación funcional en iPhone. Se permiten partidas
+  distintas entre dispositivos; sincronizar no es prioritario.
+
 **Regla:** cada decisión importante tiene su sección con fecha. Una decisión aprobada no se cambia en
 silencio: se añade otra nueva que explica el motivo y a cuál sustituye.
 

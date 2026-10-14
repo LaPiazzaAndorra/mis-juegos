@@ -1,5 +1,26 @@
 # Registro de cambios
 
+### 2026-10-14 — Nueva referencia visual de la muñeca elegida por la propietaria
+
+- **Solicitado por:** la propietaria, tras revisar propuestas: «Sí esta me encanta».
+- **Rama y commit:** `avatar-creador`, este commit (sobre `2dc61c7`). Preparado en ChatGPT como
+  commit local `ad48898`, que **nunca se subió** (no existe en GitHub); Claude lo incorporó desde el
+  parche del paquete «AMAIA_REFERENCIA_Y_CONTINUACION_CLAUDE» tras `git apply --check` (sin
+  conflictos, 0 líneas borradas) y comprobar el SHA-256 de la imagen.
+- **Estado:** referencia estética aprobada; capas e integración pendientes.
+- **Cambios:** se conserva sin modificar el PNG de cuerpo entero de 948 × 1659; D-012 registra
+  la carita, ojos algo más separados, pelo y proporciones elegidos. Se documentan los montajes
+  rechazados, la limitación de resolución y la necesidad de nuevas medidas si cambia la base.
+  Se anota el resultado de recuperación en iPhone comunicado por la propietaria y la ausencia
+  de prioridad de sincronización. Ojos verdes mencionados, no localizados en esta rama.
+- **Archivos:** `docs/propuestas/muneca-elegida-2026-10-14/`, estado, decisiones, avatar y registro.
+- **Datos guardados afectados:** ninguno; no se modifica código ni arte del catálogo.
+- **Pruebas:** dimensiones y SHA-256 de la referencia; revisión del diff y comprobador de
+  documentación. Las suites de navegador no se repiten para este cambio documental.
+- **Pendiente:** transparencia, identidad del montaje, capas, resolución, animaciones y revisión.
+- **¿`main` intacta?:** sí, `4bbf51d` comprobado con `git ls-remote` antes del cambio.
+- **Cómo revertir:** revertir este commit documental; la V2.1 no se ha sustituido.
+
 **Norma:** cada cambio de código o arte va acompañado, en el mismo commit, de una entrada aquí
 (`### AAAA-MM-DD — título`) y de la actualización de `docs/ESTADO_ACTUAL.md`. Lo comprueba
 `herramientas/verificar_documentacion.py`. Las entradas más nuevas van arriba. El hash de un commit no

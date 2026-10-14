@@ -1,5 +1,11 @@
 # Muñeca premium por capas — estado y procedimiento
 
+> **Nueva decisión visual, 14/10/2026:** la propietaria ha elegido la muñeca de cuerpo entero
+> de `docs/propuestas/muneca-elegida-2026-10-14/` (D-012). La tabla de abajo describe las piezas
+> V2.1 conservadas, no capas ya realizadas para la nueva referencia. Antes de reemplazar una
+> base hay que revisar la identidad, la resolución real, las medidas y las guías. Ningún pelo
+> generado durante esta continuación se ha integrado como definitivo.
+
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de
 archivos), `plantilla/PELO.md` (pelo), `plantilla/INSTRUCCIONES.md` (cómo dibujar) y

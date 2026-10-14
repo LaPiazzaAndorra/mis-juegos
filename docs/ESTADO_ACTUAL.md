@@ -1,5 +1,28 @@
 # Estado actual y siguiente paso
 
+## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
+
+**Nueva referencia visual de la muñeca elegida.** Véase
+[`docs/propuestas/muneca-elegida-2026-10-14/`](propuestas/muneca-elegida-2026-10-14/LEEME.md).
+La propietaria prefiere la nueva carita, ojos un poco más separados y el pelo de la
+referencia de cuerpo entero. D-012 actualiza la dirección artística: la V2.1 y sus piezas
+se conservan, pero no se debe insistir en adaptar a ella los montajes de pelo rechazados.
+La nueva referencia es de 948 × 1659, con fondo: **no hay capas nuevas de producción ni
+muñeca nueva integrada**. Primero hay que conservar su identidad, resolver la resolución
+y validar las piezas antes de cambiar la base, sus medidas o el catálogo.
+
+La propietaria comunica que la recuperación funcionó en su iPhone. Es una prueba comunicada
+por ella; no se ha repetido aquí ni se han confirmado por separado todos los pasos (deshacer,
+modo sin conexión, etc.). Los apartados antiguos que la marcan pendiente no reflejan ese
+resultado parcial. La sincronización entre dispositivos no es prioritaria: pueden tener
+personajes y progresos distintos.
+
+**Esta actualización solo conserva una referencia y documenta decisiones.** Código, caché,
+datos guardados y `main` sin cambios. Las pruebas 21/21 y 45/45 de abajo son resultados
+históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por la propietaria,
+pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
+perdidos ni se rehacen sin localizar antes su fuente.
+
 **Última actualización:** 14/10/2026 (copia integrada y versión de pruebas) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
