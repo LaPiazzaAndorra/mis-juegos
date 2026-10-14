@@ -40,6 +40,13 @@ de dirección puede hacerlos inaccesibles, y Git no los recupera.
 
 ## C. Copia de seguridad de los datos de Amaia
 
+> **Importante (14/10/2026):** Amaia juega desde la **app instalada** en el iPhone. iOS guarda los
+> datos de la app instalada **aparte** de los de Safari, aunque la dirección sea la misma. Por eso la
+> herramienta de abajo y su marcador, abiertos en Safari, **no ven ni pueden restaurar** el progreso de
+> la app instalada. Para la app instalada hace falta la copia **dentro del juego** (apartado C2).
+> La herramienta sigue sirviendo para un navegador normal (ordenador, Safari) y sus archivos son
+> compatibles con los de la copia integrada.
+
 Herramienta: **`herramientas/copia-de-seguridad.html`** (no modifica el juego).
 
 - **Qué guarda:** todas las claves del juego (`stars`, `gal`, `sound`, `voice`, `tone`,
@@ -52,7 +59,7 @@ Herramienta: **`herramientas/copia-de-seguridad.html`** (no modifica el juego).
 - **Probado:** de principio a fin en Chromium (copiar, borrar todo, restaurar y comprobar que el
   juego lee las estrellas). **Falta probarlo en el iPad y el iPhone reales.**
 
-**Dónde abrirla.** Los datos son de un sitio web concreto, así que la herramienta tiene que abrirse
+**Dónde abrirla (solo para datos de un navegador, no de la app instalada).** Los datos son de un sitio web concreto, así que la herramienta tiene que abrirse
 desde **el mismo sitio** que el juego. Por ejemplo, si el juego está en
 `https://lapiazzaandorra.github.io/mis-juegos/`, la herramienta estará en
 `https://lapiazzaandorra.github.io/mis-juegos/herramientas/copia-de-seguridad.html` cuando se
@@ -71,8 +78,34 @@ publique. Hasta entonces, se usa el **marcador**:
 - **Nunca subir copias de datos al repositorio**, que es público.
 - Las pruebas que borran datos se hacen solo en otro navegador o dispositivo, nunca en el de Amaia.
 
-**Pendiente:** un botón «Exportar o importar mis progresos» dentro del propio juego (necesita
-aprobación, porque cambia el juego).
+## C2. Copia integrada en el juego: «Guardar mi progreso» y «Recuperar mi progreso»
+
+**Estado:** propuesta preparada y probada en simulación, **no integrada** (espera la aprobación de la
+propietaria). Código completo en `docs/propuestas/copia-integrada.patch`; capturas en
+`docs/capturas/2026-10-14-copia/`.
+
+- **Dónde:** en ⚙️ Ajustes (zona de adultos), sección «💾 Copia de seguridad».
+- **Guardar mi progreso:** crea `Mi-Mundo-progreso-AAAA-MM-DD.json` con todas las claves del juego y
+  las láminas importadas (mismo formato que la herramienta) y abre la hoja de compartir de iOS →
+  **«Guardar en Archivos»** → iCloud Drive. Si el dispositivo no permite compartir, se descarga.
+  La copia se prepara al abrir los ajustes, para que la hoja se abra al primer toque (Safari solo
+  permite abrirla justo después de tocar).
+- **Recuperar mi progreso:** abre Archivos, comprueba el archivo (rechaza archivos de otro tipo,
+  dañados o de una versión más nueva) y enseña una tabla «En la copia / Ahora» antes de confirmar.
+- **Antes de recuperar** guarda automáticamente lo actual dentro de la app (IndexedDB
+  `misjuegos-copias`); si no puede guardarlo, no recupera nada. Si algo falla a mitad (por ejemplo,
+  falta de espacio), vuelve solo a como estaba. Después aparece «↩️ Deshacer la última recuperación».
+- Solo toca claves del juego; las láminas que ya había se conservan.
+
+**Cómo aplicarla, cuando se apruebe:** `git apply docs/propuestas/copia-integrada.patch` en
+`avatar-creador` (sube la caché a `v9`), `node pruebas/prueba-copia.js` y `node pruebas/prueba-juego.js`.
+
+**Prueba obligatoria en la app instalada del iPhone** (no se puede hacer desde el entorno de Claude),
+**nunca primero en el iPhone de Amaia**: instalar la versión de prueba en otro iPhone (o en otro perfil
+o dirección, para no mezclar datos) desde «Compartir → Añadir a pantalla de inicio», abrirla desde el
+icono y comprobar: guardar → «Guardar en Archivos» → el archivo aparece en iCloud Drive; jugar un poco;
+recuperar → la tabla es correcta → los datos vuelven; «Deshacer»; sin conexión, la app abre y los
+botones funcionan. Cuando todo pase, en el iPhone de Amaia lo primero será **guardar** (no recuperar).
 
 ## D. Recuperar el código
 

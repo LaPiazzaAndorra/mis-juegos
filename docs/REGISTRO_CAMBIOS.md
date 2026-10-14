@@ -5,6 +5,26 @@
 `herramientas/verificar_documentacion.py`. Las entradas más nuevas van arriba. El hash de un commit no
 puede ir dentro de él mismo: se escribe «este commit» y se completa en la entrada siguiente.
 
+### 2026-10-14 — Propuesta: «Guardar mi progreso» y «Recuperar mi progreso» dentro del juego
+
+- **Solicitado por:** la propietaria (Amaia juega desde la app instalada en el iPhone).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `99adb29`).
+- **Estado:** en prueba. **El juego no cambia**: el código va como parche en
+  `docs/propuestas/copia-integrada.patch` (nuevo `progreso.js`, botones en ⚙️ Ajustes, `pruebas/prueba-copia.js`, caché `v9`) hasta que la propietaria lo apruebe.
+- **Cambios:** parche y capturas (`docs/capturas/2026-10-14-copia/`). Documentación corregida: la
+  herramienta en Safari y su marcador no llegan a los datos de la app instalada en iOS (`CLAUDE.md`,
+  manual, `README.md`, apartados C y C2 de recuperación, arquitectura, hoja de ruta y estado).
+- **Datos guardados afectados:** ninguno ahora. Con el parche: clave nueva `bk_ultima` y base nueva
+  `misjuegos-copias`; ninguna clave existente cambia.
+- **Pruebas:** Chromium con la app instalada y la hoja de compartir simuladas (iPhone 390 × 844, iPhone
+  horizontal 852 × 393, iPhone SE 320 × 568, iPad 1180 × 820): `prueba-copia.js` 31/31 (guardar,
+  cancelar, recuperar con vista previa, copia automática, deshacer, fallo por falta de espacio,
+  archivos no válidos, compatibilidad con la herramienta en los dos sentidos) y `prueba-juego.js` 21/21
+  con el parche. El parche se aplica limpio sobre `99adb29` (`git apply --check`).
+- **Riesgos y pendiente:** sin probar en un iPhone real con la app instalada; falta la aprobación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit (solo documentación, parche y capturas).
+
 ### 2026-10-14 — Corrección: la etiqueta de la versión publicada queda pendiente
 
 - **Rama y commit:** `avatar-creador`, este commit (sobre `49e062e`, que es el commit de la entrada siguiente).

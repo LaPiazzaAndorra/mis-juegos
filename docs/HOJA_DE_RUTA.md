@@ -7,7 +7,7 @@ haya commit, pruebas y aprobación. El estado real está en `docs/ESTADO_ACTUAL.
 | --- | --- | --- | --- | --- |
 | Alta | Vestir | Pelo rizado castaño en dos capas | Esperando el arte (plantillas y validador listos) | 2 PNG originales que pasan `validar-pelo.html`, revisión visual al 100 % y en iPhone/iPad, aprobación. |
 | Alta | Vestir | Vestido rosa, zapatos y corona premium | Pendiente (después del pelo) | Piezas alineadas, guardado y animación correctos; activar la muñeca premium por defecto. |
-| Alta | Datos | Copia de seguridad de todos los datos | Herramienta hecha y probada en Chromium | Probar en el iPad y el iPhone reales; después, botón dentro del juego (con aprobación). |
+| Alta | Datos | Copia de seguridad de todos los datos | Botones «Guardar / Recuperar mi progreso» dentro del juego: propuesta preparada y probada en simulación (`docs/propuestas/copia-integrada.patch`). La herramienta en Safari no sirve para la app instalada. | Aprobación de la propietaria → integrar en `avatar-creador` → probar en la app instalada del iPhone con un dispositivo o perfil de prueba. |
 | Alta | Datos | La galería no debe borrar dibujos sin avisar cuando falta espacio | Propuesta | Aviso claro y opción de hacer copia antes de liberar espacio; nada se borra sin permiso. |
 | Alta | Publicación | Proteger `main` y exigir «Documentación sincronizada» | Comprobación configurada; falta la regla de protección | Ver `docs/PRUEBAS_Y_RECUPERACION.md`, apartado F. |
 | Media | Vestir | Piel morena y ojos cerrados morenos | Borradores automáticos posibles | Revisión visual y aprobación. |

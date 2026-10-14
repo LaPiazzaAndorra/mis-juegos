@@ -54,6 +54,13 @@ cambiar nada importante.
 
 **IndexedDB:** base `misjuegos`, versión 1, almacén `tpl` (`{id, url}`) con las láminas importadas en «Pintar».
 
+**Previsto con la copia integrada** (`docs/propuestas/copia-integrada.patch`, aún no en el juego): la
+clave nueva `bk_ultima` (fecha de la última copia, solo informativa) y la base nueva
+`misjuegos-copias` (almacén `copias`, entrada `antes-de-recuperar`) con la copia automática de los
+datos anteriores a la última recuperación. No cambian ni borran ninguna clave existente.
+
+**App instalada en iOS:** sus datos están separados de los de Safari, aunque la dirección sea la misma.
+
 ## Reglas de persistencia
 
 - Los identificadores de piel, ojos, peinado, color de pelo, ropa, zapatos y accesorios no se

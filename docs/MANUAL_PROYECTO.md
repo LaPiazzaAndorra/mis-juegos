@@ -20,8 +20,11 @@ que crea Amaia, por delante de pantallas solo decorativas.
 - Cambios graduales: comprobar que todo lo anterior sigue funcionando antes de publicar.
 - No perder nunca estrellas, dibujos, láminas importadas, personaje, escenas, niveles, monedas ni
   ajustes. Si cambia un formato, se hace una migración probada.
-- Los datos pertenecen al navegador del dispositivo. No hay sincronización entre dispositivos; la
-  copia de seguridad es manual (`herramientas/copia-de-seguridad.html`).
+- Los datos pertenecen al navegador del dispositivo. No hay sincronización entre dispositivos.
+  Amaia juega desde la **app instalada** en el iPhone, cuyos datos iOS guarda aparte de Safari: la
+  herramienta `herramientas/copia-de-seguridad.html` y su marcador **no llegan** a esos datos.
+  La copia útil para Amaia es la de los botones «Guardar mi progreso» / «Recuperar mi progreso»
+  dentro del juego (propuesta en `docs/propuestas/copia-integrada.patch`, pendiente de aprobación).
 
 ## 3. Módulos del juego
 

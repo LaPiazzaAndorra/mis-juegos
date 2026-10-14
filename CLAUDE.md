@@ -52,6 +52,17 @@ Además, según la tarea: `herramientas/comprobar-capas.html` y `herramientas/va
 para el arte, y revisión en iPhone/iPad reales cuando sea posible. **Si una prueba no se ha
 podido hacer (por ejemplo, en un iPad real o con la app instalada sin conexión), decirlo.**
 
+**Amaia juega desde la app instalada en la pantalla de inicio del iPhone, no desde Safari.** En iOS,
+la app instalada tiene sus datos **separados** de Safari: nada que se abra en Safari (marcadores,
+`herramientas/copia-de-seguridad.html`) puede leer ni escribir sus estrellas, dibujos o personaje.
+Por eso, todo lo que toque datos tiene que funcionar **dentro del juego** y probarse **en la app
+instalada**. El entorno de Claude solo puede simularla en Chromium (`display-mode: standalone` y
+hoja de compartir simulada, `node pruebas/prueba-copia.js` cuando esté integrada): eso no sustituye
+la prueba en el iPhone real y hay que decirlo en el informe.
+
+Las propuestas todavía no aprobadas se guardan como parche en `docs/propuestas/` (no se activan en
+el juego hasta que la propietaria las apruebe).
+
 ## 4. Antes de cada commit (obligatorio)
 
 1. Actualizar **en el mismo commit**:

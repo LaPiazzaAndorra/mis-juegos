@@ -1,8 +1,8 @@
 # Estado actual y siguiente paso
 
-**Última actualización:** 14/10/2026 · **Rama:** `avatar-creador` · **Último commit funcional
-comprobado:** `b266e52` (más el commit de documentación que añade este archivo, ver
-`docs/REGISTRO_CAMBIOS.md`) · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
+**Última actualización:** 14/10/2026 (copia integrada propuesta) · **Rama:** `avatar-creador` ·
+**Último commit funcional comprobado:** `b266e52` (los commits posteriores son solo documentación y
+propuestas, ver `docs/REGISTRO_CAMBIOS.md`) · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 
 ## Repositorio
 
@@ -38,6 +38,18 @@ comprobado:** `b266e52` (más el commit de documentación que añade este archiv
 - **No probado todavía:** iPhone y iPad reales, app instalada sin conexión, la herramienta de copia
   en Safari y el workflow de GitHub Actions ejecutándose en un pull request real.
 
+## Copia de seguridad integrada (propuesta, sin integrar)
+
+- Amaia juega desde la **app instalada** en el iPhone: sus datos están separados de Safari, así que la
+  herramienta `copia-de-seguridad.html` y el marcador **no sirven** para ella.
+- Preparados los botones «Guardar mi progreso» y «Recuperar mi progreso» en ⚙️ Ajustes, con copia
+  automática previa y «Deshacer» (`docs/PRUEBAS_Y_RECUPERACION.md`, apartado C2). Código en
+  `docs/propuestas/copia-integrada.patch`; capturas en `docs/capturas/2026-10-14-copia/`.
+- Probado en Chromium simulando la app instalada y la hoja de compartir: `prueba-copia.js` **31/31**, y
+  `prueba-juego.js` **21/21** con el parche aplicado.
+- **No probado:** en un iPhone real con la app instalada (ni Safari/WebKit real). **Espera la
+  aprobación de la propietaria** para integrarlo.
+
 ## Muñeca premium
 
 | Pieza | Estado | Siguiente acción |
@@ -53,13 +65,15 @@ comprobado:** `b266e52` (más el commit de documentación que añade este archiv
 1. Recibir las dos capas de pelo nuevas, pasarlas por el validador, montarlas en `?arte=borrador`
    y enseñarlas en iPhone e iPad para su aprobación.
 2. Después: vestido rosa, zapatos y corona. Con eso, la muñeca premium pasa a ser la del juego normal.
-3. Probar la copia de seguridad en el iPad de Amaia (marcador) y guardar una primera copia.
+3. Copia integrada: aprobación → integrar en la rama → prueba en un iPhone de prueba con la app
+   instalada → en el iPhone de Amaia, guardar una primera copia.
 4. Configurar la protección de `main` (`docs/PRUEBAS_Y_RECUPERACION.md`, apartado F).
 5. Antes de publicar: pull request a `main`, comprobación de documentación verde, copia de los datos
    de Amaia, aprobación de la propietaria y prueba de la app instalada.
 
 ## Problemas conocidos
 
+- Hoy **no hay forma de hacer copia** de los datos de la app instalada de Amaia (se resolverá con la copia integrada).
 - La galería borra los dibujos más antiguos sin avisar si falta espacio (también en `main`).
 - En el iPhone horizontal, el personaje de la habitación se ve pequeño.
 - Borde ligeramente dentado al 100 % en los codos de la V2.1 (no se aprecia en el juego).

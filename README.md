@@ -42,7 +42,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 
 | Herramienta | Uso |
 | --- | --- |
-| `herramientas/copia-de-seguridad.html` | Copiar y restaurar estrellas, dibujos, personaje y demás datos del juego. |
+| `herramientas/copia-de-seguridad.html` | Copiar y restaurar los datos del juego **en un navegador** (no llega a los datos de la app instalada en iOS). |
 | `herramientas/comprobar-capas.html` | Comprobar que las capas de arte encajan con la plantilla. |
 | `herramientas/validar-pelo.html` | Validar las dos capas de pelo sobre la muñeca. |
 | `herramientas/optimizar.py` | Convertir el arte original en las imágenes ligeras del juego. |
@@ -53,6 +53,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 
 - **Git guarda el código, el arte y la documentación, pero no las estrellas, los dibujos ni el
   personaje de Amaia**, que viven en el navegador del iPad o del iPhone. Para eso está la copia de
-  seguridad (ver `docs/PRUEBAS_Y_RECUPERACION.md`).
+  seguridad (ver `docs/PRUEBAS_Y_RECUPERACION.md`); en la app instalada del iPhone tiene que hacerse
+  desde dentro del juego (propuesta pendiente de aprobación).
 - **El repositorio es público:** todo lo que se sube puede verlo cualquiera. Nada de datos personales,
   fotos reales de menores, contraseñas ni copias de seguridad de datos.
