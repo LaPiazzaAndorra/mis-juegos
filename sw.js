@@ -3,9 +3,9 @@
 // llevan una huella del contenido, así nunca se muestra una versión antigua.
 importScripts('avatar/arte/piezas.js');
 // Subir la versión cada vez que cambie un archivo de FILES (no hace falta para el arte: lleva huella).
-const C='mis-juegos-v8',ARTE='mis-juegos-arte';
-const FILES=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./avatar/avatar.css','./avatar/catalogo.js','./avatar/catalogo-muneca.js',
-  './avatar/motor.js','./avatar/arte/piezas.js','./plantilla/plantilla.js'];
+const C='mis-juegos-v9',ARTE='mis-juegos-arte';
+const FILES=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./manifest-pruebas.json','./icon-pruebas-192.png','./icon-pruebas-512.png','./avatar/avatar.css','./avatar/catalogo.js','./avatar/catalogo-muneca.js',
+  './avatar/motor.js','./progreso.js','./avatar/arte/piezas.js','./plantilla/plantilla.js'];
 const PIEZAS=Object.values((self.AV_PIEZAS||{}).piezas||{}).flatMap(p=>Object.values(p.v).map(u=>'./'+u));
 self.addEventListener('install',e=>{e.waitUntil(Promise.all([caches.open(C).then(c=>c.addAll(FILES)),
   caches.open(ARTE).then(c=>c.addAll(PIEZAS.filter(u=>u.includes('/s/'))).catch(()=>{}))]));self.skipWaiting()});

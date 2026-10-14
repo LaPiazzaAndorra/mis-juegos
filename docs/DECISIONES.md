@@ -51,6 +51,13 @@ silencio: se añade otra nueva que explica el motivo y a cuál sustituye.
   modificar el juego. Antes de restaurar siempre descarga una copia de lo actual.
 - **Pendiente:** un botón dentro del juego, solo con aprobación.
 
+## D-011 · Copia de seguridad dentro del juego y versión de pruebas aparte · 14/10/2026
+- **Decisión:** botones «Guardar mi progreso» / «Recuperar mi progreso» en ⚙️ Ajustes (diseño aprobado
+  por la propietaria). Las pruebas en el iPhone se hacen en una versión de pruebas con **otro origen
+  web** (`raw.githack.com`), instalada como otra app («PRUEBAS») y con datos ficticios.
+- **Motivo:** Amaia juega en la app instalada, cuyos datos iOS separa de Safari (D-009 no llega a ellos),
+  y su progreso no se puede arriesgar en pruebas.
+
 ## D-010 · Pelo: el diseño se conserva y los archivos del borrador no se usan · 14/10/2026
 - **Decisión:** se mantiene el diseño de rizos castaños largos. Los PNG del primer borrador quedan
   rechazados (restos de otra figura, cortes rectos, islas, poca resolución) y se crean de nuevo con

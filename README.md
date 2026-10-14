@@ -30,6 +30,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 | [`docs/MANUAL_PROYECTO.md`](docs/MANUAL_PROYECTO.md) | Objetivo, módulos del juego, criterios de diseño y cómo añadir funciones. |
 | [`docs/ARQUITECTURA_Y_DATOS.md`](docs/ARQUITECTURA_Y_DATOS.md) | Archivos, módulos, datos guardados, caché sin conexión y riesgos. |
 | [`docs/AVATAR_Y_ASSETS.md`](docs/AVATAR_Y_ASSETS.md) | Muñeca premium por capas: estado de cada pieza y cómo se incorporan. |
+| [`docs/VERSION_DE_PRUEBAS.md`](docs/VERSION_DE_PRUEBAS.md) | Enlace e instrucciones de la versión de pruebas para el iPhone (otro origen, datos ficticios). |
 | [`docs/PRUEBAS_Y_RECUPERACION.md`](docs/PRUEBAS_Y_RECUPERACION.md) | Pruebas, copias de seguridad de los datos, recuperación y protección de `main`. |
 | [`docs/REGISTRO_CAMBIOS.md`](docs/REGISTRO_CAMBIOS.md) | Historial de cambios comprobado contra Git, con plantilla obligatoria. |
 | [`docs/DECISIONES.md`](docs/DECISIONES.md) | Decisiones aprobadas y por qué: no repetir debates. |
@@ -53,7 +54,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 
 - **Git guarda el código, el arte y la documentación, pero no las estrellas, los dibujos ni el
   personaje de Amaia**, que viven en el navegador del iPad o del iPhone. Para eso está la copia de
-  seguridad (ver `docs/PRUEBAS_Y_RECUPERACION.md`); en la app instalada del iPhone tiene que hacerse
-  desde dentro del juego (propuesta pendiente de aprobación).
+  seguridad (ver `docs/PRUEBAS_Y_RECUPERACION.md`); en la app instalada del iPhone se hace
+  desde dentro del juego, con «Guardar mi progreso» (en la rama, sin publicar todavía).
 - **El repositorio es público:** todo lo que se sube puede verlo cualquiera. Nada de datos personales,
   fotos reales de menores, contraseñas ni copias de seguridad de datos.

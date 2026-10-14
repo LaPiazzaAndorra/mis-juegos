@@ -46,6 +46,7 @@ corregir la documentación.
 ```bash
 python3 -m http.server 8765 &                 # desde la raíz del repositorio
 node pruebas/prueba-juego.js                  # 21 comprobaciones: Vestir, Mi Mundo, datos, copia de seguridad…
+node pruebas/prueba-copia.js                  # 45 comprobaciones: Guardar/Recuperar mi progreso y versión de pruebas
 ```
 
 Además, según la tarea: `herramientas/comprobar-capas.html` y `herramientas/validar-pelo.html`
@@ -57,8 +58,13 @@ la app instalada tiene sus datos **separados** de Safari: nada que se abra en Sa
 `herramientas/copia-de-seguridad.html`) puede leer ni escribir sus estrellas, dibujos o personaje.
 Por eso, todo lo que toque datos tiene que funcionar **dentro del juego** y probarse **en la app
 instalada**. El entorno de Claude solo puede simularla en Chromium (`display-mode: standalone` y
-hoja de compartir simulada, `node pruebas/prueba-copia.js` cuando esté integrada): eso no sustituye
-la prueba en el iPhone real y hay que decirlo en el informe.
+hoja de compartir simulada, `node pruebas/prueba-copia.js`): eso no sustituye la prueba en el
+iPhone real y hay que decirlo en el informe.
+
+**Las pruebas en el iPhone se hacen SIEMPRE en la versión de pruebas** (`docs/VERSION_DE_PRUEBAS.md`):
+otro origen web (`raw.githack.com`), otra app en la pantalla de inicio («PRUEBAS») y datos ficticios.
+Nunca en la app de Amaia. No quitar las protecciones: el modo de pruebas solo se activa en las
+direcciones de prueba y el juego de verdad rechaza las copias marcadas `version_pruebas`.
 
 Las propuestas todavía no aprobadas se guardan como parche en `docs/propuestas/` (no se activan en
 el juego hasta que la propietaria las apruebe).

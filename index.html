@@ -12,6 +12,16 @@
 <link rel="apple-touch-icon" href="icon-512.png">
 <link rel="icon" href="icon-192.png">
 <title>Mi Mundo de Juegos</title>
+<script>
+/* Versión de pruebas: SOLO en direcciones de prueba, que son otro origen y por tanto tienen sus datos
+   aparte (nunca en la dirección del juego de Amaia). Cambia nombre, icono y manifiesto ANTES de
+   instalarla, para que en la pantalla de inicio no se confunda con la app de verdad. */
+window.MODO_PRUEBAS=['raw.githack.com','rawcdn.githack.com'].includes(location.hostname)||
+  (['localhost','127.0.0.1'].includes(location.hostname)&&/[?&]pruebas\b/.test(location.search));
+if(MODO_PRUEBAS){document.querySelector('link[rel=manifest]').href='manifest-pruebas.json';
+  document.querySelector('link[rel=apple-touch-icon]').href='icon-pruebas-512.png';document.querySelector('link[rel=icon]').href='icon-pruebas-192.png';
+  document.querySelector('meta[name=apple-mobile-web-app-title]').content='PRUEBAS';document.title='PRUEBAS · Mi Mundo de Juegos'}
+</script>
 <style>
 /* ---------- Estilo global (fase 1) ---------- */
 :root{--bg:#fff6fb;--ink:#4a3a5c;--soft:#8a7a9c;--card:#ffffff;--line:rgba(74,58,92,.10);
@@ -86,7 +96,21 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 #viewer.on{display:flex}
 .modal{position:fixed;inset:0;background:rgba(40,20,50,.6);display:none;align-items:center;justify-content:center;z-index:60;padding:16px}
 .modal.on{display:flex}
-.mbox{background:#fff;border-radius:28px;padding:20px;width:min(560px,100%);max-height:90vh;display:flex;flex-direction:column;gap:12px}
+.mbox{background:#fff;border-radius:28px;padding:20px;width:min(560px,100%);max-height:90vh;display:flex;flex-direction:column;gap:12px;overflow:auto;-webkit-overflow-scrolling:touch}
+/* Copia de seguridad del progreso */
+.bk{border-top:2px dashed var(--line);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.bkrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bkbtn{border:none;border-radius:22px;padding:14px 10px;font:inherit;font-size:19px;font-weight:900;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:var(--shadow);min-height:96px;justify-content:center}
+.bkbtn .ico{font-size:34px;line-height:1}.bkbtn:active{transform:scale(.95)}
+.bkbtn.g{background:linear-gradient(150deg,#ddfaeb,#b8efd3)}.bkbtn.r{background:linear-gradient(150deg,#e2f5ff,#bfe6fb)}
+.bkinfo{font-size:15px;font-weight:700;color:var(--soft);text-align:center}
+.bklink{border:none;background:none;font:inherit;font-size:15px;font-weight:800;color:#8b6ae8;text-decoration:underline;align-self:center;padding:4px}
+.bktab{width:100%;border-collapse:collapse;font-size:17px}.bktab td,.bktab th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}.bktab .n{text-align:right;font-variant-numeric:tabular-nums}
+.bkacc{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media (max-width:380px){.bkrow{grid-template-columns:1fr}}
+#pruebasCinta{position:fixed;left:50%;bottom:calc(6px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#2d2846;color:#ffd650;font-size:13px;font-weight:900;padding:5px 14px;border-radius:99px;z-index:98;pointer-events:none;white-space:nowrap;opacity:.92}
+.bkpr[hidden]{display:none}
+.bkpr{background:#fff4e0;border:2px dashed #ffb347;border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:8px;text-align:center}
 .mtitle{font-size:30px;font-weight:900}
 .mlabel{font-size:18px;font-weight:800;opacity:.7}
 .vlist{overflow:auto;display:flex;flex-direction:column;gap:8px;min-height:80px;max-height:40vh}
@@ -331,15 +355,35 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
   <div class="mlabel">Voces del dispositivo (toca para probar)</div>
   <div id="voiceList" class="vlist"></div>
   <div class="hint" style="text-align:left">💡 En iPad/iPhone puedes descargar voces más bonitas: Ajustes → Accesibilidad → Contenido leído → Voces → Español → elige una con «(mejorada)» o «(premium)». Después vuelve aquí y selecciónala.</div>
+  <div class="bk">
+    <div class="mtitle" style="font-size:24px">💾 Copia de seguridad</div>
+    <div class="bkrow">
+      <button class="bkbtn g" id="bkGuardar"><span class="ico">💾</span>Guardar mi progreso</button>
+      <button class="bkbtn r" id="bkRecuperar"><span class="ico">📂</span>Recuperar mi progreso</button>
+    </div>
+    <div class="bkinfo" id="bkInfo"></div>
+    <button class="bklink" id="bkDeshacer" hidden>↩️ Deshacer la última recuperación</button>
+    <input type="file" id="bkArchivo" accept=".json,application/json" hidden>
+    <div class="bkpr" id="bkPruebas" hidden><b>🧪 Versión de pruebas</b><span class="bkinfo" id="bkOrigen"></span>
+      <button class="btn" id="bkFicticios" style="font-size:19px;padding:12px">🎲 Cargar datos ficticios</button></div>
+  </div>
   <button class="btn" id="setClose" style="align-self:center;min-width:140px">✅ Listo</button>
 </div></div>
+<div id="bkModal" class="modal"><div class="mbox">
+  <div class="mtitle" style="font-size:26px">📂 Recuperar mi progreso</div>
+  <div id="bkVista"></div>
+  <div class="bkinfo">Antes de recuperar se guarda una copia de seguridad de lo que hay ahora, y podrás deshacerlo.</div>
+  <div class="bkacc"><button class="btn" id="bkCancelar" style="min-width:130px">Cancelar</button><button class="btn save" id="bkConfirmar" style="min-width:170px">♻️ Recuperar</button></div>
+</div></div>
 <div id="toast"></div>
+<div id="pruebasCinta" hidden>🧪 VERSIÓN DE PRUEBAS · datos ficticios</div>
 
 <script src="plantilla/plantilla.js"></script>
 <script src="avatar/arte/piezas.js"></script>
 <script src="avatar/catalogo.js"></script>
 <script src="avatar/catalogo-muneca.js"></script>
 <script src="avatar/motor.js"></script>
+<script src="progreso.js"></script>
 <script>
 'use strict';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -445,8 +489,49 @@ function renderSettings(){
   vs.forEach(v=>{const b=document.createElement('button');b.className='vbtn'+(cur&&v.voiceURI===cur.voiceURI?' sel':'');
     b.textContent=`${v.name} · ${v.lang}`;b.onclick=()=>{voicePref=v.voiceURI;store.set('voice',voicePref);renderSettings();say('¡Hola! Soy tu nueva voz. ¿Jugamos?',true)};vl.appendChild(b)});
 }
-$('#setBtn').onclick=()=>{renderSettings();$('#settings').classList.add('on')};
+$('#setBtn').onclick=()=>{renderSettings();bkPintar();$('#settings').classList.add('on')};
 $('#setClose').onclick=()=>$('#settings').classList.remove('on');
+
+/* ---------- copia de seguridad del progreso (progreso.js) ---------- */
+let bkEntrante=null,bkLista=null;
+const bkFecha=iso=>{const d=new Date(iso),dias=Math.floor((Date.now()-d)/864e5);return d.toLocaleDateString('es-ES')+(dias<1?' (hoy)':dias===1?' (ayer)':` (hace ${dias} días)`)};
+async function bkPintar(){
+  const u=Progreso.ultima();
+  $('#bkInfo').textContent=u?`Última copia guardada: ${bkFecha(u)}`:'Todavía no has guardado ninguna copia. Guárdala en Archivos → iCloud Drive.';
+  $('#bkDeshacer').hidden=!(await Progreso.hayDeshacer());
+  try{bkLista=await Progreso.preparar()}catch(e){bkLista=null}   // lista para compartir al primer toque
+}
+$('#bkGuardar').onclick=async()=>{
+  try{const r=await Progreso.guardar(bkLista);sfx.pop();
+    if(r.resultado==='otra-vez'){toast('Vuelve a tocar «Guardar mi progreso» 💾');return}
+    if(r.resultado!=='cancelado'){toast(r.resultado==='compartido'?'¡Copia guardada! 📁':'¡Copia descargada! 📁');bkPintar()}}
+  catch(e){toast('No se pudo hacer la copia 😢')}
+};
+$('#bkRecuperar').onclick=()=>$('#bkArchivo').click();
+$('#bkArchivo').onchange=async e=>{
+  const f=e.target.files[0];e.target.value='';if(!f)return;
+  try{bkEntrante=Progreso.validar(JSON.parse(await f.text()))}catch(err){toast(err instanceof SyntaxError?'Ese archivo no es una copia del juego':err.message);return}
+  const n=Progreso.resumen(bkEntrante),a=Progreso.resumen(await Progreso.crear());
+  const fila=(t,x,y)=>`<tr><td>${t}</td><td class="n"><b>${x}</b></td><td class="n">${y}</td></tr>`;
+  $('#bkVista').innerHTML=`<div class="bkinfo" style="text-align:left">Copia del ${bkFecha(n.fecha)}</div><table class="bktab"><tr><th></th><th class="n">En la copia</th><th class="n">Ahora</th></tr>`+
+    fila('⭐ Estrellas',n.estrellas,a.estrellas)+fila('🖼️ Dibujos',n.dibujos,a.dibujos)+fila('👧 Personaje',n.personaje?'sí':'no',a.personaje?'sí':'no')+
+    fila('🏠 Escenas',n.escenas,a.escenas)+fila('🧠 Niveles',n.niveles,a.niveles)+fila('🍦 Monedas',n.monedas,a.monedas)+fila('🎨 Láminas',n.laminas,a.laminas)+'</table>';
+  $('#bkModal').classList.add('on');
+};
+$('#bkCancelar').onclick=()=>{bkEntrante=null;$('#bkModal').classList.remove('on')};
+$('#bkConfirmar').onclick=async()=>{
+  if(!bkEntrante)return;const b=$('#bkConfirmar');b.disabled=true;
+  try{await Progreso.recuperar(bkEntrante);sfx.good();toast('¡Progreso recuperado! 🌈');setTimeout(()=>location.reload(),1400)}
+  catch(e){toast(e.message);b.disabled=false}
+};
+$('#bkDeshacer').onclick=async()=>{
+  if(!confirm('¿Volver a como estaba todo antes de la última recuperación?'))return;
+  try{await Progreso.deshacer();toast('Hecho: todo está como antes ↩️');setTimeout(()=>location.reload(),1400)}catch(e){toast(e.message)}
+};
+if(window.MODO_PRUEBAS){$('#pruebasCinta').hidden=false;$('#bkPruebas').hidden=false;
+  $('#bkOrigen').textContent='Dirección: '+location.host+' · sus datos están separados de la app de Amaia';
+  $('#bkFicticios').onclick=async()=>{if(!confirm('¿Sustituir los datos de ESTA versión de pruebas por datos ficticios? (Se puede deshacer)'))return;
+    try{await Progreso.datosFicticios();toast('Datos ficticios cargados 🎲');setTimeout(()=>location.reload(),1400)}catch(e){toast(e.message)}}}
 try{speechSynthesis.onvoiceschanged=()=>{if($('#settings').classList.contains('on'))renderSettings()}}catch(e){}
 
 /* ---------- estrellas, confeti, aviso ---------- */

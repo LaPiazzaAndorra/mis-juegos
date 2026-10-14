@@ -24,7 +24,9 @@ que crea Amaia, por delante de pantallas solo decorativas.
   Amaia juega desde la **app instalada** en el iPhone, cuyos datos iOS guarda aparte de Safari: la
   herramienta `herramientas/copia-de-seguridad.html` y su marcador **no llegan** a esos datos.
   La copia útil para Amaia es la de los botones «Guardar mi progreso» / «Recuperar mi progreso»
-  dentro del juego (propuesta en `docs/propuestas/copia-integrada.patch`, pendiente de aprobación).
+  dentro del juego (en ⚙️ Ajustes; integrados en `avatar-creador`, sin publicar todavía).
+- Las pruebas en el iPhone se hacen en la **versión de pruebas** (otro origen, otra app «PRUEBAS» y
+  datos ficticios): `docs/VERSION_DE_PRUEBAS.md`. Nunca en la app de Amaia.
 
 ## 3. Módulos del juego
 

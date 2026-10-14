@@ -80,9 +80,8 @@ publique. Hasta entonces, se usa el **marcador**:
 
 ## C2. Copia integrada en el juego: «Guardar mi progreso» y «Recuperar mi progreso»
 
-**Estado:** propuesta preparada y probada en simulación, **no integrada** (espera la aprobación de la
-propietaria). Código completo en `docs/propuestas/copia-integrada.patch`; capturas en
-`docs/capturas/2026-10-14-copia/`.
+**Estado:** diseño aprobado e **integrado en `avatar-creador`** (sin publicar). Capturas en
+`docs/capturas/2026-10-14-copia/`. Prueba automática: `node pruebas/prueba-copia.js` (45 comprobaciones).
 
 - **Dónde:** en ⚙️ Ajustes (zona de adultos), sección «💾 Copia de seguridad».
 - **Guardar mi progreso:** crea `Mi-Mundo-progreso-AAAA-MM-DD.json` con todas las claves del juego y
@@ -97,15 +96,10 @@ propietaria). Código completo en `docs/propuestas/copia-integrada.patch`; captu
   falta de espacio), vuelve solo a como estaba. Después aparece «↩️ Deshacer la última recuperación».
 - Solo toca claves del juego; las láminas que ya había se conservan.
 
-**Cómo aplicarla, cuando se apruebe:** `git apply docs/propuestas/copia-integrada.patch` en
-`avatar-creador` (sube la caché a `v9`), `node pruebas/prueba-copia.js` y `node pruebas/prueba-juego.js`.
-
 **Prueba obligatoria en la app instalada del iPhone** (no se puede hacer desde el entorno de Claude),
-**nunca primero en el iPhone de Amaia**: instalar la versión de prueba en otro iPhone (o en otro perfil
-o dirección, para no mezclar datos) desde «Compartir → Añadir a pantalla de inicio», abrirla desde el
-icono y comprobar: guardar → «Guardar en Archivos» → el archivo aparece en iCloud Drive; jugar un poco;
-recuperar → la tabla es correcta → los datos vuelven; «Deshacer»; sin conexión, la app abre y los
-botones funcionan. Cuando todo pase, en el iPhone de Amaia lo primero será **guardar** (no recuperar).
+**en la versión de pruebas y nunca en la app de Amaia**: enlace, instalación y pasos en
+`docs/VERSION_DE_PRUEBAS.md` (otro origen, otra app «PRUEBAS», datos ficticios). Cuando todo pase y se
+publique, en el iPhone de Amaia lo primero será **guardar** (no recuperar).
 
 ## D. Recuperar el código
 

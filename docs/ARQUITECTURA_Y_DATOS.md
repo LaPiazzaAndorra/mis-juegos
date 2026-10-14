@@ -9,6 +9,8 @@ cambiar nada importante.
 | --- | --- |
 | `index.html` | Pantallas, estilos, navegación, pintar, galería, heladería, Vestir, Mi Mundo (habitación incluida), pensar y ajustes. |
 | `manifest.json` | Instalación como app (nombre, iconos, orientación). |
+| `progreso.js` | «Guardar mi progreso» / «Recuperar mi progreso»: crear, comprobar, compartir y recuperar copias; copia automática previa y deshacer; datos ficticios (solo en la versión de pruebas). |
+| `manifest-pruebas.json`, `icon-pruebas-192.png`, `icon-pruebas-512.png` | Identidad de la **versión de pruebas** («PRUEBAS», icono verde). Solo se usan en las direcciones de prueba (`window.MODO_PRUEBAS`, script al principio de `index.html`). |
 | `sw.js` | Funcionamiento sin conexión: caché `mis-juegos-vN` (código, lista `FILES`) y caché `mis-juegos-arte` (imágenes del avatar). |
 | `avatar/motor.js` | Compone el avatar por capas, lo anima, lo guarda y lo recupera. Elige el juego de piezas. |
 | `avatar/catalogo-muneca.js` | Catálogos de la muñeca ilustrada: `premium`, `prueba` y `demo`. Qué pieza va en cada capa. |
@@ -19,7 +21,7 @@ cambiar nada importante.
 | `arte/mascaras/` | Máscaras auxiliares (iris); no van al juego. |
 | `plantilla/` | `plantilla.js` (medidas de la base, fuente única), láminas y guías por pieza, `ASSETS.md`, `PELO.md`, `INSTRUCCIONES.md`. |
 | `herramientas/` | Comprobador de capas, validador de pelo, optimizador, medidor de la base, guías, variantes de color, copia de seguridad y comprobación de documentación. |
-| `pruebas/` | Prueba automática de regresión (`prueba-juego.js`). |
+| `pruebas/` | Pruebas automáticas: regresión (`prueba-juego.js`) y copia de seguridad / versión de pruebas (`prueba-copia.js`). |
 | `docs/` | Documentación del proyecto; `docs/historico/` guarda versiones anteriores; `docs/capturas/`, capturas de prueba. |
 | `.github/` | Plantilla de pull request y comprobación automática de documentación. |
 
@@ -54,10 +56,12 @@ cambiar nada importante.
 
 **IndexedDB:** base `misjuegos`, versión 1, almacén `tpl` (`{id, url}`) con las láminas importadas en «Pintar».
 
-**Previsto con la copia integrada** (`docs/propuestas/copia-integrada.patch`, aún no en el juego): la
-clave nueva `bk_ultima` (fecha de la última copia, solo informativa) y la base nueva
-`misjuegos-copias` (almacén `copias`, entrada `antes-de-recuperar`) con la copia automática de los
-datos anteriores a la última recuperación. No cambian ni borran ninguna clave existente.
+**Con la copia integrada** (en `avatar-creador`, sin publicar): clave nueva `bk_ultima` (fecha de la
+última copia, solo informativa; no va en las copias) y base nueva `misjuegos-copias` (almacén `copias`,
+entrada `antes-de-recuperar`) con la copia automática de los datos anteriores a la última recuperación.
+No cambian ni borran ninguna clave existente. Formato del archivo: el de
+`docs/PRUEBAS_Y_RECUPERACION.md` (apartado C); las copias hechas en la versión de pruebas llevan además
+`"version_pruebas": true` y el juego normal las rechaza.
 
 **App instalada en iOS:** sus datos están separados de los de Safari, aunque la dirección sea la misma.
 

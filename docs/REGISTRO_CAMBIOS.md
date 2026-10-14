@@ -5,7 +5,37 @@
 `herramientas/verificar_documentacion.py`. Las entradas más nuevas van arriba. El hash de un commit no
 puede ir dentro de él mismo: se escribe «este commit» y se completa en la entrada siguiente.
 
-### 2026-10-14 — Propuesta: «Guardar mi progreso» y «Recuperar mi progreso» dentro del juego
+### 2026-10-14 — Copia integrada en el juego y versión de pruebas para el iPhone
+
+- **Solicitado por:** la propietaria (aprueba el diseño de los botones; pide una versión de pruebas con
+  otro origen y datos separados para probar en su iPhone sin arriesgar el progreso de Amaia).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `fabee28`, el de la entrada siguiente).
+- **Estado:** en prueba (sin publicar).
+- **Cambios:**
+  - Integrada la propuesta de `fabee28`: `progreso.js`, botones en ⚙️ Ajustes, `pruebas/prueba-copia.js`.
+    Se quita el parche de `docs/propuestas/`.
+  - Versión de pruebas: script al principio de `index.html` (`window.MODO_PRUEBAS`, solo en
+    `raw.githack.com` / `rawcdn.githack.com` y `localhost?pruebas`) que cambia manifiesto, nombre e
+    icono; `manifest-pruebas.json`, `icon-pruebas-192.png`, `icon-pruebas-512.png`; cinta «VERSIÓN DE
+    PRUEBAS»; «Cargar datos ficticios» en Ajustes; copias `PRUEBAS-…json` con `version_pruebas`, que el
+    juego normal rechaza.
+  - Caché `v9` (nuevos archivos en `FILES`).
+  - Documentos: nuevo `docs/VERSION_DE_PRUEBAS.md`; `CLAUDE.md`, manual, `README.md`, estado,
+    arquitectura, decisiones (D-011), hoja de ruta y recuperación (C2).
+- **Archivos:** `index.html`, `progreso.js`, `sw.js`, `manifest-pruebas.json`, `icon-pruebas-*.png`,
+  `pruebas/prueba-copia.js`, `docs/…`, `docs/capturas/2026-10-14-copia/` (2 capturas nuevas).
+- **Datos guardados afectados:** ninguna clave existente cambia. Nuevas: `bk_ultima` y la base
+  `misjuegos-copias`. Los datos ficticios solo pueden cargarse en la versión de pruebas.
+- **Pruebas:** Chromium con app instalada y hoja de compartir simuladas: `prueba-copia.js` 45/45
+  (incluye identidad de la versión de pruebas, datos ficticios, copias marcadas y rechazo en el juego
+  normal) y `prueba-juego.js` 21/21. **No probado en el iPhone real**, y el enlace `raw.githack.com`
+  no se ha podido abrir desde el entorno de Claude (red bloqueada).
+- **Pendiente:** prueba de la propietaria en la app «PRUEBAS»; después, publicar con aprobación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit; los datos nuevos (`bk_ultima`, `misjuegos-copias`)
+  no molestan a versiones anteriores.
+
+### 2026-10-14 — `fabee28` · Propuesta: «Guardar mi progreso» y «Recuperar mi progreso» dentro del juego
 
 - **Solicitado por:** la propietaria (Amaia juega desde la app instalada en el iPhone).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `99adb29`).
