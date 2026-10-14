@@ -9,7 +9,7 @@ puede ir dentro de él mismo: se escribe «este commit» y se completa en la ent
 
 - **Rama y commit:** `avatar-creador`, este commit (sobre `49e062e`, que es el commit de la entrada siguiente).
 - **Cambios:** la entrada anterior decía que se había creado la etiqueta `publicado-2026-10-11`, pero GitHub rechazó subirla (403). Corregidos el estado, el registro y el apartado D de recuperación, con instrucciones para crearla desde la web.
-- **Pruebas:** `git ls-remote --tags origin` (sin etiquetas). Solo documentación.
+- **Pruebas:** `git ls-remote --tags origin` (sin etiquetas). Solo documentación. También se aclara en `ESTADO_ACTUAL.md` que pintar, heladería y pensar no están cubiertos por la prueba automática.
 - **¿`main` intacta?:** sí (`4bbf51d`).
 
 ### 2026-10-14 — Documentación permanente, copia de seguridad y prueba automática

@@ -13,10 +13,11 @@ comprobado:** `b266e52` (más el commit de documentación que añade este archiv
 - `avatar-creador` = desarrollo en curso, **sin publicar**.
 - Dirección pública del juego: **por confirmar** con la propietaria.
 
-## Qué funciona en `avatar-creador` (comprobado)
+## Qué hay en `avatar-creador`
 
 - Todo lo de `main`: pintar, láminas e importación, galería, heladería, juegos de pensar, ajustes y
-  funcionamiento sin conexión.
+  funcionamiento sin conexión. El código de esas partes no se ha cambiado, pero **la prueba
+  automática no las cubre todavía**: hay que revisarlas a mano antes de publicar.
 - **Vestir** nuevo: creador de avatar con guardado y edición posterior (`avatar`, `avatar_draft`),
   foto, parpadeo, saludo y salto. Con el arte actual, el juego normal usa la **muñeca provisional**
   (`prueba`) con dos tonos de piel.
