@@ -7,7 +7,9 @@ comprobado:** `b266e52` (más el commit de documentación que añade este archiv
 ## Repositorio
 
 - Juego: `LaPiazzaAndorra/mis-juegos` (**público**). No confundir con `la-piazza-gestio`.
-- `main` = versión publicada (11/10/2026), etiquetada como `publicado-2026-10-11`.
+- `main` = versión publicada (11/10/2026), commit `4bbf51d`: es el **punto de recuperación**. La etiqueta
+  `publicado-2026-10-11` está pendiente: el entorno de Claude no puede subir etiquetas (error 403);
+  hay que crearla desde la web (ver `docs/PRUEBAS_Y_RECUPERACION.md`, apartado D).
 - `avatar-creador` = desarrollo en curso, **sin publicar**.
 - Dirección pública del juego: **por confirmar** con la propietaria.
 

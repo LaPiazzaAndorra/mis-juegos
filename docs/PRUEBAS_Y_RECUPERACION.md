@@ -76,8 +76,11 @@ aprobación, porque cambia el juego).
 
 ## D. Recuperar el código
 
-1. Mirar el último commit estable aprobado en `docs/ESTADO_ACTUAL.md` y las etiquetas
-   (`git tag -l`; por ejemplo, `publicado-2026-10-11` es la versión publicada de `main`).
+1. Mirar el último commit estable aprobado en `docs/ESTADO_ACTUAL.md`. La versión publicada el
+   11/10/2026 es el commit `4bbf51d` de `main`. Para marcarla con una etiqueta permanente (el entorno
+   de Claude no puede crear etiquetas): GitHub → **Releases → Draft a new release → Choose a tag** →
+   escribir `publicado-2026-10-11` → **Target: main** → publicar. Cada publicación futura debería
+   llevar su etiqueta `publicado-AAAA-MM-DD`.
 2. Antes de revertir: hacer copia de los datos del juego (apartado C) y anotar el estado de la rama.
 3. Crear una rama de recuperación desde el commit sano: `git switch -c recuperacion <commit>`.
    **Nunca `git push --force` a `main`.**

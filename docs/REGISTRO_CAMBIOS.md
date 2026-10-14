@@ -5,10 +5,17 @@
 `herramientas/verificar_documentacion.py`. Las entradas más nuevas van arriba. El hash de un commit no
 puede ir dentro de él mismo: se escribe «este commit» y se completa en la entrada siguiente.
 
+### 2026-10-14 — Corrección: la etiqueta de la versión publicada queda pendiente
+
+- **Rama y commit:** `avatar-creador`, este commit (sobre `49e062e`, que es el commit de la entrada siguiente).
+- **Cambios:** la entrada anterior decía que se había creado la etiqueta `publicado-2026-10-11`, pero GitHub rechazó subirla (403). Corregidos el estado, el registro y el apartado D de recuperación, con instrucciones para crearla desde la web.
+- **Pruebas:** `git ls-remote --tags origin` (sin etiquetas). Solo documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`).
+
 ### 2026-10-14 — Documentación permanente, copia de seguridad y prueba automática
 
 - **Solicitado por:** la propietaria (paquete «Manual para GitHub»).
-- **Rama y commit:** `avatar-creador`, este commit (sobre `b266e52`).
+- **Rama y commit:** `avatar-creador`, `49e062e` (sobre `b266e52`).
 - **Estado:** en la rama, sin publicar.
 - **Cambios:**
   - Documentación del paquete incorporada y corregida contra el código: módulos de `main` frente a
@@ -21,7 +28,8 @@ puede ir dentro de él mismo: se escribe «este commit» y se completa en la ent
   - Comprobación de documentación ampliada: entrada fechada obligatoria y versión de la caché.
     Workflow `.github/workflows/verificar-documentacion.yml` y plantilla de pull request.
   - Las capturas que se colaron en la raíz en `8cef5dc` se mueven a `docs/capturas/2026-10-13/`.
-  - Etiqueta `publicado-2026-10-11` en `4bbf51d` (versión publicada de `main`).
+  - Punto de recuperación anotado: `4bbf51d` (versión publicada de `main`). La etiqueta
+    `publicado-2026-10-11` no se pudo subir (GitHub devuelve 403 al entorno de Claude): pendiente de crearla desde la web.
 - **Archivos:** `CLAUDE.md`, `README.md`, `docs/*.md`, `docs/historico/`, `docs/capturas/`, `.github/`,
   `herramientas/copia-de-seguridad.html`, `herramientas/verificar_documentacion.py`,
   `pruebas/prueba-juego.js`, `.gitignore`.
@@ -76,7 +84,7 @@ interactiva (`mm_hab`). Caché v4.
 
 ### 2026-10-10 / 11 — `2e49312` … `4bbf51d` · Versión publicada en `main`
 Subidas desde la web de GitHub («Add files via upload»): juego completo, estilo pastel «fase 1»
-(`e9560b7`), caché v3 (`4bbf51d`). Etiqueta `publicado-2026-10-11`.
+(`e9560b7`), caché v3 (`4bbf51d`). Punto de recuperación de la versión publicada.
 
 ## Plantilla obligatoria (copiar para cada tarea)
 
