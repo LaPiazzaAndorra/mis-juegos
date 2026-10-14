@@ -34,6 +34,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 | [`docs/PRUEBAS_Y_RECUPERACION.md`](docs/PRUEBAS_Y_RECUPERACION.md) | Pruebas, copias de seguridad de los datos, recuperación y protección de `main`. |
 | [`docs/REGISTRO_CAMBIOS.md`](docs/REGISTRO_CAMBIOS.md) | Historial de cambios comprobado contra Git, con plantilla obligatoria. |
 | [`docs/DECISIONES.md`](docs/DECISIONES.md) | Decisiones aprobadas y por qué: no repetir debates. |
+| [`docs/NORMA_VISUAL_MUNECA.md`](docs/NORMA_VISUAL_MUNECA.md) | Norma visual permanente de la muñeca (D-013) y lista de revisión de cada pieza. |
 | [`docs/HOJA_DE_RUTA.md`](docs/HOJA_DE_RUTA.md) | Ideas y mejoras futuras (no son funciones ya disponibles). |
 | [`plantilla/`](plantilla/) | Plantilla de la muñeca, guías por pieza, `ASSETS.md`, `PELO.md` e `INSTRUCCIONES.md`. |
 | [`avatar/LEEME.md`](avatar/LEEME.md) | Funcionamiento técnico del motor del avatar. |

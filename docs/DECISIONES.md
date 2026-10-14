@@ -1,5 +1,18 @@
 # Registro de decisiones
 
+## D-013 · Norma visual permanente: nenita de unos 5–6 años con la cara de D-012 · 14/10/2026
+- **Decisión de la propietaria:** la muñeca tiene aspecto de nenita de unos 5–6 años (orientación
+  artística): cabeza grande, cuello corto, hombros estrechos, torso compacto y brazos y piernas
+  cortitos y redondeados. Nada de proporciones adolescentes, piernas estilizadas ni cintura o
+  caderas de adulta.
+- **Cara:** se conserva la identidad de D-012 (ojos grandes algo separados, sonrisa, nariz pequeña,
+  pecas, mejillas redondeadas). El pelo y la ropa se adaptan a la muñeca; nunca se deforma su cara.
+- **Permanente:** no se vuelve a debatir con cada pieza; cada resultado nuevo sí se revisa
+  visualmente con la lista de [`NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md).
+- **Límites:** la última imagen de cuerpo más compacto es un borrador (no está en el repositorio);
+  no hay capas definitivas nuevas ni medidas aprobadas. Se conservan la V2.1 (D-007) y la
+  referencia de D-012. Sin cambios de código, catálogo, datos ni `main`.
+
 ## D-012 · Nueva referencia visual de muñeca elegida · 14/10/2026
 - **Decisión de la propietaria:** «Sí esta me encanta» sobre la propuesta de cuerpo entero
   conservada en `docs/propuestas/muneca-elegida-2026-10-14/referencia-aprobada.png`.

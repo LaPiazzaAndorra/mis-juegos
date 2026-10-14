@@ -17,7 +17,8 @@ corregir la documentación.
    No afirmar que se tiene permiso de escritura hasta haberlo probado con un `git push`.
 3. Leer enteros: `README.md`, `docs/ESTADO_ACTUAL.md`, `docs/DECISIONES.md`, las últimas
    entradas de `docs/REGISTRO_CAMBIOS.md` y el documento técnico de la tarea
-   (`docs/ARQUITECTURA_Y_DATOS.md`, `docs/AVATAR_Y_ASSETS.md`, `plantilla/PELO.md`…).
+   (`docs/ARQUITECTURA_Y_DATOS.md`, `docs/AVATAR_Y_ASSETS.md`, `plantilla/PELO.md`…); para la muñeca,
+   siempre [`docs/NORMA_VISUAL_MUNECA.md`](docs/NORMA_VISUAL_MUNECA.md).
 4. Comparar la documentación con el código y con los últimos commits; si no coinciden, decirlo y corregirlo.
 5. Antes de cambiar nada, resumir a la propietaria: último commit real, estado, objetivo, riesgos,
    pruebas previstas y archivos que se van a tocar.
@@ -31,6 +32,9 @@ corregir la documentación.
 - No borrar, renombrar ni reiniciar claves de `localStorage` ni la base IndexedDB `misjuegos`
   (lista en `docs/ARQUITECTURA_Y_DATOS.md`) sin una migración probada y una copia previa.
 - Mantener los identificadores del catálogo del avatar (los personajes guardados los usan).
+- **Toda pieza o imagen de la muñeca sigue `docs/NORMA_VISUAL_MUNECA.md` (D-013):** nenita de unos
+  5–6 años con la cara elegida en D-012; las piezas se adaptan a ella, nunca se deforma su cara.
+  Esa dirección no se vuelve a debatir; cada resultado nuevo sí se revisa con su lista.
 - Mantener el diseño pastel aprobado, los textos en castellano y una interacción táctil infantil.
   Nada de emojis como arte definitivo de la muñeca o de las mascotas.
 - **Un borrador de arte no es un recurso definitivo**: pasa el comprobador o validador y la

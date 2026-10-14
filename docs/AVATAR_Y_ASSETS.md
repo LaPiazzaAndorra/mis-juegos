@@ -5,6 +5,11 @@
 > V2.1 conservadas, no capas ya realizadas para la nueva referencia. Antes de reemplazar una
 > base hay que revisar la identidad, la resolución real, las medidas y las guías. Ningún pelo
 > generado durante esta continuación se ha integrado como definitivo.
+>
+> **Norma visual permanente, 14/10/2026 (D-013):** toda pieza nueva sigue
+> [`NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md): nenita de unos 5–6 años (cabeza grande, cuerpo
+> compacto, brazos y piernas cortitos y redondeados) con la cara de D-012. El pelo y la ropa se adaptan
+> a la muñeca. La última imagen de cuerpo más compacto es un borrador: no hay capas ni medidas nuevas aprobadas.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

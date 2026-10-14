@@ -1,5 +1,12 @@
 # Estado actual y siguiente paso
 
+## Norma visual de la muñeca · 14/10/2026 (D-013)
+
+Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
+años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas
+aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en
+el repositorio). El juego sigue usando las piezas V2.1, que se conservan.
+
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
 **Nueva referencia visual de la muñeca elegida.** Véase

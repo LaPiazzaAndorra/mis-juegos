@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-14 — Nueva referencia visual de la muñeca elegida por la propietaria
+### 2026-10-14 — D-013: norma visual permanente de la muñeca
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `6e4aa8c`, el de la entrada siguiente).
+- **Estado:** decisión acordada; solo documentación.
+- **Cambios:** nuevo `docs/NORMA_VISUAL_MUNECA.md` (proporciones de nenita de unos 5–6 años, cara
+  de D-012, las piezas se adaptan a la muñeca, lista de revisión); D-013 en decisiones; enlace y
+  norma en `CLAUDE.md`; avisos en estado y assets. Se conservan la V2.1 y la referencia de D-012.
+- **Archivos:** `docs/NORMA_VISUAL_MUNECA.md`, `CLAUDE.md`, `README.md`, `docs/DECISIONES.md`,
+  `docs/ESTADO_ACTUAL.md`, `docs/AVATAR_Y_ASSETS.md`, `docs/REGISTRO_CAMBIOS.md`.
+- **Datos guardados afectados:** ninguno. Sin cambios de código, caché, catálogo ni imágenes.
+- **Pruebas:** comprobador de documentación; revisión del diff. El borrador de cuerpo más compacto
+  no se ha incorporado (no está en el repositorio).
+- **Pendiente:** capas y medidas de la nueva muñeca, revisadas con la norma.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit (solo documentación).
+
+### 2026-10-14 — `6e4aa8c` · Nueva referencia visual de la muñeca elegida por la propietaria
 
 - **Solicitado por:** la propietaria, tras revisar propuestas: «Sí esta me encanta».
 - **Rama y commit:** `avatar-creador`, este commit (sobre `2dc61c7`). Preparado en ChatGPT como
