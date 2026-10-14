@@ -1,0 +1,57 @@
+# Registro de decisiones
+
+**Regla:** cada decisión importante tiene su sección con fecha. Una decisión aprobada no se cambia en
+silencio: se añade otra nueva que explica el motivo y a cuál sustituye.
+
+## D-001 · Documentación versionada en GitHub · 14/10/2026
+- **Decisión:** la documentación del proyecto y el registro de cada cambio viven junto al código; el
+  estado y el registro se actualizan en el mismo commit que el cambio.
+- **Motivo:** un asistente puede perder el contexto de una conversación; Git conserva el historial.
+- **Límite:** Git no guarda los datos del navegador de Amaia (ver D-009).
+
+## D-002 · `main` protegida · 14/10/2026
+- **Decisión:** se desarrolla en ramas; `main` no se modifica ni se fusiona sin aprobación explícita.
+- **Motivo:** que una prueba nunca sustituya al juego que usa Amaia.
+
+## D-003 · Estética aprobada · 11/10/2026
+- **Decisión:** se conservan los menús pastel con arcoíris, los botones grandes y las ilustraciones
+  propias de la «fase 1» (commit `e9560b7`).
+- **Motivo:** el diseño gusta; no se rediseña para meter funciones.
+
+## D-004 · Avatar por capas, guardable y usable en «Mi Mundo» · 13/10/2026
+- **Decisión:** piel, ojos, pelo, ropa, zapatos y accesorios intercambiables; el personaje se guarda,
+  se edita después y aparece en «Mi Mundo».
+- **Motivo:** la ilustración tiene que ser interactiva, no una imagen plana.
+
+## D-005 · Datos de usuario preservados · 13/10/2026
+- **Decisión:** al actualizar la app se mantienen estrellas, dibujos, escenas, niveles, monedas, ajustes
+  y láminas. El avatar nuevo usa claves nuevas (`avatar`, `avatar_draft`, `mm_hab`) y no modifica
+  `doll` ni ninguna anterior.
+- **Consecuencia:** pruebas con datos antiguos y migraciones probadas si cambia un formato.
+
+## D-006 · Arte de la muñeca: PNG por capas sobre una postura fija (opción B) · 13/10/2026
+- **Decisión:** la calidad de ilustración de referencia no se puede conseguir con SVG dibujado en
+  código. Se usan PNG transparentes de 2000 × 3500 sobre una postura base, ilustrados por la
+  propietaria con su herramienta de imágenes, más comprobador, optimizador (WebP al 30 y al 50 %) y
+  plantilla.
+- **Descartado:** muñeco vectorial como versión final (queda solo de reserva) y personajes completos
+  sin capas (no permiten combinar piezas ni animar).
+
+## D-007 · Base premium V2.1 aprobada · 13/10/2026
+- **Decisión:** `arte/originales/base-clara.png` V2.1 (cuello más corto, brazos a 21°, codos y muslo
+  retocados) es la base. `plantilla/plantilla.js` (versión 2) toma sus medidas.
+
+## D-008 · La muñeca premium solo se activa completa · 13/10/2026
+- **Decisión:** el juego usa la muñeca premium cuando tiene al menos una piel, unos ojos, un peinado y
+  una ropa completos. Mientras tanto se usa la provisional; `?arte=borrador` permite revisar.
+- **Motivo:** que Amaia nunca vea una muñeca calva o sin ojos.
+
+## D-009 · Copias de seguridad de los datos con una herramienta aparte · 14/10/2026
+- **Decisión:** `herramientas/copia-de-seguridad.html` (y su marcador) copia y restaura los datos sin
+  modificar el juego. Antes de restaurar siempre descarga una copia de lo actual.
+- **Pendiente:** un botón dentro del juego, solo con aprobación.
+
+## D-010 · Pelo: el diseño se conserva y los archivos del borrador no se usan · 14/10/2026
+- **Decisión:** se mantiene el diseño de rizos castaños largos. Los PNG del primer borrador quedan
+  rechazados (restos de otra figura, cortes rectos, islas, poca resolución) y se crean de nuevo con
+  `plantilla/PELO.md` y `herramientas/validar-pelo.html`.

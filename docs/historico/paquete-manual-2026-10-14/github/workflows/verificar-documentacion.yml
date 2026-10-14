@@ -1,0 +1,23 @@
+name: Documentacion sincronizada
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio y su historial
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verificar estado y registro por cada cambio de codigo
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 herramientas/verificar_documentacion.py "$BASE_SHA" "$HEAD_SHA"

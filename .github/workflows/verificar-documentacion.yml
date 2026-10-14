@@ -1,0 +1,34 @@
+# Mi Mundo de Juegos · comprueba en cada pull request que los cambios del juego llegan con su
+# documentación (docs/ESTADO_ACTUAL.md + entrada fechada en docs/REGISTRO_CAMBIOS.md) y que se
+# sube la versión de la caché de sw.js cuando cambia un archivo cacheado.
+# Para exigirla antes de fusionar: Settings → Branches → regla para main → «Require status checks»
+# → marcar «Documentación sincronizada» (ver docs/PRUEBAS_Y_RECUPERACION.md, apartado F).
+name: Documentacion sincronizada
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comprobar:
+    name: Documentación sincronizada
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Descargar el repositorio con su historial
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Comprobar estado, registro de cambios y versión de caché
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python3 herramientas/verificar_documentacion.py "$BASE_SHA" "$HEAD_SHA"

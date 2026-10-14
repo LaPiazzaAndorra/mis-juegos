@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copia de seguridad</title>
+<!-- Copia de seguridad de los datos de Mi Mundo de Juegos (estrellas, dibujos, avatar, escenas,
+     niveles, monedas, ajustes y láminas importadas).
+     Los datos viven en el navegador, por sitio web: esta página solo los ve si se abre desde el
+     MISMO sitio que el juego (misma dirección de inicio, p. ej. https://…github.io/).
+     No modifica el juego. Ver docs/PRUEBAS_Y_RECUPERACION.md. -->
+<style>
+:root{--ink:#4a3a5c;--soft:#8a7a9c;--bg:#fff6fb;--ok:#2e9e6a;--err:#d6336c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 ui-rounded,"Nunito",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:18px 16px 40px}h1{font-size:26px;margin:4px 0}h2{font-size:20px;margin:0 0 8px}
+.card{background:#fff;border-radius:22px;padding:16px;margin:14px 0;box-shadow:0 6px 0 rgba(74,58,92,.08),0 10px 24px rgba(74,58,92,.06)}
+button,.btn{border:0;border-radius:16px;padding:12px 18px;font:inherit;font-weight:900;color:var(--ink);background:linear-gradient(150deg,#ddfaeb,#b8efd3);cursor:pointer;display:inline-block}
+button.b{background:#f5eefa}button.peligro{background:linear-gradient(150deg,#ffe0ee,#ffc2dc)}button:disabled{opacity:.45}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{padding:6px 4px;border-bottom:1px solid #f0e6f6;text-align:left}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.t{color:var(--soft);font-size:14px}.ok{color:var(--ok);font-weight:800}.err{color:var(--err);font-weight:800}
+textarea{width:100%;height:90px;font:12px ui-monospace,monospace;border-radius:12px;border:1px solid #e7dcef;padding:8px}
+input[type=file]{display:none}
+</style></head><body><main>
+<h1>Copia de seguridad de Mi Mundo de Juegos</h1>
+<p class="t">Guarda en un archivo las estrellas, los dibujos, el personaje, las escenas, los niveles, las monedas, los ajustes y las láminas importadas. El archivo se queda en este dispositivo o donde lo guardes tú: no se sube a internet.</p>
+
+<section class="card"><h2>1 · Datos de este navegador</h2>
+  <div id="resumen" class="t">Leyendo…</div>
+  <p><button id="exportar">💾 Hacer copia de seguridad</button> <button class="b" id="compartir" hidden>📤 Compartir la copia</button></p>
+  <p id="estadoExp" class="t"></p>
+</section>
+
+<section class="card"><h2>2 · Restaurar una copia</h2>
+  <p class="t">Antes de restaurar se descarga automáticamente una copia de lo que hay ahora. Solo se sustituyen los datos que vienen en el archivo; lo demás no se toca.</p>
+  <label class="btn" style="background:#f5eefa">📂 Elegir archivo de copia<input id="archivo" type="file" accept=".json,application/json"></label>
+  <div id="vista" class="t" style="margin-top:10px"></div>
+  <p><button class="peligro" id="restaurar" disabled>♻️ Restaurar esta copia</button></p>
+  <p id="estadoRes" class="t"></p>
+</section>
+
+<section class="card"><h2>Marcador para copiar desde el propio juego</h2>
+  <p class="t">Si esta página no se puede abrir desde el mismo sitio que el juego, se puede hacer la copia con un marcador de Safari:
+  1) añade cualquier página a Favoritos; 2) edita ese favorito y sustituye su dirección por el texto de abajo; 3) abre el juego y toca el favorito.
+  Solo lee los datos y descarga el archivo: no cambia nada.</p>
+  <textarea id="marcador" readonly></textarea>
+</section>
+</main>
+<script>
+'use strict';
+/* Claves del juego (ver docs/ARQUITECTURA_Y_DATOS.md). Se exportan también las que empiezan por sc_ o lv_. */
+// Función autónoma: la usa esta página y se convierte tal cual en el marcador.
+function copiaMiMundo(soloLeer){
+  const CLAVES=['stars','gal','sound','voice','tone','iceServed','iceCoins','scKey','mm_hab','avatar','avatar_draft','doll'],PREF=['sc_','lv_'];
+  const ls={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(CLAVES.includes(k)||PREF.some(p=>k.startsWith(p)))ls[k]=localStorage.getItem(k)}
+  const leerIDB=()=>new Promise(ok=>{let r;try{r=indexedDB.open('misjuegos')}catch(e){return ok([])}
+    r.onerror=()=>ok([]);r.onupgradeneeded=()=>{r.transaction.abort();ok([])};
+    r.onsuccess=()=>{const db=r.result;if(!db.objectStoreNames.contains('tpl')){db.close();return ok([])}
+      const q=db.transaction('tpl').objectStore('tpl').getAll();q.onsuccess=()=>{db.close();ok(q.result||[])};q.onerror=()=>{db.close();ok([])}}});
+  return leerIDB().then(tpl=>{
+    const copia={format:'mi-mundo-juegos-respaldo',schema_version:1,exported_at:new Date().toISOString(),origen:location.origin,local_storage:ls,indexeddb:{misjuegos:{tpl}}};
+    if(soloLeer)return copia;
+    const n='mi-mundo-copia-'+copia.exported_at.slice(0,16).replace(/[:T]/g,'-')+'.json',b=new Blob([JSON.stringify(copia)],{type:'application/json'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;document.body.appendChild(a);a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);
+    if(!soloLeer&&typeof alert==='function'&&!window.__copiaPagina)alert('Copia de Mi Mundo descargada: '+n+' ('+Math.round(b.size/1024)+' KB)');
+    return copia;
+  });
+}
+window.__copiaPagina=true;
+const $=s=>document.querySelector(s);
+const kb=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+function contar(c){
+  const ls=c.local_storage||{},j=k=>{try{return JSON.parse(ls[k])}catch(e){return null}};
+  const gal=j('gal')||[],av=j('avatar'),esc=Object.keys(ls).filter(k=>k.startsWith('sc_')),lv=Object.keys(ls).filter(k=>k.startsWith('lv_'));
+  const tpl=((c.indexeddb||{}).misjuegos||{}).tpl||[];
+  return [['⭐ Estrellas',j('stars')??0],['🖼️ Dibujos y fotos en la galería',gal.length],['👧 Personaje guardado',av?'sí':'no'],['🏠 Escenas con objetos',esc.length],
+    ['🧠 Niveles de los juegos de pensar',lv.length],['🍦 Monedas de la heladería',j('iceCoins')??0],['🎨 Láminas importadas',tpl.length],
+    ['Tamaño',kb(JSON.stringify(c).length)]];
+}
+const tabla=(filas,otra)=>`<table><tr><th></th><th class="n">${otra?'En el archivo':'Ahora'}</th>${otra?'<th class="n">Ahora</th>':''}</tr>`+
+  filas.map((f,i)=>`<tr><td>${f[0]}</td><td class="n">${f[1]}</td>${otra?`<td class="n">${otra[i][1]}</td>`:''}</tr>`).join('')+'</table>';
+let actual=null,entrante=null,ultimaCopia=null;
+async function refrescar(){actual=await copiaMiMundo(true);$('#resumen').innerHTML=tabla(contar(actual))+`<p class="t">Sitio: ${location.origin}</p>`}
+$('#exportar').onclick=async()=>{const c=await copiaMiMundo(false);ultimaCopia=c;$('#estadoExp').innerHTML=`<span class="ok">✅ Copia descargada</span> (${kb(JSON.stringify(c).length)}). Guárdala en Archivos, iCloud o envíatela por correo.`;
+  if(navigator.canShare)$('#compartir').hidden=false};
+$('#compartir').onclick=async()=>{const c=ultimaCopia||await copiaMiMundo(true),f=new File([JSON.stringify(c)],'mi-mundo-copia.json',{type:'application/json'});
+  try{if(navigator.canShare({files:[f]}))await navigator.share({files:[f],title:'Copia de Mi Mundo de Juegos'})}catch(e){}};
+$('#archivo').onchange=async e=>{const f=e.target.files[0];if(!f)return;entrante=null;$('#restaurar').disabled=true;
+  try{const c=JSON.parse(await f.text());
+    if(c.format!=='mi-mundo-juegos-respaldo'||c.schema_version!==1||typeof c.local_storage!=='object')throw new Error('No es una copia de Mi Mundo de Juegos (o es de una versión que esta página no conoce).');
+    for(const v of Object.values(c.local_storage))if(typeof v!=='string')throw new Error('El archivo está dañado.');
+    entrante=c;$('#vista').innerHTML=`<b>${f.name}</b> · hecha el ${new Date(c.exported_at).toLocaleString('es-ES')}`+tabla(contar(c),contar(actual));$('#restaurar').disabled=false;
+  }catch(err){$('#vista').innerHTML=`<span class="err">❌ ${err.message}</span>`}e.target.value=''};
+$('#restaurar').onclick=async()=>{if(!entrante)return;
+  if(!confirm('¿Restaurar esta copia? Se sustituirán los datos que vienen en el archivo. Antes se descargará una copia de los datos actuales.'))return;
+  await copiaMiMundo(false);                                   // copia de lo que hay ahora
+  const ls=entrante.local_storage;let errores=0;
+  for(const[k,v]of Object.entries(ls)){try{localStorage.setItem(k,v)}catch(e){errores++}}
+  const tpl=((entrante.indexeddb||{}).misjuegos||{}).tpl||[];
+  if(tpl.length)await new Promise(ok=>{const r=indexedDB.open('misjuegos',1);r.onupgradeneeded=()=>r.result.createObjectStore('tpl',{keyPath:'id'});
+    r.onsuccess=()=>{const tx=r.result.transaction('tpl','readwrite'),st=tx.objectStore('tpl');tpl.forEach(t=>st.put(t));tx.oncomplete=()=>{r.result.close();ok()};tx.onerror=()=>{errores++;ok()}};r.onerror=()=>{errores++;ok()}});
+  await refrescar();
+  $('#estadoRes').innerHTML=errores?`<span class="err">⚠️ Restaurada con ${errores} error${errores>1?'es':''} (posible falta de espacio). Tienes la copia de antes descargada.</span>`:'<span class="ok">✅ Copia restaurada. Abre el juego para comprobarlo.</span>';
+  window.resultadoRestaurar={errores};};
+$('#marcador').value='javascript:('+copiaMiMundo.toString().replace(/\s*\n\s*/g,'')+')(false)';
+refrescar();
+</script></body></html>

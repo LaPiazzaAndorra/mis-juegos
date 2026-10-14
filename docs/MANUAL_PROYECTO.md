@@ -1,0 +1,72 @@
+# Manual del proyecto — Mi Mundo de Juegos
+
+**Revisado:** 14/10/2026 contra el código de `main` (`4bbf51d`) y de `avatar-creador`.
+**Propósito:** que el proyecto pueda continuar desde cualquier dispositivo, conversación o asistente.
+
+## 1. Objetivo
+
+Juego infantil creativo e interactivo, en castellano, pensado para iPhone y iPad y fácil de tocar
+para una niña pequeña. Prioridades: interacción real, ilustración de calidad y guardado seguro de lo
+que crea Amaia, por delante de pantallas solo decorativas.
+
+## 2. Requisitos que no se negocian
+
+- Conservar el diseño de menús aprobado: colores pastel, arcoíris, botones grandes e ilustraciones propias.
+- La muñeca y las mascotas definitivas son ilustraciones propias, nunca emojis del sistema. Los
+  juegos de pensar y las pegatinas de «Mi Mundo» todavía usan emojis: es el **estado actual**, y
+  sustituirlos es un **objetivo futuro**.
+- Ilustración de calidad, expresiones amables, pequeñas animaciones y refuerzo positivo; sin
+  publicidad ni compras.
+- Cambios graduales: comprobar que todo lo anterior sigue funcionando antes de publicar.
+- No perder nunca estrellas, dibujos, láminas importadas, personaje, escenas, niveles, monedas ni
+  ajustes. Si cambia un formato, se hace una migración probada.
+- Los datos pertenecen al navegador del dispositivo. No hay sincronización entre dispositivos; la
+  copia de seguridad es manual (`herramientas/copia-de-seguridad.html`).
+
+## 3. Módulos del juego
+
+| Apartado | Publicado en `main` (`4bbf51d`) | Además en `avatar-creador` (sin publicar) |
+| --- | --- | --- |
+| **Pintar** | Hoja en blanco (pincel, cubo, sellos, deshacer, borrar), láminas para colorear, importar láminas propias y galería «Mis dibujos». | Sin cambios. |
+| **Heladería** | Pedidos de helados, monedas y estrellas. | Sin cambios. |
+| **Vestir** | Muñeco sencillo (formas y emojis) guardado en la clave `doll`; foto a la galería. | Nuevo creador de avatar: muñeca vectorial de reserva y motor de muñeca ilustrada por capas PNG (premium, en desarrollo). Guardar y editar después (claves `avatar` y `avatar_draft`), parpadeo, saludo, salto con destellos y foto. |
+| **Mi Mundo** | 6 escenarios (casa, parque, playa, mar, castillo, espacio) con pegatinas arrastrables. | Nueva **habitación** interactiva (escenario inicial) con el personaje guardado: caminar, dormir en la cama, pelota, lámpara y día/noche. |
+| **Pensar** | Parejas, Contar, ¿Qué sigue?, Sombras y El diferente, con dificultad adaptable y estrellas. | Sin cambios. |
+| **Ajustes** | Sonido, voz y tono; app instalable y con funcionamiento sin conexión (caché `mis-juegos-v3`). | Caché `mis-juegos-v8` y caché aparte para el arte del avatar. |
+
+El estado detallado (lo probado y lo pendiente) está en `docs/ESTADO_ACTUAL.md`.
+
+## 4. Arquitectura en pocas palabras
+
+Aplicación web instalable (PWA) sin servidor propio: `index.html` contiene la interfaz y casi toda
+la lógica; `avatar/` compone la muñeca; `manifest.json` la hace instalable y `sw.js` la deja
+funcionar sin conexión. El arte original de la muñeca está en `arte/originales/` y
+`herramientas/optimizar.py` lo convierte en las imágenes del juego (`avatar/arte/`). Los datos se
+guardan en `localStorage` y las láminas importadas en IndexedDB. Detalle completo en
+`docs/ARQUITECTURA_Y_DATOS.md`.
+
+## 5. Cómo añadir una función
+
+1. Anotarla en `docs/HOJA_DE_RUTA.md` como **Propuesta**, con criterios de aceptación.
+2. Identificar los datos, archivos y funciones afectados, y escribir qué no puede romperse.
+3. Trabajar en una rama; `main` solo cambia con aprobación.
+4. Implementar solo lo acordado; si hay arte, por capas y validado.
+5. Probar el flujo entero, incluida la persistencia tras recargar (`node pruebas/prueba-juego.js` más
+   pruebas manuales en iPhone y iPad).
+6. Enseñar el resultado a la propietaria y obtener su aprobación antes de activarlo por defecto.
+7. Actualizar `docs/ESTADO_ACTUAL.md` y `docs/REGISTRO_CAMBIOS.md` **en el mismo commit**.
+8. Solo con aprobación: pull request a `main`, comprobación de documentación, copia de seguridad de
+   los datos de Amaia y prueba de la app instalada tras publicar.
+
+## 6. Quién decide qué
+
+- **Propietaria del proyecto:** estética, funciones, aceptación visual y publicación.
+- **Asistente de código:** implementa, prueba, mantiene la compatibilidad, documenta y avisa de los límites.
+- **Ilustración:** prepara el arte en alta resolución con las plantillas; una capa no es definitiva
+  hasta pasar el validador y la aprobación visual.
+
+## 7. Regla para no perder el hilo
+
+En una conversación nueva no basta con decir «continúa». Hay que pedir: *«Abre `CLAUDE.md` y la
+carpeta `docs/` de `LaPiazzaAndorra/mis-juegos`, confirma el último commit real y resume el estado
+antes de cambiar archivos.»*

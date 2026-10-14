@@ -73,16 +73,18 @@ hairFront: { img: 'avatar/capas/pelo-melena-frente-{pelo}.png' }
 3. `python3 herramientas/optimizar.py` genera `avatar/arte/s|m/*.webp` y `avatar/arte/piezas.js`.
 4. `avatar/catalogo-muneca.js` dice qué pieza va en cada capa. Una opción solo aparece cuando
    existen todas sus piezas.
-5. El juego usa la muñeca ilustrada en cuanto hay una base disponible (con `?arte=svg` se
-   vuelve a la muñeca vectorial de la primera prueba).
+5. El juego usa la muñeca **premium** cuando tiene al menos una piel, unos ojos, un peinado y una
+   ropa completos; mientras tanto, la provisional (`prueba`). Para revisar: `?arte=borrador`
+   (premium con lo que haya), `?arte=prueba`, `?arte=demo` y `?arte=svg` (muñeca vectorial).
 
 Rendimiento en el iPhone: las piezas van recortadas a su contenido, en WebP, en dos tamaños
 (30 % y 50 %), y cada pantalla carga el más pequeño que se ve nítido. Las imágenes se
 decodifican antes de mostrarse (sin parpadeos) y se guardan sin conexión al primer uso.
 
-Las piezas de `arte/originales/` actuales son **piezas técnicas de prueba** (la muñeca
-vectorial dividida en capas) y solo sirven para probar el circuito; se sustituyen por el
-arte definitivo con los mismos nombres o con los nuevos del catálogo.
+En `arte/originales/`, los archivos que empiezan por `prueba-` son **piezas técnicas** (la muñeca
+vectorial dividida en capas) y `demo-diario.png` es la demostración de calidad. El arte premium
+aprobado (base V2.1 y ojos) usa los nombres del catálogo `premium`. Estado de cada pieza:
+`docs/AVATAR_Y_ASSETS.md`.
 
 ## Cuando llegue una base nueva (paso a paso)
 
