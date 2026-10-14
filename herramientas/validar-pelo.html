@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Validar pelo</title>
+<!-- Vista de validación del pelo de la muñeca premium.
+     Monta pelo-…-detras-….png y pelo-…-delante-….png sobre la base y los ojos aprobados,
+     enseña los puntos delicados al 100 % y revisa automáticamente:
+     tamaño, transparencia, opacidad, restos de piel, ojos y pestañas, nariz y boca,
+     coronilla, cortes rectos, recortes que siguen el contorno del cuerpo, islas sueltas y nitidez.
+     Nada se sube a internet: todo se comprueba en este dispositivo. -->
+<style>
+:root{--ink:#4a3a5c;--soft:#8a7a9c;--bg:#fff6fb;--ok:#2e9e6a;--warn:#c98a12;--err:#d6336c;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 ui-rounded,"Nunito",system-ui,sans-serif}
+header{padding:18px 16px 6px}h1{margin:0;font-size:24px}header p{margin:4px 0 0;color:var(--soft)}
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,440px);gap:16px;padding:12px 16px 32px}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:22px;padding:14px;box-shadow:0 6px 0 rgba(74,58,92,.08),0 10px 24px rgba(74,58,92,.06)}
+.pick{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pick label{background:linear-gradient(150deg,#ffe0ee,#ffc2dc);border-radius:16px;padding:12px 18px;font-weight:900;cursor:pointer}
+.pick label.b{background:#f5eefa;font-weight:700;font-size:14px;padding:8px 12px}
+.pick input{display:none}.t{color:var(--soft);font-size:13px;font-weight:700}
+.tog{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tog button{border:0;background:#f5eefa;border-radius:12px;padding:8px 12px;font:inherit;font-weight:800;color:var(--ink)}
+.tog button.on{background:#e7defe;box-shadow:inset 0 0 0 3px #a083ff}
+.vistas{display:flex;flex-wrap:wrap;gap:12px}
+.vista{flex:1 1 280px;min-width:0}.vista h3{margin:6px 0;font-size:15px}
+canvas{display:block;max-width:100%;height:auto;border-radius:14px}
+.zoom{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:12px}
+.zoom figure{margin:0}.zoom figcaption{font-weight:800;font-size:14px;margin:4px 2px}
+.file{border-top:1px solid #f0e6f6;padding:10px 2px}.file:first-child{border-top:0}
+.file h3{margin:0 0 4px;font-size:16px;word-break:break-all}
+.r{margin:3px 0;font-size:14px}.r.ok:before{content:"✅ "}.r.warn:before{content:"⚠️ "}.r.err:before{content:"❌ "}
+.sum{font-weight:900;font-size:18px;margin-bottom:6px}.sum.ok{color:var(--ok)}.sum.warn{color:var(--warn)}.sum.err{color:var(--err)}
+.legend{font-size:13px;color:var(--soft);margin-top:8px}
+</style></head><body>
+<header><h1>Validar el pelo de la muñeca</h1><p>Elige las dos capas de pelo (detrás y delante). Se montan sobre la base y los ojos aprobados.</p></header>
+<main>
+<section class="card">
+  <div class="pick"><label>📂 Elegir pelo (2 PNG)<input id="f" type="file" accept="image/png" multiple></label>
+    <label class="b">Otra base<input id="fb" type="file" accept="image/png"></label><label class="b">Otros ojos<input id="fo" type="file" accept="image/png"></label>
+    <span id="n" class="t"></span></div>
+  <div class="tog" id="tog">
+    <button data-k="marcas" class="on">Marcar problemas</button><button data-k="detras" class="on">Pelo detrás</button><button data-k="delante" class="on">Pelo delante</button>
+    <button data-k="parpadeo">Ojos cerrados</button>
+  </div>
+  <div class="vistas">
+    <div class="vista"><h3>Fondo claro</h3><canvas id="vC" width="500" height="875"></canvas></div>
+    <div class="vista"><h3>Fondo oscuro (delata bordes y halos)</h3><canvas id="vO" width="500" height="875"></canvas></div>
+    <div class="vista" style="flex:0 0 150px"><h3>Tamaño iPhone</h3><canvas id="vM" width="150" height="262"></canvas></div>
+  </div>
+  <div class="zoom" id="zoom"></div>
+  <div class="legend">Al 100 %: así se ve en el iPad. Marcas: <b style="color:#e2224a">rojo</b> piel o invasión de ojos/boca · <b style="color:#ff00c8">magenta</b> islas sueltas · <b style="color:#ff8a00">naranja</b> cortes rectos o recortes por el contorno del cuerpo · <b style="color:#2a7de1">azul</b> cabeza sin tapar.</div>
+</section>
+<section class="card"><div id="rep"><p class="t">Aún no hay pelo.</p></div></section>
+</main>
+<script src="../plantilla/plantilla.js"></script>
+<script>
+'use strict';
+const P=self.AV_PLANTILLA,A=P.anclas,W=2000,H=3500;
+const cejasY=A.ojos-215,TAPAR=[A.coronilla[1],cejasY-300],MARGEN=30;   // tapar hasta el borde alto de la franja del nacimiento
+const capas={base:null,ojos:null,cerr:null,detras:null,delante:null},vis={marcas:true,detras:true,delante:true,parpadeo:false};
+let marcas=null;
+function cargarImg(src){return new Promise((ok,ko)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=ko;i.src=src})}
+function datos(img){const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(img,0,0);
+  return{img,w:c.width,h:c.height,d:g.getImageData(0,0,c.width,c.height).data}}
+const alfa=(L)=>{const a=new Uint8Array(L.w*L.h);for(let p=0,i=3;p<a.length;p++,i+=4)a[p]=L.d[i];return a};
+// --- utilidades de máscara en rejilla reducida (paso k) ---
+function rejilla(a,k,thr){const w=W/k|0,h=H/k|0,m=new Uint8Array(w*h);for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(a[(y*k)*W+x*k]>thr)m[y*w+x]=1;return{m,w,h,k}}
+function dilatar(R,n){let m=R.m;for(let s=0;s<n;s++){const o=new Uint8Array(m.length);for(let y=0;y<R.h;y++)for(let x=0;x<R.w;x++){const p=y*R.w+x;
+  if(m[p]||x>0&&m[p-1]||x<R.w-1&&m[p+1]||y>0&&m[p-R.w]||y<R.h-1&&m[p+R.w])o[p]=1}m=o}return{m,w:R.w,h:R.h,k:R.k}}
+const en=(R,x,y)=>R.m[(y/R.k|0)*R.w+(x/R.k|0)];
+function componentes(R){const lab=new Int32Array(R.m.length),areas=[0];let n=0;const st=[];
+  for(let p=0;p<R.m.length;p++){if(!R.m[p]||lab[p])continue;n++;let a=0;st.push(p);lab[p]=n;
+    while(st.length){const q=st.pop();a++;const x=q%R.w,y=q/R.w|0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const X=x+dx,Y=y+dy;if(X<0||Y<0||X>=R.w||Y>=R.h)continue;const r=Y*R.w+X;if(R.m[r]&&!lab[r]){lab[r]=n;st.push(r)}}}
+    areas.push(a)}return{lab,areas}}
+// sRGB → CIELAB (L, C, h)
+function lab(r,g,b){const f=v=>(v/=255)>.04045?((v+.055)/1.055)**2.4:v/12.92;const R=f(r),G=f(g),B=f(b);
+  let X=(R*.4124564+G*.3575761+B*.1804375)/.95047,Y=R*.2126729+G*.7151522+B*.072175,Z=(R*.0193339+G*.119192+B*.9503041)/1.08883;
+  const t=v=>v>.008856?Math.cbrt(v):7.787*v+16/116;X=t(X);Y=t(Y);Z=t(Z);const L=116*Y-16,a=500*(X-Y),bb=200*(Y-Z);return[L,Math.hypot(a,bb),(Math.atan2(bb,a)*180/Math.PI+360)%360]}
+function nitidez(L,a){ // pérdida al reducir ×3 y volver a ampliar: pelo con detalle original ≈ 8–10; ampliado ×2 ≈ 5; ×4 ≈ 2
+  let x0=W,y0=H,x1=0,y1=0;for(let p=0;p<a.length;p++)if(a[p]>250){const x=p%W,y=p/W|0;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
+  if(x1<=x0)return null;const w=x1-x0+1,h=y1-y0+1,c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.drawImage(L.img,x0,y0,w,h,0,0,w,h);
+  const s=document.createElement('canvas');s.width=Math.max(1,w/3|0);s.height=Math.max(1,h/3|0);const gs=s.getContext('2d');gs.imageSmoothingQuality='low';gs.drawImage(c,0,0,s.width,s.height);
+  const u=document.createElement('canvas');u.width=w;u.height=h;const gu=u.getContext('2d');gu.imageSmoothingQuality='low';gu.drawImage(s,0,0,w,h);
+  const A1=g.getImageData(0,0,w,h).data,A2=gu.getImageData(0,0,w,h).data;let e=0,n=0;
+  for(let y=0;y<h;y+=2)for(let x=0;x<w;x+=2){const i=(y*w+x)*4;if(A1[i+3]<251)continue;const l1=.299*A1[i]+.587*A1[i+1]+.114*A1[i+2],l2=.299*A2[i]+.587*A2[i+1]+.114*A2[i+2];e+=Math.abs(l1-l2);n++}
+  return n?e/n:null}
+function revisar(){
+  const B=capas.base,O=capas.ojos;if(!B||!O)return;
+  const aB=alfa(B),aO=alfa(O),RB=rejilla(aB,2,128),borde=new Uint8Array(RB.m.length);
+  for(let y=1;y<RB.h-1;y++)for(let x=1;x<RB.w-1;x++){const p=y*RB.w+x;if(RB.m[p]&&(!RB.m[p-1]||!RB.m[p+1]||!RB.m[p-RB.w]||!RB.m[p+RB.w]))borde[p]=1}
+  const bordeBase=dilatar({m:borde,w:RB.w,h:RB.h,k:2},2);
+  const ojosR=rejilla(aO,2,40),ojosProt=dilatar(ojosR,MARGEN/2);
+  const nb=(x,y)=>Math.hypot((x-A.eje)/170,(y-(A.boca[1]-60))/150)<=1&&y<=A.barbilla[1];
+  marcas=document.createElement('canvas');marcas.width=W/2;marcas.height=H/2;const gm=marcas.getContext('2d'),md=gm.createImageData(W/2,H/2),M=md.data;
+  const pon=(x,y,c)=>{const i=((y>>1)*(W/2)+(x>>1))*4;M[i]=c[0];M[i+1]=c[1];M[i+2]=c[2];M[i+3]=230};
+  const ROJO=[226,34,68],MAG=[255,0,200],NAR=[255,138,0],AZ=[42,125,225];
+  const res=[];
+  for(const tipo of['detras','delante']){
+    const L=capas[tipo];if(!L)continue;const r=[],nombre=L.nombre;res.push({nombre,tipo,r});
+    if(L.w!==W||L.h!==H){r.push(['err',`Tamaño ${L.w} × ${L.h}: debe ser ${W} × ${H}, lienzo completo`]);continue}
+    const a=alfa(L),d=L.d;
+    // transparencia y opacidad
+    let bt=0,bo=0;for(let x=0;x<W;x+=2){bt+=2;if(a[x])bo++;if(a[(H-1)*W+x])bo++}for(let y=0;y<H;y+=2){bt+=2;if(a[y*W])bo++;if(a[y*W+W-1])bo++}
+    r.push(bo/bt<.005?['ok','Fondo transparente']:['err',`El fondo no es transparente (${Math.round(bo/bt*100)} % del borde)`]);
+    let op=0,casi=0;for(let p=0;p<a.length;p++){if(a[p]>=250){op++;if(a[p]<255)casi++}}
+    r.push(op&&casi/op>.3?['warn',`Opacidad al 98–99 % en el ${Math.round(casi/op*100)} % del pelo: exportar con la capa al 100 %`]:['ok','Opacidad al 100 %']);
+    // restos de piel: celdas de 16 px con tono de piel, agrupadas (los brillos del pelo quedan sueltos)
+    let celdas=0;const C=16,cw=W/C,ch=H/C,piel=new Uint8Array(cw*ch);
+    for(let cy=0;cy<ch;cy++)for(let cx=0;cx<cw;cx++){let n=0,s=0;for(let y=cy*C;y<cy*C+C;y+=2)for(let x=cx*C;x<cx*C+C;x+=2){const p=y*W+x;if(a[p]<200)continue;n++;const i=p*4,[l,c,h]=lab(d[i],d[i+1],d[i+2]);if(l>64&&c>20&&c<52&&h>42&&h<70)s++}
+      if(n>=24&&s/n>.5)piel[cy*cw+cx]=1}
+    for(let cy=1;cy<ch-1;cy++)for(let cx=1;cx<cw-1;cx++){const q=cy*cw+cx;if(!piel[q])continue;let v=0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)if((dx||dy)&&piel[q+dy*cw+dx])v++;
+      if(v>=2){celdas++;for(let y=cy*C;y<cy*C+C;y+=2)for(let x=cx*C;x<cx*C+C;x+=2)pon(x,y,ROJO)}}
+    r.push(celdas>6?['err',`Restos de piel: ${celdas} zonas de 16 px (marcadas en rojo)`]:celdas?['warn',`Revisar ${celdas} zona${celdas>1?'s':''} con tono de piel (puede ser un brillo del pelo)`]:['ok','Sin restos de piel']);
+    // islas sueltas
+    const R=rejilla(a,4,128),{lab:lb,areas}=componentes(R),mayor=Math.max(...areas);let islas=0;
+    for(let p=0;p<lb.length;p++){const k=lb[p];if(k&&areas[k]<mayor*.01){const x=(p%R.w)*4,y=(p/R.w|0)*4;pon(x,y,MAG);pon(x+2,y,MAG);pon(x,y+2,MAG);pon(x+2,y+2,MAG)}}
+    for(let k=1;k<areas.length;k++)if(areas[k]<mayor*.01)islas++;
+    r.push(islas>12?['err',`${islas} islas de pelo sueltas fuera de la silueta (magenta)`]:islas>3?['warn',`${islas} islas sueltas (magenta): ¿mechones sueltos a propósito?`]:['ok','Silueta limpia, sin islas sueltas']);
+    // cortes rectos: tramos del borde que siguen una línea recta de 80 px o más, en cualquier dirección
+    const R2=rejilla(a,2,128),bd=new Uint8Array(R2.m.length),pts=[];
+    for(let y=1;y<R2.h-1;y++)for(let x=1;x<R2.w-1;x++){const q=y*R2.w+x;if(R2.m[q]&&(!R2.m[q-1]||!R2.m[q+1]||!R2.m[q-R2.w]||!R2.m[q+R2.w])){bd[q]=1;pts.push(q)}}
+    const bdD=dilatar({m:bd,w:R2.w,h:R2.h,k:2},1).m,recto=new Uint8Array(bd.length),LARGO=40,dirs=[];
+    for(let k=0;k<16;k++){const t=k*Math.PI/16;dirs.push([Math.cos(t),Math.sin(t)])}
+    for(const q of pts){const x=q%R2.w,y=q/R2.w|0;
+      for(const[dx,dy]of dirs){let n=0;for(let i=1;i<=LARGO;i++){const X=Math.round(x+dx*i),Y=Math.round(y+dy*i);if(X<0||Y<0||X>=R2.w||Y>=R2.h||!bdD[Y*R2.w+X])break;n++}
+        if(n===LARGO){for(let i=0;i<=LARGO;i++){const X=Math.round(x+dx*i),Y=Math.round(y+dy*i),r2=Y*R2.w+X;if(bd[r2])recto[r2]=1}}}}
+    let rectos=0;for(let q=0;q<recto.length;q++)if(recto[q]){rectos+=2;pon((q%R2.w)*2,(q/R2.w|0)*2,NAR)}
+    r.push(rectos>400?['err',`Cortes en línea recta: ${rectos} px de borde (naranja). Las puntas deben ser irregulares`]:rectos>120?['warn',`Algún corte recto (${rectos} px, naranja)`]:['ok','Sin cortes en línea recta']);
+    // nitidez
+    const nt=nitidez(L,a);
+    if(nt!=null)r.push(nt>=6?['ok',`Rizos nítidos (detalle ${nt.toFixed(1)})`]:nt>=3.5?['warn',`Rizos algo blandos (detalle ${nt.toFixed(1)}; el original nítido da 8–10): ¿ampliado ×2?`]:['err',`Rizos ampliados desde una imagen pequeña (detalle ${nt.toFixed(1)}; nítido 8–10). Se verán borrosos en el iPad`]);
+    if(tipo==='delante'){
+      let ojo=0,margen=0,boca=0,contorno=0;
+      for(let y=0;y<H;y+=2)for(let x=0;x<W;x+=2){const p=y*W+x;if(a[p]<=128)continue;
+        if(aO[p]>40){ojo++;pon(x,y,ROJO)}else if(en(ojosProt,x,y)){margen++;pon(x,y,ROJO)}
+        if(nb(x,y)){boca++;pon(x,y,ROJO)}
+        // borde del pelo que coincide con el contorno del cuerpo
+        // (pelo que termina justo donde empieza o acaba el cuerpo, p. ej. cortado por el brazo)
+        if(x>1&&y>1&&x<W-2&&y<H-2&&y>A.barbilla[1]&&(a[p-2]<=128||a[p+2]<=128||a[p-2*W]<=128||a[p+2*W]<=128)&&en(bordeBase,x,y)){contorno+=2;pon(x,y,NAR)}}
+      r.push(ojo>20?['err',`Tapa ojos o pestañas (${ojo*4} px, en rojo)`]:margen>40?['warn',`Entra en el margen de ${MARGEN} px alrededor de las pestañas (${margen*4} px)`]:['ok','Respeta ojos y pestañas']);
+      r.push(boca>10?['err',`Tapa la nariz o la boca (${boca*4} px)`]:['ok','Nariz y boca libres']);
+      r.push(contorno>900?['err',`El pelo se corta siguiendo el contorno del cuerpo (${contorno} px, naranja): los mechones deben acabar en puntas`]:contorno>300?['warn',`Algún tramo cortado por el contorno del cuerpo (${contorno} px)`]:['ok','No hay mechones recortados por el contorno del cuerpo']);
+    }
+    if(tipo==='detras'){
+      let dentro=0,tot=0;for(let y=A.coronilla[1];y<A.ojos-60;y+=2)for(let x=0;x<W;x+=2){const p=y*W+x;if(aB[p]>128&&!en(RB,x-80,y)+!en(RB,x+80,y)+!en(RB,x,y-80)>0&&Math.abs(x-A.eje)<440){tot++;if(a[p]>128)dentro++}}
+      if(tot)r.push(dentro/tot>.9?['ok','Rellena por dentro del contorno de la cabeza']:['warn',`Rellena solo el ${Math.round(dentro/tot*100)} % de la franja interior de la cabeza: pueden verse huecos al moverse`]);
+      let fue=0;for(let y=0;y<H;y+=2)for(let x=0;x<W;x+=2){const p=y*W+x;if(a[p]>128&&aB[p]<=128&&y>A.cadera+400)fue++}
+      if(fue>200)r.push(['warn','Hay pelo por debajo de la cadera: ¿demasiado largo?']);
+    }
+  }
+  // coronilla cubierta por la unión de las dos capas
+  if(capas.detras||capas.delante){const a1=capas.detras&&alfa(capas.detras),a2=capas.delante&&alfa(capas.delante);let tot=0,cub=0;
+    for(let y=TAPAR[0];y<TAPAR[1];y+=2)for(let x=0;x<W;x+=2){const p=y*W+x;if(aB[p]<=128)continue;tot++;if(a2&&a2[p]>200)cub++;else pon(x,y,AZ)}
+    res.push({nombre:'Las dos capas juntas',tipo:'juntas',r:[tot&&cub/tot>.98?['ok','El pelo de delante tapa la parte alta de la cabeza']:['err',`El pelo de delante deja ver la cabeza (${Math.round((1-cub/tot)*100)} % de la zona rayada, en azul)`]]})}
+  gm.putImageData(md,0,0);informe(res);pintar();
+}
+function compuesto(g,k,bg,x0=0,y0=0,w=W,h=H){
+  g.save();g.fillStyle=bg;g.fillRect(0,0,w*k,h*k);g.scale(k,k);g.translate(-x0,-y0);
+  const pinta=L=>L&&g.drawImage(L.img,0,0);
+  if(vis.detras)pinta(capas.detras);pinta(capas.base);if(vis.parpadeo&&capas.cerr)pinta(capas.cerr);else pinta(capas.ojos);if(vis.delante)pinta(capas.delante);
+  if(vis.marcas&&marcas){g.globalAlpha=.85;g.drawImage(marcas,0,0,W,H);g.globalAlpha=1}
+  g.restore()}
+function pintar(){
+  const k=.25;compuesto(document.getElementById('vC').getContext('2d'),k,'#fff');compuesto(document.getElementById('vO').getContext('2d'),k,'#281e3c');
+  const m=document.getElementById('vM').getContext('2d');m.imageSmoothingQuality='high';const v=vis.marcas;vis.marcas=false;compuesto(m,150/W,'#fdf1f8');vis.marcas=v;
+  const Z=[['Nacimiento del pelo y flequillo',A.eje-450,A.coronilla[1]-100,900,560],['Ojo izquierdo y pestañas',A.ojoIzq[0]-260,A.ojos-220,520,420],['Ojo derecho y pestañas',A.ojoDer[0]-260,A.ojos-220,520,420],
+    ['Oreja izquierda',A.eje-680,A.ojos-120,330,460],['Oreja derecha',A.eje+350,A.ojos-120,330,460],['Hombro izquierdo',A.hombroIzq[0]-330,A.hombroIzq[1]-200,520,620],['Hombro derecho',A.hombroDer[0]-190,A.hombroDer[1]-200,520,620],
+    ['Puntas (a la mitad)',200,1850,1600,700]];
+  const box=document.getElementById('zoom');box.innerHTML='';
+  for(const[t,x,y,w,h]of Z){const s=t.includes('mitad')?.5:1,c=document.createElement('canvas');c.width=w*s;c.height=h*s;compuesto(c.getContext('2d'),s,'#281e3c',x,y,w,h);
+    const f=document.createElement('figure');f.innerHTML=`<figcaption>${t}</figcaption>`;f.appendChild(c);box.appendChild(f)}
+}
+function informe(res){
+  const rep=document.getElementById('rep'),all=res.flatMap(x=>x.r),e=all.filter(c=>c[0]==='err').length,w=all.filter(c=>c[0]==='warn').length;
+  rep.innerHTML=`<div class="sum ${e?'err':w?'warn':'ok'}">${e?`❌ ${e} error${e>1?'es':''}`:w?`⚠️ ${w} aviso${w>1?'s':''}`:'✅ El pelo está listo para aprobar'}</div>`+
+    res.map(x=>`<div class="file"><h3>${x.nombre}</h3><div class="t">${x.tipo==='detras'?'Pelo detrás':x.tipo==='delante'?'Pelo delante':''}</div>${x.r.map(([k,t])=>`<div class="r ${k}">${t}</div>`).join('')}</div>`).join('')+
+    `<p class="t">Además de esta revisión automática, mirad las ampliaciones: mechones definidos, puntas naturales y un nacimiento del pelo suave.</p>`;
+  window.resultado={errores:e,avisos:w,capas:res};document.title=e?'errores':w?'avisos':'ok';
+}
+async function fichero(f){const url=URL.createObjectURL(f),img=await cargarImg(url);await img.decode().catch(()=>{});return Object.assign(datos(img),{nombre:f.name})}
+document.getElementById('f').onchange=async e=>{
+  for(const f of e.target.files){const n=f.name.toLowerCase(),L=await fichero(f);if(n.includes('detras'))capas.detras=L;else if(n.includes('delante'))capas.delante=L;else if(!capas.detras)capas.detras=L;else capas.delante=L}
+  document.getElementById('n').textContent=[capas.detras&&'detrás',capas.delante&&'delante'].filter(Boolean).join(' + ');e.target.value='';revisar()};
+document.getElementById('fb').onchange=async e=>{capas.base=await fichero(e.target.files[0]);revisar()};
+document.getElementById('fo').onchange=async e=>{capas.ojos=await fichero(e.target.files[0]);revisar()};
+document.getElementById('tog').onclick=e=>{const b=e.target.closest('button');if(!b)return;vis[b.dataset.k]=!vis[b.dataset.k];b.classList.toggle('on',vis[b.dataset.k]);pintar()};
+(async()=>{const src=window.AV_INCRUSTADO||{base:'../arte/originales/base-clara.png',ojos:'../arte/originales/ojos-marron.png',cerr:'../arte/originales/ojos-cerrados-clara.png'};
+  for(const k of['base','ojos','cerr']){try{capas[k]=datos(await cargarImg(src[k]))}catch(_){}}
+  if(!capas.base)document.getElementById('n').textContent='Elige también la base y los ojos (botones «Otra base» y «Otros ojos»)';pintar()})();
+</script></body></html>

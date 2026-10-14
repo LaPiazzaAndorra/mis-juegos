@@ -35,6 +35,8 @@ Las medidas están en `plantilla/plantilla.js` (versión 2) y cada capa tiene su
 | Bordes | Antialias limpio, sin halo blanco ni restos de fondo (verde) entre los rizos |
 | Resolución de origen | La muñeca debe medir **al menos 1500 px de alto** en la imagen original antes de escalarla a la plantilla (ideal: 2900 px). Por debajo de eso se verá algo borrosa en el iPad |
 
+> **Pelo:** especificación detallada, plantillas y validador en `plantilla/PELO.md`.
+
 ## Los 11 archivos
 
 | # | Archivo | Qué contiene | Zona (x, y en px) | ¿Completar lo que queda tapado? |
