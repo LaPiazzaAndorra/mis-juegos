@@ -15,6 +15,11 @@ archivos), `plantilla/PELO.md` (pelo), `plantilla/INSTRUCCIONES.md` (cómo dibuj
 | `ojos-azul.png` | ✅ Variante automática con la máscara del iris (`arte/mascaras/ojos-iris-mascara.png`); revisada por la propietaria junto con los ojos. |
 | `pelo-rizos-detras-castano.png` | ⏳ **Pendiente.** El primer borrador se rechazó (restos de otra figura, cortes rectos, islas, poca resolución) y **no está en el repositorio**. Hay plantillas y validador listos. |
 | `pelo-rizos-delante-castano.png` | ⏳ **Pendiente**, igual que el anterior. |
+
+> **14/10/2026:** revisión repetida a petición de la propietaria. No ha llegado ninguna capa corregida; el primer
+> borrador (que conserva la propietaria en su ZIP «AMAIA_RIZOS_CASTANOS_PRIMERA_PRUEBA», fuera del repositorio
+> público) sigue dando 8 errores. Se ha preparado el paquete «PELO_RIZOS_CASTANOS_PARA_ILUSTRAR.zip» (especificación,
+> plantillas, base y ojos aprobados, validador sin conexión e informe del borrador). No se generan rizos por código.
 | `ropa-princesa.png` (vestido rosa) | ⏳ Pendiente; después del pelo. |
 | `zapatos-princesa.png` | ⏳ Pendiente. |
 | `acc-corona.png` | ⏳ Pendiente. |

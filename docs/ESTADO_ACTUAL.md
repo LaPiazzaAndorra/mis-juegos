@@ -60,7 +60,7 @@ integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios de
 | --- | --- | --- |
 | Base clara V2.1 | ✅ Aprobada (`b534d9b`) | Conservar el archivo editable original fuera del repositorio. |
 | Ojos marrones, ojos cerrados (piel clara), ojos azules | ✅ Aprobados (`7890d1c`) | — |
-| Pelo rizado castaño (detrás y delante) | ⏳ Esperando el arte nuevo | Crear con `plantilla/PELO.md`; validar con `herramientas/validar-pelo.html`. |
+| Pelo rizado castaño (detrás y delante) | ⏳ Esperando el arte nuevo. Revisado de nuevo el 14/10: la única versión recibida sigue siendo el primer borrador (8 errores en el validador) | Recibir `pelo-rizos-detras-castano.png` y `pelo-rizos-delante-castano.png` (paquete «PELO_RIZOS_CASTANOS_PARA_ILUSTRAR» entregado a la propietaria); validar y enseñar en «Vestir» y «Mi Mundo». |
 | Vestido rosa, zapatos, corona | ⏳ Pendiente | Después del pelo. |
 | Piel morena y ojos cerrados morenos | ⏳ Pendiente | Borradores automáticos posibles. |
 

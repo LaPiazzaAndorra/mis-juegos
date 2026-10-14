@@ -5,7 +5,21 @@
 `herramientas/verificar_documentacion.py`. Las entradas más nuevas van arriba. El hash de un commit no
 puede ir dentro de él mismo: se escribe «este commit» y se completa en la entrada siguiente.
 
-### 2026-10-14 — Copia integrada en el juego y versión de pruebas para el iPhone
+### 2026-10-14 — Pelo rizado: revisión repetida, sigue pendiente del arte nuevo
+
+- **Solicitado por:** la propietaria (retomar la muñeca premium con el pelo rizado castaño).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `82cf814`).
+- **Estado:** en espera del arte.
+- **Cambios:** solo documentación (estado y `AVATAR_Y_ASSETS.md`). No hay capas de pelo nuevas: la
+  única versión recibida es el primer borrador, que vuelve a dar 8 errores en `validar-pelo.html`
+  (cortes rectos, nitidez 0,8 / 1,3, restos de piel, 16 islas, tapa pestañas, cabeza sin tapar, relleno
+  interior). Preparado fuera del repositorio el paquete «PELO_RIZOS_CASTANOS_PARA_ILUSTRAR.zip».
+- **Datos guardados afectados:** ninguno. La muñeca premium no se activa.
+- **Pruebas:** validador en Chromium con el borrador.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit (solo documentación).
+
+### 2026-10-14 — `82cf814` · Copia integrada en el juego y versión de pruebas para el iPhone
 
 - **Solicitado por:** la propietaria (aprueba el diseño de los botones; pide una versión de pruebas con
   otro origen y datos separados para probar en su iPhone sin arriesgar el progreso de Amaia).
