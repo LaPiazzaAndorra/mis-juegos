@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-14 — D-013: norma visual permanente de la muñeca
+### 2026-10-14 — D-014: base visual de la muñeca nueva aprobada
+
+- **Solicitado por:** la propietaria («base visual aprobada conforme a D-013»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `0714cae`, el de la entrada siguiente).
+- **Estado:** apariencia aprobada; resolución y capas pendientes. Sin publicar.
+- **Cambios:** se conserva sin modificar `docs/propuestas/base-aprobada-d013-2026-10-14/base-aprobada.png`
+  (948 × 1659, RGBA, SHA-256 `f9c143fc56fcc48d231286b72f94b8ee90bd94c669a9d1568a9d5616f4e179a6`) con su
+  `LEEME.md`; D-014; avisos en estado, assets, norma visual e índice de propuestas.
+- **Revisión técnica del archivo:** cumple D-013 en apariencia; opacidad del cuerpo 240–254 (no 100 %),
+  ~16 500 píxeles casi invisibles y contenido en el borde izquierdo; capas sin separar.
+- **Datos guardados afectados:** ninguno. Sin cambios de código, caché, catálogo ni `arte/originales/`.
+- **Pruebas:** dimensiones, canal alfa y SHA-256 (también tras la subida); comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-14 — `0714cae` · D-013: norma visual permanente de la muñeca
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `6e4aa8c`, el de la entrada siguiente).

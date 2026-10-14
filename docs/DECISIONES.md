@@ -1,5 +1,13 @@
 # Registro de decisiones
 
+## D-014 · Base visual de la muñeca nueva aprobada conforme a D-013 · 14/10/2026
+- **Decisión de la propietaria:** aprueba como base visual la imagen conservada sin modificar en
+  `docs/propuestas/base-aprobada-d013-2026-10-14/base-aprobada.png` (948 × 1659, SHA-256 `f9c143fc…79a6`).
+- **Alcance:** aprobación de la apariencia (proporciones de D-013 y cara de D-012). La ropa rosa es provisional.
+- **Pendiente:** resolución real de 2000 × 3500, opacidad al 100 % y bordes limpios, separación de
+  capas (cuerpo, ojos abiertos y cerrados, ropa), medidas y guías nuevas.
+- **Límites:** no sustituye a las piezas del juego ni se publica; se conservan la V2.1 y la referencia de D-012.
+
 ## D-013 · Norma visual permanente: nenita de unos 5–6 años con la cara de D-012 · 14/10/2026
 - **Decisión de la propietaria:** la muñeca tiene aspecto de nenita de unos 5–6 años (orientación
   artística): cabeza grande, cuello corto, hombros estrechos, torso compacto y brazos y piernas

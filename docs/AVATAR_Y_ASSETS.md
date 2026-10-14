@@ -10,6 +10,10 @@
 > [`NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md): nenita de unos 5–6 años (cabeza grande, cuerpo
 > compacto, brazos y piernas cortitos y redondeados) con la cara de D-012. El pelo y la ropa se adaptan
 > a la muñeca. La última imagen de cuerpo más compacto es un borrador: no hay capas ni medidas nuevas aprobadas.
+>
+> **Base visual aprobada, 14/10/2026 (D-014):** [`propuestas/base-aprobada-d013-2026-10-14/`](propuestas/base-aprobada-d013-2026-10-14/LEEME.md)
+> (948 × 1659, sin modificar). Es la apariencia aprobada, **no** una capa de producción: faltan resolución,
+> opacidad y bordes limpios, separación de capas y medidas nuevas.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

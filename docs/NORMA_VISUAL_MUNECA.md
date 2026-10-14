@@ -49,6 +49,8 @@ Si un resultado no cumple la norma, se corrige el resultado; la norma no se rene
 ## 5. Estado actual (14/10/2026)
 
 - La norma está acordada; **todavía no hay nuevas capas definitivas ni medidas aprobadas**.
+- **Base visual aprobada (D-014):** `docs/propuestas/base-aprobada-d013-2026-10-14/`. Cumple la
+  norma en apariencia; resolución, transparencia y capas siguen pendientes.
 - La última imagen de cuerpo más compacto es **un borrador**: no está en el repositorio, no se
   ha medido ni sustituye a ninguna pieza.
 - Se conservan todas las referencias anteriores: la base V2.1 y sus ojos (D-007, en el juego)

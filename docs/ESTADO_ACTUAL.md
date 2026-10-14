@@ -7,6 +7,10 @@ años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capa
 aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en
 el repositorio). El juego sigue usando las piezas V2.1, que se conservan.
 
+**Base visual aprobada (D-014):** [`docs/propuestas/base-aprobada-d013-2026-10-14/`](propuestas/base-aprobada-d013-2026-10-14/LEEME.md),
+948 × 1659 con transparencia. Pendiente: 2000 × 3500 reales, opacidad al 100 % (ahora alfa 240–254),
+limpiar halos y bordes, separar capas, medir y rehacer guías. No sustituye a las piezas del juego.
+
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
 **Nueva referencia visual de la muñeca elegida.** Véase
