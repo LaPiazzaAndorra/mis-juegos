@@ -1,6 +1,24 @@
 # Registro de cambios
 
-### 2026-10-14 — Copia técnica de la base D-014 con la transparencia corregida
+### 2026-10-14 — Medidas y guía provisionales de la base D-014
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `931f02f`, el de la entrada siguiente).
+- **Estado:** en revisión visual de la propietaria (guardado para no perder el trabajo).
+- **Cambios:** `docs/propuestas/base-aprobada-d013-2026-10-14/medidas/` con `medir.py` (reproducible,
+  solo lee la imagen), `medidas-provisionales.json`, `guia-provisional.png` (capa transparente
+  948 × 1659), vistas `guia-sobre-base.png` y `guia-ampliaciones.png` y `LEEME.md`.
+  Automáticas: eje (x 479), coronilla, barbilla, ojos (iris), cuello, hombros, axilas, cadera,
+  entrepierna, tobillos, suelo y puntas de las manos. Estimadas: articulación de hombros, codos,
+  centro de las manos, cintura y rodillas. 3,19 cabezas de alto.
+- **Datos guardados afectados:** ninguno. Sin cambios en `plantilla/plantilla.js`, guías V2.1,
+  catálogo, imágenes de la base ni juego.
+- **Pruebas:** revisión visual de la guía sobre la base y ampliaciones ×3; hashes de las dos bases
+  sin cambios; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-14 — `931f02f` · Copia técnica de la base D-014 con la transparencia corregida
 
 - **Solicitado por:** la propietaria, tras revisar la comparación antes/después.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `bc96825`, el de la entrada siguiente).

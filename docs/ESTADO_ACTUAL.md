@@ -13,6 +13,9 @@ limpiar halos y bordes, separar capas, medir y rehacer guías. No sustituye a la
 **Actualización:** ya hay una **copia técnica con la transparencia corregida** junto al original
 (interior a alfa 255, restos exteriores fuera, borde suave y colores intactos, revisada visualmente).
 Pendiente: resolución real, separación de capas, medidas y guías.
+**Medidas provisionales** (948 × 1659) y guía en `docs/propuestas/base-aprobada-d013-2026-10-14/medidas/`,
+con las automáticas y las estimadas diferenciadas: **pendientes de la revisión visual de la propietaria**.
+No sustituyen a `plantilla/plantilla.js` (V2.1).
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
