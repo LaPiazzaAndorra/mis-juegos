@@ -13,6 +13,9 @@
     el pelo de delante por delante;
   - bordes y transparencia;
   - resolución real de 2000 × 3500.
+- **15/10/2026:** llega la candidata de capa (`vestido-candidato-original.png`, sin modificar). La prueba de encaje
+  (`montaje/`) **no es la aprobación técnica**: fallan las axilas, los hombros (capa cortada por el pelo de la
+  referencia) y hay manchitas sueltas. Está pendiente de decisión.
 - **Límites:** sin activar en el juego, sin publicar, sin cambios en `main` ni en los datos guardados.
 
 ## D-014 · Base visual de la muñeca nueva aprobada conforme a D-013 · 14/10/2026

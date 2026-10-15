@@ -8,7 +8,8 @@
 <!--
   Visor AISLADO de revisión (propuesta, no es el juego).
   Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
-    pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1) · pelo B delante.
+    pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1)
+    · [opción: vestido rosa candidato + antebrazos y manos copiados de la base] · pelo B delante.
   No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
 -->
 <style>
@@ -44,7 +45,7 @@
 <body>
 <header>
   <h1>Visor de la muñeca · propuesta</h1>
-  <p>Base D-014 · pelo B · ojos abiertos v3 (color experimental) · cerrados V2.1. No es el juego: no guarda nada.</p>
+  <p>Base D-014 · pelo B · ojos abiertos v3 (color experimental) · cerrados V2.1 · vestido rosa en prueba. No es el juego: no guarda nada.</p>
 </header>
 
 <div id="escena" aria-label="Muñeca">
@@ -53,6 +54,8 @@
     <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
     <img id="c-abiertos" alt="" src="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png">
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
+    <img id="c-vestido" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/vestido-candidato-original.png">
+    <img id="c-brazos" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
@@ -66,11 +69,17 @@
     <button id="cerrar" aria-pressed="false">Mantener cerrados</button>
   </div>
   <div class="fila">
+    <b>Ropa</b>
+    <button data-ropa="camiseta" aria-pressed="true">Camiseta (base)</button>
+    <button data-ropa="vestido" aria-pressed="false">Vestido rosa (prueba)</button>
+  </div>
+  <div class="fila">
     <b>Ver</b>
     <button data-vista="entera" aria-pressed="true">Entera</button>
     <button data-vista="cara" aria-pressed="false">Cara</button>
     <button data-vista="ojos" aria-pressed="false">Ojos</button>
     <button data-vista="cuello" aria-pressed="false">Cuello y orejas</button>
+    <button data-vista="vestido" aria-pressed="false">Vestido</button>
   </div>
   <div class="fila">
     <b>Zoom</b>
@@ -97,7 +106,7 @@
   'use strict';
   var ANCHO = 948, ALTO = 1659;
   // Encuadres en píxeles de la imagen (x0, y0, x1, y1)
-  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700] };
+  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420] };
   var escena = document.getElementById('escena'), lienzo = document.getElementById('lienzo');
   var abiertos = document.getElementById('c-abiertos'), cerrados = document.getElementById('c-cerrados');
   var zoom = document.getElementById('zoom'), estado = document.getElementById('estado');
@@ -179,6 +188,16 @@
     botonCerrar.setAttribute('aria-pressed', String(mantener)); clearTimeout(cierre); mostrarOjos(mantener);
   });
 
+  // --- ropa: la camiseta es la de la base; el vestido es la capa candidata, sin cambios --------------
+  document.querySelectorAll('[data-ropa]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.dataset.ropa === 'vestido';
+      document.getElementById('c-vestido').classList.toggle('oculto', !v);
+      document.getElementById('c-brazos').classList.toggle('oculto', !v);
+      document.querySelectorAll('[data-ropa]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
   // --- fondo y capas -------------------------------------------------------------------------------
   document.querySelectorAll('[data-fondo]').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -195,7 +214,7 @@
     });
   });
 
-  // --- carga: se espera a las cinco capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)
+  // --- carga: se espera a todas las capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)
   var imgs = Array.prototype.slice.call(lienzo.querySelectorAll('img')), pendientes = imgs.length, fallos = [];
   imgs.forEach(function (im) {
     function listo(ok) { if (!ok) fallos.push(im.getAttribute('src')); if (--pendientes === 0) terminar(); }

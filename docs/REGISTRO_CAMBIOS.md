@@ -1,6 +1,34 @@
 # Registro de cambios
 
-### 2026-10-15 — Vestido rosa de princesa: diseño aprobado (D-015) y referencia guardada
+### 2026-10-15 — Vestido rosa: prueba de encaje de la capa candidata y opción en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `9d25114`, el de la entrada siguiente).
+- **Estado:** prueba. Diseño aprobado (D-015); **capa sin aprobación técnica**. Nada activado ni publicado.
+- **Cambios:**
+  - `vestido-rosa-2026-10-15/vestido-candidato-original.png` (sin modificar).
+  - `montaje/montaje_vestido.py` → antebrazos y manos copiados de la base, montajes abiertos y cerrados, vistas,
+    `donde-falla.png`, GIF y `comprobaciones.json`.
+  - Opción «Vestido rosa (prueba)» y encuadre «Vestido» en el visor.
+  - Documentación: `LEEME.md` del vestido y del visor, D-015, `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+- **Resultado:**
+  - Colocado tal cual. Cuello, mangas, cintura y bajo bien; no asoman las mallas; manos y pelo de delante por delante.
+  - Fallan: la camiseta asoma en las axilas (731 px); la capa está cortada en los hombros donde la referencia tenía pelo
+    (filo claro punteado y sombra con borde recto); hay 241 manchitas sueltas (519 px). El alfa es ≈ 253.
+  - No se ha recortado ni deformado nada.
+- **Datos guardados afectados:** ninguno. Base, ojos, pelo, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de todas las fuentes antes y después.
+  - Cálculo de la ropa de la base que queda visible.
+  - Revisión visual por zonas sobre fondo claro y oscuro.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores, sin almacenamiento ni service worker; coincide con
+    el montaje en lo opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `9d25114` · Vestido rosa de princesa: diseño aprobado (D-015) y referencia guardada
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `a884208`, el de la entrada siguiente).

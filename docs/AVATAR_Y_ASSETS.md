@@ -27,7 +27,8 @@
 > Variante experimental en `revision-localizada/variante-experimental/`: bordes rosados corregidos (A) y sin el mechón suelto (B).
 > **B elegida** como candidata preferida del borrador (`pelo-variante-sin-mechon-detras/delante.png`); sin activar.
 > **Visor aislado** para revisar el conjunto en Safari: `visor/index.html` (véase `visor/LEEME.md`).
-> **Vestido rosa:** diseño aprobado (D-015) con referencia en `docs/propuestas/vestido-rosa-2026-10-15/`; capa pendiente.
+> **Vestido rosa:** diseño aprobado (D-015) con referencia en `docs/propuestas/vestido-rosa-2026-10-15/`; capa candidata
+> `vestido-candidato-original.png` con prueba de encaje en `montaje/` (fallan axilas y hombros; sin aprobación técnica).
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

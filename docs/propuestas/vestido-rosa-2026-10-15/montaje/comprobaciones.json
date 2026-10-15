@@ -1,0 +1,81 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "vestido": "5c0a062f95031e6b6b97a1b4062d3e445e9668b9659466233f2a5692b614106c",
+  "referencia": "6932d7bf638158f080c3688ae0fdf946e4b87ff28afdde81e13f850b4d3159e8",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "e3c23a194f348ce9bf50b96a292aba222ef8adf614c6a6f885d737049cca4971"
+ },
+ "colocacion": "tal cual: mismo lienzo que la base (948 × 1659), sin mover, escalar, recortar ni deformar",
+ "orden_de_capas": [
+  "pelo B detrás",
+  "base sin ojos v3",
+  "ojos",
+  "vestido",
+  "brazos y manos copiados de la base",
+  "pelo B delante"
+ ],
+ "ropa_de_la_base_px": 154187,
+ "ropa_que_asoma_mas_del_10_por_ciento_px": 731,
+ "zonas_donde_asoma": [
+  {
+   "px": 471,
+   "caja": [
+    373,
+    765,
+    387,
+    827
+   ]
+  },
+  {
+   "px": 257,
+   "caja": [
+    582,
+    766,
+    604,
+    798
+   ]
+  }
+ ],
+ "ropa_que_se_transparenta_1_a_10_por_ciento_px": 1571,
+ "mallas_que_asoman_px": 0,
+ "manchitas_sueltas_fuera_del_vestido": {
+  "px": 519,
+  "trozos": 241
+ },
+ "alfa_del_vestido": {
+  "opacos_255": 94,
+  "mediana": 253,
+  "nota": "casi ningún píxel es del todo opaco (alfa ≈ 250–254), como el original de la base"
+ },
+ "muescas_de_los_hombros": {
+  "zonas": [
+   {
+    "centro": [
+     355,
+     705
+    ],
+    "radios": [
+     50,
+     80
+    ]
+   },
+   {
+    "centro": [
+     618,
+     708
+    ],
+    "radios": [
+     62,
+     82
+    ]
+   }
+  ],
+  "px_sin_vestido_sobre_la_base": 186
+ },
+ "manos_delante": true
+}

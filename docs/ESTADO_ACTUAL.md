@@ -54,8 +54,11 @@ conservan. Sigue siendo borrador: pendiente la aprobación final del conjunto y 
 experimental y cerrados V2.1, parpadeo, encuadres de la cara, zoom y fondos). Sin almacenamiento ni service worker; no lee
 partidas. Probado en Chromium con pantalla de iPhone simulada; falta revisarlo en el iPhone/iPad reales.
 **Vestido rosa (15/10, D-015):** el **diseño** está aprobado, con el largo y el ancho de la muñeca vestida de referencia
-(`docs/propuestas/vestido-rosa-2026-10-15/`, imagen generada que no sustituye a la base). **Falta la capa del vestido
-solo** (no ha llegado). Con ella: montaje de prueba sobre la base D-014 y opción en el visor. Nada activado.
+(`docs/propuestas/vestido-rosa-2026-10-15/`, imagen generada que no sustituye a la base). **Capa candidata recibida**
+(sin modificar) y **prueba de encaje** en `…/montaje/`, colocada tal cual con las manos y el pelo delante. Cuello,
+mangas, cintura y bajo, bien. **Falla:** asoma la camiseta en las axilas (731 px), la capa está cortada en los hombros
+donde la referencia tenía pelo, y hay 241 manchitas sueltas. No se ha recortado ni deformado nada. Opción «Vestido rosa
+(prueba)» en el visor. Sin aprobación técnica; nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

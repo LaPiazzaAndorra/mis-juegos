@@ -12,7 +12,9 @@ Capas, de abajo arriba (948 × 1659):
 2. Base sin ojos v3: `../sin-ojos/base-sin-ojos-propuesta-v3.png`
 3. Ojos abiertos v3 color experimental: `../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png`, o bien
    ojos cerrados V2.1: `../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png`
-4. Pelo B delante: `../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png`
+4. *(Opción «Vestido rosa (prueba)»)* vestido candidato `../../vestido-rosa-2026-10-15/vestido-candidato-original.png`
+   y antebrazos y manos copiados de la base `../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png`
+5. Pelo B delante: `../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png`
 
 Controles:
 
@@ -20,7 +22,8 @@ Controles:
   - Parpadear: los ojos se cierran 200 ms y el cambio de capa es instantáneo, como en el juego.
   - Parpadeo automático: cada 2,5–5 s.
   - Mantener cerrados.
-- **Ver:** entera, cara, ojos y cuello con orejas. También hay un deslizador de zoom; se puede arrastrar con un dedo y
+- **Ropa:** camiseta de la base o vestido rosa en prueba (15/10).
+- **Ver:** entera, cara, ojos, cuello con orejas y vestido. También hay un deslizador de zoom; se puede arrastrar con un dedo y
   pellizcar con dos dentro del visor.
 - **Fondo:** claro, oscuro, rosa o cuadros, para ver la transparencia.
 - **Capas:** mostrar u ocultar el pelo de detrás, el pelo de delante y los ojos.
@@ -28,7 +31,7 @@ Controles:
 **Seguridad de los datos:**
 - No usa `localStorage`, `sessionStorage`, IndexedDB ni cookies, no registra ningún service worker y no lee partidas
   ni copias.
-- Solo pide la página y sus cinco imágenes.
+- Solo pide la página y sus imágenes (siete con la opción del vestido).
 - `raw.githack.com` es la misma dirección de la versión de pruebas, pero el visor no lee ni escribe nada en ella, y es
   otra dirección distinta del juego de Amaia.
 
@@ -43,3 +46,6 @@ Controles:
 
 Si GitHub tarda en refrescar, `raw.githack.com` puede servir la versión anterior unos minutos. Para ver una versión
 concreta, se cambia `avatar-creador` por el hash de un commit en el enlace.
+
+**15/10/2026:** se añade la opción del vestido. Probada igual: sin errores, almacenamiento vacío y, a tamaño real,
+coincide con `montaje-vestido-abiertos.png` en lo opaco (≤ 2).
