@@ -1,6 +1,36 @@
 # Registro de cambios
 
-### 2026-10-15 — D-018 actualizada: corona y conjunto completo aprobados visualmente
+### 2026-10-15 — Prueba aislada del juego con el conjunto aprobado (D-016 + D-017 + D-018)
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `7e43c17`, el de la entrada siguiente).
+- **Estado:** copia de pruebas para el iPhone; no publicada; el juego no cambia.
+- **Cambios:**
+  - `docs/propuestas/prueba-juego-d016/`:
+    - `preparar_prueba.py` genera la copia de `index.html`, el motor y el índice de piezas;
+    - `aislamiento.js` (datos propios), `avatar/catalogo-d016.js`, `manifest.json`;
+    - las capas aprobadas en WebP;
+    - `prueba-aislada.js` y `LEEME.md`.
+  - Documentación: `VERSION_DE_PRUEBAS.md`, `ARQUITECTURA_Y_DATOS.md`, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md` y
+    `propuestas/LEEME.md`.
+- **Resultado:**
+  - Muñeca `d016` en «Vestir» y «Mi Mundo», con parpadeo. Combinaciones: ropa (vestido / camiseta) × corona.
+  - A tamaño real coincide con el montaje aprobado (≤ 3).
+  - Datos propios: `d016:` en localStorage y `d016-` en IndexedDB; sin service worker.
+  - La muñeca anterior sigue disponible.
+  - Las piezas antiguas no encajan: silueta de la base V2.1 al 68 % y de la técnica al 57 %.
+- **Datos guardados afectados:** ninguno. No se leen, cambian ni migran las partidas. Juego, catálogo, `sw.js`, `main`
+  y el guardado del juego sin cambios.
+- **Pruebas:**
+  - `prueba-aislada.js`: 13/13.
+  - `pruebas/prueba-juego.js`: 21/21.
+  - `pruebas/prueba-copia.js`: 45/45.
+  - Comprobador de documentación.
+  - Sin probar en el iPhone/iPad reales ni en Safari.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit (solo quita la carpeta de la prueba y la documentación).
+
+### 2026-10-15 — `7e43c17` · D-018 actualizada: corona y conjunto completo aprobados visualmente
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `17f4473`, el de la entrada siguiente).

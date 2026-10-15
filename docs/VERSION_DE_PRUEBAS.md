@@ -8,6 +8,11 @@ Es la rama `avatar-creador` (sin publicar) servida desde **otra dirección web**
 un servicio gratuito que muestra los archivos públicos de GitHub como una web. Se actualiza sola unos
 minutos después de cada subida a la rama.
 
+**Prueba aislada de la muñeca nueva (D-016 + zapatos + corona), 15/10/2026:**
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d016/index.html>
+— copia aparte con datos propios (claves `d016:`). No toca ni los datos de esta versión de pruebas ni los de Amaia.
+Detalles en [`docs/propuestas/prueba-juego-d016/LEEME.md`](propuestas/prueba-juego-d016/LEEME.md).
+
 ## Por qué no afecta a la app de Amaia
 
 - **Otro origen web.** El navegador guarda los datos (estrellas, dibujos, personaje, láminas…) por

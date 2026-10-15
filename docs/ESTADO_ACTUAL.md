@@ -27,6 +27,15 @@ en el iPhone/iPad reales. Nada activado.
 - **Encaje y conjunto completo aprobados visualmente** (15/10): el visor abre con vestido, zapatos y corona; se
   conserva «Sin corona». La resolución 2000 × 3500 y la integración en el juego siguen pendientes; nada activado.
 
+**Prueba aislada en el juego (15/10):** `docs/propuestas/prueba-juego-d016/` (enlace en `docs/VERSION_DE_PRUEBAS.md`).
+- Es una copia de la versión de pruebas con el conjunto completo a 948 × 1659: Vestir, Mi Mundo, parpadeo, y la ropa
+  (vestido o camiseta) y la corona (sí o no).
+- **Datos propios** (`d016:` y `d016-`): no lee, cambia ni migra las partidas. Sin service worker.
+- La muñeca anterior sigue disponible.
+- Las piezas antiguas no encajan con la base nueva (otro lienzo y otras proporciones).
+- Probado en Chromium: 13/13 y el juego, 21/21 y 45/45. Falta el iPhone.
+- 2000 × 3500 e integración en el juego de verdad pendientes; nada publicado.
+
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas
 aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en

@@ -63,6 +63,10 @@ No cambian ni borran ninguna clave existente. Formato del archivo: el de
 `docs/PRUEBAS_Y_RECUPERACION.md` (apartado C); las copias hechas en la versión de pruebas llevan además
 `"version_pruebas": true` y el juego normal las rechaza.
 
+**Prueba aislada D-016** (`docs/propuestas/prueba-juego-d016/`, sin publicar): sus claves llevan el prefijo `d016:` en
+`localStorage` y sus bases, `d016-` en IndexedDB (`aislamiento.js`). No lee, cambia ni migra ninguna clave del juego,
+y el código y el guardado del juego no cambian.
+
 **App instalada en iOS:** sus datos están separados de los de Safari, aunque la dirección sea la misma.
 
 ## Reglas de persistencia

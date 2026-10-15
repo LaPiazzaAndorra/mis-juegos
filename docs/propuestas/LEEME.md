@@ -5,6 +5,7 @@ propietaria. Se aplican sobre `avatar-creador` con `git apply <archivo>.patch`.
 
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
+| `prueba-juego-d016/` | Copia aislada de la versión de pruebas con el conjunto aprobado en el juego (948 × 1659), con datos propios (`d016:`). | Para probar en el iPhone; no publicada. |
 | `corona-2026-10-15/` | Corona dorada: referencia generada (sin modificar) y capa candidata con los huecos transparentes, colocada sobre la muñeca. | **Diseño y encaje aprobados visualmente (D-018)**, con el conjunto completo; por defecto en el visor; 2000 × 3500 pendiente. |
 | `zapatos-rosa-2026-10-15/` | Zapatos rosa: referencia generada (sin modificar) y capa candidata colocada sobre los pies de D-016. | **Diseño y encaje aprobados visualmente (D-017)**; por defecto en el visor; 2000 × 3500 pendiente. |
 | `vestido-rosa-2026-10-15/` | Vestido rosa de princesa: referencia de la muñeca vestida (sin modificar, 948 × 1660). La capa del vestido solo está pendiente. | **Diseño aprobado (D-015)**; conjunto elegido visualmente (D-016: opción B + axilas con pelo «mechones completos»); 2000 × 3500 pendiente. |
