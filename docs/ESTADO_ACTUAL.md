@@ -45,6 +45,9 @@ encima de la base), huecos junto al cuello y bajo las orejas **reconstruidos** c
 (marcados, no son del original) y punta del mechón del brazo afilada. Sin reescalar ni tocar la base. **Pendiente
 (trabajar a mano):** el interior de los rizos que caían sobre la manga, sobre los dos brazos (`zonas-pendientes.png`).
 Probado solo con comprobaciones automáticas y revisión visual en el ordenador; nada activado ni publicado.
+**Variante experimental (15/10)** en `…/revision-localizada/variante-experimental/`: **A** corrige solo el filo rosado de
+los rizos en las zonas rojas (máscara explícita de color; alfa idéntico; los huecos no se rellenan) y **B** es A sin el
+mechón suelto del brazo (sin recortar rizos ni inventar uniones). La revisión se conserva. Propuesta: nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

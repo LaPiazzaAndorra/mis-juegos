@@ -1,6 +1,24 @@
 # Registro de cambios
 
-### 2026-10-15 — Pelo D-012 sobre D-014: revisión localizada (borrador)
+### 2026-10-15 — Pelo D-012 sobre D-014: variante experimental de bordes rosados y sin mechón suelto
+
+- **Solicitado por:** la propietaria (la revisión localizada se conserva como punto de partida; no rellenar los huecos).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `c20261d`, el de la entrada siguiente).
+- **Estado:** propuesta experimental; nada activado ni publicado.
+- **Cambios:** `revision-localizada/variante-experimental/variante.py` → capas A (bordes corregidos) y B (A sin el
+  mechón suelto), máscaras del cambio de color y del mechón, comparaciones sobre fondo claro, oscuro y sobre la muñeca,
+  vista de máscaras, vista del conjunto, montajes, `comprobaciones.json` y `LEEME.md`.
+- **Resultado:** A cambia el color de 5 752 píxeles de borde en las zonas rojas (alfa idéntico): el filo coral pasa a
+  castaño; el borde más externo conserva algo de tono cálido. B quita solo el mechón (2 454 px); el borde del rizo
+  vecino se conserva.
+- **Datos guardados afectados:** ninguno. Revisión, cuello reconstruido, resto de la melena, base, ojos, catálogo,
+  juego y `main` sin cambios.
+- **Pruebas:** SHA-256 de las fuentes; alfa idéntico en A; color solo dentro de la máscara y de las zonas rojas; B solo
+  cambia el mechón; montaje igual fuera de los cambios; revisión visual ×2 sobre tres fondos; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `c20261d` · Pelo D-012 sobre D-014: revisión localizada (borrador)
 
 - **Solicitado por:** la propietaria (el montaje anterior se conserva como referencia del encaje; ojos sin retocar).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `c9852fd`, el de la entrada siguiente).

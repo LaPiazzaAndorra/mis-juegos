@@ -1,0 +1,22 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/pelo-revisado-detras.png": "d6f87dd62d1a4eaa72fd51836b2a8b5cecd115951062f2300f0be1bca68e9673",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/pelo-revisado-delante.png": "5bd28f9e1d7dec2b2ac3e0dde70f1a8fe54faf96d2751d40b6dc56e1a6473227",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/montaje-revisado-abiertos.png": "c55319fafa1d1ab2a1ce621c423a42e17a59f47162315098df5a4ab30c22d86b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/base-transparencia-corregida.png": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-cerrados/capa-ojos-cerrados-prueba-v21.png": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713"
+ },
+ "A_alfa_identico": true,
+ "A_color_solo_dentro_de_la_mascara": true,
+ "A_mascara_solo_en_zonas_rojas": true,
+ "A_pixeles_con_cambio_de_color": 5752,
+ "A_cambio_maximo_por_canal": 107,
+ "A_cambio_medio_por_canal": 7.4,
+ "B_pixeles_quitados_mechon": 2454,
+ "B_borde_del_rizo_conservado_px": 87,
+ "B_solo_cambia_el_mechon": true,
+ "montaje_igual_fuera_de_los_cambios": true
+}

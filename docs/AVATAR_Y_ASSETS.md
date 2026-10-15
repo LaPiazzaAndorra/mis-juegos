@@ -24,6 +24,7 @@
 > **Pelo:** sin capas para D-014; borrador de montaje con el pelo de la referencia D-012 en `pelo-borrador-d012/`.
 > Revisión localizada (borrador) en `pelo-borrador-d012/revision-localizada/`: capas `pelo-revisado-detras/delante.png`,
 > zonas reconstruidas marcadas en `mascara-zonas-reconstruidas.png` y zonas pendientes en `zonas-pendientes.png`.
+> Variante experimental en `revision-localizada/variante-experimental/`: bordes rosados corregidos (A) y sin el mechón suelto (B).
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de
