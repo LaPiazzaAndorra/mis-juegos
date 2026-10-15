@@ -1,5 +1,20 @@
 # Registro de decisiones
 
+## D-015 · Diseño del vestido rosa de princesa aprobado (solo diseño) · 15/10/2026
+- **Decisión de la propietaria:** aprueba el **diseño** del vestido rosa de princesa de la muñeca nueva y el **largo y
+  ancho** que se ven en la muñeca vestida, conservada sin modificar en
+  `docs/propuestas/vestido-rosa-2026-10-15/referencia-muneca-vestida.png` (948 × 1660, SHA-256 `6932d7bf…59e8`).
+- **Alcance:**
+  - Es una aprobación de **diseño**, no de la capa.
+  - La imagen es una referencia generada: no sustituye a la base D-014, a su carita, a los ojos actuales ni al pelo B.
+- **Pendiente (aprobación técnica, aparte):**
+  - capa del vestido solo, que es candidata y aún no ha llegado;
+  - encaje sobre la base: cuello, mangas, cintura y bajo, sin que asomen la camiseta ni las mallas, y con las manos y
+    el pelo de delante por delante;
+  - bordes y transparencia;
+  - resolución real de 2000 × 3500.
+- **Límites:** sin activar en el juego, sin publicar, sin cambios en `main` ni en los datos guardados.
+
 ## D-014 · Base visual de la muñeca nueva aprobada conforme a D-013 · 14/10/2026
 - **Decisión de la propietaria:** aprueba como base visual la imagen conservada sin modificar en
   `docs/propuestas/base-aprobada-d013-2026-10-14/base-aprobada.png` (948 × 1659, SHA-256 `f9c143fc…79a6`).

@@ -1,6 +1,19 @@
 # Registro de cambios
 
-### 2026-10-15 — Visor aislado de la muñeca (base D-014, pelo B, parpadeo)
+### 2026-10-15 — Vestido rosa de princesa: diseño aprobado (D-015) y referencia guardada
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `a884208`, el de la entrada siguiente).
+- **Estado:** el **diseño** está aprobado (D-015). La capa del vestido solo **no ha llegado**: el montaje de prueba y la
+  opción en el visor quedan pendientes de recibirla.
+- **Cambios:** `docs/propuestas/vestido-rosa-2026-10-15/` con `referencia-muneca-vestida.png` (sin modificar) y
+  `LEEME.md`; D-015 en `DECISIONES.md`; `propuestas/LEEME.md`, `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+- **Datos guardados afectados:** ninguno. Base, ojos, pelo, visor, juego, catálogo y `main` sin cambios.
+- **Pruebas:** SHA-256 de la referencia y comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `a884208` · Visor aislado de la muñeca (base D-014, pelo B, parpadeo)
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `0e22146`, el de la entrada siguiente).

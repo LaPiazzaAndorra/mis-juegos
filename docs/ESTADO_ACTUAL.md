@@ -53,6 +53,9 @@ conservan. Sigue siendo borrador: pendiente la aprobación final del conjunto y 
 **Visor aislado (15/10)** en `…/base-aprobada-d013-2026-10-14/visor/` (base nueva, pelo B, ojos abiertos v3 color
 experimental y cerrados V2.1, parpadeo, encuadres de la cara, zoom y fondos). Sin almacenamiento ni service worker; no lee
 partidas. Probado en Chromium con pantalla de iPhone simulada; falta revisarlo en el iPhone/iPad reales.
+**Vestido rosa (15/10, D-015):** el **diseño** está aprobado, con el largo y el ancho de la muñeca vestida de referencia
+(`docs/propuestas/vestido-rosa-2026-10-15/`, imagen generada que no sustituye a la base). **Falta la capa del vestido
+solo** (no ha llegado). Con ella: montaje de prueba sobre la base D-014 y opción en el visor. Nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
