@@ -16,6 +16,7 @@
 > opacidad y bordes limpios, separación de capas y medidas nuevas. Opacidad y bordes ya están resueltos en la
 > copia técnica `base-transparencia-corregida.png` (mismo directorio, 948 × 1659, solo alfa corregido).
 > Medidas y guía **provisionales** en `medidas/` (pendientes de revisión; no tocan la plantilla V2.1).
+> Máscara **propuesta** de los ojos abiertos y pestañas en `ojos-abiertos/` (sin extraer; la base no cambia).
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

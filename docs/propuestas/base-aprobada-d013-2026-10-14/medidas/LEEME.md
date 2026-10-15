@@ -29,10 +29,15 @@ discontinua / círculo hueco = **estimada** (regla en `metodo`, revisar a ojo); 
 | Entrepierna | y = 1035 | automática |
 | Tobillos | y = 1399, x 389,5 y 574,5 | automática |
 | Puntas de las manos | (201, 1083) y (758,5, 1085) | automática |
-| Articulación de los hombros | (351,5, 751) y (605,5, 752,5) | estimada |
-| Codos | (295,5, 897) y (660,5, 899) | estimada |
+| Hombros (estimación, sin validar) | (351,5, 751) y (605,5, 752,5) | estimada |
+| Codos (estimación, sin validar) | (295,5, 897) y (660,5, 899) | estimada |
 | Centro de las manos | (209, 1043) y (751, 1045) | estimada |
-| Cintura | y = 988 (bajo de la camiseta; la silueta no se estrecha) | estimada |
-| Rodillas | y = 1217, x 401,5 y 559 | estimada |
+| Bajo de la camiseta (prenda) | y = 988 | automática |
+| Cintura anatómica (sin validar) | y = 945 (60 % de axilas a entrepierna; no se ve: la tapa la camiseta) | estimada |
+| Rodillas (estimación, sin validar) | y = 1217, x 401,5 y 559 | estimada |
+
+**Hombros, codos, rodillas y cintura anatómica son estimaciones sin validar** (`validada: false`):
+se comprobarán al separar o animar las piezas. No son articulaciones validadas. El bajo de la
+camiseta es un rasgo de la ropa, no la cintura.
 
 Proporción: altura 1364 px, cabeza 427 px → **3,19 cabezas de alto** (nenita, D-013).

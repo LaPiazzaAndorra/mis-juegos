@@ -7,7 +7,8 @@
  "estado": "PROVISIONAL: para preparar capas; no sustituye a plantilla/plantilla.js (V2.1)",
  "leyenda": {
   "automática": "detectada en la imagen",
-  "estimada": "calculada con la regla de «metodo»; revisar a ojo"
+  "estimada": "calculada con la regla de «metodo»; revisar a ojo",
+  "validada=false": "hombros, codos, rodillas y cintura anatómica: estimaciones sin validar; comprobar al separar o animar las piezas"
  },
  "resumen": {
   "altura_total": 1364,
@@ -122,39 +123,56 @@
    "x": 750.8,
    "y": 1045
   },
-  "hombro_izq_articulacion": {
+  "hombro_izq_estimado": {
    "tipo": "estimada",
    "metodo": "punto medio entre la esquina del hombro y la axila",
    "x": 351.5,
-   "y": 751.0
+   "y": 751.0,
+   "validada": false,
+   "nota": "pendiente de comprobar al separar o animar las piezas; no es una articulación validada"
   },
-  "codo_izq": {
+  "codo_izq_estimado": {
    "tipo": "estimada",
    "metodo": "a media altura entre hombro y mano, en el centro del brazo",
    "x": 295.5,
-   "y": 897.0
+   "y": 897.0,
+   "validada": false,
+   "nota": "pendiente de comprobar al separar o animar las piezas; no es una articulación validada"
   },
-  "hombro_der_articulacion": {
+  "hombro_der_estimado": {
    "tipo": "estimada",
    "metodo": "punto medio entre la esquina del hombro y la axila",
    "x": 605.5,
-   "y": 752.5
+   "y": 752.5,
+   "validada": false,
+   "nota": "pendiente de comprobar al separar o animar las piezas; no es una articulación validada"
   },
-  "codo_der": {
+  "codo_der_estimado": {
    "tipo": "estimada",
    "metodo": "a media altura entre hombro y mano, en el centro del brazo",
    "x": 660.5,
-   "y": 898.8
+   "y": 898.8,
+   "validada": false,
+   "nota": "pendiente de comprobar al separar o animar las piezas; no es una articulación validada"
   },
-  "cintura": {
-   "tipo": "estimada",
-   "metodo": "sombra más oscura del bajo de la camiseta en el eje (no hay estrechamiento en la silueta)",
+  "bajo_camiseta": {
+   "tipo": "automática",
+   "metodo": "sombra más oscura del bajo de la camiseta en el eje (prenda, no anatomía)",
    "y": 988
+  },
+  "cintura_anatomica": {
+   "tipo": "estimada",
+   "metodo": "60 % del camino de las axilas a la entrepierna; la tapa la camiseta y la silueta no se estrecha",
+   "y": 945.0,
+   "validada": false,
+   "nota": "no visible en la base: comprobar con el cuerpo sin ropa al separar capas"
   },
   "rodillas": {
    "tipo": "estimada",
    "metodo": "a medio camino entre entrepierna y tobillos",
    "y": 1217.0,
+   "validada": false,
+   "nota": "pendiente de comprobar al separar o animar las piezas; no es una articulación validada",
    "izq": 401.5,
    "der": 559.0
   }

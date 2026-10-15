@@ -1,6 +1,24 @@
 # Registro de cambios
 
-### 2026-10-14 — Medidas y guía provisionales de la base D-014
+### 2026-10-15 — Base D-014: máscara propuesta de los ojos abiertos; guía con estimaciones sin validar
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `85d6805`, el de la entrada siguiente).
+- **Estado:** propuesta en revisión (guardada para no perder el trabajo); nada extraído.
+- **Cambios:**
+  - `medidas/`: «bajo de camiseta» (prenda, automática) separado de la «cintura anatómica» (estimada,
+    y = 945); hombros, codos, rodillas y cintura anatómica marcados `validada: false`, pendientes de
+    comprobar al separar o animar. Guía y vistas regeneradas. La base no se mueve ni deforma.
+  - `ojos-abiertos/`: `mascara.py` (reproducible), `mascara-ojos-propuesta.png` (948 × 1659, grises),
+    vistas sobre la base y ampliadas, `LEEME.md` con los puntos a revisar (pliegue fuera, final de
+    pestañas junto al lagrimal, halo de piel en puntas, píxeles sueltos).
+- **Datos guardados afectados:** ninguno. Sin cambios en la base, `plantilla/`, catálogo ni juego.
+- **Pruebas:** revisión visual (×4, fondos claro y oscuro); la máscara del programa coincide con la
+  revisada; hashes de las dos bases sin cambios; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-14 — `85d6805` · Medidas y guía provisionales de la base D-014
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `931f02f`, el de la entrada siguiente).

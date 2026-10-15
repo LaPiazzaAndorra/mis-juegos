@@ -60,7 +60,7 @@ def medir():
     M = {}
 
     def pon(nombre, tipo, como, **v):
-        M[nombre] = dict(tipo=tipo, metodo=como, **{k: (round(float(x), 1) if isinstance(x, (float, np.floating)) else int(x)) for k, x in v.items()})
+        M[nombre] = dict(tipo=tipo, metodo=como, **{k: (x if isinstance(x, (bool, str)) else round(float(x), 1) if isinstance(x, (float, np.floating)) else int(x)) for k, x in v.items()})
 
     pon('coronilla', 'automática', 'primera fila de la silueta', y=coronilla)
     pon('suelo', 'automática', 'última fila de la silueta (planta de los pies)', y=suelo)
@@ -134,25 +134,28 @@ def medir():
             x=(sel(punta)[0][0] + sel(punta)[0][1]) / 2)
         pon(f'mano_{lado}_centro', 'estimada', 'centro del brazo entre 70 y 10 px por encima de la punta',
             x=float(np.mean(cx)), y=punta - 40)
-    # Hombro (articulación), codos, cintura y rodillas: estimados
+    # Hombros, codos, cintura anatómica y rodillas: estimaciones SIN VALIDAR
     for lado, s in (('izq', -1), ('der', 1)):
         ex, ey = M['hombros']['x0' if s < 0 else 'x1'], M['hombros']['y0' if s < 0 else 'y1']
         _, sel = brazo(lado)
         ax = sel(axilas)[0][1] if s < 0 else sel(axilas)[0][0]       # axila: borde interior del brazo
         hx, hy = (ex + ax) / 2, (ey + axilas) / 2
-        pon(f'hombro_{lado}_articulacion', 'estimada', 'punto medio entre la esquina del hombro y la axila', x=hx, y=hy)
+        pon(f'hombro_{lado}_estimado', 'estimada', 'punto medio entre la esquina del hombro y la axila', x=hx, y=hy, validada=False, nota='pendiente de comprobar al separar o animar las piezas; no es una articulación validada')
         mc = M[f'mano_{lado}_centro']
         cy = (hy + mc['y']) / 2
         _, sel = brazo(lado)
         tr = sel(int(cy))
         cx = (tr[0][0] + tr[0][1]) / 2 if tr else (hx + mc['x']) / 2
-        pon(f'codo_{lado}', 'estimada', 'a media altura entre hombro y mano, en el centro del brazo', x=cx, y=cy)
+        pon(f'codo_{lado}_estimado', 'estimada', 'a media altura entre hombro y mano, en el centro del brazo', x=cx, y=cy, validada=False, nota='pendiente de comprobar al separar o animar las piezas; no es una articulación validada')
     eje_col = Ls[:, int(eje) - 40:int(eje) + 41].mean(1)
     rango = range(axilas + (entrepierna - axilas) // 2, entrepierna - 10)
-    cintura = min(rango, key=lambda y: eje_col[y])
-    pon('cintura', 'estimada', 'sombra más oscura del bajo de la camiseta en el eje (no hay estrechamiento en la silueta)', y=cintura)
+    bajo_cam = min(rango, key=lambda y: eje_col[y])
+    pon('bajo_camiseta', 'automática', 'sombra más oscura del bajo de la camiseta en el eje (prenda, no anatomía)', y=bajo_cam)
+    cint = axilas + 0.6 * (entrepierna - axilas)
+    pon('cintura_anatomica', 'estimada', '60 % del camino de las axilas a la entrepierna; la tapa la camiseta y la silueta no se estrecha',
+        y=cint, validada=False, nota='no visible en la base: comprobar con el cuerpo sin ropa al separar capas')
     rod = (entrepierna + y_tob) / 2
-    pon('rodillas', 'estimada', 'a medio camino entre entrepierna y tobillos', y=rod,
+    pon('rodillas', 'estimada', 'a medio camino entre entrepierna y tobillos', y=rod, validada=False, nota='pendiente de comprobar al separar o animar las piezas; no es una articulación validada',
         izq=(centro(int(rod))[0][0] + centro(int(rod))[0][1]) / 2, der=(centro(int(rod))[-1][0] + centro(int(rod))[-1][1]) / 2)
     altura = suelo - coronilla
     resumen = dict(altura_total=altura, cabeza=barbilla - coronilla,
@@ -177,7 +180,7 @@ def dibujar(size, M):
             d.line([(0, y), (W, y)], fill=c, width=1)
         else:
             for x in range(0, W, 12): d.line([(x, y), (x + 6, y)], fill=c, width=1)
-        lab = txt + ('' if M[k]['tipo'] == 'automática' else ' (est.)')
+        lab = txt + ('' if M[k]['tipo'] == 'automática' else ' (est., sin validar)' if M[k].get('validada') is False else ' (est.)')
         d.text((4, y - 15) if k not in DERECHA else (W - 8 - d.textlength(lab, font=F), y + 2), lab, font=F, fill=c)
 
     def punto(k, txt=None):
@@ -190,7 +193,7 @@ def dibujar(size, M):
 
     x = M['eje_central']['x']; d.line([(x, 0), (x, H)], fill=ROJO, width=1); d.text((x + 4, 4), 'eje', font=F, fill=ROJO)
     for k, t in [('coronilla', 'coronilla'), ('barbilla', 'barbilla'), ('hombros', 'hombros'), ('axilas', 'axilas'),
-                 ('cintura', 'cintura'), ('cadera', 'cadera'), ('entrepierna', 'entrepierna'), ('rodillas', 'rodillas'),
+                 ('bajo_camiseta', 'bajo de camiseta'), ('cintura_anatomica', 'cintura anatómica'), ('cadera', 'cadera'), ('entrepierna', 'entrepierna'), ('rodillas', 'rodillas'),
                  ('tobillos', 'tobillos'), ('suelo', 'suelo')]:
         hline(k, t)
     for k in ('ojo_izq', 'ojo_der'):
@@ -201,7 +204,7 @@ def dibujar(size, M):
     for k in ('cadera',):
         for kx in ('x0', 'x1'): d.ellipse([M[k][kx] - 4, M[k]['y'] - 4, M[k][kx] + 4, M[k]['y'] + 4], fill=AZUL)
     for lado in ('izq', 'der'):
-        punto(f'hombro_{lado}_articulacion', 'hombro'); punto(f'codo_{lado}', 'codo')
+        punto(f'hombro_{lado}_estimado', 'hombro?'); punto(f'codo_{lado}_estimado', 'codo?')
         punto(f'mano_{lado}_centro', 'mano'); punto(f'mano_{lado}_punta')
         for k in ('rodillas', 'tobillos'):
             xx, yy = M[k][lado], M[k]['y']; c = col(k)
@@ -214,7 +217,8 @@ if __name__ == '__main__':
     im, M, resumen = medir()
     datos = dict(base='base-transparencia-corregida.png', tamaño=[im.shape[1], im.shape[0]],
                  estado='PROVISIONAL: para preparar capas; no sustituye a plantilla/plantilla.js (V2.1)',
-                 leyenda={'automática': 'detectada en la imagen', 'estimada': 'calculada con la regla de «metodo»; revisar a ojo'},
+                 leyenda={'automática': 'detectada en la imagen', 'estimada': 'calculada con la regla de «metodo»; revisar a ojo',
+                         'validada=false': 'hombros, codos, rodillas y cintura anatómica: estimaciones sin validar; comprobar al separar o animar las piezas'},
                  resumen=resumen, medidas=M)
     (AQUI / 'medidas-provisionales.json').write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding='utf-8')
     base = Image.fromarray(im, 'RGBA')
@@ -224,7 +228,7 @@ if __name__ == '__main__':
     fondo.convert('RGB').save(AQUI / 'guia-sobre-base.png', optimize=True)
     # Ampliaciones ×3 (vecino más próximo): cara, manos y pies
     z = 3; cajas = [('cara', (290, 360, 670, 640)), ('mano izq.', (150, 930, 300, 1100)), ('mano der.', (660, 930, 810, 1100)),
-                    ('cintura y cadera', (300, 900, 660, 1060)), ('tobillos y suelo', (320, 1360, 650, 1555))]
+                    ('bajo de camiseta, cintura anatómica y cadera', (300, 900, 660, 1060)), ('tobillos y suelo', (320, 1360, 650, 1555))]
     sueltas = [fondo.crop(c).resize(((c[2] - c[0]) * z, (c[3] - c[1]) * z), Image.NEAREST) for _, c in cajas]
     Wt = max(s.width for s in sueltas); Ht = sum(s.height + 30 for s in sueltas)
     hoja = Image.new('RGB', (Wt, Ht), (255, 255, 255)); d = ImageDraw.Draw(hoja); y = 0
