@@ -1,6 +1,26 @@
 # Registro de cambios
 
-### 2026-10-15 — D-018: corona dorada (diseño aprobado) y capa candidata en el visor
+### 2026-10-15 — D-018 actualizada: corona y conjunto completo aprobados visualmente
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `17f4473`, el de la entrada siguiente).
+- **Estado:** el encaje de la corona y el conjunto completo están aprobados visualmente. La resolución 2000 × 3500 y la
+  integración siguen pendientes. Nada activado ni publicado.
+- **Cambios:**
+  - D-018 actualizada.
+  - El visor abre con «Corona dorada (elegida)»; se conserva «Sin corona».
+  - Documentación: `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md` y los `LEEME.md` de la corona, del visor y de `propuestas/`.
+  - Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. Juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - Visor en Chromium con pantalla de iPhone simulada: abre con el conjunto completo; sin errores ni almacenamiento;
+    coincide con `montaje-corona.png` en lo opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `17f4473` · D-018: corona dorada (diseño aprobado) y capa candidata en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `883ff8c`, el de la entrada siguiente).

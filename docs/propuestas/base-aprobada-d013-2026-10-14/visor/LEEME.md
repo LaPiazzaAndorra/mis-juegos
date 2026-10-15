@@ -74,3 +74,5 @@ sin errores ni almacenamiento; coincide con `montaje-zapatos.png` en lo opaco (�
 conserva. Coincide con `montaje-zapatos.png` en lo opaco (≤ 2).
 **15/10/2026 (11) · D-018:** opción «Corona» (sin corona por defecto, o corona dorada en prueba, encima de todo) y
 encuadre «Corona». Sin errores ni almacenamiento; coincide con `montaje-corona.png` en lo opaco (≤ 2).
+**15/10/2026 (12) · D-018:** el visor abre con el conjunto completo aprobado (vestido, zapatos y corona «elegida»); se
+conserva «Sin corona». Coincide con `montaje-corona.png` en lo opaco (≤ 2).

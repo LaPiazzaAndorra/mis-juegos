@@ -1,10 +1,13 @@
 # Corona dorada · 15/10/2026
 
+> **D-018 (actualizada):** diseño, **encaje y conjunto completo aprobados visualmente**. La corona está seleccionada
+> por defecto en el visor; se conserva «Sin corona». La resolución 2000 × 3500 y la integración siguen pendientes.
+
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
 | `referencia-muneca-con-corona.png` | Imagen generada de la muñeca con corona (948 × 1659), conservada **sin modificar**; SHA-256 `fb822741d92d4fd954fb884f0ae58bf5fa2facf0315cbd69b59f7e46e9b6bdc9`. | **Referencia del diseño aprobado (D-018).** No sustituye a la base ni al conjunto. |
 | `montaje/corona.py` | Programa reproducible (desde la raíz: `python3 docs/propuestas/corona-2026-10-15/montaje/corona.py`). | — |
-| `montaje/corona-candidata.png` | La corona sola, capa independiente (948 × 1659), con los huecos entre adornos transparentes. | Candidata; **encaje pendiente de revisión**. |
+| `montaje/corona-candidata.png` | La corona sola, capa independiente (948 × 1659), con los huecos entre adornos transparentes. | **Encaje aprobado visualmente** (D-018). |
 | `montaje/montaje-corona*.png`, `montaje/encaje-corona.png`, `montaje/vista-muneca-con-corona.png` | Montajes y vistas (referencia, antes, después y corona sola sobre tres fondos). | Para revisar. |
 | `montaje/comprobaciones.json` | Cifras. | — |
 
@@ -33,7 +36,7 @@ Corona dorada con perlitas y corazón rosa.
   mayoría sombras del oro); se ven solo ampliando.
 - La resolución real de 2000 × 3500 sigue pendiente.
 
-En el visor: **Corona → Corona dorada (prueba)** y **Ver → Corona**. Por defecto, la muñeca va sin corona.
+En el visor sale por defecto (**Corona → Corona dorada (elegida)**); **Corona → Sin corona** la quita.
 
 **Probado:** comprobaciones automáticas y revisión visual en el ordenador; el visor, en Chromium con pantalla de iPhone
 simulada (sin errores ni almacenamiento; coincide con el montaje en lo opaco). Sin probar en el iPhone/iPad reales.

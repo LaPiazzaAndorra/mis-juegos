@@ -23,8 +23,9 @@ en el iPhone/iPad reales. Nada activado.
 **Corona dorada (15/10, D-018):**
 - **Diseño** aprobado; referencia en `docs/propuestas/corona-2026-10-15/`.
 - **Capa candidata:** solo la corona, con los huecos transparentes, colocada sin mover ni escalar sobre la muñeca.
-- Opción «Corona dorada (prueba)» en el visor. Por defecto, la muñeca va sin corona.
-- **Encaje pendiente** de revisión; resolución 2000 × 3500 pendiente; nada activado.
+- Opción «Corona dorada (elegida)» en el visor.
+- **Encaje y conjunto completo aprobados visualmente** (15/10): el visor abre con vestido, zapatos y corona; se
+  conserva «Sin corona». La resolución 2000 × 3500 y la integración en el juego siguen pendientes; nada activado.
 
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas

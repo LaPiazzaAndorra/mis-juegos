@@ -12,6 +12,15 @@
   - la integración en el juego.
 - **Límites:** opción de prueba en el visor; no se activa en el juego, no se publica y no cambian `main` ni los datos
   guardados.
+- **15/10/2026 (2):** la propietaria **aprueba visualmente el encaje** de la corona sobre la muñeca, sin mover ni
+  escalar, y **el conjunto completo**:
+  - base D-014, pelo «mechones completos» y pelo B detrás, ojos v3 / V2.1 (D-016);
+  - vestido opción B + axilas (D-016);
+  - zapatos rosa (D-017);
+  - corona dorada (D-018).
+
+  La corona queda seleccionada por defecto en el visor y se conserva la opción «Sin corona». **Sigue pendiente:** la
+  resolución real de 2000 × 3500 y la integración en el juego. No se activa nada.
 
 ## D-017 · Diseño de los zapatos rosa aprobado (solo diseño) · 15/10/2026
 - **Decisión de la propietaria:** aprueba el **diseño** de los zapatos: rosa satinado, punta redonda, tira y lazo con
