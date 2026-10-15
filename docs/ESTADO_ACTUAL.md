@@ -2,6 +2,16 @@
 
 ## Norma visual de la muñeca · 14/10/2026 (D-013)
 
+**Conjunto elegido (15/10, D-016, aprobación visual):**
+- base D-014;
+- vestido opción B con las axilas completadas;
+- pelo «mechones completos» (delante) y pelo B (detrás);
+- ojos abiertos v3 color experimental y cerrados V2.1.
+
+Está seleccionado por defecto en el visor (`docs/propuestas/base-aprobada-d013-2026-10-14/visor/`), y las
+alternativas se conservan. **Pendiente:** la resolución real de 2000 × 3500, la integración en el juego y las pruebas
+en el iPhone/iPad reales. Nada activado.
+
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas
 aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en

@@ -64,3 +64,6 @@ en lo opaco (≤ 2).
 **15/10/2026 (6):** se añade «C + ChatGPT 1 (prueba)». Sin errores ni almacenamiento.
 **15/10/2026 (7):** se añade «Mechones completos (alternativa)». Sin errores; coincide con
 `montaje-mechones-completos.png` en lo opaco (≤ 2).
+**15/10/2026 (8) · D-016:** el visor abre por defecto con el conjunto elegido: vestido «Opción B + axilas (elegida)» y
+pelo «Mechones completos (elegido)». Las demás opciones siguen disponibles. Probado: sin errores ni almacenamiento;
+coincide con `montaje-mechones-completos.png` en lo opaco (≤ 2).

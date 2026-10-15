@@ -1,6 +1,26 @@
 # Registro de cambios
 
-### 2026-10-15 — Pelo B: alternativa con los mechones completos de los hombros tomados de ChatGPT
+### 2026-10-15 — D-016: conjunto con vestido rosa elegido y por defecto en el visor
+
+- **Solicitado por:** la propietaria (aprobación visual de la opción B + axilas y del pelo «mechones completos»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `50be4a9`, el de la entrada siguiente).
+- **Estado:** aprobación visual registrada. La resolución 2000 × 3500 sigue pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - D-016 en `DECISIONES.md`.
+  - El visor abre por defecto con el conjunto elegido; las demás opciones se conservan.
+  - Notas en los `LEEME.md` de la opción B, de los mechones completos, del visor y de `propuestas/`.
+  - Documentación: `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+  - Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. Juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - Visor en Chromium con pantalla de iPhone simulada: abre con el vestido elegido, los brazos y los mechones
+    completos; sin errores ni almacenamiento; coincide con el montaje en lo opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `50be4a9` · Pelo B: alternativa con los mechones completos de los hombros tomados de ChatGPT
 
 - **Solicitado por:** la propietaria (los parches pequeños cortaban rizos dibujados de otra forma).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `b9cad69`, el de la entrada siguiente).

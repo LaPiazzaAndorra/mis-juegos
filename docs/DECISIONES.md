@@ -1,5 +1,23 @@
 # Registro de decisiones
 
+## D-016 · Conjunto con vestido rosa elegido (aprobación visual) · 15/10/2026
+- **Decisión de la propietaria:** aprueba **visualmente** este conjunto sobre la base D-014:
+  - **Vestido:** opción B con las axilas completadas,
+    `docs/propuestas/vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png` (SHA-256 `705a6e44…0219`).
+  - **Pelo de delante:** «mechones completos»,
+    `…/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png` (SHA-256 `75981ade…2c05`).
+  - **Pelo de detrás:** pelo B sin mechón, `…/variante-experimental/pelo-variante-sin-mechon-detras.png` (SHA-256 `40950160…f3fb`).
+  - **Ojos:** abiertos v3 color experimental y cerrados V2.1.
+  - **Montaje:** base sin ojos v3, con los antebrazos y las manos de la base delante de la falda.
+- **Visor:** este conjunto queda seleccionado por defecto en `docs/propuestas/base-aprobada-d013-2026-10-14/visor/`.
+- **Se conservan** todas las alternativas anteriores: vestido original y opción B sin axilas; pelo B y propuestas A, B
+  y C; prueba C + ChatGPT 1.
+- **Pendiente:** la resolución real de **2000 × 3500**. Hoy todo está a 948 × 1659, y parte del pelo y del vestido
+  sale de imágenes generadas. También están pendientes la integración en el juego (capas, catálogo, `sw.js`) y las
+  pruebas en el iPhone/iPad reales.
+- **Límites:** es una aprobación visual de propuestas. No se activa en el juego, no se publica y no cambian `main` ni
+  los datos guardados.
+
 ## D-015 · Diseño del vestido rosa de princesa aprobado (solo diseño) · 15/10/2026
 - **Decisión de la propietaria:** aprueba el **diseño** del vestido rosa de princesa de la muñeca nueva y el **largo y
   ancho** que se ven en la muñeca vestida, conservada sin modificar en

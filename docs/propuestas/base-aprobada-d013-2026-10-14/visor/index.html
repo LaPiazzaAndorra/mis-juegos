@@ -46,7 +46,7 @@
 <body>
 <header>
   <h1>Visor de la muñeca · propuesta</h1>
-  <p>Base D-014 · pelo B · ojos abiertos v3 (color experimental) · cerrados V2.1 · vestido rosa en prueba. No es el juego: no guarda nada.</p>
+  <p>Conjunto elegido (D-016): base D-014 · vestido opción B + axilas · pelo «mechones completos» · ojos v3 / V2.1. Pendiente: 2000 × 3500. No es el juego: no guarda nada.</p>
 </header>
 
 <div id="escena" aria-label="Muñeca">
@@ -57,13 +57,13 @@
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
     <img id="c-vestido" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/vestido-candidato-original.png">
     <img id="c-vestido-b" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png">
-    <img id="c-vestido-ax" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
-    <img id="c-brazos" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
-    <img id="c-pelo-delante" class="pelo-delante" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
+    <img id="c-vestido-ax" class=" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
+    <img id="c-brazos" class=" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
+    <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
     <img id="c-pelo-delante-b" class="pelo-delante oculto" data-pelo="b" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido-b.png">
     <img id="c-pelo-delante-c" class="pelo-delante oculto" data-pelo="c" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c.png">
-    <img id="c-pelo-delante-mc" class="pelo-delante oculto" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
+    <img id="c-pelo-delante-mc" class="pelo-delante" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
@@ -78,19 +78,19 @@
   </div>
   <div class="fila">
     <b>Ropa</b>
-    <button data-ropa="camiseta" aria-pressed="true">Camiseta (base)</button>
+    <button data-ropa="camiseta" aria-pressed="false">Camiseta (base)</button>
     <button data-ropa="vestido" aria-pressed="false">Vestido original (prueba)</button>
     <button data-ropa="vestido-b" aria-pressed="false">Vestido limpio · opción B</button>
-    <button data-ropa="vestido-ax" aria-pressed="false">Opción B + axilas (candidata)</button>
+    <button data-ropa="vestido-ax" aria-pressed="true">Opción B + axilas (elegida)</button>
   </div>
   <div class="fila">
     <b>Pelo</b>
-    <button data-pelo-op="actual" aria-pressed="true">Pelo B actual</button>
+    <button data-pelo-op="actual" aria-pressed="false">Pelo B actual</button>
     <button data-pelo-op="a" aria-pressed="false">Hombros · propuesta A</button>
     <button data-pelo-op="b" aria-pressed="false">Hombros · propuesta B</button>
     <button data-pelo-op="c" aria-pressed="false">Hombros · C (mechones)</button>
     <button data-pelo-op="c1" aria-pressed="false">C + ChatGPT 1 (prueba)</button>
-    <button data-pelo-op="mc" aria-pressed="false">Mechones completos (alternativa)</button>
+    <button data-pelo-op="mc" aria-pressed="true">Mechones completos (elegido)</button>
   </div>
   <div class="fila">
     <b>Ver</b>
@@ -228,7 +228,7 @@
     });
   });
   // --- pelo de delante: el actual o una de las propuestas de redistribución (hombros) -------------------
-  var peloOp = 'actual', peloDelanteVisible = true;
+  var peloOp = 'mc', peloDelanteVisible = true;            // conjunto elegido por defecto (D-016)
   function mostrarPelo() {
     document.querySelectorAll('img.pelo-delante').forEach(function (im) {
       im.classList.toggle('oculto', !peloDelanteVisible || im.dataset.pelo !== peloOp);

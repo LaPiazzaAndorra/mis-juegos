@@ -28,6 +28,7 @@
 > **B elegida** como candidata preferida del borrador (`pelo-variante-sin-mechon-detras/delante.png`); sin activar.
 > Propuestas de redistribución del pelo de delante en hombros y pecho (A/B/C · C con mechones continuos; alternativa con mechones completos de ChatGPT en `mechones-completos-chatgpt/`) en `variante-experimental/redistribucion-hombros/`.
 > **Visor aislado** para revisar el conjunto en Safari: `visor/index.html` (véase `visor/LEEME.md`).
+> **Conjunto elegido (D-016, aprobación visual):** vestido opción B + axilas y pelo «mechones completos»; por defecto en el visor; 2000 × 3500 pendiente.
 > **Vestido rosa:** diseño aprobado (D-015) con referencia en `docs/propuestas/vestido-rosa-2026-10-15/`; capa candidata
 > `vestido-candidato-original.png` con prueba de encaje en `montaje/` (sin aprobación técnica). **Opción B** (copia limpia,
 > solo alfa) en `opcion-b/vestido-opcion-b.png`; falta tela solo en las axilas (`opcion-b/mascara-falta-tela.png`).

@@ -1,4 +1,7 @@
-# Alternativa: mechones completos de los hombros tomados de ChatGPT · PENDIENTE DE REVISIÓN · 15/10/2026
+# Mechones completos de los hombros tomados de ChatGPT · 15/10/2026
+
+> **ELEGIDO (D-016, aprobación visual):** junto con el vestido opción B + axilas. La resolución 2000 × 3500 sigue
+> pendiente; no se activa en el juego.
 
 Esta alternativa no sustituye a la propuesta C (`../pelo-delante-mechones-c.png`), que se conserva intacta. No se
 activa ni se publica.

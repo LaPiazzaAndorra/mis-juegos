@@ -5,7 +5,7 @@ propietaria. Se aplican sobre `avatar-creador` con `git apply <archivo>.patch`.
 
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
-| `vestido-rosa-2026-10-15/` | Vestido rosa de princesa: referencia de la muñeca vestida (sin modificar, 948 × 1660). La capa del vestido solo está pendiente. | **Diseño aprobado (D-015)**; capa y encaje sin aprobar. |
+| `vestido-rosa-2026-10-15/` | Vestido rosa de princesa: referencia de la muñeca vestida (sin modificar, 948 × 1660). La capa del vestido solo está pendiente. | **Diseño aprobado (D-015)**; conjunto elegido visualmente (D-016: opción B + axilas con pelo «mechones completos»); 2000 × 3500 pendiente. |
 | `base-aprobada-d013-2026-10-14/` | Base visual de la muñeca nueva aprobada conforme a D-013 (D-014): original intacto `base-aprobada.png` y copia técnica `base-transparencia-corregida.png` (solo alfa corregido). 948 × 1659. | Apariencia aprobada; transparencia corregida en la copia; resolución y capas pendientes. |
 | `muneca-elegida-2026-10-14/` | Referencia visual de la nueva muñeca elegida (948 × 1659, con fondo), D-012. No es una capa de producción. | Aprobación estética; capas pendientes. |
 | `copia-integrada.patch` | Botones «Guardar / Recuperar mi progreso». | **Aprobada e integrada** en `avatar-creador` el 14/10/2026; el parche se ha quitado (está en el historial de Git, commit `fabee28`). |

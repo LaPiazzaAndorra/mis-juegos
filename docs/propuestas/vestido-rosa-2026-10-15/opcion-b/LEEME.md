@@ -1,5 +1,8 @@
 # Vestido rosa · opción B (copia limpia) · PROPUESTA · 15/10/2026
 
+> **D-016:** `vestido-opcion-b-axilas-completadas.png` es el vestido **elegido** (aprobación visual). La resolución
+> 2000 × 3500 sigue pendiente; no se activa en el juego.
+
 Copia técnica de la capa candidata (`../vestido-candidato-original.png`, que **no se modifica**). Es una propuesta: no
 se activa en el juego ni se publica. **La base no se toca**, porque no se aplica la opción C. Se conservan el diseño,
 los bordados, el largo y el ancho aprobados (D-015): **solo cambia el canal alfa**; los colores son idénticos (comprobado).
