@@ -1,0 +1,28 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "editada": "12a541222136f3f83cbf2601a4da59790d0d57890853bbc84cdd023da8a42a85",
+  "c": "a9bc14a0027aeaa69f22dd9466844be9472b2a3aee5d433adb6d0a6dda2bdc17",
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "vestido": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489"
+ },
+ "px_tomados_de_chatgpt": 44887,
+ "px_de_tela_que_ahora_tapa_el_pelo": 8084,
+ "px_de_pelo_de_c_que_ahora_es_vestido": 142,
+ "costura": {
+  "px": 1029,
+  "diferencia_media_chatgpt_vs_c": 5.0,
+  "luminosidad_media": 30.0
+ },
+ "fuera_de_la_zona_identico_a_c": true,
+ "silueta_exterior_igual": true,
+ "pelo_sobre_cara_orejas_cuello_px": 0,
+ "px_tomados_que_no_son_pelo": 0,
+ "capa_de_detras": "sin cambios",
+ "propuesta_c": "sin cambios"
+}

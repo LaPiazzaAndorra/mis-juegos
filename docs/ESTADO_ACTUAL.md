@@ -84,6 +84,10 @@ visor. Pendiente; nada activado.
 **Relleno 1 de ChatGPT para los mechones (15/10): no encaja todavía.** La alineación es correcta, pero ChatGPT redibujó
 el pelo de los hombros. Integrar solo la máscara deja dos parches con costura, y la máscara se queda corta (2 585 px de
 pelo de ChatGPT fuera, marcados). No se ha ampliado. Opción «C + ChatGPT 1 (prueba)» en el visor.
+**Alternativa con los mechones completos de ChatGPT (15/10, pendiente de revisión):** en
+`…/redistribucion-hombros/mechones-completos-chatgpt/`. Toma el mechón entero de cada hombro de la imagen de ChatGPT,
+unido a C por sombras entre rizos (diferencia media en la costura: 5). Solo pelo; silueta exterior, cara, cabeza,
+cuerpo y vestido intactos. C se conserva. Opción «Mechones completos (alternativa)» en el visor. Nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

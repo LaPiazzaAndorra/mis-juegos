@@ -26,7 +26,7 @@ Controles:
   - Parpadeo automático: cada 2,5–5 s.
   - Mantener cerrados.
 - **Ropa:** camiseta de la base, vestido original (prueba), vestido limpio · opción B u opción B + axilas (candidata).
-- **Pelo:** pelo B actual, propuesta A / B / C (mechones) en hombros y pecho, o C + ChatGPT 1 (prueba).
+- **Pelo:** pelo B actual, propuesta A / B / C (mechones) en hombros y pecho, C + ChatGPT 1 (prueba) o mechones completos (alternativa).
 - **Ver:** entera, cara, ojos, cuello con orejas y vestido. También hay un deslizador de zoom; se puede arrastrar con un dedo y
   pellizcar con dos dentro del visor.
 - **Fondo:** claro, oscuro, rosa o cuadros, para ver la transparencia.
@@ -35,7 +35,7 @@ Controles:
 **Seguridad de los datos:**
 - No usa `localStorage`, `sessionStorage`, IndexedDB ni cookies, no registra ningún service worker y no lee partidas
   ni copias.
-- Solo pide la página y sus imágenes (trece en total).
+- Solo pide la página y sus imágenes (catorce en total).
 - `raw.githack.com` es la misma dirección de la versión de pruebas, pero el visor no lee ni escribe nada en ella, y es
   otra dirección distinta del juego de Amaia.
 
@@ -62,3 +62,5 @@ en lo opaco (≤ 2).
 **15/10/2026 (5):** se añade «Hombros · C (mechones)». Sin errores; coincide con `montaje-vestido-mechones-c.png`
 en lo opaco (≤ 2).
 **15/10/2026 (6):** se añade «C + ChatGPT 1 (prueba)». Sin errores ni almacenamiento.
+**15/10/2026 (7):** se añade «Mechones completos (alternativa)». Sin errores; coincide con
+`montaje-mechones-completos.png` en lo opaco (≤ 2).

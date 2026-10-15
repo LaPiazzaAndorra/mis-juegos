@@ -10,7 +10,7 @@
   Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
     pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1)
     · [opción: vestido rosa original candidato, opción B limpia u opción B con axilas completadas + antebrazos y manos copiados de la base]
-    · pelo B delante (actual, o propuesta A / B / C de redistribución en los hombros, o C + relleno 1 de ChatGPT).
+    · pelo B delante (actual, o propuesta A / B / C de redistribución en los hombros, o C + relleno 1 de ChatGPT, o mechones completos de ChatGPT).
   No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
 -->
 <style>
@@ -63,6 +63,7 @@
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
     <img id="c-pelo-delante-b" class="pelo-delante oculto" data-pelo="b" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido-b.png">
     <img id="c-pelo-delante-c" class="pelo-delante oculto" data-pelo="c" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c.png">
+    <img id="c-pelo-delante-mc" class="pelo-delante oculto" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
@@ -89,6 +90,7 @@
     <button data-pelo-op="b" aria-pressed="false">Hombros · propuesta B</button>
     <button data-pelo-op="c" aria-pressed="false">Hombros · C (mechones)</button>
     <button data-pelo-op="c1" aria-pressed="false">C + ChatGPT 1 (prueba)</button>
+    <button data-pelo-op="mc" aria-pressed="false">Mechones completos (alternativa)</button>
   </div>
   <div class="fila">
     <b>Ver</b>

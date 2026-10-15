@@ -1,6 +1,31 @@
 # Registro de cambios
 
-### 2026-10-15 — Pelo B: relleno 1 de ChatGPT de los mechones integrado en una copia (no encaja todavía)
+### 2026-10-15 — Pelo B: alternativa con los mechones completos de los hombros tomados de ChatGPT
+
+- **Solicitado por:** la propietaria (los parches pequeños cortaban rizos dibujados de otra forma).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `b9cad69`, el de la entrada siguiente).
+- **Estado:** alternativa pendiente de revisión; C intacta; nada activado ni publicado.
+- **Cambios:**
+  - `redistribucion-hombros/mechones-completos-chatgpt/mechones_completos.py` → capa de delante, zona tomada,
+    montajes, antes/después, `comprobaciones.json` y `LEEME.md`.
+  - Opción «Mechones completos (alternativa)» en el visor.
+  - Documentación: `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+- **Resultado:**
+  - 44 887 px de pelo de ChatGPT.
+  - Costura por sombras entre rizos (luminosidad 30; diferencia con C, 5) con 3 px de fundido.
+  - Fuera de la zona idéntica a C; silueta exterior igual; 0 px sobre la cara; 0 px de piel o tela tomados.
+- **Datos guardados afectados:** ninguno. C, pelo B, vestido, base, ojos, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes y comprobaciones del JSON.
+  - Revisión ×2 de los hombros.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento; coincide con el montaje en lo
+    opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `b9cad69` · Pelo B: relleno 1 de ChatGPT de los mechones integrado en una copia (no encaja todavía)
 
 - **Solicitado por:** la propietaria (integrar solo las zonas de la máscara; señalar si se queda corta).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `ef587b8`, el de la entrada siguiente).
