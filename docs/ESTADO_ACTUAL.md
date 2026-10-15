@@ -71,6 +71,11 @@ blanco del fondo: ChatGPT no ensanchó el cuerpo del vestido junto al lazo. No h
 Tiene textura copiada de la tela contigua y una transición suave. Solo cambian los 1 207 px de la máscara; no queda
 blanco ni camiseta visible. Opción «Opción B + axilas (candidata)» en el visor. **Pendiente de aprobación**; nada
 activado.
+**Pelo B en hombros y pecho (15/10, propuesta):** en `…/variante-experimental/redistribucion-hombros/`. Solo
+redistribuye el pelo existente entre delante y detrás, por rizos enteros y no por la silueta de la camiseta. **A** pone
+delante 53 rizos que ya asomaban; junto al escote faltaría pelo por ilustrar. **B (recomendada)** = A, con las 6
+sombras de corte junto al escote detrás; no hace falta ilustrar nada. Opción «Pelo» en el visor. Pendiente de
+aprobación; nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

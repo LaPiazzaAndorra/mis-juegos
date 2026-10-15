@@ -16,7 +16,8 @@ Capas, de abajo arriba (948 × 1659):
    u opción B limpia `../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png`,
    u opción B con axilas completadas `../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png`,
    y antebrazos y manos copiados de la base `../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png`
-5. Pelo B delante: `../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png`
+5. Pelo B delante (o, con la opción «Pelo», las propuestas A / B de
+   `../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/`): `../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png`
 
 Controles:
 
@@ -25,6 +26,7 @@ Controles:
   - Parpadeo automático: cada 2,5–5 s.
   - Mantener cerrados.
 - **Ropa:** camiseta de la base, vestido original (prueba), vestido limpio · opción B u opción B + axilas (candidata).
+- **Pelo:** pelo B actual, o propuesta A / B de redistribución en hombros y pecho.
 - **Ver:** entera, cara, ojos, cuello con orejas y vestido. También hay un deslizador de zoom; se puede arrastrar con un dedo y
   pellizcar con dos dentro del visor.
 - **Fondo:** claro, oscuro, rosa o cuadros, para ver la transparencia.
@@ -33,7 +35,7 @@ Controles:
 **Seguridad de los datos:**
 - No usa `localStorage`, `sessionStorage`, IndexedDB ni cookies, no registra ningún service worker y no lee partidas
   ni copias.
-- Solo pide la página y sus imágenes (nueve en total).
+- Solo pide la página y sus imágenes (once en total).
 - `raw.githack.com` es la misma dirección de la versión de pruebas, pero el visor no lee ni escribe nada en ella, y es
   otra dirección distinta del juego de Amaia.
 
@@ -55,3 +57,5 @@ coincide con `montaje-vestido-abiertos.png` en lo opaco (≤ 2).
 en lo opaco (≤ 2).
 **15/10/2026 (3):** se añade «Opción B + axilas (candidata)». Sin errores y sin almacenamiento; coincide con
 `montaje-axilas-completadas-abiertos.png` en lo opaco (≤ 2).
+**15/10/2026 (4):** se añaden las propuestas A y B del pelo en los hombros. Sin errores; coincide con
+`montaje-vestido-pelo-redistribuido-b.png` en lo opaco (≤ 2).

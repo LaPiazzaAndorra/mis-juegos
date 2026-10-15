@@ -9,7 +9,8 @@
   Visor AISLADO de revisión (propuesta, no es el juego).
   Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
     pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1)
-    · [opción: vestido rosa original candidato, opción B limpia u opción B con axilas completadas + antebrazos y manos copiados de la base] · pelo B delante.
+    · [opción: vestido rosa original candidato, opción B limpia u opción B con axilas completadas + antebrazos y manos copiados de la base]
+    · pelo B delante (actual, o propuesta A / B de redistribución en los hombros).
   No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
 -->
 <style>
@@ -58,7 +59,9 @@
     <img id="c-vestido-b" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png">
     <img id="c-vestido-ax" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
     <img id="c-brazos" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
-    <img id="c-pelo-delante" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
+    <img id="c-pelo-delante" class="pelo-delante" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
+    <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
+    <img id="c-pelo-delante-b" class="pelo-delante oculto" data-pelo="b" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido-b.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
 </div>
@@ -76,6 +79,12 @@
     <button data-ropa="vestido" aria-pressed="false">Vestido original (prueba)</button>
     <button data-ropa="vestido-b" aria-pressed="false">Vestido limpio · opción B</button>
     <button data-ropa="vestido-ax" aria-pressed="false">Opción B + axilas (candidata)</button>
+  </div>
+  <div class="fila">
+    <b>Pelo</b>
+    <button data-pelo-op="actual" aria-pressed="true">Pelo B actual</button>
+    <button data-pelo-op="a" aria-pressed="false">Hombros · propuesta A</button>
+    <button data-pelo-op="b" aria-pressed="false">Hombros · propuesta B</button>
   </div>
   <div class="fila">
     <b>Ver</b>
@@ -212,10 +221,25 @@
       document.querySelectorAll('[data-fondo]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
+  // --- pelo de delante: el actual o una de las propuestas de redistribución (hombros) -------------------
+  var peloOp = 'actual', peloDelanteVisible = true;
+  function mostrarPelo() {
+    document.querySelectorAll('img.pelo-delante').forEach(function (im) {
+      im.classList.toggle('oculto', !peloDelanteVisible || im.dataset.pelo !== peloOp);
+    });
+  }
+  document.querySelectorAll('[data-pelo-op]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      peloOp = b.dataset.peloOp; mostrarPelo();
+      document.querySelectorAll('[data-pelo-op]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
   document.querySelectorAll('[data-capa]').forEach(function (b) {
     b.addEventListener('click', function () {
       var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on));
       if (b.dataset.capa === 'ojos') { ojosVisibles = on; mostrarOjos(mantener); }
+      else if (b.dataset.capa === 'c-pelo-delante') { peloDelanteVisible = on; mostrarPelo(); }
       else document.getElementById(b.dataset.capa).classList.toggle('oculto', !on);
     });
   });

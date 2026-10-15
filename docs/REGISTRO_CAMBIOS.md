@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-15 — Vestido rosa: axilas completadas por edición de píxeles (candidata)
+### 2026-10-15 — Pelo B: redistribución delante/detrás en hombros y pecho (propuestas A y B)
+
+- **Solicitado por:** la propietaria («el pelo parece pegado encima del vestido»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `afbfc71`, el de la entrada siguiente).
+- **Estado:** propuesta, pendiente de aprobación; nada activado ni publicado.
+- **Cambios:**
+  - `…/variante-experimental/redistribucion-hombros/redistribuir_pelo.py` → capas de delante A y B, montajes,
+    comparación, ampliaciones, mapa, máscara de falta pelo (A), `comprobaciones.json` y `LEEME.md`.
+  - Opción «Pelo» en el visor.
+  - Documentación: `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+- **Resultado:**
+  - Los rizos se separan por sus sombras: 119 en la zona.
+  - A: 53 rizos pasan enteros delante (36 769 px); falta pelo junto al escote (2 157 px).
+  - B: A, y además 6 rizos de sombra de corte junto al escote pasan detrás (4 604 px); no falta pelo.
+  - Colores idénticos; capa de detrás sin cambios; 0 px sobre la cara.
+- **Datos guardados afectados:** ninguno. Pelo B, vestido, base, ojos, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes y comprobaciones del JSON.
+  - Revisión ×2 de los hombros con el vestido y con la camiseta.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento; coincide con el montaje en lo
+    opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `afbfc71` · Vestido rosa: axilas completadas por edición de píxeles (candidata)
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `8e9f71e`, el de la entrada siguiente).

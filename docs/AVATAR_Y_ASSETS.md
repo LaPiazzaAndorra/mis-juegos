@@ -26,6 +26,7 @@
 > zonas reconstruidas marcadas en `mascara-zonas-reconstruidas.png` y zonas pendientes en `zonas-pendientes.png`.
 > Variante experimental en `revision-localizada/variante-experimental/`: bordes rosados corregidos (A) y sin el mechón suelto (B).
 > **B elegida** como candidata preferida del borrador (`pelo-variante-sin-mechon-detras/delante.png`); sin activar.
+> Propuestas de redistribución del pelo de delante en hombros y pecho (A/B) en `variante-experimental/redistribucion-hombros/`.
 > **Visor aislado** para revisar el conjunto en Safari: `visor/index.html` (véase `visor/LEEME.md`).
 > **Vestido rosa:** diseño aprobado (D-015) con referencia en `docs/propuestas/vestido-rosa-2026-10-15/`; capa candidata
 > `vestido-candidato-original.png` con prueba de encaje en `montaje/` (sin aprobación técnica). **Opción B** (copia limpia,

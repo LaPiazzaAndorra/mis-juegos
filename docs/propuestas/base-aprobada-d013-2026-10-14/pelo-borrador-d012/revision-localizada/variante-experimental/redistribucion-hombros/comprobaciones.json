@@ -1,0 +1,87 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "e3c23a194f348ce9bf50b96a292aba222ef8adf614c6a6f885d737049cca4971",
+  "reconstruido": "66d652ddf6a62474cc141d71b03bd2071e8e86aea387d83d9504b3dbf61532d5",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "vestido": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489"
+ },
+ "umbral": 0.05,
+ "rizos_en_la_zona": 119,
+ "rizos_que_pasan_delante": 53,
+ "px_que_pasan_delante": 36769,
+ "px_que_pasan_detras": 0,
+ "delante_anterior_identico": true,
+ "colores_identicos_al_pelo_existente": true,
+ "pelo_delante_sobre_cara_orejas_cuello_visibles_px": 0,
+ "pelo_visible_igual_o_mayor": true,
+ "falta_pelo_px_en_A": 2157,
+ "capa_de_detras": "sin cambios",
+ "propuesta_B": {
+  "rizos_de_sombra_que_pasan_detras": [
+   {
+    "rizo": 32,
+    "px": 3435,
+    "centro": [
+     329,
+     674
+    ],
+    "luminosidad_media": 71
+   },
+   {
+    "rizo": 61,
+    "px": 3050,
+    "centro": [
+     597,
+     689
+    ],
+    "luminosidad_media": 59
+   },
+   {
+    "rizo": 69,
+    "px": 1245,
+    "centro": [
+     607,
+     647
+    ],
+    "luminosidad_media": 48
+   },
+   {
+    "rizo": 95,
+    "px": 1870,
+    "centro": [
+     359,
+     648
+    ],
+    "luminosidad_media": 48
+   },
+   {
+    "rizo": 101,
+    "px": 950,
+    "centro": [
+     627,
+     663
+    ],
+    "luminosidad_media": 42
+   },
+   {
+    "rizo": 117,
+    "px": 864,
+    "centro": [
+     389,
+     664
+    ],
+    "luminosidad_media": 37
+   }
+  ],
+  "restos_quitados_px": 188,
+  "px_delante_que_pasan_detras": 4604,
+  "pelo_delante_sobre_cara_orejas_cuello_visibles_px": 0,
+  "falta_pelo_px": 0
+ }
+}
