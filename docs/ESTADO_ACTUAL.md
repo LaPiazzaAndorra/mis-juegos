@@ -33,6 +33,8 @@ sobre él; el relleno liso se nota al quitar los ojos. Para elegir montaje. Nada
 `…/ojos-cerrados/` (párpado de piel que tapa el 100 % del parche, pliegue y raíces + pestañas reales en
 espejo). Cambio instantáneo de capa. A tamaño de juego funciona; **ampliado no es del todo natural** (línea
 cerrada fina y entrecortada, párpado liso): para la versión final hará falta dibujo o retoque a mano.
+**Variante con los ojos cerrados V2.1 reutilizados** (escala uniforme 0,36, sin deformar; V2.1 intacta): tapa
+el 100 % y encaja mejor; sus pestañas son más finas que las de los ojos abiertos nuevos. Sigue siendo prueba.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

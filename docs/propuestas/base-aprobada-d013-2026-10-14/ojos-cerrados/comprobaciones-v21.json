@@ -1,0 +1,38 @@
+{
+ "fuente": "arte/originales/ojos-cerrados-clara.png",
+ "sha256_fuente": "c0d931618533de68eea55428d3ffa0b1eec7f6610f1180bf0d5f2051268a87e5",
+ "fuente_sin_cambios": true,
+ "ojos_colocados": [
+  {
+   "escala": 0.3613,
+   "origen": [
+    325,
+    413
+   ],
+   "tamaño": [
+    101,
+    34
+   ]
+  },
+  {
+   "escala": 0.3655,
+   "origen": [
+    533,
+    412
+   ],
+   "tamaño": [
+    103,
+    34
+   ]
+  }
+ ],
+ "escala_uniforme": true,
+ "zona_que_deben_tapar_px": 18573,
+ "tapada_por_completo_px": 18573,
+ "caja_de_cambios": [
+  298,
+  378,
+  662,
+  495
+ ]
+}

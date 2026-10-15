@@ -32,7 +32,24 @@ que **no se retoca más**. Nada activado ni publicado.
 Al cerrar, la capa abierta se **oculta por completo** y se muestra la cerrada: cambio instantáneo, sin mezcla
 de opacidad (el juego ya lo hace así, con `display: none` durante 200 ms). Nunca se ven los parches.
 
-## Valoración honesta
+## Variante V2.1 reutilizada (`cerrados_v21.py`) · 15/10/2026
+
+Archivos: `capa-ojos-cerrados-prueba-v21.png`, `estado-cerrados-v21.png`, `vista-estados-v21.png`,
+`vista-cobertura-v21.png`, `parpadeo-v21-tamano-juego.gif`, `parpadeo-v21-cara.gif`, `comprobaciones-v21.json`.
+
+- Fuente: `arte/originales/ojos-cerrados-clara.png` (V2.1 aprobada), **sin modificar** (SHA-256
+  `c0d93161…87e5`, comprobado antes y después). El prototipo anterior se conserva.
+- Mismo párpado de cobertura (sin las pestañas en espejo) y, encima, cada ojo cerrado V2.1 separado y
+  colocado con **escala uniforme** (0,361 izquierdo, 0,366 derecho: solo reducción), sin giro ni
+  deformación: la escala sale del ancho de la abertura del ojo nuevo respecto al ojo abierto V2.1, y el
+  centro de la abertura V2.1 cae en el de la nueva. Curva, proporciones y detalle se conservan.
+- **Tapa el 100 %** del parche, el pliegue y las raíces (18 573 de 18 573 px). Cambios solo en x 298–662,
+  y 378–495.
+- **Valoración:** encaja **bastante mejor** que la prueba anterior: líneas limpias y curvas, se lee bien a
+  tamaño de juego y ampliado. Diferencias que se notan: sus pestañas son más finas y menos abundantes que
+  las de los ojos abiertos nuevos (estilo V2.1), y el párpado sigue siendo liso. Sigue siendo una prueba.
+
+## Valoración honesta (prueba anterior, `cerrados.py`)
 
 - **A tamaño de juego** el parpadeo se lee bien y la piel del párpado se integra.
 - **Ampliado no queda del todo natural:** la línea cerrada es fina y entrecortada en la mitad del lagrimal,

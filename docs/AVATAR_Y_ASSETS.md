@@ -19,7 +19,8 @@
 > Máscara **propuesta (v2)** de los ojos abiertos y pestañas en `ojos-abiertos/` (v1 conservada), **capa de prueba**
 > extraída con ella y **base sin ojos** propuesta en `sin-ojos/` con la comprobación del montaje. **v3:** máscara v3, base
 > sin ojos v3 y capas sin corregir y con color experimental (estimado) para comparar. Nada activado.
-> **Ojos cerrados de prueba** y parpadeo en `ojos-cerrados/` (deformación de las pestañas reales; no es arte final).
+> **Ojos cerrados de prueba** y parpadeo en `ojos-cerrados/` (deformación de las pestañas reales; no es arte final),
+> y variante con `ojos-cerrados-clara.png` (V2.1, sin modificar) reutilizado a escala uniforme.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

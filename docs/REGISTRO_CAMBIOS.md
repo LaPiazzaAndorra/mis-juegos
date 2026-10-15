@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-15 — Base D-014: ojos cerrados de prueba y parpadeo
+### 2026-10-15 — Base D-014: variante de ojos cerrados con la ilustración V2.1 reutilizada
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `0c0a9fa`, el de la entrada siguiente).
+- **Estado:** prueba; nada activado ni publicado.
+- **Cambios:** `ojos-cerrados/cerrados_v21.py` → `capa-ojos-cerrados-prueba-v21.png` (párpado de cobertura +
+  cada ojo cerrado V2.1 a escala uniforme 0,361/0,366, colocado por el centro de la abertura), estado cerrado,
+  vistas, cobertura, dos GIF de parpadeo y `comprobaciones-v21.json`. `arte/originales/ojos-cerrados-clara.png`
+  y el prototipo anterior, sin cambios.
+- **Resultado:** tapa el 100 % (18 573 px); encaja mejor que la prueba anterior; pestañas más finas que las de
+  los ojos abiertos nuevos y párpado liso.
+- **Datos guardados afectados:** ninguno. Catálogo, `plantilla/`, juego, carita y originales sin cambios.
+- **Pruebas:** SHA-256 de la fuente antes y después, cobertura, revisión visual a ~480/220 px y ×2, animaciones;
+  comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `0c0a9fa` · Base D-014: ojos cerrados de prueba y parpadeo
 
 - **Solicitado por:** la propietaria (candidata abierta: v3 color experimental).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `d0c19a6`, el de la entrada siguiente).
