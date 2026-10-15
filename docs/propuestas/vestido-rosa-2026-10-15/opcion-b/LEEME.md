@@ -76,7 +76,30 @@ Resultado sobre la muñeca: la camiseta ya no se transparenta en el cuerpo del v
 - Para otro intento, conviene pedir expresamente que la tela del cuerpo se ensanche un poco a los lados, a la altura de
   la cintura y del lazo, hasta cubrir la zona azul de `guia-donde-rellenar.png`, sin dejar fondo blanco.
 
-En el visor (`../../base-aprobada-d013-2026-10-14/visor/`): **Ropa → Vestido limpio · opción B**.
+### Axilas completadas por edición de píxeles (15/10) · **candidata para revisar**
+
+Programa: `completar_axilas.py`. Escribe `vestido-opcion-b-axilas-completadas.png`, montajes abiertos y cerrados,
+`comparacion-axilas-completadas.png`, `vista-axilas-completadas.png` y `comprobaciones-axilas-completadas.json`.
+No se regenera la ilustración: es una **copia** de la opción B en la que solo cambian los 1 207 px de la máscara.
+
+- **Textura:** cada zona se rellena con tela **copiada de la tela contigua** del propio vestido, con un traslado casi
+  horizontal hacia el centro del cuerpo: (+19, −2) px en la izquierda y (−41, +4) px en la derecha. No hay escala ni
+  giro, y se evitan bordados y brillos.
+- **Transición suave:** la diferencia de color con la tela real del contorno se reparte por dentro de la zona
+  (interpolación armónica), para que no quede costura.
+- **Opacidad:** la tela nueva es opaca. En el borde exterior, el que da al brazo o al fondo y nunca sobre la camiseta,
+  queda 1 px suave (62 px).
+- **Comprobado:**
+  - fuera de la máscara, la copia es **idéntica** a la opción B;
+  - **0 px de fondo blanco** en la zona;
+  - **0 px de camiseta visible** (más del 10 %). Quedan 50 px de borde suave por los que la camiseta se transparenta
+    menos de un 10 %; no se aprecia.
+- **Pendiente:** la aprobación de la propietaria, tras verlo en el visor. En la axila derecha, el relleno bajo el
+  puño acaba en una línea diagonal: es el límite de la máscara.
+
+En el visor (`../../base-aprobada-d013-2026-10-14/visor/`):
+- **Ropa → Vestido limpio · opción B**;
+- **Ropa → Opción B + axilas (candidata)**.
 
 **Probado:** comprobaciones automáticas y revisión visual en el ordenador; el visor, en Chromium con pantalla de iPhone
 simulada. No se ha probado en el iPhone/iPad reales.

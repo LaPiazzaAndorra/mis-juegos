@@ -66,7 +66,11 @@ programa que integra solo la zona marcada. **Corrección:** en los hombros no fa
 de delante. Opción «Vestido limpio · opción B» en el visor. Nada activado.
 **Axilas, intento 1 con ChatGPT (15/10): no encaja.** La alineación es exacta, pero 381 de los 1 207 px de la zona son
 blanco del fondo: ChatGPT no ensanchó el cuerpo del vestido junto al lazo. No hay candidata ni opción nueva en el visor.
-`integrar_relleno.py` detecta ahora estos fallos. Falta otro intento.
+`integrar_relleno.py` detecta ahora estos fallos.
+**Axilas completadas por edición de píxeles (15/10, candidata):** `opcion-b/vestido-opcion-b-axilas-completadas.png`.
+Tiene textura copiada de la tela contigua y una transición suave. Solo cambian los 1 207 px de la máscara; no queda
+blanco ni camiseta visible. Opción «Opción B + axilas (candidata)» en el visor. **Pendiente de aprobación**; nada
+activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

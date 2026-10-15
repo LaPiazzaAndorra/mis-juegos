@@ -1,0 +1,56 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "opcion_b": "a566bf558ac419d35c7670f9cf93a122e12079a3d439c1b5d410752f2193a841",
+  "mascara": "d52255d565918788ad995a49b41280bc5ccfe5e437262da1a2998e70f6dfe322",
+  "original": "5c0a062f95031e6b6b97a1b4062d3e445e9668b9659466233f2a5692b614106c",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "e3c23a194f348ce9bf50b96a292aba222ef8adf614c6a6f885d737049cca4971",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489"
+ },
+ "metodo": "copia de textura contigua + transición armónica (edición de píxeles)",
+ "zonas": [
+  {
+   "zona": 1,
+   "px": 719,
+   "caja": [
+    369,
+    763,
+    388,
+    828
+   ],
+   "origen_desplazado": [
+    19,
+    -2
+   ],
+   "error_de_continuidad": 23.9
+  },
+  {
+   "zona": 2,
+   "px": 488,
+   "caja": [
+    581,
+    765,
+    616,
+    802
+   ],
+   "origen_desplazado": [
+    -41,
+    4
+   ],
+   "error_de_continuidad": 36.7
+  }
+ ],
+ "fuera_de_la_mascara_identico": true,
+ "cambiados_px": 1207,
+ "mascara_px": 1207,
+ "blanco_del_fondo_en_la_zona_px": 0,
+ "borde_suave_exterior_px": 62,
+ "camiseta_visible_mas_10_por_ciento_px": 0,
+ "camiseta_visible_1_a_10_por_ciento_px": 50,
+ "camiseta_visible_en_las_axilas_mas_1_por_ciento_px": 45
+}

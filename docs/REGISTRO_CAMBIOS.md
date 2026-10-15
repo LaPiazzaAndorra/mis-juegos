@@ -1,6 +1,33 @@
 # Registro de cambios
 
-### 2026-10-15 — Vestido rosa: primer relleno de las axilas con ChatGPT (no encaja)
+### 2026-10-15 — Vestido rosa: axilas completadas por edición de píxeles (candidata)
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `8e9f71e`, el de la entrada siguiente).
+- **Estado:** candidata en el visor, **pendiente de aprobación**; nada activado ni publicado.
+- **Cambios:**
+  - `opcion-b/completar_axilas.py` → `vestido-opcion-b-axilas-completadas.png`, montajes, comparación, vista y
+    `comprobaciones-axilas-completadas.json`.
+  - Opción «Opción B + axilas (candidata)» en el visor.
+  - Documentación: `LEEME.md` de la opción B y del visor, D-015, `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+- **Resultado:**
+  - Textura copiada de la tela contigua: (+19, −2) en la izquierda y (−41, +4) en la derecha. Transición armónica.
+  - Tela opaca, con 1 px de borde suave hacia fuera.
+  - Fuera de la máscara, idéntica a la opción B; 0 px de blanco y 0 px de camiseta visible (> 10 %).
+- **Datos guardados afectados:** ninguno. Base, opción B, original, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes.
+  - Comparación píxel a píxel fuera de la máscara.
+  - Recuento de blanco y de camiseta visible.
+  - Revisión ×3 sobre fondo oscuro, claro y sobre la muñeca.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento; coincide con el montaje en lo
+    opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `8e9f71e` · Vestido rosa: primer relleno de las axilas con ChatGPT (no encaja)
 
 - **Solicitado por:** la propietaria (integrar solo la zona de la máscara si encaja).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `d1c6ac8`, el de la entrada siguiente).

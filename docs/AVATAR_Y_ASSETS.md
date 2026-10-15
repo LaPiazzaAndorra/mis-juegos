@@ -30,6 +30,7 @@
 > **Vestido rosa:** diseño aprobado (D-015) con referencia en `docs/propuestas/vestido-rosa-2026-10-15/`; capa candidata
 > `vestido-candidato-original.png` con prueba de encaje en `montaje/` (sin aprobación técnica). **Opción B** (copia limpia,
 > solo alfa) en `opcion-b/vestido-opcion-b.png`; falta tela solo en las axilas (`opcion-b/mascara-falta-tela.png`).
+> Candidata con las axilas completadas (edición de píxeles): `opcion-b/vestido-opcion-b-axilas-completadas.png`.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

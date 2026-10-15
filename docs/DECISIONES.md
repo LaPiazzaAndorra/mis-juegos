@@ -22,6 +22,10 @@
   corte es el borde del pelo de delante (pelo B). La copia B es una propuesta, no la aprobación técnica.
 - **15/10/2026 (3):** primer relleno de las axilas con ChatGPT: alineado, pero **no encaja**, porque deja fondo blanco
   en 381 px de la zona. No se integra; se conserva como registro.
+- **15/10/2026 (4):** la propietaria pide completar las axilas por **edición de píxeles** (textura copiada de la tela
+  contigua, con transición suave), en una copia. Hecho: `opcion-b/vestido-opcion-b-axilas-completadas.png`. Fuera de
+  la máscara es idéntica, sin blanco y sin camiseta visible. Es una **candidata**, en el visor; **pendiente de su
+  aprobación**.
 - **Límites:** sin activar en el juego, sin publicar, sin cambios en `main` ni en los datos guardados.
 
 ## D-014 · Base visual de la muñeca nueva aprobada conforme a D-013 · 14/10/2026
