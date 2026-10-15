@@ -59,6 +59,11 @@ partidas. Probado en Chromium con pantalla de iPhone simulada; falta revisarlo e
 mangas, cintura y bajo, bien. **Falla:** asoma la camiseta en las axilas (731 px), la capa está cortada en los hombros
 donde la referencia tenía pelo, y hay 241 manchitas sueltas. No se ha recortado ni deformado nada. Opción «Vestido rosa
 (prueba)» en el visor. Sin aprobación técnica; nada activado.
+**Opción B del vestido (15/10, propuesta)** en `…/vestido-rosa-2026-10-15/opcion-b/`. Es una copia limpia: sin
+puntos sueltos, con el cuerpo y el forro opaco (alfa 255) y los bordes y el tul conservados. Colores idénticos y base
+intacta. Solo falta tela en las **axilas**: hay una máscara exacta y un paquete para completarlas con ChatGPT, con un
+programa que integra solo la zona marcada. **Corrección:** en los hombros no falta tela; el corte es el borde del pelo
+de delante. Opción «Vestido limpio · opción B» en el visor. Nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

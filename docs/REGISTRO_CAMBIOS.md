@@ -1,6 +1,35 @@
 # Registro de cambios
 
-### 2026-10-15 — Vestido rosa: prueba de encaje de la capa candidata y opción en el visor
+### 2026-10-15 — Vestido rosa: opción B (copia limpia), máscara de las axilas y paquete para ChatGPT
+
+- **Solicitado por:** la propietaria (opción B; sin opción C; axilas con la herramienta de imagen de ChatGPT).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `f76b76a`, el de la entrada siguiente).
+- **Estado:** propuesta; nada activado ni publicado. Base, original del vestido y referencia sin modificar.
+- **Cambios:**
+  - `opcion-b/vestido_opcion_b.py` → `vestido-opcion-b.png` (solo alfa), montajes, comparaciones, detalle de bordes y
+    tul, puntos quitados, `mascara-falta-tela.png`, ampliaciones de axilas y hombros y `comprobaciones.json`.
+  - `opcion-b/para-chatgpt/`: recorte 2:3, máscara, guía e `integrar_relleno.py`.
+  - Opción «Vestido limpio · opción B» en el visor.
+  - En `montaje/` se corrige el diagnóstico de los hombros (texto de `donde-falla.png` y `comprobaciones.json`).
+  - Documentación: D-015, `LEEME.md` del vestido, de la opción B y del visor, `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+- **Resultado:**
+  - Quitados 241 puntos sueltos (519 px) y la neblina de alfa < 4.
+  - Interior opaco: 407 007 px con alfa 255 (antes, 94). Bordes y tul: como mucho +1 de alfa. Colores idénticos.
+  - La camiseta solo se vería en las axilas (730 px); la máscara de las axilas tiene 1 207 px.
+  - En los hombros no falta tela: el corte es el borde del pelo de delante.
+- **Datos guardados afectados:** ninguno. Juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes.
+  - Colores idénticos y alfa del tul conservado.
+  - Integración con un relleno simulado: 0 px cambiados fuera de la máscara.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento; coincide con el montaje en lo
+    opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `f76b76a` · Vestido rosa: prueba de encaje de la capa candidata y opción en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `9d25114`, el de la entrada siguiente).

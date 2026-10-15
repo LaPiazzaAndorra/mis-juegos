@@ -15,7 +15,7 @@ Orden de capas (de abajo arriba):
 «Brazos y manos de la base» son píxeles COPIADOS sin cambios de la base (antebrazos y manos, y ≥ 840, fuera de la
 ropa): así las manos quedan por delante de la falda, como en la muñeca vestida de referencia. No se dibuja nada.
 
-Comprobaciones: dónde se seguiría viendo la ropa de la base (camiseta y mallas), huecos de la capa, manchitas
+Comprobaciones: dónde se seguiría viendo la ropa de la base (camiseta y mallas), hombros, manchitas
 sueltas fuera del vestido y transparencia. Si algo falla, se marca en donde-falla.png; no se corrige.
 
 Uso (desde la raíz): python3 docs/propuestas/vestido-rosa-2026-10-15/montaje/montaje_vestido.py
@@ -94,8 +94,9 @@ if __name__ == '__main__':
     va = ves[..., 3] > 0; lbv, nv = nd.label(va, np.ones((3, 3))); szv = nd.sum(va, lbv, range(1, nv + 1))
     sueltas = va & (lbv != 1 + int(np.argmax(szv)))
     a_v = ves[..., 3][ves[..., 3] > 0]
-    # muescas de los hombros (vistas en la revisión): la capa está cortada en diagonal donde la referencia tenía
-    # pelo delante; el corte deja un filo claro punteado y, junto al cuello, sombra de pelo con borde recto
+    # hombros (vistos en la revisión): corte en diagonal con filo claro punteado y, junto al cuello, sombra de pelo
+    # con borde recto. CORREGIDO el 15/10: la capa del vestido está ENTERA ahí (alfa ≈ 253); el corte es el borde del
+    # pelo de delante (pelo B), recortado por la línea del hombro de la camiseta de la base. No falta tela.
     MUESCAS = [(355, 705, 50, 80), (618, 708, 62, 82)]          # centro x, y y radios de cada zona
     zona_m = np.zeros((H, W), bool)
     for cx, cy, rx, ry in MUESCAS:
@@ -111,8 +112,9 @@ if __name__ == '__main__':
                 manchitas_sueltas_fuera_del_vestido=dict(px=int(sueltas.sum()), trozos=int(nv - 1)),
                 alfa_del_vestido=dict(opacos_255=int((ves[..., 3] == 255).sum()), mediana=int(np.median(a_v)),
                                       nota='casi ningún píxel es del todo opaco (alfa ≈ 250–254), como el original de la base'),
-                muescas_de_los_hombros=dict(zonas=[dict(centro=[c[0], c[1]], radios=[c[2], c[3]]) for c in MUESCAS],
-                                            px_sin_vestido_sobre_la_base=int(muescas.sum())),
+                hombros=dict(zonas=[dict(centro=[c[0], c[1]], radios=[c[2], c[3]]) for c in MUESCAS],
+                             px_sin_vestido_sobre_la_base=int(muescas.sum()),
+                             nota='corregido el 15/10: la capa está entera; el corte es el borde del pelo de delante (pelo B)'),
                 manos_delante=bool((brazos[..., 3] > 0).sum() > 0))
     # --- donde-falla.png: sobre el montaje, sin corregir nada ------------------------------------------
     w = np.array(R.MP.blanco(estados['abiertos'])).astype(float)
@@ -127,7 +129,7 @@ if __name__ == '__main__':
     for z in zonas_asoma:
         x0, y0, x1, y1 = z['caja']; d.ellipse((x0 - 18, y0 - 18, x1 + 18, y1 + 18), outline=(230, 20, 20), width=4)
     ley = [((230, 20, 20), f'Asoma la camiseta de la base ({comp["ropa_que_asoma_mas_del_10_por_ciento_px"]} px, axilas)'),
-           ((255, 170, 0), 'Muescas de los hombros: la capa está cortada donde la referencia tenía pelo'),
+           ((255, 170, 0), 'Hombros: borde recto del pelo de delante (pelo B) sobre la manga; la tela está entera'),
            ((220, 0, 220), f'Manchitas sueltas fuera del vestido ({comp["manchitas_sueltas_fuera_del_vestido"]["trozos"]} trozos)')]
     for i, (col, t) in enumerate(ley):
         d.rectangle((14, 14 + 26 * i, 32, 32 + 26 * i), fill=col); d.text((40, 14 + 26 * i), t, font=F(16), fill=(40, 40, 60))

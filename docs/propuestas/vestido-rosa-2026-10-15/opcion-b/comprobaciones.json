@@ -1,0 +1,60 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "vestido": "5c0a062f95031e6b6b97a1b4062d3e445e9668b9659466233f2a5692b614106c",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "e3c23a194f348ce9bf50b96a292aba222ef8adf614c6a6f885d737049cca4971",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489"
+ },
+ "base_intacta": true,
+ "colores_rgb_identicos_donde_hay_vestido": true,
+ "tamano": [
+  948,
+  1659
+ ],
+ "puntos_sueltos_quitados": {
+  "px": 519,
+  "trozos": 241
+ },
+ "neblina_alfa_menor_4_quitada_px": 12894,
+ "tope_alfa_interior": 254.0,
+ "interior_opaco_255": {
+  "antes": 94,
+  "despues": 407007
+ },
+ "bordes_y_tul": {
+  "px": 17747,
+  "cambio_medio_alfa": 0.68,
+  "cambio_maximo_alfa": 1,
+  "nota": "solo la normalización ×255/254; la transparencia del tul se conserva"
+ },
+ "ropa_de_la_base_visible_mas_10_por_ciento_px": 730,
+ "ropa_visible_mas_10_por_ciento_fuera_de_las_axilas_px": 0,
+ "ropa_que_se_transparenta_1_a_10_por_ciento_px": 211,
+ "mascara_falta_tela": {
+  "px": 1207,
+  "zonas": [
+   [
+    369,
+    763,
+    388,
+    828
+   ],
+   [
+    581,
+    765,
+    616,
+    802
+   ]
+  ]
+ },
+ "hombros": {
+  "falta_tela": false,
+  "alfa_minimo_del_vestido_bajo_el_pelo": 255,
+  "nota": "la capa está entera; el corte diagonal y el filo claro son el borde del pelo de delante (pelo B)"
+ }
+}

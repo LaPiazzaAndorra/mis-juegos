@@ -7,6 +7,7 @@
 | `referencia-muneca-vestida.png` | Muñeca vestida generada (948 × 1660, RGBA). Se conserva **sin modificar**; SHA-256 `6932d7bf638158f080c3688ae0fdf946e4b87ff28afdde81e13f850b4d3159e8`. | **Referencia del diseño aprobado** (D-015). No es una capa ni sustituye a la base D-014 ni a su cara. |
 | `vestido-candidato-original.png` | Vestido solo, **candidata de capa** (948 × 1659, mismo lienzo que la base). Se conserva **sin modificar**; SHA-256 `5c0a062f95031e6b6b97a1b4062d3e445e9668b9659466233f2a5692b614106c`. | Prueba de encaje hecha (`montaje/`); **sin aprobación técnica**. |
 | `montaje/` | Montaje de prueba sobre la base D-014 y comprobaciones. | Prueba; véase abajo. |
+| `opcion-b/` | **Opción B**: copia limpia de la capa (sin puntos sueltos, cuerpo opaco, bordes y tul conservados), máscara de dónde falta tela (axilas) y paquete para ChatGPT. | Propuesta; en el visor. |
 
 ## Qué está aprobado y qué no (D-015)
 
@@ -50,13 +51,12 @@ Capas, de abajo arriba:
 | Manos | Quedan por delante de la falda. |
 | Pelo de delante | Queda por delante del vestido. |
 | **Axilas** | **Falla**: asoma la camiseta de la base, 731 px entre la manga y el cuerpo, a los dos lados (rojo en `donde-falla.png`). |
-| **Hombros** | **Falla**: la capa está **cortada en diagonal** donde la referencia tenía pelo delante. El corte coincide con el pelo de delante, pero deja un **filo claro punteado** y, junto al cuello, se ve sombra de pelo con un borde recto (naranja). |
+| **Hombros** | Se ve un corte en diagonal con un filo claro punteado y, junto al cuello, sombra de pelo con un borde recto (naranja). **Corregido el 15/10: no falta tela**; la capa está entera y el corte es el borde del pelo de delante (pelo B). Véase `opcion-b/ampliacion-hombros.png`. |
 | **Manchitas** | **Falla**: 241 trozos sueltos (519 px) del halo de la imagen generada fuera del vestido, también sobre el pelo (magenta). |
 | Transparencia | Casi ningún píxel del vestido es del todo opaco (alfa ≈ 253). La ropa de la base se transparenta un 1–2 % (1 571 px entre el 1 y el 10 %); no se aprecia a simple vista. |
 
-**No se ha recortado ni deformado nada:** estos fallos se enseñan antes de decidir cómo arreglarlos. Las posibles
-soluciones son tres: que la ilustradora complete los hombros y las axilas de la capa, limpiar las manchitas y el alfa
-de una copia de trabajo, o una máscara de la camiseta de la base solo en las axilas.
+**No se ha recortado ni deformado nada.** La propietaria elige la **opción B** (copia limpia, en `opcion-b/`) y completar
+las axilas con la herramienta de imagen de ChatGPT. No se aplica la opción C: la base queda intacta.
 
 Vistas:
 
@@ -70,7 +70,8 @@ En el visor (`../base-aprobada-d013-2026-10-14/visor/`): **Ropa → Vestido rosa
 
 ## Pendiente
 
-1. Que la propietaria decida cómo resolver las axilas, los hombros y las manchitas.
+1. Completar las axilas con ChatGPT e integrarlas (`opcion-b/para-chatgpt/`). Revisar después el borde del pelo de
+   delante en los hombros, que es tarea del pelo.
 2. Aprobación técnica de la capa (aparte de la del diseño).
 3. Resolución real de 2000 × 3500.
 

@@ -9,7 +9,7 @@
   Visor AISLADO de revisión (propuesta, no es el juego).
   Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
     pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1)
-    · [opción: vestido rosa candidato + antebrazos y manos copiados de la base] · pelo B delante.
+    · [opción: vestido rosa original candidato u opción B limpia + antebrazos y manos copiados de la base] · pelo B delante.
   No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
 -->
 <style>
@@ -55,6 +55,7 @@
     <img id="c-abiertos" alt="" src="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png">
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
     <img id="c-vestido" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/vestido-candidato-original.png">
+    <img id="c-vestido-b" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png">
     <img id="c-brazos" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
   </div>
@@ -71,7 +72,8 @@
   <div class="fila">
     <b>Ropa</b>
     <button data-ropa="camiseta" aria-pressed="true">Camiseta (base)</button>
-    <button data-ropa="vestido" aria-pressed="false">Vestido rosa (prueba)</button>
+    <button data-ropa="vestido" aria-pressed="false">Vestido original (prueba)</button>
+    <button data-ropa="vestido-b" aria-pressed="false">Vestido limpio · opción B</button>
   </div>
   <div class="fila">
     <b>Ver</b>
@@ -191,9 +193,10 @@
   // --- ropa: la camiseta es la de la base; el vestido es la capa candidata, sin cambios --------------
   document.querySelectorAll('[data-ropa]').forEach(function (b) {
     b.addEventListener('click', function () {
-      var v = b.dataset.ropa === 'vestido';
-      document.getElementById('c-vestido').classList.toggle('oculto', !v);
-      document.getElementById('c-brazos').classList.toggle('oculto', !v);
+      var r = b.dataset.ropa;
+      document.getElementById('c-vestido').classList.toggle('oculto', r !== 'vestido');
+      document.getElementById('c-vestido-b').classList.toggle('oculto', r !== 'vestido-b');
+      document.getElementById('c-brazos').classList.toggle('oculto', r === 'camiseta');
       document.querySelectorAll('[data-ropa]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });

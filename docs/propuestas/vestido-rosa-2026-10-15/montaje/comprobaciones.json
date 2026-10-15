@@ -52,7 +52,7 @@
   "mediana": 253,
   "nota": "casi ningún píxel es del todo opaco (alfa ≈ 250–254), como el original de la base"
  },
- "muescas_de_los_hombros": {
+ "hombros": {
   "zonas": [
    {
     "centro": [
@@ -75,7 +75,8 @@
     ]
    }
   ],
-  "px_sin_vestido_sobre_la_base": 186
+  "px_sin_vestido_sobre_la_base": 186,
+  "nota": "corregido el 15/10: la capa está entera; el corte es el borde del pelo de delante (pelo B)"
  },
  "manos_delante": true
 }
