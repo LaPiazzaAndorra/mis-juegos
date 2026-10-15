@@ -13,6 +13,10 @@
   - la integración en el juego.
 - **Límites:** opción de prueba en el visor; no se activa en el juego, no se publica y no cambian `main` ni los datos
   guardados.
+- **15/10/2026 (2):** la propietaria **aprueba visualmente** los zapatos sobre la muñeca, con la colocación de
+  `zapatos-candidatos.png` (izquierdo sin mover, derecho +2 px, sin escala).
+  - Quedan seleccionados por defecto en el visor junto al conjunto D-016; se conserva la opción «Descalza».
+  - **Sigue pendiente:** la resolución real de 2000 × 3500 y la integración en el juego. No se activa nada.
 
 ## D-016 · Conjunto con vestido rosa elegido (aprobación visual) · 15/10/2026
 - **Decisión de la propietaria:** aprueba **visualmente** este conjunto sobre la base D-014:

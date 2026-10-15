@@ -1,11 +1,14 @@
 # Zapatos rosa · 15/10/2026
 
+> **D-017 (actualizada):** diseño y **encaje aprobados visualmente**. Los zapatos están seleccionados por defecto en el
+> visor; se conserva la opción «Descalza». La resolución 2000 × 3500 sigue pendiente; no se activa en el juego.
+
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
 | `referencia-muneca-con-zapatos.png` | Imagen generada de la muñeca con zapatos (948 × 1659), conservada **sin modificar**; SHA-256 `5b491087307c0a75222380769619d3662f225701f86d76b70550f3f825336501`. | **Referencia del diseño aprobado (D-017).** No sustituye a la base ni a su cara. |
 | `montaje/zapatos.py` | Programa reproducible (desde la raíz: `python3 docs/propuestas/zapatos-rosa-2026-10-15/montaje/zapatos.py`). | — |
 | `montaje/zapato-izquierdo-candidato-sin-ajustar.png`, `montaje/zapato-derecho-candidato-sin-ajustar.png` | Cada zapato extraído, en su posición original. | Candidatas de capa. |
-| `montaje/zapatos-candidatos.png` | Los dos zapatos ya colocados sobre los pies de D-016. | Candidata; **encaje pendiente de aprobación**. |
+| `montaje/zapatos-candidatos.png` | Los dos zapatos ya colocados sobre los pies de D-016. | **Encaje aprobado visualmente** (D-017). |
 | `montaje/montaje-zapatos*.png`, `montaje/encaje-zapatos.png`, `montaje/vista-muneca-con-zapatos.png` | Montajes y vistas de encaje. | Para revisar. |
 | `montaje/comprobaciones.json` | Cifras. | — |
 
@@ -33,7 +36,7 @@ Rosa satinado, punta redonda, tira con hebilla y lazo con corazón dorado.
     dentado en 1–2 px;
   - la resolución real de 2000 × 3500 sigue pendiente.
 
-En el visor: **Zapatos → Zapatos rosa (prueba)** y **Ver → Pies**. Por defecto, la muñeca sigue descalza (D-016).
+En el visor salen por defecto (**Zapatos → Zapatos rosa (elegidos)**); **Zapatos → Descalza (D-016)** los quita.
 
 **Probado:** comprobaciones automáticas y revisión visual en el ordenador; el visor, en Chromium con pantalla de iPhone
 simulada (sin errores ni almacenamiento; coincide con el montaje en lo opaco). Sin probar en el iPhone/iPad reales.

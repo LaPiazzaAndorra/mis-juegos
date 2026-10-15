@@ -70,3 +70,5 @@ coincide con `montaje-mechones-completos.png` en lo opaco (≤ 2).
 **15/10/2026 (9) · D-017:** opción «Zapatos» (descalza por defecto o zapatos rosa en prueba) y encuadre «Pies». La
 escena tiene ahora un alto fijo (60 % de la pantalla) para que no se encoja en el iPhone con tantos botones. Probado:
 sin errores ni almacenamiento; coincide con `montaje-zapatos.png` en lo opaco (≤ 2).
+**15/10/2026 (10) · D-017:** el visor abre con los zapatos rosa («Zapatos rosa (elegidos)»); «Descalza (D-016)» se
+conserva. Coincide con `montaje-zapatos.png` en lo opaco (≤ 2).

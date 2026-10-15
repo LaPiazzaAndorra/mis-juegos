@@ -1,6 +1,26 @@
 # Registro de cambios
 
-### 2026-10-15 — D-017: zapatos rosa (diseño aprobado) y capa candidata en el visor
+### 2026-10-15 — D-017 actualizada: zapatos aprobados visualmente y por defecto en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `69585cd`, el de la entrada siguiente).
+- **Estado:** encaje aprobado visualmente. La resolución 2000 × 3500 sigue pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - D-017 actualizada.
+  - El visor abre con «Zapatos rosa (elegidos)»; se conserva «Descalza (D-016)».
+  - Documentación: `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md` y los `LEEME.md` de los zapatos, del visor y de
+    `propuestas/`.
+  - Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. Juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - Visor en Chromium con pantalla de iPhone simulada: abre con los zapatos; sin errores ni almacenamiento; coincide
+    con `montaje-zapatos.png` en lo opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `69585cd` · D-017: zapatos rosa (diseño aprobado) y capa candidata en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `77c8368`, el de la entrada siguiente).
