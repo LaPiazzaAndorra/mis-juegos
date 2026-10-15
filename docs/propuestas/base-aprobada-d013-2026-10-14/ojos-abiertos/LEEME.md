@@ -14,6 +14,10 @@ posición de los ojos no cambian. Pendiente de la aprobación visual de la propi
 | `vista-v2-sobre-base.png` | La máscara (magenta) y su contorno (verde) sobre la base entera. |
 | `comprobaciones-v2.json` | Cifras de la v2 (abajo). |
 | `*-v1.png` | Versión 1, conservada (su programa está en el commit `73ca84d`). |
+| `mascara_v3.py`, `mascara-ojos-propuesta-v3.png` | **Máscara v3** = v2 + borde rosado del párpado inferior y lagrimal (604 px) + pestañas que faltaban; solo máscara, sin cambiar colores. |
+| `capa-ojos-abiertos-prueba-v3.png` | Capa v3 **sin corregir** (colores originales, opacidad = v3). La genera `../sin-ojos/montaje_v3.py`. |
+| `capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png` | Variante **experimental**: igual que la anterior salvo 2 800 píxeles de borde mezclados con piel, cuyo color y opacidad son **ESTIMADOS** (no recuperados con certeza). Iris, blancos, brillos y píxeles opacos idénticos. |
+| `pixeles-color-estimado-v3.png` | Qué píxeles tienen color estimado en la variante experimental (255 = estimado; 128 = estimado y recortado a 0–255: 2 096). |
 | `extraer.py`, `capa-ojos-abiertos-prueba.png`, `comprobaciones-capa.json` | **Capa de prueba** extraída con la v2: colores originales, opacidad = máscara v2, lienzo 948 × 1659 en (0, 0). Montaje comprobado en `../sin-ojos/`. |
 
 ## Cambios de la v2 (pedidos por la propietaria)

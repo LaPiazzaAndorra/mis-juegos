@@ -17,7 +17,8 @@
 > copia técnica `base-transparencia-corregida.png` (mismo directorio, 948 × 1659, solo alfa corregido).
 > Medidas y guía **provisionales** en `medidas/` (pendientes de revisión; no tocan la plantilla V2.1).
 > Máscara **propuesta (v2)** de los ojos abiertos y pestañas en `ojos-abiertos/` (v1 conservada), **capa de prueba**
-> extraída con ella y **base sin ojos** propuesta en `sin-ojos/` con la comprobación del montaje. Nada activado.
+> extraída con ella y **base sin ojos** propuesta en `sin-ojos/` con la comprobación del montaje. **v3:** máscara v3, base
+> sin ojos v3 y capas sin corregir y con color experimental (estimado) para comparar. Nada activado.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

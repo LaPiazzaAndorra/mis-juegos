@@ -44,6 +44,28 @@ nada ni se corrigen colores de bordes.
   pueden quedar exactas y sin halo si se recalcula su color propio (quitar la piel mezclada). Sin eso, o se
   aclaran (A) o llevan piel alrededor (B).
 
+## Versión 3 (`montaje_v3.py`) · 15/10/2026
+
+Archivos: `base-sin-ojos-propuesta-v3.png`, `zona-relleno-v3.png`, `vista-v3-ampliada.png`,
+`vista-v3-tamano-juego.png`, `vista-v3-relleno-y-restos.png`, `vista-v3-raices-izq.png`, `vista-v3-raices-der.png`,
+`comprobaciones-v3.json`. Las capas están en `../ojos-abiertos/`. La versión anterior (v2) se conserva.
+
+- **Base sin ojos v3:** zona de 16 369 px (la de la v2 más 2 px alrededor de la máscara v3); 0 píxeles
+  cambiados fuera. Mismo relleno armónico liso.
+- **Montaje con la capa v3 sin corregir:** 3 810 px distintos del original (2 217 con diferencia > 24, máx. 135):
+  las puntas de las pestañas se ven más finas y claras. El borde rosado del párpado y el lagrimal ya están.
+- **Montaje con la capa v3 de color experimental:** 3 092 px distintos, pero solo 106 > 24 y máximo 51: a tamaño
+  de juego no se distingue del original. Su coste: el color (y la opacidad) de 2 800 píxeles de borde es una
+  **estimación** (color propio de la pestaña = el del trazo opaco más cercano; piel = el relleno); 2 096 se han
+  tenido que recortar al rango 0–255, señal de que la estimación es aproximada. Sobre fondo oscuro, las
+  pestañas se ven más oscuras y rojizas que la capa sin corregir, sin halo de piel.
+- **Restos en la base sin ojos:** se conserva el **pliegue del párpado** (1 106 px, a propósito). Encima del
+  pliegue quedan **pequeños mechones oscuros donde las pestañas lo cruzan**: el detector automático solo los
+  separa en 8 px (los demás se confunden con el pliegue), pero a simple vista se ven en `vista-v3-raices-*.png`.
+- **Relleno a tamaño de juego:** la zona rellenada se ve como una mancha lisa algo más oscura que la piel de
+  alrededor. Con los ojos abiertos no se ve; para **parpadear limpiamente**, la capa de ojos cerrados tendrá que
+  cubrir esa zona (o habrá que retocar el relleno y los mechones a mano).
+
 ## Otros puntos de la base sin ojos
 
 - Se conservan el **pliegue del párpado** y, sobre él, unos pocos **trozos de raíz de pestaña** que cruzan

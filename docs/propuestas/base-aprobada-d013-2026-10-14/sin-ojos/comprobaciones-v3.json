@@ -1,0 +1,35 @@
+{
+ "mascara_v3": {
+  "pixeles": 13682,
+  "opacos": 12552,
+  "añadidos_sobre_v2": 644,
+  "borde_rosado_y_lagrimal": 604,
+  "pestañas_recuperadas": 1134
+ },
+ "base_sin_ojos_v3": {
+  "zona_px": 16369,
+  "cambiados": 16362,
+  "cambiados_fuera_de_la_zona": 0,
+  "raices_de_pestaña_que_quedan_px": 8,
+  "pliegue_conservado_px": 1106,
+  "sha256": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f"
+ },
+ "capa_color_experimental": {
+  "pixeles_con_color_estimado": 2800,
+  "de_ellos_recortados": 2096,
+  "opacos_identicos": true,
+  "abertura_identica": true
+ },
+ "montaje_v3_sin_corregir": {
+  "pixeles_distintos": 3810,
+  "mas_de_8": 3111,
+  "mas_de_24": 2217,
+  "maximo": 135
+ },
+ "montaje_v3_color_experimental": {
+  "pixeles_distintos": 3092,
+  "mas_de_8": 978,
+  "mas_de_24": 106,
+  "maximo": 51
+ }
+}

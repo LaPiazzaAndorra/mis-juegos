@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-15 — Base D-014: capa de prueba de los ojos, base sin ojos y comprobación del montaje
+### 2026-10-15 — Ojos de la base D-014: máscara v3, variante de color experimental y montaje v3
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `6396e20`, el de la entrada siguiente).
+- **Estado:** propuesta para elegir montaje; nada activado ni publicado.
+- **Cambios:**
+  - `ojos-abiertos/mascara_v3.py` → `mascara-ojos-propuesta-v3.png` (v2 + borde rosado del párpado y lagrimal
+    + pestañas que faltaban; solo máscara).
+  - `sin-ojos/montaje_v3.py` → `base-sin-ojos-propuesta-v3.png`, `zona-relleno-v3.png`, capas
+    `capa-ojos-abiertos-prueba-v3.png` (sin corregir) y `capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png`
+    (color y opacidad ESTIMADOS en 2 800 píxeles de borde, marcados en `pixeles-color-estimado-v3.png`),
+    vistas ampliadas, a tamaño de juego, del relleno y de los restos, y `comprobaciones-v3.json`.
+  - Se conservan la extracción sin corregir (v2 y v3), las máscaras v1–v3, la base sin ojos v2 y la base
+    aprobada sin cambios.
+- **Resultados:** montaje v3 sin corregir 3 810 px distintos (máx. 135); con color experimental 3 092 px pero solo
+  106 > 24 (máx. 51). Iris, blancos, brillos y píxeles opacos idénticos en ambas capas. Quedan el pliegue y
+  pequeños mechones de pestaña sobre él; el relleno liso se nota sin ojos.
+- **Datos guardados afectados:** ninguno. Catálogo, `plantilla/`, juego y originales aprobados sin cambios.
+- **Pruebas:** comprobaciones del JSON; coincidencia con el prototipo revisado; revisión visual ×3, ×6 y a tamaño
+  de juego; hashes de la base sin cambios; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `6396e20` · Base D-014: capa de prueba de los ojos, base sin ojos y comprobación del montaje
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `1640c7b`, el de la entrada siguiente).

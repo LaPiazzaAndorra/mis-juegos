@@ -25,6 +25,10 @@ Los bordes mezclados con piel (1 077 píxeles) solo se resolverían cambiando co
 relleno solo cambia la zona de los ojos. Comprobación del montaje: con la capa v2 **no** sale idéntico
 (4 024 px: puntas de pestañas más claras y falta el borde rosado del párpado inferior); con opacidad
 completa en la zona (referencia B) sale idéntico. Pendiente de decisión. Nada activado.
+**v3 (15/10):** máscara v3 (borde rosado, lagrimal y pestañas recuperadas), base sin ojos v3 y dos capas: sin
+corregir (montaje con puntas de pestañas más claras) y **color experimental** en 2 800 píxeles de borde (color
+estimado, no recuperado; montaje casi idéntico, máx. 51). Quedan el pliegue y pequeños mechones de pestaña
+sobre él; el relleno liso se nota al quitar los ojos. Para elegir montaje. Nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
