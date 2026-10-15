@@ -9,7 +9,7 @@
   Visor AISLADO de revisión (propuesta, no es el juego).
   Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
     pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1)
-    · [opción: vestido rosa original candidato, opción B limpia u opción B con axilas completadas + antebrazos y manos copiados de la base]
+    · [opción: zapatos rosa candidatos] · [opción: vestido rosa original candidato, opción B limpia u opción B con axilas completadas + antebrazos y manos copiados de la base]
     · pelo B delante (actual, o propuesta A / B / C de redistribución en los hombros, o C + relleno 1 de ChatGPT, o mechones completos de ChatGPT).
   No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
 -->
@@ -22,7 +22,7 @@
   header { padding: 8px 12px 4px; }
   header h1 { font-size: 16px; margin: 0; }
   header p { margin: 2px 0 0; font-size: 12px; color: var(--suave); }
-  #escena { position: relative; flex: 1; min-height: 260px; margin: 6px 10px; border-radius: 14px; overflow: hidden;
+  #escena { position: relative; flex: 0 0 auto; height: 60vh; min-height: 260px; margin: 6px 10px; border-radius: 14px; overflow: hidden;
     background: var(--fondo); border: 1px solid var(--borde); touch-action: none; cursor: grab; }
   #escena.cuadros { background-color: #fff; background-image:
     linear-gradient(45deg, #e9e2ee 25%, transparent 25%), linear-gradient(-45deg, #e9e2ee 25%, transparent 25%),
@@ -55,6 +55,7 @@
     <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
     <img id="c-abiertos" alt="" src="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png">
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
+    <img id="c-zapatos" class="oculto" alt="" src="../../zapatos-rosa-2026-10-15/montaje/zapatos-candidatos.png">
     <img id="c-vestido" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/vestido-candidato-original.png">
     <img id="c-vestido-b" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png">
     <img id="c-vestido-ax" class=" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
@@ -84,6 +85,11 @@
     <button data-ropa="vestido-ax" aria-pressed="true">Opción B + axilas (elegida)</button>
   </div>
   <div class="fila">
+    <b>Zapatos</b>
+    <button data-zapatos="no" aria-pressed="true">Descalza (D-016)</button>
+    <button data-zapatos="si" aria-pressed="false">Zapatos rosa (prueba)</button>
+  </div>
+  <div class="fila">
     <b>Pelo</b>
     <button data-pelo-op="actual" aria-pressed="false">Pelo B actual</button>
     <button data-pelo-op="a" aria-pressed="false">Hombros · propuesta A</button>
@@ -99,6 +105,7 @@
     <button data-vista="ojos" aria-pressed="false">Ojos</button>
     <button data-vista="cuello" aria-pressed="false">Cuello y orejas</button>
     <button data-vista="vestido" aria-pressed="false">Vestido</button>
+    <button data-vista="pies" aria-pressed="false">Pies</button>
   </div>
   <div class="fila">
     <b>Zoom</b>
@@ -125,7 +132,7 @@
   'use strict';
   var ANCHO = 948, ALTO = 1659;
   // Encuadres en píxeles de la imagen (x0, y0, x1, y1)
-  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420] };
+  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420], pies: [280, 1370, 680, 1600] };
   var escena = document.getElementById('escena'), lienzo = document.getElementById('lienzo');
   var abiertos = document.getElementById('c-abiertos'), cerrados = document.getElementById('c-cerrados');
   var zoom = document.getElementById('zoom'), estado = document.getElementById('estado');
@@ -227,6 +234,14 @@
       document.querySelectorAll('[data-fondo]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
+  // --- zapatos: capa candidata, debajo del vestido ------------------------------------------------------------
+  document.querySelectorAll('[data-zapatos]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.getElementById('c-zapatos').classList.toggle('oculto', b.dataset.zapatos !== 'si');
+      document.querySelectorAll('[data-zapatos]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
   // --- pelo de delante: el actual o una de las propuestas de redistribución (hombros) -------------------
   var peloOp = 'mc', peloDelanteVisible = true;            // conjunto elegido por defecto (D-016)
   function mostrarPelo() {

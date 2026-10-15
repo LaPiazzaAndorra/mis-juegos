@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-15 — D-016: conjunto con vestido rosa elegido y por defecto en el visor
+### 2026-10-15 — D-017: zapatos rosa (diseño aprobado) y capa candidata en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `77c8368`, el de la entrada siguiente).
+- **Estado:** diseño aprobado; el encaje está pendiente de aprobación. Nada activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/zapatos-rosa-2026-10-15/`: la referencia, sin modificar, y `montaje/zapatos.py`, que genera los
+    zapatos sin ajustar, la capa colocada, los montajes, las vistas y `comprobaciones.json`.
+  - Visor: opción «Zapatos» y encuadre «Pies»; la escena tiene ahora un alto fijo.
+  - D-017 en `DECISIONES.md`.
+  - Documentación: `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md` y los `LEEME.md` correspondientes.
+- **Resultado:**
+  - Solo el zapato, sin piel de la imagen generada.
+  - Izquierdo (0, 0) y derecho (+2, 0), sin escala: 0 px de pie fuera del zapato.
+  - La muñeca no cambia fuera de los zapatos.
+- **Datos guardados afectados:** ninguno. Base, conjunto D-016, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes y comprobaciones del JSON.
+  - Revisión ×2.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento; coincide con el montaje en lo
+    opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `77c8368` · D-016: conjunto con vestido rosa elegido y por defecto en el visor
 
 - **Solicitado por:** la propietaria (aprobación visual de la opción B + axilas y del pelo «mechones completos»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `50be4a9`, el de la entrada siguiente).

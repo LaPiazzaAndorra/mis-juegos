@@ -1,0 +1,64 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "generada": "5b491087307c0a75222380769619d3662f225701f86d76b70550f3f825336501",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "vestido": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489",
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05"
+ },
+ "zapatos": {
+  "derecho": {
+   "desplazamiento_px": [
+    2,
+    0
+   ],
+   "escala": 1.0,
+   "pie_fuera_del_zapato_px_sin_ajustar": 24,
+   "pie_fuera_del_zapato_px": 0,
+   "caja_zapato": [
+    511,
+    1424,
+    633,
+    1562
+   ],
+   "caja_pie": [
+    524,
+    1440,
+    633,
+    1539
+   ],
+   "px": 11046
+  },
+  "izquierdo": {
+   "desplazamiento_px": [
+    0,
+    0
+   ],
+   "escala": 1.0,
+   "pie_fuera_del_zapato_px_sin_ajustar": 0,
+   "pie_fuera_del_zapato_px": 0,
+   "caja_zapato": [
+    329,
+    1421,
+    453,
+    1562
+   ],
+   "caja_pie": [
+    331,
+    1440,
+    438,
+    1539
+   ],
+   "px": 11272
+  }
+ },
+ "muneca_igual_fuera_de_los_zapatos": true,
+ "solo_zona_de_los_pies": true,
+ "px_con_color_de_piel_en_la_capa": 2225,
+ "nota_piel": "el corazón dorado y algunos brillos del lazo tienen tono parecido a la piel; se revisan a ojo"
+}

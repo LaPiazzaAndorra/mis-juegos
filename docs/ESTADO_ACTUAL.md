@@ -12,6 +12,13 @@ Está seleccionado por defecto en el visor (`docs/propuestas/base-aprobada-d013-
 alternativas se conservan. **Pendiente:** la resolución real de 2000 × 3500, la integración en el juego y las pruebas
 en el iPhone/iPad reales. Nada activado.
 
+**Zapatos rosa (15/10, D-017):**
+- **Diseño** aprobado; referencia en `docs/propuestas/zapatos-rosa-2026-10-15/`.
+- **Capa candidata** extraída (solo el zapato) y colocada sobre los pies de D-016: el izquierdo sin mover y el derecho
+  +2 px, sin escala. El pie no asoma.
+- Opción «Zapatos rosa (prueba)» en el visor. Por defecto, la muñeca sigue descalza.
+- **Encaje pendiente** de aprobación; resolución 2000 × 3500 pendiente; nada activado.
+
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas
 aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en

@@ -1,5 +1,19 @@
 # Registro de decisiones
 
+## D-017 · Diseño de los zapatos rosa aprobado (solo diseño) · 15/10/2026
+- **Decisión de la propietaria:** aprueba el **diseño** de los zapatos: rosa satinado, punta redonda, tira y lazo con
+  corazón dorado.
+- **Referencia:** `docs/propuestas/zapatos-rosa-2026-10-15/referencia-muneca-con-zapatos.png`, imagen generada
+  conservada sin modificar (SHA-256 `5b491087…6501`). No sustituye a la base, a su cara ni al conjunto D-016.
+- **Capa candidata:** `…/montaje/zapatos-candidatos.png` (SHA-256 `aebe594c…a96f`). Zapato izquierdo sin mover y
+  derecho +2 px en horizontal, sin escala.
+- **Pendiente:**
+  - la aprobación del **encaje**, que es aparte de la del diseño;
+  - la resolución real de 2000 × 3500;
+  - la integración en el juego.
+- **Límites:** opción de prueba en el visor; no se activa en el juego, no se publica y no cambian `main` ni los datos
+  guardados.
+
 ## D-016 · Conjunto con vestido rosa elegido (aprobación visual) · 15/10/2026
 - **Decisión de la propietaria:** aprueba **visualmente** este conjunto sobre la base D-014:
   - **Vestido:** opción B con las axilas completadas,
