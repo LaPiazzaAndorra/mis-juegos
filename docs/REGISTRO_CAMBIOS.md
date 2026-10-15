@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-15 — Base D-014: máscara propuesta de los ojos abiertos; guía con estimaciones sin validar
+### 2026-10-15 — Ojos abiertos de la base D-014: máscara propuesta, versión 2
+
+- **Solicitado por:** la propietaria (correcciones a la v1 antes de extraer).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `73ca84d`, el de la entrada siguiente).
+- **Estado:** propuesta en revisión; nada extraído, base sin tocar.
+- **Cambios:** `ojos-abiertos/mascara.py` v2 → `mascara-ojos-propuesta-v2.png`, `vista-v2-ampliada.png`,
+  `vista-v2-tamano-juego.png`, `vista-v2-sobre-base.png`, `comprobaciones-v2.json`; los archivos de la v1
+  se conservan con el sufijo `-v1`. Pliegue fuera (también el tramo central), piel entre pestañas fuera
+  (opacidad por luminancia), rampa de 3 px junto al lagrimal sin recortar el párpado, trazo del párpado
+  del lagrimal derecho conservado y residuos de selección eliminados (5 píxeles).
+- **Resultado:** 13 038 píxeles (v1: 14 928); abertura (iris, blancos, brillos, 8 672 px) idéntica y
+  opaca; la capa sobre la base reproduce la base (diferencia 0). Bordes mezclados con piel: 1 077 px,
+  solo resolubles cambiando colores (no hecho).
+- **Datos guardados afectados:** ninguno. Sin cambios en la base, catálogo, `plantilla/` ni juego.
+- **Pruebas:** revisión visual ×4 y a tamaño de juego (fondos claro, oscuro y base); comprobaciones del JSON;
+  la máscara del programa coincide con la revisada; hashes de la base sin cambios; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit (la v1 vuelve a sus nombres).
+
+### 2026-10-15 — `73ca84d` · Base D-014: máscara propuesta de los ojos abiertos; guía con estimaciones sin validar
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `85d6805`, el de la entrada siguiente).

@@ -1,0 +1,35 @@
+{
+ "tamaño": [
+  948,
+  1659
+ ],
+ "pixeles": 13038,
+ "opacos": 11948,
+ "bordes_suaves": 1090,
+ "abertura_px": 8672,
+ "abertura_opaca_v1": true,
+ "abertura_opaca_v2": true,
+ "quitado_respecto_v1_px": 2003,
+ "añadido_respecto_v1_px": 113,
+ "grupos": 5,
+ "ojos": [
+  {
+   "ojo": [
+    391,
+    443
+   ],
+   "pliegue_quitado_px": 725,
+   "residuos_quitados_px": 3
+  },
+  {
+   "ojo": [
+    566,
+    443
+   ],
+   "pliegue_quitado_px": 618,
+   "residuos_quitados_px": 2
+  }
+ ],
+ "diferencia_maxima_capa_sobre_base": 2.842170943040401e-14,
+ "bordes_mezclados_con_piel_px": 1077
+}

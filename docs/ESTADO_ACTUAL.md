@@ -17,9 +17,10 @@ Pendiente: resolución real, separación de capas, medidas y guías.
 con las automáticas y las estimadas diferenciadas: **pendientes de la revisión visual de la propietaria**.
 No sustituyen a `plantilla/plantilla.js` (V2.1). Hombros, codos, rodillas y cintura anatómica son estimaciones
 sin validar; el bajo de la camiseta se distingue de la cintura.
-**Ojos abiertos:** máscara **propuesta** en `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/`
-(ojos, párpado y pestañas; pliegue del párpado fuera). Pendiente de revisión: no se ha extraído ni
-borrado nada de la base.
+**Ojos abiertos:** máscara **propuesta, versión 2** en `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/`
+(pliegue del párpado fuera, sin piel entre pestañas, corte junto al lagrimal suavizado, trazo del
+lagrimal derecho conservado). Pendiente de revisión: no se ha extraído ni borrado nada de la base.
+Los bordes mezclados con piel (1 077 píxeles) solo se resolverían cambiando colores: no hecho.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
