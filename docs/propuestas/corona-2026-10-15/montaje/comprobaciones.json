@@ -1,0 +1,31 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "generada": "fb822741d92d4fd954fb884f0ae58bf5fa2facf0315cbd69b59f7e46e9b6bdc9",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "vestido": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489",
+  "zapatos": "aebe594cafd27d92bd51335e4a299334c80790f23ceb80ee2c0ad63a7878a96f",
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05"
+ },
+ "corona_px": 17828,
+ "caja": [
+  313,
+  42,
+  625,
+  199
+ ],
+ "desplazamiento_px": [
+  0,
+  0
+ ],
+ "escala": 1.0,
+ "px_con_color_de_pelo_en_la_capa": 364,
+ "diadema_apoyada_sobre_nuestro_pelo_pct": 100,
+ "huecos_transparentes_dentro_de_la_corona_px": 4065,
+ "muneca_igual_fuera_de_la_corona": true,
+ "capa": "encima de todas"
+}

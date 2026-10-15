@@ -1,5 +1,18 @@
 # Registro de decisiones
 
+## D-018 · Diseño de la corona dorada aprobado (solo diseño) · 15/10/2026
+- **Decisión de la propietaria:** aprueba el **diseño** de la corona dorada con perlitas y corazón rosa.
+- **Referencia:** `docs/propuestas/corona-2026-10-15/referencia-muneca-con-corona.png`, imagen generada conservada sin
+  modificar (SHA-256 `fb822741…bdc9`). No sustituye a la base, a su cara ni al conjunto D-016/D-017.
+- **Capa candidata:** `…/montaje/corona-candidata.png` (SHA-256 `c6072538…952f`). Solo la corona, con los huecos
+  transparentes, sin mover ni escalar y encima de todas las capas.
+- **Pendiente:**
+  - la revisión del **encaje**, aparte de la aprobación del diseño;
+  - la resolución real de 2000 × 3500;
+  - la integración en el juego.
+- **Límites:** opción de prueba en el visor; no se activa en el juego, no se publica y no cambian `main` ni los datos
+  guardados.
+
 ## D-017 · Diseño de los zapatos rosa aprobado (solo diseño) · 15/10/2026
 - **Decisión de la propietaria:** aprueba el **diseño** de los zapatos: rosa satinado, punta redonda, tira y lazo con
   corazón dorado.

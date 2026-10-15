@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-15 — D-017 actualizada: zapatos aprobados visualmente y por defecto en el visor
+### 2026-10-15 — D-018: corona dorada (diseño aprobado) y capa candidata en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `883ff8c`, el de la entrada siguiente).
+- **Estado:** diseño aprobado; el encaje está pendiente de revisión. Nada activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/corona-2026-10-15/`: la referencia, sin modificar, y `montaje/corona.py`, que genera la capa de la
+    corona, los montajes, las vistas y `comprobaciones.json`.
+  - Visor: opción «Corona» y encuadre «Corona».
+  - D-018 en `DECISIONES.md`.
+  - Documentación: `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md` y los `LEEME.md` correspondientes.
+- **Resultado:**
+  - Solo la corona (17 828 px), con 4 065 px de huecos transparentes entre los adornos.
+  - Sin mover ni escalar; la diadema apoya por completo sobre nuestro pelo.
+  - La muñeca no cambia fuera de la corona.
+- **Datos guardados afectados:** ninguno. Base, conjunto, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes y comprobaciones del JSON.
+  - Revisión ×2 sobre fondo claro, oscuro y a cuadros.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento; coincide con el montaje en lo
+    opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `883ff8c` · D-017 actualizada: zapatos aprobados visualmente y por defecto en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `69585cd`, el de la entrada siguiente).

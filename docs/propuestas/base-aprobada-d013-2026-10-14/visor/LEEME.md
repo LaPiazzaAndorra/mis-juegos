@@ -72,3 +72,5 @@ escena tiene ahora un alto fijo (60 % de la pantalla) para que no se encoja en e
 sin errores ni almacenamiento; coincide con `montaje-zapatos.png` en lo opaco (≤ 2).
 **15/10/2026 (10) · D-017:** el visor abre con los zapatos rosa («Zapatos rosa (elegidos)»); «Descalza (D-016)» se
 conserva. Coincide con `montaje-zapatos.png` en lo opaco (≤ 2).
+**15/10/2026 (11) · D-018:** opción «Corona» (sin corona por defecto, o corona dorada en prueba, encima de todo) y
+encuadre «Corona». Sin errores ni almacenamiento; coincide con `montaje-corona.png` en lo opaco (≤ 2).

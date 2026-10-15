@@ -10,7 +10,7 @@
   Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
     pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1)
     · [opción: zapatos rosa candidatos] · [opción: vestido rosa original candidato, opción B limpia u opción B con axilas completadas + antebrazos y manos copiados de la base]
-    · pelo B delante (actual, o propuesta A / B / C de redistribución en los hombros, o C + relleno 1 de ChatGPT, o mechones completos de ChatGPT).
+    · [opción: corona dorada candidata, encima de todo] · pelo B delante (actual, o propuesta A / B / C de redistribución en los hombros, o C + relleno 1 de ChatGPT, o mechones completos de ChatGPT).
   No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
 -->
 <style>
@@ -66,6 +66,7 @@
     <img id="c-pelo-delante-c" class="pelo-delante oculto" data-pelo="c" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c.png">
     <img id="c-pelo-delante-mc" class="pelo-delante" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
+    <img id="c-corona" class="oculto" alt="" src="../../corona-2026-10-15/montaje/corona-candidata.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
 </div>
@@ -90,6 +91,11 @@
     <button data-zapatos="si" aria-pressed="true">Zapatos rosa (elegidos)</button>
   </div>
   <div class="fila">
+    <b>Corona</b>
+    <button data-corona="no" aria-pressed="true">Sin corona</button>
+    <button data-corona="si" aria-pressed="false">Corona dorada (prueba)</button>
+  </div>
+  <div class="fila">
     <b>Pelo</b>
     <button data-pelo-op="actual" aria-pressed="false">Pelo B actual</button>
     <button data-pelo-op="a" aria-pressed="false">Hombros · propuesta A</button>
@@ -106,6 +112,7 @@
     <button data-vista="cuello" aria-pressed="false">Cuello y orejas</button>
     <button data-vista="vestido" aria-pressed="false">Vestido</button>
     <button data-vista="pies" aria-pressed="false">Pies</button>
+    <button data-vista="corona" aria-pressed="false">Corona</button>
   </div>
   <div class="fila">
     <b>Zoom</b>
@@ -132,7 +139,7 @@
   'use strict';
   var ANCHO = 948, ALTO = 1659;
   // Encuadres en píxeles de la imagen (x0, y0, x1, y1)
-  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420], pies: [280, 1370, 680, 1600] };
+  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420], pies: [280, 1370, 680, 1600], corona: [250, 20, 700, 320] };
   var escena = document.getElementById('escena'), lienzo = document.getElementById('lienzo');
   var abiertos = document.getElementById('c-abiertos'), cerrados = document.getElementById('c-cerrados');
   var zoom = document.getElementById('zoom'), estado = document.getElementById('estado');
@@ -239,6 +246,14 @@
     b.addEventListener('click', function () {
       document.getElementById('c-zapatos').classList.toggle('oculto', b.dataset.zapatos !== 'si');
       document.querySelectorAll('[data-zapatos]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
+  // --- corona: capa candidata, encima de todo --------------------------------------------------------------
+  document.querySelectorAll('[data-corona]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.getElementById('c-corona').classList.toggle('oculto', b.dataset.corona !== 'si');
+      document.querySelectorAll('[data-corona]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
 
