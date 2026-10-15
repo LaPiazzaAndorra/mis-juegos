@@ -35,6 +35,10 @@ espejo). Cambio instantáneo de capa. A tamaño de juego funciona; **ampliado no
 cerrada fina y entrecortada, párpado liso): para la versión final hará falta dibujo o retoque a mano.
 **Variante con los ojos cerrados V2.1 reutilizados** (escala uniforme 0,36, sin deformar; V2.1 intacta): tapa
 el 100 % y encaja mejor; sus pestañas son más finas que las de los ojos abiertos nuevos. Sigue siendo prueba.
+**Ojos cerrados V2.1 = candidata preferida** (sin retocar; pendiente de la aprobación final del conjunto).
+**Pelo:** no hay capas de pelo para D-014. **Borrador de montaje** en `…/pelo-borrador-d012/` con el pelo recortado
+de la referencia D-012 (escala uniforme 1,093, sin deformar): sirve para ver el conjunto, no como pieza (huecos
+junto al cuello, restos de la referencia, ampliación del 9 %).
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

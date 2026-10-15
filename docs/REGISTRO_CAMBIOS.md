@@ -1,6 +1,22 @@
 # Registro de cambios
 
-### 2026-10-15 — Base D-014: variante de ojos cerrados con la ilustración V2.1 reutilizada
+### 2026-10-15 — Base D-014: borrador de montaje con el pelo de D-012
+
+- **Solicitado por:** la propietaria (ojos cerrados V2.1 como candidata preferida, sin retocar).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `46d21a7`, el de la entrada siguiente).
+- **Estado:** borrador de revisión; no hay capas de pelo para esta base. Nada activado ni publicado.
+- **Cambios:** `pelo-borrador-d012/montaje_pelo.py` → máscara del pelo en la referencia, pelo colocado (detrás y
+  delante), montajes abiertos y cerrados, vistas, dos GIF de parpadeo, `comprobaciones.json`, `LEEME.md`.
+- **Resultado:** escala uniforme 1,0934 alineada por los ojos, sin deformar; la base queda idéntica donde no hay pelo
+  delante. Defectos: huecos junto al cuello y bajo las orejas, restos de la referencia en la capa (ocultos en el
+  montaje), ampliación del 9 %, separación delante/detrás aproximada.
+- **Datos guardados afectados:** ninguno. Referencia D-012, base, catálogo, `plantilla/`, juego y `main` sin cambios.
+- **Pruebas:** SHA-256 de la referencia antes y después; comprobación de la base intacta; revisión visual a ~480/220 px
+  y ×1,5, y del pelo solo; animaciones; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `46d21a7` · Base D-014: variante de ojos cerrados con la ilustración V2.1 reutilizada
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `0c0a9fa`, el de la entrada siguiente).

@@ -20,7 +20,8 @@
 > extraída con ella y **base sin ojos** propuesta en `sin-ojos/` con la comprobación del montaje. **v3:** máscara v3, base
 > sin ojos v3 y capas sin corregir y con color experimental (estimado) para comparar. Nada activado.
 > **Ojos cerrados de prueba** y parpadeo en `ojos-cerrados/` (deformación de las pestañas reales; no es arte final),
-> y variante con `ojos-cerrados-clara.png` (V2.1, sin modificar) reutilizado a escala uniforme.
+> y variante con `ojos-cerrados-clara.png` (V2.1, sin modificar) reutilizado a escala uniforme (**candidata preferida**).
+> **Pelo:** sin capas para D-014; borrador de montaje con el pelo de la referencia D-012 en `pelo-borrador-d012/`.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

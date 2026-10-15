@@ -1,0 +1,21 @@
+{
+ "fuente": "docs/propuestas/muneca-elegida-2026-10-14/referencia-aprobada.png",
+ "sha256_fuente": "0570a74d324195d9aeb1fda12161a0d01be31997a87518b23f6bc6eb4b42cd08",
+ "fuente_sin_cambios": true,
+ "colocacion": {
+  "escala": 1.0934,
+  "origen": [
+   -38,
+   60
+  ],
+  "tamaño": [
+   1037,
+   1814
+  ]
+ },
+ "escala_uniforme": true,
+ "ampliacion": 0.0934,
+ "pelo_en_referencia_px": 322153,
+ "pelo_colocado_visible_px": 399562,
+ "base_intacta_donde_no_hay_pelo_delante": true
+}
