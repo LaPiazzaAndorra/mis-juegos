@@ -1,0 +1,18 @@
+{
+ "tamaño": [
+  948,
+  1659
+ ],
+ "mascara": "mascara-ojos-propuesta-v2.png",
+ "colores_identicos_a_la_base": true,
+ "opacidad_igual_a_la_mascara": true,
+ "pixeles_visibles": 13038,
+ "opacos": 11948,
+ "caja": [
+  309,
+  395,
+  651,
+  480
+ ],
+ "sha256_archivo": "6998c1e1f8f90764c05dd40fcb581e2c0bf949832422dd3f997b6ccbe97b31a6"
+}

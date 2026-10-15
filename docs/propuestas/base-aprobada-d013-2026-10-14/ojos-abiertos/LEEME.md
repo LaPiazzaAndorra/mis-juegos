@@ -14,6 +14,7 @@ posición de los ojos no cambian. Pendiente de la aprobación visual de la propi
 | `vista-v2-sobre-base.png` | La máscara (magenta) y su contorno (verde) sobre la base entera. |
 | `comprobaciones-v2.json` | Cifras de la v2 (abajo). |
 | `*-v1.png` | Versión 1, conservada (su programa está en el commit `73ca84d`). |
+| `extraer.py`, `capa-ojos-abiertos-prueba.png`, `comprobaciones-capa.json` | **Capa de prueba** extraída con la v2: colores originales, opacidad = máscara v2, lienzo 948 × 1659 en (0, 0). Montaje comprobado en `../sin-ojos/`. |
 
 ## Cambios de la v2 (pedidos por la propietaria)
 

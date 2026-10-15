@@ -1,0 +1,28 @@
+{
+ "tamaño": [
+  948,
+  1659
+ ],
+ "zona_relleno_px": 15976,
+ "pixeles_cambiados_en_la_base": 15972,
+ "cambiados_fuera_de_la_zona": 0,
+ "caja_de_cambios": [
+  307,
+  393,
+  653,
+  484
+ ],
+ "montaje_A_capa_v2": {
+  "pixeles_distintos": 4024,
+  "mas_de_8": 3355,
+  "mas_de_24": 2358,
+  "maximo": 135
+ },
+ "montaje_B_referencia": {
+  "pixeles_distintos": 0,
+  "mas_de_8": 0,
+  "mas_de_24": 0,
+  "maximo": 0
+ },
+ "sha256_base_sin_ojos": "dca415b80bf72951e265cdf8bdd3a51a6cb360adb01c2ef7ba5e7bb07ba05dac"
+}

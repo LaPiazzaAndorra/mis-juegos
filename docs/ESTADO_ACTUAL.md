@@ -21,6 +21,10 @@ sin validar; el bajo de la camiseta se distingue de la cintura.
 (pliegue del párpado fuera, sin piel entre pestañas, corte junto al lagrimal suavizado, trazo del
 lagrimal derecho conservado). Pendiente de revisión: no se ha extraído ni borrado nada de la base.
 Los bordes mezclados con piel (1 077 píxeles) solo se resolverían cambiando colores: no hecho.
+**Capa de prueba de los ojos** extraída con la v2 y **base sin ojos (propuesta)** en `…/sin-ojos/`: el
+relleno solo cambia la zona de los ojos. Comprobación del montaje: con la capa v2 **no** sale idéntico
+(4 024 px: puntas de pestañas más claras y falta el borde rosado del párpado inferior); con opacidad
+completa en la zona (referencia B) sale idéntico. Pendiente de decisión. Nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

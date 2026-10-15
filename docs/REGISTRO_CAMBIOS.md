@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-15 — Ojos abiertos de la base D-014: máscara propuesta, versión 2
+### 2026-10-15 — Base D-014: capa de prueba de los ojos, base sin ojos y comprobación del montaje
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `1640c7b`, el de la entrada siguiente).
+- **Estado:** propuesta en revisión; nada activado ni publicado.
+- **Cambios:**
+  - `ojos-abiertos/extraer.py` → `capa-ojos-abiertos-prueba.png` (colores originales, opacidad = máscara v2,
+    948 × 1659 en su sitio) y `comprobaciones-capa.json`. `mascara.py` expone la zona del pliegue (sus
+    salidas no cambian). Máscaras v1 y v2 conservadas.
+  - `sin-ojos/`: `relleno.py`, `base-sin-ojos-propuesta.png` (copia; relleno armónico de piel solo en la zona
+    de los ojos, 15 976 px; 0 píxeles cambiados fuera), `zona-relleno.png`, `capa-referencia-B.png`,
+    vistas a tamaño de juego y ×3, `comprobaciones.json`, `LEEME.md`.
+- **Resultado del montaje:** A (capa v2 sobre la base sin ojos) difiere del original en 4 024 px (puntas de
+  pestañas más claras, falta el borde rosado del párpado inferior y del lagrimal); B (mismos colores con
+  opacidad completa en la zona) es idéntico. Lo que falta en A es de la máscara; las puntas exactas y sin
+  halo exigirían cambiar colores (no hecho).
+- **Datos guardados afectados:** ninguno. Base original, catálogo, `plantilla/` y juego sin cambios.
+- **Pruebas:** comprobaciones de la capa (colores idénticos, opacidad = máscara), de la base sin ojos (cambios
+  solo en la zona) y del montaje (A y B); revisión visual a tamaño de juego y ×3; hashes de la base sin
+  cambios; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `1640c7b` · Ojos abiertos de la base D-014: máscara propuesta, versión 2
 
 - **Solicitado por:** la propietaria (correcciones a la v1 antes de extraer).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `73ca84d`, el de la entrada siguiente).

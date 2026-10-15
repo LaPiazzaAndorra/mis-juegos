@@ -53,7 +53,7 @@ def lab_de(im):
 
 def mascara(im):
     lab = lab_de(im)
-    M = np.zeros(lab.shape[:2]); AB = np.zeros(lab.shape[:2], bool); info = []
+    M = np.zeros(lab.shape[:2]); AB = np.zeros(lab.shape[:2], bool); PL = np.zeros(lab.shape[:2], bool); info = []
     for cx, cy in OJOS:
         cx, cy = int(cx), int(cy); s = 1 if cx < EJE else -1          # s: hacia el lagrimal
         x0, x1, y0, y1 = cx - 100, cx + 100, cy - 60, cy + 50
@@ -114,8 +114,9 @@ def mascara(im):
         grande = np.isin(lb4, 1 + np.flatnonzero(sz >= 6))
         resto = mm & ~grande & ~nd.binary_dilation(grande, iterations=2); m[resto] = 0
         m[ab] = 1
-        M[y0:y1, x0:x1] = np.maximum(M[y0:y1, x0:x1], m); AB[y0:y1, x0:x1] |= ab
+        M[y0:y1, x0:x1] = np.maximum(M[y0:y1, x0:x1], m); AB[y0:y1, x0:x1] |= ab; PL[y0:y1, x0:x1] |= quitar & ~opaco
         info.append(dict(ojo=[cx, cy], pliegue_quitado_px=int(pliegue.sum()), residuos_quitados_px=int(resto.sum())))
+    mascara.pliegue = PL                         # zona quitada como pliegue (la usa el relleno de la base)
     return (M * 255).round().astype(np.uint8), AB, info
 
 
