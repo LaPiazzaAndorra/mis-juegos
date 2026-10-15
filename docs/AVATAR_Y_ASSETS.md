@@ -22,6 +22,8 @@
 > **Ojos cerrados de prueba** y parpadeo en `ojos-cerrados/` (deformación de las pestañas reales; no es arte final),
 > y variante con `ojos-cerrados-clara.png` (V2.1, sin modificar) reutilizado a escala uniforme (**candidata preferida**).
 > **Pelo:** sin capas para D-014; borrador de montaje con el pelo de la referencia D-012 en `pelo-borrador-d012/`.
+> Revisión localizada (borrador) en `pelo-borrador-d012/revision-localizada/`: capas `pelo-revisado-detras/delante.png`,
+> zonas reconstruidas marcadas en `mascara-zonas-reconstruidas.png` y zonas pendientes en `zonas-pendientes.png`.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

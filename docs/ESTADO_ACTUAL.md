@@ -38,7 +38,13 @@ el 100 % y encaja mejor; sus pestañas son más finas que las de los ojos abiert
 **Ojos cerrados V2.1 = candidata preferida** (sin retocar; pendiente de la aprobación final del conjunto).
 **Pelo:** no hay capas de pelo para D-014. **Borrador de montaje** en `…/pelo-borrador-d012/` con el pelo recortado
 de la referencia D-012 (escala uniforme 1,093, sin deformar): sirve para ver el conjunto, no como pieza (huecos
-junto al cuello, restos de la referencia, ampliación del 9 %).
+junto al cuello, restos de la referencia, ampliación del 9 %). Se conserva como referencia del encaje.
+**Revisión localizada del pelo (15/10, borrador)** en `…/pelo-borrador-d012/revision-localizada/`: limpieza por zonas
+(restos de cara, orejas, cejas, cuello y manga de la referencia; la capa de delante ya no pinta orejas ni cuello ajenos
+encima de la base), huecos junto al cuello y bajo las orejas **reconstruidos** con mechones copiados de la propia melena
+(marcados, no son del original) y punta del mechón del brazo afilada. Sin reescalar ni tocar la base. **Pendiente
+(trabajar a mano):** el interior de los rizos que caían sobre la manga, sobre los dos brazos (`zonas-pendientes.png`).
+Probado solo con comprobaciones automáticas y revisión visual en el ordenador; nada activado ni publicado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

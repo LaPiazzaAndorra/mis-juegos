@@ -1,0 +1,1062 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/base-transparencia-corregida.png": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/pelo-borrador-detras.png": "9697dadd9d1e8ef9460e5822c6fc4c6f8210b2a6c944a98b52ae41ec1ab0a43a",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/pelo-borrador-delante.png": "f54e0eb2fa8f7c8ac2c88dfa138d394a7201deed909267577178ef19731dc817",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/montaje-abiertos.png": "16cb478abff8e6101d333debef18fb4772647317fdffedc58683e9fa00fdc0b3",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/montaje-cerrados.png": "32acef5fdfb8cbe3b9be74b5ab99cb03a47dab046a3335d447ae6d8b04fad8f3"
+ },
+ "escala": "ninguna (se usa el pelo ya colocado a 1,0934)",
+ "cara_orejas_cuello_de_la_base_sin_nada_encima": true,
+ "limpieza_solo_opacidad_sin_cambiar_colores": true,
+ "limpiado_px": 5210,
+ "reconstruido_visible_px": 21435,
+ "trozos_reconstruidos": [
+  {
+   "trozo_px": 1,
+   "centro": [
+    571,
+    661
+   ],
+   "origen_desplazado": [
+    100,
+    123
+   ],
+   "error_de_continuidad": 13.6,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    388,
+    659
+   ],
+   "origen_desplazado": [
+    -86,
+    -36
+   ],
+   "error_de_continuidad": 13.3,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    390,
+    658
+   ],
+   "origen_desplazado": [
+    -89,
+    -33
+   ],
+   "error_de_continuidad": 12.3,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 741,
+   "centro": [
+    220,
+    657
+   ],
+   "origen_desplazado": [
+    -65,
+    87
+   ],
+   "error_de_continuidad": 33.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    557,
+    655
+   ],
+   "origen_desplazado": [
+    160,
+    6
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    403,
+    653
+   ],
+   "origen_desplazado": [
+    -224,
+    -90
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    405,
+    652
+   ],
+   "origen_desplazado": [
+    -224,
+    -90
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    550,
+    652
+   ],
+   "origen_desplazado": [
+    214,
+    -33
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    408,
+    650
+   ],
+   "origen_desplazado": [
+    -224,
+    -90
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    411,
+    648
+   ],
+   "origen_desplazado": [
+    -224,
+    -90
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    423,
+    645
+   ],
+   "origen_desplazado": [
+    -230,
+    -90
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 465,
+   "centro": [
+    272,
+    641
+   ],
+   "origen_desplazado": [
+    16,
+    126
+   ],
+   "error_de_continuidad": 24.2,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 309,
+   "centro": [
+    630,
+    637
+   ],
+   "origen_desplazado": [
+    52,
+    -3
+   ],
+   "error_de_continuidad": 24.9,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1012,
+   "centro": [
+    545,
+    635
+   ],
+   "origen_desplazado": [
+    166,
+    42
+   ],
+   "error_de_continuidad": 25.9,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 749,
+   "centro": [
+    340,
+    623
+   ],
+   "origen_desplazado": [
+    -50,
+    -36
+   ],
+   "error_de_continuidad": 29.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1889,
+   "centro": [
+    412,
+    623
+   ],
+   "origen_desplazado": [
+    -104,
+    117
+   ],
+   "error_de_continuidad": 25.8,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1198,
+   "centro": [
+    548,
+    607
+   ],
+   "origen_desplazado": [
+    166,
+    42
+   ],
+   "error_de_continuidad": 17.4,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1379,
+   "centro": [
+    378,
+    598
+   ],
+   "origen_desplazado": [
+    -104,
+    117
+   ],
+   "error_de_continuidad": 26.1,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1390,
+   "centro": [
+    588,
+    595
+   ],
+   "origen_desplazado": [
+    127,
+    54
+   ],
+   "error_de_continuidad": 22.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 133,
+   "centro": [
+    639,
+    595
+   ],
+   "origen_desplazado": [
+    136,
+    -27
+   ],
+   "error_de_continuidad": 20.9,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    369,
+    576
+   ],
+   "origen_desplazado": [
+    -104,
+    117
+   ],
+   "error_de_continuidad": 1.5,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    592,
+    573
+   ],
+   "origen_desplazado": [
+    127,
+    54
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    363,
+    572
+   ],
+   "origen_desplazado": [
+    -104,
+    117
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 904,
+   "centro": [
+    341,
+    570
+   ],
+   "origen_desplazado": [
+    -113,
+    -18
+   ],
+   "error_de_continuidad": 29.5,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    596,
+    570
+   ],
+   "origen_desplazado": [
+    127,
+    54
+   ],
+   "error_de_continuidad": 2.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    357,
+    568
+   ],
+   "origen_desplazado": [
+    -113,
+    -18
+   ],
+   "error_de_continuidad": 0.2,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    599,
+    568
+   ],
+   "origen_desplazado": [
+    127,
+    54
+   ],
+   "error_de_continuidad": 4.9,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    604,
+    564
+   ],
+   "origen_desplazado": [
+    127,
+    54
+   ],
+   "error_de_continuidad": 12.5,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    350,
+    562
+   ],
+   "origen_desplazado": [
+    -113,
+    -18
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    609,
+    560
+   ],
+   "origen_desplazado": [
+    196,
+    72
+   ],
+   "error_de_continuidad": 2.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    610,
+    559
+   ],
+   "origen_desplazado": [
+    190,
+    -21
+   ],
+   "error_de_continuidad": 2.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    611,
+    558
+   ],
+   "origen_desplazado": [
+    190,
+    -21
+   ],
+   "error_de_continuidad": 1.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    612,
+    557
+   ],
+   "origen_desplazado": [
+    70,
+    -15
+   ],
+   "error_de_continuidad": 4.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    613,
+    556
+   ],
+   "origen_desplazado": [
+    70,
+    -15
+   ],
+   "error_de_continuidad": 3.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    342,
+    554
+   ],
+   "origen_desplazado": [
+    -113,
+    -18
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    341,
+    553
+   ],
+   "origen_desplazado": [
+    -113,
+    -18
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 590,
+   "centro": [
+    743,
+    550
+   ],
+   "origen_desplazado": [
+    -8,
+    69
+   ],
+   "error_de_continuidad": 35.2,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 910,
+   "centro": [
+    629,
+    549
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 28.3,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1270,
+   "centro": [
+    702,
+    548
+   ],
+   "origen_desplazado": [
+    73,
+    48
+   ],
+   "error_de_continuidad": 30.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 918,
+   "centro": [
+    316,
+    544
+   ],
+   "origen_desplazado": [
+    -104,
+    -3
+   ],
+   "error_de_continuidad": 25.3,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    623,
+    544
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    332,
+    541
+   ],
+   "origen_desplazado": [
+    -104,
+    -3
+   ],
+   "error_de_continuidad": 4.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    626,
+    539
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    329,
+    536
+   ],
+   "origen_desplazado": [
+    -104,
+    -3
+   ],
+   "error_de_continuidad": 3.3,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    628,
+    536
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    328,
+    534
+   ],
+   "origen_desplazado": [
+    -104,
+    -3
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 636,
+   "centro": [
+    280,
+    529
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 29.8,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 4,
+   "centro": [
+    304,
+    529
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 30.9,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 12,
+   "centro": [
+    647,
+    529
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 2.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 2,
+   "centro": [
+    638,
+    528
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 2,
+   "centro": [
+    656,
+    528
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 3.5,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    320,
+    527
+   ],
+   "origen_desplazado": [
+    -20,
+    111
+   ],
+   "error_de_continuidad": 29.5,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    636,
+    527
+   ],
+   "origen_desplazado": [
+    58,
+    69
+   ],
+   "error_de_continuidad": 7.3,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    293,
+    526
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    322,
+    526
+   ],
+   "origen_desplazado": [
+    -104,
+    -3
+   ],
+   "error_de_continuidad": 25.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    291,
+    525
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    668,
+    523
+   ],
+   "origen_desplazado": [
+    43,
+    -90
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    286,
+    522
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    670,
+    522
+   ],
+   "origen_desplazado": [
+    112,
+    54
+   ],
+   "error_de_continuidad": 1.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    284,
+    521
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    673,
+    520
+   ],
+   "origen_desplazado": [
+    112,
+    54
+   ],
+   "error_de_continuidad": 0.5,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 568,
+   "centro": [
+    678,
+    519
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 19.2,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    281,
+    519
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.6,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    280,
+    518
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    678,
+    516
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    276,
+    515
+   ],
+   "origen_desplazado": [
+    -77,
+    42
+   ],
+   "error_de_continuidad": 0.0,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    682,
+    513
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 15.9,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    683,
+    512
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 16.4,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    684,
+    511
+   ],
+   "origen_desplazado": [
+    13,
+    120
+   ],
+   "error_de_continuidad": 11.8,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    685,
+    510
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 11.4,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    686,
+    509
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 9.6,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    687,
+    508
+   ],
+   "origen_desplazado": [
+    10,
+    117
+   ],
+   "error_de_continuidad": 1.2,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 643,
+   "centro": [
+    254,
+    503
+   ],
+   "origen_desplazado": [
+    -17,
+    63
+   ],
+   "error_de_continuidad": 27.6,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 614,
+   "centro": [
+    698,
+    455
+   ],
+   "origen_desplazado": [
+    -5,
+    -90
+   ],
+   "error_de_continuidad": 44.7,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 475,
+   "centro": [
+    259,
+    447
+   ],
+   "origen_desplazado": [
+    -38,
+    -3
+   ],
+   "error_de_continuidad": 28.1,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    265,
+    436
+   ],
+   "origen_desplazado": [
+    -38,
+    -3
+   ],
+   "error_de_continuidad": 6.4,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    290,
+    436
+   ],
+   "origen_desplazado": [
+    -122,
+    129
+   ],
+   "error_de_continuidad": 16.1,
+   "resuelto": true
+  },
+  {
+   "trozo_px": 1,
+   "centro": [
+    667,
+    436
+   ],
+   "origen_desplazado": [
+    100,
+    129
+   ],
+   "error_de_continuidad": 16.9,
+   "resuelto": true
+  }
+ ],
+ "mechon": {
+  "eje": [
+   -0.371,
+   0.928
+  ],
+  "largo_px": 136.9,
+  "afilado_px": 1025
+ },
+ "huecos_sin_resolver": [],
+ "zonas_pendientes": [
+  {
+   "zona": "interior de los rizos sobre el brazo izquierdo",
+   "caja": [
+    214,
+    672,
+    402,
+    1015
+   ],
+   "motivo": "al quitar la manga rosa de la referencia, los huecos de los rizos dejan ver el brazo y conservan un filo rojizo; hay que redibujar el interior de esos rizos"
+  },
+  {
+   "zona": "interior de los rizos sobre el brazo derecho",
+   "caja": [
+    591,
+    723,
+    772,
+    1014
+   ],
+   "motivo": "al quitar la manga rosa de la referencia, los huecos de los rizos dejan ver el brazo y conservan un filo rojizo; hay que redibujar el interior de esos rizos"
+  }
+ ]
+}

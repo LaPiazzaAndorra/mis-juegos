@@ -40,3 +40,7 @@ reutilizados (candidata preferida, sin retocar).
 
 Para la versión de producción hacen falta dos capas de pelo dibujadas (detrás y delante) sobre las guías de esta
 base, a la resolución final, siguiendo `plantilla/PELO.md` adaptado a D-014.
+
+
+**15/10/2026:** este montaje se conserva como referencia del encaje. La revisión localizada (limpieza por zonas,
+huecos reconstruidos y punta del mechón) está en [`revision-localizada/`](revision-localizada/LEEME.md).

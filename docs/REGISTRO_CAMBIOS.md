@@ -1,6 +1,36 @@
 # Registro de cambios
 
-### 2026-10-15 — Base D-014: borrador de montaje con el pelo de D-012
+### 2026-10-15 — Pelo D-012 sobre D-014: revisión localizada (borrador)
+
+- **Solicitado por:** la propietaria (el montaje anterior se conserva como referencia del encaje; ojos sin retocar).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `c9852fd`, el de la entrada siguiente).
+- **Estado:** borrador; nada activado ni publicado. Sin reescalar la melena ni cambiar la base.
+- **Cambios:** `pelo-borrador-d012/revision-localizada/revision_pelo.py` → `pelo-revisado-detras.png`,
+  `pelo-revisado-delante.png`, montajes abiertos y cerrados, `vista-capas-oscuro.png` (antes/después de cada capa),
+  vistas grandes de cada capa sobre fondo oscuro, `vista-montaje-revisado.png`, `vista-mechon-brazo.png`,
+  `zonas-revisadas.png`, `mascara-zonas-reconstruidas.png`, `zonas-pendientes.png`, dos GIF de parpadeo,
+  `comprobaciones.json` y `LEEME.md`. El borrador anterior no se modifica.
+- **Resultado:**
+  - Limpieza por zonas, solo de opacidad. Se han quitado de la referencia: la cara, las orejas, las pestañas y el cuello
+    que había detrás de la cabeza, la franja del contorno, los trazos finos de sus cejas y la manga rosa entre los rizos.
+  - La capa de delante del borrador anterior pintaba orejas, contorno de cara y cuello de la referencia encima de la
+    base; ya no.
+  - Huecos junto al cuello y bajo las orejas: reconstruidos con 78 trozos pequeños copiados de la propia melena
+    (traslado sin escala ni giro), detrás del pelo y con sombra junto a la cabeza. Están marcados como reconstruidos.
+  - El mechón del brazo acaba en punta.
+  - Pendiente: el interior de los rizos sobre los dos brazos (deja ver el brazo y conserva un filo rojizo).
+- **Datos guardados afectados:** ninguno. Base, referencia, borrador anterior, catálogo, `plantilla/`, juego y `main`
+  sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes antes y después.
+  - Cara, orejas y cuello de la base sin nada encima.
+  - Colores del pelo sin cambiar (solo opacidad).
+  - Revisión visual a ~600/220 px, ×1,5, ×2 y capas sobre fondo oscuro.
+  - Comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `c9852fd` · Base D-014: borrador de montaje con el pelo de D-012
 
 - **Solicitado por:** la propietaria (ojos cerrados V2.1 como candidata preferida, sin retocar).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `46d21a7`, el de la entrada siguiente).
