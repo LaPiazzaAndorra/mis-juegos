@@ -25,6 +25,7 @@
 > Revisión localizada (borrador) en `pelo-borrador-d012/revision-localizada/`: capas `pelo-revisado-detras/delante.png`,
 > zonas reconstruidas marcadas en `mascara-zonas-reconstruidas.png` y zonas pendientes en `zonas-pendientes.png`.
 > Variante experimental en `revision-localizada/variante-experimental/`: bordes rosados corregidos (A) y sin el mechón suelto (B).
+> **B elegida** como candidata preferida del borrador (`pelo-variante-sin-mechon-detras/delante.png`); sin activar.
 
 **Comprobado contra `arte/originales/` y `avatar/catalogo-muneca.js` el 14/10/2026.**
 Documentos de referencia, que mandan sobre este resumen: `plantilla/ASSETS.md` (lista de

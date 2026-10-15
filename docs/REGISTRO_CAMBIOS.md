@@ -1,6 +1,18 @@
 # Registro de cambios
 
-### 2026-10-15 — Pelo D-012 sobre D-014: variante experimental de bordes rosados y sin mechón suelto
+### 2026-10-15 — Pelo D-012 sobre D-014: elegida la variante B
+
+- **Solicitado por:** la propietaria («La b»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `450c13c`, el de la entrada siguiente).
+- **Estado:** B (bordes rosados corregidos y sin el mechón suelto) pasa a ser la candidata preferida del borrador de pelo.
+  No es la aprobación final del conjunto; nada activado ni publicado.
+- **Cambios:** solo documentación (`ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `LEEME.md` de la variante). Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno.
+- **Pruebas:** comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `450c13c` · Pelo D-012 sobre D-014: variante experimental de bordes rosados y sin mechón suelto
 
 - **Solicitado por:** la propietaria (la revisión localizada se conserva como punto de partida; no rellenar los huecos).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `c20261d`, el de la entrada siguiente).

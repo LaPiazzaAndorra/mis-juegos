@@ -1,5 +1,8 @@
 # Variante EXPERIMENTAL · bordes rosados y mechón suelto · 15/10/2026
 
+> **15/10/2026: la propietaria elige la variante B** (bordes corregidos y sin el mechón suelto) como candidata preferida
+> del borrador de pelo. A se conserva. No es aprobación final ni se activa.
+
 Es una **propuesta**: no se activa ni se publica. Parte de la revisión localizada (`../`), que se conserva sin cambios
 como punto de partida. No se rellenan los huecos de los rizos (pueden dejar ver el brazo o la ropa). No se toca el
 cuello reconstruido, el resto de la melena, la base ni los ojos (comprobado con SHA-256 y con el montaje).

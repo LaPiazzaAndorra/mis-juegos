@@ -48,6 +48,8 @@ Probado solo con comprobaciones automáticas y revisión visual en el ordenador;
 **Variante experimental (15/10)** en `…/revision-localizada/variante-experimental/`: **A** corrige solo el filo rosado de
 los rizos en las zonas rojas (máscara explícita de color; alfa idéntico; los huecos no se rellenan) y **B** es A sin el
 mechón suelto del brazo (sin recortar rizos ni inventar uniones). La revisión se conserva. Propuesta: nada activado.
+**Elegida la variante B (15/10)** como candidata preferida del borrador de pelo; A, la revisión y el montaje anterior se
+conservan. Sigue siendo borrador: pendiente la aprobación final del conjunto y las capas de pelo dibujadas. Nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
