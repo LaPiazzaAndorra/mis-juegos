@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-15 — Vestido rosa: opción B (copia limpia), máscara de las axilas y paquete para ChatGPT
+### 2026-10-15 — Vestido rosa: primer relleno de las axilas con ChatGPT (no encaja)
+
+- **Solicitado por:** la propietaria (integrar solo la zona de la máscara si encaja).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `d1c6ac8`, el de la entrada siguiente).
+- **Estado:** **no encaja**: no se integra ni se añade al visor. Nada activado ni publicado.
+- **Cambios:**
+  - `opcion-b/para-chatgpt/resultado-chatgpt-axilas-1.png` (imagen de ChatGPT, sin modificar).
+  - `revision-axilas-chatgpt.png` y `.json`.
+  - `integrar_relleno.py` comprueba la alineación y el blanco del fondo en la zona; si algo falla, no escribe la
+    candidata.
+  - Documentación: `LEEME.md` de la opción B, D-015 y `ESTADO_ACTUAL.md`.
+- **Resultado:**
+  - Alineación exacta (0, 0; correlación 0,980).
+  - 381 de 1 207 px de la zona son blanco del fondo: falta tela junto al cuerpo a la altura del lazo.
+  - El vestido opción B, la base y todo lo demás quedan igual.
+- **Datos guardados afectados:** ninguno. Juego, catálogo, visor, `sw.js` y `main` sin cambios.
+- **Pruebas:** alineación por correlación de bordes (global y por axila), recuento de blanco en la zona, revisión visual
+  ×2,5 y comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `d1c6ac8` · Vestido rosa: opción B (copia limpia), máscara de las axilas y paquete para ChatGPT
 
 - **Solicitado por:** la propietaria (opción B; sin opción C; axilas con la herramienta de imagen de ChatGPT).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `f76b76a`, el de la entrada siguiente).

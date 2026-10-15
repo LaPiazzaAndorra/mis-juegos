@@ -1,0 +1,21 @@
+{
+ "imagen": "resultado-chatgpt-axilas-1.png",
+ "zona_px": 1207,
+ "alineacion": {
+  "desplazamiento_mejor": [
+   0,
+   0
+  ],
+  "correlacion_sin_mover": 0.9801,
+  "correlacion_mejor": 0.9801,
+  "alineada": true
+ },
+ "blanco_del_fondo_en_la_zona_px": 381,
+ "tela_en_la_zona_px": 826,
+ "cambio_de_chatgpt_fuera_de_la_zona": {
+  "media": 6.1,
+  "maximo": 87,
+  "nota": "no se usa"
+ },
+ "encaja": false
+}

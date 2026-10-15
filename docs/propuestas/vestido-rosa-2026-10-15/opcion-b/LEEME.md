@@ -61,6 +61,21 @@ Resultado sobre la muñeca: la camiseta ya no se transparenta en el cuerpo del v
    - Si ChatGPT devuelve otro encuadre que no sea 2:3, no lo integra.
    - Probado con un relleno simulado: 0 píxeles cambiados fuera de la máscara.
 
+### Intento 1 con ChatGPT (15/10) · **no encaja**
+
+- La imagen se conserva sin modificar en `para-chatgpt/resultado-chatgpt-axilas-1.png` (1024 × 1536).
+- **Alineación:** exacta, sin desplazamiento (correlación de bordes 0,980, también alrededor de cada axila).
+- **Zona de la máscara:** **381 de 1 207 px son blanco del fondo**; solo 826 son tela. ChatGPT puso tela justo bajo cada
+  manga, pero no junto al cuerpo a la altura del lazo. Ahí nuestra base (la camiseta) es más ancha que el cuerpo del
+  vestido, y ChatGPT conservó la silueta estrecha.
+- Revisión: `revision-axilas-chatgpt.png` (rojo = blanco del fondo) y `revision-axilas-chatgpt.json`.
+- **No se ha creado la candidata ni se ha añadido al visor.** El vestido opción B queda igual; fuera de la máscara no se
+  usa nada de esta imagen (ChatGPT había cambiado otros detalles: media 6, máximo 87).
+- `integrar_relleno.py` comprueba ahora la alineación y que no haya blanco en la zona. Si algo falla, no escribe la
+  candidata (sale con código 2).
+- Para otro intento, conviene pedir expresamente que la tela del cuerpo se ensanche un poco a los lados, a la altura de
+  la cintura y del lazo, hasta cubrir la zona azul de `guia-donde-rellenar.png`, sin dejar fondo blanco.
+
 En el visor (`../../base-aprobada-d013-2026-10-14/visor/`): **Ropa → Vestido limpio · opción B**.
 
 **Probado:** comprobaciones automáticas y revisión visual en el ordenador; el visor, en Chromium con pantalla de iPhone

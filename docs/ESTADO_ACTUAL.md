@@ -64,6 +64,9 @@ puntos sueltos, con el cuerpo y el forro opaco (alfa 255) y los bordes y el tul 
 intacta. Solo falta tela en las **axilas**: hay una máscara exacta y un paquete para completarlas con ChatGPT, con un
 programa que integra solo la zona marcada. **Corrección:** en los hombros no falta tela; el corte es el borde del pelo
 de delante. Opción «Vestido limpio · opción B» en el visor. Nada activado.
+**Axilas, intento 1 con ChatGPT (15/10): no encaja.** La alineación es exacta, pero 381 de los 1 207 px de la zona son
+blanco del fondo: ChatGPT no ensanchó el cuerpo del vestido junto al lazo. No hay candidata ni opción nueva en el visor.
+`integrar_relleno.py` detecta ahora estos fallos. Falta otro intento.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
