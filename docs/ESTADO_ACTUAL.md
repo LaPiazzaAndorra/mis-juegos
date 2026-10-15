@@ -50,6 +50,9 @@ los rizos en las zonas rojas (máscara explícita de color; alfa idéntico; los 
 mechón suelto del brazo (sin recortar rizos ni inventar uniones). La revisión se conserva. Propuesta: nada activado.
 **Elegida la variante B (15/10)** como candidata preferida del borrador de pelo; A, la revisión y el montaje anterior se
 conservan. Sigue siendo borrador: pendiente la aprobación final del conjunto y las capas de pelo dibujadas. Nada activado.
+**Visor aislado (15/10)** en `…/base-aprobada-d013-2026-10-14/visor/` (base nueva, pelo B, ojos abiertos v3 color
+experimental y cerrados V2.1, parpadeo, encuadres de la cara, zoom y fondos). Sin almacenamiento ni service worker; no lee
+partidas. Probado en Chromium con pantalla de iPhone simulada; falta revisarlo en el iPhone/iPad reales.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

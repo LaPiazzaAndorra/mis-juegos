@@ -1,6 +1,26 @@
 # Registro de cambios
 
-### 2026-10-15 — Pelo D-012 sobre D-014: elegida la variante B
+### 2026-10-15 — Visor aislado de la muñeca (base D-014, pelo B, parpadeo)
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `0e22146`, el de la entrada siguiente).
+- **Estado:** propuesta de revisión; no es el juego ni se publica.
+- **Cambios:** `docs/propuestas/base-aprobada-d013-2026-10-14/visor/index.html` y su `LEEME.md`. Página aislada que
+  apila las imágenes existentes (pelo B detrás, base sin ojos v3, ojos abiertos v3 color experimental / cerrados V2.1,
+  pelo B delante) con parpadeo, encuadres de la cara, zoom, fondos y capas. Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. No usa almacenamiento ni cookies, no registra service worker y no lee
+  partidas. `sw.js`, juego y catálogo sin cambios.
+- **Pruebas:**
+  - Chromium con pantalla de iPhone simulada: sin errores en la consola; solo pide la página y las cinco imágenes;
+    almacenamiento vacío y ningún service worker.
+  - El parpadeo cambia de capa y vuelve a los 200 ms.
+  - A tamaño real coincide con `montaje-variante-sin-mechon-abiertos.png` en lo opaco (≤ 2).
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `0e22146` · Pelo D-012 sobre D-014: elegida la variante B
 
 - **Solicitado por:** la propietaria («La b»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `450c13c`, el de la entrada siguiente).

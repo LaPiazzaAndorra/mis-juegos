@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Visor de la muñeca · propuesta</title>
+<!--
+  Visor AISLADO de revisión (propuesta, no es el juego).
+  Solo muestra imágenes ya existentes en la rama avatar-creador, una encima de otra:
+    pelo B detrás · base sin ojos v3 · ojos (abiertos v3 color experimental / cerrados V2.1) · pelo B delante.
+  No usa localStorage, sessionStorage, IndexedDB ni cookies, no registra service worker y no lee partidas.
+-->
+<style>
+  :root { --fondo: #fffaf5; --tinta: #3c3550; --suave: #8a7fa0; --boton: #f4e9f7; --activo: #d9b8ea; --borde: #e3d4ec; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #f7f1fa; color: var(--tinta);
+    font: 15px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-text-size-adjust: 100%; }
+  body { display: flex; flex-direction: column; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  header { padding: 8px 12px 4px; }
+  header h1 { font-size: 16px; margin: 0; }
+  header p { margin: 2px 0 0; font-size: 12px; color: var(--suave); }
+  #escena { position: relative; flex: 1; min-height: 260px; margin: 6px 10px; border-radius: 14px; overflow: hidden;
+    background: var(--fondo); border: 1px solid var(--borde); touch-action: none; cursor: grab; }
+  #escena.cuadros { background-color: #fff; background-image:
+    linear-gradient(45deg, #e9e2ee 25%, transparent 25%), linear-gradient(-45deg, #e9e2ee 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e9e2ee 75%), linear-gradient(-45deg, transparent 75%, #e9e2ee 75%);
+    background-size: 24px 24px; background-position: 0 0, 0 12px, 12px -12px, -12px 0; }
+  #lienzo { position: absolute; left: 0; top: 0; width: 948px; height: 1659px; transform-origin: 0 0; will-change: transform; }
+  #lienzo img { position: absolute; left: 0; top: 0; width: 948px; height: 1659px; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+  .oculto { display: none !important; }
+  #cargando { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--suave); }
+  #controles { padding: 4px 10px 10px; display: grid; gap: 6px; }
+  .fila { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .fila b { font-size: 12px; color: var(--suave); font-weight: 600; min-width: 64px; }
+  button { font: inherit; font-size: 14px; padding: 8px 12px; min-height: 40px; border-radius: 12px; border: 1px solid var(--borde);
+    background: var(--boton); color: var(--tinta); -webkit-tap-highlight-color: transparent; }
+  button[aria-pressed="true"] { background: var(--activo); border-color: #c49ad8; font-weight: 600; }
+  button.grande { padding: 8px 16px; font-weight: 600; }
+  input[type=range] { flex: 1; min-width: 120px; }
+  #estado { font-size: 12px; color: var(--suave); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Visor de la muñeca · propuesta</h1>
+  <p>Base D-014 · pelo B · ojos abiertos v3 (color experimental) · cerrados V2.1. No es el juego: no guarda nada.</p>
+</header>
+
+<div id="escena" aria-label="Muñeca">
+  <div id="lienzo">
+    <img id="c-pelo-detras" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png">
+    <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
+    <img id="c-abiertos" alt="" src="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png">
+    <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
+    <img id="c-pelo-delante" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
+  </div>
+  <div id="cargando">Cargando imágenes…</div>
+</div>
+
+<div id="controles">
+  <div class="fila">
+    <b>Ojos</b>
+    <button class="grande" id="parpadear">Parpadear</button>
+    <button id="auto" aria-pressed="false">Parpadeo automático</button>
+    <button id="cerrar" aria-pressed="false">Mantener cerrados</button>
+  </div>
+  <div class="fila">
+    <b>Ver</b>
+    <button data-vista="entera" aria-pressed="true">Entera</button>
+    <button data-vista="cara" aria-pressed="false">Cara</button>
+    <button data-vista="ojos" aria-pressed="false">Ojos</button>
+    <button data-vista="cuello" aria-pressed="false">Cuello y orejas</button>
+  </div>
+  <div class="fila">
+    <b>Zoom</b>
+    <input id="zoom" type="range" min="0" max="100" value="0" aria-label="Zoom">
+    <span id="estado"></span>
+  </div>
+  <div class="fila">
+    <b>Fondo</b>
+    <button data-fondo="#fffaf5" aria-pressed="true">Claro</button>
+    <button data-fondo="#2d2846" aria-pressed="false">Oscuro</button>
+    <button data-fondo="#f9d9e6" aria-pressed="false">Rosa</button>
+    <button data-fondo="cuadros" aria-pressed="false">Cuadros</button>
+  </div>
+  <div class="fila">
+    <b>Capas</b>
+    <button data-capa="c-pelo-detras" aria-pressed="true">Pelo detrás</button>
+    <button data-capa="c-pelo-delante" aria-pressed="true">Pelo delante</button>
+    <button data-capa="ojos" aria-pressed="true">Ojos</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var ANCHO = 948, ALTO = 1659;
+  // Encuadres en píxeles de la imagen (x0, y0, x1, y1)
+  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700] };
+  var escena = document.getElementById('escena'), lienzo = document.getElementById('lienzo');
+  var abiertos = document.getElementById('c-abiertos'), cerrados = document.getElementById('c-cerrados');
+  var zoom = document.getElementById('zoom'), estado = document.getElementById('estado');
+  var vista = { s: 1, x: 0, y: 0 }, sMin = 0.1, sMax = 8;
+  var mantener = false, ojosVisibles = true, temporizador = null, cierre = null;
+
+  // --- encuadre ---------------------------------------------------------------------------------
+  function aplicar() {
+    lienzo.style.transform = 'translate(' + vista.x + 'px,' + vista.y + 'px) scale(' + vista.s + ')';
+    zoom.value = Math.round(100 * Math.log(vista.s / sMin) / Math.log(sMax / sMin));
+    estado.textContent = '×' + (vista.s).toFixed(2) + ' (1 = tamaño real de la imagen)';
+  }
+  function encuadrar(nombre) {
+    var c = VISTAS[nombre], w = escena.clientWidth, h = escena.clientHeight;
+    sMin = Math.min(w / (VISTAS.entera[2] - VISTAS.entera[0]), h / (VISTAS.entera[3] - VISTAS.entera[1]));
+    vista.s = Math.min(w / (c[2] - c[0]), h / (c[3] - c[1]));
+    vista.x = w / 2 - vista.s * (c[0] + c[2]) / 2; vista.y = h / 2 - vista.s * (c[1] + c[3]) / 2;
+    aplicar();
+    document.querySelectorAll('[data-vista]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.vista === nombre)); });
+  }
+  function zoomEn(s, cx, cy) {
+    s = Math.max(sMin, Math.min(sMax, s));
+    vista.x = cx - (cx - vista.x) * s / vista.s; vista.y = cy - (cy - vista.y) * s / vista.s; vista.s = s; aplicar();
+  }
+  zoom.addEventListener('input', function () {
+    zoomEn(sMin * Math.pow(sMax / sMin, zoom.value / 100), escena.clientWidth / 2, escena.clientHeight / 2);
+  });
+  document.querySelectorAll('[data-vista]').forEach(function (b) { b.addEventListener('click', function () { encuadrar(b.dataset.vista); }); });
+
+  // arrastrar con un dedo, pellizcar con dos (solo dentro del visor)
+  var punteros = {}, inicio = null;
+  function lista() { return Object.keys(punteros).map(function (k) { return punteros[k]; }); }
+  escena.addEventListener('pointerdown', function (e) {
+    escena.setPointerCapture(e.pointerId); punteros[e.pointerId] = { x: e.clientX, y: e.clientY }; inicio = null;
+  });
+  escena.addEventListener('pointermove', function (e) {
+    if (!punteros[e.pointerId]) return;
+    var r = escena.getBoundingClientRect(), p = lista();
+    if (p.length === 1) {
+      vista.x += e.clientX - punteros[e.pointerId].x; vista.y += e.clientY - punteros[e.pointerId].y; aplicar();
+    } else if (p.length === 2) {
+      var a = p[0], b = p[1], d0 = Math.hypot(a.x - b.x, a.y - b.y);
+      punteros[e.pointerId] = { x: e.clientX, y: e.clientY }; p = lista(); a = p[0]; b = p[1];
+      var d1 = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d0 > 0) zoomEn(vista.s * d1 / d0, (a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top);
+      return;
+    }
+    punteros[e.pointerId] = { x: e.clientX, y: e.clientY };
+  });
+  function soltar(e) { delete punteros[e.pointerId]; }
+  escena.addEventListener('pointerup', soltar); escena.addEventListener('pointercancel', soltar);
+  escena.addEventListener('wheel', function (e) {
+    e.preventDefault(); var r = escena.getBoundingClientRect();
+    zoomEn(vista.s * Math.exp(-e.deltaY * 0.002), e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+  // evitar el zoom de página de Safari por gestos dentro del visor
+  ['gesturestart', 'gesturechange'].forEach(function (t) { escena.addEventListener(t, function (e) { e.preventDefault(); }); });
+
+  // --- ojos: cambio instantáneo de capa, como en el juego (200 ms cerrados) ---------------------
+  function mostrarOjos(cerr) {
+    abiertos.classList.toggle('oculto', !ojosVisibles || cerr);
+    cerrados.classList.toggle('oculto', !ojosVisibles || !cerr);
+  }
+  function parpadeo() {
+    if (mantener) return;
+    clearTimeout(cierre); mostrarOjos(true);
+    cierre = setTimeout(function () { mostrarOjos(mantener); }, 200);
+  }
+  document.getElementById('parpadear').addEventListener('click', parpadeo);
+  var botonAuto = document.getElementById('auto');
+  function programar() { temporizador = setTimeout(function () { parpadeo(); programar(); }, 2500 + Math.random() * 2500); }
+  botonAuto.addEventListener('click', function () {
+    var on = botonAuto.getAttribute('aria-pressed') !== 'true';
+    botonAuto.setAttribute('aria-pressed', String(on)); clearTimeout(temporizador); if (on) programar();
+  });
+  var botonCerrar = document.getElementById('cerrar');
+  botonCerrar.addEventListener('click', function () {
+    mantener = botonCerrar.getAttribute('aria-pressed') !== 'true';
+    botonCerrar.setAttribute('aria-pressed', String(mantener)); clearTimeout(cierre); mostrarOjos(mantener);
+  });
+
+  // --- fondo y capas -------------------------------------------------------------------------------
+  document.querySelectorAll('[data-fondo]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.fondo; escena.classList.toggle('cuadros', f === 'cuadros');
+      escena.style.background = f === 'cuadros' ? '' : f;
+      document.querySelectorAll('[data-fondo]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+  document.querySelectorAll('[data-capa]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on));
+      if (b.dataset.capa === 'ojos') { ojosVisibles = on; mostrarOjos(mantener); }
+      else document.getElementById(b.dataset.capa).classList.toggle('oculto', !on);
+    });
+  });
+
+  // --- carga: se espera a las cinco capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)
+  var imgs = Array.prototype.slice.call(lienzo.querySelectorAll('img')), pendientes = imgs.length, fallos = [];
+  imgs.forEach(function (im) {
+    function listo(ok) { if (!ok) fallos.push(im.getAttribute('src')); if (--pendientes === 0) terminar(); }
+    if (im.complete && im.naturalWidth) listo(true);
+    else { im.addEventListener('load', function () { listo(true); }); im.addEventListener('error', function () { listo(false); }); }
+  });
+  function terminar() {
+    var c = document.getElementById('cargando');
+    if (fallos.length) c.textContent = 'No se ha podido cargar: ' + fallos.join(', ');
+    else c.remove();
+    encuadrar('entera');
+  }
+  window.addEventListener('resize', function () {
+    var activa = document.querySelector('[data-vista][aria-pressed="true"]'); encuadrar(activa ? activa.dataset.vista : 'entera');
+  });
+})();
+</script>
+</body>
+</html>
