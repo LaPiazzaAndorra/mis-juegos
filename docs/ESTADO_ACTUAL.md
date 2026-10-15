@@ -81,6 +81,9 @@ mechón continuo por hombro: rizos enteros del pelo existente, desde la melena h
 parte: la izquierda pasa del 43 % al 62 % y la derecha, del 29 % al 44 %. En lo alto de cada manga falta pelo original
 (916 px, donde había pelo reconstruido); está marcado y con paquete para ChatGPT. Opción «Hombros · C (mechones)» en el
 visor. Pendiente; nada activado.
+**Relleno 1 de ChatGPT para los mechones (15/10): no encaja todavía.** La alineación es correcta, pero ChatGPT redibujó
+el pelo de los hombros. Integrar solo la máscara deja dos parches con costura, y la máscara se queda corta (2 585 px de
+pelo de ChatGPT fuera, marcados). No se ha ampliado. Opción «C + ChatGPT 1 (prueba)» en el visor.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

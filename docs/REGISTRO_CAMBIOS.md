@@ -1,6 +1,33 @@
 # Registro de cambios
 
-### 2026-10-15 — Pelo B: propuesta C, mechones continuos por delante de cada hombro
+### 2026-10-15 — Pelo B: relleno 1 de ChatGPT de los mechones integrado en una copia (no encaja todavía)
+
+- **Solicitado por:** la propietaria (integrar solo las zonas de la máscara; señalar si se queda corta).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `ef587b8`, el de la entrada siguiente).
+- **Estado:** prueba; no aprobada; nada activado ni publicado.
+- **Cambios:**
+  - `para-chatgpt-mechones/resultado-chatgpt-mechones-1.png` (sin modificar) e `integrar_mechones.py`.
+  - `pelo-delante-mechones-c-chatgpt-1.png`, `revision-mechones-chatgpt-1.png` / `.json` y
+    `mascara-mechones-chatgpt-1-fuera-de-la-mascara.png`.
+  - Opción «C + ChatGPT 1 (prueba)» en el visor.
+  - Documentación: `LEEME.md` de la propuesta y del visor, y `ESTADO_ACTUAL.md`.
+- **Resultado:**
+  - Alineación correcta (0, 0).
+  - Las uniones no siguen el rizo (diferencia de color 98 y 91 en el borde): quedan parches con costura.
+  - La máscara se queda corta: 2 585 px de pelo de ChatGPT fuera de ella, en 5 zonas; marcados, sin ampliar.
+- **Datos guardados afectados:** ninguno. C, pelo B, vestido, base, ojos, juego, catálogo, `sw.js` y `main` sin cambios.
+- **Pruebas:**
+  - Copia idéntica fuera de la máscara.
+  - Alineación global y local.
+  - Diferencia de color en las uniones.
+  - Revisión ×3.
+  - Visor en Chromium con pantalla de iPhone simulada: sin errores ni almacenamiento.
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `ef587b8` · Pelo B: propuesta C, mechones continuos por delante de cada hombro
 
 - **Solicitado por:** la propietaria (B no aprobada: deja una muesca alrededor de cada manga).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `4979496`, el de la entrada siguiente).

@@ -90,3 +90,24 @@ Programa: `mechones_hombros.py`. Escribe `pelo-delante-mechones-c.png`, montajes
     pelo, ni el encuadre.»
 
 En el visor: **Pelo → Hombros · C (mechones)**.
+
+### Relleno 1 de ChatGPT para los mechones (15/10) · **no encaja todavía**
+
+- La imagen se conserva sin modificar en `para-chatgpt-mechones/resultado-chatgpt-mechones-1.png` (1024 × 1536).
+- `para-chatgpt-mechones/integrar_mechones.py` integra **solo** las dos zonas de la máscara en una copia de C:
+  `pelo-delante-mechones-c-chatgpt-1.png`. Fuera de la máscara, la copia es idéntica a C.
+- Revisión: `revision-mechones-chatgpt-1.png` y `.json`.
+- **Alineación:** correcta, sin desplazamiento (correlación global 0,876; la mejor también en (0, 0) en cada zona).
+- **Uniones: no siguen el rizo.** ChatGPT ha **redibujado todo el pelo de los hombros** con otra disposición. En el
+  borde de cada zona, la diferencia de color con C es muy grande (98 y 91 de media). Al tomar solo la máscara quedan
+  dos parches sueltos:
+  - izquierda: una mancha oscura de borde duro;
+  - derecha: una franja clara con costura.
+- **La máscara se queda corta:** el mechón de ChatGPT tapa la parte alta y exterior de cada manga, mucho más allá de
+  la máscara (2 585 px más). Las cinco zonas están marcadas en naranja en la revisión y en
+  `mascara-mechones-chatgpt-1-fuera-de-la-mascara.png`. **No se ha ampliado** la máscara.
+- Ampliarla solo con el pelo detectado da fragmentos, porque el pelo de ChatGPT tampoco continúa los rizos de C. Para
+  encajar habría que tomar de ChatGPT el mechón completo, desde la melena hasta el codo, y unirlo a C por debajo.
+  Queda pendiente de decisión.
+
+En el visor: **Pelo → C + ChatGPT 1 (prueba)**, solo para revisarlo.

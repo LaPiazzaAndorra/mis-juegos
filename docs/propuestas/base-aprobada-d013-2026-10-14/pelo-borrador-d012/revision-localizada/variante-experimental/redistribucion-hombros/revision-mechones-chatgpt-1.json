@@ -1,0 +1,78 @@
+{
+ "imagen": "resultado-chatgpt-mechones-1.png",
+ "alineacion_global": {
+  "sin_mover": 0.876,
+  "mejor": [
+   0,
+   0
+  ]
+ },
+ "zonas": [
+  {
+   "zona": 1,
+   "px": 450,
+   "caja": [
+    605,
+    619,
+    649,
+    652
+   ],
+   "correlacion_local_sin_mover": 0.408,
+   "desplazamiento_local_mejor": [
+    0,
+    0
+   ],
+   "diferencia_de_color_en_la_union": 98.1
+  },
+  {
+   "zona": 2,
+   "px": 466,
+   "caja": [
+    313,
+    621,
+    343,
+    645
+   ],
+   "correlacion_local_sin_mover": 0.296,
+   "desplazamiento_local_mejor": [
+    0,
+    0
+   ],
+   "diferencia_de_color_en_la_union": 90.9
+  }
+ ],
+ "fuera_de_la_mascara_identico": true,
+ "pelo_de_chatgpt_fuera_de_la_mascara_px": 2585,
+ "zonas_fuera": [
+  [
+   560,
+   613,
+   645,
+   680
+  ],
+  [
+   367,
+   619,
+   393,
+   645
+  ],
+  [
+   342,
+   659,
+   380,
+   689
+  ],
+  [
+   617,
+   689,
+   637,
+   725
+  ],
+  [
+   269,
+   718,
+   293,
+   758
+  ]
+ ]
+}
