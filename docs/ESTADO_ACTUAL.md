@@ -33,8 +33,10 @@ en el iPhone/iPad reales. Nada activado.
 - **Datos propios** (`d016:` y `d016-`): no lee, cambia ni migra las partidas. Sin service worker.
 - La muñeca anterior sigue disponible.
 - Las piezas antiguas no encajan con la base nueva (otro lienzo y otras proporciones).
-- Probado en Chromium: 13/13 y el juego, 21/21 y 45/45. Falta el iPhone.
-- 2000 × 3500 e integración en el juego de verdad pendientes; nada publicado.
+- Probado en Chromium: 13/13 y el juego, 21/21 y 45/45.
+- **Aprobada por la propietaria en su iPhone (D-019)**, sin detallar pasos concretos.
+- Referencia estable: commit `22d96e9`, con enlace fijo en `docs/VERSION_DE_PRUEBAS.md`.
+- 2000 × 3500 y el paso al juego principal siguen pendientes (no se hacen todavía); nada publicado.
 
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas

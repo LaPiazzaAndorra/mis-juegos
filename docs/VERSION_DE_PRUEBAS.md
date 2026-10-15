@@ -12,6 +12,7 @@ minutos después de cada subida a la rama.
 <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d016/index.html>
 — copia aparte con datos propios (claves `d016:`). No toca ni los datos de esta versión de pruebas ni los de Amaia.
 Detalles en [`docs/propuestas/prueba-juego-d016/LEEME.md`](propuestas/prueba-juego-d016/LEEME.md).
+**Aprobada por la propietaria en su iPhone (D-019).** Versión de referencia fija (commit `22d96e9`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>.
 
 ## Por qué no afecta a la app de Amaia
 

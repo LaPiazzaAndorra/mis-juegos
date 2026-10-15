@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-15 — Prueba aislada del juego con el conjunto aprobado (D-016 + D-017 + D-018)
+### 2026-10-15 — D-019: prueba aislada D-016 aprobada en el iPhone; referencia estable
+
+- **Solicitado por:** la propietaria («He probado la copia D-016 en mi iPhone y el resultado me parece perfecto»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `22d96e9`, el de la entrada siguiente).
+- **Estado:** aprobación registrada (D-019) sin dar por comprobados pasos concretos no confirmados.
+- **Referencia estable:** commit `22d96e9`, con este enlace fijo: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>. La etiqueta `prueba-d016-aprobada` no se pudo
+  subir (el entorno solo permite subir ramas).
+- **Cambios:** solo documentación (`DECISIONES.md`, `ESTADO_ACTUAL.md`, `VERSION_DE_PRUEBAS.md`, `propuestas/LEEME.md`
+  y el `LEEME.md` de la prueba). La copia no cambia.
+- **Datos guardados afectados:** ninguno. El juego principal, `main` y las partidas sin cambios; no se pasa nada al
+  juego principal.
+- **Pruebas:** comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `22d96e9` · Prueba aislada del juego con el conjunto aprobado (D-016 + D-017 + D-018)
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `7e43c17`, el de la entrada siguiente).

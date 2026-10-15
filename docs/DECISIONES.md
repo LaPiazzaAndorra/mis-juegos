@@ -1,5 +1,27 @@
 # Registro de decisiones
 
+## D-019 · Prueba aislada D-016 aprobada en el iPhone · 15/10/2026
+- **Decisión de la propietaria:** «He probado la copia D-016 en mi iPhone y el resultado me parece perfecto». Aprueba la
+  prueba aislada del juego con el conjunto completo (D-016 + D-017 + D-018) a 948 × 1659.
+- **Lo que confirma expresamente:** que la ha probado en su iPhone y que el resultado le parece perfecto.
+- **Lo que NO ha confirmado expresamente** (no se da por comprobado):
+  - con qué navegador o modo la abrió (Safari o la app añadida a la pantalla de inicio);
+  - pantallas o pasos concretos («Vestir», «Mi Mundo», parpadeo, guardar y recuperar, datos ficticios, copias de
+    seguridad, cada combinación);
+  - que el aislamiento de datos funcione en Safari;
+  - el funcionamiento sin conexión (la copia no lo tiene);
+  - el iPad.
+- **Referencia estable:** commit `22d96e9` (`docs/propuestas/prueba-juego-d016/`), la versión que estaba en la rama
+  cuando la propietaria la probó.
+  - Enlace fijo: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>.
+  - La etiqueta de Git `prueba-d016-aprobada` no se ha podido subir desde este entorno (solo se pueden subir ramas);
+    si se quiere, se puede crear desde la web de GitHub sobre ese commit.
+  - La carpeta no debe cambiar; cualquier cambio irá en otra copia.
+- **Pendiente:**
+  - la resolución real de 2000 × 3500;
+  - pasar el conjunto al juego principal (no se hace todavía).
+- **Límites:** no se publica; no cambian `main`, el juego ni las partidas.
+
 ## D-018 · Diseño de la corona dorada aprobado (solo diseño) · 15/10/2026
 - **Decisión de la propietaria:** aprueba el **diseño** de la corona dorada con perlitas y corazón rosa.
 - **Referencia:** `docs/propuestas/corona-2026-10-15/referencia-muneca-con-corona.png`, imagen generada conservada sin

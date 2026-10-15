@@ -1,5 +1,12 @@
 # Prueba aislada del juego con la muñeca nueva (D-016 + D-017 + D-018) · 15/10/2026
 
+> **D-019 · aprobada por la propietaria en su iPhone** («el resultado me parece perfecto»). **Referencia estable:** commit
+> `22d96e9`, con este enlace fijo: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>.
+>
+> - No se dan por comprobados pasos concretos que no confirmó (véase D-019).
+> - Esta carpeta no se modifica más; cualquier cambio irá en otra copia.
+> - La resolución 2000 × 3500 sigue pendiente; no pasa todavía al juego principal.
+
 Es una **copia de la versión de pruebas**, con datos propios, para probar en el iPhone el conjunto aprobado dentro del
 juego. **No es el juego de Amaia**, no se publica y **no cambia ningún archivo del juego** (ni `main`).
 
@@ -104,7 +111,8 @@ de `base-clara` (V2.1) coincide solo en un 68 % con la base D-014, y la de `prue
   - la muñeca anterior disponible;
   - sin errores.
 - Pruebas del juego sin cambios: `pruebas/prueba-juego.js` **21/21** y `pruebas/prueba-copia.js` **45/45**.
-- **Sin probar:** en el iPhone/iPad reales ni en Safari.
+- **iPhone:** la propietaria la probó y la aprobó (D-019), sin detallar pasos. **Sin confirmar:** pasos concretos en
+  Safari, el aislamiento en Safari y el iPad.
   - El aislamiento usa una técnica estándar (sustituir `localStorage` e `indexedDB` en la página).
   - Si Safari no lo permitiera, la copia no se abriría y lo diría.
 
@@ -113,4 +121,4 @@ de `base-clara` (V2.1) coincide solo en un 68 % con la base D-014, y la de `prue
 - La resolución real de 2000 × 3500.
 - Pasar el conjunto al juego de verdad: catálogo `premium`, `arte/originales/`, `optimizar.py` y versión de `sw.js`.
 - Variantes para la base nueva (piel, ojos, pelo, ropa).
-- Las pruebas en el iPhone.
+- Comprobar, si se quiere, pasos concretos en el iPhone (D-019 no los detalla).
