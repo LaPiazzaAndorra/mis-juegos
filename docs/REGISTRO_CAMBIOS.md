@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-15 — Ojos de la base D-014: máscara v3, variante de color experimental y montaje v3
+### 2026-10-15 — Base D-014: ojos cerrados de prueba y parpadeo
+
+- **Solicitado por:** la propietaria (candidata abierta: v3 color experimental).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `d0c19a6`, el de la entrada siguiente).
+- **Estado:** prueba; nada activado ni publicado. La base sin ojos no se retoca.
+- **Cambios:** `ojos-cerrados/cerrados.py` → `capa-ojos-cerrados-prueba.png` (párpado de piel interpolada desde
+  la piel original + línea de pestañas superiores en espejo, acortadas), `zona-que-tapan.png`, estados abiertos
+  y cerrados, `vista-estados.png`, `vista-cobertura.png`, dos GIF de parpadeo, `comprobaciones.json`, `LEEME.md`.
+- **Resultado:** tapa el 100 % del parche, el pliegue y las raíces (18 573 px); cambio instantáneo de capa sin
+  mezcla de opacidad. A tamaño de juego se lee bien; ampliado no es del todo natural (línea fina y entrecortada,
+  párpado liso): se avisa antes de seguir.
+- **Datos guardados afectados:** ninguno. Catálogo, `plantilla/`, juego y originales sin cambios.
+- **Pruebas:** comprobaciones del JSON, coincidencia con el prototipo revisado, revisión visual a ~480/220 px y ×2,
+  animaciones; hashes de la base sin cambios; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `d0c19a6` · Ojos de la base D-014: máscara v3, variante de color experimental y montaje v3
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `6396e20`, el de la entrada siguiente).

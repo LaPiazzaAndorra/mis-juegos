@@ -1,0 +1,16 @@
+{
+ "zona_que_deben_tapar_px": 18573,
+ "tapada_por_completo_px": 18573,
+ "pestañas_copiadas_px": [
+  1342,
+  1557
+ ],
+ "cambios_lejos_de_los_ojos_px": 21,
+ "caja_de_cambios_cerrados": [
+  298,
+  378,
+  662,
+  495
+ ],
+ "parpadeo": "cambio instantáneo de capa (sin mezcla de opacidad), 200 ms cerrados como en el juego"
+}

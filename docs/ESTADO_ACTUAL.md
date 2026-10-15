@@ -29,6 +29,10 @@ completa en la zona (referencia B) sale idéntico. Pendiente de decisión. Nada 
 corregir (montaje con puntas de pestañas más claras) y **color experimental** en 2 800 píxeles de borde (color
 estimado, no recuperado; montaje casi idéntico, máx. 51). Quedan el pliegue y pequeños mechones de pestaña
 sobre él; el relleno liso se nota al quitar los ojos. Para elegir montaje. Nada activado.
+**Parpadeo de prueba (15/10):** candidata abierta = v3 color experimental; **ojos cerrados de prueba** en
+`…/ojos-cerrados/` (párpado de piel que tapa el 100 % del parche, pliegue y raíces + pestañas reales en
+espejo). Cambio instantáneo de capa. A tamaño de juego funciona; **ampliado no es del todo natural** (línea
+cerrada fina y entrecortada, párpado liso): para la versión final hará falta dibujo o retoque a mano.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 
