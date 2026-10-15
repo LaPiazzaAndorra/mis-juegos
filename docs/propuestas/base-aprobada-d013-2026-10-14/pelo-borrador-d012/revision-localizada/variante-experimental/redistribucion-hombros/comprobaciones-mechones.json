@@ -1,0 +1,180 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "pelo_detras": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "pelo_delante": "e3c23a194f348ce9bf50b96a292aba222ef8adf614c6a6f885d737049cca4971",
+  "propuesta_b": "03852b6973781c9b6e546eebe8cce6ed38721b19018ff4a46e3a0e72c9921403",
+  "reconstruido": "66d652ddf6a62474cc141d71b03bd2071e8e86aea387d83d9504b3dbf61532d5",
+  "base": "42a82a4960829b985bd17f30767f332953554dddb2a160c58c59eed7a3634a85",
+  "sin_ojos": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "abiertos": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "cerrados": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "vestido": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "brazos": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489"
+ },
+ "cadena": {
+  "izquierdo": [
+   {
+    "punto": [
+     277,
+     551
+    ],
+    "rizo": 29,
+    "px": 6355,
+    "reconstruido_pct": 33
+   },
+   {
+    "punto": [
+     322,
+     614
+    ],
+    "rizo": 77,
+    "px": 3255,
+    "reconstruido_pct": 40
+   },
+   {
+    "punto": [
+     332,
+     673
+    ],
+    "rizo": 38,
+    "px": 3435,
+    "reconstruido_pct": 5
+   },
+   {
+    "punto": [
+     332,
+     721
+    ],
+    "rizo": 108,
+    "px": 623,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     337,
+     748
+    ],
+    "rizo": 34,
+    "px": 2865,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     355,
+     782
+    ],
+    "rizo": 45,
+    "px": 1019,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     340,
+     807
+    ],
+    "rizo": 49,
+    "px": 1628,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     325,
+     861
+    ],
+    "rizo": 88,
+    "px": 1192,
+    "reconstruido_pct": 0
+   }
+  ],
+  "derecho": [
+   {
+    "punto": [
+     676,
+     590
+    ],
+    "rizo": 61,
+    "px": 1937,
+    "reconstruido_pct": 14
+   },
+   {
+    "punto": [
+     634,
+     613
+    ],
+    "rizo": 48,
+    "px": 4263,
+    "reconstruido_pct": 41
+   },
+   {
+    "punto": [
+     670,
+     671
+    ],
+    "rizo": 25,
+    "px": 2891,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     680,
+     701
+    ],
+    "rizo": 26,
+    "px": 2878,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     702,
+     756
+    ],
+    "rizo": 21,
+    "px": 6283,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     641,
+     798
+    ],
+    "rizo": 89,
+    "px": 750,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     685,
+     808
+    ],
+    "rizo": 91,
+    "px": 2137,
+    "reconstruido_pct": 0
+   },
+   {
+    "punto": [
+     694,
+     869
+    ],
+    "rizo": 62,
+    "px": 1207,
+    "reconstruido_pct": 0
+   }
+  ]
+ },
+ "px_que_pasan_delante": 16316,
+ "propuesta_b_intacta": true,
+ "colores_identicos_al_pelo_existente": true,
+ "pelo_reconstruido_delante_px": 0,
+ "pelo_delante_sobre_cara_orejas_cuello_visibles_px": 0,
+ "manga_izquierda_tapada_pct": {
+  "antes_b": 43,
+  "c": 62
+ },
+ "manga_derecha_tapada_pct": {
+  "antes_b": 29,
+  "c": 44
+ },
+ "falta_pelo_px": 916,
+ "capa_de_detras": "sin cambios"
+}

@@ -76,6 +76,11 @@ redistribuye el pelo existente entre delante y detrás, por rizos enteros y no p
 delante 53 rizos que ya asomaban; junto al escote faltaría pelo por ilustrar. **B (recomendada)** = A, con las 6
 sombras de corte junto al escote detrás; no hace falta ilustrar nada. Opción «Pelo» en el visor. Pendiente de
 aprobación; nada activado.
+**Propuesta C (15/10):** la propietaria no aprueba B, porque deja una muesca alrededor de cada manga. C pone delante un
+mechón continuo por hombro: rizos enteros del pelo existente, desde la melena hasta el pecho. La manga queda tapada en
+parte: la izquierda pasa del 43 % al 62 % y la derecha, del 29 % al 44 %. En lo alto de cada manga falta pelo original
+(916 px, donde había pelo reconstruido); está marcado y con paquete para ChatGPT. Opción «Hombros · C (mechones)» en el
+visor. Pendiente; nada activado.
 
 ## Actualización de la propietaria · 14/10/2026, 23:36 (Andorra)
 

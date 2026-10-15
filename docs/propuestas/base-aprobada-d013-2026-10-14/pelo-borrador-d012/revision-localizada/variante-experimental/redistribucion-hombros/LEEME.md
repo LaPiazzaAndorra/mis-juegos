@@ -62,3 +62,31 @@ En el visor: **Pelo → Hombros · propuesta A / B** (con cualquier ropa).
 
 **Probado:** comprobaciones automáticas y revisión visual en el ordenador; el visor, en Chromium con pantalla de iPhone
 simulada (sin errores ni almacenamiento; coincide con el montaje en lo opaco). Sin probar en el iPhone/iPad reales.
+
+## Propuesta C · mechones continuos por delante de cada hombro (15/10)
+
+La propietaria no aprueba B, porque aún deja una muesca alrededor de cada manga, y pide uno o dos mechones continuos
+por delante de cada hombro.
+
+Programa: `mechones_hombros.py`. Escribe `pelo-delante-mechones-c.png`, montajes abiertos y cerrados,
+`comparacion-mechones.png` (antes, B y C), `ampliacion-mechones.png` (cada hombro ×2), `mapa-mechones.png`,
+`falta-pelo-mechones.png`, `mascara-falta-pelo-mechones.png`, `para-chatgpt-mechones/` y
+`comprobaciones-mechones.json`.
+
+- Parte de B, sin cambios, y pasa delante **enteros** los rizos del pelo existente que forman una cadena continua sobre
+  cada hombro. Van de la melena de arriba a los rizos del pecho: 8 rizos por lado, elegidos a mano sobre la imagen; los
+  puntos están en el programa.
+- El borde sigue los límites de sombra de los rizos, no el contorno de la ropa. No se dibuja, mueve, escala ni
+  recolorea nada; la capa de detrás, la cara y el vestido no cambian.
+- Pasan delante 16 316 px. La manga queda tapada en parte: la izquierda pasa del 43 % al 62 % y la derecha, del 29 % al
+  44 %.
+- **Falta pelo original:** en lo alto de cada manga, el mechón pasaría por zonas de pelo **reconstruido** al rehacer
+  el cuello (copias de textura, no pelo original), que no se ponen delante. Ahí el borde del mechón sigue siendo
+  irregular.
+  - Se marca para ilustrarlo con ChatGPT: 916 px, en rojo en `falta-pelo-mechones.png`.
+  - `para-chatgpt-mechones/` tiene el montaje recortado 2:3 (1024 × 1536), la máscara y una guía.
+  - Texto sugerido: «Completa solo la zona azul con el mismo pelo castaño rizado que cae por delante del hombro,
+    continuando la curva del mechón de arriba abajo. No cambies nada más: ni la cara, ni el vestido, ni el resto del
+    pelo, ni el encuadre.»
+
+En el visor: **Pelo → Hombros · C (mechones)**.
