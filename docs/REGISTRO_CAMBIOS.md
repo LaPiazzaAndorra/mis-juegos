@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-15 — D-019: prueba aislada D-016 aprobada en el iPhone; referencia estable
+### 2026-10-16 — D-020: ojos azul, verde y lila de fantasía (solo iris) y opción en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `5208abc`, el de la entrada siguiente).
+- **Estado:** tonos aprobados; variantes para revisar en el visor. Nada activado ni publicado.
+- **Cambios:**
+  - `base-aprobada-d013-2026-10-14/ojos-colores/`: la referencia (sin modificar), `colores_ojos.py`, las tres capas,
+    la comparación, `comprobaciones.json` y `LEEME.md`.
+  - Fila «Color de ojos» en el visor.
+  - D-020 en `DECISIONES.md`.
+  - Documentación: `ESTADO_ACTUAL.md` y `AVATAR_Y_ASSETS.md`.
+  - La prueba D-019 no cambia.
+- **Resultado:**
+  - Solo cambia el color de los iris: unos 4 650 px por variante.
+  - Fuera de los iris, idéntico; alfa idéntico; luminosidad igual (< 0,3 de media, redondeo).
+  - Tonos medidos en la referencia: azul −98°, verde 114° y lila −36°.
+- **Datos guardados afectados:** ninguno. Juego, catálogo, `sw.js`, `main`, partidas y la prueba D-019 sin cambios.
+- **Pruebas:**
+  - SHA-256 de las fuentes y comparación píxel a píxel fuera de los iris.
+  - Revisión ×2.
+  - Visor en Chromium con pantalla de iPhone simulada: los tres colores y el parpadeo; sin errores ni almacenamiento.
+  - Comprobador de documentación.
+  - Falta probarlo en el iPhone/iPad reales.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-15 — `5208abc` · D-019: prueba aislada D-016 aprobada en el iPhone; referencia estable
 
 - **Solicitado por:** la propietaria («He probado la copia D-016 en mi iPhone y el resultado me parece perfecto»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `22d96e9`, el de la entrada siguiente).

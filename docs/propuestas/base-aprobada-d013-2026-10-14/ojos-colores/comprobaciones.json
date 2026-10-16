@@ -1,0 +1,49 @@
+{
+ "fuentes_sin_cambios": true,
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/referencia-tonos-aprobados.png": "378c5e4b1cb316cf482acd31082fda6badad6b62d58f4539569312fcc43f0f43"
+ },
+ "metodo": "solo color de los iris en Lab; luminosidad y alfa intactos; tono y saturación medidos en la referencia",
+ "variantes": {
+  "azul": {
+   "referencia": {
+    "tono": -98.1,
+    "croma": 21.0,
+    "px": 2682
+   },
+   "tono_marron_medio": 48.9,
+   "croma_marron_media": 37.6,
+   "px_cambiados": 4655,
+   "fuera_de_los_iris_igual": true,
+   "alfa_identico": true,
+   "luminosidad_cambio_medio": 0.24
+  },
+  "verde": {
+   "referencia": {
+    "tono": 113.6,
+    "croma": 26.8,
+    "px": 2835
+   },
+   "tono_marron_medio": 48.9,
+   "croma_marron_media": 37.6,
+   "px_cambiados": 4652,
+   "fuera_de_los_iris_igual": true,
+   "alfa_identico": true,
+   "luminosidad_cambio_medio": 0.07
+  },
+  "lila": {
+   "referencia": {
+    "tono": -35.5,
+    "croma": 20.6,
+    "px": 2521
+   },
+   "tono_marron_medio": 48.9,
+   "croma_marron_media": 37.6,
+   "px_cambiados": 4652,
+   "fuera_de_los_iris_igual": true,
+   "alfa_identico": true,
+   "luminosidad_cambio_medio": 0.07
+  }
+ }
+}

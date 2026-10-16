@@ -38,6 +38,14 @@ en el iPhone/iPad reales. Nada activado.
 - Referencia estable: commit `22d96e9`, con enlace fijo en `docs/VERSION_DE_PRUEBAS.md`.
 - 2000 × 3500 y el paso al juego principal siguen pendientes (no se hacen todavía); nada publicado.
 
+**Ojos de colores (16/10, D-020):**
+- Tonos azul, verde y lila de fantasía aprobados.
+- Variantes de nuestra capa de ojos con **solo el color de los iris** cambiado (luminosidad y alfa intactos), en
+  `…/ojos-colores/`.
+- Fila «Color de ojos» en el visor; marrones como opción y parpadeo V2.1.
+- Pendientes: su revisión, una nueva copia de prueba del juego (D-019 congelada), 2000 × 3500 y el pintacaras
+  (después, sin implementar).
+
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas
 aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en

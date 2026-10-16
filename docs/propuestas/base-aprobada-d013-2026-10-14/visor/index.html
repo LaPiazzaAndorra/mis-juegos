@@ -46,7 +46,7 @@
 <body>
 <header>
   <h1>Visor de la muñeca · propuesta</h1>
-  <p>Conjunto elegido (D-016): base D-014 · vestido opción B + axilas · pelo «mechones completos» · ojos v3 / V2.1 · zapatos rosa (D-017) · corona (D-018). Pendiente: 2000 × 3500. No es el juego: no guarda nada.</p>
+  <p>Conjunto elegido (D-016): base D-014 · vestido opción B + axilas · pelo «mechones completos» · ojos v3 / V2.1 (colores en prueba) · zapatos rosa (D-017) · corona (D-018). Pendiente: 2000 × 3500. No es el juego: no guarda nada.</p>
 </header>
 
 <div id="escena" aria-label="Muñeca">
@@ -77,6 +77,13 @@
     <button class="grande" id="parpadear">Parpadear</button>
     <button id="auto" aria-pressed="false">Parpadeo automático</button>
     <button id="cerrar" aria-pressed="false">Mantener cerrados</button>
+  </div>
+  <div class="fila">
+    <b>Color de ojos</b>
+    <button data-ojos-color="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png" aria-pressed="true">Marrones</button>
+    <button data-ojos-color="../ojos-colores/capa-ojos-abiertos-azul.png" aria-pressed="false">Azules</button>
+    <button data-ojos-color="../ojos-colores/capa-ojos-abiertos-verde.png" aria-pressed="false">Verdes</button>
+    <button data-ojos-color="../ojos-colores/capa-ojos-abiertos-lila.png" aria-pressed="false">Lilas</button>
   </div>
   <div class="fila">
     <b>Ropa</b>
@@ -246,6 +253,14 @@
     b.addEventListener('click', function () {
       document.getElementById('c-zapatos').classList.toggle('oculto', b.dataset.zapatos !== 'si');
       document.querySelectorAll('[data-zapatos]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
+  // --- color de ojos: solo cambia la imagen de los ojos abiertos (el parpadeo sigue igual) ----------------
+  document.querySelectorAll('[data-ojos-color]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      abiertos.src = b.dataset.ojosColor;
+      document.querySelectorAll('[data-ojos-color]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
 

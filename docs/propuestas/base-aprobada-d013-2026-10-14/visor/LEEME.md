@@ -76,3 +76,5 @@ conserva. Coincide con `montaje-zapatos.png` en lo opaco (≤ 2).
 encuadre «Corona». Sin errores ni almacenamiento; coincide con `montaje-corona.png` en lo opaco (≤ 2).
 **15/10/2026 (12) · D-018:** el visor abre con el conjunto completo aprobado (vestido, zapatos y corona «elegida»); se
 conserva «Sin corona». Coincide con `montaje-corona.png` en lo opaco (≤ 2).
+**16/10/2026 · D-020:** fila «Color de ojos» (Marrones · Azules · Verdes · Lilas). Solo cambia la imagen de los ojos
+abiertos; el parpadeo usa los cerrados V2.1 con cualquier color. Sin errores ni almacenamiento.

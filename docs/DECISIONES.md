@@ -1,5 +1,23 @@
 # Registro de decisiones
 
+## D-020 · Tonos de ojos azul, verde y lila de fantasía aprobados · 16/10/2026
+- **Decisión de la propietaria:** aprueba los tonos azul, verde y lila de fantasía de la referencia
+  `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/referencia-tonos-aprobados.png` (imagen generada,
+  conservada sin modificar, SHA-256 `378c5e4b…0f43`).
+- **Cómo:** variantes de **nuestra** capa original de ojos abiertos, cambiando **solo el color de los iris**. No se
+  extraen los ojos de la comparación.
+  - Se conservan la textura, el sombreado, las pupilas, los brillos, el blanco, las pestañas, la posición y la
+    transparencia.
+  - Los marrones siguen como opción.
+  - El parpadeo reutiliza los ojos cerrados V2.1 aprobados.
+- **Estado:** primero, en el visor para revisarlos sobre la muñeca. La prueba D-019 sigue congelada; cualquier prueba
+  nueva del juego irá en otra copia.
+- **Pendiente:**
+  - la revisión de las variantes;
+  - la resolución 2000 × 3500;
+  - el pintacaras de estrellas y brillo (siguiente paso, sin implementar).
+- **Límites:** no se activa en el juego, no se publica y no cambian `main` ni las partidas.
+
 ## D-019 · Prueba aislada D-016 aprobada en el iPhone · 15/10/2026
 - **Decisión de la propietaria:** «He probado la copia D-016 en mi iPhone y el resultado me parece perfecto». Aprueba la
   prueba aislada del juego con el conjunto completo (D-016 + D-017 + D-018) a 948 × 1659.
