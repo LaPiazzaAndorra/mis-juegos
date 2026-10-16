@@ -14,6 +14,14 @@
 - **Límites:** no se activa en el juego, no se publica y no cambian `main`, las partidas ni las pruebas congeladas.
 - **Pendiente:** la revisión de las variantes (y de las cejas, que son de la base y siguen castañas); la copia de
   prueba; 2000 × 3500.
+- **16/10/2026 (2):** la propietaria **aprueba visualmente las cuatro variantes** en el visor. **El castaño original
+  sigue siendo la opción predeterminada.**
+  - Pide una **propuesta de cejas** que acompañen cada tono, cambiando solo su color y conservando forma, detalle y
+    expresión: para el rubio, algo más oscuras que el pelo; para el jengibre, castaño cobrizo suave. Preparada en
+    `docs/propuestas/base-aprobada-d013-2026-10-14/cejas-colores/` (capas aparte, la base no cambia) y en el visor;
+    **sin aprobar todavía**.
+  - Siguen pendientes la copia de prueba del juego con los colores de pelo y 2000 × 3500. No cambian `main`, las
+    partidas ni las pruebas congeladas.
 
 ## D-021 · Pintacaras «Estrellas y brillo»: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo la decoración de las mejillas: estrellas rosas, lilas y doradas con pequeños

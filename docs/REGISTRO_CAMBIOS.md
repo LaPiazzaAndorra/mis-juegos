@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-16 — D-022: pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre en el visor
+### 2026-10-16 — D-022 actualizada: colores de pelo aprobados; propuesta de cejas a juego en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `28432c8`, el de la entrada siguiente).
+- **Estado:** las cuatro variantes de pelo, aprobadas visualmente (castaño original por defecto). Cejas a juego:
+  propuesta para revisar en el visor. Nada activado ni publicado.
+- **Cambios:**
+  - `base-aprobada-d013-2026-10-14/cejas-colores/`: `cejas_colores.py`, 4 capas de cejas, comparación,
+    `comprobaciones.json` y `LEEME.md`. La base no cambia.
+  - `pelo-colores/colores_pelo.py`: su transformación de color se separa en una función para reutilizarla en las cejas
+    (las capas de pelo salen idénticas, byte a byte).
+  - Visor: fila «Cejas» («De la base» por defecto · «A juego con el pelo (propuesta)»).
+  - D-022 actualizada; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md`
+    de los colores de pelo y del visor.
+- **Resultado:** solo cambia el color de las cejas; fuera de ellas, la cara queda igual (diferencia 0); detalle
+  conservado (correlación ≥ 0,999). Rubio: cejas más oscuras que el pelo; jengibre: castaño cobrizo suave.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y las pruebas D-016 y D-021 sin cambios.
+- **Pruebas:** SHA-256 de las fuentes; visor en Chromium (iPhone simulado) con los 5 colores de pelo, con y sin cejas a
+  juego, parpadeo y cambio de pelo de delante, sin errores ni almacenamiento, y a tamaño real frente al montaje (≤ 3).
+  No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `28432c8` · D-022: pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `ea141e3`, el de la entrada siguiente).

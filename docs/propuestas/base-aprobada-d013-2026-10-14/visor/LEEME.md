@@ -90,3 +90,7 @@ vestido y de las manos (sin cambio visible).
 Castaño oscuro · Pelirrojo jengibre). Cambia las imágenes del pelo elegido, delante y detrás («mechones completos» y
 pelo B); con otra propuesta de pelo de delante vuelve al castaño. Probado con los colores de ojos, el pintacaras y el
 parpadeo: sin errores ni almacenamiento; a tamaño real coincide con el montaje de cada color en lo opaco (≤ 3).
+**16/10/2026 (6) · D-022:** las cuatro variantes de pelo están aprobadas visualmente; el castaño original sigue por
+defecto. Fila «Cejas» (propuesta): «De la base (castañas)» por defecto o «A juego con el pelo», que pone encima de la
+base la capa de cejas del color de pelo elegido (con el castaño, las de la base). Sin errores ni almacenamiento; a
+tamaño real coincide con el montaje en lo opaco (≤ 3).

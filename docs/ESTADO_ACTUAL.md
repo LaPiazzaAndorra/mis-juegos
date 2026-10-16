@@ -70,8 +70,11 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - Variantes de nuestras capas de pelo (delante y detrás) con **solo el color** cambiado: alfa idéntico; la luminosidad,
   el tono y la saturación coinciden con la lámina; el detalle se conserva (correlación 0,94–0,99).
 - Fila «Color de pelo» en el visor; **castaño original por defecto**. Probado en Chromium (no en un iPhone real).
-- Pendientes: la revisión en el visor (también las cejas, que siguen castañas), una copia nueva de prueba del juego y
-  2000 × 3500.
+- **Variantes aprobadas visualmente (16/10)**; el castaño original sigue por defecto.
+- **Propuesta de cejas a juego** (sin aprobar): capas aparte en `…/cejas-colores/` que solo cambian el color de las
+  cejas de la base (rubio: algo más oscuras que el pelo; jengibre: castaño cobrizo suave); fila «Cejas» en el visor,
+  con las de la base por defecto.
+- Pendientes: la revisión de las cejas, una copia nueva de prueba del juego y 2000 × 3500.
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).

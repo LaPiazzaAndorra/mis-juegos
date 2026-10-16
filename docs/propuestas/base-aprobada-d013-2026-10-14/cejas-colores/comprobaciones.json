@@ -1,0 +1,89 @@
+{
+ "metodo": "solo color de las cejas de la base (cobertura conservada); capa aparte encima de la base",
+ "ajustes": {
+  "chocolate": [
+   1.0,
+   1.0,
+   0.0
+  ],
+  "oscuro": [
+   1.0,
+   1.0,
+   0.0
+  ],
+  "miel": [
+   0.7,
+   0.8,
+   0.0
+  ],
+  "jengibre": [
+   0.8,
+   0.62,
+   -4.0
+  ]
+ },
+ "px_cejas": 2984,
+ "solape_con_capas_de_ojos_px": 0,
+ "tonos": {
+  "chocolate": {
+   "px_con_capa": 3358,
+   "diferencia_maxima_fuera_de_las_cejas": 0,
+   "error_maximo_frente_al_calculado": 0,
+   "ceja_L_mediana": 115.0,
+   "ceja_nucleo_L": 99.0,
+   "ceja_tono": 52.7,
+   "ceja_croma": 42.8,
+   "detalle_correlacion": 1.0,
+   "pelo_L_mediana": 64
+  },
+  "miel": {
+   "px_con_capa": 3358,
+   "diferencia_maxima_fuera_de_las_cejas": 0,
+   "error_maximo_frente_al_calculado": 0,
+   "ceja_L_mediana": 135.0,
+   "ceja_nucleo_L": 122.0,
+   "ceja_tono": 59.0,
+   "ceja_croma": 48.9,
+   "detalle_correlacion": 1.0,
+   "pelo_L_mediana": 135
+  },
+  "oscuro": {
+   "px_con_capa": 3358,
+   "diferencia_maxima_fuera_de_las_cejas": 0,
+   "error_maximo_frente_al_calculado": 0,
+   "ceja_L_mediana": 101.0,
+   "ceja_nucleo_L": 82.0,
+   "ceja_tono": 51.8,
+   "ceja_croma": 35.6,
+   "detalle_correlacion": 0.999,
+   "pelo_L_mediana": 45
+  },
+  "jengibre": {
+   "px_con_capa": 3352,
+   "diferencia_maxima_fuera_de_las_cejas": 0,
+   "error_maximo_frente_al_calculado": 0,
+   "ceja_L_mediana": 128.0,
+   "ceja_nucleo_L": 115.0,
+   "ceja_tono": 47.4,
+   "ceja_croma": 48.8,
+   "detalle_correlacion": 1.0,
+   "pelo_L_mediana": 107
+  },
+  "castano": {
+   "ceja_L_mediana": 122.0,
+   "ceja_nucleo_L": 107.0,
+   "ceja_tono": 50.6,
+   "ceja_croma": 50.4,
+   "pelo_L_mediana": 73
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/referencia-tonos-pelo-aprobados.png": "649580bdf34d6d609f17427f8d3149a4adec09d55e10444eb6d6781ea95360e9",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-cerrados/capa-ojos-cerrados-prueba-v21.png": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713"
+ },
+ "fuentes_sin_cambios": true
+}

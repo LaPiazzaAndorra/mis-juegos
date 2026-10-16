@@ -1,14 +1,14 @@
 # Colores de pelo: castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre · 16/10/2026 (D-022)
 
-> **D-022:** la propietaria aprueba los **tonos** de esta lámina (la comparación anterior queda descartada). Son
-> variantes de **nuestras** capas de pelo aprobadas, delante y detrás, en las que **solo cambia el color**. Por ahora
-> solo están en el visor, para revisarlas; nada activado en el juego. **El castaño original sigue siendo la opción
-> predeterminada.**
+> **D-022:** la propietaria aprueba los **tonos** de esta lámina (la comparación anterior queda descartada) y, después,
+> **aprueba visualmente las cuatro variantes** en el visor. Son variantes de **nuestras** capas de pelo aprobadas,
+> delante y detrás, en las que **solo cambia el color**. Nada activado en el juego. **El castaño original sigue siendo
+> la opción predeterminada.**
 
 | Archivo | Qué es |
 | --- | --- |
 | `referencia-tonos-pelo-aprobados.png` | Lámina generada con los cuatro tonos, conservada **sin modificar** (SHA-256 `649580bd…60e9`). Solo se **mide** su tono; no se toma ningún píxel. |
-| `colores_pelo.py` | Programa reproducible (desde la raíz: `python3 docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/colores_pelo.py`). |
+| `colores_pelo.py` | Programa reproducible (su transformación de color la reutilizan las cejas a juego) (desde la raíz: `python3 docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/colores_pelo.py`). |
 | `pelo-detras-{chocolate,miel,oscuro,jengibre}.png` | Variantes de la capa de detrás (`pelo-variante-sin-mechon-detras.png`). |
 | `pelo-delante-{chocolate,miel,oscuro,jengibre}.png` | Variantes de la capa de delante («mechones completos»). |
 | `comparacion-pelo-entera.png`, `comparacion-pelo-cabeza.png` | Los cinco colores sobre el conjunto aprobado. |
@@ -46,7 +46,6 @@ Todas a 948 × 1659, en el mismo lienzo y la misma posición que las originales 
 
 ## A revisar
 
-- Las **cejas** son de la base y siguen castañas con todos los colores (con el rubio miel se nota más). No se han
-  cambiado; si se quiere, se decidirá aparte.
-- La revisión de las variantes en el visor; después, una copia nueva de prueba del juego (las pruebas congeladas no se
-  tocan); la resolución 2000 × 3500.
+- Las **cejas** son de la base y siguen castañas. Hay una **propuesta de cejas a juego** en `../cejas-colores/` (sin
+  aprobar).
+- Una copia nueva de prueba del juego (las pruebas congeladas no se tocan); la resolución 2000 × 3500.

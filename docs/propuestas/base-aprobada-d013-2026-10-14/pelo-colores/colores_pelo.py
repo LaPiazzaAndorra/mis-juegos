@@ -75,8 +75,8 @@ def suavizar(v):
     return nd.gaussian_filter1d(v, 1.0, mode='nearest')
 
 
-def recolorear(capas, ref_px):
-    """Una transformación por tono, la misma para todas las capas de pelo."""
+def transformacion(capas, ref_px):
+    """La transformación de color (Lab → Lab) de un tono, calculada con todas las capas de pelo juntas."""
     labs = [MK.lab_de(Image.fromarray(c)).astype(float) for c in capas]
     juntos = np.concatenate([l[c[..., 3] > 128] for l, c in zip(labs, capas)])
     qn, qr = np.percentile(juntos[:, 0], Q), np.percentile(ref_px[:, 0], Q)
@@ -86,14 +86,21 @@ def recolorear(capas, ref_px):
     hr, sr = perfil(ref_px[:, 0], ref_px[:, 1], ref_px[:, 2], cr)
     centros = np.percentile(juntos[:, 0], (np.arange(NIVELES) + 0.5) * 100 / NIVELES)
     dh = suavizar(np.angle(np.exp(1j * (hr - hn)))); ks = suavizar(sr / np.maximum(sn, 1e-6))
-    out = []
-    for l, c in zip(labs, capas):
+
+    def f(l):
         L, a, b = l[..., 0], l[..., 1], l[..., 2]
-        Ln = np.interp(L, qn, qr)
         giro = np.interp(L, centros, dh); k = np.interp(L, centros, ks)
         C = np.hypot(a, b) * k; h = np.arctan2(b, a) + giro
-        nuevo = np.stack([Ln, C * np.cos(h), C * np.sin(h)], -1)
-        o = c.copy(); m = c[..., 3] > 0; o[m, :3] = lab_a_rgb(nuevo)[m]
+        return np.stack([np.interp(L, qn, qr), C * np.cos(h), C * np.sin(h)], -1)
+    return f, labs, juntos
+
+
+def recolorear(capas, ref_px):
+    """Una transformación por tono, la misma para todas las capas de pelo."""
+    f, labs, juntos = transformacion(capas, ref_px)
+    out = []
+    for l, c in zip(labs, capas):
+        o = c.copy(); m = c[..., 3] > 0; o[m, :3] = lab_a_rgb(f(l))[m]
         out.append(o)
     return out, dict(L_percentiles_nuestro=[round(float(x)) for x in np.percentile(juntos[:, 0], [5, 25, 50, 75, 95])],
                      L_percentiles_lamina=[round(float(x)) for x in np.percentile(ref_px[:, 0], [5, 25, 50, 75, 95])])

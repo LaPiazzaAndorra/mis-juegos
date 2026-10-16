@@ -59,7 +59,7 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
 | **Prueba aislada del juego en el iPhone** (`docs/propuestas/prueba-juego-d016/`) | D-019 | **Aprobada por la propietaria en su iPhone.** Congelada como referencia (commit `22d96e9`). |
 | Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | **Variantes aprobadas visualmente**; marrones por defecto; integración en una copia nueva del juego. |
 | Pintacaras «Estrellas y brillo» (capa aparte, solo los adornos) | D-021 | **Diseño y encaje aprobados visualmente**; se pone y se quita («Sin pintacaras» por defecto en el visor). |
-| Pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre (solo cambia el color de nuestras capas) | D-022 | **Tonos aprobados**; variantes en el visor para revisar; castaño original por defecto. |
+| Pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre (solo cambia el color de nuestras capas) | D-022 | **Variantes aprobadas visualmente**; castaño original por defecto. Propuesta de cejas a juego en el visor (sin aprobar). |
 | **Prueba aislada nueva: 4 colores de ojos + pintacaras** (`docs/propuestas/prueba-juego-d021/`) | D-021 | Preparada y probada en Chromium (19/19); **pendiente de probar en el iPhone**. Datos propios (`d021:`). |
 
 **Siempre pendiente** hasta que se diga lo contrario:
@@ -70,7 +70,7 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
 ### Dónde revisar
 
 - **Visor** (en Safari): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/base-aprobada-d013-2026-10-14/visor/index.html>.
-  Muestra el conjunto elegido por defecto y deja cambiar ropa, zapatos, corona, pelo, color de pelo, color de ojos y pintacaras, y probar el
+  Muestra el conjunto elegido por defecto y deja cambiar ropa, zapatos, corona, pelo, color de pelo, cejas, color de ojos y pintacaras, y probar el
   parpadeo y los encuadres.
 - **Prueba del juego aprobada (D-019, fija):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>.
   Tiene datos propios (`d016:`) y no toca las partidas.

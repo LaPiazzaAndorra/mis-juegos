@@ -53,6 +53,7 @@
   <div id="lienzo">
     <img id="c-pelo-detras" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png">
     <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
+    <img id="c-cejas" class="oculto" alt="" src="../cejas-colores/cejas-chocolate.png">
     <img id="c-abiertos" alt="" src="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png">
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
     <img id="c-pintacaras" class="oculto" alt="" src="../pintacaras/capa-pintacaras-estrellas.png">
@@ -115,6 +116,11 @@
     <button data-pelo-color="miel" aria-pressed="false">Rubio miel</button>
     <button data-pelo-color="oscuro" aria-pressed="false">Castaño oscuro</button>
     <button data-pelo-color="jengibre" aria-pressed="false">Pelirrojo jengibre</button>
+  </div>
+  <div class="fila">
+    <b>Cejas</b>
+    <button data-cejas="base" aria-pressed="true">De la base (castañas)</button>
+    <button data-cejas="juego" aria-pressed="false">A juego con el pelo (propuesta)</button>
   </div>
   <div class="fila">
     <b>Pelo</b>
@@ -317,8 +323,21 @@
   var detras = document.getElementById('c-pelo-detras'), delanteMC = document.getElementById('c-pelo-delante-mc');
   var PELO_ORIGINAL = { detras: detras.getAttribute('src'), delante: delanteMC.getAttribute('src') };
   function srcPelo(color, parte) { return color === 'castano' ? PELO_ORIGINAL[parte] : '../pelo-colores/pelo-' + parte + '-' + color + '.png'; }
+  // cejas (propuesta): capa aparte encima de la base, solo con el color de las cejas; el castaño usa las de la base
+  var cejas = document.getElementById('c-cejas'), colorPelo = 'castano', cejasJuego = false;
+  function mostrarCejas() {
+    if (colorPelo !== 'castano') cejas.src = '../cejas-colores/cejas-' + colorPelo + '.png';
+    cejas.classList.toggle('oculto', !cejasJuego || colorPelo === 'castano');
+  }
+  document.querySelectorAll('[data-cejas]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      cejasJuego = b.dataset.cejas === 'juego'; mostrarCejas();
+      document.querySelectorAll('[data-cejas]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
   function elegirColorPelo(color) {
     detras.src = srcPelo(color, 'detras'); delanteMC.src = srcPelo(color, 'delante');
+    colorPelo = color; mostrarCejas();
     if (color !== 'castano' && peloOp !== 'mc') elegirPeloOp('mc');
     document.querySelectorAll('[data-pelo-color]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peloColor === color)); });
   }
@@ -326,7 +345,9 @@
     b.addEventListener('click', function () { elegirColorPelo(b.dataset.peloColor); });
   });
   // se cargan de antemano para que el cambio sea instantáneo
-  ['chocolate', 'miel', 'oscuro', 'jengibre'].forEach(function (c) { ['detras', 'delante'].forEach(function (p) { new Image().src = srcPelo(c, p); }); });
+  ['chocolate', 'miel', 'oscuro', 'jengibre'].forEach(function (c) {
+    ['detras', 'delante'].forEach(function (p) { new Image().src = srcPelo(c, p); }); new Image().src = '../cejas-colores/cejas-' + c + '.png';
+  });
 
   document.querySelectorAll('[data-capa]').forEach(function (b) {
     b.addEventListener('click', function () {
