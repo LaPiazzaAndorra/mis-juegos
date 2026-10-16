@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-16 — D-023: corrección 2 del profundo — bordes de piel con cada color de pelo y cuello del vestido
+### 2026-10-16 — D-023: tonos de piel aprobados; copia aislada nueva con piel, pelo, cejas, ojos y pintacaras
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `d600d4c`, el de la entrada siguiente).
+- **Estado:** tonos de piel aprobados visualmente. Copia nueva preparada para el iPhone, **sin probar todavía en el
+  iPhone**. Nada publicado.
+- **Cambios:**
+  - Nueva carpeta `docs/propuestas/prueba-juego-d023/`: generador (`preparar_prueba.py`, el de D-021 con todas las
+    piezas y el prefijo `d023`), copia generada de `index.html` y del motor, `aislamiento.js` (`d023:` / `d023-`),
+    `manifest.json` («PRUEBA D-023»), catálogo `d023` (4 pieles, 5 colores de pelo con cejas a juego, 4 de ojos, corona y
+    pintacaras, y capas de bordes por piel), 79 piezas WebP, `prueba-aislada.js` (18 comprobaciones) y `LEEME.md`.
+  - D-023 actualizada; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `ARQUITECTURA_Y_DATOS.md`, `VERSION_DE_PRUEBAS.md`,
+    `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de propuestas y piel.
+  - Las pruebas congeladas (`prueba-juego-d016/` y `prueba-juego-d021/`) no cambian.
+- **Datos guardados afectados:** ninguno. La copia nueva solo escribe con `d023:` y `d023-`; ni las partidas ni los datos
+  de D-016 y D-021 se leen, cambian o migran. Juego, `sw.js` y `main` sin cambios.
+- **Pruebas:** `prueba-juego-d023/prueba-aislada.js` 18/18 (56 combinaciones, parpadeo con cada piel, guardar y volver a
+  abrir, borrador, Mi Mundo, aislamiento, sin errores); a tamaño real frente al montaje: diferencia máxima 5 (39 px en
+  las puntas de las cejas). `pruebas/prueba-juego.js` 21/21, `pruebas/prueba-copia.js` 45/45, D-016 13/13, D-021 19/19.
+  No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `d600d4c` · D-023: corrección 2 del profundo — bordes de piel con cada color de pelo y cuello del vestido
 
 - **Solicitado por:** la propietaria (piel profunda y pelo pelirrojo: siguen los bordes claros).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `d31d715`, el de la entrada siguiente).

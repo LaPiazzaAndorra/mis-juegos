@@ -67,6 +67,11 @@ No cambian ni borran ninguna clave existente. Formato del archivo: el de
 `localStorage` y sus bases, `d016-` en IndexedDB (`aislamiento.js`). No lee, cambia ni migra ninguna clave del juego,
 y el código y el guardado del juego no cambian.
 
+**Prueba aislada D-023** (`docs/propuestas/prueba-juego-d023/`, sin publicar): prefijo `d023:` en `localStorage` y
+`d023-` en IndexedDB. No lee, cambia ni migra las claves del juego ni las de D-016 y D-021. Guarda en su `d023:avatar` la
+piel (`clara`, `dorada`, `morena`, `profunda`), el color de pelo (`castano`, `chocolate`, `miel`, `oscuro`, `jengibre`),
+el color de ojos y los adornos (`corona`, `pintacaras`).
+
 **Prueba aislada D-021** (`docs/propuestas/prueba-juego-d021/`, sin publicar): igual, con el prefijo `d021:` en
 `localStorage` y `d021-` en IndexedDB. No lee, cambia ni migra las claves del juego ni las de la prueba D-016. Guarda el
 color de ojos (`marron`, `azul`, `verde`, `lila`) y el pintacaras (adorno `pintacaras`) en su `d021:avatar`.

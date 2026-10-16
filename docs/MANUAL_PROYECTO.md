@@ -60,7 +60,8 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
 | Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | **Variantes aprobadas visualmente**; marrones por defecto; integración en una copia nueva del juego. |
 | Pintacaras «Estrellas y brillo» (capa aparte, solo los adornos) | D-021 | **Diseño y encaje aprobados visualmente**; se pone y se quita («Sin pintacaras» por defecto en el visor). |
 | Pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre (solo cambia el color de nuestras capas) | D-022 | **Variantes aprobadas visualmente**; castaño original por defecto. Cejas a juego **aprobadas visualmente** (por defecto en el visor; se conservan las originales). |
-| Piel claro (original), dorado, moreno y profundo (solo cambia la piel de nuestras piezas) | D-023 | **Referencia aprobada**; capas en el visor **pendientes de revisión** (el profundo, corregido tras la revisión en el iPhone); claro por defecto. |
+| Piel claro (original), dorado, moreno y profundo (solo cambia la piel de nuestras piezas) | D-023 | **Tonos aprobados visualmente** (tras corregir el profundo); claro por defecto. |
+| **Prueba aislada nueva: piel, pelo, cejas, ojos y pintacaras** (`docs/propuestas/prueba-juego-d023/`) | D-023 | Preparada y probada en Chromium (18/18); **pendiente de probar en el iPhone**. Datos propios (`d023:`). |
 | **Prueba aislada nueva: 4 colores de ojos + pintacaras** (`docs/propuestas/prueba-juego-d021/`) | D-021 | Preparada y probada en Chromium (19/19); **pendiente de probar en el iPhone**. Datos propios (`d021:`). |
 
 **Siempre pendiente** hasta que se diga lo contrario:
@@ -77,6 +78,8 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
   Tiene datos propios (`d016:`) y no toca las partidas.
 - **Prueba nueva con los colores de ojos y el pintacaras (D-021):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d021/index.html>.
   Datos propios (`d021:`), aparte de las partidas y de la prueba D-019.
+- **Prueba nueva con piel, pelo, cejas, ojos y pintacaras (D-023):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d023/index.html>.
+  Datos propios (`d023:`), aparte de las partidas y de las pruebas D-016 y D-021.
 
 ### Cómo se trabaja con el arte (lo aprendido)
 

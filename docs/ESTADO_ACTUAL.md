@@ -90,6 +90,14 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Pendiente:** revisión de las capas (los tres tonos); las cejas quedan más claras que la piel en los tonos oscuros (a
   revisar); copia nueva de prueba del juego; 2000 × 3500.
 
+**Prueba aislada nueva: piel, pelo, cejas, ojos y pintacaras (16/10, D-023):** `docs/propuestas/prueba-juego-d023/`
+(enlace en `docs/VERSION_DE_PRUEBAS.md`).
+- Tonos de piel **aprobados visualmente** (16/10) y llevados a una copia de la versión de pruebas con las 4 pieles, los
+  5 colores de pelo con cejas a juego, los 4 colores de ojos y el pintacaras (pestañas Piel, Ojos, Pelo, Ropa, Adornos).
+- **Datos propios** (`d023:` y `d023-`): no lee, cambia ni migra las partidas ni los datos de D-016 y D-021.
+- Probado en Chromium: 18/18 (56 combinaciones, parpadeo con cada piel, guardar y volver a abrir, Mi Mundo) y el juego,
+  21/21 y 45/45; D-016 13/13 y D-021 19/19. **Sin probar todavía en el iPhone.**
+
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
 

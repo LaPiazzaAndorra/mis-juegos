@@ -5,6 +5,7 @@ propietaria. Se aplican sobre `avatar-creador` con `git apply <archivo>.patch`.
 
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
+| `prueba-juego-d023/` | Copia aislada nueva con las 4 pieles, los 5 colores de pelo con cejas a juego, los 4 colores de ojos y el pintacaras, con datos propios (`d023:`). | Probada en Chromium (18/18); **pendiente de probar en el iPhone**; no publicada. |
 | `prueba-juego-d021/` | Copia aislada nueva de la versión de pruebas con el conjunto de D-019, los 4 colores de ojos y el pintacaras, con datos propios (`d021:`). | Probada en Chromium (19/19); **pendiente de probar en el iPhone**; no publicada. |
 | `prueba-juego-d016/` | Copia aislada de la versión de pruebas con el conjunto aprobado en el juego (948 × 1659), con datos propios (`d016:`). | **Aprobada en el iPhone (D-019)**; referencia estable en el commit `22d96e9`; no publicada. |
 | `corona-2026-10-15/` | Corona dorada: referencia generada (sin modificar) y capa candidata con los huecos transparentes, colocada sobre la muñeca. | **Diseño y encaje aprobados visualmente (D-018)**, con el conjunto completo; por defecto en el visor; 2000 × 3500 pendiente. |

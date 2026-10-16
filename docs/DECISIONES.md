@@ -25,6 +25,13 @@
   corrección de la piel que se mezcla con los bordes de cada color de pelo, con el mismo tono de piel, sin cambiar ni
   oscurecer los colores de pelo aprobados. Hecho (corrección 2, `piel-tonos/LEEME.md`): los dos pelos y el cuello del
   vestido, junto a la piel que se ve. Sigue **pendiente de revisión**.
+- **16/10/2026 (4):** la propietaria **aprueba visualmente los tonos de piel actuales** (claro, dorado, moreno y profundo,
+  con las correcciones del 16/10; commit `d600d4c`). El claro original sigue siendo la opción predeterminada.
+  - Pide una **copia aislada nueva** del juego con piel, colores de pelo, cejas a juego, ojos y pintacaras:
+    `docs/propuestas/prueba-juego-d023/` (datos propios `d023:`), para probarla en el iPhone. **Sin probar todavía en
+    el iPhone.**
+  - Las pruebas congeladas (D-016/D-019 y D-021), `main` y las partidas de Amaia no cambian. Siguen pendientes
+    2000 × 3500 y el paso al juego principal.
 
 ## D-022 · Tonos de pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre aprobados · 16/10/2026
 - **Decisión de la propietaria:** aprueba los tonos de la segunda lámina,

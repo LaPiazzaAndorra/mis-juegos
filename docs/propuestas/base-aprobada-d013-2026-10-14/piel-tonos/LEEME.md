@@ -4,6 +4,9 @@
 > Solo están en el visor (fila «Piel», con el **claro original por defecto**). Nada activado en el juego; las pruebas
 > congeladas, `main` y las partidas no cambian.
 >
+> **16/10/2026 (3): tonos aprobados visualmente por la propietaria** (con las correcciones de abajo). Están en la copia
+> aislada `../../prueba-juego-d023/`, pendiente de probar en el iPhone.
+>
 > **16/10/2026 (2):** la propietaria **no aprueba todavía el profundo** (en el iPhone: restos claros en el nacimiento
 > del pelo —también con el pelo pelirrojo— y en el contorno del ojo junto al lagrimal; piel, orejas y labios demasiado
 > rojizos). Hecha una **corrección localizada** (abajo, «Corrección del 16/10»), con el antes y el después en
