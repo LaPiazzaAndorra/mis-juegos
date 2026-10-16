@@ -11,6 +11,14 @@
 - **Estado:** el **diseño** está aprobado; **el encaje queda pendiente de revisión**.
 - **Límites:** no se activa en el juego ni se publica; la prueba D-019 sigue congelada; no cambian `main` ni las partidas.
 - **Pendiente:** revisión del encaje, resolución 2000 × 3500 e integración en una copia nueva de prueba del juego.
+- **16/10/2026 (2):** la propietaria **aprueba visualmente el pintacaras sobre nuestra muñeca** (el encaje de
+  `capa-pintacaras-estrellas.png`). Se conserva la opción de ponerlo y quitarlo («Sin pintacaras» sigue por defecto en
+  el visor).
+  - Pide una **copia aislada nueva** del juego con los cuatro colores de ojos y el pintacaras:
+    `docs/propuestas/prueba-juego-d021/` (datos propios `d021:`), para probarla en el iPhone. **Sin probar todavía en
+    el iPhone.**
+  - La prueba D-019 sigue congelada; no cambian `main` ni las partidas. Siguen pendientes 2000 × 3500 y el paso al
+    juego principal.
 
 ## D-020 · Tonos de ojos azul, verde y lila de fantasía aprobados · 16/10/2026
 - **Decisión de la propietaria:** aprueba los tonos azul, verde y lila de fantasía de la referencia

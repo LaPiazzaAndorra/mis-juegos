@@ -1,6 +1,30 @@
 # Registro de cambios
 
-### 2026-10-16 — D-021: pintacaras «Estrellas y brillo» (capa aparte) y opción en el visor
+### 2026-10-16 — D-021: encaje del pintacaras aprobado; copia aislada nueva con 4 colores de ojos y pintacaras
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `52c14a2`, el de la entrada siguiente).
+- **Estado:** pintacaras aprobado visualmente sobre la muñeca (se pone y se quita). Copia nueva preparada para el
+  iPhone, **sin probar todavía en el iPhone**. Nada publicado.
+- **Cambios:**
+  - Nueva carpeta `docs/propuestas/prueba-juego-d021/`: generador (`preparar_prueba.py`, el de D-016 con las piezas
+    nuevas y el prefijo `d021`), copia generada de `index.html` y del motor, `aislamiento.js` (`d021:` / `d021-`),
+    `manifest.json` («PRUEBA D-021»), catálogo `d021` (4 colores de ojos; adorno «Estrellas y brillo» en la capa
+    `accCara`), piezas WebP, `prueba-aislada.js` (19 comprobaciones) y `LEEME.md`.
+  - Visor: botón «Estrellas y brillo (aprobado)»; «Sin pintacaras» sigue por defecto.
+  - D-021 actualizada; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `ARQUITECTURA_Y_DATOS.md`, `VERSION_DE_PRUEBAS.md`,
+    `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de propuestas, pintacaras y visor.
+  - La prueba congelada D-019 (`prueba-juego-d016/`) no cambia.
+- **Datos guardados afectados:** ninguno. La copia nueva solo escribe con `d021:` y `d021-`; ni las partidas ni los
+  datos de D-016 se leen, cambian o migran. Juego, `sw.js` y `main` sin cambios.
+- **Pruebas:** `prueba-juego-d021/prueba-aislada.js` 19/19 (16 combinaciones de color × pintacaras × corona, parpadeo con
+  cada color, guardado y borrador al cerrar y abrir, Mi Mundo, aislamiento, sin errores); a tamaño real frente al
+  montaje + ojos lilas + pintacaras: diferencia máxima 3 en lo opaco. `pruebas/prueba-juego.js` 21/21,
+  `pruebas/prueba-copia.js` 45/45, prueba D-016 13/13, visor sin errores. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `52c14a2` · D-021: pintacaras «Estrellas y brillo» (capa aparte) y opción en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `d900aa5`, el de la entrada siguiente).

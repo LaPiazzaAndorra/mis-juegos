@@ -8,6 +8,12 @@ Es la rama `avatar-creador` (sin publicar) servida desde **otra dirección web**
 un servicio gratuito que muestra los archivos públicos de GitHub como una web. Se actualiza sola unos
 minutos después de cada subida a la rama.
 
+**Prueba aislada nueva: cuatro colores de ojos y pintacaras (D-021), 16/10/2026:**
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d021/index.html>
+— copia aparte con datos propios (claves `d021:`). No toca los datos de esta versión de pruebas, ni los de la prueba
+D-016, ni los de Amaia. Detalles en [`docs/propuestas/prueba-juego-d021/LEEME.md`](propuestas/prueba-juego-d021/LEEME.md).
+Sin probar todavía en el iPhone.
+
 **Prueba aislada de la muñeca nueva (D-016 + zapatos + corona), 15/10/2026:**
 <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d016/index.html>
 — copia aparte con datos propios (claves `d016:`). No toca ni los datos de esta versión de pruebas ni los de Amaia.

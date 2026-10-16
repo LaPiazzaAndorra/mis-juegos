@@ -84,3 +84,5 @@ revisión) y encuadre «Mejillas». La capa va encima de los ojos y no cambia co
 los 4 colores, «Parpadear» y «Mantener cerrados»: sin errores ni almacenamiento; a tamaño real coincide con
 `montaje-corona.png` + la capa en lo opaco (≤ 2). Corregido además el atributo `class` mal cerrado de las capas del
 vestido y de las manos (sin cambio visible).
+**16/10/2026 (4) · D-021:** encaje del pintacaras aprobado visualmente; el botón pasa a «Estrellas y brillo (aprobado)» y
+«Sin pintacaras» sigue por defecto.

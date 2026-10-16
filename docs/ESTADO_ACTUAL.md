@@ -44,8 +44,8 @@ en el iPhone/iPad reales. Nada activado.
   `…/ojos-colores/`.
 - Fila «Color de ojos» en el visor; marrones como opción y parpadeo V2.1.
 - **Variantes aprobadas visualmente (16/10)**; los marrones siguen siendo la opción predeterminada.
-- Pendientes: una nueva copia de prueba del juego con los colores (D-019 congelada) y 2000 × 3500. El pintacaras ya
-  está en el visor (D-021).
+- En una copia nueva de prueba del juego, con el pintacaras (`prueba-juego-d021/`, D-019 congelada). Pendiente
+  2000 × 3500.
 
 **Pintacaras «Estrellas y brillo» (16/10, D-021):**
 - **Diseño** aprobado (estrellas rosas, lilas y doradas con puntos de brillo); referencia en `…/pintacaras/`.
@@ -54,7 +54,16 @@ en el iPhone/iPad reales. Nada activado.
   estrellas).
 - Fila «Pintacaras» en el visor: «Sin pintacaras» (por defecto) y «Estrellas y brillo»; probado con los 4 colores de
   ojos y el parpadeo en Chromium (no en un iPhone real).
-- **Pendiente:** revisión del encaje por la propietaria; 2000 × 3500; copia nueva del juego (D-019 congelada).
+- **Encaje aprobado visualmente (16/10)**; se conserva la opción de ponerlo y quitarlo.
+
+**Prueba aislada nueva: colores de ojos + pintacaras (16/10, D-021):** `docs/propuestas/prueba-juego-d021/` (enlace
+en `docs/VERSION_DE_PRUEBAS.md`).
+- Copia de la versión de pruebas con el conjunto de D-019, los 4 colores de ojos (pestaña Ojos) y el pintacaras
+  (pestaña Adornos, se pone y se quita).
+- **Datos propios** (`d021:` y `d021-`): no lee, cambia ni migra las partidas ni los datos de la prueba D-016.
+- Probado en Chromium: 19/19 (16 combinaciones, parpadeo con cada color, lo elegido se conserva al cerrar y abrir,
+  Mi Mundo) y el juego, 21/21 y 45/45; D-016 sigue 13/13. **Sin probar todavía en el iPhone.**
+- La prueba D-019 sigue congelada; 2000 × 3500 y el paso al juego principal siguen pendientes.
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).

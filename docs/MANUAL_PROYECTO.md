@@ -58,7 +58,8 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
 | Corona dorada | D-018 | Diseño, encaje y conjunto completo aprobados visualmente. |
 | **Prueba aislada del juego en el iPhone** (`docs/propuestas/prueba-juego-d016/`) | D-019 | **Aprobada por la propietaria en su iPhone.** Congelada como referencia (commit `22d96e9`). |
 | Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | **Variantes aprobadas visualmente**; marrones por defecto; integración en una copia nueva del juego. |
-| Pintacaras «Estrellas y brillo» (capa aparte, solo los adornos) | D-021 | **Diseño aprobado**; capa en el visor («Sin pintacaras» por defecto); **encaje pendiente de revisión**. |
+| Pintacaras «Estrellas y brillo» (capa aparte, solo los adornos) | D-021 | **Diseño y encaje aprobados visualmente**; se pone y se quita («Sin pintacaras» por defecto en el visor). |
+| **Prueba aislada nueva: 4 colores de ojos + pintacaras** (`docs/propuestas/prueba-juego-d021/`) | D-021 | Preparada y probada en Chromium (19/19); **pendiente de probar en el iPhone**. Datos propios (`d021:`). |
 
 **Siempre pendiente** hasta que se diga lo contrario:
 - la resolución real de 2000 × 3500;
@@ -72,6 +73,8 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
   parpadeo y los encuadres.
 - **Prueba del juego aprobada (D-019, fija):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>.
   Tiene datos propios (`d016:`) y no toca las partidas.
+- **Prueba nueva con los colores de ojos y el pintacaras (D-021):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d021/index.html>.
+  Datos propios (`d021:`), aparte de las partidas y de la prueba D-019.
 
 ### Cómo se trabaja con el arte (lo aprendido)
 

@@ -1,8 +1,8 @@
 # Pintacaras «Estrellas y brillo» · 16/10/2026 (D-021)
 
-> **D-021:** el **diseño** está aprobado por la propietaria (estrellas rosas, lilas y doradas con pequeños puntos de
-> brillo). **El encaje en nuestra cara queda pendiente de revisión.** Solo está en el visor; nada activado en el juego.
-> La prueba congelada D-019 no cambia.
+> **D-021:** **diseño y encaje aprobados visualmente** por la propietaria (16/10). Se conserva la opción de ponerlo y
+> quitarlo. Está en el visor y en la copia aislada nueva `../../prueba-juego-d021/` (no en el juego de Amaia). La prueba
+> congelada D-019 no cambia.
 
 Capa transparente **independiente** con **solo los adornos** de las mejillas. No lleva piel ni sustituye la cara
 original: va encima de la base y de los ojos, como el resto de piezas, y se puede quitar.
@@ -47,6 +47,5 @@ original: va encima de la base y de los ojos, como el resto de piezas, y se pued
 
 ## Pendiente
 
-- **Revisión del encaje** por la propietaria (posición, tamaño y cantidad de brillos).
-- Resolución 2000 × 3500; integración en una copia nueva de prueba del juego (D-019 sigue congelada); el juego
-  principal no cambia.
+- Prueba en el iPhone de la copia `prueba-juego-d021` (D-019 sigue congelada).
+- Resolución 2000 × 3500 y paso al juego principal.

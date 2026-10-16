@@ -67,6 +67,10 @@ No cambian ni borran ninguna clave existente. Formato del archivo: el de
 `localStorage` y sus bases, `d016-` en IndexedDB (`aislamiento.js`). No lee, cambia ni migra ninguna clave del juego,
 y el código y el guardado del juego no cambian.
 
+**Prueba aislada D-021** (`docs/propuestas/prueba-juego-d021/`, sin publicar): igual, con el prefijo `d021:` en
+`localStorage` y `d021-` en IndexedDB. No lee, cambia ni migra las claves del juego ni las de la prueba D-016. Guarda el
+color de ojos (`marron`, `azul`, `verde`, `lila`) y el pintacaras (adorno `pintacaras`) en su `d021:avatar`.
+
 **App instalada en iOS:** sus datos están separados de los de Safari, aunque la dirección sea la misma.
 
 ## Reglas de persistencia
