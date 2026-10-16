@@ -46,6 +46,9 @@ en el iPhone/iPad reales. Nada activado.
 - Pendientes: su revisión, una nueva copia de prueba del juego (D-019 congelada), 2000 × 3500 y el pintacaras
   (después, sin implementar).
 
+**Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
+revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
+
 Acordada y permanente: [`docs/NORMA_VISUAL_MUNECA.md`](NORMA_VISUAL_MUNECA.md). Nenita de unos 5–6
 años con la cara de D-012; las piezas se adaptan a ella. **Todavía no hay capas definitivas ni medidas
 aprobadas** para la nueva muñeca: la última imagen de cuerpo más compacto es un borrador (no está en

@@ -1,6 +1,22 @@
 # Registro de cambios
 
-### 2026-10-16 — D-020: ojos azul, verde y lila de fantasía (solo iris) y opción en el visor
+### 2026-10-16 — Manual del proyecto y hoja de ruta al día; norma de mantenerlos en cada paso
+
+- **Solicitado por:** la propietaria («acuérdate de ir subiendo las cosas al manual»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `f5689b3`, el de la entrada siguiente).
+- **Estado:** solo documentación.
+- **Cambios:**
+  - `docs/MANUAL_PROYECTO.md`: nuevo apartado «La muñeca nueva: dónde estamos» (D-012 a D-020, enlaces del visor y de la
+    prueba D-019, y cómo se trabaja con el arte); fila de Ajustes corregida (caché `v9` y copia en el juego).
+  - `docs/HOJA_DE_RUTA.md`: muñeca nueva, ojos de colores y pintacaras.
+  - `CLAUDE.md`: norma de actualizar el manual y la hoja de ruta en cada paso relevante.
+  - `README.md` y `ESTADO_ACTUAL.md`.
+- **Datos guardados afectados:** ninguno. Código, juego, `sw.js`, `main` y la prueba D-019 sin cambios.
+- **Pruebas:** comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `f5689b3` · D-020: ojos azul, verde y lila de fantasía (solo iris) y opción en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `5208abc`, el de la entrada siguiente).

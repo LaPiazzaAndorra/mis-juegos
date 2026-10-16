@@ -1,6 +1,7 @@
 # Manual del proyecto — Mi Mundo de Juegos
 
-**Revisado:** 14/10/2026 contra el código de `main` (`4bbf51d`) y de `avatar-creador`.
+**Revisado:** 16/10/2026 contra el código de `main` (`4bbf51d`) y de `avatar-creador` (commit `f5689b3`).
+**Se actualiza en cada paso relevante** (aprobaciones, pruebas, piezas nuevas): es la guía para seguir el proyecto.
 **Propósito:** que el proyecto pueda continuar desde cualquier dispositivo, conversación o asistente.
 
 ## 1. Objetivo
@@ -37,9 +38,55 @@ que crea Amaia, por delante de pantallas solo decorativas.
 | **Vestir** | Muñeco sencillo (formas y emojis) guardado en la clave `doll`; foto a la galería. | Nuevo creador de avatar: muñeca vectorial de reserva y motor de muñeca ilustrada por capas PNG (premium, en desarrollo). Guardar y editar después (claves `avatar` y `avatar_draft`), parpadeo, saludo, salto con destellos y foto. |
 | **Mi Mundo** | 6 escenarios (casa, parque, playa, mar, castillo, espacio) con pegatinas arrastrables. | Nueva **habitación** interactiva (escenario inicial) con el personaje guardado: caminar, dormir en la cama, pelota, lámpara y día/noche. |
 | **Pensar** | Parejas, Contar, ¿Qué sigue?, Sombras y El diferente, con dificultad adaptable y estrellas. | Sin cambios. |
-| **Ajustes** | Sonido, voz y tono; app instalable y con funcionamiento sin conexión (caché `mis-juegos-v3`). | Caché `mis-juegos-v8` y caché aparte para el arte del avatar. |
+| **Ajustes** | Sonido, voz y tono; app instalable y con funcionamiento sin conexión (caché `mis-juegos-v3`). | «Guardar / Recuperar mi progreso» (copia dentro del juego); caché `mis-juegos-v9` y caché aparte para el arte del avatar. |
 
 El estado detallado (lo probado y lo pendiente) está en `docs/ESTADO_ACTUAL.md`.
+
+## 3 bis. La muñeca nueva: dónde estamos (16/10/2026)
+
+Todo esto está en `avatar-creador`, **en propuestas** (`docs/propuestas/`): **no está en el juego de Amaia** ni en `main`.
+El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas están en `docs/DECISIONES.md`.
+
+| Paso | Decisión | Estado |
+| --- | --- | --- |
+| Norma visual: nenita de 5–6 años con la cara elegida | D-012, D-013 | Permanente (`docs/NORMA_VISUAL_MUNECA.md`). |
+| Base nueva aprobada (948 × 1659) | D-014 | Aprobada; copia con la transparencia corregida. |
+| Ojos abiertos v3 (color experimental) y ojos cerrados V2.1 para el parpadeo | — | Candidatas en uso en el visor y en la prueba. |
+| Pelo B, con «mechones completos» delante de los hombros | D-016 | Aprobado visualmente. |
+| Vestido rosa de princesa (opción B, con las axilas completadas) | D-015, D-016 | Diseño y conjunto aprobados visualmente. |
+| Zapatos rosa | D-017 | Diseño y encaje aprobados visualmente. |
+| Corona dorada | D-018 | Diseño, encaje y conjunto completo aprobados visualmente. |
+| **Prueba aislada del juego en el iPhone** (`docs/propuestas/prueba-juego-d016/`) | D-019 | **Aprobada por la propietaria en su iPhone.** Congelada como referencia (commit `22d96e9`). |
+| Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | Tonos aprobados; variantes en el visor para revisar. |
+| Pintacaras suave de estrellas y brillo | — | Siguiente paso; todavía sin implementar. |
+
+**Siempre pendiente** hasta que se diga lo contrario:
+- la resolución real de 2000 × 3500;
+- pasar la muñeca nueva al juego principal (catálogo, `arte/originales/`, `optimizar.py`, versión de `sw.js`);
+- variantes de la base (piel, peinados, ropa).
+
+### Dónde revisar
+
+- **Visor** (en Safari): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/base-aprobada-d013-2026-10-14/visor/index.html>.
+  Muestra el conjunto elegido por defecto y deja cambiar ropa, zapatos, corona, pelo y color de ojos, y probar el
+  parpadeo y los encuadres.
+- **Prueba del juego aprobada (D-019, fija):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/22d96e912412942abdb4733cff314250fd901f4a/docs/propuestas/prueba-juego-d016/index.html>.
+  Tiene datos propios (`d016:`) y no toca las partidas.
+
+### Cómo se trabaja con el arte (lo aprendido)
+
+1. **Diseño y encaje se aprueban por separado.** Una imagen generada sirve como **referencia del diseño**; la pieza se
+   aprueba después, sobre nuestra muñeca.
+2. **Nunca se regenera ni se deforma la muñeca:** de una imagen generada se extrae solo la pieza (zapato, corona,
+   mechón…) y se coloca sin escalar si es posible. Cualquier ajuste se documenta.
+3. **Originales intactos:** cada imagen recibida se guarda tal cual, y cada cambio va en una copia con su programa
+   reproducible y su `comprobaciones.json`.
+4. **Retoques con ChatGPT:** se le da un recorte 2:3 con una máscara. Solo se integra la zona marcada, tras comprobar
+   la alineación y que no queda fondo blanco. Si ChatGPT redibuja la zona de otra forma, se toma la pieza completa y se
+   une por sombras naturales.
+5. **Primero el visor, después el juego.** Las pruebas del juego van en **copias aisladas** con datos propios. Una
+   prueba aprobada queda congelada, y cualquier cambio va en otra copia.
+6. **Se registra solo lo que la propietaria confirma** (por ejemplo, D-019 no da por comprobados pasos que no detalló).
 
 ## 4. Arquitectura en pocas palabras
 

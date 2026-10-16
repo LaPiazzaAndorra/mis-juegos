@@ -79,6 +79,8 @@ el juego hasta que la propietaria las apruebe).
    - `docs/ESTADO_ACTUAL.md`: qué funciona, qué se ha probado, qué falta, problemas y fecha.
    - `docs/REGISTRO_CAMBIOS.md`: una entrada nueva `### AAAA-MM-DD — título` con la plantilla del final.
    - Si corresponde: `docs/ARQUITECTURA_Y_DATOS.md`, `docs/AVATAR_Y_ASSETS.md`, `docs/DECISIONES.md`, `docs/HOJA_DE_RUTA.md`.
+   - **El manual (`docs/MANUAL_PROYECTO.md`) y la hoja de ruta se mantienen al día en cada paso relevante** (aprobación,
+     prueba, pieza nueva, enlace nuevo): la propietaria lo pidió expresamente el 16/10/2026.
 2. Comprobar: `python3 herramientas/verificar_documentacion.py --preparado` (tras `git add`).
 3. Revisar el `git diff --cached` entero.
 4. El hash de un commit no puede escribirse dentro de ese mismo commit: en la entrada del registro

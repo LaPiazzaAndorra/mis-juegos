@@ -19,7 +19,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 | Rama | Contenido |
 | --- | --- |
 | `main` | Versión publicada del juego (commit `4bbf51d`, 11/10/2026). Protegida: no se cambia sin aprobación. |
-| `avatar-creador` | Desarrollo del nuevo creador de avatar, la habitación de «Mi Mundo», la muñeca premium, las herramientas y esta documentación. |
+| `avatar-creador` | Desarrollo del nuevo creador de avatar, la habitación de «Mi Mundo», la muñeca nueva (en propuestas: visor y prueba aislada, ver `docs/MANUAL_PROYECTO.md`), las herramientas y esta documentación. |
 
 ## Documentación
 
