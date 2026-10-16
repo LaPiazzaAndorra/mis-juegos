@@ -1,6 +1,19 @@
 # Registro de cambios
 
-### 2026-10-16 — Manual del proyecto y hoja de ruta al día; norma de mantenerlos en cada paso
+### 2026-10-16 — D-020 actualizada: variantes de ojos aprobadas visualmente; marrones por defecto
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `9cccd3d`, el de la entrada siguiente).
+- **Estado:** variantes azul, verde y lila aprobadas visualmente; marrones como opción predeterminada (el visor ya abría
+  con ellos). Integración en una copia nueva; D-019 congelada.
+- **Cambios:** solo documentación (D-020, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y los `LEEME.md` de los ojos y del visor). Ninguna imagen ni el visor cambian.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y la prueba D-019 sin cambios.
+- **Pruebas:** comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `9cccd3d` · Manual del proyecto y hoja de ruta al día; norma de mantenerlos en cada paso
 
 - **Solicitado por:** la propietaria («acuérdate de ir subiendo las cosas al manual»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `f5689b3`, el de la entrada siguiente).

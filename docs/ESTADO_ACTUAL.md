@@ -43,7 +43,8 @@ en el iPhone/iPad reales. Nada activado.
 - Variantes de nuestra capa de ojos con **solo el color de los iris** cambiado (luminosidad y alfa intactos), en
   `…/ojos-colores/`.
 - Fila «Color de ojos» en el visor; marrones como opción y parpadeo V2.1.
-- Pendientes: su revisión, una nueva copia de prueba del juego (D-019 congelada), 2000 × 3500 y el pintacaras
+- **Variantes aprobadas visualmente (16/10)**; los marrones siguen siendo la opción predeterminada.
+- Pendientes: una nueva copia de prueba del juego con los colores (D-019 congelada), 2000 × 3500 y el pintacaras
   (después, sin implementar).
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de

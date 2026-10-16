@@ -1,4 +1,7 @@
-# Ojos de colores: azul, verde y lila de fantasía · PROPUESTA · 16/10/2026
+# Ojos de colores: azul, verde y lila de fantasía · 16/10/2026
+
+> **D-020 (actualizada):** las tres variantes están **aprobadas visualmente** en el visor. **Los marrones siguen siendo la
+> opción predeterminada.** La integración en el juego irá en una copia nueva (D-019 sigue congelada).
 
 Los **tonos** de esta referencia están aprobados (D-020). Son variantes de **nuestra** capa original de ojos abiertos
 (`../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png`, que no se modifica), en las que **solo
@@ -43,8 +46,7 @@ simulada (sin errores ni almacenamiento). Sin probar en el iPhone/iPad reales.
 
 ## Pendiente
 
-- La revisión de los tonos sobre la muñeca, en el visor.
-- Llevarlos a una **nueva** copia de prueba del juego, si se aprueban. La prueba D-019 (`../../prueba-juego-d016/`)
+- Llevarlos a una **nueva** copia de prueba del juego (aprobados visualmente). La prueba D-019 (`../../prueba-juego-d016/`)
   sigue congelada.
 - La resolución 2000 × 3500.
 - El **pintacaras** de estrellas y brillo: siguiente paso, todavía sin implementar.

@@ -78,3 +78,4 @@ encuadre «Corona». Sin errores ni almacenamiento; coincide con `montaje-corona
 conserva «Sin corona». Coincide con `montaje-corona.png` en lo opaco (≤ 2).
 **16/10/2026 · D-020:** fila «Color de ojos» (Marrones · Azules · Verdes · Lilas). Solo cambia la imagen de los ojos
 abiertos; el parpadeo usa los cerrados V2.1 con cualquier color. Sin errores ni almacenamiento.
+**16/10/2026 (2) · D-020:** las tres variantes están aprobadas visualmente; el visor sigue abriendo con los **marrones**.

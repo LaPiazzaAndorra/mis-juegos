@@ -6,7 +6,7 @@ haya commit, pruebas y aprobación. El estado real está en `docs/ESTADO_ACTUAL.
 | Prioridad | Área | Idea | Estado | Criterio de aceptación |
 | --- | --- | --- | --- | --- |
 | Alta | Vestir | Muñeca nueva D-013/D-014 con pelo, vestido, zapatos y corona | **Conjunto aprobado visualmente (D-016–D-018) y probado en el iPhone en una copia aislada (D-019).** Falta la resolución 2000 × 3500 y pasarlo al juego principal. | Capas a 2000 × 3500, catálogo del juego, pruebas y aprobación para activarla. |
-| Alta | Vestir | Ojos azul, verde y lila de fantasía | Tonos aprobados (D-020); variantes en el visor | Revisión en el visor → nueva copia de prueba del juego → aprobación. |
+| Alta | Vestir | Ojos azul, verde y lila de fantasía | **Variantes aprobadas visualmente** (D-020); marrones por defecto | Nueva copia de prueba del juego → prueba en el iPhone → aprobación. |
 | Media | Vestir | Pintacaras suave de estrellas y brillo | Propuesta (siguiente paso; sin implementar) | Por definir con la propietaria. |
 | Alta | Datos | Copia de seguridad de todos los datos | Botones «Guardar / Recuperar mi progreso» aprobados e integrados en `avatar-creador`; versión de pruebas preparada (`docs/VERSION_DE_PRUEBAS.md`). | Prueba de la propietaria en la app «PRUEBAS» del iPhone → publicar con aprobación → primera copia real de Amaia. |
 | Alta | Datos | La galería no debe borrar dibujos sin avisar cuando falta espacio | Propuesta | Aviso claro y opción de hacer copia antes de liberar espacio; nada se borra sin permiso. |

@@ -17,6 +17,11 @@
   - la resolución 2000 × 3500;
   - el pintacaras de estrellas y brillo (siguiente paso, sin implementar).
 - **Límites:** no se activa en el juego, no se publica y no cambian `main` ni las partidas.
+- **16/10/2026 (2):** la propietaria **aprueba visualmente las tres variantes** en el visor (`capa-ojos-abiertos-azul.png`,
+  `-verde.png` y `-lila.png`).
+  - **Los marrones siguen siendo la opción predeterminada.**
+  - La prueba D-019 sigue congelada; la integración de los colores irá en una **copia nueva** de prueba del juego.
+  - Siguen pendientes la resolución 2000 × 3500 y el paso al juego principal.
 
 ## D-019 · Prueba aislada D-016 aprobada en el iPhone · 15/10/2026
 - **Decisión de la propietaria:** «He probado la copia D-016 en mi iPhone y el resultado me parece perfecto». Aprueba la

@@ -29,7 +29,7 @@
 > Propuestas de redistribución del pelo de delante en hombros y pecho (A/B/C · C con mechones continuos; alternativa con mechones completos de ChatGPT en `mechones-completos-chatgpt/`) en `variante-experimental/redistribucion-hombros/`.
 > **Visor aislado** para revisar el conjunto en Safari: `visor/index.html` (véase `visor/LEEME.md`).
 > **Conjunto elegido (D-016, aprobación visual):** vestido opción B + axilas y pelo «mechones completos»; por defecto en el visor; 2000 × 3500 pendiente.
-> **Ojos de colores:** azul, verde y lila de fantasía (D-020), solo iris recoloreados, en `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/`; en el visor.
+> **Ojos de colores:** azul, verde y lila de fantasía (D-020), solo iris recoloreados, **aprobados visualmente**; marrones por defecto; en `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/`; integración en una copia nueva.
 > **Prueba aislada en el juego:** `docs/propuestas/prueba-juego-d016/` (juego de piezas `d016`, datos propios; ver su `LEEME.md`).
 > **Corona dorada:** diseño y encaje aprobados visualmente (D-018), con el conjunto completo; capa en `docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png`; por defecto en el visor; 2000 × 3500 e integración pendientes.
 > **Zapatos rosa:** diseño y encaje aprobados visualmente (D-017); capa en `docs/propuestas/zapatos-rosa-2026-10-15/montaje/zapatos-candidatos.png`; por defecto en el visor; 2000 × 3500 pendiente.

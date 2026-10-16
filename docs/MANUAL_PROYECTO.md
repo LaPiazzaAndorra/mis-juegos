@@ -57,7 +57,7 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
 | Zapatos rosa | D-017 | Diseño y encaje aprobados visualmente. |
 | Corona dorada | D-018 | Diseño, encaje y conjunto completo aprobados visualmente. |
 | **Prueba aislada del juego en el iPhone** (`docs/propuestas/prueba-juego-d016/`) | D-019 | **Aprobada por la propietaria en su iPhone.** Congelada como referencia (commit `22d96e9`). |
-| Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | Tonos aprobados; variantes en el visor para revisar. |
+| Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | **Variantes aprobadas visualmente**; marrones por defecto; integración en una copia nueva del juego. |
 | Pintacaras suave de estrellas y brillo | — | Siguiente paso; todavía sin implementar. |
 
 **Siempre pendiente** hasta que se diga lo contrario:
