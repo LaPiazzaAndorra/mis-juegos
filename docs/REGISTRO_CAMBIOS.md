@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-16 — D-021: encaje del pintacaras aprobado; copia aislada nueva con 4 colores de ojos y pintacaras
+### 2026-10-16 — D-022: pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `ea141e3`, el de la entrada siguiente).
+- **Estado:** tonos aprobados; variantes para revisar en el visor; castaño original por defecto. Nada activado ni
+  publicado.
+- **Cambios:**
+  - `base-aprobada-d013-2026-10-14/pelo-colores/`: la lámina (sin modificar), `colores_pelo.py`, 8 capas (delante y
+    detrás × 4 tonos), comparaciones, zonas medidas, `comprobaciones.json` y `LEEME.md`.
+  - Visor: fila «Color de pelo».
+  - D-022 en `DECISIONES.md`; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y el
+    `LEEME.md` del visor.
+- **Resultado:** solo cambia el color de nuestras capas (alfa idéntico); luminosidad, tono y saturación como la lámina;
+  detalle conservado (correlación 0,94–0,99).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y las pruebas D-016 y D-021 sin cambios.
+- **Pruebas:** SHA-256 de las fuentes; comprobaciones de alfa y detalle; visor en Chromium (iPhone simulado) con los 5
+  colores, combinado con ojos, pintacaras y parpadeo, sin errores ni almacenamiento, y a tamaño real frente al montaje
+  (≤ 3). No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `ea141e3` · D-021: encaje del pintacaras aprobado; copia aislada nueva con 4 colores de ojos y pintacaras
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `52c14a2`, el de la entrada siguiente).

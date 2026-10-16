@@ -1,0 +1,210 @@
+{
+ "metodo": "solo color de nuestras capas de pelo (delante y detrás, misma transformación); luminosidad por igualación de percentiles (creciente) y tono/saturación por nivel, medidos en la lámina; alfa intacto",
+ "variantes": {
+  "castano": {
+   "resultado": {
+    "L": [
+     18,
+     44,
+     73,
+     108,
+     176
+    ],
+    "tono": 50.0,
+    "croma": 37.6
+   }
+  },
+  "chocolate": {
+   "px_medidos": 74851,
+   "L_percentiles_nuestro": [
+    18,
+    44,
+    73,
+    108,
+    176
+   ],
+   "L_percentiles_lamina": [
+    11,
+    35,
+    64,
+    101,
+    179
+   ],
+   "lamina": {
+    "L": [
+     11,
+     35,
+     64,
+     101,
+     179
+    ],
+    "tono": 51.7,
+    "croma": 28.8
+   },
+   "resultado": {
+    "L": [
+     10,
+     35,
+     64,
+     100,
+     180
+    ],
+    "tono": 51.6,
+    "croma": 29.1
+   },
+   "alfa_identico": true,
+   "transparente_igual": true,
+   "detalle_correlacion": {
+    "detras": 0.991,
+    "delante": 0.995
+   }
+  },
+  "miel": {
+   "px_medidos": 72878,
+   "L_percentiles_nuestro": [
+    18,
+    44,
+    73,
+    108,
+    176
+   ],
+   "L_percentiles_lamina": [
+    56,
+    98,
+    135,
+    173,
+    222
+   ],
+   "lamina": {
+    "L": [
+     56,
+     98,
+     135,
+     173,
+     222
+    ],
+    "tono": 59.2,
+    "croma": 47.4
+   },
+   "resultado": {
+    "L": [
+     54,
+     99,
+     135,
+     172,
+     221
+    ],
+    "tono": 59.4,
+    "croma": 47.9
+   },
+   "alfa_identico": true,
+   "transparente_igual": true,
+   "detalle_correlacion": {
+    "detras": 0.943,
+    "delante": 0.953
+   }
+  },
+  "oscuro": {
+   "px_medidos": 77856,
+   "L_percentiles_nuestro": [
+    18,
+    44,
+    73,
+    108,
+    176
+   ],
+   "L_percentiles_lamina": [
+    5,
+    19,
+    44,
+    78,
+    164
+   ],
+   "lamina": {
+    "L": [
+     5,
+     19,
+     44,
+     78,
+     164
+    ],
+    "tono": 49.4,
+    "croma": 21.2
+   },
+   "resultado": {
+    "L": [
+     5,
+     20,
+     45,
+     77,
+     164
+    ],
+    "tono": 48.8,
+    "croma": 21.3
+   },
+   "alfa_identico": true,
+   "transparente_igual": true,
+   "detalle_correlacion": {
+    "detras": 0.982,
+    "delante": 0.979
+   }
+  },
+  "jengibre": {
+   "px_medidos": 77076,
+   "L_percentiles_nuestro": [
+    18,
+    44,
+    73,
+    108,
+    176
+   ],
+   "L_percentiles_lamina": [
+    38,
+    74,
+    106,
+    143,
+    205
+   ],
+   "lamina": {
+    "L": [
+     38,
+     74,
+     106,
+     143,
+     205
+    ],
+    "tono": 49.1,
+    "croma": 58.7
+   },
+   "resultado": {
+    "L": [
+     38,
+     74,
+     107,
+     142,
+     204
+    ],
+    "tono": 49.1,
+    "croma": 57.4
+   },
+   "alfa_identico": true,
+   "transparente_igual": true,
+   "detalle_correlacion": {
+    "detras": 0.976,
+    "delante": 0.982
+   }
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/referencia-tonos-pelo-aprobados.png": "649580bdf34d6d609f17427f8d3149a4adec09d55e10444eb6d6781ea95360e9",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/zapatos-rosa-2026-10-15/montaje/zapatos-candidatos.png": "aebe594cafd27d92bd51335e4a299334c80790f23ceb80ee2c0ad63a7878a96f",
+  "docs/propuestas/vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "docs/propuestas/vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489",
+  "docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png": "c607253802ab89a019cbe5c10173572dc17aeadc92c2f89082c3bff7b45a952f"
+ },
+ "fuentes_sin_cambios": true
+}

@@ -86,3 +86,7 @@ los 4 colores, «Parpadear» y «Mantener cerrados»: sin errores ni almacenamie
 vestido y de las manos (sin cambio visible).
 **16/10/2026 (4) · D-021:** encaje del pintacaras aprobado visualmente; el botón pasa a «Estrellas y brillo (aprobado)» y
 «Sin pintacaras» sigue por defecto.
+**16/10/2026 (5) · D-022:** fila «Color de pelo» (Castaño original por defecto · Castaño chocolate · Rubio miel ·
+Castaño oscuro · Pelirrojo jengibre). Cambia las imágenes del pelo elegido, delante y detrás («mechones completos» y
+pelo B); con otra propuesta de pelo de delante vuelve al castaño. Probado con los colores de ojos, el pintacaras y el
+parpadeo: sin errores ni almacenamiento; a tamaño real coincide con el montaje de cada color en lo opaco (≤ 3).

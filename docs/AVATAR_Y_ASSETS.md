@@ -30,6 +30,7 @@
 > **Visor aislado** para revisar el conjunto en Safari: `visor/index.html` (véase `visor/LEEME.md`).
 > **Conjunto elegido (D-016, aprobación visual):** vestido opción B + axilas y pelo «mechones completos»; por defecto en el visor; 2000 × 3500 pendiente.
 > **Ojos de colores:** azul, verde y lila de fantasía (D-020), solo iris recoloreados, **aprobados visualmente**; marrones por defecto; en `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/`; integración en una copia nueva.
+> **Colores de pelo:** castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre (D-022), solo recolorean nuestras capas de pelo (delante y detrás, alfa idéntico); castaño original por defecto; en `docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/`; pendiente de revisión en el visor.
 > **Pintacaras «Estrellas y brillo»:** diseño aprobado (D-021); capa independiente solo con los adornos en `docs/propuestas/base-aprobada-d013-2026-10-14/pintacaras/capa-pintacaras-estrellas.png`; opción en el visor («Sin pintacaras» por defecto); **encaje aprobado visualmente** (16/10); en la copia `docs/propuestas/prueba-juego-d021/` como adorno («Estrellas y brillo»).
 > **Prueba aislada con colores de ojos y pintacaras:** `docs/propuestas/prueba-juego-d021/` (juego de piezas `d021`, datos propios `d021:`; ver su `LEEME.md`).
 > **Prueba aislada en el juego:** `docs/propuestas/prueba-juego-d016/` (juego de piezas `d016`, datos propios; ver su `LEEME.md`).

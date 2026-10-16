@@ -1,5 +1,20 @@
 # Registro de decisiones
 
+## D-022 · Tonos de pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre aprobados · 16/10/2026
+- **Decisión de la propietaria:** aprueba los tonos de la segunda lámina,
+  `docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/referencia-tonos-pelo-aprobados.png` (imagen generada,
+  conservada sin modificar, SHA-256 `649580bd…60e9`). **La comparación anterior queda descartada** (no está en el
+  repositorio).
+- **Cómo:** variantes que **solo recolorean nuestras capas de pelo aprobadas**, delante («mechones completos») y detrás
+  (pelo B).
+  - No se extrae el pelo de la lámina ni cambian su forma, posición, transparencia o encaje (alfa idéntico).
+  - Se conservan el detalle de los rizos, las sombras y los brillos.
+  - **El castaño original sigue siendo la opción predeterminada.**
+- **Estado:** primero, en el visor para revisarlas; después, la integración en otra copia de prueba del juego.
+- **Límites:** no se activa en el juego, no se publica y no cambian `main`, las partidas ni las pruebas congeladas.
+- **Pendiente:** la revisión de las variantes (y de las cejas, que son de la base y siguen castañas); la copia de
+  prueba; 2000 × 3500.
+
 ## D-021 · Pintacaras «Estrellas y brillo»: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo la decoración de las mejillas: estrellas rosas, lilas y doradas con pequeños
   puntos de brillo». Referencia: `docs/propuestas/base-aprobada-d013-2026-10-14/pintacaras/referencia-pintacaras-aprobada.png`

@@ -109,6 +109,14 @@
     <button data-pintacaras="si" aria-pressed="false">Estrellas y brillo (aprobado)</button>
   </div>
   <div class="fila">
+    <b>Color de pelo</b>
+    <button data-pelo-color="castano" aria-pressed="true">Castaño (original)</button>
+    <button data-pelo-color="chocolate" aria-pressed="false">Castaño chocolate</button>
+    <button data-pelo-color="miel" aria-pressed="false">Rubio miel</button>
+    <button data-pelo-color="oscuro" aria-pressed="false">Castaño oscuro</button>
+    <button data-pelo-color="jengibre" aria-pressed="false">Pelirrojo jengibre</button>
+  </div>
+  <div class="fila">
     <b>Pelo</b>
     <button data-pelo-op="actual" aria-pressed="false">Pelo B actual</button>
     <button data-pelo-op="a" aria-pressed="false">Hombros · propuesta A</button>
@@ -294,12 +302,31 @@
       im.classList.toggle('oculto', !peloDelanteVisible || im.dataset.pelo !== peloOp);
     });
   }
+  function elegirPeloOp(op) {
+    peloOp = op; mostrarPelo();
+    document.querySelectorAll('[data-pelo-op]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peloOp === op)); });
+  }
   document.querySelectorAll('[data-pelo-op]').forEach(function (b) {
     b.addEventListener('click', function () {
-      peloOp = b.dataset.peloOp; mostrarPelo();
-      document.querySelectorAll('[data-pelo-op]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      elegirPeloOp(b.dataset.peloOp);
+      if (peloOp !== 'mc') elegirColorPelo('castano');   // los colores solo existen para el pelo elegido
     });
   });
+
+  // --- color de pelo (D-022): solo cambian las imágenes del pelo elegido, delante y detrás (mismo alfa) -----------
+  var detras = document.getElementById('c-pelo-detras'), delanteMC = document.getElementById('c-pelo-delante-mc');
+  var PELO_ORIGINAL = { detras: detras.getAttribute('src'), delante: delanteMC.getAttribute('src') };
+  function srcPelo(color, parte) { return color === 'castano' ? PELO_ORIGINAL[parte] : '../pelo-colores/pelo-' + parte + '-' + color + '.png'; }
+  function elegirColorPelo(color) {
+    detras.src = srcPelo(color, 'detras'); delanteMC.src = srcPelo(color, 'delante');
+    if (color !== 'castano' && peloOp !== 'mc') elegirPeloOp('mc');
+    document.querySelectorAll('[data-pelo-color]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peloColor === color)); });
+  }
+  document.querySelectorAll('[data-pelo-color]').forEach(function (b) {
+    b.addEventListener('click', function () { elegirColorPelo(b.dataset.peloColor); });
+  });
+  // se cargan de antemano para que el cambio sea instantáneo
+  ['chocolate', 'miel', 'oscuro', 'jengibre'].forEach(function (c) { ['detras', 'delante'].forEach(function (p) { new Image().src = srcPelo(c, p); }); });
 
   document.querySelectorAll('[data-capa]').forEach(function (b) {
     b.addEventListener('click', function () {
