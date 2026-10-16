@@ -106,7 +106,7 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Diadema, cinta y gorros:** en perspectiva de tres cuartos, no encajan de frente; guía para ChatGPT en
   `…/guia-chatgpt/`.
 - **Diadema de frente (16/10):** diseño aprobado; capa extraída (solo arco, estrellas y perlas) en `…/diadema/` y en el
-  visor como candidata; **encaje pendiente de revisión**. Cinta y gorros, pendientes.
+  visor; **encaje aprobado visualmente (16/10)**. Cinta y gorros, pendientes.
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).

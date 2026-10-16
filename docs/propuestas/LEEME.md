@@ -5,7 +5,7 @@ propietaria. Se aplican sobre `avatar-creador` con `git apply <archivo>.patch`.
 
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
-| `accesorios-2026-10-16/` | Segunda colección de accesorios de pelo: láminas de referencia, capas del lazo, las flores y la mariposa, y guía para pedir de frente la diadema, la cinta y los gorros. | **Diseño aprobado (D-024)**; lazo, flores y mariposa aprobados visualmente; diadema de frente aprobada (encaje pendiente); cinta y gorros pendientes. |
+| `accesorios-2026-10-16/` | Segunda colección de accesorios de pelo: láminas de referencia, capas del lazo, las flores y la mariposa, y guía para pedir de frente la diadema, la cinta y los gorros. | **Diseño aprobado (D-024)**; lazo, flores y mariposa aprobados visualmente; diadema aprobada visualmente; cinta y gorros pendientes. |
 | `prueba-juego-d023/` | Copia aislada nueva con las 4 pieles, los 5 colores de pelo con cejas a juego, los 4 colores de ojos y el pintacaras, con datos propios (`d023:`). | Probada en Chromium (18/18); **pendiente de probar en el iPhone**; no publicada. |
 | `prueba-juego-d021/` | Copia aislada nueva de la versión de pruebas con el conjunto de D-019, los 4 colores de ojos y el pintacaras, con datos propios (`d021:`). | Probada en Chromium (19/19); **pendiente de probar en el iPhone**; no publicada. |
 | `prueba-juego-d016/` | Copia aislada de la versión de pruebas con el conjunto aprobado en el juego (948 × 1659), con datos propios (`d016:`). | **Aprobada en el iPhone (D-019)**; referencia estable en el commit `22d96e9`; no publicada. |

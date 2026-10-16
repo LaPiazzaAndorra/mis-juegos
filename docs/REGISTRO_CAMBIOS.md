@@ -1,6 +1,20 @@
 # Registro de cambios
 
-### 2026-10-16 — D-024: diadema de estrellas de frente (diseño aprobado) como candidata en el visor
+### 2026-10-16 — D-024 actualizada: diadema aprobada visualmente; etiqueta «aprobada» en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `1d8f22d`, el de la entrada siguiente).
+- **Estado:** encaje de la diadema aprobado visualmente. Nada activado ni publicado.
+- **Cambios:** visor (etiqueta «Diadema de estrellas (aprobada)»; sin otros cambios de comportamiento); D-024,
+  `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de propuestas,
+  accesorios, diadema y visor. Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (por defecto «Sin accesorio»; la diadema quita la corona y se puede volver a poner; sin
+  errores); comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `1d8f22d` · D-024: diadema de estrellas de frente (diseño aprobado) como candidata en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `6762ab8`, el de la entrada siguiente).

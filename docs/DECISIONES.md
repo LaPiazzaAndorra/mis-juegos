@@ -24,6 +24,9 @@
   - En el visor como **candidata**; **el encaje queda pendiente de revisión**. Diadema y corona se solapan: al elegir la
     diadema se quita la corona (se puede volver a poner).
   - Siguen pendientes la cinta, la gorra, el sombrero y el gorrito (versión de frente).
+- **16/10/2026 (4):** la propietaria **aprueba visualmente la diadema tal como está colocada** (`diadema/capa-diadema.png`,
+  commit `1d8f22d`). En el visor pasa a «Diadema de estrellas (aprobada)»; «Sin accesorio» sigue por defecto y se
+  mantiene el comportamiento con la corona (al elegir la diadema se quita la corona; se puede volver a poner).
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

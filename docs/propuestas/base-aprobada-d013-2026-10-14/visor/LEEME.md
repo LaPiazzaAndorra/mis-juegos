@@ -112,3 +112,5 @@ montaje en lo opaco (≤ 3).
 sigue abriendo con «Sin accesorio». No cambia el visor.
 **16/10/2026 (12) · D-024:** «Diadema de estrellas (candidata)» en la fila «Accesorio de pelo» (encaje pendiente de
 revisión). Al elegirla se quita la corona (van en el mismo sitio); se puede volver a poner. Sin errores ni almacenamiento.
+**16/10/2026 (13) · D-024:** diadema aprobada visualmente: el botón pasa a «Diadema de estrellas (aprobada)». «Sin
+accesorio» sigue por defecto y al elegir la diadema se sigue quitando la corona (se puede volver a poner).

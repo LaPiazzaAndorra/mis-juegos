@@ -9,6 +9,8 @@
 >
 > **16/10/2026 (3):** **diadema de frente aprobada** (diseño); capa extraída en `diadema/` y en el visor como candidata,
 > **encaje pendiente de revisión** (ver `diadema/LEEME.md`). Pendientes: cinta y gorros.
+>
+> **16/10/2026 (4):** **encaje de la diadema aprobado visualmente.** Pendientes: cinta, gorra, sombrero y gorrito.
 
 ## Referencias (`referencias/`, sin modificar)
 
@@ -60,6 +62,5 @@ medidas (`plantilla-medidas.png`).
 
 ## Pendiente
 
-- Revisión del encaje de la diadema (`diadema/`).
 - La versión de frente de la cinta y los gorros (ChatGPT, con la guía) y su encaje.
 - Después: copia nueva de prueba del juego; 2000 × 3500.

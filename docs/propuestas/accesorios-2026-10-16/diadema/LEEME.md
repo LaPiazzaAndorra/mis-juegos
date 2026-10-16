@@ -1,14 +1,14 @@
 # Diadema de estrellas de frente · 16/10/2026 (D-024)
 
-> **Diseño de frente aprobado** por la propietaria (con las estrellas a un lado). **El encaje de la capa extraída queda
-> pendiente de revisión.** En el visor como candidata. La muñeca no cambia.
+> **Diseño de frente y encaje aprobados visualmente** por la propietaria (16/10). En el visor, «Diadema de estrellas
+> (aprobada)»; «Sin accesorio» sigue por defecto. La muñeca no cambia.
 
 | Archivo | Qué es |
 | --- | --- |
 | `referencia-diadema-de-frente-aprobada.png` | Imagen generada en ChatGPT con la guía, **sin modificar** (SHA-256 `1a1a4aee…a786`). Solo se toma la diadema. |
 | `diadema.py` | Programa reproducible (desde la raíz: `python3 docs/propuestas/accesorios-2026-10-16/diadema/diadema.py`). |
 | `diadema-recortada.png` | Solo el arco, las estrellas y las perlas (sin pelo ni piel), al tamaño de la imagen. |
-| `capa-diadema.png` | La capa candidata, en el lienzo de nuestra muñeca (948 × 1659). |
+| `capa-diadema.png` | La capa aprobada, en el lienzo de nuestra muñeca (948 × 1659). |
 | `comparacion-diadema.png` | Nuestra muñeca sin diadema, con la diadema y con diadema + corona. |
 | `comprobaciones.json` | Cifras. |
 
@@ -33,5 +33,4 @@
 
 ## Pendiente
 
-- Revisión del encaje (posición, tamaño y grosor del arco).
 - Cinta deportiva, gorra, sombrero y gorrito: versiones de frente (guía en `../guia-chatgpt/`).
