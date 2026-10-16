@@ -102,7 +102,7 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Diseño aprobado** de los ocho (lazo, pasador de flores, mariposa lila, diadema de estrellas, cinta deportiva, gorra,
   sombrero de aventura y gorrito de dormir); láminas en `docs/propuestas/accesorios-2026-10-16/referencias/`.
 - **Lazo, flores y mariposa:** capas independientes sobre los rizos (sin fondo, marco, texto ni sombra), sin tocar la
-  cara ni la corona; fila «Accesorio de pelo» en el visor («Sin accesorio» por defecto). **Encaje pendiente de revisión.**
+  cara ni la corona; fila «Accesorio de pelo» en el visor («Sin accesorio» por defecto). **Encaje aprobado visualmente (16/10).**
 - **Diadema, cinta y gorros:** en perspectiva de tres cuartos, no encajan de frente; guía para ChatGPT en
   `…/guia-chatgpt/`.
 

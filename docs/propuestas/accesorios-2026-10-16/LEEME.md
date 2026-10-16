@@ -3,6 +3,9 @@
 > **D-024:** la propietaria **aprueba el diseño** de los ocho accesorios: lazo, pasador de flores, mariposa lila, diadema
 > de estrellas, cinta deportiva, gorra, sombrero de aventura y gorrito de dormir. **El encaje está pendiente.** Nada
 > activado en el juego; las pruebas congeladas, `main` y las partidas no cambian.
+>
+> **16/10/2026 (2):** el **lazo, el pasador de flores y la mariposa están aprobados visualmente tal como están colocados**.
+> En el visor, «Sin accesorio» sigue por defecto. Pendientes: diadema, cinta y gorros (versión de frente).
 
 ## Referencias (`referencias/`, sin modificar)
 
@@ -30,7 +33,7 @@ fuertes, se cierran y se rellena lo que encierran (también el pétalo crema y l
 encerrado (en la mariposa, entre la antena izquierda y el ala) se quita por su posición, porque su crema con sombra es
 casi igual al pétalo crema. Borde suave de 1 px, quitando el crema del fondo (sin halo).
 
-**Encaje (en revisión):**
+**Encaje (aprobado visualmente el 16/10):**
 
 | Accesorio | Dónde | Tamaño | Giro |
 | --- | --- | --- | --- |
@@ -54,6 +57,5 @@ medidas (`plantilla-medidas.png`).
 
 ## Pendiente
 
-- Revisión del encaje del lazo, las flores y la mariposa (posición, tamaño y lado).
 - La versión de frente de la diadema, la cinta y los gorros (ChatGPT, con la guía) y su encaje.
 - Después: copia nueva de prueba del juego; 2000 × 3500.

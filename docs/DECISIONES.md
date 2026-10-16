@@ -13,6 +13,10 @@
     `accesorios-2026-10-16/guia-chatgpt/`.
   - Se conserva la corona y se puede quitar el accesorio elegido.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+- **16/10/2026 (2):** la propietaria **aprueba visualmente el lazo, el pasador de flores y la mariposa tal como están
+  colocados** (`accesorios-2026-10-16/capas/capa-*.png`, commit `1b61877`). En el visor, **«Sin accesorio» sigue por
+  defecto**. Siguen pendientes la versión de frente de la diadema, la cinta y los gorros (guía para ChatGPT), su
+  encaje, una copia nueva de prueba del juego y 2000 × 3500.
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

@@ -1,6 +1,19 @@
 # Registro de cambios
 
-### 2026-10-16 — D-024: segunda colección de accesorios de pelo (diseño aprobado); lazo, flores y mariposa en el visor
+### 2026-10-16 — D-024 actualizada: lazo, flores y mariposa aprobados visualmente; «Sin accesorio» por defecto
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `1b61877`, el de la entrada siguiente).
+- **Estado:** encaje del lazo, el pasador de flores y la mariposa aprobado visualmente tal como están colocados; «Sin
+  accesorio» por defecto en el visor. Diadema, cinta y gorros, pendientes. Nada activado ni publicado.
+- **Cambios:** solo documentación (D-024, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y los `LEEME.md` de propuestas, accesorios y visor). Ninguna imagen ni el visor cambian.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y las pruebas congeladas sin cambios.
+- **Pruebas:** comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `1b61877` · D-024: segunda colección de accesorios de pelo (diseño aprobado); lazo, flores y mariposa en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `03c4fed`, el de la entrada siguiente).

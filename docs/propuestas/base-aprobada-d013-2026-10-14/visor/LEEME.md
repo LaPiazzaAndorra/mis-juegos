@@ -108,3 +108,5 @@ localizada del profundo, aplicada también a dorado y moreno). Sin errores; a ta
 Mariposa lila), encaje en revisión. Uno cada vez, encima del pelo y debajo de la corona (que sigue en su fila). Probado
 con y sin corona y con otra piel y otro color de pelo: sin errores ni almacenamiento; a tamaño real coincide con el
 montaje en lo opaco (≤ 3).
+**16/10/2026 (11) · D-024:** lazo, pasador de flores y mariposa aprobados visualmente tal como están colocados; el visor
+sigue abriendo con «Sin accesorio». No cambia el visor.
