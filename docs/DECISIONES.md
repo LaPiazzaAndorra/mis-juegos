@@ -22,6 +22,12 @@
     **sin aprobar todavía**.
   - Siguen pendientes la copia de prueba del juego con los colores de pelo y 2000 × 3500. No cambian `main`, las
     partidas ni las pruebas congeladas.
+- **16/10/2026 (3):** la propietaria **aprueba visualmente las cejas de los cuatro tonos** (`cejas-colores/`).
+  - En el visor, **«A juego con el pelo» queda seleccionado por defecto**; se conserva la opción de usar las cejas
+    originales de la base.
+  - Con el castaño original se siguen viendo las cejas de la base (no lleva capa).
+  - Siguen pendientes la copia de prueba del juego y 2000 × 3500; no cambian `main`, las partidas ni las pruebas
+    congeladas.
 
 ## D-021 · Pintacaras «Estrellas y brillo»: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo la decoración de las mejillas: estrellas rosas, lilas y doradas con pequeños

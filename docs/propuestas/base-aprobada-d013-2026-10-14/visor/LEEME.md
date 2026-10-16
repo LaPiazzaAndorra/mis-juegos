@@ -94,3 +94,6 @@ parpadeo: sin errores ni almacenamiento; a tamaño real coincide con el montaje 
 defecto. Fila «Cejas» (propuesta): «De la base (castañas)» por defecto o «A juego con el pelo», que pone encima de la
 base la capa de cejas del color de pelo elegido (con el castaño, las de la base). Sin errores ni almacenamiento; a
 tamaño real coincide con el montaje en lo opaco (≤ 3).
+**16/10/2026 (7) · D-022:** cejas a juego aprobadas visualmente. El visor abre con «A juego con el pelo (elegidas)» y
+conserva «Originales de la base (castañas)»; con el castaño original se ven las de la base. Sin errores ni
+almacenamiento.

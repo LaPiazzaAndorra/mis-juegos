@@ -1,7 +1,8 @@
-# Propuesta: cejas que acompañan cada color de pelo · 16/10/2026 (D-022)
+# Cejas que acompañan cada color de pelo · 16/10/2026 (D-022)
 
-> **Propuesta, sin aprobar.** Solo está en el visor (fila «Cejas»: «De la base (castañas)» por defecto · «A juego con
-> el pelo (propuesta)»). Nada activado en el juego; las pruebas congeladas no cambian.
+> **Aprobadas visualmente por la propietaria (16/10)** para los cuatro tonos. En el visor, fila «Cejas»: **«A juego con
+> el pelo (elegidas)» por defecto** · «Originales de la base (castañas)». Con el castaño original se ven siempre las de
+> la base. Nada activado en el juego; las pruebas congeladas no cambian.
 
 Cambia **solo el color** de las cejas de nuestra base (`../sin-ojos/base-sin-ojos-propuesta-v3.png`, que **no se
 modifica**). La forma, los pelitos, el borde suave y la expresión son los de la base. Cada propuesta es una **capa

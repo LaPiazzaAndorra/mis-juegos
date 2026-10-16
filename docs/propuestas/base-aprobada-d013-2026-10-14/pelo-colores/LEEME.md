@@ -46,6 +46,6 @@ Todas a 948 × 1659, en el mismo lienzo y la misma posición que las originales 
 
 ## A revisar
 
-- Las **cejas** son de la base y siguen castañas. Hay una **propuesta de cejas a juego** en `../cejas-colores/` (sin
-  aprobar).
+- Las **cejas** son de la base y siguen castañas. Las **cejas a juego** de `../cejas-colores/` están aprobadas
+  visualmente y salen por defecto en el visor.
 - Una copia nueva de prueba del juego (las pruebas congeladas no se tocan); la resolución 2000 × 3500.

@@ -119,8 +119,8 @@
   </div>
   <div class="fila">
     <b>Cejas</b>
-    <button data-cejas="base" aria-pressed="true">De la base (castañas)</button>
-    <button data-cejas="juego" aria-pressed="false">A juego con el pelo (propuesta)</button>
+    <button data-cejas="juego" aria-pressed="true">A juego con el pelo (elegidas)</button>
+    <button data-cejas="base" aria-pressed="false">Originales de la base (castañas)</button>
   </div>
   <div class="fila">
     <b>Pelo</b>
@@ -323,8 +323,8 @@
   var detras = document.getElementById('c-pelo-detras'), delanteMC = document.getElementById('c-pelo-delante-mc');
   var PELO_ORIGINAL = { detras: detras.getAttribute('src'), delante: delanteMC.getAttribute('src') };
   function srcPelo(color, parte) { return color === 'castano' ? PELO_ORIGINAL[parte] : '../pelo-colores/pelo-' + parte + '-' + color + '.png'; }
-  // cejas (propuesta): capa aparte encima de la base, solo con el color de las cejas; el castaño usa las de la base
-  var cejas = document.getElementById('c-cejas'), colorPelo = 'castano', cejasJuego = false;
+  // cejas (aprobadas, D-022): capa aparte encima de la base, solo con el color de las cejas; el castaño usa las de la base
+  var cejas = document.getElementById('c-cejas'), colorPelo = 'castano', cejasJuego = true;   // D-022: a juego por defecto
   function mostrarCejas() {
     if (colorPelo !== 'castano') cejas.src = '../cejas-colores/cejas-' + colorPelo + '.png';
     cejas.classList.toggle('oculto', !cejasJuego || colorPelo === 'castano');

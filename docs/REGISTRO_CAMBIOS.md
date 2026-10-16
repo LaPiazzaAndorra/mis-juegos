@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-16 — D-022 actualizada: colores de pelo aprobados; propuesta de cejas a juego en el visor
+### 2026-10-16 — D-022: cejas a juego aprobadas y por defecto en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `fe701ba`, el de la entrada siguiente).
+- **Estado:** cejas de los cuatro tonos aprobadas visualmente; «A juego con el pelo» por defecto en el visor, con la
+  opción de las cejas originales. Nada activado ni publicado.
+- **Cambios:** visor (botones y valor por defecto de la fila «Cejas»); D-022, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de cejas, pelo y visor. Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y las pruebas D-016 y D-021 sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado): por defecto «A juego»; con el castaño, las de la base; con cada
+  tono, su capa; «Originales» las quita; parpadeo igual; sin errores ni almacenamiento. Comprobador de documentación.
+  No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `fe701ba` · D-022 actualizada: colores de pelo aprobados; propuesta de cejas a juego en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `28432c8`, el de la entrada siguiente).
