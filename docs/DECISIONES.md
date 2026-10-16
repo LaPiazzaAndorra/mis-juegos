@@ -1,5 +1,19 @@
 # Registro de decisiones
 
+## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
+- **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
+  cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
+  `docs/propuestas/accesorios-2026-10-16/referencias/`.
+- **Estado:** **diseño aprobado; encaje pendiente.**
+- **Cómo:**
+  - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
+    sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
+  - Diadema, cinta y gorros: comprobar la perspectiva; si no encajan, preparar una guía para adaptarlos en ChatGPT sin
+    deformar la cabeza ni el peinado. Comprobado: están en perspectiva de tres cuartos y no encajan de frente; guía en
+    `accesorios-2026-10-16/guia-chatgpt/`.
+  - Se conserva la corona y se puede quitar el accesorio elegido.
+- **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina
   `docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/referencia-tonos-piel-aprobados.png` (imagen generada,

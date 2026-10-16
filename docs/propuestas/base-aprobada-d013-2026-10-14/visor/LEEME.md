@@ -104,3 +104,7 @@ ojos y de pelo, cejas, camiseta, descalza, otro pelo de delante y parpadeo: sin 
 coincide con el montaje en lo opaco (≤ 3).
 **16/10/2026 (9) · D-023:** el visor no cambia; se han regenerado las piezas de los tonos de piel (corrección
 localizada del profundo, aplicada también a dorado y moreno). Sin errores; a tamaño real coincide con el montaje (≤ 3).
+**16/10/2026 (10) · D-024:** fila «Accesorio de pelo» («Sin accesorio» por defecto · Lazo de satén · Pasador de flores ·
+Mariposa lila), encaje en revisión. Uno cada vez, encima del pelo y debajo de la corona (que sigue en su fila). Probado
+con y sin corona y con otra piel y otro color de pelo: sin errores ni almacenamiento; a tamaño real coincide con el
+montaje en lo opaco (≤ 3).

@@ -71,6 +71,9 @@
     <img id="c-pelo-delante-mc" class="pelo-delante" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
     <img id="c-bordes-pelo" class="oculto" alt="" src="../piel-tonos/dorado/bordes-pelo-castano.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
+    <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
+    <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
+    <img id="c-acc-mariposa" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-mariposa.png">
     <img id="c-corona" class="" alt="" src="../../corona-2026-10-15/montaje/corona-candidata.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
@@ -113,6 +116,13 @@
     <b>Corona</b>
     <button data-corona="no" aria-pressed="false">Sin corona</button>
     <button data-corona="si" aria-pressed="true">Corona dorada (elegida)</button>
+  </div>
+  <div class="fila">
+    <b>Accesorio de pelo</b>
+    <button data-acc-pelo="ninguno" aria-pressed="true">Sin accesorio</button>
+    <button data-acc-pelo="lazo" aria-pressed="false">Lazo de satén</button>
+    <button data-acc-pelo="flores" aria-pressed="false">Pasador de flores</button>
+    <button data-acc-pelo="mariposa" aria-pressed="false">Mariposa lila</button>
   </div>
   <div class="fila">
     <b>Pintacaras</b>
@@ -300,6 +310,14 @@
     b.addEventListener('click', function () {
       document.getElementById('c-corona').classList.toggle('oculto', b.dataset.corona !== 'si');
       document.querySelectorAll('[data-corona]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
+  // --- accesorio de pelo (D-024, encaje en revisión): uno cada vez, encima del pelo y debajo de la corona ------------
+  document.querySelectorAll('[data-acc-pelo]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('img.acc-pelo').forEach(function (im) { im.classList.toggle('oculto', im.id !== 'c-acc-' + b.dataset.accPelo); });
+      document.querySelectorAll('[data-acc-pelo]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
 

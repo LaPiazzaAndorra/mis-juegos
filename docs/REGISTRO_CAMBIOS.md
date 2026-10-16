@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-16 — D-023: tonos de piel aprobados; copia aislada nueva con piel, pelo, cejas, ojos y pintacaras
+### 2026-10-16 — D-024: segunda colección de accesorios de pelo (diseño aprobado); lazo, flores y mariposa en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `03c4fed`, el de la entrada siguiente).
+- **Estado:** diseño de los ocho aprobado; encaje pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - Nueva carpeta `docs/propuestas/accesorios-2026-10-16/`: las dos láminas (sin modificar), `capas/` (`extraer.py`,
+    `colocar.py`, recortes, capas del lazo, las flores y la mariposa, comparación y `comprobaciones.json`),
+    `guia-chatgpt/` (guía y plantillas para pedir de frente la diadema, la cinta y los gorros) y `LEEME.md`.
+  - Visor: fila «Accesorio de pelo» («Sin accesorio» por defecto).
+  - D-024 en `DECISIONES.md`; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los
+    `LEEME.md` de propuestas y visor.
+- **Resultado:** lazo, flores y mariposa sin fondo, marco, texto ni sombra; 0 px sobre la piel visible y sobre la corona;
+  ≥ 99,9 % sobre el pelo. Diadema, cinta y gorros en perspectiva de tres cuartos: no encajan de frente (guía preparada).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y las pruebas congeladas sin cambios.
+- **Pruebas:** comprobaciones de `comprobaciones.json`; visor en Chromium (iPhone simulado) con cada accesorio, con y sin
+  corona, con otra piel y otro color de pelo y quitándolo; sin errores ni almacenamiento; a tamaño real (≤ 3). No probado
+  en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `03c4fed` · D-023: tonos de piel aprobados; copia aislada nueva con piel, pelo, cejas, ojos y pintacaras
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `d600d4c`, el de la entrada siguiente).

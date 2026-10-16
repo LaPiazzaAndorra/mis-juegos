@@ -1,0 +1,69 @@
+{
+ "metodo": "recorte de extraer.py escalado y girado (sin deformar), encima del pelo de delante y debajo de la corona",
+ "accesorios": {
+  "lazo": {
+   "centro": [
+    642,
+    263
+   ],
+   "ancho": 138,
+   "giro": -18,
+   "caja": [
+    568,
+    201,
+    716,
+    326
+   ],
+   "px": 9403,
+   "solape_piel_visible_px": 0,
+   "solape_corona_px": 0,
+   "sobre_el_pelo": 1.0
+  },
+  "flores": {
+   "centro": [
+    274,
+    278
+   ],
+   "ancho": 168,
+   "giro": 32,
+   "caja": [
+    194,
+    225,
+    357,
+    333
+   ],
+   "px": 7963,
+   "solape_piel_visible_px": 0,
+   "solape_corona_px": 0,
+   "sobre_el_pelo": 1.0
+  },
+  "mariposa": {
+   "centro": [
+    288,
+    295
+   ],
+   "ancho": 122,
+   "giro": 14,
+   "caja": [
+    219,
+    252,
+    349,
+    348
+   ],
+   "px": 8282,
+   "solape_piel_visible_px": 0,
+   "solape_corona_px": 0,
+   "sobre_el_pelo": 0.999
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/capas/lazo-recortado.png": "4e2c620687f36f13e6ab3d1714900e3d36211dabc7efb7b975e1a0fb1349ffd5",
+  "docs/propuestas/accesorios-2026-10-16/capas/flores-recortado.png": "39c4d1009cb7c9c8a73984443a3ce149e98f5859ff8eaf21456a1b849cc867fa",
+  "docs/propuestas/accesorios-2026-10-16/capas/mariposa-recortado.png": "8834c91815f57ee88bb9c4f428ee55570fd080a599cbd7a6d265ded5cf2bfba3",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png": "c607253802ab89a019cbe5c10173572dc17aeadc92c2f89082c3bff7b45a952f"
+ },
+ "fuentes_sin_cambios": true
+}

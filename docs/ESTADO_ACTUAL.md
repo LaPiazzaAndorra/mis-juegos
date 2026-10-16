@@ -98,6 +98,14 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - Probado en Chromium: 18/18 (56 combinaciones, parpadeo con cada piel, guardar y volver a abrir, Mi Mundo) y el juego,
   21/21 y 45/45; D-016 13/13 y D-021 19/19. **Sin probar todavía en el iPhone.**
 
+**Accesorios de pelo, segunda colección (16/10, D-024):**
+- **Diseño aprobado** de los ocho (lazo, pasador de flores, mariposa lila, diadema de estrellas, cinta deportiva, gorra,
+  sombrero de aventura y gorrito de dormir); láminas en `docs/propuestas/accesorios-2026-10-16/referencias/`.
+- **Lazo, flores y mariposa:** capas independientes sobre los rizos (sin fondo, marco, texto ni sombra), sin tocar la
+  cara ni la corona; fila «Accesorio de pelo» en el visor («Sin accesorio» por defecto). **Encaje pendiente de revisión.**
+- **Diadema, cinta y gorros:** en perspectiva de tres cuartos, no encajan de frente; guía para ChatGPT en
+  `…/guia-chatgpt/`.
+
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
 
