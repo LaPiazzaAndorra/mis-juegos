@@ -28,7 +28,8 @@ PT = CO.PT; MK = CO.MK
 
 A = CO.REF; Bn = AQUI / 'referencias' / 'referencia-coleta-sin-cinta.png'
 SALIDA = AQUI / 'capas' / 'candidata-sin-cinta'
-ABAJO, OTROS, TRANS = 20, 8, 2
+ABAJO, TRANS = 20, 2
+OTROS = int(sys.argv[1]) if len(sys.argv) > 1 else 32         # franja arriba y en las puntas (px)
 
 
 def sha(p):

@@ -120,3 +120,6 @@ castaño, sin accesorio ni corona; elegir otra cosa vuelve a la melena. Sin erro
 coincide con el montaje (≤ 3).
 **16/10/2026 (15) · D-025:** coleta con cinta aprobada visualmente: el botón pasa a «Coleta rizada con cinta (aprobada)».
 La melena suelta sigue por defecto; el resto del comportamiento no cambia.
+**16/10/2026 (16) · D-025:** con la coleta, fila «Cinta» («Con cinta (aprobada)» por defecto · «Sin cinta (candidata)»).
+Sin cinta se usan las capas candidatas con el pelo completo bajo la cinta; con la cinta, las aprobadas (igual que antes).
+Sin errores; a tamaño real coincide con el montaje en los dos casos (≤ 3).

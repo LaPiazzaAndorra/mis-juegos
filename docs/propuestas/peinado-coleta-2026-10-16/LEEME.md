@@ -90,7 +90,22 @@ añadirá solo el pelo de esa zona. Hasta entonces, en el visor la coleta va **s
 - **Dónde falla** (`uniones-candidata.png`, en azul y magenta; `union-de-arriba-ampliada.png`, sin marcas): a lo largo del
   borde de arriba de la cinta queda una franja algo más oscura (la sombra de la cinta en la imagen aprobada) justo fuera
   de los 8 px; y en las dos puntas, cortes cortos donde los mechones no siguen.
-- **No se añade al visor** hasta decidir si se amplía más **arriba y en las puntas** (abajo ya está bien).
+- **16/10 (2): ampliación arriba y en las puntas.** Probado 14, 18, 22, 26, 32, 40 y 50 px (`sin_cinta.py <px>`):
+
+  | Arriba / puntas | Arriba | Puntas | Abajo | Sombra de la cinta |
+  | --- | --- | --- | --- | --- |
+  | 14 px | 13 % | 1,3 % | 0 % | 255 px |
+  | 26 px | 9 % | 1,1 % | 0 % | 84 px |
+  | **32 px (elegido)** | **3,7 %** | **1 %** | **0 %** | **14 px** |
+  | 40–50 px | 6–8 % | 1 % | 0 % | 5 px |
+
+  Con **32 px** la unión de arriba pasa por límites naturales entre rizos (en la base del moño) y la sombra de la cinta
+  desaparece; ampliar más no mejora. **Piel, cara y silueta sin tocar (0 px)**, sin restos lila, y el pelo aprobado fuera
+  de la zona igual. Revisado a tamaño de juego y ampliado, en fondo claro y oscuro
+  (`revision-tamano-juego-y-ampliada.png`).
+- **En el visor como candidata:** con la coleta aparece la fila «Cinta» (**Con cinta (aprobada)** por defecto · **Sin
+  cinta (candidata)**). Con la cinta puesta se usan las capas aprobadas, así que se ve exactamente igual que antes.
+  **Aprobación visual pendiente.**
 
 ## En el visor
 
@@ -100,6 +115,5 @@ otra piel, otro color, otro pelo de delante o un accesorio vuelve a la melena. E
 
 ## Pendiente
 
-- El pelo bajo la cinta: con la zona ampliada, la unión de abajo ya está limpia; decidir si se amplía más arriba y en las
-  puntas (ver «Candidata con la zona ampliada»).
+- Aprobación visual de la coleta sin cinta (candidata en el visor).
 - Después: colores de pelo, tonos de piel (bordes), accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.

@@ -1,6 +1,24 @@
 # Registro de cambios
 
-### 2026-10-16 — D-025: candidata sin cinta con la zona ampliada (abajo limpia; arriba y puntas fallan, marcadas)
+### 2026-10-16 — D-025: coleta sin cinta (32 px arriba y en las puntas; uniones limpias) como candidata en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `3acef5b`, el de la entrada siguiente).
+- **Estado:** uniones limpias; candidata en el visor; aprobación visual pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - `sin_cinta.py`: franja de arriba y de las puntas configurable (32 px por defecto); capas candidatas regeneradas en
+    `capas/candidata-sin-cinta/` (con `revision-tamano-juego-y-ampliada.png`).
+  - Visor: fila «Cinta» con la coleta («Con cinta (aprobada)» por defecto · «Sin cinta (candidata)»).
+  - D-025, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del peinado y del visor.
+- **Resultado:** uniones que fallan: arriba 3,7 %, puntas 1 %, abajo 0 %; sombra de la cinta 14 px; sin restos lila; piel,
+  cara y silueta sin tocar; capas aprobadas sin cambios (con cinta se ve igual).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** `sin_cinta.py` con 14–50 px; revisión a tamaño de juego y ampliada; visor en Chromium (iPhone simulado)
+  con y sin cinta, parpadeo y vuelta a la melena, sin errores; a tamaño real (≤ 3). No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `3acef5b` · D-025: candidata sin cinta con la zona ampliada (abajo limpia; arriba y puntas fallan, marcadas)
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `0b9e1bb`, el de la entrada siguiente).

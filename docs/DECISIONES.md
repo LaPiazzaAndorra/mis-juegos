@@ -27,6 +27,11 @@
   piel ni silueta; **todavía fallan la de arriba (22 %) y las puntas (19 %)**: queda una franja algo más oscura (la sombra
   de la cinta) justo fuera de los 8 px permitidos arriba. **Marcado; no se añade al visor**, a la espera de decidir si se
   amplía más arriba y en las puntas. La coleta con cinta aprobada no cambia.
+- **16/10/2026 (5):** la propietaria da margen para ampliar arriba y en las puntas lo necesario, dentro del pelo, sin
+  tocar piel, cara, silueta ni la coleta con cinta aprobada. Probado 14, 18, 22, 26, 32, 40 y 50 px: **con 32 px las
+  uniones quedan limpias** (arriba 3,7 %, puntas 1 %, abajo 0 %; sombra de la cinta 14 px; sin restos lila; piel y
+  silueta sin tocar). Revisado a tamaño de juego y ampliado, en fondo claro y oscuro. **En el visor como candidata**
+  («Cinta: Con cinta (aprobada) · Sin cinta (candidata)»); **aprobación visual pendiente**.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,

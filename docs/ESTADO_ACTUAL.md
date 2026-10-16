@@ -118,8 +118,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   arriba 32 %, puntas 52 %); marcadas en `…/peinado-coleta-2026-10-16/uniones/`. No integrado; pendiente decidir si se
   amplía la zona (unos 15–20 px por abajo).
 - **Candidata con la zona ampliada (16/10):** la unión de abajo queda limpia (0,5 %); arriba (22 %) y en las puntas (19 %)
-  todavía queda la sombra de la cinta, justo fuera de los 8 px permitidos. Marcado en
-  `…/capas/candidata-sin-cinta/`; no está en el visor.
+  todavía quedaba la sombra de la cinta. Con 32 px arriba y en las puntas **las uniones quedan limpias** (3,7 % / 1 % /
+  0 %), sin tocar piel, cara ni silueta. **En el visor como candidata** (fila «Cinta»); aprobación visual pendiente.
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).

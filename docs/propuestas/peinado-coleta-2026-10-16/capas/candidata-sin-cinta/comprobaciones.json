@@ -1,33 +1,33 @@
 {
  "arriba": {
-  "px": 638,
-  "fallan_px": 141,
-  "fallan": 0.221
+  "px": 749,
+  "fallan_px": 28,
+  "fallan": 0.037
  },
  "abajo": {
-  "px": 628,
-  "fallan_px": 3,
-  "fallan": 0.005
+  "px": 651,
+  "fallan_px": 0,
+  "fallan": 0.0
  },
  "puntas": {
-  "px": 369,
-  "fallan_px": 71,
-  "fallan": 0.192
+  "px": 510,
+  "fallan_px": 5,
+  "fallan": 0.01
  },
- "px_cambiados": 89071,
+ "px_cambiados": 107166,
  "px_cinta": 70785,
- "px_ampliacion": 18286,
+ "px_ampliacion": 36381,
  "ampliacion_maxima_px": {
-  "arriba": 8.0,
+  "arriba": 32.0,
   "abajo": 20.0,
-  "puntas": 8.0
+  "puntas": 31.9
  },
  "piel_tocada_px": 0,
  "silueta_tocada_px": 0,
- "huequecitos_junto_a_la_cinta_px": 156,
+ "huequecitos_junto_a_la_cinta_px": 230,
  "restos_lila_px": 0,
- "sombra_de_la_cinta_px": 499,
- "resultado": "falla",
+ "sombra_de_la_cinta_px": 14,
+ "resultado": "limpia",
  "fuera_de_la_zona_igual": true,
  "sha256_fuentes": {
   "docs/propuestas/peinado-coleta-2026-10-16/referencias/referencia-coleta-cinta-aprobada.png": "8ac66fe33a0c8c9f6bceb142719972db34a1b58ad6abad5edc11365489264a6b",
