@@ -27,8 +27,8 @@ Qué se cambia en cada pieza (lo demás queda igual, píxel a píxel):
   · manos delante del vestido: son píxeles de la base, así que llevan exactamente el mismo cambio;
   · cejas a juego con el pelo: se recalculan sobre la piel nueva (mismo color de ceja aprobado), para que no quede
     piel clara alrededor;
-  · bordes de otras capas con piel clara «pegada» (solo donde debajo se ve la piel de la base, no el vestido) (el nacimiento del pelo de delante, el cuello del vestido y el borde
-    de los zapatos): una capa pequeña de «bordes» por tono (y por color de pelo) que pone encima solo esos píxeles con
+  · bordes de otras capas con piel clara «pegada»: los dos pelos (delante y detrás) junto a la piel que se ve de verdad
+    (frente, sienes, orejas, mandíbula, cuello), el cuello del vestido y el borde de los zapatos: una capa pequeña de «bordes» por tono (y por color de pelo) que pone encima solo esos píxeles con
     la piel nueva. Las capas de pelo, vestido y zapatos no cambian;
   · la franja estrecha del cuero cabelludo de la base que asoma en el borde de la cabeza entre el pelo de delante y el de
     detrás (en la piel clara pasa por un brillo; en la oscura sería una línea) se cubre, en esa misma capa de bordes, con
@@ -133,20 +133,31 @@ def a_rgb(lab):
     return CP.lab_a_rgb(lab)
 
 
-def separar_flecos(capa, lab_base, wb, base, encima, ancho=12.0):
-    """Nacimiento del pelo de delante: cada píxel del borde es una mezcla de pelo y de la piel clara original.
-    Devuelve (s, tau, dentro): s = parte de piel (proyección entre el color del pelo de alrededor y la piel de debajo),
-    tau = cuánto se corrige (1 en el borde, hasta 0 a «ancho» px hacia dentro) y dentro = pelo de dentro (sin mezcla)."""
+def piel_visible(base, wb, delante, encima, cuero):
+    """Piel de la base que se ve de verdad en el montaje (sin pelo de delante, vestido ni zapatos encima, y sin la franja
+    del cuero cabelludo, que se cubre aparte)."""
+    return (wb == 1) & (base[..., 3] > 250) & (delante[..., 3] < 128) & ~encima & (cuero == 0)
+
+
+def piel_de_alrededor(lab_base, V, sigma=6):
+    """Color medio (Lab) de lo marcado en V alrededor de cada píxel (también fuera de la silueta de la base)."""
+    den = nd.gaussian_filter(V.astype(float), sigma)
+    return np.stack([nd.gaussian_filter(lab_base[..., i] * V, sigma) for i in range(3)], -1) / np.maximum(den, 1e-6)[..., None], den
+
+
+def separar_borde(capa, V, S, denS, encima, cerca=12.0, interior=(10, None)):
+    """Borde de una capa de pelo (delante o detrás) junto a la piel que se ve: cada píxel es una mezcla de pelo y de la
+    piel clara original. Devuelve (s, tau, dentro): s = parte de piel (proyección entre el pelo de alrededor y la piel
+    de alrededor), tau = cuánto se corrige (1 junto a la piel, hasta 0 a «cerca» px) y dentro = pelo sin mezcla."""
     A = capa[..., 3]; O = lab_de(capa)
-    dist = nd.distance_transform_edt(A > 0)
-    dentro = (A == 255) & (dist > 10)
-    den = nd.gaussian_filter(dentro.astype(float), 10)
-    Hc = np.stack([nd.gaussian_filter(O[..., i] * dentro, 10) for i in range(3)], -1) / np.maximum(den, 1e-6)[..., None]
-    d = lab_base - Hc; e = O - Hc
+    dV = nd.distance_transform_edt(~V)
+    dA = nd.distance_transform_edt(A > 0)
+    dentro = (A == 255) & (dA > interior[0]) & ((dA <= interior[1]) if interior[1] else True)
+    Hc, denH = piel_de_alrededor(O, dentro, 10 if not interior[1] else 4)
+    d = S - Hc; e = O - Hc
     s = np.clip((d * e).sum(-1) / np.maximum((d * d).sum(-1), 1e-6), 0, 1)
-    # solo del lado de la cara: lejos del contorno de la cabeza de la base (ahí el borde del pelo está sobre el otro pelo)
-    lejos = np.clip((nd.distance_transform_edt(base[..., 3] > 0) - 10) / 6, 0, 1)
-    tau = np.clip((ancho - dist) / (ancho - 6), 0, 1) * (A > 0) * (wb == 1) * (base[..., 3] > 250) * ~encima * (den > 0.02) * lejos
+    # también los píxeles de pelo casi transparentes encima de la piel (llevan el mismo color claro)
+    tau = np.clip((cerca - dV) / (cerca / 2), 0, 1) * (A > 0) * ~encima * (denH > 0.02) * (denS > 0.02)
     return s, tau, dentro
 
 
@@ -159,10 +170,10 @@ def cuero_cabelludo(base, delante, detras, ancho=6.0):
     return np.clip((ancho - d) / (ancho - 2), 0, 1) * (A > 0) * (delante[..., 3] < 255) * (detras[..., 3] > 0) * (YY < 560)
 
 
-def pelo_de_alrededor(capa, dentro):
-    """Color medio del pelo de dentro (sin mezcla con piel) alrededor de cada píxel."""
-    O = lab_de(capa); den = nd.gaussian_filter(dentro.astype(float), 10)
-    return np.stack([nd.gaussian_filter(O[..., i] * dentro, 10) for i in range(3)], -1) / np.maximum(den, 1e-6)[..., None]
+def pelo_de_alrededor(capa, dentro, sigma=10):
+    """Color medio de la capa (pelo o vestido) en «dentro» (sin mezcla con piel) alrededor de cada píxel."""
+    O = lab_de(capa); den = nd.gaussian_filter(dentro.astype(float), sigma)
+    return np.stack([nd.gaussian_filter(O[..., i] * dentro, sigma) for i in range(3)], -1) / np.maximum(den, 1e-6)[..., None]
 
 
 def flecos(capa, lab_base, wb, base):
@@ -232,6 +243,13 @@ def aplicar(capa, lab, w, f, q=None):
     return o
 
 
+def montar_rgba(capas):
+    x = Image.new('RGBA', (948, 1659), (0, 0, 0, 0))
+    for c in capas:
+        x.alpha_composite(Image.fromarray(c))
+    return np.array(x)
+
+
 def montar(capas):
     x = Image.new('RGBA', (948, 1659), (0, 0, 0, 0))
     for c in capas:
@@ -254,13 +272,20 @@ if __name__ == '__main__':
     color_ceja = {k: CJ.color_cejas(k, pura[hay], capas_pelo, ref_pelo) for k in CP.RECUADROS}
     fijas = {k: abrir(p) for k, p in SIN_PIEL.items()}
     w_fl = {k: flecos(fijas[k], lab, wb, base) for k in ('vestido', 'zapatos')}
-    s_fl, tau_fl, dentro_fl = separar_flecos(fijas['pelo-delante'], lab, wb, base,
-                                         encima=(fijas['vestido'][..., 3] > 0) | (fijas['zapatos'][..., 3] > 0))   # solo donde se ve la piel de la base
-    w_fl['pelo'] = tau_fl
+    encima = (fijas['vestido'][..., 3] > 0) | (fijas['zapatos'][..., 3] > 0)
     contorno = nd.gaussian_filter(contorno_ojos(ojos['marron']).astype(float), 2)
     pelos_delante = {'castano': fijas['pelo-delante'], **{k: abrir(CP.AQUI / f'pelo-delante-{k}.png') for k in CP.RECUADROS}}
     pelos_detras = {'castano': fijas['pelo-detras'], **{k: abrir(CP.AQUI / f'pelo-detras-{k}.png') for k in CP.RECUADROS}}
     cuero = cuero_cabelludo(base, fijas['pelo-delante'], fijas['pelo-detras'])
+    # bordes de los dos pelos junto a la piel que se ve (frente, sienes, orejas, mandíbula, cuello)
+    V = piel_visible(base, wb, fijas['pelo-delante'], encima, cuero)
+    S_alr, denS = piel_de_alrededor(lab, V)
+    borde_pelo = {k: separar_borde(fijas[f'pelo-{k}'], V, S_alr, denS, encima) for k in ('delante', 'detras')}
+    # borde del vestido (cuello y mangas) junto a la piel: mezcla del color del vestido de justo dentro (4–7 px) y la piel
+    Vv = piel_visible(base, wb, fijas['pelo-delante'], fijas['zapatos'][..., 3] > 0, cuero) & (fijas['vestido'][..., 3] == 0)
+    S_v, denSv = piel_de_alrededor(lab, Vv)
+    borde_vestido = separar_borde(fijas['vestido'], Vv, S_v, denSv, fijas['zapatos'][..., 3] > 0, cerca=5.0, interior=(4, 7))
+    w_fl['pelo'] = np.maximum(borde_pelo['delante'][1], borde_pelo['detras'][1] * (base[..., 3] < 250))
     info = dict(lamina={k: {x: v[x] for x in ('L_percentiles', 'tono', 'croma', 'px')} for k, v in medidas.items()}, tonos={})
     vacia = np.zeros_like(base)
     resultados = {'claro': dict(base=base, cerrados=cerr, manos=manos, **{f'ojos-{k}': v for k, v in ojos.items()},
@@ -288,25 +313,36 @@ if __name__ == '__main__':
         # bordes con piel clara pegada: pelo de delante (por color de pelo) y vestido + zapatos
         for nombre, capa_o, variantes_capa in (('pelo', fijas['pelo-delante'], pelos_delante), ('ropa', None, None)):
             if nombre == 'pelo':
-                wf = w_fl['pelo']
+                fS = f(S_alr)
                 for kp, cap in variantes_capa.items():
-                    debajo = Image.fromarray(b2); actual = debajo.copy(); actual.alpha_composite(Image.fromarray(cap))
-                    deseada = cap.copy(); sel = wf > 0
-                    lk = lab_de(cap)   # parte de piel → piel nueva; parte de pelo → el pelo de alrededor, en su color aprobado
-                    objetivo = s_fl[..., None] * f(lab) + (1 - s_fl[..., None]) * pelo_de_alrededor(cap, dentro_fl)
-                    deseada[sel, :3] = a_rgb(lk * (1 - wf[..., None]) + objetivo * wf[..., None])[sel]
-                    obj = debajo.copy(); obj.alpha_composite(Image.fromarray(deseada)); obj = np.array(obj)
+                    det = pelos_detras[kp]; capas_k = {'delante': cap, 'detras': det}; corregidas = {}
+                    for parte, c in capas_k.items():
+                        s, tau, dentro = borde_pelo[parte]
+                        if parte == 'detras':
+                            tau = tau * (base[..., 3] < 250)          # el de detrás solo se ve fuera de la silueta de la base
+                        lk = lab_de(c)   # parte de piel → piel nueva; parte de pelo → el pelo de alrededor, en su color aprobado
+                        objetivo = s[..., None] * fS + (1 - s[..., None]) * pelo_de_alrededor(c, dentro)
+                        nueva = c.copy(); sl = tau > 0
+                        nueva[sl, :3] = a_rgb(lk * (1 - tau[..., None]) + objetivo * tau[..., None])[sl]
+                        corregidas[parte] = (nueva, tau)
+                    actual = montar_rgba([det, b2, cap]); obj = montar_rgba([corregidas['detras'][0], b2, corregidas['delante'][0]])
                     # franja del cuero cabelludo en el borde de la cabeza: se cubre con el pelo de detrás de alrededor
-                    det = pelos_detras[kp]; Hb = CP.lab_a_rgb(pelo_de_alrededor(det, det[..., 3] == 255)).astype(float)
+                    Hb = CP.lab_a_rgb(pelo_de_alrededor(det, det[..., 3] == 255)).astype(float)
                     o3 = obj[..., :3].astype(float) * (1 - cuero[..., None]) + Hb * cuero[..., None]
-                    selc = sel | (cuero > 0)
-                    Image.fromarray(CJ.capa_sobre(np.array(actual), o3, selc)).save(carpeta / f'bordes-pelo-{kp}.png', optimize=True)
+                    selc = ((corregidas['delante'][1] > 0) | (corregidas['detras'][1] > 0) | (cuero > 0)) & (actual[..., 3] >= 250)
+                    Image.fromarray(CJ.capa_sobre(actual, o3, selc)).save(carpeta / f'bordes-pelo-{kp}.png', optimize=True)
             else:
                 # zapatos (encima de la base) y vestido (encima de base + zapatos): cada uno, su capa de bordes
                 actual = Image.fromarray(b2)
                 for kc in ('zapatos', 'vestido'):
-                    cap = fijas[kc]; wf = w_fl[kc]; sel = wf > 0
-                    des = cap.copy(); des[sel, :3] = a_rgb(lab_de(cap) * (1 - wf[..., None]) + f(lab_de(cap)) * wf[..., None])[sel]
+                    cap = fijas[kc]; des = cap.copy()
+                    if kc == 'vestido':
+                        s, wf, dentro = borde_vestido; sel = wf > 0; lk = lab_de(cap)
+                        objetivo = s[..., None] * f(S_v) + (1 - s[..., None]) * pelo_de_alrededor(cap, dentro, 4)
+                        des[sel, :3] = a_rgb(lk * (1 - wf[..., None]) + objetivo * wf[..., None])[sel]
+                    else:
+                        wf = w_fl[kc]; sel = wf > 0
+                        des[sel, :3] = a_rgb(lab_de(cap) * (1 - wf[..., None]) + f(lab_de(cap)) * wf[..., None])[sel]
                     obj = actual.copy(); obj.alpha_composite(Image.fromarray(des))
                     actual.alpha_composite(Image.fromarray(cap))
                     Image.fromarray(CJ.capa_sobre(np.array(actual), np.array(obj)[..., :3].astype(float), sel)).save(carpeta / f'bordes-{kc}.png', optimize=True)
@@ -334,8 +370,8 @@ if __name__ == '__main__':
         resultados[t] = dict(base=b2, cerrados=c2, manos=m2, **{f'ojos-{k}': v for k, v in o2.items()},
                              **{f'bordes-{k}': abrir(carpeta / f'bordes-{k}.png') for k in ('pelo-castano', 'zapatos', 'vestido')})
         info['tonos'][t]['px_bordes'] = {k: int((resultados[t][f'bordes-{k}'][..., 3] > 0).sum()) for k in ('pelo-castano', 'zapatos', 'vestido')}
-        dpel = nd.distance_transform_edt(fijas['pelo-delante'][..., 3] > 0)
-        info['tonos'][t]['pelo_tocado_lejos_del_borde_px'] = {kp: int(((abrir(carpeta / f'bordes-pelo-{kp}.png')[..., 3] > 0) & (dpel > 12)).sum()) for kp in pelos_delante}
+        dV = nd.distance_transform_edt(~V)
+        info['tonos'][t]['pelo_tocado_a_mas_de_12px_de_la_piel_px'] = {kp: int(((abrir(carpeta / f'bordes-pelo-{kp}.png')[..., 3] > 0) & (dV > 12) & (cuero == 0)).sum()) for kp in pelos_delante}
     # parches: en el montaje, junto a los ojos y en el borde de las manos, la piel no debe quedar del tono anterior
     for t in TONOS:
         r = resultados[t]; mo = np.array(montar([fijas['pelo-detras'], r['base'], r['ojos-marron'], fijas['zapatos'], r['bordes-zapatos'], fijas['vestido'], r['bordes-vestido'], r['manos'], fijas['pelo-delante'], r['bordes-pelo-castano']])).astype(float)

@@ -85,6 +85,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Profundo no aprobado todavía (16/10, revisión en el iPhone):** corregidos de forma localizada los restos claros del
   nacimiento del pelo (con cada color de pelo), del contorno del ojo y del lagrimal, y el exceso de rojo (medido en la
   lámina). Blancos, iris, colores de pelo y originales sin cambios. Antes y después en `…/piel-tonos/correccion-profundo/`.
+  Corrección 2 (bordes claros con pelirrojo): bordes de los dos pelos junto a toda la piel visible (sienes, orejas,
+  mandíbula, cuello) y filo del cuello del vestido, con los 5 colores de pelo sin cambiarlos; en `correccion-profundo/2-bordes-pelo/`.
 - **Pendiente:** revisión de las capas (los tres tonos); las cejas quedan más claras que la piel en los tonos oscuros (a
   revisar); copia nueva de prueba del juego; 2000 × 3500.
 

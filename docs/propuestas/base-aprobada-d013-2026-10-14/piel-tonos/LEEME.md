@@ -20,6 +20,7 @@ se extrae la muñeca de la lámina ni cambian sus facciones.
 | `comparacion-piel-entera.png`, `comparacion-piel-cara.png`, `comparacion-piel-parpadeo.png` | Los cuatro tonos sobre el conjunto aprobado (entera, cara y ojos cerrados). |
 | `comprobaciones.json` | Cifras. |
 | `correccion-profundo/antes-despues-*.png` | Antes y después de la corrección del 16/10 (profundo): nacimiento del pelo, ojos, lagrimal y cara. |
+| `correccion-profundo/2-bordes-pelo/*.png` | Antes y después de la corrección 2 (bordes con cada color de pelo): sienes y orejas, mandíbula, cuello, frente (5 colores, fondo claro y oscuro), cuello del vestido, ojos y cara. |
 
 Piezas de cada carpeta:
 
@@ -58,6 +59,21 @@ Piezas de cada carpeta:
 | Borde claro en el contorno del ojo | El borde del párpado inferior es un brillo más claro que la piel y se conservaba igual de claro. | Corrección **localizada** en una franja de 7 px alrededor de la abertura (base y capas de ojos): lo más claro que la piel se suaviza en proporción al oscurecimiento ((L_tono/L_claro)²: profundo 0,37). |
 | Nacimiento del pelo claro (y con pelirrojo/rubio) | Los píxeles del borde del pelo de delante mezclan pelo y piel clara; antes se trataba igual con todos los colores de pelo. | Para cada píxel: parte de piel (por su color entre el pelo de alrededor y la piel de debajo) → piel nueva; parte de pelo → **el pelo de alrededor en su color aprobado** (de cada color de pelo). Solo del lado de la cara. El pelo no cambia a más de 12 px de su borde (0 px). |
 | Línea oscura en las sienes (aparecía al corregir) | Franja estrecha del cuero cabelludo de la base que asoma en el borde de la cabeza. | Se cubre con el color del pelo de detrás de alrededor, en la capa de bordes de cada color de pelo. |
+
+**Corrección 2 (16/10, bordes con cada color de pelo):** con piel profunda y pelo pelirrojo seguían viéndose bordes
+claros. Causa: la corrección del pelo solo miraba el nacimiento del pelo de delante (y se paraba a 10 px del contorno de
+la cabeza), así que quedaban los bordes junto a las orejas, la mandíbula y el cuello, y el borde del **pelo de detrás**.
+Ahora:
+- se marca la **piel que se ve de verdad** en el montaje (sin pelo de delante, vestido ni zapatos encima);
+- en los **dos pelos**, los píxeles a menos de 12 px de esa piel (también los casi transparentes) se separan en parte de
+  piel → piel nueva y parte de pelo → el pelo de alrededor **en su color aprobado** (con cada uno de los 5 colores, con el
+  mismo tono de piel). Los colores de pelo no cambian ni se oscurecen: el pelo a más de 12 px de la piel no se toca (0 px);
+- el **cuello del vestido** tenía un filo de 2–3 px con piel clara pegada (se veía como una línea clara sobre la piel
+  oscura): se corrige igual, con el color del vestido de justo dentro.
+- Comprobación automática de «restos de piel clara» (píxeles junto a la piel que siguen con el color de la piel clara
+  original), con piel profunda: castaño 178 → 60, chocolate 223 → 78, oscuro 97 → 6, pelirrojo 88 → 86. Los 86 del
+  pelirrojo (y los del rubio miel) son mechones de su color aprobado, que se parece al de la piel clara: no son restos.
+- Antes (la versión revisada en el iPhone) y después en `correccion-profundo/2-bordes-pelo/`.
 
 Revisado (antes / después, `correccion-profundo/`): nacimiento del pelo con castaño, rubio miel y pelirrojo jengibre
 sobre fondo claro y oscuro; ojos abiertos (verdes, azules, marrones) y cerrados; lagrimales ampliados; cara completa.

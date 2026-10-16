@@ -74,11 +74,11 @@
    "detalle_piel_correlacion": 0.988,
    "ceja_nucleo_cambio_medio": 1.3,
    "px_bordes": {
-    "pelo-castano": 14062,
+    "pelo-castano": 21058,
     "zapatos": 586,
-    "vestido": 456
+    "vestido": 1967
    },
-   "pelo_tocado_lejos_del_borde_px": {
+   "pelo_tocado_a_mas_de_12px_de_la_piel_px": {
     "castano": 0,
     "chocolate": 0,
     "miel": 0,
@@ -117,11 +117,11 @@
    "detalle_piel_correlacion": 0.965,
    "ceja_nucleo_cambio_medio": 2.0,
    "px_bordes": {
-    "pelo-castano": 14106,
+    "pelo-castano": 21108,
     "zapatos": 586,
-    "vestido": 486
+    "vestido": 1991
    },
-   "pelo_tocado_lejos_del_borde_px": {
+   "pelo_tocado_a_mas_de_12px_de_la_piel_px": {
     "castano": 0,
     "chocolate": 0,
     "miel": 0,
@@ -160,11 +160,11 @@
    "detalle_piel_correlacion": 0.889,
    "ceja_nucleo_cambio_medio": 3.1,
    "px_bordes": {
-    "pelo-castano": 14203,
+    "pelo-castano": 21192,
     "zapatos": 586,
-    "vestido": 485
+    "vestido": 1997
    },
-   "pelo_tocado_lejos_del_borde_px": {
+   "pelo_tocado_a_mas_de_12px_de_la_piel_px": {
     "castano": 0,
     "chocolate": 0,
     "miel": 0,

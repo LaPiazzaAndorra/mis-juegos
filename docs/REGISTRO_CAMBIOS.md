@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-16 — D-023: corrección localizada del tono profundo (nacimiento del pelo, lagrimal, contorno del ojo, rojo)
+### 2026-10-16 — D-023: corrección 2 del profundo — bordes de piel con cada color de pelo y cuello del vestido
+
+- **Solicitado por:** la propietaria (piel profunda y pelo pelirrojo: siguen los bordes claros).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `d31d715`, el de la entrada siguiente).
+- **Estado:** corrección hecha; los tres tonos siguen pendientes de revisión. Nada activado ni publicado.
+- **Cambios:**
+  - `piel-tonos/piel_tonos.py`: los bordes de los **dos pelos** junto a la piel que se ve de verdad (no solo el nacimiento
+    del pelo de delante) se separan en parte de piel → piel nueva y parte de pelo → pelo de alrededor en su color aprobado,
+    con cada color de pelo; también los píxeles casi transparentes. El filo del cuello del vestido, igual (con el color
+    del vestido de justo dentro).
+  - Piezas `bordes-pelo-*.png` y `bordes-vestido.png` regeneradas (mismos nombres) en los tres tonos; `comprobaciones.json`.
+  - Nuevo `piel-tonos/correccion-profundo/2-bordes-pelo/` (antes / después).
+  - D-023, `ESTADO_ACTUAL.md` y `piel-tonos/LEEME.md`.
+- **Resultado:** restos de piel clara junto a la piel (profundo): castaño 178 → 60, chocolate 223 → 78, oscuro 97 → 6;
+  con pelirrojo quedan 86 px que son mechones de su color. Pelo tocado a más de 12 px de la piel: 0 px con los 5 colores;
+  colores de pelo, blancos e iris sin cambios; alfa idéntico.
+- **Datos guardados afectados:** ninguno. Originales aprobados, juego, `sw.js`, `main`, partidas y las pruebas D-016 y
+  D-021 sin cambios.
+- **Pruebas:** antes/después con los 5 colores de pelo y la misma piel profunda, fondo claro y oscuro; visor en Chromium
+  sin errores ni almacenamiento. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `d31d715` · D-023: corrección localizada del tono profundo (nacimiento del pelo, lagrimal, contorno del ojo, rojo)
 
 - **Solicitado por:** la propietaria (revisión en su iPhone: no aprueba todavía el profundo).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `80d6e2e`, el de la entrada siguiente).

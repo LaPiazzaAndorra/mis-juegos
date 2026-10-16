@@ -21,6 +21,10 @@
     de pelo aprobados, comprobada con ojos abiertos y cerrados, pelo rubio y castaño y fondo claro y oscuro, y con el
     antes y el después. Hecha (`piel-tonos/LEEME.md`, «Corrección del 16/10»; imágenes en `piel-tonos/correccion-profundo/`).
   - El profundo y los demás tonos siguen **pendientes de revisión**; los originales aprobados no cambian.
+- **16/10/2026 (3):** con piel profunda y pelo pelirrojo siguen apareciendo bordes claros. La propietaria pide revisar la
+  corrección de la piel que se mezcla con los bordes de cada color de pelo, con el mismo tono de piel, sin cambiar ni
+  oscurecer los colores de pelo aprobados. Hecho (corrección 2, `piel-tonos/LEEME.md`): los dos pelos y el cuello del
+  vestido, junto a la piel que se ve. Sigue **pendiente de revisión**.
 
 ## D-022 · Tonos de pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre aprobados · 16/10/2026
 - **Decisión de la propietaria:** aprueba los tonos de la segunda lámina,
