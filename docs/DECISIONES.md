@@ -14,6 +14,13 @@
   parpadeo).
 - **Límites:** no se activa en el juego, no se publica y no cambian `main`, las partidas ni las pruebas congeladas.
 - **Pendiente:** revisión de las capas; copia nueva de prueba del juego; 2000 × 3500.
+- **16/10/2026 (2):** la propietaria **no aprueba todavía el tono profundo**: en el iPhone ve restos claros en el
+  nacimiento del pelo (también con el pelo pelirrojo) y en el contorno del ojo junto al lagrimal, y la piel, las orejas
+  y los labios demasiado rojizos.
+  - Pide una corrección localizada, sin oscurecer los blancos ni cambiar los iris, sin cambiar ni oscurecer los colores
+    de pelo aprobados, comprobada con ojos abiertos y cerrados, pelo rubio y castaño y fondo claro y oscuro, y con el
+    antes y el después. Hecha (`piel-tonos/LEEME.md`, «Corrección del 16/10»; imágenes en `piel-tonos/correccion-profundo/`).
+  - El profundo y los demás tonos siguen **pendientes de revisión**; los originales aprobados no cambian.
 
 ## D-022 · Tonos de pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre aprobados · 16/10/2026
 - **Decisión de la propietaria:** aprueba los tonos de la segunda lámina,

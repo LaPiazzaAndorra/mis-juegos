@@ -60,7 +60,7 @@ El juego sigue usando la muñeca anterior (V2.1). Las decisiones completas está
 | Ojos azul, verde y lila de fantasía (solo cambia el color de los iris) | D-020 | **Variantes aprobadas visualmente**; marrones por defecto; integración en una copia nueva del juego. |
 | Pintacaras «Estrellas y brillo» (capa aparte, solo los adornos) | D-021 | **Diseño y encaje aprobados visualmente**; se pone y se quita («Sin pintacaras» por defecto en el visor). |
 | Pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre (solo cambia el color de nuestras capas) | D-022 | **Variantes aprobadas visualmente**; castaño original por defecto. Cejas a juego **aprobadas visualmente** (por defecto en el visor; se conservan las originales). |
-| Piel claro (original), dorado, moreno y profundo (solo cambia la piel de nuestras piezas) | D-023 | **Referencia aprobada**; capas en el visor **pendientes de revisión**; claro por defecto. |
+| Piel claro (original), dorado, moreno y profundo (solo cambia la piel de nuestras piezas) | D-023 | **Referencia aprobada**; capas en el visor **pendientes de revisión** (el profundo, corregido tras la revisión en el iPhone); claro por defecto. |
 | **Prueba aislada nueva: 4 colores de ojos + pintacaras** (`docs/propuestas/prueba-juego-d021/`) | D-021 | Preparada y probada en Chromium (19/19); **pendiente de probar en el iPhone**. Datos propios (`d021:`). |
 
 **Siempre pendiente** hasta que se diga lo contrario:

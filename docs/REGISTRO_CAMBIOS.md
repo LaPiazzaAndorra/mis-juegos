@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-16 — D-023: tonos de piel dorado, moreno y profundo en el visor (capas pendientes de revisión)
+### 2026-10-16 — D-023: corrección localizada del tono profundo (nacimiento del pelo, lagrimal, contorno del ojo, rojo)
+
+- **Solicitado por:** la propietaria (revisión en su iPhone: no aprueba todavía el profundo).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `80d6e2e`, el de la entrada siguiente).
+- **Estado:** corrección hecha; los tres tonos siguen pendientes de revisión. Nada activado ni publicado.
+- **Cambios:**
+  - `piel-tonos/piel_tonos.py`: lo rojizo se conserva en la proporción medida en la lámina (0,75 / 0,67 / 0,42); lagrimal
+    tratado como piel; brillos del contorno del ojo suavizados (franja de 7 px); nacimiento del pelo separando la parte de
+    piel y la de pelo (pelo de alrededor, en su color aprobado), solo del lado de la cara; franja de cuero cabelludo del
+    borde de la cabeza cubierta con el pelo de detrás.
+  - Piezas regeneradas en `piel-tonos/dorado|moreno|profundo/` (mismos nombres) y `comprobaciones.json`.
+  - Nuevo `piel-tonos/correccion-profundo/` con el antes y el después.
+  - D-023 actualizada; `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de piel y visor.
+- **Resultado:** blancos cambiados fuera del lagrimal 0 px (los 236 px rosados del lagrimal, sí); pelo tocado a más de
+  12 px del borde 0 px (con los 5 colores); alfa idéntico; ropa de la base igual; fuentes sin cambios.
+- **Datos guardados afectados:** ninguno. Originales aprobados, juego, `sw.js`, `main`, partidas y las pruebas D-016 y
+  D-021 sin cambios.
+- **Pruebas:** comprobaciones de `comprobaciones.json`; antes/después con castaño, rubio miel y pelirrojo, ojos abiertos y
+  cerrados, fondo claro y oscuro; visor en Chromium sin errores ni almacenamiento y a tamaño real (≤ 3). No probado en
+  un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `80d6e2e` · D-023: tonos de piel dorado, moreno y profundo en el visor (capas pendientes de revisión)
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `7aab673`, el de la entrada siguiente).

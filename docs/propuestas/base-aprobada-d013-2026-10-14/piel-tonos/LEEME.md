@@ -3,6 +3,11 @@
 > **D-023:** la **lámina de referencia** está aprobada por la propietaria. **Las capas quedan pendientes de revisión.**
 > Solo están en el visor (fila «Piel», con el **claro original por defecto**). Nada activado en el juego; las pruebas
 > congeladas, `main` y las partidas no cambian.
+>
+> **16/10/2026 (2):** la propietaria **no aprueba todavía el profundo** (en el iPhone: restos claros en el nacimiento
+> del pelo —también con el pelo pelirrojo— y en el contorno del ojo junto al lagrimal; piel, orejas y labios demasiado
+> rojizos). Hecha una **corrección localizada** (abajo, «Corrección del 16/10»), con el antes y el después en
+> `correccion-profundo/`. Se aplica con el mismo programa a los tres tonos; dorado y moreno siguen pendientes de revisión.
 
 Son variantes de **nuestras piezas originales** (que no se modifican) en las que **solo cambia el color de la piel**. No
 se extrae la muñeca de la lámina ni cambian sus facciones.
@@ -14,6 +19,7 @@ se extrae la muñeca de la lámina ni cambian sus facciones.
 | `dorado/`, `moreno/`, `profundo/` | Las piezas de cada tono (948 × 1659, mismo lienzo y posición que las originales; ver abajo). |
 | `comparacion-piel-entera.png`, `comparacion-piel-cara.png`, `comparacion-piel-parpadeo.png` | Los cuatro tonos sobre el conjunto aprobado (entera, cara y ojos cerrados). |
 | `comprobaciones.json` | Cifras. |
+| `correccion-profundo/antes-despues-*.png` | Antes y después de la corrección del 16/10 (profundo): nacimiento del pelo, ojos, lagrimal y cara. |
 
 Piezas de cada carpeta:
 
@@ -37,12 +43,24 @@ Piezas de cada carpeta:
    - **luminosidad:** se desplaza a la del tono y se escala con su dispersión, así se conservan las sombras y el
      volumen;
    - **color:** el color medio pasa al del tono; la variación de cada píxel (rubor, labios, pecas, nariz, orejas) se
-     conserva, girada con el tono y proporcional a la luminosidad nueva (en una piel más oscura la misma diferencia se
-     ve más fuerte; así no se enrojecen);
+     conserva, girada con el tono y en la proporción medida en la lámina (dorado 0,75, moreno 0,67, profundo 0,42);
    - si un color no cabe en la pantalla, se le baja un poco la saturación (no se recorta).
 3. **Mezclas de piel con otra cosa** (borde de la ropa, de las pestañas, del blanco del ojo, nacimiento del pelo,
    cejas): solo cambia la parte de piel que lleva cada píxel. Así no quedan parches ni halos del tono anterior.
 4. **El canal alfa no cambia** en ninguna pieza.
+
+## Corrección del 16/10 (tras la revisión en el iPhone)
+
+| Problema | Causa (en las capas reales) | Corrección |
+| --- | --- | --- |
+| Piel, orejas y labios rojizos | Se conservaba demasiada diferencia de color en lo rojizo (rubor, orejas, labios). | Se **mide en la lámina** cuánto se conserva en cada tono, en los mismos sitios: dorado 0,75, moreno 0,67, **profundo 0,42**. |
+| Restos claros junto al lagrimal | El rosa pálido del lagrimal (capa de ojos abiertos) se tomaba por blanco y no cambiaba. | En el extremo de cada ojo hacia la nariz (14 px), lo que tiene algo de color es piel. **Los blancos y los iris no cambian** (0 px de blanco cambiados fuera del lagrimal; 236 px rosados del lagrimal sí). |
+| Borde claro en el contorno del ojo | El borde del párpado inferior es un brillo más claro que la piel y se conservaba igual de claro. | Corrección **localizada** en una franja de 7 px alrededor de la abertura (base y capas de ojos): lo más claro que la piel se suaviza en proporción al oscurecimiento ((L_tono/L_claro)²: profundo 0,37). |
+| Nacimiento del pelo claro (y con pelirrojo/rubio) | Los píxeles del borde del pelo de delante mezclan pelo y piel clara; antes se trataba igual con todos los colores de pelo. | Para cada píxel: parte de piel (por su color entre el pelo de alrededor y la piel de debajo) → piel nueva; parte de pelo → **el pelo de alrededor en su color aprobado** (de cada color de pelo). Solo del lado de la cara. El pelo no cambia a más de 12 px de su borde (0 px). |
+| Línea oscura en las sienes (aparecía al corregir) | Franja estrecha del cuero cabelludo de la base que asoma en el borde de la cabeza. | Se cubre con el color del pelo de detrás de alrededor, en la capa de bordes de cada color de pelo. |
+
+Revisado (antes / después, `correccion-profundo/`): nacimiento del pelo con castaño, rubio miel y pelirrojo jengibre
+sobre fondo claro y oscuro; ojos abiertos (verdes, azules, marrones) y cerrados; lagrimales ampliados; cara completa.
 
 ## Comprobaciones (`comprobaciones.json`)
 

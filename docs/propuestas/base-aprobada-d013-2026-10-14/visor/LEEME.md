@@ -102,3 +102,5 @@ ojos abiertos (del color elegido) y cerrados, las manos, las cejas a juego y tre
 delante, cuello del vestido y zapatos), que solo se ven si se ve la capa a la que acompañan. Probado con los colores de
 ojos y de pelo, cejas, camiseta, descalza, otro pelo de delante y parpadeo: sin errores ni almacenamiento; a tamaño real
 coincide con el montaje en lo opaco (≤ 3).
+**16/10/2026 (9) · D-023:** el visor no cambia; se han regenerado las piezas de los tonos de piel (corrección
+localizada del profundo, aplicada también a dorado y moreno). Sin errores; a tamaño real coincide con el montaje (≤ 3).

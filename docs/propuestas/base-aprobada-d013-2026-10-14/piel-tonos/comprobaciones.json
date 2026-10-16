@@ -56,6 +56,8 @@
    "giro_tono": -0.8,
    "croma_claro": 34.7,
    "croma_tono": 48.3,
+   "rojizo_conservado": 0.75,
+   "claros_en_contorno_de_ojos": 0.79,
    "frente_L_mediana": 195.0,
    "lamina_L_mediana": 187.0,
    "frente_L_original": 219.0,
@@ -63,15 +65,25 @@
    "ropa_de_la_base_igual": true,
    "alfa_identico": true,
    "ojos_fuera_de_la_piel_igual": true,
+   "blancos_cambiados_fuera_del_lagrimal_px": 0,
+   "blancos_px": 1827,
+   "lagrimal_rosado_cambiado_px": 236,
    "cerrados_fuera_de_la_piel_igual": true,
-   "px_piel_ojos_abiertos": 5207,
+   "px_piel_ojos_abiertos": 5261,
    "px_piel_ojos_cerrados": 25503,
    "detalle_piel_correlacion": 0.988,
    "ceja_nucleo_cambio_medio": 1.3,
    "px_bordes": {
-    "pelo-castano": 11227,
+    "pelo-castano": 14062,
     "zapatos": 586,
     "vestido": 456
+   },
+   "pelo_tocado_lejos_del_borde_px": {
+    "castano": 0,
+    "chocolate": 0,
+    "miel": 0,
+    "oscuro": 0,
+    "jengibre": 0
    },
    "borde_ojos_L_piel_capa_vs_base": [
     188.0,
@@ -87,6 +99,8 @@
    "giro_tono": -3.0,
    "croma_claro": 34.7,
    "croma_tono": 50.8,
+   "rojizo_conservado": 0.67,
+   "claros_en_contorno_de_ojos": 0.64,
    "frente_L_mediana": 178.0,
    "lamina_L_mediana": 169.0,
    "frente_L_original": 219.0,
@@ -94,15 +108,25 @@
    "ropa_de_la_base_igual": true,
    "alfa_identico": true,
    "ojos_fuera_de_la_piel_igual": true,
+   "blancos_cambiados_fuera_del_lagrimal_px": 0,
+   "blancos_px": 1827,
+   "lagrimal_rosado_cambiado_px": 236,
    "cerrados_fuera_de_la_piel_igual": true,
-   "px_piel_ojos_abiertos": 5207,
+   "px_piel_ojos_abiertos": 5261,
    "px_piel_ojos_cerrados": 25503,
    "detalle_piel_correlacion": 0.965,
    "ceja_nucleo_cambio_medio": 2.0,
    "px_bordes": {
-    "pelo-castano": 11436,
+    "pelo-castano": 14106,
     "zapatos": 586,
-    "vestido": 487
+    "vestido": 486
+   },
+   "pelo_tocado_lejos_del_borde_px": {
+    "castano": 0,
+    "chocolate": 0,
+    "miel": 0,
+    "oscuro": 0,
+    "jengibre": 0
    },
    "borde_ojos_L_piel_capa_vs_base": [
     170.0,
@@ -118,6 +142,8 @@
    "giro_tono": -6.7,
    "croma_claro": 34.7,
    "croma_tono": 48.3,
+   "rojizo_conservado": 0.42,
+   "claros_en_contorno_de_ojos": 0.37,
    "frente_L_mediana": 138.0,
    "lamina_L_mediana": 129.0,
    "frente_L_original": 219.0,
@@ -125,15 +151,25 @@
    "ropa_de_la_base_igual": true,
    "alfa_identico": true,
    "ojos_fuera_de_la_piel_igual": true,
+   "blancos_cambiados_fuera_del_lagrimal_px": 0,
+   "blancos_px": 1827,
+   "lagrimal_rosado_cambiado_px": 236,
    "cerrados_fuera_de_la_piel_igual": true,
-   "px_piel_ojos_abiertos": 5207,
+   "px_piel_ojos_abiertos": 5261,
    "px_piel_ojos_cerrados": 25503,
    "detalle_piel_correlacion": 0.889,
    "ceja_nucleo_cambio_medio": 3.1,
    "px_bordes": {
-    "pelo-castano": 11547,
+    "pelo-castano": 14203,
     "zapatos": 586,
-    "vestido": 483
+    "vestido": 485
+   },
+   "pelo_tocado_lejos_del_borde_px": {
+    "castano": 0,
+    "chocolate": 0,
+    "miel": 0,
+    "oscuro": 0,
+    "jengibre": 0
    },
    "borde_ojos_L_piel_capa_vs_base": [
     130.0,
