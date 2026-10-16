@@ -5,6 +5,7 @@ propietaria. Se aplican sobre `avatar-creador` con `git apply <archivo>.patch`.
 
 | Archivo | Qué es | Estado |
 | --- | --- | --- |
+| `peinado-coleta-2026-10-16/` | Peinado nuevo: coleta alta rizada con cinta lila. Referencia, capas (pelo delante, pelo detrás, cinta) y guía para completar el pelo bajo la cinta. | **Peinado aprobado (D-025)**; encaje candidato; en el visor. |
 | `accesorios-2026-10-16/` | Segunda colección de accesorios de pelo: láminas de referencia, capas del lazo, las flores y la mariposa, y guía para pedir de frente la diadema, la cinta y los gorros. | **Diseño aprobado (D-024)**; lazo, flores y mariposa aprobados visualmente; diadema aprobada visualmente; cinta y gorros pendientes. |
 | `prueba-juego-d023/` | Copia aislada nueva con las 4 pieles, los 5 colores de pelo con cejas a juego, los 4 colores de ojos y el pintacaras, con datos propios (`d023:`). | Probada en Chromium (18/18); **pendiente de probar en el iPhone**; no publicada. |
 | `prueba-juego-d021/` | Copia aislada nueva de la versión de pruebas con el conjunto de D-019, los 4 colores de ojos y el pintacaras, con datos propios (`d021:`). | Probada en Chromium (19/19); **pendiente de probar en el iPhone**; no publicada. |

@@ -1,5 +1,17 @@
 # Registro de decisiones
 
+## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
+- **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva
+  lila. La melena suelta se conserva como otra opción». Referencia (generada, sin modificar):
+  `docs/propuestas/peinado-coleta-2026-10-16/referencias/referencia-coleta-cinta-aprobada.png`.
+- **Cómo:** separar el pelo de delante, el de detrás y la cinta, para poder ponerla y quitarla; bajo la cinta debe haber
+  pelo completo (si la imagen no lo permite, guía para completarlo en ChatGPT). Adaptar las piezas a nuestra base, sin
+  sustituir la cara, el cuerpo ni el vestido.
+- **Estado:** peinado aprobado; **encaje candidato** en el visor, pendiente de aprobación. Bajo la cinta **no hay pelo**
+  en la imagen: guía para completarlo en `peinado-coleta-2026-10-16/guia-chatgpt/`; hasta entonces, la coleta va con la
+  cinta.
+- **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en

@@ -1,0 +1,21 @@
+{
+ "escala": 0.731,
+ "px": {
+  "detras": 205223,
+  "delante": 46602,
+  "cinta": 37960
+ },
+ "pelo_sobre_nuestros_ojos_px": 24,
+ "cinta_sobre_nuestros_ojos_px": 0,
+ "craneo_cubierto_por_pelo_o_cinta": 0.716,
+ "craneo_visible_como_frente_px": 13739,
+ "fondo_de_la_imagen_sobre_nuestra_cabeza_px": 749,
+ "bajo_la_cinta_sin_pelo_px": 37960,
+ "sha256_fuentes": {
+  "docs/propuestas/peinado-coleta-2026-10-16/referencias/referencia-coleta-cinta-aprobada.png": "8ac66fe33a0c8c9f6bceb142719972db34a1b58ad6abad5edc11365489264a6b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-cerrados/capa-ojos-cerrados-prueba-v21.png": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713"
+ },
+ "fuentes_sin_cambios": true
+}

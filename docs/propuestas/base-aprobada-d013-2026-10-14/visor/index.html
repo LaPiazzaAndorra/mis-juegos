@@ -51,6 +51,7 @@
 
 <div id="escena" aria-label="Muñeca">
   <div id="lienzo">
+    <img id="c-coleta-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/pelo-coleta-detras.png">
     <img id="c-pelo-detras" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png">
     <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
     <img id="c-cejas" class="oculto" alt="" src="../cejas-colores/cejas-chocolate.png">
@@ -71,6 +72,8 @@
     <img id="c-pelo-delante-mc" class="pelo-delante" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
     <img id="c-bordes-pelo" class="oculto" alt="" src="../piel-tonos/dorado/bordes-pelo-castano.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
+    <img id="c-coleta-delante" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/pelo-coleta-delante.png">
+    <img id="c-coleta-cinta" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/cinta-coleta.png">
     <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
     <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
     <img id="c-acc-mariposa" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-mariposa.png">
@@ -130,6 +133,11 @@
     <b>Pintacaras</b>
     <button data-pintacaras="no" aria-pressed="true">Sin pintacaras</button>
     <button data-pintacaras="si" aria-pressed="false">Estrellas y brillo (aprobado)</button>
+  </div>
+  <div class="fila">
+    <b>Peinado</b>
+    <button data-peinado="melena" aria-pressed="true">Melena suelta (aprobada)</button>
+    <button data-peinado="coleta" aria-pressed="false">Coleta rizada con cinta (candidata)</button>
   </div>
   <div class="fila">
     <b>Color de pelo</b>
@@ -431,6 +439,28 @@
   });
   // cualquier otro botón (ropa, zapatos, pelo, capas…) puede cambiar qué se ve: los bordes lo siguen
   document.getElementById('controles').addEventListener('click', function () { bordes(); });
+
+  // --- peinado (D-025): la coleta con cinta es candidata; por ahora solo con piel clara y pelo castaño, sin accesorio de
+  // pelo ni corona (están colocados para la melena). La cinta todavía no se puede quitar: falta el pelo de debajo. --------
+  var peinado = 'melena';
+  function elegirPeinado(p) {
+    peinado = p; var col = p === 'coleta';
+    ['c-coleta-detras', 'c-coleta-delante', 'c-coleta-cinta'].forEach(function (id) { document.getElementById(id).classList.toggle('oculto', !col); });
+    document.getElementById('c-pelo-detras').classList.toggle('oculto', col);
+    if (col) {
+      ['[data-piel="claro"]', '[data-pelo-color="castano"]', '[data-acc-pelo="ninguno"]', '[data-corona="no"]'].forEach(function (s) { document.querySelector(s).click(); });
+      document.querySelectorAll('img.pelo-delante').forEach(function (im) { im.classList.add('oculto'); });
+    } else { mostrarPelo(); }
+    bordes();
+    document.querySelectorAll('[data-peinado]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peinado === p)); });
+  }
+  document.querySelectorAll('[data-peinado]').forEach(function (b) { b.addEventListener('click', function () { elegirPeinado(b.dataset.peinado); }); });
+  // con la coleta, elegir otra piel, otro color, otro pelo de delante o un accesorio vuelve a la melena
+  document.getElementById('controles').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b || peinado !== 'coleta') return;
+    var d = b.dataset;
+    if ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano') || d.peloOp || (d.accPelo && d.accPelo !== 'ninguno') || d.corona === 'si') elegirPeinado('melena');
+  }, true);
 
   // --- carga: se espera a todas las capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)
   var imgs = Array.prototype.slice.call(lienzo.querySelectorAll('img')), pendientes = imgs.length, fallos = [];

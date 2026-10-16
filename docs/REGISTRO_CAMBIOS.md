@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-16 — D-024 actualizada: diadema aprobada visualmente; etiqueta «aprobada» en el visor
+### 2026-10-16 — D-025: peinado nuevo «coleta rizada con cinta» (aprobado) como candidato en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `8a9eaef`, el de la entrada siguiente).
+- **Estado:** peinado aprobado; encaje candidato; falta el pelo bajo la cinta. Nada activado ni publicado.
+- **Cambios:**
+  - Nueva carpeta `docs/propuestas/peinado-coleta-2026-10-16/`: la referencia (sin modificar), `coleta.py`, `capas/`
+    (pelo detrás, pelo delante, cinta, comparación, regiones y `comprobaciones.json`), `guia-chatgpt/` y `LEEME.md`.
+  - Visor: fila «Peinado» («Melena suelta (aprobada)» por defecto).
+  - D-025 en `DECISIONES.md`; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los
+    `LEEME.md` de propuestas y visor.
+- **Resultado:** solo pelo y cinta de la imagen (sin cara, cuerpo ni vestido), escala 0,731 por los ojos; cubren nuestra
+  cabeza sin tapar los ojos; bajo la cinta no hay pelo (37 960 px): guía para ChatGPT.
+- **Datos guardados afectados:** ninguno. Muñeca, juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** comprobaciones de `comprobaciones.json`; visor en Chromium (iPhone simulado) con la coleta, el parpadeo y
+  vuelta a la melena, sin errores ni almacenamiento; a tamaño real (≤ 3). No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `8a9eaef` · D-024 actualizada: diadema aprobada visualmente; etiqueta «aprobada» en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `1d8f22d`, el de la entrada siguiente).

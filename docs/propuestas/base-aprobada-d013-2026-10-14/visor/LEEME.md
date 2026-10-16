@@ -114,3 +114,7 @@ sigue abriendo con «Sin accesorio». No cambia el visor.
 revisión). Al elegirla se quita la corona (van en el mismo sitio); se puede volver a poner. Sin errores ni almacenamiento.
 **16/10/2026 (13) · D-024:** diadema aprobada visualmente: el botón pasa a «Diadema de estrellas (aprobada)». «Sin
 accesorio» sigue por defecto y al elegir la diadema se sigue quitando la corona (se puede volver a poner).
+**16/10/2026 (14) · D-025:** fila «Peinado» («Melena suelta (aprobada)» por defecto · «Coleta rizada con cinta
+(candidata)»). La coleta cambia las capas de pelo (detrás, delante y cinta) y, por ahora, solo va con piel clara, pelo
+castaño, sin accesorio ni corona; elegir otra cosa vuelve a la melena. Sin errores ni almacenamiento; a tamaño real
+coincide con el montaje (≤ 3).
