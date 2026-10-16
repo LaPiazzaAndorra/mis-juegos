@@ -1,0 +1,42 @@
+{
+ "extraccion": {
+  "extremos_arco": [
+   [
+    383,
+    398
+   ],
+   [
+    1013,
+    414
+   ]
+  ],
+  "px_linea_arco": 743,
+  "px": 15714
+ },
+ "encaje": {
+  "escala": 0.6797,
+  "esquina": [
+   244.2,
+   129.3
+  ]
+ },
+ "caja": [
+  258,
+  141,
+  690,
+  283
+ ],
+ "px": 7183,
+ "solape_piel_visible_px": 0,
+ "solape_corona_px": 2854,
+ "sobre_el_pelo": 1.0,
+ "fuera_del_pelo_px": 0,
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/diadema/referencia-diadema-de-frente-aprobada.png": "1a1a4aee0b6ac3def5bf23cd2ddc377d54eef32375fd4646e8e22d2be1d9a786",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png": "c607253802ab89a019cbe5c10173572dc17aeadc92c2f89082c3bff7b45a952f"
+ },
+ "fuentes_sin_cambios": true
+}

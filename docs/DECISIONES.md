@@ -17,6 +17,13 @@
   colocados** (`accesorios-2026-10-16/capas/capa-*.png`, commit `1b61877`). En el visor, **«Sin accesorio» sigue por
   defecto**. Siguen pendientes la versión de frente de la diadema, la cinta y los gorros (guía para ChatGPT), su
   encaje, una copia nueva de prueba del juego y 2000 × 3500.
+- **16/10/2026 (3):** la propietaria **aprueba la diadema de frente, con las estrellas a un lado** (imagen generada en
+  ChatGPT con la guía, `accesorios-2026-10-16/diadema/referencia-diadema-de-frente-aprobada.png`, sin modificar).
+  - Extraídos solo el arco, las estrellas y las perlas, sin pelo ni piel de esa imagen; colocada sobre nuestra muñeca con
+    la escala de los ojos (`diadema/capa-diadema.png`). La muñeca no cambia.
+  - En el visor como **candidata**; **el encaje queda pendiente de revisión**. Diadema y corona se solapan: al elegir la
+    diadema se quita la corona (se puede volver a poner).
+  - Siguen pendientes la cinta, la gorra, el sombrero y el gorrito (versión de frente).
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

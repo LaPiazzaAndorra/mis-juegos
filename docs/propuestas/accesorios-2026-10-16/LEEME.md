@@ -6,6 +6,9 @@
 >
 > **16/10/2026 (2):** el **lazo, el pasador de flores y la mariposa están aprobados visualmente tal como están colocados**.
 > En el visor, «Sin accesorio» sigue por defecto. Pendientes: diadema, cinta y gorros (versión de frente).
+>
+> **16/10/2026 (3):** **diadema de frente aprobada** (diseño); capa extraída en `diadema/` y en el visor como candidata,
+> **encaje pendiente de revisión** (ver `diadema/LEEME.md`). Pendientes: cinta y gorros.
 
 ## Referencias (`referencias/`, sin modificar)
 
@@ -57,5 +60,6 @@ medidas (`plantilla-medidas.png`).
 
 ## Pendiente
 
-- La versión de frente de la diadema, la cinta y los gorros (ChatGPT, con la guía) y su encaje.
+- Revisión del encaje de la diadema (`diadema/`).
+- La versión de frente de la cinta y los gorros (ChatGPT, con la guía) y su encaje.
 - Después: copia nueva de prueba del juego; 2000 × 3500.

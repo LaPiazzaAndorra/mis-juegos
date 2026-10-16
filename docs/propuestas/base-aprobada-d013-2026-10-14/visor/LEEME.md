@@ -110,3 +110,5 @@ con y sin corona y con otra piel y otro color de pelo: sin errores ni almacenami
 montaje en lo opaco (≤ 3).
 **16/10/2026 (11) · D-024:** lazo, pasador de flores y mariposa aprobados visualmente tal como están colocados; el visor
 sigue abriendo con «Sin accesorio». No cambia el visor.
+**16/10/2026 (12) · D-024:** «Diadema de estrellas (candidata)» en la fila «Accesorio de pelo» (encaje pendiente de
+revisión). Al elegirla se quita la corona (van en el mismo sitio); se puede volver a poner. Sin errores ni almacenamiento.
