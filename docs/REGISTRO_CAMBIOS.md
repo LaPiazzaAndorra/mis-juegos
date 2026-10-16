@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-16 — D-025 actualizada: coleta con cinta aprobada visualmente; melena por defecto
+### 2026-10-16 — D-025: revisión de las uniones del pelo sin cinta (fallan; marcadas, sin integrar)
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `e93d813`, el de la entrada siguiente).
+- **Estado:** la propuesta de pelo sin cinta está alineada, pero con el margen mínimo las uniones fallan; se marcan y
+  **no se integran**. Nada activado ni publicado.
+- **Cambios:**
+  - `peinado-coleta-2026-10-16/referencias/referencia-coleta-sin-cinta.png` (sin modificar), `revisar_uniones.py` y
+    `uniones/` (`uniones-marcadas.png`, `uniones.json`).
+  - D-025, `ESTADO_ACTUAL.md` y el `LEEME.md` del peinado. Capas aprobadas y visor sin cambios.
+- **Resultado:** desplazamiento < 0,3 px; uniones que fallan: abajo 98 %, arriba 32 %, puntas 52 %, 14 px de restos lila.
+  Sobre la frente las imágenes coinciden a partir de 15–20 px bajo la cinta.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** `revisar_uniones.py`; comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `e93d813` · D-025 actualizada: coleta con cinta aprobada visualmente; melena por defecto
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `cca9f34`, el de la entrada siguiente).

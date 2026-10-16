@@ -15,6 +15,12 @@
   `cca9f34`). **La melena suelta sigue siendo la opción predeterminada.** Siguen pendientes: quitar la cinta (pelo bajo
   la cinta, guía para ChatGPT) y adaptar la coleta a los colores de pelo y a los tonos de piel. Originales, `main`,
   partidas y pruebas congeladas sin cambios.
+- **16/10/2026 (3):** llega la **propuesta de pelo sin la cinta** (generada en ChatGPT con la guía,
+  `referencias/referencia-coleta-sin-cinta.png`, sin modificar). Alineación comprobada (desplazamiento < 0,3 px; cara y
+  fondo iguales). Se toma solo el pelo de la zona de la cinta con un margen mínimo (3 px) y se **revisan las uniones
+  antes de integrarlo**: **fallan** (la de abajo, sobre la frente, en el 98 %; la de arriba en el 32 %; las puntas en el
+  52 %; quedan 14 px de restos lila). **Marcadas** en `uniones/uniones-marcadas.png`; **no se integra** ni se añade al
+  visor la opción de quitar la cinta. Capas aprobadas sin cambios.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,

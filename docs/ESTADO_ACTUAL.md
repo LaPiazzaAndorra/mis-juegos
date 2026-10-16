@@ -114,6 +114,9 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   (sin tomar cara, cuerpo ni vestido); fila «Peinado» en el visor. **Encaje aprobado visualmente (16/10).**
 - Bajo la cinta no hay pelo en la imagen: guía para completarlo en ChatGPT (`…/peinado-coleta-2026-10-16/guia-chatgpt/`).
   Por ahora, solo con piel clara y pelo castaño (pendiente adaptar colores y pieles).
+- **Pelo sin cinta (16/10):** propuesta de ChatGPT alineada; con margen mínimo **las uniones fallan** (abajo 98 %,
+  arriba 32 %, puntas 52 %); marcadas en `…/peinado-coleta-2026-10-16/uniones/`. No integrado; pendiente decidir si se
+  amplía la zona (unos 15–20 px por abajo).
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
