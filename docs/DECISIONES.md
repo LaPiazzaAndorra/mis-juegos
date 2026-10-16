@@ -11,6 +11,10 @@
   en la imagen: guía para completarlo en `peinado-coleta-2026-10-16/guia-chatgpt/`; hasta entonces, la coleta va con la
   cinta.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+- **16/10/2026 (2):** la propietaria **aprueba visualmente la coleta con cinta sobre nuestra muñeca** (`capas/`, commit
+  `cca9f34`). **La melena suelta sigue siendo la opción predeterminada.** Siguen pendientes: quitar la cinta (pelo bajo
+  la cinta, guía para ChatGPT) y adaptar la coleta a los colores de pelo y a los tonos de piel. Originales, `main`,
+  partidas y pruebas congeladas sin cambios.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,

@@ -118,3 +118,5 @@ accesorio» sigue por defecto y al elegir la diadema se sigue quitando la corona
 (candidata)»). La coleta cambia las capas de pelo (detrás, delante y cinta) y, por ahora, solo va con piel clara, pelo
 castaño, sin accesorio ni corona; elegir otra cosa vuelve a la melena. Sin errores ni almacenamiento; a tamaño real
 coincide con el montaje (≤ 3).
+**16/10/2026 (15) · D-025:** coleta con cinta aprobada visualmente: el botón pasa a «Coleta rizada con cinta (aprobada)».
+La melena suelta sigue por defecto; el resto del comportamiento no cambia.

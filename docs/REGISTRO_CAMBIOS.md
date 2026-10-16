@@ -1,6 +1,20 @@
 # Registro de cambios
 
-### 2026-10-16 — D-025: peinado nuevo «coleta rizada con cinta» (aprobado) como candidato en el visor
+### 2026-10-16 — D-025 actualizada: coleta con cinta aprobada visualmente; melena por defecto
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `cca9f34`, el de la entrada siguiente).
+- **Estado:** encaje de la coleta con cinta aprobado visualmente; melena suelta por defecto. Pendientes: quitar la cinta
+  y adaptar colores y pieles. Nada activado ni publicado.
+- **Cambios:** visor (etiqueta «Coleta rizada con cinta (aprobada)»); D-025, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de propuestas, peinado y visor. Ninguna imagen cambia.
+- **Datos guardados afectados:** ninguno. Originales, juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (melena por defecto; coleta y vuelta a la melena; sin errores); comprobador de
+  documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `cca9f34` · D-025: peinado nuevo «coleta rizada con cinta» (aprobado) como candidato en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `8a9eaef`, el de la entrada siguiente).

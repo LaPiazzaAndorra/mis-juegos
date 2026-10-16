@@ -3,6 +3,9 @@
 > **D-025:** la propietaria **aprueba la propuesta como peinado nuevo**. La **melena suelta se conserva** como otra opción
 > (y sigue por defecto). **El encaje es candidato**, pendiente de aprobación. Nada activado en el juego; las pruebas
 > congeladas, `main` y las partidas no cambian.
+>
+> **16/10/2026 (2): encaje de la coleta con cinta aprobado visualmente.** La melena suelta sigue por defecto. Pendientes:
+> quitar la cinta (pelo bajo la cinta) y adaptar colores de pelo y tonos de piel.
 
 | Archivo | Qué es |
 | --- | --- |
@@ -44,12 +47,11 @@ añadirá solo el pelo de esa zona. Hasta entonces, en el visor la coleta va **s
 
 ## En el visor
 
-Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada con cinta (candidata)**. Por ahora la coleta
+Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada con cinta (aprobada)**. Por ahora la coleta
 es solo con **piel clara y pelo castaño**, y sin accesorio de pelo ni corona (están colocados para la melena); elegir
 otra piel, otro color, otro pelo de delante o un accesorio vuelve a la melena. El parpadeo funciona igual.
 
 ## Pendiente
 
-- Revisión del encaje (candidato).
 - El pelo bajo la cinta (ChatGPT, con la guía) para poder quitarla.
 - Después: colores de pelo, tonos de piel (bordes), accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.
