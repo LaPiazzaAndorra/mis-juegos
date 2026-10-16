@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-16 — D-025: revisión de las uniones del pelo sin cinta (fallan; marcadas, sin integrar)
+### 2026-10-16 — D-025: candidata sin cinta con la zona ampliada (abajo limpia; arriba y puntas fallan, marcadas)
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `0b9e1bb`, el de la entrada siguiente).
+- **Estado:** candidata preparada; la unión de abajo es limpia, la de arriba y las puntas aún fallan. **No se añade al
+  visor.** Nada activado ni publicado.
+- **Cambios:**
+  - `peinado-coleta-2026-10-16/sin_cinta.py` y `capas/candidata-sin-cinta/` (pelo delante y detrás sin cinta,
+    `uniones-candidata.png`, `union-de-arriba-ampliada.png`, `antes-despues.png`, `comprobaciones.json`).
+  - D-025, `ESTADO_ACTUAL.md` y el `LEEME.md` del peinado. Capas aprobadas y visor sin cambios.
+- **Resultado:** ampliación hasta 20 px abajo y 8 px arriba y en las puntas; falla abajo 0,5 %, arriba 22 %, puntas 19 %;
+  piel, frente, cara y silueta sin tocar; 0 px de restos lila; 499 px de sombra de la cinta arriba y en las puntas.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** `sin_cinta.py` (comprobaciones de `comprobaciones.json`); comprobador de documentación.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `0b9e1bb` · D-025: revisión de las uniones del pelo sin cinta (fallan; marcadas, sin integrar)
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `e93d813`, el de la entrada siguiente).

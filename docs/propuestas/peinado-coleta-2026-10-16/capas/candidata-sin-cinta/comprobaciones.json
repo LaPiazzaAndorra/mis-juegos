@@ -1,0 +1,41 @@
+{
+ "arriba": {
+  "px": 638,
+  "fallan_px": 141,
+  "fallan": 0.221
+ },
+ "abajo": {
+  "px": 628,
+  "fallan_px": 3,
+  "fallan": 0.005
+ },
+ "puntas": {
+  "px": 369,
+  "fallan_px": 71,
+  "fallan": 0.192
+ },
+ "px_cambiados": 89071,
+ "px_cinta": 70785,
+ "px_ampliacion": 18286,
+ "ampliacion_maxima_px": {
+  "arriba": 8.0,
+  "abajo": 20.0,
+  "puntas": 8.0
+ },
+ "piel_tocada_px": 0,
+ "silueta_tocada_px": 0,
+ "huequecitos_junto_a_la_cinta_px": 156,
+ "restos_lila_px": 0,
+ "sombra_de_la_cinta_px": 499,
+ "resultado": "falla",
+ "fuera_de_la_zona_igual": true,
+ "sha256_fuentes": {
+  "docs/propuestas/peinado-coleta-2026-10-16/referencias/referencia-coleta-cinta-aprobada.png": "8ac66fe33a0c8c9f6bceb142719972db34a1b58ad6abad5edc11365489264a6b",
+  "docs/propuestas/peinado-coleta-2026-10-16/referencias/referencia-coleta-sin-cinta.png": "3f8dff3a51e8f2fc4f892188b54d5c72419332241ec443cff0036e91c03c8dd1",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/pelo-coleta-detras.png": "50eba10594711b012c3e8f36dcf08cc273ecd431e81980645443aabfecc513bf",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/pelo-coleta-delante.png": "0ab06c28f74e837ab27f59e8c61347ea3e12e4043301c91cfa9a8dd8acf7741b",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/cinta-coleta.png": "bd67b070f2367f7b9dc1859b4a393a11dd6fcaa35fec48e36194d6261734d3bd"
+ },
+ "fuentes_sin_cambios": true,
+ "con_cinta_diferencia_max_frente_a_aprobada": 234
+}

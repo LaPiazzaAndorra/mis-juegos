@@ -70,6 +70,28 @@ añadirá solo el pelo de esa zona. Hasta entonces, en el visor la coleta va **s
   todo por abajo, unos 15–20 px de la imagen ≈ 11–15 px en nuestra muñeca, y algo en las puntas y en los tramos de
   arriba): **pendiente de la decisión de la propietaria**.
 
+## Candidata con la zona ampliada (16/10, `capas/candidata-sin-cinta/`, `sin_cinta.py`)
+
+- **Zona:** la cinta (con su borde suave lila) y una franja permitida de hasta **20 px por abajo** y **8 px arriba y en
+  las puntas**. Dentro de la franja, la unión se busca donde las dos imágenes se parecen y por los huecos oscuros entre
+  mechones (watershed), con 2 px de transición. Se incluyen también, dentro de la franja, la sombra de la cinta y los
+  huequecitos de fondo que dejaba junto al pelo; los huecos diminutos entre rizos se rellenan con el pelo de alrededor.
+- **No se toca:** la piel, la frente ni la cara (0 px), ni la silueta exterior del peinado (0 px); el pelo aprobado fuera
+  de la zona queda igual. Las capas aprobadas con cinta no cambian (con la cinta puesta se usan ellas, así se ve igual).
+- **Resultado:**
+
+  | Unión | Falla | Ampliación usada |
+  | --- | --- | --- |
+  | Abajo (sobre la frente) | **0,5 %: limpia** | hasta 20 px |
+  | Arriba (hacia la coleta) | **22 %** | hasta 8 px (el máximo) |
+  | Puntas | **19 %** | hasta 8 px (el máximo) |
+
+  Restos lila: 0 px. Sombra de la cinta que queda junto a la zona: 499 px, **arriba y en las puntas**.
+- **Dónde falla** (`uniones-candidata.png`, en azul y magenta; `union-de-arriba-ampliada.png`, sin marcas): a lo largo del
+  borde de arriba de la cinta queda una franja algo más oscura (la sombra de la cinta en la imagen aprobada) justo fuera
+  de los 8 px; y en las dos puntas, cortes cortos donde los mechones no siguen.
+- **No se añade al visor** hasta decidir si se amplía más **arriba y en las puntas** (abajo ya está bien).
+
 ## En el visor
 
 Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada con cinta (aprobada)**. Por ahora la coleta
@@ -78,5 +100,6 @@ otra piel, otro color, otro pelo de delante o un accesorio vuelve a la melena. E
 
 ## Pendiente
 
-- El pelo bajo la cinta: las uniones con margen mínimo fallan (ver arriba); decidir si se amplía la zona.
+- El pelo bajo la cinta: con la zona ampliada, la unión de abajo ya está limpia; decidir si se amplía más arriba y en las
+  puntas (ver «Candidata con la zona ampliada»).
 - Después: colores de pelo, tonos de piel (bordes), accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.

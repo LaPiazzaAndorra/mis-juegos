@@ -21,6 +21,12 @@
   antes de integrarlo**: **fallan** (la de abajo, sobre la frente, en el 98 %; la de arriba en el 32 %; las puntas en el
   52 %; quedan 14 px de restos lila). **Marcadas** en `uniones/uniones-marcadas.png`; **no se integra** ni se añade al
   visor la opción de quitar la cinta. Capas aprobadas sin cambios.
+- **16/10/2026 (4):** la propietaria pide **ampliar lo mínimo** la zona (unos 15–20 px por abajo y solo lo necesario en las
+  puntas y arriba) en una **copia candidata**, siguiendo las curvas del pelo, sin tocar piel, frente, cara ni silueta.
+  Hecho (`capas/candidata-sin-cinta/`): **la unión de abajo queda limpia** (falla 0,5 %), sin restos lila y sin tocar
+  piel ni silueta; **todavía fallan la de arriba (22 %) y las puntas (19 %)**: queda una franja algo más oscura (la sombra
+  de la cinta) justo fuera de los 8 px permitidos arriba. **Marcado; no se añade al visor**, a la espera de decidir si se
+  amplía más arriba y en las puntas. La coleta con cinta aprobada no cambia.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
