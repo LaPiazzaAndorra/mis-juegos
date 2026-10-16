@@ -44,8 +44,17 @@ en el iPhone/iPad reales. Nada activado.
   `…/ojos-colores/`.
 - Fila «Color de ojos» en el visor; marrones como opción y parpadeo V2.1.
 - **Variantes aprobadas visualmente (16/10)**; los marrones siguen siendo la opción predeterminada.
-- Pendientes: una nueva copia de prueba del juego con los colores (D-019 congelada), 2000 × 3500 y el pintacaras
-  (después, sin implementar).
+- Pendientes: una nueva copia de prueba del juego con los colores (D-019 congelada) y 2000 × 3500. El pintacaras ya
+  está en el visor (D-021).
+
+**Pintacaras «Estrellas y brillo» (16/10, D-021):**
+- **Diseño** aprobado (estrellas rosas, lilas y doradas con puntos de brillo); referencia en `…/pintacaras/`.
+- **Capa candidata** independiente con solo los adornos (sin piel), encajada en nuestras mejillas: sin tocar ojos,
+  pestañas ni boca y dentro de la piel de la cara; 114 de 121 pecas detectadas quedan libres (7 muy suaves, bajo las
+  estrellas).
+- Fila «Pintacaras» en el visor: «Sin pintacaras» (por defecto) y «Estrellas y brillo»; probado con los 4 colores de
+  ojos y el parpadeo en Chromium (no en un iPhone real).
+- **Pendiente:** revisión del encaje por la propietaria; 2000 × 3500; copia nueva del juego (D-019 congelada).
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).

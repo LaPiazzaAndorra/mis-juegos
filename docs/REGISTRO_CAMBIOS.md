@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-16 — D-020 actualizada: variantes de ojos aprobadas visualmente; marrones por defecto
+### 2026-10-16 — D-021: pintacaras «Estrellas y brillo» (capa aparte) y opción en el visor
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `d900aa5`, el de la entrada siguiente).
+- **Estado:** diseño aprobado; **encaje pendiente de revisión**. Nada activado ni publicado.
+- **Cambios:**
+  - `base-aprobada-d013-2026-10-14/pintacaras/`: la referencia (sin modificar), `pintacaras.py`, la capa
+    `capa-pintacaras-estrellas.png`, `comparacion-pintacaras.png`, `zonas-comprobadas.png`, `comprobaciones.json` y
+    `LEEME.md`.
+  - Visor: fila «Pintacaras» («Sin pintacaras» por defecto · «Estrellas y brillo») y encuadre «Mejillas»; corregido el
+    atributo `class` mal cerrado de dos capas (sin cambio visible).
+  - D-021 en `DECISIONES.md`; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y el
+    `LEEME.md` del visor.
+- **Resultado:** solo adornos (2 estrellas grandes rosa y lila, 2 doradas pequeñas y puntos de brillo por mejilla),
+  escala 0,52 respecto a los ojos. Solape con ojos (4 colores y cerrados), pestañas y boca: 0 px; fuera de la piel: 0 px;
+  114 de 121 pecas libres (7 muy suaves bajo las estrellas).
+- **Datos guardados afectados:** ninguno. Juego, catálogo, `sw.js`, `main`, partidas y la prueba D-019 sin cambios.
+- **Pruebas:** SHA-256 de las fuentes; comprobaciones de zonas; visor en Chromium (iPhone simulado) con los 4 colores,
+  parpadeo y «Mantener cerrados», sin errores ni almacenamiento, y a tamaño real frente al montaje (≤ 2). No probado en
+  un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `d900aa5` · D-020 actualizada: variantes de ojos aprobadas visualmente; marrones por defecto
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `9cccd3d`, el de la entrada siguiente).

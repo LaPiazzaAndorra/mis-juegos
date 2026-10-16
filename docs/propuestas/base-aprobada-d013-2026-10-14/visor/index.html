@@ -55,11 +55,12 @@
     <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
     <img id="c-abiertos" alt="" src="../ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png">
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
+    <img id="c-pintacaras" class="oculto" alt="" src="../pintacaras/capa-pintacaras-estrellas.png">
     <img id="c-zapatos" class="" alt="" src="../../zapatos-rosa-2026-10-15/montaje/zapatos-candidatos.png">
     <img id="c-vestido" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/vestido-candidato-original.png">
     <img id="c-vestido-b" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png">
-    <img id="c-vestido-ax" class=" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
-    <img id="c-brazos" class=" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
+    <img id="c-vestido-ax" class="" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
+    <img id="c-brazos" class="" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
     <img id="c-pelo-delante-b" class="pelo-delante oculto" data-pelo="b" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido-b.png">
@@ -103,6 +104,11 @@
     <button data-corona="si" aria-pressed="true">Corona dorada (elegida)</button>
   </div>
   <div class="fila">
+    <b>Pintacaras</b>
+    <button data-pintacaras="no" aria-pressed="true">Sin pintacaras</button>
+    <button data-pintacaras="si" aria-pressed="false">Estrellas y brillo (encaje en revisión)</button>
+  </div>
+  <div class="fila">
     <b>Pelo</b>
     <button data-pelo-op="actual" aria-pressed="false">Pelo B actual</button>
     <button data-pelo-op="a" aria-pressed="false">Hombros · propuesta A</button>
@@ -116,6 +122,7 @@
     <button data-vista="entera" aria-pressed="true">Entera</button>
     <button data-vista="cara" aria-pressed="false">Cara</button>
     <button data-vista="ojos" aria-pressed="false">Ojos</button>
+    <button data-vista="mejillas" aria-pressed="false">Mejillas</button>
     <button data-vista="cuello" aria-pressed="false">Cuello y orejas</button>
     <button data-vista="vestido" aria-pressed="false">Vestido</button>
     <button data-vista="pies" aria-pressed="false">Pies</button>
@@ -146,7 +153,7 @@
   'use strict';
   var ANCHO = 948, ALTO = 1659;
   // Encuadres en píxeles de la imagen (x0, y0, x1, y1)
-  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420], pies: [280, 1370, 680, 1600], corona: [250, 20, 700, 320] };
+  var VISTAS = { entera: [20, 20, 928, 1640], cara: [230, 170, 730, 600], ojos: [300, 380, 660, 510], mejillas: [290, 400, 670, 590], cuello: [200, 430, 760, 700], vestido: [20, 560, 928, 1420], pies: [280, 1370, 680, 1600], corona: [250, 20, 700, 320] };
   var escena = document.getElementById('escena'), lienzo = document.getElementById('lienzo');
   var abiertos = document.getElementById('c-abiertos'), cerrados = document.getElementById('c-cerrados');
   var zoom = document.getElementById('zoom'), estado = document.getElementById('estado');
@@ -269,6 +276,14 @@
     b.addEventListener('click', function () {
       document.getElementById('c-corona').classList.toggle('oculto', b.dataset.corona !== 'si');
       document.querySelectorAll('[data-corona]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+
+  // --- pintacaras: capa independiente encima de los ojos (no cambia con el color ni con el parpadeo) ----------
+  document.querySelectorAll('[data-pintacaras]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.getElementById('c-pintacaras').classList.toggle('oculto', b.dataset.pintacaras !== 'si');
+      document.querySelectorAll('[data-pintacaras]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
 

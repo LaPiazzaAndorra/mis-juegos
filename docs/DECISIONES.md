@@ -1,5 +1,17 @@
 # Registro de decisiones
 
+## D-021 · Pintacaras «Estrellas y brillo»: diseño aprobado · 16/10/2026
+- **Decisión de la propietaria:** «Apruebo la decoración de las mejillas: estrellas rosas, lilas y doradas con pequeños
+  puntos de brillo». Referencia: `docs/propuestas/base-aprobada-d013-2026-10-14/pintacaras/referencia-pintacaras-aprobada.png`
+  (imagen generada, conservada sin modificar, SHA-256 `526921fd…76a9`).
+- **Cómo:** capa transparente **independiente** con **solo los adornos** (sin piel); no sustituye la cara original.
+  - Encajada en nuestras mejillas, conservando las pecas y dejando libres ojos, pestañas y boca.
+  - En el visor, opciones «Sin pintacaras» (por defecto) y «Estrellas y brillo», compatibles con todos los colores de
+    ojos y con el parpadeo.
+- **Estado:** el **diseño** está aprobado; **el encaje queda pendiente de revisión**.
+- **Límites:** no se activa en el juego ni se publica; la prueba D-019 sigue congelada; no cambian `main` ni las partidas.
+- **Pendiente:** revisión del encaje, resolución 2000 × 3500 e integración en una copia nueva de prueba del juego.
+
 ## D-020 · Tonos de ojos azul, verde y lila de fantasía aprobados · 16/10/2026
 - **Decisión de la propietaria:** aprueba los tonos azul, verde y lila de fantasía de la referencia
   `docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/referencia-tonos-aprobados.png` (imagen generada,
@@ -15,7 +27,7 @@
 - **Pendiente:**
   - la revisión de las variantes;
   - la resolución 2000 × 3500;
-  - el pintacaras de estrellas y brillo (siguiente paso, sin implementar).
+  - el pintacaras de estrellas y brillo (siguiente paso, sin implementar; después, D-021).
 - **Límites:** no se activa en el juego, no se publica y no cambian `main` ni las partidas.
 - **16/10/2026 (2):** la propietaria **aprueba visualmente las tres variantes** en el visor (`capa-ojos-abiertos-azul.png`,
   `-verde.png` y `-lila.png`).

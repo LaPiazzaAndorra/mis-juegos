@@ -1,0 +1,156 @@
+{
+ "metodo": "solo píxeles de los adornos de la referencia (estrellas y puntos de brillo más claros que la piel); pecas, piel, ojos y pestañas de la referencia no se toman; reescalado con alfa premultiplicada",
+ "escala": 0.52,
+ "encaje_px": {
+  "izquierda": [
+   -3,
+   7
+  ],
+  "derecha": [
+   3,
+   8
+  ]
+ },
+ "mejillas": {
+  "izquierda": {
+   "estrellas": 7,
+   "puntos_de_brillo": 27,
+   "pecas_descartadas": 13,
+   "tonos_estrellas": [
+    {
+     "px": 709,
+     "tono": -3.5,
+     "croma": 26.6,
+     "L": 189.2
+    },
+    {
+     "px": 1116,
+     "tono": 35.8,
+     "croma": 35.8,
+     "L": 195.1
+    },
+    {
+     "px": 1,
+     "tono": 39.5,
+     "croma": 44.0,
+     "L": 191.0
+    },
+    {
+     "px": 12,
+     "tono": 53.9,
+     "croma": 25.2,
+     "L": 219.4
+    },
+    {
+     "px": 148,
+     "tono": 61.0,
+     "croma": 42.9,
+     "L": 195.3
+    },
+    {
+     "px": 9,
+     "tono": 50.0,
+     "croma": 31.5,
+     "L": 209.1
+    },
+    {
+     "px": 331,
+     "tono": 64.3,
+     "croma": 40.6,
+     "L": 191.4
+    }
+   ],
+   "dE_minimo_frente_a_piel": 5.1,
+   "posicion": [
+    312,
+    469
+   ],
+   "tamano": [
+    88,
+    70
+   ]
+  },
+  "derecha": {
+   "estrellas": 7,
+   "puntos_de_brillo": 27,
+   "pecas_descartadas": 10,
+   "tonos_estrellas": [
+    {
+     "px": 732,
+     "tono": -2.9,
+     "croma": 26.2,
+     "L": 189.7
+    },
+    {
+     "px": 1068,
+     "tono": 35.2,
+     "croma": 34.8,
+     "L": 194.8
+    },
+    {
+     "px": 3,
+     "tono": 36.6,
+     "croma": 43.6,
+     "L": 185.0
+    },
+    {
+     "px": 2,
+     "tono": 40.4,
+     "croma": 48.6,
+     "L": 185.0
+    },
+    {
+     "px": 237,
+     "tono": 60.8,
+     "croma": 38.9,
+     "L": 192.0
+    },
+    {
+     "px": 4,
+     "tono": 46.5,
+     "croma": 34.1,
+     "L": 205.5
+    },
+    {
+     "px": 142,
+     "tono": 63.2,
+     "croma": 38.5,
+     "L": 204.9
+    }
+   ],
+   "dE_minimo_frente_a_piel": 4.2,
+   "posicion": [
+    565,
+    470
+   ],
+   "tamano": [
+    88,
+    70
+   ]
+  },
+  "puntos_movidos_por_las_pecas": 10,
+  "puntos_quitados_por_las_pecas": 4
+ },
+ "px_con_adorno": 2375,
+ "solape_ojos_todas_las_variantes_px": 0,
+ "solape_pestanas_px": 0,
+ "solape_boca_px": 0,
+ "solape_pecas_px": 16,
+ "estrellas_junto_a_pecas_px": 55,
+ "pecas_detectadas": 121,
+ "pecas_tocadas": 7,
+ "pecas_detectadas_en_nuestra_cara_px": 550,
+ "fuera_de_la_piel_de_la_cara_px": 0,
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pintacaras/referencia-pintacaras-aprobada.png": "526921fdd92a443197398e392e404fcecb1da17ae032cf714a71f78aed9676a9",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-cerrados/capa-ojos-cerrados-prueba-v21.png": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/corona-2026-10-15/montaje/montaje-corona.png": "0cd72ecc061c6500d8aeaf8af8290192f9f1bf3a40eae7ff94cc61356377bd34",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/capa-ojos-abiertos-azul.png": "e2a26b2948a7d55ad54ad2be6e8ef5755eaa5c4ee841db823ef90edaf81d8a1f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/capa-ojos-abiertos-verde.png": "ca38cec73e12c52743d91d6b4ecaea94bacccb7b12c8d57bcba191e818b881eb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/capa-ojos-abiertos-lila.png": "6928269d8737c9a64bebc105dff9bbefaa418d3ceb34886edff4adc4501fbde3"
+ },
+ "fuentes_sin_cambios": true
+}

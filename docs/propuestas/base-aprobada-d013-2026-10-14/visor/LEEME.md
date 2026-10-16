@@ -79,3 +79,8 @@ conserva «Sin corona». Coincide con `montaje-corona.png` en lo opaco (≤ 2).
 **16/10/2026 · D-020:** fila «Color de ojos» (Marrones · Azules · Verdes · Lilas). Solo cambia la imagen de los ojos
 abiertos; el parpadeo usa los cerrados V2.1 con cualquier color. Sin errores ni almacenamiento.
 **16/10/2026 (2) · D-020:** las tres variantes están aprobadas visualmente; el visor sigue abriendo con los **marrones**.
+**16/10/2026 (3) · D-021:** fila «Pintacaras» («Sin pintacaras» por defecto · «Estrellas y brillo», encaje en
+revisión) y encuadre «Mejillas». La capa va encima de los ojos y no cambia con el color ni con el parpadeo. Probado con
+los 4 colores, «Parpadear» y «Mantener cerrados»: sin errores ni almacenamiento; a tamaño real coincide con
+`montaje-corona.png` + la capa en lo opaco (≤ 2). Corregido además el atributo `class` mal cerrado de las capas del
+vestido y de las manos (sin cambio visible).
