@@ -12,7 +12,7 @@ haya commit, pruebas y aprobación. El estado real está en `docs/ESTADO_ACTUAL.
 | Alta | Datos | Copia de seguridad de todos los datos | Botones «Guardar / Recuperar mi progreso» aprobados e integrados en `avatar-creador`; versión de pruebas preparada (`docs/VERSION_DE_PRUEBAS.md`). | Prueba de la propietaria en la app «PRUEBAS» del iPhone → publicar con aprobación → primera copia real de Amaia. |
 | Alta | Datos | La galería no debe borrar dibujos sin avisar cuando falta espacio | Propuesta | Aviso claro y opción de hacer copia antes de liberar espacio; nada se borra sin permiso. |
 | Alta | Publicación | Proteger `main` y exigir «Documentación sincronizada» | Comprobación configurada; falta la regla de protección | Ver `docs/PRUEBAS_Y_RECUPERACION.md`, apartado F. |
-| Media | Vestir | Piel morena y ojos cerrados morenos | Borradores automáticos posibles | Revisión visual y aprobación. |
+| Alta | Vestir | Piel dorada, morena y profunda (con párpados cerrados y bordes) | **Referencia aprobada** (D-023); capas en el visor, **pendientes de revisión**; claro por defecto | Capas aprobadas → copia nueva de prueba del juego → prueba en el iPhone → aprobación. |
 | Media | Vestir | Más peinados, colores, ojos, ropa y varios looks | Propuesta | Arte original con el mismo sistema de capas; varios personajes guardados. |
 | Media | Mi Mundo | Llevar el personaje a los demás escenarios y más objetos interactivos | Propuesta | Personaje guardado que camina, juega y reacciona, sin emojis de personaje. |
 | Media | Mi Mundo | Más espacio para el personaje en el iPhone horizontal | Propuesta | Bandeja de pegatinas plegable; personaje bien visible. |

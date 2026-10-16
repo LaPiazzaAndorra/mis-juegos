@@ -1,5 +1,20 @@
 # Registro de decisiones
 
+## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
+- **Decisión de la propietaria:** aprueba como referencia la lámina
+  `docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/referencia-tonos-piel-aprobados.png` (imagen generada,
+  conservada sin modificar, SHA-256 `56e34450…d697`).
+- **Cómo:** variantes de **nuestras piezas originales**, sin extraer la muñeca de la lámina ni cambiar sus facciones.
+  - Toda la piel visible: cara, orejas, cuello, brazos, manos, piernas, pies y párpados cerrados; también los bordes de
+    los ojos y las capas superpuestas, para que no queden parches del tono anterior.
+  - Se conservan pecas, textura, volumen y expresión.
+  - No cambian el pelo, la ropa, los adornos, los iris, los blancos ni las pestañas.
+  - **El claro original sigue siendo la opción predeterminada.**
+- **Estado:** la **referencia está aprobada**; **las capas quedan pendientes de revisión** (en el visor, con el
+  parpadeo).
+- **Límites:** no se activa en el juego, no se publica y no cambian `main`, las partidas ni las pruebas congeladas.
+- **Pendiente:** revisión de las capas; copia nueva de prueba del juego; 2000 × 3500.
+
 ## D-022 · Tonos de pelo castaño chocolate, rubio miel, castaño oscuro y pelirrojo jengibre aprobados · 16/10/2026
 - **Decisión de la propietaria:** aprueba los tonos de la segunda lámina,
   `docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/referencia-tonos-pelo-aprobados.png` (imagen generada,

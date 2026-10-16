@@ -58,15 +58,18 @@
     <img id="c-cerrados" class="oculto" alt="" src="../ojos-cerrados/capa-ojos-cerrados-prueba-v21.png">
     <img id="c-pintacaras" class="oculto" alt="" src="../pintacaras/capa-pintacaras-estrellas.png">
     <img id="c-zapatos" class="" alt="" src="../../zapatos-rosa-2026-10-15/montaje/zapatos-candidatos.png">
+    <img id="c-bordes-zapatos" class="oculto" alt="" src="../piel-tonos/dorado/bordes-zapatos.png">
     <img id="c-vestido" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/vestido-candidato-original.png">
     <img id="c-vestido-b" class="oculto" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b.png">
     <img id="c-vestido-ax" class="" alt="" src="../../vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png">
+    <img id="c-bordes-vestido" class="oculto" alt="" src="../piel-tonos/dorado/bordes-vestido.png">
     <img id="c-brazos" class="" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
     <img id="c-pelo-delante-b" class="pelo-delante oculto" data-pelo="b" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido-b.png">
     <img id="c-pelo-delante-c" class="pelo-delante oculto" data-pelo="c" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c.png">
     <img id="c-pelo-delante-mc" class="pelo-delante" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
+    <img id="c-bordes-pelo" class="oculto" alt="" src="../piel-tonos/dorado/bordes-pelo-castano.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
     <img id="c-corona" class="" alt="" src="../../corona-2026-10-15/montaje/corona-candidata.png">
   </div>
@@ -79,6 +82,13 @@
     <button class="grande" id="parpadear">Parpadear</button>
     <button id="auto" aria-pressed="false">Parpadeo automático</button>
     <button id="cerrar" aria-pressed="false">Mantener cerrados</button>
+  </div>
+  <div class="fila">
+    <b>Piel</b>
+    <button data-piel="claro" aria-pressed="true">Claro (original)</button>
+    <button data-piel="dorado" aria-pressed="false">Dorado</button>
+    <button data-piel="moreno" aria-pressed="false">Moreno</button>
+    <button data-piel="profundo" aria-pressed="false">Profundo</button>
   </div>
   <div class="fila">
     <b>Color de ojos</b>
@@ -326,7 +336,7 @@
   // cejas (aprobadas, D-022): capa aparte encima de la base, solo con el color de las cejas; el castaño usa las de la base
   var cejas = document.getElementById('c-cejas'), colorPelo = 'castano', cejasJuego = true;   // D-022: a juego por defecto
   function mostrarCejas() {
-    if (colorPelo !== 'castano') cejas.src = '../cejas-colores/cejas-' + colorPelo + '.png';
+    if (colorPelo !== 'castano') cejas.src = piel === 'claro' ? '../cejas-colores/cejas-' + colorPelo + '.png' : '../piel-tonos/' + piel + '/cejas-' + colorPelo + '.png';
     cejas.classList.toggle('oculto', !cejasJuego || colorPelo === 'castano');
   }
   document.querySelectorAll('[data-cejas]').forEach(function (b) {
@@ -357,6 +367,48 @@
       else document.getElementById(b.dataset.capa).classList.toggle('oculto', !on);
     });
   });
+
+  // --- piel (D-023): cambian la base, los ojos (abiertos del color elegido y cerrados), las manos, las cejas a juego
+  // y tres capas pequeñas de «bordes» (nacimiento del pelo de delante, cuello del vestido y zapatos) ----------------
+  var piel = 'claro', ojosColor = 'marron';
+  var capaBase = document.getElementById('c-base'), brazos = document.getElementById('c-brazos');
+  var ORIG = { base: capaBase.getAttribute('src'), cerrados: cerrados.getAttribute('src'), brazos: brazos.getAttribute('src') };
+  var OJOS_ORIG = {};
+  document.querySelectorAll('[data-ojos-color]').forEach(function (b) {
+    var k = /EXPERIMENTAL/.test(b.dataset.ojosColor) ? 'marron' : b.dataset.ojosColor.match(/abiertos-(\w+)\.png/)[1];
+    b.dataset.ojosClave = k; OJOS_ORIG[k] = b.dataset.ojosColor;
+    b.addEventListener('click', function () { ojosColor = k; aplicarPiel(); });
+  });
+  var T = function (n) { return '../piel-tonos/' + piel + '/' + n; };
+  var BORDES = [['c-bordes-zapatos', 'c-zapatos', function () { return T('bordes-zapatos.png'); }],
+    ['c-bordes-vestido', 'c-vestido-ax', function () { return T('bordes-vestido.png'); }],
+    ['c-bordes-pelo', 'c-pelo-delante-mc', function () { return T('bordes-pelo-' + colorPelo + '.png'); }]];
+  function bordes() {   // cada capa de bordes se ve solo si se ve la capa a la que acompaña
+    BORDES.forEach(function (x) {
+      var el = document.getElementById(x[0]), de = document.getElementById(x[1]);
+      if (piel !== 'claro') { var s = x[2](); if (el.getAttribute('src') !== s) el.src = s; }
+      el.classList.toggle('oculto', piel === 'claro' || de.classList.contains('oculto'));
+    });
+  }
+  function aplicarPiel() {
+    var claro = piel === 'claro';
+    capaBase.src = claro ? ORIG.base : T('base-sin-ojos.png');
+    cerrados.src = claro ? ORIG.cerrados : T('ojos-cerrados.png');
+    brazos.src = claro ? ORIG.brazos : T('manos-delante.png');
+    abiertos.src = claro ? OJOS_ORIG[ojosColor] : T('ojos-abiertos-' + ojosColor + '.png');
+    mostrarCejas(); bordes();
+  }
+  document.querySelectorAll('[data-piel]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      piel = b.dataset.piel; aplicarPiel();
+      document.querySelectorAll('[data-piel]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      // se cargan de antemano las piezas de ese tono
+      if (piel !== 'claro') ['base-sin-ojos', 'ojos-cerrados', 'manos-delante', 'ojos-abiertos-marron', 'ojos-abiertos-azul', 'ojos-abiertos-verde', 'ojos-abiertos-lila']
+        .forEach(function (n) { new Image().src = T(n + '.png'); });
+    });
+  });
+  // cualquier otro botón (ropa, zapatos, pelo, capas…) puede cambiar qué se ve: los bordes lo siguen
+  document.getElementById('controles').addEventListener('click', function () { bordes(); });
 
   // --- carga: se espera a todas las capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)
   var imgs = Array.prototype.slice.call(lienzo.querySelectorAll('img')), pendientes = imgs.length, fallos = [];

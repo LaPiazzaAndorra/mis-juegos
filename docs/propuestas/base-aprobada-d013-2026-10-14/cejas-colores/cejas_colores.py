@@ -52,9 +52,8 @@ def cejas(base, lab):
     return m, piel
 
 
-if __name__ == '__main__':
-    fuentes = [SIN_OJOS, CP.DETRAS, CP.DELANTE, CP.REF] + OJOS
-    antes = {str(p.relative_to(RAIZ)): sha(p) for p in fuentes}
+def preparar():
+    """Cejas de la base: máscara, cobertura (w), color «puro» de la ceja y piel de alrededor (pz), en Lab."""
     base = np.array(Image.open(SIN_OJOS).convert('RGBA')); lab = MK.lab_de(Image.fromarray(base)).astype(float)
     m, pielL = cejas(base, lab)
     zona = nd.binary_dilation(m, iterations=3)
@@ -66,27 +65,42 @@ if __name__ == '__main__':
     w = np.clip((pz[..., 0] - lab[..., 0]) / np.maximum(pz[..., 0] - oscuro, 1), 0, 1) * zona
     w = np.where(w > 0.04, w, 0)
     pura = (lab - (1 - w[..., None]) * pz) / np.maximum(w[..., None], 1e-6)   # color de la ceja sin la piel
+    return dict(base=base, lab=lab, m=m, zona=zona, pz=pz, w=w, pura=pura, hay=w > 0)
+
+
+def color_cejas(k, pura_hay, capas, ref):
+    """Color nuevo (Lab) de las cejas para el tono de pelo k."""
+    f, _, _ = CP.transformacion(capas, CP.muestra_referencia(ref, CP.RECUADROS[k])[0])
+    sL, sC, giro = AJUSTE[k]
+    t = f(pura_hay[None])[0]
+    C = np.hypot(t[:, 1], t[:, 2]) * sC; h = np.arctan2(t[:, 2], t[:, 1]) + np.radians(giro)
+    return np.stack([t[:, 0] * sL, C * np.cos(h), C * np.sin(h)], -1)
+
+
+def capa_sobre(base, nuevo, hay):
+    """Capa con la transparencia mínima que, encima de «base» (RGBA), da exactamente «nuevo» (RGB) en «hay»."""
+    orig = base[..., :3].astype(float); d = nuevo - orig
+    need = np.where(d > 0, d / np.maximum(255 - orig, 1e-6), np.where(d < 0, -d / np.maximum(orig, 1e-6), 0)).max(-1)
+    A = np.clip(need, 0, 1) * hay
+    A = np.where(A > 0, np.maximum(A, 1 / 255), 0)
+    A8 = np.ceil(A * 255).astype(np.uint8); Af = A8 / 255
+    col = np.where(Af[..., None] > 0, orig + d / np.maximum(Af[..., None], 1e-6), 0)
+    return np.dstack([np.clip(np.round(col), 0, 255), A8]).astype(np.uint8)
+
+
+if __name__ == '__main__':
+    fuentes = [SIN_OJOS, CP.DETRAS, CP.DELANTE, CP.REF] + OJOS
+    antes = {str(p.relative_to(RAIZ)): sha(p) for p in fuentes}
+    D = preparar(); base, lab, m, zona, pz, w, pura, hay = (D[k] for k in ('base', 'lab', 'm', 'zona', 'pz', 'w', 'pura', 'hay'))
     capas = [np.array(Image.open(p).convert('RGBA')) for p in (CP.DETRAS, CP.DELANTE)]
     ref = MK.lab_de(Image.open(CP.REF).convert('RGBA')).astype(float)
     info = {}; vistas = {'castano': None}
-    hay = w > 0
-    for k, caja in CP.RECUADROS.items():
-        f, _, _ = CP.transformacion(capas, CP.muestra_referencia(ref, caja)[0])
-        sL, sC, giro = AJUSTE[k]
-        t = f(pura[hay][None])[0]
-        C = np.hypot(t[:, 1], t[:, 2]) * sC; h = np.arctan2(t[:, 2], t[:, 1]) + np.radians(giro)
-        t = np.stack([t[:, 0] * sL, C * np.cos(h), C * np.sin(h)], -1)
+    for k in CP.RECUADROS:
+        t = color_cejas(k, pura[hay], capas, ref)
         nuevo_lab = lab.copy(); ww = w[hay][:, None]
         nuevo_lab[hay] = ww * t + (1 - ww) * pz[hay]
-        nuevo = CP.lab_a_rgb(nuevo_lab).astype(float); orig = base[..., :3].astype(float)
-        # capa con la transparencia mínima que, encima de la base, da exactamente «nuevo»
-        d = nuevo - orig
-        need = np.where(d > 0, d / np.maximum(255 - orig, 1e-6), np.where(d < 0, -d / np.maximum(orig, 1e-6), 0)).max(-1)
-        A = np.clip(need, 0, 1) * hay
-        A = np.where(A > 0, np.maximum(A, 1 / 255), 0)
-        A8 = np.ceil(A * 255).astype(np.uint8); Af = A8 / 255
-        col = np.where(Af[..., None] > 0, orig + d / np.maximum(Af[..., None], 1e-6), 0)
-        capa = np.dstack([np.clip(np.round(col), 0, 255), A8]).astype(np.uint8)
+        nuevo = CP.lab_a_rgb(nuevo_lab).astype(float)
+        capa = capa_sobre(base, nuevo, hay); A8 = capa[..., 3]
         Image.fromarray(capa, 'RGBA').save(AQUI / f'cejas-{k}.png', optimize=True)
         enc = Image.fromarray(base); enc.alpha_composite(Image.fromarray(capa))
         res = np.array(enc).astype(int)

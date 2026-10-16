@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-16 — D-022: cejas a juego aprobadas y por defecto en el visor
+### 2026-10-16 — D-023: tonos de piel dorado, moreno y profundo en el visor (capas pendientes de revisión)
+
+- **Solicitado por:** la propietaria.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `7aab673`, el de la entrada siguiente).
+- **Estado:** referencia aprobada; capas para revisar en el visor; claro original por defecto. Nada activado ni publicado.
+- **Cambios:**
+  - `base-aprobada-d013-2026-10-14/piel-tonos/`: la lámina (sin modificar), `piel_tonos.py`, las piezas de cada tono
+    (`dorado/`, `moreno/`, `profundo/`: base, ojos abiertos ×4 y cerrados, manos, cejas a juego ×4 y capas de bordes),
+    comparaciones, `comprobaciones.json` y `LEEME.md`.
+  - `cejas-colores/cejas_colores.py`: pasos separados en funciones para reutilizarlos (las capas salen idénticas).
+  - Visor: fila «Piel» y capas de bordes.
+  - D-023 en `DECISIONES.md`; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los
+    `LEEME.md` de cejas y visor.
+- **Resultado:** solo cambia la piel (alfa idéntico; ropa de la base, iris, blancos y pestañas sin cambios); luminosidad
+  como la lámina (manteniendo la diferencia de nuestra piel con su claro); detalle conservado (0,89–0,99); sin parches en
+  los bordes de los ojos, los párpados cerrados, el nacimiento del pelo, el cuello ni los pies.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y las pruebas D-016 y D-021 sin cambios.
+- **Pruebas:** SHA-256 de las fuentes; comprobaciones de `comprobaciones.json`; visor en Chromium (iPhone simulado) con
+  los 4 tonos, colores de ojos y pelo, cejas, camiseta, descalza, otro pelo y parpadeo, sin errores ni almacenamiento, y
+  a tamaño real frente al montaje (≤ 3). No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `7aab673` · D-022: cejas a juego aprobadas y por defecto en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `fe701ba`, el de la entrada siguiente).

@@ -76,6 +76,15 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   pelo» por defecto y opción de cejas originales; con el castaño original, las de la base.
 - Pendientes: una copia nueva de prueba del juego con los colores de pelo y las cejas, y 2000 × 3500.
 
+**Tonos de piel (16/10, D-023):**
+- Lámina de referencia aprobada: claro (original), dorado, moreno y profundo (en `…/piel-tonos/`).
+- Variantes de nuestras piezas con **solo la piel** cambiada (base, ojos abiertos de los 4 colores y cerrados, manos,
+  cejas a juego) y capas pequeñas de «bordes» para el pelo de delante, el cuello del vestido y los zapatos, que traían
+  piel clara pegada. Alfa idéntico; ropa, pelo, iris, blancos y pestañas sin cambios.
+- Fila «Piel» en el visor; **claro original por defecto**. Probado en Chromium (no en un iPhone real).
+- **Pendiente:** revisión de las capas (encaje, parpadeo y bordes); las cejas quedan más claras que la piel en los tonos
+  oscuros (a revisar); copia nueva de prueba del juego; 2000 × 3500.
+
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
 

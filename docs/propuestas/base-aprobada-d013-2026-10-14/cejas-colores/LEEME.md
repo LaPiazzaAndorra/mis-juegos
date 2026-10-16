@@ -44,3 +44,6 @@ aparte**, encima de la base (y debajo de los ojos y del pelo de delante), que so
 - Las cejas de la base siempre son más claras que el pelo (también en el castaño original); la propuesta mantiene esa
   relación salvo en el rubio, donde, como se pidió, quedan algo más oscuras que el pelo.
 - Fuentes sin cambios (SHA-256). En el visor, a tamaño real coincide con el montaje en lo opaco (≤ 3).
+
+**16/10/2026 · D-023:** `cejas_colores.py` separa sus pasos en funciones (`preparar`, `color_cejas`, `capa_sobre`) para que
+`../piel-tonos/piel_tonos.py` recalcule las cejas sobre cada tono de piel. Las capas de esta carpeta salen idénticas.

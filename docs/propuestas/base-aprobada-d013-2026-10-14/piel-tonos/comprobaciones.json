@@ -1,0 +1,169 @@
+{
+ "metodo": "solo la piel de nuestras piezas; tono medido en la lámina (mismos sitios en los 4 recuadros); L desplazada y escalada, tono girado y saturación escalada; alfa intacto; ropa, pelo, ojos (iris, blancos, pestañas) y adornos sin cambios",
+ "lamina": {
+  "claro": {
+   "L_percentiles": [
+    185,
+    200,
+    211,
+    217,
+    226
+   ],
+   "tono": 56.768288932020646,
+   "croma": 34.66987164671943,
+   "px": 47994
+  },
+  "dorado": {
+   "L_percentiles": [
+    160,
+    176,
+    187,
+    194,
+    202
+   ],
+   "tono": 55.98065001017354,
+   "croma": 48.25971404805462,
+   "px": 47994
+  },
+  "moreno": {
+   "L_percentiles": [
+    141,
+    157,
+    169,
+    177,
+    186
+   ],
+   "tono": 53.80679269443531,
+   "croma": 50.80354318352215,
+   "px": 47994
+  },
+  "profundo": {
+   "L_percentiles": [
+    99,
+    118,
+    129,
+    138,
+    150
+   ],
+   "tono": 50.042451069170916,
+   "croma": 48.27007354458868,
+   "px": 47994
+  }
+ },
+ "tonos": {
+  "dorado": {
+   "dispersion": 1.059,
+   "giro_tono": -0.8,
+   "croma_claro": 34.7,
+   "croma_tono": 48.3,
+   "frente_L_mediana": 195.0,
+   "lamina_L_mediana": 187.0,
+   "frente_L_original": 219.0,
+   "lamina_claro_L": 211.0,
+   "ropa_de_la_base_igual": true,
+   "alfa_identico": true,
+   "ojos_fuera_de_la_piel_igual": true,
+   "cerrados_fuera_de_la_piel_igual": true,
+   "px_piel_ojos_abiertos": 5207,
+   "px_piel_ojos_cerrados": 25503,
+   "detalle_piel_correlacion": 0.988,
+   "ceja_nucleo_cambio_medio": 1.3,
+   "px_bordes": {
+    "pelo-castano": 11227,
+    "zapatos": 586,
+    "vestido": 456
+   },
+   "borde_ojos_L_piel_capa_vs_base": [
+    188.0,
+    176.0
+   ],
+   "parpados_cerrados_L_capa_vs_base": [
+    174.0,
+    173.0
+   ]
+  },
+  "moreno": {
+   "dispersion": 1.176,
+   "giro_tono": -3.0,
+   "croma_claro": 34.7,
+   "croma_tono": 50.8,
+   "frente_L_mediana": 178.0,
+   "lamina_L_mediana": 169.0,
+   "frente_L_original": 219.0,
+   "lamina_claro_L": 211.0,
+   "ropa_de_la_base_igual": true,
+   "alfa_identico": true,
+   "ojos_fuera_de_la_piel_igual": true,
+   "cerrados_fuera_de_la_piel_igual": true,
+   "px_piel_ojos_abiertos": 5207,
+   "px_piel_ojos_cerrados": 25503,
+   "detalle_piel_correlacion": 0.965,
+   "ceja_nucleo_cambio_medio": 2.0,
+   "px_bordes": {
+    "pelo-castano": 11436,
+    "zapatos": 586,
+    "vestido": 487
+   },
+   "borde_ojos_L_piel_capa_vs_base": [
+    170.0,
+    157.0
+   ],
+   "parpados_cerrados_L_capa_vs_base": [
+    155.0,
+    154.0
+   ]
+  },
+  "profundo": {
+   "dispersion": 1.176,
+   "giro_tono": -6.7,
+   "croma_claro": 34.7,
+   "croma_tono": 48.3,
+   "frente_L_mediana": 138.0,
+   "lamina_L_mediana": 129.0,
+   "frente_L_original": 219.0,
+   "lamina_claro_L": 211.0,
+   "ropa_de_la_base_igual": true,
+   "alfa_identico": true,
+   "ojos_fuera_de_la_piel_igual": true,
+   "cerrados_fuera_de_la_piel_igual": true,
+   "px_piel_ojos_abiertos": 5207,
+   "px_piel_ojos_cerrados": 25503,
+   "detalle_piel_correlacion": 0.889,
+   "ceja_nucleo_cambio_medio": 3.1,
+   "px_bordes": {
+    "pelo-castano": 11547,
+    "zapatos": 586,
+    "vestido": 483
+   },
+   "borde_ojos_L_piel_capa_vs_base": [
+    130.0,
+    117.0
+   ],
+   "parpados_cerrados_L_capa_vs_base": [
+    115.0,
+    114.0
+   ]
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/referencia-tonos-piel-aprobados.png": "56e3445009f5eda8b09d105ce745c0b6513b1a80d9f5fb4aecbf1ac6825ed697",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-cerrados/capa-ojos-cerrados-prueba-v21.png": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713",
+  "docs/propuestas/vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/capa-ojos-abiertos-azul.png": "e2a26b2948a7d55ad54ad2be6e8ef5755eaa5c4ee841db823ef90edaf81d8a1f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/capa-ojos-abiertos-verde.png": "ca38cec73e12c52743d91d6b4ecaea94bacccb7b12c8d57bcba191e818b881eb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-colores/capa-ojos-abiertos-lila.png": "6928269d8737c9a64bebc105dff9bbefaa418d3ceb34886edff4adc4501fbde3",
+  "docs/propuestas/vestido-rosa-2026-10-15/opcion-b/vestido-opcion-b-axilas-completadas.png": "705a6e44ea01be40a8037daa8efe1f3c511f8eafc0a4d32c1b25b952bbd10219",
+  "docs/propuestas/zapatos-rosa-2026-10-15/montaje/zapatos-candidatos.png": "aebe594cafd27d92bd51335e4a299334c80790f23ceb80ee2c0ad63a7878a96f",
+  "docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png": "c607253802ab89a019cbe5c10173572dc17aeadc92c2f89082c3bff7b45a952f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pintacaras/capa-pintacaras-estrellas.png": "4e271f8245b5ba684800b717517c5ad87170a49dea4909bfa57cc6e4137a7510",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/cejas-colores/cejas-chocolate.png": "a15c02c637e1bbb24e93b84b41624940568ccdca60155145802692d5077dae05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/cejas-colores/cejas-miel.png": "b1ecc349301a223ceb39936d38a7712bff6e7d960734b8772e6362787c35af50",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/cejas-colores/cejas-oscuro.png": "60ee8d9211fee5a811a207905b47b7599175c8c5acd3f054c9a96c11fb8f2e6b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/cejas-colores/cejas-jengibre.png": "a0160468048d098af8189d8c053ce135d99af1c9e1f3c2760901ad1813578ed3"
+ },
+ "fuentes_sin_cambios": true
+}

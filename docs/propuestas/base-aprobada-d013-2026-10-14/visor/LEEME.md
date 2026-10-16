@@ -97,3 +97,8 @@ tamaño real coincide con el montaje en lo opaco (≤ 3).
 **16/10/2026 (7) · D-022:** cejas a juego aprobadas visualmente. El visor abre con «A juego con el pelo (elegidas)» y
 conserva «Originales de la base (castañas)»; con el castaño original se ven las de la base. Sin errores ni
 almacenamiento.
+**16/10/2026 (8) · D-023:** fila «Piel» (Claro (original) por defecto · Dorado · Moreno · Profundo). Cambia la base, los
+ojos abiertos (del color elegido) y cerrados, las manos, las cejas a juego y tres capas pequeñas de «bordes» (pelo de
+delante, cuello del vestido y zapatos), que solo se ven si se ve la capa a la que acompañan. Probado con los colores de
+ojos y de pelo, cejas, camiseta, descalza, otro pelo de delante y parpadeo: sin errores ni almacenamiento; a tamaño real
+coincide con el montaje en lo opaco (≤ 3).
