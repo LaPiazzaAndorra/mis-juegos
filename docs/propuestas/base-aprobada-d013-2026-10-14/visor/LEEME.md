@@ -135,3 +135,6 @@ parpadeo con cada piel, sin errores ni almacenamiento; a tamaño real coincide c
 **17/10/2026 (19) · D-024:** «Gorrito de dormir (candidato)» en la fila «Accesorio de pelo» (encaje pendiente). Al ponerlo
 se quitan la corona y los demás accesorios de cabeza; poner la corona quita el gorrito; «Sin accesorio» sigue por defecto.
 Con la coleta, elegirlo vuelve a la melena. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).
+**17/10/2026 (20) · D-024:** dos candidatos del gorrito: «Gorrito de dormir · A (candidato)» (el anterior) y «Gorrito de
+dormir · B, 8 % más grande (candidato)». Los dos quitan la corona al ponerlos y la corona los quita; «Sin accesorio» por
+defecto. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).

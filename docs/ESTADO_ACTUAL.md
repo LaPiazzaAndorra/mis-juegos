@@ -111,6 +111,9 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   melena; en el visor como candidato (quita la corona). Cejas libres y rizos de los lados conservados; **cubre el 95,9 %
   del pelo de arriba: asoma una franja fina de rizos arriba a la izquierda** (marcada; peinado sin tocar). **Encaje
   pendiente.** Cinta, gorra y sombrero, pendientes de versión de frente.
+- **Gorrito B, un 8 % más grande (17/10):** el mismo gorro ×1,08 y 8 px a la izquierda: cubre el 99,9 % del pelo de arriba
+  con las cejas libres (a 14,6 px; el ala queda unos 6 px más alta que en el A). Los dos candidatos en el visor; encaje
+  pendiente de revisión.
 
 **Peinado nuevo: coleta rizada con cinta (16/10, D-025):**
 - Propuesta aprobada como peinado nuevo; la melena suelta se conserva (por defecto).
@@ -245,7 +248,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 17/10/2026 (D-024: gorrito de dormir de frente, diseño aprobado; encaje candidato en el visor) · **Rama:** `avatar-creador` ·
+**Última actualización:** 17/10/2026 (D-024: gorrito de dormir, candidatos A y B en el visor; encaje pendiente) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

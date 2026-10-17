@@ -14,6 +14,9 @@
 >
 > **17/10/2026 (5):** **diseño frontal del gorrito de dormir aprobado**; gorro y pompón en `gorrito/` y en el visor como
 > candidato. **Encaje pendiente:** asoma una franja fina de pelo arriba a la izquierda (ver `gorrito/LEEME.md`).
+>
+> **17/10/2026 (6):** **gorrito B**, un 8 % más grande: cubre el pelo de arriba con las cejas libres; los dos candidatos
+> en el visor; encaje pendiente.
 
 ## Referencias (`referencias/`, sin modificar)
 

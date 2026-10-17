@@ -1,6 +1,7 @@
 # Gorrito de dormir de frente (D-024) · 17/10/2026
 
-> **Diseño frontal aprobado** por la propietaria (17/10). **Encaje candidato, pendiente de revisión.** Nada activado en
+> **Diseño frontal aprobado** por la propietaria (17/10). **Encaje candidato, pendiente de revisión.** Hay dos
+> candidatos: **A** (con la escala de los ojos) y **B** (un 8 % más grande, ver abajo). Nada activado en
 > el juego; `main`, las partidas y las pruebas congeladas no cambian. La muñeca y el peinado **no se tocan**.
 
 | Archivo | Qué es |
@@ -11,7 +12,11 @@
 | `capa-gorrito.png` | La capa (948 × 1659) sobre nuestra muñeca: encima del pelo de delante, como los demás accesorios. |
 | `comparacion-gorrito.png` | Melena con corona · con el gorrito · cobertura marcada · la imagen aprobada a la misma escala. |
 | `zonas-sin-cubrir.png` | Ampliado ×2: dónde asoma el pelo de arriba (en magenta). |
-| `comprobaciones.json` | Cifras. |
+| `comprobaciones.json` | Cifras (A). |
+| `gorrito_grande.py` | Variante B (desde la raíz: `python3 docs/propuestas/accesorios-2026-10-16/gorrito/gorrito_grande.py`). |
+| `capa-gorrito-b.png` | Candidato B: el mismo recorte, ×1,08 y 8 px a la izquierda. |
+| `antes-despues-gorrito.png`, `zonas-sin-cubrir-b.png` | A y B montados y con la cobertura marcada (magenta: pelo sin cubrir; rojo: cejas); y ampliado ×2 arriba a la izquierda. |
+| `comprobaciones-b.json` | Cifras de B, de A medidas igual y de todas las pruebas válidas. |
 
 ## Cómo se ha hecho
 
@@ -42,14 +47,42 @@
   cejas), o recortar esos rizos del peinado (no hecho), o dejarlo así.
 - La frente que tapa el ala es la de nuestra base (como en la imagen aprobada). Fuentes sin cambios.
 
+## Variante B: un 8 % más grande (17/10, `gorrito_grande.py`)
+
+La propietaria pide probar el gorrito **un 6–9 % más grande**, ajustando su posición para cubrir el pelo de arriba y
+dejar las cejas libres, **sin recortar ni deformar el peinado**.
+
+- **Búsqueda:** el mismo recorte, solo escalado (×1,06 a ×1,09, de 0,005 en 0,005) y desplazado (−16 a +16 px en
+  horizontal; −24 a +12 px en vertical): 2 261 pruebas (723 cumplen las condiciones y 293 de ellas cubren el pelo). Condiciones: no toca las cejas y queda al menos a 6 px de ellas,
+  no tapa los ojos y cabe entero en el lienzo (con ×1,09 sin mover, el pompón se salía por la derecha y se cortaba).
+- **Elección:** muchas posiciones cubren el pelo de arriba (≤ 150 px sin cubrir, solo restos de 1–2 px). La que más
+  cubría subía el ala hasta 23 px por encima de las cejas (mucha frente a la vista); se elige la que deja **el ala lo más
+  baja posible**, es decir, más parecida al A: **×1,08 y 8 px a la izquierda, sin subir ni bajar** (escala final 0,749).
+- **Resultado (B / A):**
+
+  | | A | B |
+  | --- | --- | --- |
+  | Pelo de arriba cubierto | 95,9 % (4 403 px sin cubrir; franja de hasta 22 px arriba a la izquierda) | **99,9 %** (146 px: restos de 1–5 px junto al extremo derecho del ala) |
+  | Cejas | libres, a 6,3 px | **libres, a 14,6 px** |
+  | Borde de abajo del ala (mediana) | y = 359 | y = 353 (unos 6 px más arriba; en el centro, sobre la frente) |
+  | Rizos de los lados tapados (pompón) | 1 295 px | 427 px |
+  | Ojos | libres | libres |
+
+- **Lo que cambia:** para cubrir el pelo, el ala no puede quedar tan cerca de las cejas como en el A: la posición más
+  baja que cubre deja 14,6 px (en ninguna de las pruebas que cubren queda más cerca). Se ve algo más de frente bajo el
+  ala. El pompón queda a 5 px del borde derecho del lienzo.
+- **Peinado y cabeza sin cambios;** el A (`capa-gorrito.png`) se conserva igual. Queda, en los dos, una línea clara muy
+  fina en el borde izquierdo del ala, solo visible ampliada.
+
 ## En el visor
 
-Fila «Accesorio de pelo»: **Gorrito de dormir (candidato)**. «Sin accesorio» sigue por defecto y lo quita. Al ponerlo se
+Fila «Accesorio de pelo»: **Gorrito de dormir · A (candidato)** y **Gorrito de dormir · B, 8 % más grande
+(candidato)**. «Sin accesorio» sigue por defecto y lo quita (cualquiera de los dos). Al ponerlo se
 quitan la corona y los demás accesorios de cabeza (va uno cada vez); si después se pone la corona, se quita el gorrito.
 Está colocado para la melena: con la coleta, elegirlo vuelve a la melena (como los demás accesorios). Sin errores ni
 almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco).
 
 ## Pendiente
 
-- Decidir qué hacer con el pelo que asoma arriba a la izquierda, y revisar el encaje.
+- Revisar el encaje y elegir entre A y B.
 - Colores de pelo y tonos de piel con el gorrito; la coleta con el gorrito; copia de prueba del juego; 2000 × 3500.

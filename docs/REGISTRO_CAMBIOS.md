@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-17 — D-024: gorrito de dormir de frente (diseño aprobado) extraído y en el visor como candidato
+### 2026-10-17 — D-024: gorrito de dormir B, un 8 % más grande (cubre el pelo de arriba, cejas libres), en el visor
+
+- **Solicitado por:** la propietaria («Prepara una variante con el gorrito un 6–9 % más grande…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `8e39fbf`, el de la entrada siguiente).
+- **Estado:** dos candidatos (A y B) en el visor; **encaje pendiente de revisión**. Nada activado ni publicado.
+- **Cambios:**
+  - `gorrito/gorrito_grande.py` (nuevo): búsqueda de escala (×1,06–×1,09) y posición con el mismo recorte;
+    `capa-gorrito-b.png`, `comprobaciones-b.json`, `antes-despues-gorrito.png`, `zonas-sin-cubrir-b.png`.
+  - Visor: «Gorrito de dormir · A (candidato)» y «Gorrito de dormir · B, 8 % más grande (candidato)»; los dos quitan la
+    corona y la corona los quita.
+  - D-024, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del
+    gorrito, de los accesorios y del visor.
+- **Resultado:** B = ×1,08 y 8 px a la izquierda: pelo de arriba cubierto al 99,9 % (A: 95,9 %); cejas libres, a 14,6 px
+  (A: 6,3 px); ojos libres; cabe en el lienzo. Peinado, cabeza y candidato A sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado) con A y con B: poner y quitar, corona, parpadeo, desde la coleta; sin
+  errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco). `pruebas/prueba-juego.js` 21/21
+  y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `8e39fbf` · D-024: gorrito de dormir de frente (diseño aprobado) extraído y en el visor como candidato
 
 - **Solicitado por:** la propietaria («Apruebo el diseño frontal del gorrito de dormir. Extrae únicamente el gorro y el
   pompón…»).

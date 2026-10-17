@@ -61,7 +61,7 @@
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño aprobado y encaje candidato (17/10); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño aprobado y encaje candidato (17/10; dos candidatos, A y B); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -94,6 +94,14 @@
     (hasta 22 px) y un mechoncito encima. Marcado en `gorrito/zonas-sin-cubrir.png`; **el peinado no se ha tocado**.
   - En el visor como **candidato** («Gorrito de dormir (candidato)»); «Sin accesorio» por defecto.
   - **Diseño aprobado; el encaje queda pendiente** (y qué hacer con el pelo que asoma).
+- **17/10/2026 (6):** la propietaria pide una **variante con el gorrito un 6–9 % más grande**, ajustando su posición para
+  cubrir el pelo de arriba y dejar las cejas libres, sin recortar ni deformar el peinado; conservar el candidato
+  anterior y añadir la alternativa al visor, con la misma exclusión entre gorrito y corona.
+  - Hecho (`gorrito/gorrito_grande.py`, `capa-gorrito-b.png`): **B = ×1,08 y 8 px a la izquierda**. Cubre el **99,9 %**
+    del pelo de arriba (restos de 1–5 px junto al extremo derecho del ala); **cejas libres, a 14,6 px** (A: 6,3 px): el
+    ala no puede quedar más cerca de las cejas si cubre el pelo. Peinado y cabeza sin cambios; A conservado.
+  - En el visor: «Gorrito de dormir · A (candidato)» y «Gorrito de dormir · B, 8 % más grande (candidato)»; los dos
+    quitan la corona y la corona los quita. **El encaje sigue pendiente de la revisión de la propietaria.**
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina
