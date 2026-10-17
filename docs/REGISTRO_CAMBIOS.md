@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-17 — D-024: gorrito B aprobado; revisado con colores de pelo y tonos de piel (melena) y con la coleta
+### 2026-10-17 — D-024: gorra rosa del rayo de frente (diseño aprobado) extraída y en el visor como candidata
+
+- **Solicitado por:** la propietaria («Apruebo la gorra rosa de frente con el rayo bordado…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `18c4054`, el de la entrada siguiente).
+- **Estado:** diseño aprobado; **encaje candidato, pendiente de revisión**. Nada activado ni publicado.
+- **Cambios:**
+  - `accesorios-2026-10-16/gorra/` (nuevo): imagen aprobada sin modificar, `gorra.py` (extracción y búsqueda de escala y
+    posición), `gorra-recortada.png`, `capa-gorra.png`, `comparacion-gorra.png`, `comprobaciones.json` y `LEEME.md`.
+  - Visor: «Gorra rosa del rayo (candidata)» en la fila «Accesorio de pelo»; quita la corona (y los demás accesorios,
+    uno cada vez) y la corona la quita; «Sin accesorio» por defecto.
+  - D-024, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de los
+    accesorios y del visor.
+- **Resultado:** ×1,10, centrada, 4 px más abajo: pelo de arriba cubierto al 99,99 %; cejas libres a 6,3 px; ojos y rizos
+  de los lados libres. Con la escala de los ojos sin ajustar, la visera tapaba las cejas. Peinado y cabeza sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium: la gorra con las 20 combinaciones de piel y pelo, poner y quitar, corona, parpadeo,
+  desde la coleta; sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco).
+  `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `18c4054` · D-024: gorrito B aprobado; revisado con colores de pelo y tonos de piel (melena) y con la coleta
 
 - **Solicitado por:** la propietaria («Apruebo visualmente el gorrito B, un 8 % más grande, tal como está colocado…»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `738d9dc`, el de la entrada siguiente).

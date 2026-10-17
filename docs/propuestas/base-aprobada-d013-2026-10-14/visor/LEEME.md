@@ -142,3 +142,6 @@ defecto. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (
 (alternativa anterior)». «Sin accesorio» por defecto; los dos siguen quitando la corona y la corona los quita. Probado
 con las 20 combinaciones de piel y pelo sobre la melena. Con la coleta, elegirlo sigue volviendo a la melena (no encaja
 todavía).
+**17/10/2026 (22) · D-024:** «Gorra rosa del rayo (candidata)» en la fila «Accesorio de pelo» (encaje pendiente). Al
+ponerla se quitan la corona y los demás accesorios de cabeza; poner la corona la quita; «Sin accesorio» por defecto. Con
+la coleta, elegirla vuelve a la melena. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).

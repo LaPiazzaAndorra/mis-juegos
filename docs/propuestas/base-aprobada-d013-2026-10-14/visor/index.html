@@ -85,6 +85,7 @@
     <img id="c-acc-diadema" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/diadema/capa-diadema.png">
     <img id="c-acc-gorrito" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/gorrito/capa-gorrito.png">
     <img id="c-acc-gorrito-b" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/gorrito/capa-gorrito-b.png">
+    <img id="c-acc-gorra" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/gorra/capa-gorra.png">
     <img id="c-corona" class="" alt="" src="../../corona-2026-10-15/montaje/corona-candidata.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
@@ -137,6 +138,7 @@
     <button data-acc-pelo="diadema" aria-pressed="false">Diadema de estrellas (aprobada)</button>
     <button data-acc-pelo="gorrito-b" aria-pressed="false">Gorrito de dormir (aprobado)</button>
     <button data-acc-pelo="gorrito" aria-pressed="false">Gorrito de dormir · A (alternativa anterior)</button>
+    <button data-acc-pelo="gorra" aria-pressed="false">Gorra rosa del rayo (candidata)</button>
   </div>
   <div class="fila">
     <b>Pintacaras</b>
@@ -333,8 +335,8 @@
   document.querySelectorAll('[data-corona]').forEach(function (b) {
     b.addEventListener('click', function () {
       document.getElementById('c-corona').classList.toggle('oculto', b.dataset.corona !== 'si');
-      // poner la corona quita el gorrito (no van juntos: la corona quedaría encima del gorro)
-      if (b.dataset.corona === 'si' && ['c-acc-gorrito', 'c-acc-gorrito-b'].some(function (id) { return !document.getElementById(id).classList.contains('oculto'); })) document.querySelector('[data-acc-pelo="ninguno"]').click();
+      // poner la corona quita el gorrito o la gorra (no van juntos: la corona quedaría encima)
+      if (b.dataset.corona === 'si' && ['c-acc-gorrito', 'c-acc-gorrito-b', 'c-acc-gorra'].some(function (id) { return !document.getElementById(id).classList.contains('oculto'); })) document.querySelector('[data-acc-pelo="ninguno"]').click();
       document.querySelectorAll('[data-corona]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
@@ -348,7 +350,7 @@
       if (b.dataset.accPelo === 'diadema') document.querySelector('[data-corona="no"]').click();
       // el gorrito (D-024: B aprobado; A, alternativa anterior) tapa la cabeza: al ponerlo se quita la corona (los demás accesorios ya se quitan,
       // va uno cada vez); «Sin accesorio» lo quita
-      if (/^gorrito/.test(b.dataset.accPelo)) document.querySelector('[data-corona="no"]').click();
+      if (/^gorr/.test(b.dataset.accPelo)) document.querySelector('[data-corona="no"]').click();   // gorrito (A o B) y gorra
     });
   });
 

@@ -20,6 +20,9 @@
 >
 > **17/10/2026 (7):** **encaje del gorrito B aprobado visualmente** (opción elegida; el A, alternativa anterior); bien con
 > los 5 colores de pelo y los 4 tonos de piel sobre la melena; con la coleta necesita otra adaptación.
+>
+> **17/10/2026 (8):** **diseño frontal de la gorra aprobado**; gorra extraída en `gorra/` y en el visor como candidata
+> (×1,10, centrada; cubre el pelo de arriba, cejas libres). **Encaje pendiente** (ver `gorra/LEEME.md`).
 
 ## Referencias (`referencias/`, sin modificar)
 

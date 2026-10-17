@@ -61,7 +61,7 @@
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño aprobado y encaje candidato (17/10); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -112,6 +112,17 @@
   (en total 18 250 px de pelo de arriba fuera del gorro, con y sin cinta); la cinta queda tapada. **Necesita otra
     adaptación** (por ejemplo, un pelo de la coleta bajo el gorro o un gorro colocado para la coleta); con la coleta,
     elegir el gorrito sigue volviendo a la melena.
+- **17/10/2026 (8):** la propietaria **aprueba el diseño frontal de la gorra rosa con el rayo bordado** (imagen generada,
+  `accesorios-2026-10-16/gorra/referencia-gorra-de-frente-aprobada.png`, sin modificar). Pide extraer solo la gorra, sin
+  pelo ni piel, y encajarla sobre nuestra muñeca con melena suelta, ajustando escala y posición para cubrir el pelo de
+  arriba con las cejas libres, sin deformar la cabeza ni recortar los rizos; candidata en el visor, que se pueda quitar
+  y que excluya la corona y los demás accesorios de cabeza.
+  - Hecho (`gorra/`): solo la gorra (con su pestaña lila). Con la escala de los ojos la visera tapaba las cejas; se
+    busca escala y posición: **×1,10, centrada y 4 px más abajo**. Cubre el **99,99 %** del pelo de arriba (zona fija:
+    por encima de y = 300), **cejas libres a 6,3 px** (como en la imagen), ojos y rizos de los lados libres. Peinado y
+    cabeza sin cambios.
+  - En el visor como **candidata** («Gorra rosa del rayo (candidata)»); quita la corona y la corona la quita.
+  - **Diseño aprobado; el encaje queda pendiente de revisión.**
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina
