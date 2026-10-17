@@ -1,7 +1,7 @@
 # Gorrito de dormir de frente (D-024) · 17/10/2026
 
-> **Diseño frontal aprobado** por la propietaria (17/10). **Encaje candidato, pendiente de revisión.** Hay dos
-> candidatos: **A** (con la escala de los ojos) y **B** (un 8 % más grande, ver abajo). Nada activado en
+> **Diseño frontal aprobado** por la propietaria (17/10). **Encaje del B (un 8 % más grande) aprobado visualmente
+> (17/10): opción elegida.** El A (con la escala de los ojos) queda como alternativa anterior. Con la coleta, pendiente. Nada activado en
 > el juego; `main`, las partidas y las pruebas congeladas no cambian. La muñeca y el peinado **no se tocan**.
 
 | Archivo | Qué es |
@@ -17,6 +17,7 @@
 | `capa-gorrito-b.png` | Candidato B: el mismo recorte, ×1,08 y 8 px a la izquierda. |
 | `antes-despues-gorrito.png`, `zonas-sin-cubrir-b.png` | A y B montados y con la cobertura marcada (magenta: pelo sin cubrir; rojo: cejas); y ampliado ×2 arriba a la izquierda. |
 | `comprobaciones-b.json` | Cifras de B, de A medidas igual y de todas las pruebas válidas. |
+| `revisar_b.py`, `revision-b/` | Revisión del B con los 5 colores de pelo y los 4 tonos de piel sobre la melena y con la coleta (vistas y cifras). |
 
 ## Cómo se ha hecho
 
@@ -74,15 +75,23 @@ dejar las cejas libres, **sin recortar ni deformar el peinado**.
 - **Peinado y cabeza sin cambios;** el A (`capa-gorrito.png`) se conserva igual. Queda, en los dos, una línea clara muy
   fina en el borde izquierdo del ala, solo visible ampliada.
 
+## Revisión del B aprobado (17/10, `revisar_b.py`, `revision-b/`)
+
+- **Melena, 5 colores de pelo × 4 tonos de piel** (`combinaciones-melena.png`, `detalle-bordes.png`): el gorro cubre
+  igual con todos (el pelo tiene la misma forma en los 5 colores) y su borde (ala izquierda, frente, ala derecha y
+  pompón) no deja halos claros ni oscuros con ningún color ni tono, en fondo claro y oscuro. La franja oscura que se
+  mide en el borde (152–223 px de 1 123) es la misma en todas: es el contorno propio del ala. Cejas a juego visibles.
+- **Coleta (sin integrar, `coleta-con-gorrito-b.png`):** **no encaja todavía**: el moño de la coleta asoma por encima del gorro (6 787 px) y sus rizos salen por la derecha, junto a la cola (en total 18 250 px de pelo de arriba fuera del gorro, con y sin cinta); la cinta queda tapada. **Necesita otra adaptación** (por
+  ejemplo, una versión del pelo de la coleta bajo el gorro, o un gorro colocado para la coleta). No se ha forzado.
+
 ## En el visor
 
-Fila «Accesorio de pelo»: **Gorrito de dormir · A (candidato)** y **Gorrito de dormir · B, 8 % más grande
-(candidato)**. «Sin accesorio» sigue por defecto y lo quita (cualquiera de los dos). Al ponerlo se
+Fila «Accesorio de pelo»: **Gorrito de dormir (aprobado)** (el B) y **Gorrito de dormir · A (alternativa anterior)**. «Sin accesorio» sigue por defecto y lo quita (cualquiera de los dos). Al ponerlo se
 quitan la corona y los demás accesorios de cabeza (va uno cada vez); si después se pone la corona, se quita el gorrito.
 Está colocado para la melena: con la coleta, elegirlo vuelve a la melena (como los demás accesorios). Sin errores ni
 almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco).
 
 ## Pendiente
 
-- Revisar el encaje y elegir entre A y B.
-- Colores de pelo y tonos de piel con el gorrito; la coleta con el gorrito; copia de prueba del juego; 2000 × 3500.
+- La coleta con el gorrito (otra adaptación).
+- Copia de prueba del juego; 2000 × 3500.

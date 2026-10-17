@@ -138,3 +138,7 @@ Con la coleta, elegirlo vuelve a la melena. Sin errores ni almacenamiento; a tam
 **17/10/2026 (20) · D-024:** dos candidatos del gorrito: «Gorrito de dormir · A (candidato)» (el anterior) y «Gorrito de
 dormir · B, 8 % más grande (candidato)». Los dos quitan la corona al ponerlos y la corona los quita; «Sin accesorio» por
 defecto. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).
+**17/10/2026 (21) · D-024:** gorrito B aprobado: «Gorrito de dormir (aprobado)»; el A pasa a «Gorrito de dormir · A
+(alternativa anterior)». «Sin accesorio» por defecto; los dos siguen quitando la corona y la corona los quita. Probado
+con las 20 combinaciones de piel y pelo sobre la melena. Con la coleta, elegirlo sigue volviendo a la melena (no encaja
+todavía).

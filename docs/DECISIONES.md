@@ -61,7 +61,7 @@
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño aprobado y encaje candidato (17/10; dos candidatos, A y B); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -102,6 +102,16 @@
     ala no puede quedar más cerca de las cejas si cubre el pelo. Peinado y cabeza sin cambios; A conservado.
   - En el visor: «Gorrito de dormir · A (candidato)» y «Gorrito de dormir · B, 8 % más grande (candidato)»; los dos
     quitan la corona y la corona los quita. **El encaje sigue pendiente de la revisión de la propietaria.**
+- **17/10/2026 (7):** la propietaria **aprueba visualmente el gorrito B (un 8 % más grande) tal como está colocado**
+  (`gorrito/capa-gorrito-b.png`, commit `738d9dc`): **opción elegida**; el A (`capa-gorrito.png`) queda como alternativa
+  anterior. «Sin accesorio» sigue por defecto y se mantiene la exclusión con la corona.
+  - Revisado con los 5 colores de pelo y los 4 tonos de piel sobre la melena (`gorrito/revision-b/`): cubre igual con
+    todos (el pelo tiene la misma forma en los 5 colores) y el borde del gorro no deja halos con ningún color ni tono,
+    en fondo claro y oscuro.
+  - **Con la coleta no encaja todavía** (no se fuerza): el moño de la coleta asoma por encima del gorro (6 787 px) y sus rizos salen por la derecha, junto a la cola
+  (en total 18 250 px de pelo de arriba fuera del gorro, con y sin cinta); la cinta queda tapada. **Necesita otra
+    adaptación** (por ejemplo, un pelo de la coleta bajo el gorro o un gorro colocado para la coleta); con la coleta,
+    elegir el gorrito sigue volviendo a la melena.
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

@@ -1,6 +1,28 @@
 # Registro de cambios
 
-### 2026-10-17 — D-024: gorrito de dormir B, un 8 % más grande (cubre el pelo de arriba, cejas libres), en el visor
+### 2026-10-17 — D-024: gorrito B aprobado; revisado con colores de pelo y tonos de piel (melena) y con la coleta
+
+- **Solicitado por:** la propietaria («Apruebo visualmente el gorrito B, un 8 % más grande, tal como está colocado…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `738d9dc`, el de la entrada siguiente).
+- **Estado:** encaje del gorrito B **aprobado visualmente**, opción elegida; A, alternativa anterior. Con la coleta,
+  pendiente (necesita otra adaptación). Nada activado ni publicado.
+- **Cambios:**
+  - `gorrito/revisar_b.py` y `gorrito/revision-b/` (nuevos): las 20 combinaciones sobre la melena, detalle de los bordes
+    (fondo claro y oscuro), la coleta con el gorrito marcada y cifras. No cambia ninguna capa.
+  - Visor: «Gorrito de dormir (aprobado)» (el B) y «Gorrito de dormir · A (alternativa anterior)»; «Sin accesorio» por
+    defecto; exclusión con la corona sin cambios.
+  - D-024, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del
+    gorrito, de los accesorios y del visor.
+- **Resultado:** melena: bien con los 5 colores y los 4 tonos (sin halos en el borde del gorro). Coleta: asoman el moño
+  (6 787 px por encima del gorro) y rizos a la derecha (18 250 px en total), con y sin cinta: no se fuerza.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium: el gorrito B con las 20 combinaciones de piel y pelo (sigue puesto, sin corona, en la
+  melena), poner y quitar, corona, parpadeo, desde la coleta; sin errores ni almacenamiento. `pruebas/prueba-juego.js`
+  21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `738d9dc` · D-024: gorrito de dormir B, un 8 % más grande (cubre el pelo de arriba, cejas libres), en el visor
 
 - **Solicitado por:** la propietaria («Prepara una variante con el gorrito un 6–9 % más grande…»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `8e39fbf`, el de la entrada siguiente).

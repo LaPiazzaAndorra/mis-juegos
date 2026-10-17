@@ -17,6 +17,9 @@
 >
 > **17/10/2026 (6):** **gorrito B**, un 8 % más grande: cubre el pelo de arriba con las cejas libres; los dos candidatos
 > en el visor; encaje pendiente.
+>
+> **17/10/2026 (7):** **encaje del gorrito B aprobado visualmente** (opción elegida; el A, alternativa anterior); bien con
+> los 5 colores de pelo y los 4 tonos de piel sobre la melena; con la coleta necesita otra adaptación.
 
 ## Referencias (`referencias/`, sin modificar)
 

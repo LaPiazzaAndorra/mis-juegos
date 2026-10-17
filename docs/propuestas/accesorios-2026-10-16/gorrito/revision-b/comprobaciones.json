@@ -1,0 +1,175 @@
+{
+ "melena": {
+  "claro-castano": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 187,
+   "borde_px": 1123
+  },
+  "claro-chocolate": {
+   "halo_claro_px": 25,
+   "halo_oscuro_px": 183,
+   "borde_px": 1123
+  },
+  "claro-miel": {
+   "halo_claro_px": 52,
+   "halo_oscuro_px": 184,
+   "borde_px": 1123
+  },
+  "claro-oscuro": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 200,
+   "borde_px": 1123
+  },
+  "claro-jengibre": {
+   "halo_claro_px": 32,
+   "halo_oscuro_px": 182,
+   "borde_px": 1123
+  },
+  "dorado-castano": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 195,
+   "borde_px": 1123
+  },
+  "dorado-chocolate": {
+   "halo_claro_px": 25,
+   "halo_oscuro_px": 196,
+   "borde_px": 1123
+  },
+  "dorado-miel": {
+   "halo_claro_px": 53,
+   "halo_oscuro_px": 188,
+   "borde_px": 1123
+  },
+  "dorado-oscuro": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 207,
+   "borde_px": 1123
+  },
+  "dorado-jengibre": {
+   "halo_claro_px": 32,
+   "halo_oscuro_px": 198,
+   "borde_px": 1123
+  },
+  "moreno-castano": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 210,
+   "borde_px": 1123
+  },
+  "moreno-chocolate": {
+   "halo_claro_px": 25,
+   "halo_oscuro_px": 210,
+   "borde_px": 1123
+  },
+  "moreno-miel": {
+   "halo_claro_px": 53,
+   "halo_oscuro_px": 215,
+   "borde_px": 1123
+  },
+  "moreno-oscuro": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 223,
+   "borde_px": 1123
+  },
+  "moreno-jengibre": {
+   "halo_claro_px": 32,
+   "halo_oscuro_px": 212,
+   "borde_px": 1123
+  },
+  "profundo-castano": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 152,
+   "borde_px": 1123
+  },
+  "profundo-chocolate": {
+   "halo_claro_px": 25,
+   "halo_oscuro_px": 154,
+   "borde_px": 1123
+  },
+  "profundo-miel": {
+   "halo_claro_px": 53,
+   "halo_oscuro_px": 164,
+   "borde_px": 1123
+  },
+  "profundo-oscuro": {
+   "halo_claro_px": 23,
+   "halo_oscuro_px": 174,
+   "borde_px": 1123
+  },
+  "profundo-jengibre": {
+   "halo_claro_px": 32,
+   "halo_oscuro_px": 157,
+   "borde_px": 1123
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/gorrito/capa-gorrito-b.png": "a95c9268225431b87f9cfd69bf658b0725c0545bc439d6af0bb424e03d327098",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f"
+ },
+ "alfa_del_pelo_igual_en_los_5_colores": true,
+ "comprobaciones_b": {
+  "sin_cubrir_px": 146,
+  "cejas_tapadas_px": 0,
+  "distancia_cejas_px": 14.6,
+  "ojos_tapados_px": 0,
+  "margen_al_borde_del_lienzo_px": 5,
+  "pelo_de_arriba_px": 104791,
+  "pelo_de_arriba_cubierto": 0.9986,
+  "grosor_sin_cubrir": {
+   "maximo_px": 5.0,
+   "p95_px": 2.8
+  },
+  "zonas_sin_cubrir": [
+   {
+    "px": 96,
+    "caja": [
+     776,
+     384,
+     779,
+     422
+    ]
+   },
+   {
+    "px": 34,
+    "caja": [
+     770,
+     358,
+     781,
+     366
+    ]
+   }
+  ],
+  "borde_de_abajo_y": {
+   "mediana": 353,
+   "minimo": 309,
+   "maximo": 440
+  },
+  "caja": [
+   159,
+   30,
+   942,
+   511
+  ],
+  "rizos_de_los_lados_tapados_px": 427,
+  "rizos_de_los_lados_px": 261464,
+  "piel_de_la_frente_tapada_px": 9047
+ },
+ "coleta": {
+  "con": {
+   "pelo_de_arriba_px": 98609,
+   "pelo_de_arriba_fuera_del_gorro_px": 18250,
+   "pelo_por_encima_del_gorro_px": 6787,
+   "cinta_tapada_px": 37960,
+   "cinta_asoma_px": 0
+  },
+  "sin": {
+   "pelo_de_arriba_px": 133978,
+   "pelo_de_arriba_fuera_del_gorro_px": 18250,
+   "pelo_por_encima_del_gorro_px": 6787,
+   "cinta_tapada_px": 0,
+   "cinta_asoma_px": 0
+  }
+ },
+ "fuentes_sin_cambios": true
+}
