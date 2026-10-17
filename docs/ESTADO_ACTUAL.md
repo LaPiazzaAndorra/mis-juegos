@@ -116,8 +116,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   opción elegida**; el A queda como alternativa anterior. Revisado con los 5 colores de pelo y los 4 tonos de piel sobre
   la melena: sin halos. **Con la coleta no encaja** (asoman el moño y rizos; necesita otra adaptación).
 - **Gorra rosa del rayo de frente (17/10):** diseño aprobado; solo la gorra extraída (`…/gorra/`), ×1,10 y centrada:
-  cubre el pelo de arriba (99,99 %) con las cejas libres (a 6,3 px). En el visor como candidata (quita la corona).
-  **Encaje pendiente.** Cinta deportiva y sombrero, pendientes de versión de frente.
+  cubre el pelo de arriba (99,99 %) con las cejas libres (a 6,3 px). **Encaje aprobado visualmente (17/10)**; bordes
+  revisados con los 5 colores de pelo y los 4 tonos de piel: sin defectos. Con la coleta, más adelante. Cinta deportiva y sombrero, pendientes de versión de frente.
 
 **Peinado nuevo: coleta rizada con cinta (16/10, D-025):**
 - Propuesta aprobada como peinado nuevo; la melena suelta se conserva (por defecto).
@@ -252,7 +252,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 17/10/2026 (D-024: gorra de frente, diseño aprobado; encaje candidato en el visor) · **Rama:** `avatar-creador` ·
+**Última actualización:** 17/10/2026 (D-024: gorra aprobada; bordes revisados con colores de pelo y tonos de piel) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

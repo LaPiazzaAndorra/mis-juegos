@@ -1,6 +1,7 @@
 # Gorra rosa de frente con el rayo bordado (D-024) · 17/10/2026
 
-> **Diseño frontal aprobado** por la propietaria (17/10). **Encaje candidato, pendiente de revisión.** Nada activado en
+> **Diseño frontal aprobado** por la propietaria (17/10). **Encaje aprobado visualmente (17/10).** Bordes revisados
+> con los 5 colores de pelo y los 4 tonos de piel: sin defectos. Nada activado en
 > el juego; `main`, las partidas y las pruebas congeladas no cambian. La muñeca y el peinado **no se tocan**.
 
 | Archivo | Qué es |
@@ -11,6 +12,7 @@
 | `capa-gorra.png` | La capa (948 × 1659) sobre nuestra muñeca, encima del pelo de delante (como los demás accesorios). |
 | `comparacion-gorra.png` | Melena con corona · con la gorra · cobertura marcada (azul gorra, magenta pelo sin cubrir, rojo cejas) · la imagen aprobada a la misma escala. |
 | `comprobaciones.json` | Cifras. |
+| `revisar_gorra.py`, `revision/` | Revisión de los bordes con los 5 colores de pelo y los 4 tonos de piel sobre la melena (vistas y cifras). |
 
 ## Cómo se ha hecho
 
@@ -38,15 +40,22 @@
 - La frente que tapa la visera es la de nuestra base. Fuentes sin cambios. Bordes revisados ampliados en fondo claro y
   oscuro, sin halos.
 
+## Revisión de los bordes (17/10, `revisar_gorra.py`, `revision/`)
+
+Con el encaje aprobado (la capa no cambia), las 20 combinaciones de piel y color de pelo sobre la melena
+(`combinaciones-melena.png`) y el detalle a tamaño real del lado izquierdo con la visera, la visera sobre la frente y el
+lado derecho con la pestaña lila, en fondo claro y oscuro (`detalle-bordes.png`). **Sin defectos:** no hay halo claro ni
+oscuro en el borde. En el borde semitransparente (1 092 px) solo aparecen puntos sueltos de 1 px más claros (41–73) o
+más oscuros (88–122) que lo de alrededor, en número parecido en todas las combinaciones: son del propio contorno de la
+gorra y no se ven ni ampliados. **No se corrige nada.**
+
 ## En el visor
 
-Fila «Accesorio de pelo»: **Gorra rosa del rayo (candidata)**. «Sin accesorio» sigue por defecto y la quita. Al ponerla
+Fila «Accesorio de pelo»: **Gorra rosa del rayo (aprobada)**. «Sin accesorio» sigue por defecto y la quita. Al ponerla
 se quitan la corona y los demás accesorios de cabeza (va uno cada vez); si después se pone la corona, se quita la gorra.
 Está colocada para la melena: con la coleta, elegirla vuelve a la melena. Probado con las 20 combinaciones de piel y
 pelo; sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco).
 
 ## Pendiente
 
-- La revisión del encaje por la propietaria.
-- Revisión con los colores de pelo y los tonos de piel (como con el gorrito) y con la coleta; copia de prueba del juego;
-  2000 × 3500.
+- La adaptación a la coleta (más adelante); copia de prueba del juego; 2000 × 3500.

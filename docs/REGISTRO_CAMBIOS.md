@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-17 — D-024: gorra rosa del rayo de frente (diseño aprobado) extraída y en el visor como candidata
+### 2026-10-17 — D-024: gorra aprobada; bordes revisados con los colores de pelo y los tonos de piel (sin defectos)
+
+- **Solicitado por:** la propietaria («Apruebo visualmente la gorra tal como está colocada…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `839d38b`, el de la entrada siguiente).
+- **Estado:** encaje de la gorra **aprobado visualmente**; bordes revisados sin defectos (no hace falta corregir: la
+  capa no cambia). Con la coleta, más adelante. Nada activado ni publicado.
+- **Cambios:**
+  - `gorra/revisar_gorra.py` y `gorra/revision/` (nuevos): las 20 combinaciones sobre la melena, detalle de los bordes
+    en fondo claro y oscuro, y cifras.
+  - Visor: «Gorra rosa del rayo (aprobada)»; «Sin accesorio» por defecto y exclusión con la corona sin cambios.
+  - D-024, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de la gorra,
+    de los accesorios y del visor.
+- **Resultado:** sin halos en el borde de la gorra con ningún color ni tono; solo puntos sueltos de 1 px del contorno
+  (41–73 claros y 88–122 oscuros de 1 092), parecidos en todas las combinaciones.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** revisión de las 20 combinaciones; visor en Chromium con la gorra y las 20 combinaciones (sigue puesta,
+  sin corona, en la melena), sin errores. `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No
+  probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `839d38b` · D-024: gorra rosa del rayo de frente (diseño aprobado) extraída y en el visor como candidata
 
 - **Solicitado por:** la propietaria («Apruebo la gorra rosa de frente con el rayo bordado…»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `18c4054`, el de la entrada siguiente).

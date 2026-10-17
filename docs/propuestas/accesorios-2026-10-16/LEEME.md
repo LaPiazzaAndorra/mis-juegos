@@ -23,6 +23,9 @@
 >
 > **17/10/2026 (8):** **diseño frontal de la gorra aprobado**; gorra extraída en `gorra/` y en el visor como candidata
 > (×1,10, centrada; cubre el pelo de arriba, cejas libres). **Encaje pendiente** (ver `gorra/LEEME.md`).
+>
+> **17/10/2026 (9):** **encaje de la gorra aprobado visualmente**; bordes revisados con los 5 colores de pelo y los 4
+> tonos de piel, sin defectos.
 
 ## Referencias (`referencias/`, sin modificar)
 

@@ -1,0 +1,112 @@
+{
+ "capa": "docs/propuestas/accesorios-2026-10-16/gorra/capa-gorra.png",
+ "melena": {
+  "claro-castano": {
+   "halo_claro_px": 49,
+   "halo_oscuro_px": 116,
+   "borde_px": 1092
+  },
+  "claro-chocolate": {
+   "halo_claro_px": 49,
+   "halo_oscuro_px": 122,
+   "borde_px": 1092
+  },
+  "claro-miel": {
+   "halo_claro_px": 42,
+   "halo_oscuro_px": 109,
+   "borde_px": 1092
+  },
+  "claro-oscuro": {
+   "halo_claro_px": 50,
+   "halo_oscuro_px": 106,
+   "borde_px": 1092
+  },
+  "claro-jengibre": {
+   "halo_claro_px": 41,
+   "halo_oscuro_px": 115,
+   "borde_px": 1092
+  },
+  "dorado-castano": {
+   "halo_claro_px": 50,
+   "halo_oscuro_px": 116,
+   "borde_px": 1092
+  },
+  "dorado-chocolate": {
+   "halo_claro_px": 52,
+   "halo_oscuro_px": 119,
+   "borde_px": 1092
+  },
+  "dorado-miel": {
+   "halo_claro_px": 44,
+   "halo_oscuro_px": 103,
+   "borde_px": 1092
+  },
+  "dorado-oscuro": {
+   "halo_claro_px": 51,
+   "halo_oscuro_px": 107,
+   "borde_px": 1092
+  },
+  "dorado-jengibre": {
+   "halo_claro_px": 44,
+   "halo_oscuro_px": 109,
+   "borde_px": 1092
+  },
+  "moreno-castano": {
+   "halo_claro_px": 50,
+   "halo_oscuro_px": 112,
+   "borde_px": 1092
+  },
+  "moreno-chocolate": {
+   "halo_claro_px": 53,
+   "halo_oscuro_px": 117,
+   "borde_px": 1092
+  },
+  "moreno-miel": {
+   "halo_claro_px": 45,
+   "halo_oscuro_px": 103,
+   "borde_px": 1092
+  },
+  "moreno-oscuro": {
+   "halo_claro_px": 50,
+   "halo_oscuro_px": 99,
+   "borde_px": 1092
+  },
+  "moreno-jengibre": {
+   "halo_claro_px": 43,
+   "halo_oscuro_px": 104,
+   "borde_px": 1092
+  },
+  "profundo-castano": {
+   "halo_claro_px": 58,
+   "halo_oscuro_px": 96,
+   "borde_px": 1092
+  },
+  "profundo-chocolate": {
+   "halo_claro_px": 60,
+   "halo_oscuro_px": 101,
+   "borde_px": 1092
+  },
+  "profundo-miel": {
+   "halo_claro_px": 73,
+   "halo_oscuro_px": 103,
+   "borde_px": 1092
+  },
+  "profundo-oscuro": {
+   "halo_claro_px": 54,
+   "halo_oscuro_px": 88,
+   "borde_px": 1092
+  },
+  "profundo-jengibre": {
+   "halo_claro_px": 59,
+   "halo_oscuro_px": 102,
+   "borde_px": 1092
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/gorra/capa-gorra.png": "e38c600832d2c2137ec87f3db30ee3d2fcce7c384fb7ff66da4d176bf8c6761c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f"
+ },
+ "fuentes_sin_cambios": true
+}

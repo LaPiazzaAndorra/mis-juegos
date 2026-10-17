@@ -145,3 +145,5 @@ todavía).
 **17/10/2026 (22) · D-024:** «Gorra rosa del rayo (candidata)» en la fila «Accesorio de pelo» (encaje pendiente). Al
 ponerla se quitan la corona y los demás accesorios de cabeza; poner la corona la quita; «Sin accesorio» por defecto. Con
 la coleta, elegirla vuelve a la melena. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).
+**17/10/2026 (23) · D-024:** gorra aprobada: el botón pasa a «Gorra rosa del rayo (aprobada)». «Sin accesorio» por
+defecto y la exclusión con la corona, igual.

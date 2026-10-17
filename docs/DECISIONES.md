@@ -61,7 +61,7 @@
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño aprobado y encaje candidato (17/10); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -123,6 +123,14 @@
     cabeza sin cambios.
   - En el visor como **candidata** («Gorra rosa del rayo (candidata)»); quita la corona y la corona la quita.
   - **Diseño aprobado; el encaje queda pendiente de revisión.**
+- **17/10/2026 (9):** la propietaria **aprueba visualmente la gorra tal como está colocada** (`gorra/capa-gorra.png`,
+  commit `839d38b`) y pide revisar sus bordes con los 5 colores de pelo y los 4 tonos de piel, conservando el encaje.
+  - Revisado (`gorra/revision/`): en las 20 combinaciones, sobre fondo claro y oscuro, **sin defectos**: no hay halo
+    claro ni oscuro en el borde de la visera, de los lados ni de la pestaña lila; solo puntos sueltos de 1 px del propio
+    contorno de la gorra (41–73 más claros y 88–122 más oscuros de 1 092 px de borde, en número parecido en todas), que
+    no se ven ni ampliados. **No hace falta corregir; la capa no cambia.**
+  - En el visor pasa a «Gorra rosa del rayo (aprobada)»; «Sin accesorio» por defecto y la exclusión con la corona,
+    igual. La adaptación a la coleta queda para más adelante.
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina
