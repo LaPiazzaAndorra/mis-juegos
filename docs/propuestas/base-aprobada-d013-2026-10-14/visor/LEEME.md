@@ -132,3 +132,6 @@ simulada): las 40 combinaciones (con y sin cinta × 4 pieles × 5 colores) con l
 parpadeo con cada piel, sin errores ni almacenamiento; a tamaño real coincide con el montaje en lo opaco (≤ 3).
 **17/10/2026 (18) · D-025:** colores de pelo y tonos de piel de la coleta aprobados visualmente. El visor no cambia
 (melena por defecto; con y sin cinta). Sin probar en el iPhone.
+**17/10/2026 (19) · D-024:** «Gorrito de dormir (candidato)» en la fila «Accesorio de pelo» (encaje pendiente). Al ponerlo
+se quitan la corona y los demás accesorios de cabeza; poner la corona quita el gorrito; «Sin accesorio» sigue por defecto.
+Con la coleta, elegirlo vuelve a la melena. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).

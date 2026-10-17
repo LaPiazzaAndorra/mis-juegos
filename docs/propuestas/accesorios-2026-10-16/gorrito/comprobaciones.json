@@ -1,0 +1,102 @@
+{
+ "extraccion": {
+  "px": 334684,
+  "pompon_px": 24825,
+  "muescas_cerradas_px": 1883,
+  "mechones_sobre_el_ala_px": 4230,
+  "agujeros_en_el_ala_px": 145,
+  "caja_en_la_imagen": [
+   286,
+   69,
+   1333,
+   713
+  ]
+ },
+ "encaje": {
+  "escala": 0.6932,
+  "esquina": [
+   190.0,
+   60.6
+  ]
+ },
+ "caja": [
+  190,
+  61,
+  915,
+  506
+ ],
+ "borde_de_abajo_del_gorro_y": {
+  "mediana": 359,
+  "minimo": 319,
+  "maximo": 440
+ },
+ "arriba_del_pelo_y": 80,
+ "pelo_de_arriba_px": 107432,
+ "pelo_de_arriba_sin_cubrir_px": 4403,
+ "pelo_de_arriba_cubierto": 0.959,
+ "zonas_sin_cubrir": [
+  {
+   "px": 3201,
+   "caja": [
+    181,
+    136,
+    342,
+    359
+   ]
+  },
+  {
+   "px": 527,
+   "caja": [
+    352,
+    87,
+    434,
+    132
+   ]
+  },
+  {
+   "px": 194,
+   "caja": [
+    754,
+    350,
+    766,
+    371
+   ]
+  },
+  {
+   "px": 83,
+   "caja": [
+    761,
+    389,
+    764,
+    425
+   ]
+  },
+  {
+   "px": 76,
+   "caja": [
+    193,
+    384,
+    195,
+    418
+   ]
+  }
+ ],
+ "grosor_de_lo_sin_cubrir": {
+  "maximo_px": 21.6,
+  "p95_px": 15.5
+ },
+ "cejas_tapadas_px": 0,
+ "cejas_arriba_y": 347,
+ "distancia_minima_a_las_cejas_px": 6.3,
+ "rizos_de_los_lados_px": 261464,
+ "rizos_de_los_lados_tapados_por_el_pompon_px": 1295,
+ "piel_de_la_frente_tapada_px": 11150,
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/gorrito/referencia-gorrito-de-frente-aprobado.png": "9396a81bdbbe5c1ef1f3f7fb5848436c1ac386b461ae1ad5c761a11282553fad",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png": "c607253802ab89a019cbe5c10173572dc17aeadc92c2f89082c3bff7b45a952f"
+ },
+ "fuentes_sin_cambios": true
+}

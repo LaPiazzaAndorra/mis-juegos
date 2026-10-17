@@ -61,7 +61,7 @@
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado; encaje pendiente.**
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño aprobado y encaje candidato (17/10); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -84,6 +84,16 @@
 - **16/10/2026 (4):** la propietaria **aprueba visualmente la diadema tal como está colocada** (`diadema/capa-diadema.png`,
   commit `1d8f22d`). En el visor pasa a «Diadema de estrellas (aprobada)»; «Sin accesorio» sigue por defecto y se
   mantiene el comportamiento con la corona (al elegir la diadema se quita la corona; se puede volver a poner).
+- **17/10/2026 (5):** la propietaria **aprueba el diseño frontal del gorrito de dormir** (imagen generada,
+  `accesorios-2026-10-16/gorrito/referencia-gorrito-de-frente-aprobado.png`, sin modificar). Pide extraer solo el gorro y
+  el pompón (sin pelo ni piel de la imagen) y colocarlo sobre nuestra muñeca con la melena suelta: que cubra el pelo de
+  arriba sin deformar la cabeza, deje libres las cejas y conserve los rizos de los lados; si no cubre bien, señalar dónde
+  antes de tocar el peinado. Al ponerlo se quitan la corona y los demás accesorios de cabeza.
+  - Hecho (`gorrito/`): capa con la escala de los ojos, sin deformar. Cejas libres (0 px; a 6 px como mínimo), rizos de
+    los lados conservados. **Cubre el 95,9 % del pelo de arriba: asoma una franja fina de rizos arriba a la izquierda**
+    (hasta 22 px) y un mechoncito encima. Marcado en `gorrito/zonas-sin-cubrir.png`; **el peinado no se ha tocado**.
+  - En el visor como **candidato** («Gorrito de dormir (candidato)»); «Sin accesorio» por defecto.
+  - **Diseño aprobado; el encaje queda pendiente** (y qué hacer con el pelo que asoma).
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

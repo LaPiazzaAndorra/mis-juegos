@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-17 — D-025: aprobación visual de la coleta con los colores de pelo y los tonos de piel
+### 2026-10-17 — D-024: gorrito de dormir de frente (diseño aprobado) extraído y en el visor como candidato
+
+- **Solicitado por:** la propietaria («Apruebo el diseño frontal del gorrito de dormir. Extrae únicamente el gorro y el
+  pompón…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `a88b0f3`, el de la entrada siguiente).
+- **Estado:** diseño aprobado; **encaje candidato, pendiente**. Nada activado ni publicado.
+- **Cambios:**
+  - `accesorios-2026-10-16/gorrito/` (nuevo): imagen aprobada sin modificar, `gorrito.py`, `gorrito-recortado.png`,
+    `capa-gorrito.png`, `comparacion-gorrito.png`, `zonas-sin-cubrir.png`, `comprobaciones.json` y `LEEME.md`.
+  - Visor: «Gorrito de dormir (candidato)» en la fila «Accesorio de pelo»; al ponerlo se quita la corona (y los demás
+    accesorios, uno cada vez); poner la corona quita el gorrito; «Sin accesorio» por defecto.
+  - D-024, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de los
+    accesorios y del visor.
+- **Resultado:** cejas libres (0 px; a 6 px como mínimo); rizos de los lados conservados (el pompón tapa 1 295 px); pelo
+  de arriba cubierto al 95,9 %: **asoma una franja fina arriba a la izquierda** (hasta 22 px) y un mechoncito encima,
+  marcados; peinado sin tocar.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado): poner y quitar el gorrito, la corona, parpadeo y vuelta a la melena
+  desde la coleta, sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco).
+  `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `a88b0f3` · D-025: aprobación visual de la coleta con los colores de pelo y los tonos de piel
 
 - **Solicitado por:** la propietaria («Registra en D-025 mi aprobación visual del resultado de la coleta con los colores
   de pelo y tonos de piel revisados…»).

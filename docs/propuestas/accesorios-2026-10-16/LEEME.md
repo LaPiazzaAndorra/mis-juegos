@@ -11,6 +11,9 @@
 > **encaje pendiente de revisión** (ver `diadema/LEEME.md`). Pendientes: cinta y gorros.
 >
 > **16/10/2026 (4):** **encaje de la diadema aprobado visualmente.** Pendientes: cinta, gorra, sombrero y gorrito.
+>
+> **17/10/2026 (5):** **diseño frontal del gorrito de dormir aprobado**; gorro y pompón en `gorrito/` y en el visor como
+> candidato. **Encaje pendiente:** asoma una franja fina de pelo arriba a la izquierda (ver `gorrito/LEEME.md`).
 
 ## Referencias (`referencias/`, sin modificar)
 
