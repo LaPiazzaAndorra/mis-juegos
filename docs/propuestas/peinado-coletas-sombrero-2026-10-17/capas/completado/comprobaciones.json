@@ -1,0 +1,60 @@
+{
+ "pelo_nuevo_quitado_de_nuestra_cara_y_orejas_px": 7543,
+ "escala_nueva": 0.8325,
+ "escala_aprobada": 0.6877,
+ "alineacion": {
+  "cara": {
+   "dy": -0.3,
+   "dx": 0.0
+  },
+  "coletero_izq": {
+   "dy": -4.7,
+   "dx": 0.3
+  },
+  "coletero_der": {
+   "dy": -4.5,
+   "dx": -0.8
+  }
+ },
+ "y_corte": 783,
+ "franja_abajo_px": 60,
+ "franja_arriba_px": 40,
+ "con": {
+  "puntas": {
+   "px": 613,
+   "fallan_px": 114,
+   "fallan": 0.186
+  },
+  "arriba": {
+   "px": 0,
+   "fallan_px": 0,
+   "fallan": 0.0
+  },
+  "pelo_aprobado_fuera_de_la_zona_igual": true,
+  "px_nuevos": 851916
+ },
+ "y_coleteros": 523,
+ "sin": {
+  "puntas": {
+   "px": 613,
+   "fallan_px": 114,
+   "fallan": 0.186
+  },
+  "arriba": {
+   "px": 150,
+   "fallan_px": 16,
+   "fallan": 0.107
+  },
+  "pelo_aprobado_fuera_de_la_zona_igual": true,
+  "px_nuevos": 1018185
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/referencias/referencia-coletas-sombrero-aprobada.png": "6f720c3f7c780001250071f48ba675f3335c98c5d21e40479ced0321986d69cb",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/referencias/referencia-coletas-sin-sombrero-puntas.png": "011469e7501c5fac04634455871f457aca6823ff559589711f1b7ab92949ef90",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-detras.png": "1d498c68d11c01a0fd3b7d1bab75a48dc15ed70022af24e8c814fcee7c0f242f",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-delante.png": "4c2666adaf860a698a291f73aaf96a195c14c36984800b432ab3500788eddb87",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/coleteros.png": "57b166af0720ce755702dae08ac02e290f56d9a31bee99b8a26331e308e369bf",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/sombrero-aventura.png": "4ade5aaf7f6194d8ffd55900240d77f7c75b752e46f206787fd4f8703c805894"
+ },
+ "fuentes_sin_cambios": true
+}

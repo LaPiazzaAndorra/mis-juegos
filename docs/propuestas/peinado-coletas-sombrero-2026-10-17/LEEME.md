@@ -17,6 +17,10 @@
 | `capas/mascara-pelo-oculto-bajo-el-sombrero.png` | Zona de pelo que esconde el sombrero (blanco). |
 | `capas/comprobaciones.json` | Cifras. |
 | `guia-chatgpt/` | Guía y plantilla para completar en ChatGPT el pelo que falta. |
+| `referencias/referencia-coletas-sin-sombrero-puntas.png` | Propuesta de ChatGPT sin sombrero y con las coletas enteras, **sin modificar** (SHA-256 `011469e7…49ef90`). Solo se toma pelo. |
+| `completar_pelo.py` | Pelo bajo el sombrero y puntas (desde la raíz: `python3 docs/propuestas/peinado-coletas-sombrero-2026-10-17/completar_pelo.py`). |
+| `capas/completado/pelo-coletas-{con,sin}-sombrero-{detras,delante}.png` | **Candidatas:** pelo con las puntas completas, con sombrero y sin sombrero. |
+| `capas/completado/antes-despues.png`, `uniones.png`, `comprobaciones.json` | Antes/después, zona nueva en amarillo con las uniones (verde bien · magenta falla) y cifras. |
 
 ## Cómo se ha hecho
 
@@ -53,16 +57,40 @@ debajo del ala por los lados). Marcado en magenta en `capas/comparacion-coletas-
 `guia-chatgpt/plantilla-pelo-que-falta.png`. **No se inventa aquí:** `guia-chatgpt/LEEME.md` explica cómo pedir el mismo
 peinado sin el sombrero (y con las coletas enteras). Hasta entonces, las dos coletas van **siempre con el sombrero**.
 
+## Pelo bajo el sombrero y puntas completas (17/10, `completar_pelo.py`, candidatas)
+
+La propuesta de ChatGPT (sin sombrero, con las coletas enteras) tiene **otro encuadre** (otra escala y posición).
+- **Alineación medida antes de integrar:** se pasa a nuestro lienzo con la escala de los ojos (iris (506, 483) y (715, 482);
+  escala 0,833, frente a 0,688 de la aprobada). Comparada con la aprobada en nuestro lienzo: **la cara coincide** (0,3 px);
+  **los coleteros están unos 4,5 px más arriba** en la nueva (las coletas arrancan algo más alto).
+- **Solo pelo, solo donde hace falta:**
+  - **puntas:** por debajo de donde la aprobada corta las coletas (y = 783), y una franja de hasta 60 px por encima para
+    buscar la unión; los rizos de la nueva que salen de la silueta justo encima del corte y siguen hasta las puntas se toman
+    enteros (si no, quedaban cortados en recto);
+  - **sin sombrero:** todo el pelo por encima de los coleteros (lo que tapaba el sombrero y el pelo de debajo del ala, que
+    en la nueva sigue al de arriba), con la unión justo debajo de los coleteros, que la tapan.
+  - La unión se busca (watershed) donde las dos imágenes se parecen y por los huecos oscuros entre rizos; 2 px de
+    transición. **Fuera de la zona, el pelo aprobado no cambia** (comprobado píxel a píxel).
+- **Se conservan nuestra cara, orejas, cuerpo, vestido, coleteros y sombrero:** el pelo nuevo no va encima de nuestra base
+  salvo donde ya la tapaban el sombrero o el pelo aprobado (se quitaron 7 543 px de pelo nuevo que caían sobre nuestra cara
+  y nuestras orejas).
+- **Uniones:** las puntas, **18,6 % de la costura con diferencia alta** (114 de 613 px) y la de debajo de los coleteros sin
+  sombrero, 10,7 % (16 de 150 px). Es por el desfase de 4,5 px de las coletas entre las dos imágenes. **Revisado a la vista,
+  ampliado:** los rizos continúan sin cortes ni escalones (`antes-despues.png`; `uniones.png` marca dónde). Si se ve algún
+  salto en el iPhone, lo siguiente sería subir la unión de las puntas (más franja) antes de cambiar otra cosa.
+- Las puntas completas están en las dos candidatas, con sombrero y sin sombrero. El montaje anterior se conserva.
+
 ## En el visor
 
 Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada (aprobada)** · **Dos coletas con sombrero
 (candidato)**. Por ahora, las dos coletas solo van con **piel clara y pelo castaño**, sin accesorio de pelo ni corona
 (el sombrero ocupa la cabeza); elegir otra piel, otro color, un accesorio, la corona u otro pelo de delante vuelve a la
 melena. El parpadeo funciona igual. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo
-opaco).
+opaco). Con las dos coletas aparece la fila «Dos coletas»: **Con sombrero, puntas cortadas (montaje anterior)** por
+defecto · **Con sombrero y puntas completas (candidata)** · **Sin sombrero y puntas completas (candidata)**.
 
 ## Pendiente
 
 - Revisión del encaje por la propietaria.
-- Pelo bajo el sombrero y puntas de las coletas (ChatGPT, con la guía); después, quitar el sombrero.
+- Revisión de las dos candidatas (con y sin sombrero, puntas completas).
 - Colores de pelo y tonos de piel; copia de prueba del juego; 2000 × 3500.

@@ -17,6 +17,19 @@
   - En el visor: «Dos coletas con sombrero (candidato)», solo con piel clara y pelo castaño, sin accesorio ni corona.
 - **Estado:** **peinado aprobado; encaje candidato**, pendiente de revisión. Melena por defecto.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+- **17/10/2026 (2):** llega la **propuesta de ChatGPT sin sombrero y con las coletas enteras**
+  (`referencias/referencia-coletas-sin-sombrero-puntas.png`, sin modificar). La propietaria pide usarla como fuente del
+  pelo bajo el sombrero y de las puntas, midiendo la alineación antes, tomando solo lo necesario con uniones naturales y
+  conservando cara, orejas, cuerpo, vestido, coleteros y el pelo aprobado que pueda mantenerse; puntas completas con y
+  sin sombrero, como candidatas en el visor, conservando el montaje anterior.
+  - Hecho (`completar_pelo.py`, `capas/completado/`): otro encuadre (escala 0,833); con la escala de los ojos la cara
+    coincide (0,3 px) y los coleteros quedan 4,5 px más arriba. Se toman solo las puntas (bajo el corte, con 60 px de
+    franja) y, sin sombrero, el pelo por encima de los coleteros. Nuestra cara y orejas no cambian; fuera de la zona, el
+    pelo aprobado es idéntico.
+  - Uniones: puntas 18,6 % con diferencia alta, bajo los coleteros 10,7 % (por el desfase de 4,5 px); a la vista, ampliado,
+    los rizos continúan sin cortes. Marcado en `capas/completado/uniones.png`.
+  - En el visor, fila «Dos coletas»: montaje anterior (por defecto) · con sombrero y puntas completas · sin sombrero y
+    puntas completas (**candidatas**). Nada activado en el juego.
 
 ## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva

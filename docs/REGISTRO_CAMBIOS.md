@@ -1,6 +1,28 @@
 # Registro de cambios
 
-### 2026-10-17 — D-026: dos coletas rizadas con coleteros y sombrero de aventura (peinado aprobado; encaje candidato en el visor)
+### 2026-10-17 — D-026: pelo bajo el sombrero y puntas completas (de ChatGPT); candidatas con y sin sombrero en el visor
+
+- **Solicitado por:** la propietaria («Usa esta imagen como fuente del pelo que faltaba bajo el sombrero y de las puntas…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `daac493`, el de la entrada siguiente).
+- **Estado:** dos candidatas (con sombrero y sin sombrero, puntas completas); montaje anterior conservado (por defecto en
+  la fila). Revisión pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - Referencia nueva sin modificar; `completar_pelo.py` (alineación, zona, uniones); `capas/completado/` (pelo con y sin
+    sombrero, delante y detrás; antes/después; uniones; comprobaciones).
+  - Visor: fila «Dos coletas» (montaje anterior · con sombrero y puntas completas · sin sombrero y puntas completas).
+  - D-026, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del peinado
+    y del visor.
+- **Resultado:** alineación: cara 0,3 px, coleteros 4,5 px más arriba en la nueva. Uniones con diferencia alta: puntas
+  18,6 %, bajo los coleteros 10,7 % (a la vista, continúan). Cara, orejas, cuerpo, vestido, coleteros y sombrero
+  nuestros/aprobados; pelo aprobado fuera de la zona idéntico.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado): las tres versiones, parpadeo, vuelta a la melena; sin errores ni
+  almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco) con y sin sombrero. `pruebas/prueba-juego.js`
+  21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `daac493` · D-026: dos coletas rizadas con coleteros y sombrero de aventura (peinado aprobado; encaje candidato en el visor)
 
 - **Solicitado por:** la propietaria («Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
   verdes y sombrero de aventura…»).

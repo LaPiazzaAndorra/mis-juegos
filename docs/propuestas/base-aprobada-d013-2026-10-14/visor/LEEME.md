@@ -151,3 +151,6 @@ defecto y la exclusión con la corona, igual.
 y sombrero). Por ahora solo con piel clara y pelo castaño, sin accesorio ni corona; elegir otra piel, otro color, un
 accesorio, la corona u otro pelo de delante vuelve a la melena (por defecto). Sin errores ni almacenamiento; a tamaño real
 coincide con el montaje (≤ 2).
+**17/10/2026 (25) · D-026:** con las dos coletas, fila «Dos coletas»: «Con sombrero, puntas cortadas (montaje anterior)»
+por defecto · «Con sombrero y puntas completas (candidata)» · «Sin sombrero y puntas completas (candidata)». Sin errores
+ni almacenamiento; a tamaño real coincide con el montaje (≤ 2) en las dos candidatas.

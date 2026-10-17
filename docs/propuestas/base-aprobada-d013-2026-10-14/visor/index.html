@@ -155,6 +155,12 @@
     <button data-peinado="coleta" aria-pressed="false">Coleta rizada (aprobada)</button>
     <button data-peinado="coletas2" aria-pressed="false">Dos coletas con sombrero (candidato)</button>
   </div>
+  <div class="fila" id="fila-coletas2" hidden>
+    <b>Dos coletas</b>
+    <button data-coletas2="anterior" aria-pressed="true">Con sombrero, puntas cortadas (montaje anterior)</button>
+    <button data-coletas2="con" aria-pressed="false">Con sombrero y puntas completas (candidata)</button>
+    <button data-coletas2="sin" aria-pressed="false">Sin sombrero y puntas completas (candidata)</button>
+  </div>
   <div class="fila" id="fila-cinta" hidden>
     <b>Cinta</b>
     <button data-cinta="si" aria-pressed="true">Con cinta (aprobada)</button>
@@ -495,11 +501,28 @@
       document.querySelectorAll('[data-cinta]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
+  // dos coletas (D-026): montaje anterior o, candidatas, puntas completas con sombrero o sin sombrero
+  var versionColetas2 = 'anterior', CS2 = '../../peinado-coletas-sombrero-2026-10-17/capas/';
+  function mostrarColetas2() {
+    var dos = peinado === 'coletas2', v = versionColetas2;
+    document.getElementById('fila-coletas2').hidden = !dos;
+    ['detras', 'delante'].forEach(function (k) {
+      ponSrc('c-coletas2-' + k, v === 'anterior' ? CS2 + 'pelo-coletas-' + k + '.png' : CS2 + 'completado/pelo-coletas-' + v + '-sombrero-' + k + '.png');
+    });
+    document.getElementById('c-coletas2-sombrero').classList.toggle('oculto', !dos || v === 'sin');
+  }
+  document.querySelectorAll('[data-coletas2]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      versionColetas2 = b.dataset.coletas2; mostrarColetas2();
+      document.querySelectorAll('[data-coletas2]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
   function elegirPeinado(p) {
     peinado = p; var col = p === 'coleta', dos = p === 'coletas2';
     mostrarColeta();
     // dos coletas con sombrero (D-026, candidato): por ahora solo con piel clara y pelo castaño, sin accesorio ni corona
     ['detras', 'delante', 'coleteros', 'sombrero'].forEach(function (k) { document.getElementById('c-coletas2-' + k).classList.toggle('oculto', !dos); });
+    mostrarColetas2();
     if (dos) ['[data-piel="claro"]', '[data-pelo-color="castano"]'].forEach(function (s) { document.querySelector(s).click(); });
     document.getElementById('c-pelo-detras').classList.toggle('oculto', col || dos);
     if (col || dos) {
