@@ -1,6 +1,34 @@
 # Registro de cambios
 
-### 2026-10-16 — D-025: coleta sin cinta (32 px arriba y en las puntas; uniones limpias) como candidata en el visor
+### 2026-10-17 — D-025: coleta sin cinta aprobada; coleta con y sin cinta en los 5 colores de pelo y los 4 tonos de piel, en el visor
+
+- **Solicitado por:** la propietaria («Apruebo visualmente la coleta sin cinta… Adapta ahora la coleta, con y sin cinta,
+  a los cinco colores de pelo y los cuatro tonos de piel…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `4b13e91`, el de la entrada siguiente).
+- **Estado:** coleta sin cinta **aprobada visualmente** (se conservan las dos opciones); colores de pelo y tonos de piel
+  de la coleta **en el visor, aprobación pendiente**. Melena por defecto. Nada activado ni publicado.
+- **Cambios:**
+  - `peinado-coleta-2026-10-16/coleta_variantes.py` (nuevo): orejas de la coleta en capa propia (montaje castaño-claro
+    idéntico al aprobado), pelo en los 5 colores (transformación de la melena), orejas de cada tono y capas de bordes
+    por tono, versión y color; salidas en `capas/variantes/`, `capas/pieles/`, `revision-variantes/` y
+    `comprobaciones-variantes.json`.
+  - Visor: «Coleta rizada (aprobada)», «Sin cinta (aprobada)»; la coleta sigue a la piel, el color de pelo, las cejas y
+    los ojos (orejas y bordes según la piel); el accesorio de pelo y la corona siguen volviendo a la melena.
+  - D-025, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del
+    peinado y del visor.
+- **Resultado:** castaño con piel clara igual al aprobado (diferencia máxima 1); alfa igual en todos los colores; los
+  bordes no tocan el pelo a más de 5 px de la piel (0 px); orejas, respecto a la cara, como en la piel clara (−22 a −24
+  de luminosidad en los cuatro tonos); sin halos en el nacimiento del pelo ni parches en las orejas (revisado a tamaño
+  real y ampliado, en fondo claro y oscuro). Capas aprobadas (con y sin cinta) sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado): 40 combinaciones (con/sin cinta × 4 pieles × 5 colores) con las capas
+  correctas y cargadas, parpadeo con cada piel, vuelta a la melena con accesorio o corona, sin errores ni
+  almacenamiento; a tamaño real coincide con el montaje en lo opaco (≤ 3). `pruebas/prueba-juego.js` y
+  `pruebas/prueba-copia.js`: 21/21 y 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-16 — `4b13e91` · D-025: coleta sin cinta (32 px arriba y en las puntas; uniones limpias) como candidata en el visor
 
 - **Solicitado por:** la propietaria.
 - **Rama y commit:** `avatar-creador`, este commit (sobre `3acef5b`, el de la entrada siguiente).

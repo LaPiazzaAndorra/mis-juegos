@@ -4,8 +4,11 @@
 > (y sigue por defecto). **El encaje es candidato**, pendiente de aprobación. Nada activado en el juego; las pruebas
 > congeladas, `main` y las partidas no cambian.
 >
-> **16/10/2026 (2): encaje de la coleta con cinta aprobado visualmente.** La melena suelta sigue por defecto. Pendientes:
-> quitar la cinta (pelo bajo la cinta) y adaptar colores de pelo y tonos de piel.
+> **16/10/2026 (2): encaje de la coleta con cinta aprobado visualmente.** La melena suelta sigue por defecto.
+>
+> **16/10/2026 (6): coleta sin cinta aprobada visualmente**; se conservan las dos opciones. La coleta, con y sin cinta,
+> en los **5 colores de pelo** y los **4 tonos de piel**, en el visor (ver «Colores de pelo y tonos de piel»):
+> **aprobación pendiente**.
 
 | Archivo | Qué es |
 | --- | --- |
@@ -21,6 +24,13 @@
 | `referencias/referencia-coleta-sin-cinta.png` | Propuesta de pelo sin la cinta (generada en ChatGPT con la guía), **sin modificar** (SHA-256 `3f8dff3a…8dd1`). |
 | `revisar_uniones.py` | Revisión de las uniones (desde la raíz: `python3 docs/propuestas/peinado-coleta-2026-10-16/revisar_uniones.py`). |
 | `uniones/uniones-marcadas.png`, `uniones/uniones.json` | Las uniones marcadas (verde bien · magenta falla · lila restos) y sus cifras. |
+| `sin_cinta.py`, `capas/candidata-sin-cinta/` | Pelo sin cinta (**aprobado**; la carpeta conserva su nombre). |
+| `coleta_variantes.py` | Colores de pelo y tonos de piel (desde la raíz: `python3 docs/propuestas/peinado-coleta-2026-10-16/coleta_variantes.py`). |
+| `capas/variantes/pelo-coleta-{con,sin}-{detras,delante}-{color}.png` | Pelo de la coleta **sin las orejas**, con y sin cinta, en los 5 colores (el castaño es el aprobado sin las orejas). |
+| `capas/variantes/orejas-coleta-{detras,delante}.png` | Las orejas de la coleta (piel clara), cada una debajo de su pelo. |
+| `capas/pieles/{dorado,moreno,profundo}/orejas-coleta-*.png`, `bordes-coleta-{con,sin}-{color}.png` | Orejas de cada tono y capa pequeña de bordes (encima del pelo de delante, debajo de la cinta). |
+| `revision-variantes/` | Las 40 combinaciones (ojos abiertos y cerrados) y el detalle a tamaño real del nacimiento del pelo, las orejas y el cuello (antes · después · fondo oscuro). |
+| `comprobaciones-variantes.json` | Cifras. |
 
 ## Cómo se ha hecho
 
@@ -103,17 +113,41 @@ añadirá solo el pelo de esa zona. Hasta entonces, en el visor la coleta va **s
   desaparece; ampliar más no mejora. **Piel, cara y silueta sin tocar (0 px)**, sin restos lila, y el pelo aprobado fuera
   de la zona igual. Revisado a tamaño de juego y ampliado, en fondo claro y oscuro
   (`revision-tamano-juego-y-ampliada.png`).
-- **En el visor como candidata:** con la coleta aparece la fila «Cinta» (**Con cinta (aprobada)** por defecto · **Sin
-  cinta (candidata)**). Con la cinta puesta se usan las capas aprobadas, así que se ve exactamente igual que antes.
-  **Aprobación visual pendiente.**
+- **En el visor:** con la coleta aparece la fila «Cinta» (**Con cinta (aprobada)** por defecto · **Sin cinta
+  (aprobada)**, aprobada visualmente el 16/10).
+
+## Colores de pelo y tonos de piel (16/10, `coleta_variantes.py`)
+
+- **Orejas:** las orejas que se ven con la coleta son las de la imagen aprobada y estaban **dentro** de las capas de pelo:
+  con otro color de pelo se teñían como pelo y con otra piel se quedaban claras. Se separan del pelo (semillas de piel y
+  de mechones, reparto por contraste; la línea oscura del contorno va con el pelo) y pasan a **una capa propia debajo de
+  su pelo**, con el alfa que hace que el montaje sea el mismo: con piel clara y pelo castaño, **idéntico al aprobado**
+  (diferencia máxima 1 de 255, sobre fondo claro, oscuro y verde). Son las mismas con y sin cinta.
+- **Color de pelo:** la transformación aprobada de cada color de la melena (D-022), aplicada solo al pelo. Alfa igual.
+- **Tono de piel:** las orejas, con la transformación aprobada de la piel (D-023). Ajuste: la oreja de la imagen tiene
+  sombras y una línea dibujada más oscuras que nuestra piel y la transformación (que suma las diferencias de luminosidad)
+  las volvía casi negras en la piel profunda; en las orejas la luminosidad es la **media** entre la aprobada y la que
+  conserva el contraste relativo. Así la oreja queda, respecto a la cara, como en la piel clara (unos 25 niveles más
+  oscura en los cuatro tonos). Además, una **capa pequeña de bordes** por tono, versión y color: en el borde del pelo
+  junto a la piel que se ve (nacimiento del pelo, sienes, junto a las orejas, cuello), una franja de **5 px como
+  máximo** (el borde de la coleta es estrecho; con 12 px, como en la melena, se emborronaban las puntas de los
+  mechones): la parte de piel clara pegada pasa a la piel nueva y la de pelo al pelo de alrededor; y la franja del cuero
+  cabelludo en el borde de la cabeza se cubre con el pelo de detrás. No toca el pelo más allá (0 px).
+- **Cejas, ojos, base y manos:** las aprobadas de cada tono (con las cejas a juego del color de pelo).
+- **Revisado** (`revision-variantes/`): las 40 combinaciones con los ojos abiertos y cerrados, y el detalle a tamaño real
+  (antes · después · fondo oscuro) del nacimiento del pelo y las sienes, las dos orejas y el cuello, para los 5 colores
+  en cada tono. Sin halos claros en el nacimiento del pelo ni parches en las orejas; las cejas a juego; el parpadeo,
+  bien con cada piel. Queda, solo muy ampliado, la línea fina del contorno de la oreja (como en la piel clara).
 
 ## En el visor
 
-Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada con cinta (aprobada)**. Por ahora la coleta
-es solo con **piel clara y pelo castaño**, y sin accesorio de pelo ni corona (están colocados para la melena); elegir
-otra piel, otro color, otro pelo de delante o un accesorio vuelve a la melena. El parpadeo funciona igual.
+
+Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada (aprobada)**; con la coleta, fila «Cinta»
+(**Con cinta (aprobada)** por defecto · **Sin cinta (aprobada)**). Con la coleta se pueden elegir la **piel**, el
+**color de pelo**, las **cejas** y los **ojos**; el accesorio de pelo y la corona (colocados para la melena) y los
+otros pelos de delante vuelven a la melena. El parpadeo funciona igual.
 
 ## Pendiente
 
-- Aprobación visual de la coleta sin cinta (candidata en el visor).
-- Después: colores de pelo, tonos de piel (bordes), accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.
+- Aprobación visual de los colores de pelo y los tonos de piel con la coleta.
+- Después: accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.

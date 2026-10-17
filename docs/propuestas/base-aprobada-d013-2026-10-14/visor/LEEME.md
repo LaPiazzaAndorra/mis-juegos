@@ -123,3 +123,10 @@ La melena suelta sigue por defecto; el resto del comportamiento no cambia.
 **16/10/2026 (16) · D-025:** con la coleta, fila «Cinta» («Con cinta (aprobada)» por defecto · «Sin cinta (candidata)»).
 Sin cinta se usan las capas candidatas con el pelo completo bajo la cinta; con la cinta, las aprobadas (igual que antes).
 Sin errores; a tamaño real coincide con el montaje en los dos casos (≤ 3).
+**16/10/2026 (17) · D-025:** coleta sin cinta aprobada visualmente («Sin cinta (aprobada)»; el botón del peinado pasa a
+«Coleta rizada (aprobada)»). La coleta, con y sin cinta, sigue ahora a la **piel** y al **color de pelo** (y a las cejas
+y los ojos): pelo del color elegido sin las orejas, orejas en su capa (debajo de su pelo, del tono de la piel) y, con otra
+piel, la capa de bordes de la coleta (encima del pelo de delante, debajo de la cinta). El accesorio de pelo, la corona y
+los otros pelos de delante siguen volviendo a la melena. Melena por defecto. Probado en Chromium (pantalla de iPhone
+simulada): las 40 combinaciones (con y sin cinta × 4 pieles × 5 colores) con las capas correctas y todas cargadas, el
+parpadeo con cada piel, sin errores ni almacenamiento; a tamaño real coincide con el montaje en lo opaco (≤ 3).

@@ -113,13 +113,19 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - Pelo de delante, pelo de detrás y cinta separados de la imagen y encajados en nuestra base con la escala de los ojos
   (sin tomar cara, cuerpo ni vestido); fila «Peinado» en el visor. **Encaje aprobado visualmente (16/10).**
 - Bajo la cinta no hay pelo en la imagen: guía para completarlo en ChatGPT (`…/peinado-coleta-2026-10-16/guia-chatgpt/`).
-  Por ahora, solo con piel clara y pelo castaño (pendiente adaptar colores y pieles).
+  Ya completado con la propuesta de ChatGPT (abajo).
 - **Pelo sin cinta (16/10):** propuesta de ChatGPT alineada; con margen mínimo **las uniones fallan** (abajo 98 %,
   arriba 32 %, puntas 52 %); marcadas en `…/peinado-coleta-2026-10-16/uniones/`. No integrado; pendiente decidir si se
   amplía la zona (unos 15–20 px por abajo).
 - **Candidata con la zona ampliada (16/10):** la unión de abajo queda limpia (0,5 %); arriba (22 %) y en las puntas (19 %)
   todavía quedaba la sombra de la cinta. Con 32 px arriba y en las puntas **las uniones quedan limpias** (3,7 % / 1 % /
-  0 %), sin tocar piel, cara ni silueta. **En el visor como candidata** (fila «Cinta»); aprobación visual pendiente.
+  0 %), sin tocar piel, cara ni silueta. **Aprobada visualmente (16/10)**; se conservan las dos opciones (fila «Cinta»).
+- **Colores de pelo y tonos de piel (16/10):** la coleta, con y sin cinta, en los 5 colores de pelo y los 4 tonos de piel,
+  con las cejas a juego, en el visor (`…/peinado-coleta-2026-10-16/coleta_variantes.py`): las orejas de la coleta van en
+  una capa propia (con piel clara y castaño, idéntico al aprobado) y toman el tono de la piel; el pelo cambia de color
+  con la transformación de la melena; con otra piel, una capa pequeña de bordes limpia el nacimiento del pelo, las
+  sienes, junto a las orejas y el cuello. Revisado: las 40 combinaciones, el parpadeo con cada piel y fondos claro y
+  oscuro (`…/revision-variantes/`). **Aprobación visual pendiente.** Melena por defecto.
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
@@ -234,7 +240,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 15/10/2026 (máscara propuesta de los ojos de la base D-014) · **Rama:** `avatar-creador` ·
+**Última actualización:** 17/10/2026 (D-025: coleta sin cinta aprobada; coleta en los 5 colores de pelo y los 4 tonos de piel, en el visor) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

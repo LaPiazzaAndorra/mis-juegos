@@ -51,8 +51,9 @@
 
 <div id="escena" aria-label="Muñeca">
   <div id="lienzo">
-    <img id="c-coleta-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/pelo-coleta-detras.png">
-    <img id="c-coleta-detras-sc" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/candidata-sin-cinta/pelo-coleta-sin-cinta-detras.png">
+    <img id="c-coleta-oreja-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/orejas-coleta-detras.png">
+    <img id="c-coleta-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-castano.png">
+    <img id="c-coleta-detras-sc" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-castano.png">
     <img id="c-pelo-detras" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png">
     <img id="c-base" alt="" src="../sin-ojos/base-sin-ojos-propuesta-v3.png">
     <img id="c-cejas" class="oculto" alt="" src="../cejas-colores/cejas-chocolate.png">
@@ -73,8 +74,10 @@
     <img id="c-pelo-delante-mc" class="pelo-delante" data-pelo="mc" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png">
     <img id="c-bordes-pelo" class="oculto" alt="" src="../piel-tonos/dorado/bordes-pelo-castano.png">
     <img id="c-pelo-delante-c1" class="pelo-delante oculto" data-pelo="c1" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-mechones-c-chatgpt-1.png">
-    <img id="c-coleta-delante" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/pelo-coleta-delante.png">
-    <img id="c-coleta-delante-sc" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/candidata-sin-cinta/pelo-coleta-sin-cinta-delante.png">
+    <img id="c-coleta-oreja-delante" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/orejas-coleta-delante.png">
+    <img id="c-coleta-delante" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-delante-castano.png">
+    <img id="c-coleta-delante-sc" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-delante-castano.png">
+    <img id="c-bordes-coleta" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/pieles/dorado/bordes-coleta-con-castano.png">
     <img id="c-coleta-cinta" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/cinta-coleta.png">
     <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
     <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
@@ -139,12 +142,12 @@
   <div class="fila">
     <b>Peinado</b>
     <button data-peinado="melena" aria-pressed="true">Melena suelta (aprobada)</button>
-    <button data-peinado="coleta" aria-pressed="false">Coleta rizada con cinta (aprobada)</button>
+    <button data-peinado="coleta" aria-pressed="false">Coleta rizada (aprobada)</button>
   </div>
   <div class="fila" id="fila-cinta" hidden>
     <b>Cinta</b>
     <button data-cinta="si" aria-pressed="true">Con cinta (aprobada)</button>
-    <button data-cinta="no" aria-pressed="false">Sin cinta (candidata)</button>
+    <button data-cinta="no" aria-pressed="false">Sin cinta (aprobada)</button>
   </div>
   <div class="fila">
     <b>Color de pelo</b>
@@ -447,11 +450,22 @@
   // cualquier otro botón (ropa, zapatos, pelo, capas…) puede cambiar qué se ve: los bordes lo siguen
   document.getElementById('controles').addEventListener('click', function () { bordes(); });
 
-  // --- peinado (D-025): la coleta con cinta es candidata; por ahora solo con piel clara y pelo castaño, sin accesorio de
-  // pelo ni corona (están colocados para la melena). La cinta todavía no se puede quitar: falta el pelo de debajo. --------
-  var peinado = 'melena', conCinta = true;
-  function mostrarColeta() {   // con cinta: capas aprobadas; sin cinta: capas candidatas (pelo completo bajo la cinta)
-    var col = peinado === 'coleta';
+  // --- peinado (D-025): coleta aprobada, con cinta y sin cinta, en los cinco colores de pelo y los cuatro tonos de piel
+  // (las orejas de la coleta van en su capa, debajo de su pelo; con otra piel, orejas de ese tono y una capa pequeña de
+  // bordes). Sin accesorio de pelo ni corona (están colocados para la melena). La melena sigue siendo la predeterminada. --
+  var peinado = 'melena', conCinta = true, COL = '../../peinado-coleta-2026-10-16/capas/';
+  function srcColeta(v, parte) { return COL + 'variantes/pelo-coleta-' + v + '-' + parte + '-' + colorPelo + '.png'; }
+  function srcOreja(parte) { return COL + (piel === 'claro' ? 'variantes/' : 'pieles/' + piel + '/') + 'orejas-coleta-' + parte + '.png'; }
+  function ponSrc(id, s) { var el = document.getElementById(id); if (el.getAttribute('src') !== s) el.src = s; }
+  function mostrarColeta() {   // con cinta y sin cinta (aprobadas), del color de pelo elegido; orejas y bordes según la piel
+    var col = peinado === 'coleta', v = conCinta ? 'con' : 'sin';
+    ponSrc('c-coleta-detras', srcColeta('con', 'detras')); ponSrc('c-coleta-delante', srcColeta('con', 'delante'));
+    ponSrc('c-coleta-detras-sc', srcColeta('sin', 'detras')); ponSrc('c-coleta-delante-sc', srcColeta('sin', 'delante'));
+    ponSrc('c-coleta-oreja-detras', srcOreja('detras')); ponSrc('c-coleta-oreja-delante', srcOreja('delante'));
+    if (piel !== 'claro') ponSrc('c-bordes-coleta', COL + 'pieles/' + piel + '/bordes-coleta-' + v + '-' + colorPelo + '.png');
+    document.getElementById('c-bordes-coleta').classList.toggle('oculto', !col || piel === 'claro');
+    document.getElementById('c-coleta-oreja-detras').classList.toggle('oculto', !col);
+    document.getElementById('c-coleta-oreja-delante').classList.toggle('oculto', !col);
     document.getElementById('c-coleta-detras').classList.toggle('oculto', !col || !conCinta);
     document.getElementById('c-coleta-delante').classList.toggle('oculto', !col || !conCinta);
     document.getElementById('c-coleta-cinta').classList.toggle('oculto', !col || !conCinta);
@@ -470,19 +484,25 @@
     mostrarColeta();
     document.getElementById('c-pelo-detras').classList.toggle('oculto', col);
     if (col) {
-      ['[data-piel="claro"]', '[data-pelo-color="castano"]', '[data-acc-pelo="ninguno"]', '[data-corona="no"]'].forEach(function (s) { document.querySelector(s).click(); });
+      ['[data-acc-pelo="ninguno"]', '[data-corona="no"]'].forEach(function (s) { document.querySelector(s).click(); });
       document.querySelectorAll('img.pelo-delante').forEach(function (im) { im.classList.add('oculto'); });
     } else { mostrarPelo(); }
     bordes();
     document.querySelectorAll('[data-peinado]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peinado === p)); });
   }
   document.querySelectorAll('[data-peinado]').forEach(function (b) { b.addEventListener('click', function () { elegirPeinado(b.dataset.peinado); }); });
-  // con la coleta, elegir otra piel, otro color, otro pelo de delante o un accesorio vuelve a la melena
+  // con la coleta, elegir otro pelo de delante, un accesorio o la corona vuelve a la melena; la piel y el color de pelo
+  // se pueden cambiar con la coleta puesta
   document.getElementById('controles').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b || peinado !== 'coleta') return;
     var d = b.dataset;
-    if ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano') || d.peloOp || (d.accPelo && d.accPelo !== 'ninguno') || d.corona === 'si') elegirPeinado('melena');
+    if (d.peloOp || (d.accPelo && d.accPelo !== 'ninguno') || d.corona === 'si') elegirPeinado('melena');
   }, true);
+  // la coleta sigue a la piel y al color de pelo (y a la cinta)
+  document.getElementById('controles').addEventListener('click', function () { mostrarColeta(); });
+  ['chocolate', 'miel', 'oscuro', 'jengibre'].forEach(function (c) {
+    ['con', 'sin'].forEach(function (v) { ['detras', 'delante'].forEach(function (p) { new Image().src = COL + 'variantes/pelo-coleta-' + v + '-' + p + '-' + c + '.png'; }); });
+  });
 
   // --- carga: se espera a todas las capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)
   var imgs = Array.prototype.slice.call(lienzo.querySelectorAll('img')), pendientes = imgs.length, fallos = [];

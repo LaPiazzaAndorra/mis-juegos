@@ -7,9 +7,9 @@
 - **Cómo:** separar el pelo de delante, el de detrás y la cinta, para poder ponerla y quitarla; bajo la cinta debe haber
   pelo completo (si la imagen no lo permite, guía para completarlo en ChatGPT). Adaptar las piezas a nuestra base, sin
   sustituir la cara, el cuerpo ni el vestido.
-- **Estado:** peinado aprobado; **encaje candidato** en el visor, pendiente de aprobación. Bajo la cinta **no hay pelo**
-  en la imagen: guía para completarlo en `peinado-coleta-2026-10-16/guia-chatgpt/`; hasta entonces, la coleta va con la
-  cinta.
+- **Estado (al final, 16/10):** peinado, encaje con cinta y pelo sin cinta **aprobados visualmente**; colores de pelo y
+  tonos de piel en el visor, pendientes de aprobación (ver (6)). Historia: bajo la cinta no había pelo en la imagen; se
+  completó con la guía de `peinado-coleta-2026-10-16/guia-chatgpt/`.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
 - **16/10/2026 (2):** la propietaria **aprueba visualmente la coleta con cinta sobre nuestra muñeca** (`capas/`, commit
   `cca9f34`). **La melena suelta sigue siendo la opción predeterminada.** Siguen pendientes: quitar la cinta (pelo bajo
@@ -32,6 +32,23 @@
   uniones quedan limpias** (arriba 3,7 %, puntas 1 %, abajo 0 %; sombra de la cinta 14 px; sin restos lila; piel y
   silueta sin tocar). Revisado a tamaño de juego y ampliado, en fondo claro y oscuro. **En el visor como candidata**
   («Cinta: Con cinta (aprobada) · Sin cinta (candidata)»); **aprobación visual pendiente**.
+- **16/10/2026 (6):** la propietaria **aprueba visualmente la coleta sin cinta** (`capas/candidata-sin-cinta/`, commit
+  `4b13e91`) y pide **conservar las dos opciones** (con cinta y sin cinta) y adaptar ahora la coleta, con y sin cinta, a
+  los **cinco colores de pelo** y los **cuatro tonos de piel**, con las cejas a juego, revisando el nacimiento del pelo,
+  las sienes, las orejas, el cuello y el parpadeo, y añadirlo **primero al visor**. **La melena sigue siendo la opción
+  predeterminada.** Hecho (`coleta_variantes.py`, `capas/variantes/`, `capas/pieles/`):
+  - las **orejas** de la coleta (que son las de la imagen aprobada y estaban dentro del pelo) pasan a una capa propia
+    debajo de su pelo; con piel clara y pelo castaño el montaje es **el aprobado** (diferencia máxima 1 de 255);
+  - **color de pelo:** la misma transformación de cada color que la melena, solo en el pelo (las orejas no cambian);
+  - **tono de piel:** las orejas con la transformación aprobada de la piel (en su luminosidad, la media con la que
+    conserva el contraste relativo, para que sus sombras y su línea dibujada no se vuelvan negras); y una capa pequeña
+    de bordes por tono, versión y color en el nacimiento del pelo, las sienes, junto a las orejas y el cuello (franja de
+    ≤ 5 px; no toca el pelo más allá) y en la franja del cuero cabelludo;
+  - cejas a juego, ojos (abiertos y cerrados), base y manos: las aprobadas de cada tono.
+  En el visor: «Peinado: Melena suelta (aprobada) · Coleta rizada (aprobada)» y «Cinta: Con cinta (aprobada) · Sin
+  cinta (aprobada)»; con la coleta se pueden elegir la piel, el color de pelo, las cejas y los ojos (el accesorio de pelo
+  y la corona vuelven a la melena). **Aprobación visual de las combinaciones, pendiente.** Capas aprobadas, `main`,
+  partidas y pruebas congeladas sin cambios.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,

@@ -1,0 +1,597 @@
+{
+ "metodo": [
+  "Las capas aprobadas de la coleta (con cinta: capas/pelo-coleta-*.png; sin cinta: capas/candidata-sin-cinta/*.png) NO\ncambian. Las variantes se hacen con los mismos métodos aprobados para la melena:",
+  "· Orejas: en la coleta, las orejas que se ven son las de la imagen aprobada y van DENTRO de las capas de pelo (delante\n    y detrás). Se separan del pelo (semillas de piel y de mechones, reparto por contraste) y pasan a una capa propia,\n    justo debajo de su capa de pelo, de forma que el montaje queda igual que el aprobado (pelo encima de la oreja, con\n    la misma transparencia en total). Así las orejas no cambian con el color de pelo y, con otro tono de piel, llevan\n    la transformación aprobada de la piel (piel_tonos.transformacion) también en su borde suave, con un ajuste: la oreja\n    de la imagen tiene sombras y una línea dibujada mucho más oscuras que nuestra piel, y la transformación (que suma\n    las diferencias de luminosidad) las llevaba casi a negro en la piel profunda; en las orejas, la luminosidad es la\n    media entre la aprobada y la que conserva el contraste relativo de la imagen (L + 16 multiplicado por la razón de\n    los dos tonos). El color (tono y saturación) es el de la transformación aprobada. Son las mismas con y sin cinta\n    (la cinta no llega a las orejas).\n  · Color de pelo: la transformación de cada color de la melena (colores_pelo.transformacion, calculada con las capas\n    de la melena), aplicada al pelo de la coleta. El castaño es el original. El alfa no cambia.\n  · Tono de piel (dorado, moreno, profundo): además de las orejas, una capa pequeña de «bordes» por versión y color de\n    pelo, encima del pelo de delante y debajo de la cinta: en el borde del pelo junto a la piel que se ve (nacimiento\n    del pelo, sienes, junto a las orejas, cuello) se separa la parte de piel clara pegada y la de pelo (como\n    piel_tonos.separar_borde, con la franja estrecha del cuello del vestido: el borde de la coleta es de 1–3 px); y la\n    franja del cuero cabelludo en el borde de la cabeza se cubre con el pelo de detrás de alrededor. La piel clara no\n    lleva bordes.\n  · Las cejas a juego, los ojos (abiertos y cerrados), la base y las manos de cada tono son las aprobadas (piel-tonos/)."
+ ],
+ "orejas_px": {
+  "detras": 9699,
+  "delante": 8830
+ },
+ "versiones": {
+  "con": {
+   "castano_claro_igual_al_aprobado_dif_max": 1,
+   "alfa_de_cada_color_igual": true,
+   "pieles": {
+    "dorado": {
+     "castano": {
+      "px": 5136,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 5027,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 5101,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 4986,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 5137,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "moreno": {
+     "castano": {
+      "px": 5144,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 5058,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 5106,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 4992,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 5141,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "profundo": {
+     "castano": {
+      "px": 5152,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 5092,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 5110,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 5053,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 5146,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    }
+   },
+   "montaje": {
+    "claro-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1291,
+      "oreja_menos_cara_L": -23.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1291,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "claro-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1291,
+      "oreja_menos_cara_L": -20.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1291,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "claro-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1384,
+      "oreja_menos_cara_L": 15.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1384,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "claro-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1291,
+      "oreja_menos_cara_L": -34.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1291,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "claro-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1292,
+      "oreja_menos_cara_L": -5.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1292,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "dorado-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1331,
+      "oreja_menos_cara_L": 0.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1328,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "dorado-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1329,
+      "oreja_menos_cara_L": 3.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1328,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "dorado-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 2098,
+      "oreja_menos_cara_L": 38.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1581,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "dorado-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1328,
+      "oreja_menos_cara_L": -11.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1328,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "dorado-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1488,
+      "oreja_menos_cara_L": 18.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1328,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "moreno-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1439,
+      "oreja_menos_cara_L": 18.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1343,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1469,
+      "oreja_menos_cara_L": 21.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1343,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 2730,
+      "oreja_menos_cara_L": 56.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 2108,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1359,
+      "oreja_menos_cara_L": 7.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1343,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1911,
+      "oreja_menos_cara_L": 36.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1475,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "profundo-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 2282,
+      "oreja_menos_cara_L": 57.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1708,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "profundo-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 2315,
+      "oreja_menos_cara_L": 60.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1715,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "profundo-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 3236,
+      "oreja_menos_cara_L": 95.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 3163,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "profundo-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1886,
+      "oreja_menos_cara_L": 46.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1496,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "profundo-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 3015,
+      "oreja_menos_cara_L": 75.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 2544,
+      "oreja_menos_cara_L": -23.0
+     }
+    }
+   }
+  },
+  "sin": {
+   "castano_claro_igual_al_aprobado_dif_max": 1,
+   "alfa_de_cada_color_igual": true,
+   "pieles": {
+    "dorado": {
+     "castano": {
+      "px": 3336,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 3244,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 3306,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 3197,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 3336,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "moreno": {
+     "castano": {
+      "px": 3342,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 3269,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 3310,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 3211,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 3339,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "profundo": {
+     "castano": {
+      "px": 3349,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 3298,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 3314,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 3270,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 3344,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    }
+   },
+   "montaje": {
+    "claro-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 452,
+      "oreja_menos_cara_L": -24.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 452,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "claro-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 452,
+      "oreja_menos_cara_L": -21.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 452,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "claro-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 545,
+      "oreja_menos_cara_L": 14.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 545,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "claro-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 452,
+      "oreja_menos_cara_L": -35.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 452,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "claro-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 453,
+      "oreja_menos_cara_L": -6.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 453,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "dorado-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 491,
+      "oreja_menos_cara_L": -1.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 488,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "dorado-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 489,
+      "oreja_menos_cara_L": 2.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 488,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "dorado-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1259,
+      "oreja_menos_cara_L": 37.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 692,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "dorado-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 487,
+      "oreja_menos_cara_L": -11.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 487,
+      "oreja_menos_cara_L": -23.0
+     }
+    },
+    "dorado-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 649,
+      "oreja_menos_cara_L": 17.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 488,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 598,
+      "oreja_menos_cara_L": 18.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 502,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 628,
+      "oreja_menos_cara_L": 21.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 502,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1890,
+      "oreja_menos_cara_L": 56.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1217,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 518,
+      "oreja_menos_cara_L": 7.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 502,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "moreno-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1070,
+      "oreja_menos_cara_L": 36.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 634,
+      "oreja_menos_cara_L": -24.0
+     }
+    },
+    "profundo-castano": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1441,
+      "oreja_menos_cara_L": 58.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 867,
+      "oreja_menos_cara_L": -22.0
+     }
+    },
+    "profundo-chocolate": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1474,
+      "oreja_menos_cara_L": 61.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 874,
+      "oreja_menos_cara_L": -22.0
+     }
+    },
+    "profundo-miel": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 2395,
+      "oreja_menos_cara_L": 96.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 2269,
+      "oreja_menos_cara_L": -22.0
+     }
+    },
+    "profundo-oscuro": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 1045,
+      "oreja_menos_cara_L": 47.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 655,
+      "oreja_menos_cara_L": -22.0
+     }
+    },
+    "profundo-jengibre": {
+     "antes": {
+      "borde_mas_claro_que_la_piel_px": 2174,
+      "oreja_menos_cara_L": 76.0
+     },
+     "despues": {
+      "borde_mas_claro_que_la_piel_px": 1703,
+      "oreja_menos_cara_L": -22.0
+     }
+    }
+   }
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/pelo-coleta-detras.png": "50eba10594711b012c3e8f36dcf08cc273ecd431e81980645443aabfecc513bf",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/pelo-coleta-delante.png": "0ab06c28f74e837ab27f59e8c61347ea3e12e4043301c91cfa9a8dd8acf7741b",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/candidata-sin-cinta/pelo-coleta-sin-cinta-detras.png": "a16f600b7f492ddd2f7d40a8a8427d5145d5dcdaafda187cdbd36a8f9e6751fc",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/candidata-sin-cinta/pelo-coleta-sin-cinta-delante.png": "ea754c34a8fddfb59e828ccdf96c3fc3611fb5094bb64e81635fa766f0d2c3d6",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/cinta-coleta.png": "bd67b070f2367f7b9dc1859b4a393a11dd6fcaa35fec48e36194d6261734d3bd",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/referencia-tonos-pelo-aprobados.png": "649580bdf34d6d609f17427f8d3149a4adec09d55e10444eb6d6781ea95360e9",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/referencia-tonos-piel-aprobados.png": "56e3445009f5eda8b09d105ce745c0b6513b1a80d9f5fb4aecbf1ac6825ed697",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/base-sin-ojos.png": "5cf47cb58d2d4d2bd64a5aa0422df78cce5ef5be88b4d7d5a5f79f26b7e67b5b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/ojos-cerrados.png": "4432fb062e54a4aba3954303aba61d175ad75cb0b2299f7cbcf25482d7afc385",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/manos-delante.png": "36b1618537f12aead6347d1670cd974468cf8a38d630e9ba7c5023eb4eb8b791",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/ojos-abiertos-marron.png": "d8866cda3691f675a681851c1eca3670cd8796ce009e3cfe2ee564e8cf749b2c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/cejas-chocolate.png": "bac1ae01a803bb7dca6dff2199fd59a3659e06058c5b766e1965e150e009e2bb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/cejas-miel.png": "de1acc044f5427024d773cc8c6ffc772ccb658a8abc57e9f8329f4a4a97f4f48",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/cejas-oscuro.png": "06925ec83ed7a776aa9c4ccdb62712cc3e0e5ebfcad8e6eac03f3231e4902047",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/cejas-jengibre.png": "66845b293b4cbcb48b92e87ff35ccbc105ac3d2c11f139137cc0a3d7957c65ba",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/base-sin-ojos.png": "544f5bb32eaae255f9b8c3416058f869624cf549d1a4535e1d1fab70d8b5ae54",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/ojos-cerrados.png": "542c76e0593b556313095f40ef847a8c898156ba1a0b12ebc7b42048e10626e7",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/manos-delante.png": "2fa9465a160a134c383a5677414b7e7f29b95707e3cbb2e3d3f646e050c5f2bd",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/ojos-abiertos-marron.png": "d391789ba9aa91efcdb73178831f9be702ac777faba91f4729c6acbae0cd20f2",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/cejas-chocolate.png": "4f1a9f9360edf6342ad39b24ad75dd314b388533fe6e978ba3fda2ace23df508",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/cejas-miel.png": "b39fc7bb827ae62209777c885431aba5f009c5142ced3da2b0dacc7f7c40b0ca",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/cejas-oscuro.png": "e8e51233a6caf87c0d6859192f35a11128e74335069a84a71533ed68450f111f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/cejas-jengibre.png": "6281e868bf0ad6d72edfe041f21dbd88657d85b3794673438725523d0b030aac",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/base-sin-ojos.png": "35a02845e600da9015a561e79cb717c5b513be34431d4c42711c79ec30cf546b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/ojos-cerrados.png": "a58c729cbd5f93f3defea3c79d9e3d91eb5b1e82b687e55447db6d680519221f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/manos-delante.png": "d9b47cddac65ee0e793784191a2e3af2a58ed5005ddbd91f693c939e1d6ea795",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/ojos-abiertos-marron.png": "d3604311dca0d200c60218b3ddd3200fff56a739c74baddff0987025cd16a145",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/cejas-chocolate.png": "7653cad3b663b0c758749bb92918c5cfbfbb3afc2bdcaabf376a8370c0e24b0c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/cejas-miel.png": "1a60f4f4dc5c5199dcc76f4a5f0773a7965ae7d8785b3102c8d2891d45e63226",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/cejas-oscuro.png": "d2d0d0f05ea080b6f0ce556dcd2734255564d875a1a092e3b44722d213570c7c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/cejas-jengibre.png": "affb5df5c5f63ef6f534e1a1b908d43abd941ac80911d1dbc4522574c535edac"
+ },
+ "fuentes_sin_cambios": true
+}
