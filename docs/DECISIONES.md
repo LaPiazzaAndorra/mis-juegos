@@ -7,8 +7,8 @@
 - **Cómo:** separar el pelo de delante, el de detrás y la cinta, para poder ponerla y quitarla; bajo la cinta debe haber
   pelo completo (si la imagen no lo permite, guía para completarlo en ChatGPT). Adaptar las piezas a nuestra base, sin
   sustituir la cara, el cuerpo ni el vestido.
-- **Estado (al final, 16/10):** peinado, encaje con cinta y pelo sin cinta **aprobados visualmente**; colores de pelo y
-  tonos de piel en el visor, pendientes de aprobación (ver (6)). Historia: bajo la cinta no había pelo en la imagen; se
+- **Estado (17/10):** peinado, encaje con cinta, pelo sin cinta y **colores de pelo y tonos de piel aprobados
+  visualmente** (ver (6) y (7)); no probado en el iPhone (ni cada una de las 40 combinaciones por separado). Historia: bajo la cinta no había pelo en la imagen; se
   completó con la guía de `peinado-coleta-2026-10-16/guia-chatgpt/`.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
 - **16/10/2026 (2):** la propietaria **aprueba visualmente la coleta con cinta sobre nuestra muñeca** (`capas/`, commit
@@ -49,6 +49,13 @@
   cinta (aprobada)»; con la coleta se pueden elegir la piel, el color de pelo, las cejas y los ojos (el accesorio de pelo
   y la corona vuelven a la melena). **Aprobación visual de las combinaciones, pendiente.** Capas aprobadas, `main`,
   partidas y pruebas congeladas sin cambios.
+- **17/10/2026 (7):** la propietaria **aprueba visualmente el resultado de la coleta con los colores de pelo y los
+  tonos de piel revisados** (commit `199dce1`: orejas en capa propia, colores de pelo, orejas de cada tono y capas de
+  bordes; revisión en `revision-variantes/` y en el visor). Se conservan **las dos opciones, con cinta y sin cinta**, y
+  **la melena suelta sigue siendo la predeterminada**. La aprobación es **visual** (imágenes de revisión y visor): las
+  40 combinaciones **no se han probado una a una en su iPhone**; lo comprobado de las 40 es la prueba automática del
+  visor en Chromium con pantalla de iPhone simulada. Pendiente: copia de prueba del juego y prueba en el iPhone.
+  `main`, partidas y pruebas congeladas sin cambios.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,

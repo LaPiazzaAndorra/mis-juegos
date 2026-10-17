@@ -130,3 +130,5 @@ piel, la capa de bordes de la coleta (encima del pelo de delante, debajo de la c
 los otros pelos de delante siguen volviendo a la melena. Melena por defecto. Probado en Chromium (pantalla de iPhone
 simulada): las 40 combinaciones (con y sin cinta × 4 pieles × 5 colores) con las capas correctas y todas cargadas, el
 parpadeo con cada piel, sin errores ni almacenamiento; a tamaño real coincide con el montaje en lo opaco (≤ 3).
+**17/10/2026 (18) · D-025:** colores de pelo y tonos de piel de la coleta aprobados visualmente. El visor no cambia
+(melena por defecto; con y sin cinta). Sin probar en el iPhone.

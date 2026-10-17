@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-17 — D-025: coleta sin cinta aprobada; coleta con y sin cinta en los 5 colores de pelo y los 4 tonos de piel, en el visor
+### 2026-10-17 — D-025: aprobación visual de la coleta con los colores de pelo y los tonos de piel
+
+- **Solicitado por:** la propietaria («Registra en D-025 mi aprobación visual del resultado de la coleta con los colores
+  de pelo y tonos de piel revisados…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `199dce1`, el de la entrada siguiente).
+- **Estado:** colores de pelo y tonos de piel de la coleta **aprobados visualmente**; se conservan con cinta y sin cinta;
+  melena por defecto. **No probado en el iPhone**: las 40 combinaciones no se dan por probadas una a una allí (solo la
+  prueba automática del visor en Chromium con iPhone simulado). Nada activado ni publicado.
+- **Cambios:** solo documentación: D-025 (7), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y los `LEEME.md` del peinado y del visor. Sin cambios en piezas, visor ni código.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** no aplica (solo documentación); `verificar_documentacion.py --preparado`.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `199dce1` · D-025: coleta sin cinta aprobada; coleta con y sin cinta en los 5 colores de pelo y los 4 tonos de piel, en el visor
 
 - **Solicitado por:** la propietaria («Apruebo visualmente la coleta sin cinta… Adapta ahora la coleta, con y sin cinta,
   a los cinco colores de pelo y los cuatro tonos de piel…»).

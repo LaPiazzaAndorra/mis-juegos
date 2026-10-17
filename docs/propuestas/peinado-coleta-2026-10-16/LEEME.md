@@ -9,6 +9,9 @@
 > **16/10/2026 (6): coleta sin cinta aprobada visualmente**; se conservan las dos opciones. La coleta, con y sin cinta,
 > en los **5 colores de pelo** y los **4 tonos de piel**, en el visor (ver «Colores de pelo y tonos de piel»):
 > **aprobación pendiente**.
+>
+> **17/10/2026 (7): colores de pelo y tonos de piel de la coleta aprobados visualmente.** Se conservan con cinta y sin
+> cinta; melena por defecto. Las 40 combinaciones no se han probado una a una en el iPhone (solo en Chromium).
 
 | Archivo | Qué es |
 | --- | --- |
@@ -149,5 +152,5 @@ otros pelos de delante vuelven a la melena. El parpadeo funciona igual.
 
 ## Pendiente
 
-- Aprobación visual de los colores de pelo y los tonos de piel con la coleta.
+- Prueba en el iPhone (copia de prueba del juego): las combinaciones de la coleta no se han probado allí.
 - Después: accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.

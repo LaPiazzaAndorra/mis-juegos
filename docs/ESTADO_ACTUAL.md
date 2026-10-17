@@ -125,7 +125,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   una capa propia (con piel clara y castaño, idéntico al aprobado) y toman el tono de la piel; el pelo cambia de color
   con la transformación de la melena; con otra piel, una capa pequeña de bordes limpia el nacimiento del pelo, las
   sienes, junto a las orejas y el cuello. Revisado: las 40 combinaciones, el parpadeo con cada piel y fondos claro y
-  oscuro (`…/revision-variantes/`). **Aprobación visual pendiente.** Melena por defecto.
+  oscuro (`…/revision-variantes/`). **Aprobado visualmente (17/10)**; se conservan con cinta y sin cinta; melena por
+  defecto. Las 40 combinaciones solo se han comprobado en Chromium (iPhone simulado), **no una a una en el iPhone**.
 
 **Manual al día (16/10):** `docs/MANUAL_PROYECTO.md` resume ahora el estado de la muñeca nueva, los enlaces de
 revisión y la forma de trabajar con el arte. Se actualiza en cada paso relevante (norma añadida a `CLAUDE.md`).
@@ -240,7 +241,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 17/10/2026 (D-025: coleta sin cinta aprobada; coleta en los 5 colores de pelo y los 4 tonos de piel, en el visor) · **Rama:** `avatar-creador` ·
+**Última actualización:** 17/10/2026 (D-025: coleta en los 5 colores de pelo y los 4 tonos de piel, aprobada visualmente; sin probar en el iPhone) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 
