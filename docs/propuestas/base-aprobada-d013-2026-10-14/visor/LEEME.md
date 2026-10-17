@@ -147,3 +147,7 @@ ponerla se quitan la corona y los demás accesorios de cabeza; poner la corona l
 la coleta, elegirla vuelve a la melena. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2).
 **17/10/2026 (23) · D-024:** gorra aprobada: el botón pasa a «Gorra rosa del rayo (aprobada)». «Sin accesorio» por
 defecto y la exclusión con la corona, igual.
+**17/10/2026 (24) · D-026:** fila «Peinado»: «Dos coletas con sombrero (candidato)» (pelo detrás, pelo delante, coleteros
+y sombrero). Por ahora solo con piel clara y pelo castaño, sin accesorio ni corona; elegir otra piel, otro color, un
+accesorio, la corona u otro pelo de delante vuelve a la melena (por defecto). Sin errores ni almacenamiento; a tamaño real
+coincide con el montaje (≤ 2).

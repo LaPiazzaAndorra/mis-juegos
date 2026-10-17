@@ -1,5 +1,23 @@
 # Registro de decisiones
 
+## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
+- **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
+  verdes y sombrero de aventura». Referencia (generada, sin modificar):
+  `docs/propuestas/peinado-coletas-sombrero-2026-10-17/referencias/referencia-coletas-sombrero-aprobada.png`.
+- **Cómo:** capas de pelo de delante, pelo de detrás, coleteros y sombrero sobre nuestra base original, sin tomar la cara,
+  las orejas, la piel, el cuerpo ni el vestido de la imagen. Se conservan los peinados anteriores. Primero, el encaje en el
+  visor con piel clara y pelo castaño, como candidato. El sombrero debe poder quitarse más adelante: se identifica el pelo
+  oculto que habrá que completar en ChatGPT, sin inventarlo en la extracción.
+- **Hecho (`peinado-coletas-sombrero-2026-10-17/`):** cuatro capas encajadas con la escala de los ojos, sin deformar.
+  Cejas y ojos libres (el ala a 11 px de las cejas); nada de la piel ni de las orejas de la imagen.
+  - **Pelo oculto bajo el sombrero** (lo alto de la cabeza, frente, sienes y bajo el ala): marcado; guía y plantilla para
+    ChatGPT en `guia-chatgpt/`.
+  - **Defecto señalado:** la imagen termina a media altura de las coletas; sus puntas quedan cortadas en línea recta
+    (también en la guía). Entre las coletas y el cuello se ve el fondo (natural; se deja así salvo que se pida).
+  - En el visor: «Dos coletas con sombrero (candidato)», solo con piel clara y pelo castaño, sin accesorio ni corona.
+- **Estado:** **peinado aprobado; encaje candidato**, pendiente de revisión. Melena por defecto.
+- **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+
 ## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva
   lila. La melena suelta se conserva como otra opción». Referencia (generada, sin modificar):

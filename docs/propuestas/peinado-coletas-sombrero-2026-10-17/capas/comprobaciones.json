@@ -1,0 +1,41 @@
+{
+ "escala": 0.6877,
+ "coletas_cortadas_por_el_borde_de_la_imagen": {
+  "y": 783,
+  "tramos_x": [
+   [
+    153,
+    291
+   ],
+   [
+    297,
+    362
+   ],
+   [
+    603,
+    822
+   ]
+  ]
+ },
+ "px": {
+  "detras": 146399,
+  "delante": 12810,
+  "coleteros": 3256,
+  "sombrero": 132600
+ },
+ "sombrero_sobre_cejas_px": 0,
+ "distancia_ala_cejas_px": 11.0,
+ "pelo_o_sombrero_sobre_ojos_px": 0,
+ "craneo_cubierto": 0.9878,
+ "craneo_visible_px": 591,
+ "huecos_con_fondo_px": 13410,
+ "piel_u_orejas_de_la_imagen_tomadas_px": 0,
+ "pelo_oculto_bajo_el_sombrero_px": 91453,
+ "sha256_fuentes": {
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/referencias/referencia-coletas-sombrero-aprobada.png": "6f720c3f7c780001250071f48ba675f3335c98c5d21e40479ced0321986d69cb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-cerrados/capa-ojos-cerrados-prueba-v21.png": "b8268bd1766397376c7f4b6134fcc20d6034879e0b87ff48e2e2f70d10a7d713"
+ },
+ "fuentes_sin_cambios": true
+}

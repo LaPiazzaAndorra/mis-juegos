@@ -119,6 +119,14 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   cubre el pelo de arriba (99,99 %) con las cejas libres (a 6,3 px). **Encaje aprobado visualmente (17/10)**; bordes
   revisados con los 5 colores de pelo y los 4 tonos de piel: sin defectos. Con la coleta, más adelante. Cinta deportiva y sombrero, pendientes de versión de frente.
 
+**Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
+- Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
+- Pelo de delante, pelo de detrás, coleteros y sombrero separados de la imagen y encajados en nuestra base con la escala
+  de los ojos (sin cara, orejas, piel, cuerpo ni vestido de la imagen); en el visor como **candidato** (piel clara y
+  castaño). Cejas y ojos libres. **Encaje pendiente de revisión.**
+- Falta, para completar en ChatGPT (`…/peinado-coletas-sombrero-2026-10-17/guia-chatgpt/`): el pelo bajo el sombrero (para
+  poder quitarlo) y las puntas de las coletas (la imagen las corta).
+
 **Peinado nuevo: coleta rizada con cinta (16/10, D-025):**
 - Propuesta aprobada como peinado nuevo; la melena suelta se conserva (por defecto).
 - Pelo de delante, pelo de detrás y cinta separados de la imagen y encajados en nuestra base con la escala de los ojos
@@ -252,7 +260,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 17/10/2026 (D-024: gorra aprobada; bordes revisados con colores de pelo y tonos de piel) · **Rama:** `avatar-creador` ·
+**Última actualización:** 17/10/2026 (D-026: dos coletas con sombrero, peinado aprobado; encaje candidato en el visor) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

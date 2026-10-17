@@ -1,6 +1,30 @@
 # Registro de cambios
 
-### 2026-10-17 — D-024: gorra aprobada; bordes revisados con los colores de pelo y los tonos de piel (sin defectos)
+### 2026-10-17 — D-026: dos coletas rizadas con coleteros y sombrero de aventura (peinado aprobado; encaje candidato en el visor)
+
+- **Solicitado por:** la propietaria («Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
+  verdes y sombrero de aventura…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `e495e39`, el de la entrada siguiente).
+- **Estado:** peinado aprobado; **encaje candidato**, pendiente de revisión. Nada activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/peinado-coletas-sombrero-2026-10-17/` (nuevo): referencia sin modificar, `coletas_sombrero.py`,
+    capas (pelo detrás, pelo delante, coleteros, sombrero), vistas, máscara del pelo oculto, comprobaciones, `LEEME.md` y
+    `guia-chatgpt/` (guía y plantilla del pelo que falta).
+  - Visor: «Dos coletas con sombrero (candidato)» en la fila «Peinado» (piel clara y castaño; sin accesorio ni corona).
+  - D-026 (nueva), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y el `LEEME.md` del
+    visor.
+- **Resultado:** cejas y ojos libres (el ala a 11 px de las cejas); nada de la piel ni de las orejas de la imagen; pelo
+  oculto bajo el sombrero (91 453 px) marcado; puntas de las coletas cortadas por el borde de la imagen (y = 783),
+  señaladas.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado): elegir las dos coletas (pasa a piel clara y castaño, sin accesorio ni
+  corona), parpadeo, vuelta a la melena con otra piel o la corona, cambio a la coleta y a la melena; sin errores ni
+  almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo opaco). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `e495e39` · D-024: gorra aprobada; bordes revisados con los colores de pelo y los tonos de piel (sin defectos)
 
 - **Solicitado por:** la propietaria («Apruebo visualmente la gorra tal como está colocada…»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `839d38b`, el de la entrada siguiente).

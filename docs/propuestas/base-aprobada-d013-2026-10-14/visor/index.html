@@ -51,6 +51,7 @@
 
 <div id="escena" aria-label="Muñeca">
   <div id="lienzo">
+    <img id="c-coletas2-detras" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-detras.png">
     <img id="c-coleta-oreja-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/orejas-coleta-detras.png">
     <img id="c-coleta-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-castano.png">
     <img id="c-coleta-detras-sc" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-castano.png">
@@ -79,6 +80,9 @@
     <img id="c-coleta-delante-sc" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-delante-castano.png">
     <img id="c-bordes-coleta" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/pieles/dorado/bordes-coleta-con-castano.png">
     <img id="c-coleta-cinta" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/cinta-coleta.png">
+    <img id="c-coletas2-delante" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-delante.png">
+    <img id="c-coletas2-coleteros" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/coleteros.png">
+    <img id="c-coletas2-sombrero" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/sombrero-aventura.png">
     <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
     <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
     <img id="c-acc-mariposa" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-mariposa.png">
@@ -149,6 +153,7 @@
     <b>Peinado</b>
     <button data-peinado="melena" aria-pressed="true">Melena suelta (aprobada)</button>
     <button data-peinado="coleta" aria-pressed="false">Coleta rizada (aprobada)</button>
+    <button data-peinado="coletas2" aria-pressed="false">Dos coletas con sombrero (candidato)</button>
   </div>
   <div class="fila" id="fila-cinta" hidden>
     <b>Cinta</b>
@@ -491,10 +496,13 @@
     });
   });
   function elegirPeinado(p) {
-    peinado = p; var col = p === 'coleta';
+    peinado = p; var col = p === 'coleta', dos = p === 'coletas2';
     mostrarColeta();
-    document.getElementById('c-pelo-detras').classList.toggle('oculto', col);
-    if (col) {
+    // dos coletas con sombrero (D-026, candidato): por ahora solo con piel clara y pelo castaño, sin accesorio ni corona
+    ['detras', 'delante', 'coleteros', 'sombrero'].forEach(function (k) { document.getElementById('c-coletas2-' + k).classList.toggle('oculto', !dos); });
+    if (dos) ['[data-piel="claro"]', '[data-pelo-color="castano"]'].forEach(function (s) { document.querySelector(s).click(); });
+    document.getElementById('c-pelo-detras').classList.toggle('oculto', col || dos);
+    if (col || dos) {
       ['[data-acc-pelo="ninguno"]', '[data-corona="no"]'].forEach(function (s) { document.querySelector(s).click(); });
       document.querySelectorAll('img.pelo-delante').forEach(function (im) { im.classList.add('oculto'); });
     } else { mostrarPelo(); }
@@ -505,9 +513,11 @@
   // con la coleta, elegir otro pelo de delante, un accesorio o la corona vuelve a la melena; la piel y el color de pelo
   // se pueden cambiar con la coleta puesta
   document.getElementById('controles').addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b || peinado !== 'coleta') return;
+    var b = e.target.closest('button'); if (!b || peinado === 'melena') return;
     var d = b.dataset;
     if (d.peloOp || (d.accPelo && d.accPelo !== 'ninguno') || d.corona === 'si') elegirPeinado('melena');
+    // con las dos coletas (candidato), otra piel u otro color de pelo también vuelven a la melena
+    else if (peinado === 'coletas2' && ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano'))) elegirPeinado('melena');
   }, true);
   // la coleta sigue a la piel y al color de pelo (y a la cinta)
   document.getElementById('controles').addEventListener('click', function () { mostrarColeta(); });
