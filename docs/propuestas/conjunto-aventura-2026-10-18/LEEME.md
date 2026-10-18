@@ -44,5 +44,6 @@ sin avisar). Las botas sustituyen a los zapatos.
 ## Pendiente
 
 - Revisión del encaje por la propietaria (rodillas: opción A elegida, 18/10).
-- Hacer en ChatGPT las tres guías (rodillas, camiseta y chaleco, mochila) e integrar los resultados.
+- Hacer en ChatGPT las tres guías (rodillas, camiseta y chaleco, mochila) e integrar los resultados con
+  `integrar/recibir.py` (preparado el 18/10; ver `integrar/LEEME.md`).
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

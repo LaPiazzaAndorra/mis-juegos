@@ -1,6 +1,28 @@
 # Registro de cambios
 
-### 2026-10-18 — D-027: rodillas por la opción A (máscara y referencia), guías de ropa por separado y limpieza del pelo reutilizable
+### 2026-10-18 — D-024: adornos de la coleta y las dos coletas aprobados; D-027: integración del conjunto preparada
+
+- **Solicitado por:** la propietaria («Registra mi aprobación visual de las colocaciones revisadas, sin dar por comprobadas
+  individualmente todas las combinaciones en mi iPhone… Retoma ahora el conjunto de aventura D-027 y sus guías
+  pendientes…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `5956a80`, el de la entrada siguiente).
+- **Estado:** adornos con la coleta y las dos coletas **aprobados visualmente** (no probados uno a uno en el iPhone);
+  integración en una copia del juego, más adelante. Conjunto D-027: guías listas, **faltan las imágenes de ChatGPT**;
+  integración preparada. Nada activado ni publicado.
+- **Cambios:**
+  - D-024 (12), D-025 (10), D-026 (6), D-027 (3); visor: «Dos lazos pequeños… (aprobados)»; incompatibilidades y avisos
+    sin cambios.
+  - `conjunto-aventura-2026-10-18/integrar/` (nueva): `recibir.py` y `LEEME.md`.
+  - `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de accesorios,
+    peinados, coleta, dos coletas, conjunto, guías y visor (31).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (45 casos de adornos, sin fallos; conjunto de aventura, sin errores); `recibir.py` con cinco imágenes
+  de prueba (alineación a 1 px; avisos correctos), fuera del repositorio. `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `5956a80` · D-027: rodillas por la opción A (máscara y referencia), guías de ropa por separado y limpieza del pelo reutilizable
 
 - **Solicitado por:** la propietaria («Sigamos con la opción A como propuesta… Prepara la máscara y la referencia para
   hacerlo en ChatGPT. Para la ropa, prepara las guías por separado… Mantén localizada y documentada la limpieza de los

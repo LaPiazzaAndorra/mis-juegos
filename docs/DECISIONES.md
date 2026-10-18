@@ -37,6 +37,12 @@
   - La limpieza del pelo pasa a `base-aprobada-d013-2026-10-14/pelo-sin-restos/` (`limpiar_restos.py`): la misma
     máscara en los cinco colores, copias limpias de cada uno, originales sin cambios; el conjunto la usa desde allí.
   - Todo sigue como **propuesta**; nada se ha pedido aún a ChatGPT.
+- **18/10/2026 (3):** la propietaria pide **retomar el conjunto** y sus guías pendientes (rodillas, camiseta y chaleco a
+  medida, mochila independiente); la integración de los adornos en una copia del juego queda para después. Las tres guías
+  necesitan **imágenes de ChatGPT** que todavía no hay (no se inventan aquí). Preparado mientras tanto
+  `conjunto-aventura-2026-10-18/integrar/recibir.py`: alinea cada imagen con nuestro lienzo (escala uniforme y
+  desplazamiento, por los iris), toma solo lo pedido y lo comprueba; probado con imágenes de prueba hechas con nuestras
+  capas, fuera del repositorio. **Pendiente:** las tres imágenes de ChatGPT.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
@@ -93,6 +99,8 @@
 - **18/10/2026 (5):** adornos para las dos coletas, candidatos (D-024 (11)): flores, mariposa y dos lazos pequeños en los
   coleteros, con y sin sombrero; diadema y corona solo sin sombrero (con él, el sombrero las tapa). Las dos coletas no
   cambian.
+- **18/10/2026 (6):** adornos con las dos coletas **aprobados visualmente** (D-024 (12)); no probadas una a una todas las
+  combinaciones en el iPhone.
 
 ## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva
@@ -156,12 +164,14 @@
 - **18/10/2026 (9):** la propietaria **aprueba visualmente el lazo con la coleta, con y sin cinta** (D-024 (11)). Con la
   coleta hay ahora candidatos de flores, mariposa, corona y, sin cinta, diadema (D-024 (11)); la diadema no va con la
   cinta. La coleta no cambia.
+- **18/10/2026 (10):** adornos con la coleta **aprobados visualmente** (D-024 (12)); no probadas una a una todas las
+  combinaciones en el iPhone.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; lazo con la coleta, en su base: aprobado (18/10); flores, mariposa, diadema, corona y dos lazos pequeños con la coleta y las dos coletas: candidatos (18/10); gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; lazo con la coleta, en su base: aprobado (18/10); flores, mariposa, diadema, corona y dos lazos pequeños con la coleta y las dos coletas: aprobados visualmente (18/10; no probados uno a uno en el iPhone); gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -268,6 +278,12 @@
   - Visor: cada adorno con la colocación de su peinado; lo que no es compatible no se pone y se avisa, y si al cambiar
     de peinado, de cinta o de sombrero deja de serlo, se quita avisando. **Candidatas, pendientes de revisión.** La
     copia `prueba-juego-d026` no cambia.
+- **18/10/2026 (12):** la propietaria **aprueba visualmente las colocaciones revisadas** de los adornos con la coleta y
+  las dos coletas (`peinados/capas/`, commit `06fdca5`): flores, mariposa, diadema, corona y los dos lazos pequeños en los
+  coleteros, tal como están. **No se dan por comprobadas una a una todas las combinaciones en su iPhone** (lo comprobado
+  son los 45 casos de la prueba del visor en Chromium con iPhone simulado). Se conservan las incompatibilidades (diadema
+  con la cinta; diadema y corona con el sombrero; gorros con la coleta y las dos coletas) y los avisos, **sin cambiar de
+  peinado automáticamente**. La integración en una copia nueva del juego queda para más adelante.
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

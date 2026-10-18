@@ -127,7 +127,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Adornos para la coleta y las dos coletas (18/10, candidatos):** flores, mariposa, diadema, corona y dos lazos pequeños
   en los coleteros, con las piezas aprobadas recolocadas (`…/peinados/`); 0 px sobre la piel y las cejas. No compatibles:
   diadema con la coleta con cinta; diadema y corona con las dos coletas con sombrero. En el visor, el peinado se conserva
-  y lo que no es compatible se avisa. **Pendientes de revisión.** Los gorros, más adelante.
+  y lo que no es compatible se avisa. **Aprobados visualmente (18/10)**; no probadas una a una todas las combinaciones
+  en el iPhone; integración en una copia nueva del juego, más adelante. Los gorros, más adelante.
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -141,6 +142,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **18/10:** rodillas por la **opción A** (copia de la base con solo la piel a completar: máscara y referencia en
   `…/piernas/`) y guías separadas para ChatGPT: **1** camiseta y chaleco a nuestra medida, sin tiras; **2** mochila
   completa (cuerpo y tiras). Pendiente de hacerlas en ChatGPT.
+- **Integración preparada (18/10):** `…/integrar/recibir.py` alinea cada imagen de ChatGPT con nuestro lienzo (sin
+  deformar), toma solo lo pedido y lo comprueba; probado con imágenes de prueba. **Faltan las tres imágenes de ChatGPT.**
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -295,7 +298,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (D-027: rodillas opción A, guías de ropa por separado y limpieza del pelo reutilizable) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (adornos de la coleta y las dos coletas aprobados; integración del conjunto preparada) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

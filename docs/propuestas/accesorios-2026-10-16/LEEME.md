@@ -32,6 +32,8 @@
 >
 > **18/10/2026 (11):** **lazo con la coleta aprobado visualmente** (con y sin cinta). Flores, mariposa, diadema, corona y
 > dos lazos pequeños para la coleta y las dos coletas: candidatos en `peinados/` (ver `peinados/LEEME.md`).
+>
+> **18/10/2026 (12):** esas colocaciones, **aprobadas visualmente** (no probadas una a una en el iPhone).
 
 ## Referencias (`referencias/`, sin modificar)
 
@@ -102,5 +104,5 @@ su sitio aprobado. Los accesorios que todavía no son compatibles con un peinado
 ## Pendiente
 
 - La versión de frente de la cinta y los gorros (ChatGPT, con la guía) y su encaje.
-- Revisión de los adornos con la coleta y las dos coletas (`peinados/`); después, los gorros con esos peinados.
+- Copia nueva del juego con los adornos de la coleta y las dos coletas; después, los gorros con esos peinados.
 - Después: copia nueva de prueba del juego; 2000 × 3500.

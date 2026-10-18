@@ -1,4 +1,4 @@
-# Adornos para la coleta y las dos coletas · 18/10/2026 (D-024 (11), candidatos)
+# Adornos para la coleta y las dos coletas · 18/10/2026 (D-024 (11), aprobados visualmente (12))
 
 Las piezas aprobadas, **solo con escala, posición y giro** (`colocar()` de `../capas/colocar.py`), sin deformar la cabeza
 ni el pelo. Cada adorno es una capa independiente de 948 × 1659 (`capas/<adorno>-<peinado>.png`), encima del pelo (y de la
@@ -23,5 +23,6 @@ pelo, como la corona con la melena); nada tapado por el sombrero. Ninguna pieza 
 sin cambios. Hoja de revisión: `comparacion-adornos-peinados.png`.
 
 En el visor, al elegir un adorno se conserva el peinado; lo que no es compatible no se pone y se avisa; si al cambiar de
-peinado, de cinta o de sombrero deja de serlo, se quita avisando. **Candidatos, pendientes de revisión.** Los gorros,
+peinado, de cinta o de sombrero deja de serlo, se quita avisando. **Aprobados visualmente (18/10)**; no probadas una a una
+todas las combinaciones en el iPhone; integración en una copia nueva del juego, más adelante. Los gorros,
 más adelante. La copia `prueba-juego-d026` no cambia.

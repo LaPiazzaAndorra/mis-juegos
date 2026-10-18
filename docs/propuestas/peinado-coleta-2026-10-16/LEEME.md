@@ -148,7 +148,7 @@ añadirá solo el pelo de esa zona. Hasta entonces, en el visor la coleta va **s
 Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada (aprobada)**; con la coleta, fila «Cinta»
 (**Con cinta (aprobada)** por defecto · **Sin cinta (aprobada)**). Con la coleta se pueden elegir la **piel**, el
 **color de pelo**, las **cejas** y los **ojos**. Desde el 18/10, el **lazo** va en la base de la coleta (aprobado,
-`accesorios-2026-10-16/lazo-coleta/`) y hay candidatos de flores, mariposa, corona y, sin cinta, diadema
+`accesorios-2026-10-16/lazo-coleta/`) y hay flores, mariposa, corona y, sin cinta, diadema (aprobados visualmente)
 (`accesorios-2026-10-16/peinados/`); la coleta se conserva y lo que no es compatible (la diadema con la cinta, los
 gorros, los otros pelos de delante) **no se pone y se avisa**, sin cambiar de peinado. El parpadeo funciona igual.
 

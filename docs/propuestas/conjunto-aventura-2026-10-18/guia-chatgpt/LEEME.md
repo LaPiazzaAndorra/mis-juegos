@@ -27,6 +27,8 @@ Medidas del torso entre nuestros brazos (de nuestra base): `medidas-torso.json`.
 
 ## Cómo se revisará cada resultado
 
+Con `../integrar/recibir.py` (ver `../integrar/LEEME.md`):
+
 1. Que coincida con nuestro lienzo (se mide la alineación con los ojos y el cuerpo).
 2. Se toma **solo** la pieza o la zona pedida, sin nada de cara, pelo ni sombrero de la imagen, y se revisan las uniones.
 3. Las capas candidatas actuales se conservan para comparar.

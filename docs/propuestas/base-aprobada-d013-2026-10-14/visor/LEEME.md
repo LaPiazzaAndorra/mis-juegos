@@ -181,3 +181,6 @@ avisando. Probados los 45 casos (5 peinados × 9 adornos); sin errores ni almace
 adorno + la capa (≤ 2).
 **18/10/2026 (30) · D-027:** con el conjunto de aventura, el pelo de delante limpio sale ahora de
 `pelo-sin-restos/pelo-delante-castano-sin-restos.png` (mismos píxeles que antes). Nada más cambia.
+**18/10/2026 (31) · D-024:** colocaciones con la coleta y las dos coletas aprobadas visualmente: el botón pasa a «Dos
+lazos pequeños en los coleteros (dos coletas, aprobados)». Incompatibilidades y avisos, igual; no se cambia de peinado
+automáticamente.
