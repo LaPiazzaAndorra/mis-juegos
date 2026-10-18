@@ -165,3 +165,9 @@ los demás accesorios de pelo, la corona y las opciones del pelo de la melena no
 elegir un peinado con algo que no es compatible, se quita avisando. Corregido también que las filas «Cinta» y «Dos
 coletas» se veían con cualquier peinado. Sin errores ni almacenamiento; a tamaño real, con lazo = sin lazo + la capa
 (≤ 1).
+**18/10/2026 (28) · D-027:** fila «Ropa»: «Conjunto de aventura (candidato)» (camiseta, chaleco, pantalón, calcetines,
+botas y mochila) y, con él, fila «Mochila»: «Con mochila (candidata)» · «Sin mochila (faltan los hombros, ver guía)». Por
+ahora con piel clara, pelo castaño y melena: al elegirlo se pasa a esa combinación avisando, y con él puesto otra piel,
+otro color, otro peinado u otro pelo de delante no se aplican y se avisa. Las botas sustituyen a los zapatos rosa (que
+vuelven con otra ropa). Con este conjunto, la melena usa una copia de su pelo de delante sin 9 trocitos sueltos del
+vestido. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 4 en lo opaco).

@@ -1,0 +1,136 @@
+{
+ "metodo": "regiones de la imagen (semillas por color y zona + watershed); cada pieza sin escalar ni deformar, en el mismo lienzo; borde suave de 1 px sin el color de al lado",
+ "piezas": {
+  "mochila": {
+   "px": 10917
+  },
+  "calcetines": {
+   "px": 7913
+  },
+  "botas": {
+   "px": 50469
+  },
+  "camiseta": {
+   "px": 33450
+  },
+  "pantalon": {
+   "px": 85611
+  },
+  "tiras": {
+   "px": 17466
+  },
+  "chaleco": {
+   "px": 49170
+  }
+ },
+ "zonas": {
+  "rosa_visto": {
+   "px": 16783,
+   "caja": [
+    335,
+    848,
+    614,
+    1258
+   ],
+   "rodillas_px": 16696,
+   "resto_px": 87,
+   "rodillas_caja": [
+    347,
+    1163,
+    614,
+    1258
+   ],
+   "rosa_base_px": 151444
+  },
+  "bajo_brazo": {
+   "px": 4594,
+   "caja": [
+    308,
+    840,
+    658,
+    949
+   ]
+  },
+  "sobre_brazo": {
+   "px": 2865,
+   "caja": [
+    302,
+    769,
+    655,
+    839
+   ]
+  },
+  "hueco": {
+   "px": 461,
+   "caja": [
+    333,
+    1166,
+    630,
+    1284
+   ]
+  },
+  "bajo_tiras": {
+   "px": 8858,
+   "caja": [
+    345,
+    605,
+    623,
+    816
+   ]
+  },
+  "mochila_oculta": {
+   "px": 10548,
+   "caja": [
+    180,
+    761,
+    331,
+    991
+   ]
+  }
+ },
+ "colores_de_donde_falla": {
+  "rosa_visto": [
+   230,
+   0,
+   120
+  ],
+  "bajo_brazo": [
+   0,
+   90,
+   255
+  ],
+  "sobre_brazo": [
+   0,
+   200,
+   220
+  ],
+  "hueco": [
+   255,
+   140,
+   0
+  ],
+  "bajo_tiras": [
+   140,
+   0,
+   220
+  ],
+  "mochila_oculta": [
+   0,
+   160,
+   60
+  ]
+ },
+ "pelo_delante_sin_restos": {
+  "trozos": 9,
+  "px": 1318
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/conjunto-aventura-2026-10-18/referencias/referencia-conjunto-aventura-aprobada.png": "f3e5d5c3a69a6f1be268d00329ab0c4b500504d485014c3b191d10395ccf4fe0",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/ojos-abiertos/capa-ojos-abiertos-prueba-v3-color-EXPERIMENTAL.png": "a94a309dc62d14bf358c9c60f1c9356f0ad4c335faadec557a367c5d83aaf88d",
+  "docs/propuestas/vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png": "17da77f227395903337275e47b511f91aa13841a3d9783ea230d35bdfdf66489",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb"
+ },
+ "fuentes_sin_cambios": true
+}

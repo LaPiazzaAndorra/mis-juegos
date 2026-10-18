@@ -1,5 +1,31 @@
 # Registro de decisiones
 
+## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
+- **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas
+  y mochila». Referencia (generada, sin modificar, SHA-256 `f3e5d5c3…f4fe0`):
+  `docs/propuestas/conjunto-aventura-2026-10-18/referencias/referencia-conjunto-aventura-aprobada.png`.
+- **Cómo:** piezas sobre nuestra base original, sin cara, piel, cuerpo, pelo ni sombrero de la imagen, conservando las
+  proporciones aprobadas. La mochila, independiente y que se pueda quitar, con su parte de detrás separada de las tiras de
+  delante. Comprobar que la ropa tapa la camiseta y las mallas rosas de la base, sin modificarla. Primero, el encaje en el
+  visor como candidato; si faltan zonas ocultas o alguna pieza exige deformarla, señalar dónde para completarla en ChatGPT.
+- **Hecho (`conjunto-aventura-2026-10-18/`):** la imagen está en el mismo lienzo y el cuerpo coincide con el nuestro (ojos
+  a 2–6 px, piernas y pies en su sitio): siete capas **sin escalar ni deformar** (mochila detrás de la base, calcetines,
+  botas, camiseta, pantalón, tiras, chaleco). En el visor como **candidato** (fila «Ropa»; fila «Mochila» con y sin), con
+  piel clara, castaño y melena; las botas sustituyen a los zapatos.
+- **Dónde falla (marcado en `donde-falla-ampliado.png`; nada inventado ni deformado):**
+  - **rodillas:** el pantalón acaba antes que las mallas rosas de la base: 16 696 px de mallas a la vista (en el torso
+    quedan 87 px sueltos). Decidir: piernas de nuestra base sin mallas (ChatGPT) o pantalón algo más largo;
+  - **chaleco más ancho que nuestro torso** (y ≈ 770–950: 328 px frente a 276 entre nuestros brazos): bordes y bolsillos
+    bajo nuestros antebrazos (4 594 px) y encima de los brazos (2 865 px); estrecharlo sería deformarlo;
+  - **sin la mochila**, falta lo que tapan las tiras en los hombros (8 858 px: se ve la camiseta rosa de la base);
+  - parte del **lateral de la mochila** está tapada en la imagen por el brazo y el pelo.
+  Guía para ChatGPT: `conjunto-aventura-2026-10-18/guia-chatgpt/`.
+- **Defecto encontrado:** el pelo de delante aprobado de la melena lleva 9 trocitos sueltos (1 318 px, restos del bordado
+  del vestido) sobre el pecho; con el vestido no se ven. **Copia corregida** sin ellos para este conjunto
+  (`capas/pelo-delante-melena-sin-restos.png`); el original no cambia.
+- **Estado:** diseño aprobado; **encaje candidato, pendiente de revisión**; no probado en el iPhone.
+- **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
   verdes y sombrero de aventura». Referencia (generada, sin modificar):

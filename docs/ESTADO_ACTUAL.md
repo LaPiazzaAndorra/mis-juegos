@@ -124,6 +124,15 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   coletas, **no se ponen y se avisa** (ya no se vuelve a la melena sin avisar). **Encaje pendiente de revisión**; la
   copia `prueba-juego-d026` no cambia.
 
+**Conjunto de aventura (18/10, D-027):**
+- **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
+  `docs/propuestas/conjunto-aventura-2026-10-18/referencias/`.
+- Siete capas sobre nuestra base, sin escalar ni deformar (mochila detrás y tiras aparte, para poder quitarla); en el
+  visor como **candidato** (piel clara, castaño y melena). **Encaje pendiente de revisión.**
+- **Faltan zonas** (marcadas; guía para ChatGPT): mallas rosas a la vista en las rodillas; chaleco más ancho que nuestro
+  torso (bordes y bolsillos bajo nuestros brazos); hombros bajo las tiras (sin mochila); lateral de la mochila.
+- El pelo de delante aprobado de la melena tenía 9 trocitos sueltos sobre el pecho: copia corregida para este conjunto.
+
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
 - Pelo de delante, pelo de detrás, coleteros y sombrero separados de la imagen y encajados en nuestra base con la escala
@@ -277,7 +286,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (lazo en la base de la coleta, candidato; avisos de compatibilidad en el visor) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (D-027: conjunto de aventura aprobado; piezas candidatas en el visor y zonas que faltan) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

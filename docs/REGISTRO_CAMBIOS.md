@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-18 — D-024 · D-025: lazo en la base de la coleta (candidato) y avisos de compatibilidad en el visor
+### 2026-10-18 — D-027: conjunto de aventura aprobado; piezas candidatas en el visor y zonas que faltan
+
+- **Solicitado por:** la propietaria («Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines,
+  botas y mochila… La mochila debe ser independiente y poder quitarse… Muestra primero el encaje en el visor como
+  candidato…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `8f924e8`, el de la entrada siguiente).
+- **Estado:** diseño **aprobado**; encaje **candidato, pendiente de revisión**; faltan zonas (guía para ChatGPT). Nada
+  activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/conjunto-aventura-2026-10-18/` (nueva): referencia aprobada, `conjunto_aventura.py`, 7 capas en
+    `capas/` (mochila, calcetines, botas, camiseta, pantalón, tiras, chaleco), copia del pelo de delante de la melena sin
+    9 trocitos sueltos del vestido, montajes con y sin mochila, `regiones-de-la-imagen.png`, `comparacion-conjunto.png`,
+    `donde-falla-ampliado.png`, `comprobaciones.json`, `guia-chatgpt/` y `LEEME.md`.
+  - Visor: «Ropa: Conjunto de aventura (candidato)» y fila «Mochila» (con y sin); piel clara, castaño y melena, con avisos.
+  - D-027, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y el `LEEME.md` del visor (28).
+- **Resultado:** piezas sin escalar ni deformar; camiseta rosa de la base tapada; **mallas a la vista en las rodillas**
+  (16 696 px); **chaleco más ancho que nuestro torso** (bajo nuestros antebrazos 4 594 px, encima de los brazos 2 865 px);
+  **hombros bajo las tiras** sin imagen (8 858 px); lateral de la mochila tapado en la imagen. Fuentes sin cambios.
+- **Datos guardados afectados:** ninguno (el visor no guarda nada). Juego, `sw.js` y `main` sin cambios.
+- **Pruebas:** visor en Chromium (pantalla de iPhone simulada): elegir el conjunto, con y sin mochila, avisos al cambiar
+  piel, color, peinado y zapatos, accesorio, parpadeo, volver al vestido; sin errores ni almacenamiento; a tamaño real
+  coincide con el montaje (≤ 4 en lo opaco). Pruebas anteriores del visor sin cambios (lazo con coleta, dos coletas 40/40,
+  gorrito y gorra). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `8f924e8` · D-024 · D-025: lazo en la base de la coleta (candidato) y avisos de compatibilidad en el visor
 
 - **Solicitado por:** la propietaria («… al poner un lazo sobre la coleta cambia a melena. Prepara una colocación del lazo
   en la base de la coleta, como capa independiente, manteniendo el peinado elegido… No cambies de peinado
