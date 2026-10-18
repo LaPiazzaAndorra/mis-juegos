@@ -119,6 +119,11 @@ opaco). Con las dos coletas aparece la fila «Dos coletas»: **Con sombrero (apr
 otro color pasan a la versión con sombrero). Las dos completas siguen a la piel, al color de pelo, a las cejas y a los
 ojos.
 
+**Adornos (18/10, candidatos, D-024 (11)):** con las dos coletas se pueden poner el pasador de flores, la mariposa y dos
+lazos pequeños en los coleteros (con y sin sombrero) y, sin sombrero, la diadema y la corona
+(`../accesorios-2026-10-16/peinados/`). Con el sombrero, la diadema y la corona no se ponen (el sombrero las tapa) y se
+avisa; el peinado se conserva.
+
 ## Pendiente
 
 - Revisión del encaje por la propietaria.

@@ -29,6 +29,9 @@
 >
 > **18/10/2026 (10):** **lazo en la base de la coleta** (`lazo-coleta/`), candidato: el mismo lazo aprobado, solo
 > escalado, colocado y girado; con y sin cinta. Encaje pendiente de revisión.
+>
+> **18/10/2026 (11):** **lazo con la coleta aprobado visualmente** (con y sin cinta). Flores, mariposa, diadema, corona y
+> dos lazos pequeños para la coleta y las dos coletas: candidatos en `peinados/` (ver `peinados/LEEME.md`).
 
 ## Referencias (`referencias/`, sin modificar)
 
@@ -94,10 +97,10 @@ sin cambios. `comparacion-lazo-coleta.png`: con y sin cinta, sin y con lazo, y c
 
 En el visor, con la coleta, «Lazo de satén» pone esta capa y **se conserva la coleta**; con la melena, el lazo sigue en
 su sitio aprobado. Los accesorios que todavía no son compatibles con un peinado **no se ponen y se avisa**. La copia
-`prueba-juego-d026` no cambia. **Encaje pendiente de la revisión de la propietaria.**
+`prueba-juego-d026` no cambia. **Encaje aprobado visualmente (18/10).**
 
 ## Pendiente
 
 - La versión de frente de la cinta y los gorros (ChatGPT, con la guía) y su encaje.
-- Revisión del lazo con la coleta; adaptar a la coleta (y a las dos coletas) los demás accesorios y la corona.
+- Revisión de los adornos con la coleta y las dos coletas (`peinados/`); después, los gorros con esos peinados.
 - Después: copia nueva de prueba del juego; 2000 × 3500.

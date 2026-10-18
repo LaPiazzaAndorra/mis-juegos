@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-18 — D-027: conjunto de aventura aprobado; piezas candidatas en el visor y zonas que faltan
+### 2026-10-18 — D-024 · D-025 · D-026: lazo con la coleta aprobado; adornos para la coleta y las dos coletas (candidatos)
+
+- **Solicitado por:** la propietaria («Apruebo visualmente el lazo con la coleta, con y sin cinta… Prepara colocaciones
+  del pasador de flores, la mariposa, la diadema y la corona para la coleta y las dos coletas. En las dos coletas, prueba
+  también dos lazos pequeños sobre los coleteros…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `63e99a3`, el de la entrada siguiente).
+- **Estado:** lazo con la coleta **aprobado visualmente**; adornos nuevos **candidatos**, pendientes de revisión. El
+  conjunto de aventura (D-027) sigue pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/accesorios-2026-10-16/peinados/` (nueva): `colocar_peinados.py`, `base_peinados.py`, 15 capas en
+    `capas/`, `recortes/` (diadema y corona de sus capas aprobadas), `comprobaciones.json`,
+    `comparacion-adornos-peinados.png` y `LEEME.md`.
+  - Visor: cada adorno con la colocación de su peinado; botón «Dos lazos pequeños en los coleteros»; avisos con el motivo
+    de lo que no es compatible; al cambiar de peinado, cinta o sombrero, se quita avisando.
+  - D-024 (11), D-025 (9), D-026 (5), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y
+    los `LEEME.md` de accesorios, coleta, dos coletas y visor (29).
+- **Resultado:** 0 px sobre la piel y las cejas en las 15 colocaciones. No compatibles, sin forzar: diadema con la coleta
+  con cinta; diadema y corona con las dos coletas con sombrero.
+- **Datos guardados afectados:** ninguno (el visor no guarda nada). Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor en Chromium (pantalla de iPhone simulada): 45 casos (5 peinados × 9 adornos) con la capa correcta o
+  el aviso, sin cambiar de peinado; retirada con aviso al cambiar cinta, sombrero o peinado; parpadeo; sin errores ni
+  almacenamiento; a tamaño real, con adorno = sin adorno + capa (≤ 2). Pruebas anteriores del visor sin fallos.
+  `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `63e99a3` · D-027: conjunto de aventura aprobado; piezas candidatas en el visor y zonas que faltan
 
 - **Solicitado por:** la propietaria («Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines,
   botas y mochila… La mochila debe ser independiente y poder quitarse… Muestra primero el encaje en el visor como

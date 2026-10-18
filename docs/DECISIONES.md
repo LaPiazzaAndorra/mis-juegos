@@ -78,6 +78,9 @@
   Pide una **copia aislada nueva del juego** con los tres peinados y los accesorios aprobados, respetando sus
   compatibilidades; la melena, predeterminada. Hecha: `docs/propuestas/prueba-juego-d026/` (datos propios `d026:`,
   20/20 en Chromium; **pendiente de probar en el iPhone**). `main`, partidas y pruebas congeladas sin cambios.
+- **18/10/2026 (5):** adornos para las dos coletas, candidatos (D-024 (11)): flores, mariposa y dos lazos pequeños en los
+  coleteros, con y sin sombrero; diadema y corona solo sin sombrero (con él, el sombrero las tapa). Las dos coletas no
+  cambian.
 
 ## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva
@@ -138,12 +141,15 @@
 - **18/10/2026 (8):** con la coleta (con y sin cinta) el **lazo** va ahora en la **base de la coleta** (candidato, ver
   D-024 (10)) y el peinado se conserva; los accesorios que todavía no son compatibles con la coleta se avisan y no se
   ponen, en lugar de volver a la melena. La coleta no cambia.
+- **18/10/2026 (9):** la propietaria **aprueba visualmente el lazo con la coleta, con y sin cinta** (D-024 (11)). Con la
+  coleta hay ahora candidatos de flores, mariposa, corona y, sin cinta, diadema (D-024 (11)); la diadema no va con la
+  cinta. La coleta no cambia.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; lazo con la coleta, en su base: candidato (18/10); gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; lazo con la coleta, en su base: aprobado (18/10); flores, mariposa, diadema, corona y dos lazos pequeños con la coleta y las dos coletas: candidatos (18/10); gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -227,6 +233,29 @@
     a un peinado con algo que no es compatible, se quita **avisando**. Ya no se vuelve a la melena sin avisar.
   - **Candidato: el encaje queda pendiente de la revisión de la propietaria.** La copia `prueba-juego-d026` **no
     cambia** (sigue volviendo a la melena); una copia nueva, cuando se apruebe.
+- **18/10/2026 (11):** la propietaria **aprueba visualmente el lazo con la coleta, con y sin cinta**
+  (`lazo-coleta/capa-lazo-coleta.png`, commit `8f924e8`). Pide colocar ahora el pasador de flores, la mariposa, la
+  diadema y la corona para la coleta y las dos coletas, y probar en las dos coletas dos lazos pequeños sobre los
+  coleteros: las piezas aprobadas, solo con escala, posición y giro, sin deformar la cabeza ni el pelo; cada adorno
+  independiente y conservando el peinado; candidatas en el visor; si alguna pieza pide otra perspectiva o la tapan la
+  cinta o el sombrero, señalarlo sin forzarla. Los gorros, más adelante.
+  - Hecho (`accesorios-2026-10-16/peinados/`, `colocar_peinados.py`): 15 capas candidatas, todas con **0 px sobre la
+    piel que se ve y sobre las cejas**:
+    - coleta con cinta: flores y mariposa en lo alto, sobre el moño, por encima de la cinta; corona encima de la cinta
+      (×0,9);
+    - coleta sin cinta: flores y mariposa en el lado de la frente (como con la melena); diadema y corona;
+    - dos coletas con sombrero: flores y mariposa en la coleta izquierda, bajo el coletero; dos lazos pequeños;
+    - dos coletas sin sombrero: flores y mariposa en el lado (como con la melena); diadema, corona y dos lazos pequeños.
+  - Los **dos lazos pequeños**: el lazo aprobado a 75 px de ancho, uno en cada coletero (giro ±15°), por fuera de la
+    cara; una sola capa.
+  - **Incompatibles, sin forzar:** la **diadema con la coleta con cinta** (iría justo donde está la cinta) y la
+    **diadema y la corona con las dos coletas con sombrero** (el sombrero las tapa; la corona, en un 86 %). Ninguna
+    pieza ha necesitado otra perspectiva.
+  - Diadema y corona: la capa aprobada recortada a su caja (mismos píxeles) y recolocada; flores, mariposa y lazo: sus
+    recortes aprobados. Comprobaciones en `peinados/comprobaciones.json`; hoja `comparacion-adornos-peinados.png`.
+  - Visor: cada adorno con la colocación de su peinado; lo que no es compatible no se pone y se avisa, y si al cambiar
+    de peinado, de cinta o de sombrero deja de serlo, se quita avisando. **Candidatas, pendientes de revisión.** La
+    copia `prueba-juego-d026` no cambia.
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

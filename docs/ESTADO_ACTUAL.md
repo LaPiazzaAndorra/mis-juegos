@@ -123,6 +123,11 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   visor, con la coleta el lazo **mantiene el peinado**; los demás accesorios y la corona, con la coleta o las dos
   coletas, **no se ponen y se avisa** (ya no se vuelve a la melena sin avisar). **Encaje pendiente de revisión**; la
   copia `prueba-juego-d026` no cambia.
+- **Lazo con la coleta aprobado visualmente (18/10)**, con y sin cinta.
+- **Adornos para la coleta y las dos coletas (18/10, candidatos):** flores, mariposa, diadema, corona y dos lazos pequeños
+  en los coleteros, con las piezas aprobadas recolocadas (`…/peinados/`); 0 px sobre la piel y las cejas. No compatibles:
+  diadema con la coleta con cinta; diadema y corona con las dos coletas con sombrero. En el visor, el peinado se conserva
+  y lo que no es compatible se avisa. **Pendientes de revisión.** Los gorros, más adelante.
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -286,7 +291,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (D-027: conjunto de aventura aprobado; piezas candidatas en el visor y zonas que faltan) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (lazo con la coleta aprobado; adornos para la coleta y las dos coletas, candidatos) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

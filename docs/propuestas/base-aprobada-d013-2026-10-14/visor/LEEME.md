@@ -171,3 +171,11 @@ ahora con piel clara, pelo castaño y melena: al elegirlo se pasa a esa combinac
 otro color, otro peinado u otro pelo de delante no se aplican y se avisa. Las botas sustituyen a los zapatos rosa (que
 vuelven con otra ropa). Con este conjunto, la melena usa una copia de su pelo de delante sin 9 trocitos sueltos del
 vestido. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 4 en lo opaco).
+**18/10/2026 (29) · D-024 · D-025 · D-026:** lazo con la coleta aprobado: «Lazo de satén (con la coleta: en su base,
+aprobado)». Candidatos con la coleta y las dos coletas: el pasador de flores, la mariposa, la diadema y la corona usan la
+colocación de cada peinado (`accesorios-2026-10-16/peinados/`), y hay un botón nuevo «Dos lazos pequeños en los coleteros
+(dos coletas, candidatos)». No compatibles (no se ponen y se avisa, con el motivo): la diadema con la coleta con cinta; la
+diadema y la corona con las dos coletas con sombrero; los dos lazos pequeños con la melena y la coleta; los gorros con la
+coleta y las dos coletas. Si al cambiar de peinado, de cinta o de sombrero un adorno deja de ser compatible, se quita
+avisando. Probados los 45 casos (5 peinados × 9 adornos); sin errores ni almacenamiento; a tamaño real, con adorno = sin
+adorno + la capa (≤ 2).

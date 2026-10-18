@@ -1,0 +1,451 @@
+{
+ "metodo": "recortes aprobados con colocar(): solo escala, posición y giro; encima del pelo y de la cinta o los coleteros, debajo del sombrero",
+ "recortes_de_capas_aprobadas": {
+  "diadema": {
+   "caja": [
+    258,
+    141,
+    691,
+    284
+   ],
+   "centro": [
+    474.5,
+    212.5
+   ],
+   "ancho": 433
+  },
+  "corona": {
+   "caja": [
+    313,
+    42,
+    625,
+    199
+   ],
+   "centro": [
+    469.0,
+    120.5
+   ],
+   "ancho": 312
+  }
+ },
+ "colocaciones": {
+  "coleta-con": {
+   "flores": {
+    "piezas": [
+     {
+      "recorte": "flores",
+      "centro": [
+       425,
+       100
+      ],
+      "ancho": 140,
+      "giro": 10
+     }
+    ],
+    "caja": [
+     354,
+     68,
+     497,
+     133
+    ],
+    "px": 5568,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.802,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "mariposa": {
+    "piezas": [
+     {
+      "recorte": "mariposa",
+      "centro": [
+       405,
+       110
+      ],
+      "ancho": 95,
+      "giro": 10
+     }
+    ],
+    "caja": [
+     352,
+     74,
+     452,
+     150
+    ],
+    "px": 5130,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.732,
+    "sobre_la_cinta_px": 720,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "diadema": {
+    "incompatible": "va justo donde está la cinta (pisaría la cinta entera): no se ponen las dos"
+   },
+   "corona": {
+    "piezas": [
+     {
+      "recorte": "corona",
+      "centro": [
+       469,
+       80
+      ],
+      "ancho": 280,
+      "giro": 0
+     }
+    ],
+    "caja": [
+     329,
+     10,
+     608,
+     150
+    ],
+    "px": 15853,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.821,
+    "sobre_la_cinta_px": 87,
+    "tapado_por_el_sombrero": 0.0
+   }
+  },
+  "coleta-sin": {
+   "flores": {
+    "piezas": [
+     {
+      "recorte": "flores",
+      "centro": [
+       300,
+       262
+      ],
+      "ancho": 150,
+      "giro": 30
+     }
+    ],
+    "caja": [
+     228,
+     217,
+     375,
+     310
+    ],
+    "px": 6378,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.964,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "mariposa": {
+    "piezas": [
+     {
+      "recorte": "mariposa",
+      "centro": [
+       300,
+       300
+      ],
+      "ancho": 115,
+      "giro": 14
+     }
+    ],
+    "caja": [
+     235,
+     260,
+     358,
+     351
+    ],
+    "px": 7392,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.985,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "diadema": {
+    "piezas": [
+     {
+      "recorte": "diadema",
+      "centro": [
+       474,
+       200
+      ],
+      "ancho": 433,
+      "giro": 0
+     }
+    ],
+    "caja": [
+     258,
+     128,
+     690,
+     270
+    ],
+    "px": 7183,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 1.0,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "corona": {
+    "piezas": [
+     {
+      "recorte": "corona",
+      "centro": [
+       469,
+       110
+      ],
+      "ancho": 312,
+      "giro": 0
+     }
+    ],
+    "caja": [
+     313,
+     32,
+     624,
+     188
+    ],
+    "px": 17793,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.89,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   }
+  },
+  "coletas2-con": {
+   "flores": {
+    "piezas": [
+     {
+      "recorte": "flores",
+      "centro": [
+       230,
+       600
+      ],
+      "ancho": 140,
+      "giro": -20
+     }
+    ],
+    "caja": [
+     160,
+     558,
+     298,
+     644
+    ],
+    "px": 5578,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 1.0,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "mariposa": {
+    "piezas": [
+     {
+      "recorte": "mariposa",
+      "centro": [
+       240,
+       600
+      ],
+      "ancho": 110,
+      "giro": -10
+     }
+    ],
+    "caja": [
+     181,
+     545,
+     297,
+     650
+    ],
+    "px": 6801,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 1.0,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "diadema": {
+    "incompatible": "el sombrero la tapa entera"
+   },
+   "corona": {
+    "incompatible": "el sombrero la tapa casi entera (86 %)"
+   },
+   "lazos-coleteros": {
+    "piezas": [
+     {
+      "recorte": "lazo",
+      "centro": [
+       240,
+       545
+      ],
+      "ancho": 75,
+      "giro": 15
+     },
+     {
+      "recorte": "lazo",
+      "centro": [
+       716,
+       545
+      ],
+      "ancho": 75,
+      "giro": -15
+     }
+    ],
+    "caja": [
+     202,
+     509,
+     757,
+     579
+    ],
+    "px": 5844,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 1.0,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   }
+  },
+  "coletas2-sin": {
+   "flores": {
+    "piezas": [
+     {
+      "recorte": "flores",
+      "centro": [
+       274,
+       278
+      ],
+      "ancho": 168,
+      "giro": 32
+     }
+    ],
+    "caja": [
+     194,
+     225,
+     357,
+     333
+    ],
+    "px": 7963,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.982,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "mariposa": {
+    "piezas": [
+     {
+      "recorte": "mariposa",
+      "centro": [
+       288,
+       295
+      ],
+      "ancho": 122,
+      "giro": 14
+     }
+    ],
+    "caja": [
+     219,
+     252,
+     349,
+     348
+    ],
+    "px": 8282,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.974,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "diadema": {
+    "piezas": [
+     {
+      "recorte": "diadema",
+      "centro": [
+       474,
+       212
+      ],
+      "ancho": 433,
+      "giro": 0
+     }
+    ],
+    "caja": [
+     258,
+     140,
+     690,
+     282
+    ],
+    "px": 7183,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 1.0,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "corona": {
+    "piezas": [
+     {
+      "recorte": "corona",
+      "centro": [
+       469,
+       135
+      ],
+      "ancho": 300,
+      "giro": 0
+     }
+    ],
+    "caja": [
+     319,
+     60,
+     618,
+     210
+    ],
+    "px": 18154,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 0.671,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   },
+   "lazos-coleteros": {
+    "piezas": [
+     {
+      "recorte": "lazo",
+      "centro": [
+       240,
+       545
+      ],
+      "ancho": 75,
+      "giro": 15
+     },
+     {
+      "recorte": "lazo",
+      "centro": [
+       716,
+       545
+      ],
+      "ancho": 75,
+      "giro": -15
+     }
+    ],
+    "caja": [
+     202,
+     509,
+     757,
+     579
+    ],
+    "px": 5844,
+    "solape_piel_visible_px": 0,
+    "solape_cejas_px": 0,
+    "sobre_el_pelo": 1.0,
+    "sobre_la_cinta_px": 0,
+    "tapado_por_el_sombrero": 0.0
+   }
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/capas/flores-recortado.png": "39c4d1009cb7c9c8a73984443a3ce149e98f5859ff8eaf21456a1b849cc867fa",
+  "docs/propuestas/accesorios-2026-10-16/capas/mariposa-recortado.png": "8834c91815f57ee88bb9c4f428ee55570fd080a599cbd7a6d265ded5cf2bfba3",
+  "docs/propuestas/accesorios-2026-10-16/capas/lazo-recortado.png": "4e2c620687f36f13e6ab3d1714900e3d36211dabc7efb7b975e1a0fb1349ffd5",
+  "docs/propuestas/accesorios-2026-10-16/diadema/capa-diadema.png": "10a0e0a0e910617012f55e49c240a62af102e9c567cfd59916960ca70d359478",
+  "docs/propuestas/corona-2026-10-15/montaje/corona-candidata.png": "c607253802ab89a019cbe5c10173572dc17aeadc92c2f89082c3bff7b45a952f"
+ },
+ "fuentes_sin_cambios": true
+}

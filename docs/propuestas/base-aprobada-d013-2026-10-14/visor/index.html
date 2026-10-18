@@ -93,6 +93,21 @@
     <img id="c-coletas2-delante" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-delante.png">
     <img id="c-bordes-coletas2" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/pieles/dorado/bordes-coletas-con-castano.png">
     <img id="c-coletas2-coleteros" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/coleteros.png">
+    <img id="c-pein-corona-coleta-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/corona-coleta-con.png">
+    <img id="c-pein-corona-coleta-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/corona-coleta-sin.png">
+    <img id="c-pein-corona-coletas2-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/corona-coletas2-sin.png">
+    <img id="c-pein-diadema-coleta-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/diadema-coleta-sin.png">
+    <img id="c-pein-diadema-coletas2-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/diadema-coletas2-sin.png">
+    <img id="c-pein-flores-coleta-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/flores-coleta-con.png">
+    <img id="c-pein-flores-coleta-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/flores-coleta-sin.png">
+    <img id="c-pein-flores-coletas2-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/flores-coletas2-con.png">
+    <img id="c-pein-flores-coletas2-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/flores-coletas2-sin.png">
+    <img id="c-pein-lazos-coleteros-coletas2-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/lazos-coleteros-coletas2-con.png">
+    <img id="c-pein-lazos-coleteros-coletas2-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/lazos-coleteros-coletas2-sin.png">
+    <img id="c-pein-mariposa-coleta-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/mariposa-coleta-con.png">
+    <img id="c-pein-mariposa-coleta-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/mariposa-coleta-sin.png">
+    <img id="c-pein-mariposa-coletas2-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/mariposa-coletas2-con.png">
+    <img id="c-pein-mariposa-coletas2-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/mariposa-coletas2-sin.png">
     <img id="c-coletas2-sombrero" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/sombrero-aventura.png">
     <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
     <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
@@ -155,13 +170,14 @@
   <div class="fila">
     <b>Accesorio de pelo</b>
     <button data-acc-pelo="ninguno" aria-pressed="true">Sin accesorio</button>
-    <button data-acc-pelo="lazo" aria-pressed="false">Lazo de satén (con la coleta: en su base, candidato)</button>
+    <button data-acc-pelo="lazo" aria-pressed="false">Lazo de satén (con la coleta: en su base, aprobado)</button>
     <button data-acc-pelo="flores" aria-pressed="false">Pasador de flores</button>
     <button data-acc-pelo="mariposa" aria-pressed="false">Mariposa lila</button>
     <button data-acc-pelo="diadema" aria-pressed="false">Diadema de estrellas (aprobada)</button>
     <button data-acc-pelo="gorrito-b" aria-pressed="false">Gorrito de dormir (aprobado)</button>
     <button data-acc-pelo="gorrito" aria-pressed="false">Gorrito de dormir · A (alternativa anterior)</button>
     <button data-acc-pelo="gorra" aria-pressed="false">Gorra rosa del rayo (aprobada)</button>
+    <button data-acc-pelo="lazos-coleteros" aria-pressed="false">Dos lazos pequeños en los coleteros (dos coletas, candidatos)</button>
   </div>
   <div class="fila">
     <b>Pintacaras</b>
@@ -554,22 +570,35 @@
     if (dos) document.querySelector('[data-coletas2="con"]').click(); else mostrarColetas2();
     document.getElementById('c-pelo-detras').classList.toggle('oculto', col || dos);
     if (col || dos) {
-      // lo que todavía no es compatible con el peinado nuevo se quita, avisando (el lazo se queda con la coleta, en su base)
-      var quitados = [];
-      if (!compatible(accPelo, p)) { quitados.push('«' + nombreBoton(document.querySelector('[data-acc-pelo="' + accPelo + '"]')) + '»'); document.querySelector('[data-acc-pelo="ninguno"]').click(); }
-      if (!document.getElementById('c-corona').classList.contains('oculto')) { quitados.push('la corona'); document.querySelector('[data-corona="no"]').click(); }
-      if (quitados.length) avisar('Se ha quitado ' + quitados.join(' y ') + ': todavía no ' + (quitados.length > 1 ? 'son compatibles' : 'es compatible') + ' con ' + NOMBRE_PEINADO[p] + '.');
       document.querySelectorAll('img.pelo-delante').forEach(function (im) { im.classList.add('oculto'); });
     } else { mostrarPelo(); }
     bordes();
     document.querySelectorAll('[data-peinado]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peinado === p)); });
   }
   document.querySelectorAll('[data-peinado]').forEach(function (b) { b.addEventListener('click', function () { elegirPeinado(b.dataset.peinado); }); });
-  // con la coleta o las dos coletas NO se cambia de peinado sin avisar: un accesorio que todavía no es compatible con el
-  // peinado (o una opción del pelo de la melena) no se pone, se avisa y se conserva el peinado elegido. Compatible: el lazo
-  // con la coleta (con y sin cinta), en su base (candidato D-024 · D-025). La piel y el color de pelo se pueden cambiar.
-  var NOMBRE_PEINADO = { coleta: 'la coleta', coletas2: 'las dos coletas' };
-  function compatible(acc, p) { return p === 'melena' || acc === 'ninguno' || (acc === 'lazo' && p === 'coleta'); }
+  // NO se cambia de peinado sin avisar: un adorno que todavía no es compatible con el peinado (o una opción del pelo de
+  // la melena) no se pone, se avisa y se conserva el peinado elegido; si al cambiar de peinado, de cinta o de sombrero el
+  // adorno deja de ser compatible, se quita avisando. Colocaciones (D-024): con la melena, las aprobadas; con la coleta, el
+  // lazo en su base (aprobado) y, candidatos, flores, mariposa, diadema (sin cinta) y corona; con las dos coletas,
+  // candidatos: flores, mariposa, dos lazos pequeños en los coleteros y, sin sombrero, diadema y corona. Los gorros, más
+  // adelante. La piel y el color de pelo se pueden cambiar.
+  var NOMBRE_PEINADO = { melena: 'la melena', 'coleta-con': 'la coleta con cinta', 'coleta-sin': 'la coleta sin cinta',
+    'coletas2-con': 'las dos coletas con sombrero', 'coletas2-sin': 'las dos coletas sin sombrero' };
+  var ADORNOS_OK = { melena: ['lazo', 'flores', 'mariposa', 'diadema', 'gorrito-b', 'gorrito', 'gorra', 'corona'],
+    'coleta-con': ['lazo', 'flores', 'mariposa', 'corona'], 'coleta-sin': ['lazo', 'flores', 'mariposa', 'diadema', 'corona'],
+    'coletas2-con': ['flores', 'mariposa', 'lazos-coleteros'], 'coletas2-sin': ['flores', 'mariposa', 'diadema', 'corona', 'lazos-coleteros'] };
+  var MOTIVO = { 'coleta-con': { diadema: 'iría justo donde está la cinta' },
+    'coletas2-con': { diadema: 'el sombrero la tapa', corona: 'el sombrero la tapa' } };
+  function version(p) {
+    return p === 'coleta' ? (conCinta ? 'coleta-con' : 'coleta-sin') : p === 'coletas2' ? (versionColetas2 === 'sin' ? 'coletas2-sin' : 'coletas2-con') : 'melena';
+  }
+  function compatible(acc, p) { return acc === 'ninguno' || ADORNOS_OK[version(p)].indexOf(acc) >= 0; }
+  function porque(acc, v) {
+    if (MOTIVO[v] && MOTIVO[v][acc]) return ' (' + MOTIVO[v][acc] + ')';
+    if (acc === 'lazos-coleteros') return ' (van en los coleteros de las dos coletas)';
+    if (/^gorr/.test(acc)) return ' (los gorros quedan para más adelante)';
+    return '';
+  }
   var avisoT;
   function avisar(texto) {
     var a = document.getElementById('aviso'); a.textContent = texto; a.hidden = false;
@@ -577,23 +606,36 @@
   }
   function nombreBoton(b) { return b.textContent.replace(/\s*\(.*\)\s*$/, '').replace(/ · .*$/, ''); }
   document.getElementById('controles').addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b || peinado === 'melena') return;
-    var d = b.dataset, no = null;
-    if (d.peloOp) no = 'Esta opción es del pelo de la melena: no se aplica a ' + NOMBRE_PEINADO[peinado] + '. Para verla, elige «Melena suelta».';
-    else if (d.accPelo && !compatible(d.accPelo, peinado)) no = '«' + nombreBoton(b) + '» todavía no es compatible con ' + NOMBRE_PEINADO[peinado] + ': no se ha puesto y se conserva el peinado.';
-    else if (d.corona === 'si') no = 'La corona todavía no es compatible con ' + NOMBRE_PEINADO[peinado] + ': no se ha puesto y se conserva el peinado.';
+    var b = e.target.closest('button'); if (!b) return;
+    var d = b.dataset, no = null, v = version(peinado);
+    if (d.peloOp && peinado !== 'melena') no = 'Esta opción es del pelo de la melena: no se aplica a ' + NOMBRE_PEINADO[v] + '. Para verla, elige «Melena suelta».';
+    else if (d.accPelo && !compatible(d.accPelo, peinado)) no = '«' + nombreBoton(b) + '» todavía no es compatible con ' + NOMBRE_PEINADO[v] + porque(d.accPelo, v) + ': no se ha puesto y se conserva el peinado.';
+    else if (d.corona === 'si' && !compatible('corona', peinado)) no = 'La corona todavía no es compatible con ' + NOMBRE_PEINADO[v] + porque('corona', v) + ': no se ha puesto y se conserva el peinado.';
     if (no) { e.stopPropagation(); e.preventDefault(); avisar(no); return; }
     // con el montaje anterior de las dos coletas (referencia, solo claro y castaño), otra piel u otro color pasan a la versión completa con sombrero
     else if (peinado === 'coletas2' && versionColetas2 === 'anterior' && ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano'))) document.querySelector('[data-coletas2="con"]').click();
   }, true);
-  // el lazo: con la melena, en los rizos del lado (capa-lazo); con la coleta, en la base de la coleta (capa-lazo-coleta)
-  function mostrarLazo() {
-    var lazo = accPelo === 'lazo';
-    document.getElementById('c-acc-lazo').classList.toggle('oculto', !lazo || peinado !== 'melena');
-    document.getElementById('c-acc-lazo-coleta').classList.toggle('oculto', !lazo || peinado !== 'coleta');
+  // si el adorno o la corona han dejado de ser compatibles (otro peinado, cinta o sombrero), se quitan avisando
+  function revisarAdornos() {
+    var v = version(peinado), quitados = [];
+    if (!compatible(accPelo, peinado)) { quitados.push('«' + nombreBoton(document.querySelector('[data-acc-pelo="' + accPelo + '"]')) + '»' + porque(accPelo, v)); document.querySelector('[data-acc-pelo="ninguno"]').click(); }
+    if (coronaPuesta() && !compatible('corona', peinado)) { quitados.push('la corona' + porque('corona', v)); document.querySelector('[data-corona="no"]').click(); }
+    if (quitados.length) avisar('Se ha quitado ' + quitados.join(' y ') + ': todavía no ' + (quitados.length > 1 ? 'son compatibles' : 'es compatible') + ' con ' + NOMBRE_PEINADO[v] + '.');
+  }
+  function coronaPuesta() { return document.querySelector('[data-corona="si"]').getAttribute('aria-pressed') === 'true'; }
+  // cada adorno, con la colocación de su peinado: melena, las aprobadas (c-acc-*, c-corona); coleta, el lazo en su base
+  // (c-acc-lazo-coleta); los demás, c-pein-<adorno>-<peinado>
+  function mostrarAdornos() {
+    var v = version(peinado), mel = v === 'melena';
+    document.querySelectorAll('img.acc-pelo').forEach(function (im) { im.classList.toggle('oculto', !mel || im.id !== 'c-acc-' + accPelo); });
+    document.getElementById('c-acc-lazo-coleta').classList.toggle('oculto', !(accPelo === 'lazo' && peinado === 'coleta'));
+    document.querySelectorAll('img.pein').forEach(function (im) {
+      im.classList.toggle('oculto', mel || (im.id !== 'c-pein-' + accPelo + '-' + v && !(coronaPuesta() && im.id === 'c-pein-corona-' + v)));
+    });
+    document.getElementById('c-corona').classList.toggle('oculto', !mel || !coronaPuesta());
   }
   // la coleta sigue a la piel y al color de pelo (y a la cinta)
-  document.getElementById('controles').addEventListener('click', function () { mostrarColeta(); mostrarColetas2(); mostrarLazo(); });
+  document.getElementById('controles').addEventListener('click', function () { mostrarColeta(); mostrarColetas2(); revisarAdornos(); mostrarAdornos(); });
   ['chocolate', 'miel', 'oscuro', 'jengibre'].forEach(function (c) {
     ['con', 'sin'].forEach(function (v) { ['detras', 'delante'].forEach(function (p) { new Image().src = COL + 'variantes/pelo-coleta-' + v + '-' + p + '-' + c + '.png'; }); });
   });
