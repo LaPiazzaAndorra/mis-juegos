@@ -147,10 +147,11 @@ añadirá solo el pelo de esa zona. Hasta entonces, en el visor la coleta va **s
 
 Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada (aprobada)**; con la coleta, fila «Cinta»
 (**Con cinta (aprobada)** por defecto · **Sin cinta (aprobada)**). Con la coleta se pueden elegir la **piel**, el
-**color de pelo**, las **cejas** y los **ojos**; el accesorio de pelo y la corona (colocados para la melena) y los
-otros pelos de delante vuelven a la melena. El parpadeo funciona igual.
+**color de pelo**, las **cejas** y los **ojos**. Desde el 18/10, el **lazo** va en la base de la coleta (candidato,
+`accesorios-2026-10-16/lazo-coleta/`) y la coleta se conserva; los demás accesorios, la corona y los otros pelos de
+delante (colocados para la melena) **no se ponen y se avisa**, sin cambiar de peinado. El parpadeo funciona igual.
 
 ## Pendiente
 
 - Prueba en el iPhone (copia de prueba del juego): las combinaciones de la coleta no se han probado allí.
-- Después: accesorios y corona con la coleta; copia de prueba del juego; 2000 × 3500.
+- Después: revisión del lazo con la coleta; los demás accesorios y la corona con la coleta; copia de prueba del juego; 2000 × 3500.

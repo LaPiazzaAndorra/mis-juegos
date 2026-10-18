@@ -30,7 +30,7 @@
     background-size: 24px 24px; background-position: 0 0, 0 12px, 12px -12px, -12px 0; }
   #lienzo { position: absolute; left: 0; top: 0; width: 948px; height: 1659px; transform-origin: 0 0; will-change: transform; }
   #lienzo img { position: absolute; left: 0; top: 0; width: 948px; height: 1659px; pointer-events: none; user-select: none; -webkit-user-drag: none; }
-  .oculto { display: none !important; }
+  .oculto, [hidden] { display: none !important; }
   #cargando { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--suave); }
   #controles { padding: 4px 10px 10px; display: grid; gap: 6px; }
   .fila { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
@@ -41,6 +41,8 @@
   button.grande { padding: 8px 16px; font-weight: 600; }
   input[type=range] { flex: 1; min-width: 120px; }
   #estado { font-size: 12px; color: var(--suave); }
+  #aviso { position: fixed; z-index: 10; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 10px 12px; border-radius: 12px; background: #fff7d6;
+    border: 1px solid #e8cf7a; color: #5a4a10; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
 </style>
 </head>
 <body>
@@ -91,9 +93,11 @@
     <img id="c-acc-gorrito" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/gorrito/capa-gorrito.png">
     <img id="c-acc-gorrito-b" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/gorrito/capa-gorrito-b.png">
     <img id="c-acc-gorra" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/gorra/capa-gorra.png">
+    <img id="c-acc-lazo-coleta" class="oculto" alt="" src="../../accesorios-2026-10-16/lazo-coleta/capa-lazo-coleta.png">
     <img id="c-corona" class="" alt="" src="../../corona-2026-10-15/montaje/corona-candidata.png">
   </div>
   <div id="cargando">Cargando imágenes…</div>
+  <div id="aviso" role="status" hidden></div>
 </div>
 
 <div id="controles">
@@ -137,7 +141,7 @@
   <div class="fila">
     <b>Accesorio de pelo</b>
     <button data-acc-pelo="ninguno" aria-pressed="true">Sin accesorio</button>
-    <button data-acc-pelo="lazo" aria-pressed="false">Lazo de satén</button>
+    <button data-acc-pelo="lazo" aria-pressed="false">Lazo de satén (con la coleta: en su base, candidato)</button>
     <button data-acc-pelo="flores" aria-pressed="false">Pasador de flores</button>
     <button data-acc-pelo="mariposa" aria-pressed="false">Mariposa lila</button>
     <button data-acc-pelo="diadema" aria-pressed="false">Diadema de estrellas (aprobada)</button>
@@ -353,9 +357,11 @@
     });
   });
 
+  var accPelo = 'ninguno';
   // --- accesorio de pelo (D-024, encaje en revisión): uno cada vez, encima del pelo y debajo de la corona ------------
   document.querySelectorAll('[data-acc-pelo]').forEach(function (b) {
     b.addEventListener('click', function () {
+      accPelo = b.dataset.accPelo;
       document.querySelectorAll('img.acc-pelo').forEach(function (im) { im.classList.toggle('oculto', im.id !== 'c-acc-' + b.dataset.accPelo); });
       document.querySelectorAll('[data-acc-pelo]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
       // la diadema y la corona van en el mismo sitio: al elegir la diadema se quita la corona (se puede volver a poner)
@@ -527,30 +533,53 @@
   });
   function elegirPeinado(p) {
     peinado = p; var col = p === 'coleta', dos = p === 'coletas2';
+    document.getElementById('aviso').hidden = true;
     mostrarColeta();
     // dos coletas (D-026, aprobadas): al elegirlas, la versión completa con sombrero; sin accesorio ni corona
     ['detras', 'delante', 'coleteros', 'sombrero'].forEach(function (k) { document.getElementById('c-coletas2-' + k).classList.toggle('oculto', !dos); });
     if (dos) document.querySelector('[data-coletas2="con"]').click(); else mostrarColetas2();
     document.getElementById('c-pelo-detras').classList.toggle('oculto', col || dos);
     if (col || dos) {
-      ['[data-acc-pelo="ninguno"]', '[data-corona="no"]'].forEach(function (s) { document.querySelector(s).click(); });
+      // lo que todavía no es compatible con el peinado nuevo se quita, avisando (el lazo se queda con la coleta, en su base)
+      var quitados = [];
+      if (!compatible(accPelo, p)) { quitados.push('«' + nombreBoton(document.querySelector('[data-acc-pelo="' + accPelo + '"]')) + '»'); document.querySelector('[data-acc-pelo="ninguno"]').click(); }
+      if (!document.getElementById('c-corona').classList.contains('oculto')) { quitados.push('la corona'); document.querySelector('[data-corona="no"]').click(); }
+      if (quitados.length) avisar('Se ha quitado ' + quitados.join(' y ') + ': todavía no ' + (quitados.length > 1 ? 'son compatibles' : 'es compatible') + ' con ' + NOMBRE_PEINADO[p] + '.');
       document.querySelectorAll('img.pelo-delante').forEach(function (im) { im.classList.add('oculto'); });
     } else { mostrarPelo(); }
     bordes();
     document.querySelectorAll('[data-peinado]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.peinado === p)); });
   }
   document.querySelectorAll('[data-peinado]').forEach(function (b) { b.addEventListener('click', function () { elegirPeinado(b.dataset.peinado); }); });
-  // con la coleta, elegir otro pelo de delante, un accesorio o la corona vuelve a la melena; la piel y el color de pelo
-  // se pueden cambiar con la coleta puesta
+  // con la coleta o las dos coletas NO se cambia de peinado sin avisar: un accesorio que todavía no es compatible con el
+  // peinado (o una opción del pelo de la melena) no se pone, se avisa y se conserva el peinado elegido. Compatible: el lazo
+  // con la coleta (con y sin cinta), en su base (candidato D-024 · D-025). La piel y el color de pelo se pueden cambiar.
+  var NOMBRE_PEINADO = { coleta: 'la coleta', coletas2: 'las dos coletas' };
+  function compatible(acc, p) { return p === 'melena' || acc === 'ninguno' || (acc === 'lazo' && p === 'coleta'); }
+  var avisoT;
+  function avisar(texto) {
+    var a = document.getElementById('aviso'); a.textContent = texto; a.hidden = false;
+    clearTimeout(avisoT); avisoT = setTimeout(function () { a.hidden = true; }, 5000);
+  }
+  function nombreBoton(b) { return b.textContent.replace(/\s*\(.*\)\s*$/, '').replace(/ · .*$/, ''); }
   document.getElementById('controles').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b || peinado === 'melena') return;
-    var d = b.dataset;
-    if (d.peloOp || (d.accPelo && d.accPelo !== 'ninguno') || d.corona === 'si') elegirPeinado('melena');
+    var d = b.dataset, no = null;
+    if (d.peloOp) no = 'Esta opción es del pelo de la melena: no se aplica a ' + NOMBRE_PEINADO[peinado] + '. Para verla, elige «Melena suelta».';
+    else if (d.accPelo && !compatible(d.accPelo, peinado)) no = '«' + nombreBoton(b) + '» todavía no es compatible con ' + NOMBRE_PEINADO[peinado] + ': no se ha puesto y se conserva el peinado.';
+    else if (d.corona === 'si') no = 'La corona todavía no es compatible con ' + NOMBRE_PEINADO[peinado] + ': no se ha puesto y se conserva el peinado.';
+    if (no) { e.stopPropagation(); e.preventDefault(); avisar(no); return; }
     // con el montaje anterior de las dos coletas (referencia, solo claro y castaño), otra piel u otro color pasan a la versión completa con sombrero
     else if (peinado === 'coletas2' && versionColetas2 === 'anterior' && ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano'))) document.querySelector('[data-coletas2="con"]').click();
   }, true);
+  // el lazo: con la melena, en los rizos del lado (capa-lazo); con la coleta, en la base de la coleta (capa-lazo-coleta)
+  function mostrarLazo() {
+    var lazo = accPelo === 'lazo';
+    document.getElementById('c-acc-lazo').classList.toggle('oculto', !lazo || peinado !== 'melena');
+    document.getElementById('c-acc-lazo-coleta').classList.toggle('oculto', !lazo || peinado !== 'coleta');
+  }
   // la coleta sigue a la piel y al color de pelo (y a la cinta)
-  document.getElementById('controles').addEventListener('click', function () { mostrarColeta(); mostrarColetas2(); });
+  document.getElementById('controles').addEventListener('click', function () { mostrarColeta(); mostrarColetas2(); mostrarLazo(); });
   ['chocolate', 'miel', 'oscuro', 'jengibre'].forEach(function (c) {
     ['con', 'sin'].forEach(function (v) { ['detras', 'delante'].forEach(function (p) { new Image().src = COL + 'variantes/pelo-coleta-' + v + '-' + p + '-' + c + '.png'; }); });
   });

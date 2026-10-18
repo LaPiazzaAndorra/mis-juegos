@@ -1,0 +1,47 @@
+{
+ "metodo": "recorte aprobado del lazo (capas/lazo-recortado.png) con colocar(): solo escala, posición y giro; encima del pelo de delante y de la cinta, debajo de la corona",
+ "lazo": {
+  "centro": [
+   612,
+   86
+  ],
+  "ancho": 138,
+  "giro": -32,
+  "caja": [
+   539,
+   19,
+   686,
+   159
+  ],
+  "px": 9394,
+  "coleta_con_cinta": {
+   "solape_piel_visible_px": 0,
+   "sobre_el_pelo": 1.0,
+   "solape_cinta_px": 0
+  },
+  "coleta_sin_cinta": {
+   "solape_piel_visible_px": 0,
+   "sobre_el_pelo": 1.0
+  }
+ },
+ "encaje_melena": {
+  "centro": [
+   642,
+   263
+  ],
+  "ancho": 138,
+  "giro": -18
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/accesorios-2026-10-16/capas/lazo-recortado.png": "4e2c620687f36f13e6ab3d1714900e3d36211dabc7efb7b975e1a0fb1349ffd5",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/cinta-coleta.png": "bd67b070f2367f7b9dc1859b4a393a11dd6fcaa35fec48e36194d6261734d3bd",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-castano.png": "f94deec093cad74729e5ef2deff3c4a98d676a680f872757a07f689068fac1dd",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-delante-castano.png": "11a32074abcf9be2ee3edefe7c5de349a37f70ba213307669f3e141f085f6f67",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-castano.png": "b92bc4b31eaca55468b696f715e22680db29c5ee5178cc77d7b3940918d59b0a",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-delante-castano.png": "327acfd6d0a2e4a596145c8f49e5bcf0a1e19cf474bc70dd6eb8e7b9fb4456e8",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/orejas-coleta-detras.png": "cc2be17c4a7fe9d0837773eafb12f34fd608cfa8ab92275006d32d1d68463c50",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/orejas-coleta-delante.png": "5cef5422301bc6d008226acacd8e85f0861173c770311edc555d752037598a8a"
+ },
+ "fuentes_sin_cambios": true
+}

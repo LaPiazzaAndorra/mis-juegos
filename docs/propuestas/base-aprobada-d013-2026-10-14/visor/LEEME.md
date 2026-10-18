@@ -158,3 +158,10 @@ ni almacenamiento; a tamaño real coincide con el montaje (≤ 2) en las dos can
 elegir el peinado · «Sin sombrero (aprobada)» · «Montaje anterior, puntas cortadas (referencia)» (solo piel clara y
 castaño). Las dos completas siguen a la piel, al color de pelo, a las cejas y a los ojos (capa de bordes por tono, debajo
 de coleteros y sombrero). Probadas las 40 combinaciones y el parpadeo; sin errores; a tamaño real coincide (≤ 3).
+**18/10/2026 (27) · D-024 · D-025:** con la coleta (con y sin cinta), «Lazo de satén (con la coleta: en su base,
+candidato)» pone el lazo en la base de la coleta (`accesorios-2026-10-16/lazo-coleta/`) y **se conserva el peinado**;
+con la melena, el lazo sigue en su sitio. Ya **no se vuelve a la melena sin avisar**: con la coleta o las dos coletas,
+los demás accesorios de pelo, la corona y las opciones del pelo de la melena no se ponen y sale un aviso abajo; al
+elegir un peinado con algo que no es compatible, se quita avisando. Corregido también que las filas «Cinta» y «Dos
+coletas» se veían con cualquier peinado. Sin errores ni almacenamiento; a tamaño real, con lazo = sin lazo + la capa
+(≤ 1).

@@ -118,6 +118,11 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Gorra rosa del rayo de frente (17/10):** diseño aprobado; solo la gorra extraída (`…/gorra/`), ×1,10 y centrada:
   cubre el pelo de arriba (99,99 %) con las cejas libres (a 6,3 px). **Encaje aprobado visualmente (17/10)**; bordes
   revisados con los 5 colores de pelo y los 4 tonos de piel: sin defectos. Con la coleta, más adelante. Cinta deportiva y sombrero, pendientes de versión de frente.
+- **Lazo con la coleta, en su base (18/10, candidato):** el lazo aprobado, solo escalado, colocado y girado
+  (`…/lazo-coleta/`), en la base de la coleta; vale con y sin cinta (0 px sobre la piel, 100 % sobre el pelo). En el
+  visor, con la coleta el lazo **mantiene el peinado**; los demás accesorios y la corona, con la coleta o las dos
+  coletas, **no se ponen y se avisa** (ya no se vuelve a la melena sin avisar). **Encaje pendiente de revisión**; la
+  copia `prueba-juego-d026` no cambia.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -272,7 +277,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (D-026: variantes aprobadas; copia aislada prueba-juego-d026 con peinados y accesorios) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (lazo en la base de la coleta, candidato; avisos de compatibilidad en el visor) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

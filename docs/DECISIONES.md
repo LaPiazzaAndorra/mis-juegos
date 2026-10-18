@@ -109,12 +109,15 @@
   40 combinaciones **no se han probado una a una en su iPhone**; lo comprobado de las 40 es la prueba automática del
   visor en Chromium con pantalla de iPhone simulada. Pendiente: copia de prueba del juego y prueba en el iPhone.
   `main`, partidas y pruebas congeladas sin cambios.
+- **18/10/2026 (8):** con la coleta (con y sin cinta) el **lazo** va ahora en la **base de la coleta** (candidato, ver
+  D-024 (10)) y el peinado se conserva; los accesorios que todavía no son compatibles con la coleta se avisan y no se
+  ponen, en lugar de volver a la melena. La coleta no cambia.
 
 ## D-024 · Segunda colección de accesorios de pelo: diseño aprobado · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo los ocho diseños: lazo, pasador de flores, mariposa lila, diadema de estrellas,
   cinta deportiva, gorra, sombrero de aventura y gorrito de dormir». Láminas (imágenes generadas, sin modificar) en
   `docs/propuestas/accesorios-2026-10-16/referencias/`.
-- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
+- **Estado:** **diseño aprobado** de los ocho; encaje aprobado del lazo, las flores, la mariposa y la diadema; lazo con la coleta, en su base: candidato (18/10); gorrito de frente, diseño y encaje del B aprobados (17/10; A, alternativa anterior; con la coleta, pendiente); gorra de frente, diseño y encaje aprobados (17/10; con la coleta, pendiente); cinta, gorra y sombrero, pendientes de versión de frente.
 - **Cómo:**
   - Primero el lazo, las flores y la mariposa, cada uno como capa transparente independiente sobre los rizos originales,
     sin fondos, marcos ni textos; en el visor para revisarlos. Hecho (`accesorios-2026-10-16/capas/`).
@@ -184,6 +187,20 @@
     no se ven ni ampliados. **No hace falta corregir; la capa no cambia.**
   - En el visor pasa a «Gorra rosa del rayo (aprobada)»; «Sin accesorio» por defecto y la exclusión con la corona,
     igual. La adaptación a la coleta queda para más adelante.
+- **18/10/2026 (10):** en la copia `prueba-juego-d026`, al poner el lazo con la coleta el juego cambiaba a la melena. La
+  propietaria pide **colocar el lazo en la base de la coleta, como capa independiente, manteniendo el peinado**,
+  reutilizando el lazo aprobado y ajustando solo escala, posición y giro; y **no cambiar de peinado sin avisar**: si otro
+  accesorio no es compatible todavía, indicarlo y conservar la elección. Primero en el visor, con y sin cinta.
+  - Hecho (`accesorios-2026-10-16/lazo-coleta/`): el mismo recorte aprobado (`capas/lazo-recortado.png`) con
+    `colocar()`: **centro (612, 86), ancho 138 px (el de la melena), giro −32°** (melena: (642, 263), −18°). Una sola
+    colocación vale **con y sin cinta** (la base de la coleta queda por encima de la cinta: 0 px de solape). 0 px sobre
+    la piel que se ve, **100 % sobre el pelo** en las dos versiones; capas de la coleta y recorte sin cambios.
+  - Visor: con la coleta, «Lazo de satén» pone esta capa y **se conserva la coleta** (con la melena, el lazo sigue en
+    su sitio aprobado). Los demás accesorios de pelo y la corona, con la coleta o con las dos coletas, **no se ponen y
+    sale un aviso** («… todavía no es compatible con la coleta: no se ha puesto y se conserva el peinado»); al cambiar
+    a un peinado con algo que no es compatible, se quita **avisando**. Ya no se vuelve a la melena sin avisar.
+  - **Candidato: el encaje queda pendiente de la revisión de la propietaria.** La copia `prueba-juego-d026` **no
+    cambia** (sigue volviendo a la melena); una copia nueva, cuando se apruebe.
 
 ## D-023 · Tonos de piel claro (original), dorado, moreno y profundo: referencia aprobada · 16/10/2026
 - **Decisión de la propietaria:** aprueba como referencia la lámina

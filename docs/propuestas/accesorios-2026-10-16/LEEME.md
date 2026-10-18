@@ -26,6 +26,9 @@
 >
 > **17/10/2026 (9):** **encaje de la gorra aprobado visualmente**; bordes revisados con los 5 colores de pelo y los 4
 > tonos de piel, sin defectos.
+>
+> **18/10/2026 (10):** **lazo en la base de la coleta** (`lazo-coleta/`), candidato: el mismo lazo aprobado, solo
+> escalado, colocado y girado; con y sin cinta. Encaje pendiente de revisión.
 
 ## Referencias (`referencias/`, sin modificar)
 
@@ -75,7 +78,26 @@ deformarlos aquí cambiaría el diseño. Se ha preparado una guía para pedirlos
 cabeza ni el peinado: `guia-chatgpt/LEEME.md`, con la plantilla de la cabeza (`plantilla-cabeza-frontal.png`) y las
 medidas (`plantilla-medidas.png`).
 
+## Lazo en la base de la coleta (`lazo-coleta/`, 18/10, candidato)
+
+Con la coleta (D-025), el lazo no puede ir donde va con la melena (allí no hay rizos sueltos). `lazo_coleta.py` usa el
+**mismo recorte aprobado** (`capas/lazo-recortado.png`) con `colocar()` de `capas/colocar.py`: solo escala, posición y
+giro, sin retocar el dibujo.
+
+| Pieza | Dónde | Ancho | Giro |
+|---|---|---|---|
+| Lazo con la coleta (`capa-lazo-coleta.png`) | Base de la coleta, donde se recoge el pelo (centro 612, 86) | 138 px (como con la melena) | −32° |
+
+Comprobado (`comprobaciones.json`): **una sola colocación vale con cinta y sin cinta** (0 px sobre la cinta), **0 px**
+sobre la piel que se ve y **100 %** sobre el pelo de la coleta en las dos versiones; capas de la coleta, cinta y recorte
+sin cambios. `comparacion-lazo-coleta.png`: con y sin cinta, sin y con lazo, y con colores de pelo y tonos de piel.
+
+En el visor, con la coleta, «Lazo de satén» pone esta capa y **se conserva la coleta**; con la melena, el lazo sigue en
+su sitio aprobado. Los accesorios que todavía no son compatibles con un peinado **no se ponen y se avisa**. La copia
+`prueba-juego-d026` no cambia. **Encaje pendiente de la revisión de la propietaria.**
+
 ## Pendiente
 
 - La versión de frente de la cinta y los gorros (ChatGPT, con la guía) y su encaje.
+- Revisión del lazo con la coleta; adaptar a la coleta (y a las dos coletas) los demás accesorios y la corona.
 - Después: copia nueva de prueba del juego; 2000 × 3500.

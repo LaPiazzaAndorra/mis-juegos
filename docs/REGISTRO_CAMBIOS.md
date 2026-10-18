@@ -1,6 +1,33 @@
 # Registro de cambios
 
-### 2026-10-18 — D-026: variantes aprobadas; copia aislada nueva prueba-juego-d026 con los tres peinados y los accesorios
+### 2026-10-18 — D-024 · D-025: lazo en la base de la coleta (candidato) y avisos de compatibilidad en el visor
+
+- **Solicitado por:** la propietaria («… al poner un lazo sobre la coleta cambia a melena. Prepara una colocación del lazo
+  en la base de la coleta, como capa independiente, manteniendo el peinado elegido… No cambies de peinado
+  silenciosamente…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `0e4da8f`, el de la entrada siguiente).
+- **Estado:** lazo con la coleta **candidato** en el visor, **encaje pendiente de revisión**. Nada activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/accesorios-2026-10-16/lazo-coleta/` (nueva): `lazo_coleta.py` (el recorte aprobado del lazo con
+    `colocar()`: centro (612, 86), ancho 138, giro −32°), `capa-lazo-coleta.png`, `comprobaciones.json` y
+    `comparacion-lazo-coleta.png`.
+  - Visor: con la coleta, el lazo usa esta capa y se conserva el peinado; con la coleta o las dos coletas, los demás
+    accesorios, la corona y los pelos de la melena no se ponen y sale un aviso (ya no se vuelve a la melena sin avisar);
+    al cambiar de peinado, lo no compatible se quita avisando. Corregido que las filas «Cinta» y «Dos coletas» se veían
+    siempre (`[hidden]`).
+  - D-024 (10), D-025 (8), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los
+    `LEEME.md` de accesorios, coleta y visor (27).
+- **Resultado:** una sola colocación con y sin cinta: 0 px sobre la piel que se ve, 0 px sobre la cinta, 100 % sobre el
+  pelo; capas aprobadas sin cambios. La copia `prueba-juego-d026` no cambia.
+- **Datos guardados afectados:** ninguno (el visor no guarda nada). Juego, `sw.js` y `main` sin cambios.
+- **Pruebas:** visor en Chromium (pantalla de iPhone simulada): lazo con coleta con y sin cinta, 6 accesorios y corona
+  rechazados con aviso, cambios de peinado, color y piel, parpadeo, sin errores ni almacenamiento; a tamaño real, con
+  lazo = sin lazo + capa (diferencia ≤ 1). Pruebas anteriores del visor (dos coletas 40/40, gorrito y gorra 20/20).
+  `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `0e4da8f` · D-026: variantes aprobadas; copia aislada nueva prueba-juego-d026 con los tres peinados y los accesorios
 
 - **Solicitado por:** la propietaria («Registra en D-026 mi aprobación visual de las variantes revisadas… Prepara una
   nueva copia aislada del juego con los tres peinados y los accesorios aprobados…»).
