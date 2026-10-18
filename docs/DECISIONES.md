@@ -15,7 +15,7 @@
 - **Dónde falla (marcado en `donde-falla-ampliado.png`; nada inventado ni deformado):**
   - **rodillas:** el pantalón acaba antes que las mallas rosas de la base: 16 696 px de mallas a la vista (en el torso
     quedan 87 px sueltos). Decidir: piernas de nuestra base sin mallas (ChatGPT) o pantalón algo más largo;
-  - **chaleco más ancho que nuestro torso** (y ≈ 770–950: 328 px frente a 276 entre nuestros brazos): bordes y bolsillos
+  - **chaleco más ancho que nuestro torso** (a y = 900: 328 px frente a 244 del torso entre nuestros brazos; corregido el 18/10, antes ponía 276): bordes y bolsillos
     bajo nuestros antebrazos (4 594 px) y encima de los brazos (2 865 px); estrecharlo sería deformarlo;
   - **sin la mochila**, falta lo que tapan las tiras en los hombros (8 858 px: se ve la camiseta rosa de la base);
   - parte del **lateral de la mochila** está tapada en la imagen por el brazo y el pelo.
@@ -25,6 +25,18 @@
   (`capas/pelo-delante-melena-sin-restos.png`); el original no cambia.
 - **Estado:** diseño aprobado; **encaje candidato, pendiente de revisión**; no probado en el iPhone.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
+- **18/10/2026 (2):** la propietaria elige la **opción A para las rodillas**: una **copia independiente** de la base en la
+  que se completa **solo la piel** que las mallas dejan al descubierto bajo el pantalón; la base aprobada no cambia. Pide
+  las guías de la ropa **por separado**: (1) camiseta y chaleco adaptados al espacio entre nuestros brazos, con los hombros
+  completos y sin tiras; (2) mochila completa, con cuerpo de detrás y tiras independientes; conservando diseño, bolsillos
+  y texturas, sin deformar la muñeca. Y dejar la limpieza de los restos del pelo localizada y documentada.
+  - Hecho: `conjunto-aventura-2026-10-18/piernas/` (copia exacta de la base, máscara de 26 228 px que cubre las 16 696 px
+    de mallas a la vista y unos 25–30 px por dentro del pantalón, versión transparente, imágenes y mensaje para ChatGPT);
+    `guia-chatgpt/1-camiseta-y-chaleco/` y `guia-chatgpt/2-mochila/` (plantillas, referencias, medidas del torso y
+    mensajes). Corregida la medida del chaleco: a y = 900, 328 px frente a **244** del torso entre los brazos.
+  - La limpieza del pelo pasa a `base-aprobada-d013-2026-10-14/pelo-sin-restos/` (`limpiar_restos.py`): la misma
+    máscara en los cinco colores, copias limpias de cada uno, originales sin cambios; el conjunto la usa desde allí.
+  - Todo sigue como **propuesta**; nada se ha pedido aún a ChatGPT.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

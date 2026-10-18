@@ -136,7 +136,11 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   visor como **candidato** (piel clara, castaño y melena). **Encaje pendiente de revisión.**
 - **Faltan zonas** (marcadas; guía para ChatGPT): mallas rosas a la vista en las rodillas; chaleco más ancho que nuestro
   torso (bordes y bolsillos bajo nuestros brazos); hombros bajo las tiras (sin mochila); lateral de la mochila.
-- El pelo de delante aprobado de la melena tenía 9 trocitos sueltos sobre el pecho: copia corregida para este conjunto.
+- El pelo de delante aprobado de la melena tenía 9 trocitos sueltos sobre el pecho: limpieza localizada y reutilizable,
+  con copias de los cinco colores, en `base-aprobada-d013-2026-10-14/pelo-sin-restos/`.
+- **18/10:** rodillas por la **opción A** (copia de la base con solo la piel a completar: máscara y referencia en
+  `…/piernas/`) y guías separadas para ChatGPT: **1** camiseta y chaleco a nuestra medida, sin tiras; **2** mochila
+  completa (cuerpo y tiras). Pendiente de hacerlas en ChatGPT.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -291,7 +295,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (lazo con la coleta aprobado; adornos para la coleta y las dos coletas, candidatos) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (D-027: rodillas opción A, guías de ropa por separado y limpieza del pelo reutilizable) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

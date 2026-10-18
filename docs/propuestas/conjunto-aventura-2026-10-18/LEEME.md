@@ -17,8 +17,8 @@
    brazos · pelo de delante. Borde suave de 1 px sin el color de al lado.
 4. **La mochila se puede quitar:** cuerpo (detrás) y tiras (delante) son capas separadas.
 5. **Pelo de delante de la melena:** la capa aprobada lleva **9 trocitos sueltos** (1 318 px, restos del bordado del vestido)
-   sobre el pecho, que con el vestido no se ven; con este conjunto, sí. Copia corregida sin ellos:
-   `capas/pelo-delante-melena-sin-restos.png` (el original no cambia).
+   sobre el pecho, que con el vestido no se ven; con este conjunto, sí. Limpieza localizada y reutilizable, con copias
+   limpias de los cinco colores: `base-aprobada-d013-2026-10-14/pelo-sin-restos/` (el original no cambia).
 
 ## Comprobaciones (`comprobaciones.json`, `donde-falla-ampliado.png`)
 
@@ -30,7 +30,10 @@
 - Parte del lateral de la mochila está tapada en la imagen por el brazo y el pelo (con la melena casi no se nota).
 - Fuentes sin cambios (sha256).
 
-Qué pedir en ChatGPT para completarlo: `guia-chatgpt/LEEME.md`.
+Qué pedir en ChatGPT para completarlo (18/10, por separado): `guia-chatgpt/LEEME.md`:
+- **rodillas, opción A** (elegida): copia de la base con la zona a completar, máscara y referencia en `piernas/`;
+- **1 · camiseta y chaleco** adaptados al espacio entre nuestros brazos, hombros completos, sin tiras;
+- **2 · mochila** completa: cuerpo de detrás y tiras de delante, independientes.
 
 ## En el visor
 
@@ -40,6 +43,6 @@ sin avisar). Las botas sustituyen a los zapatos.
 
 ## Pendiente
 
-- Revisión del encaje por la propietaria y decidir las rodillas (piernas sin mallas o pantalón más largo).
-- Completar en ChatGPT: chaleco a nuestra medida, hombros sin la mochila y mochila entera.
+- Revisión del encaje por la propietaria (rodillas: opción A elegida, 18/10).
+- Hacer en ChatGPT las tres guías (rodillas, camiseta y chaleco, mochila) e integrar los resultados.
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

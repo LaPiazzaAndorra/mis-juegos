@@ -96,19 +96,15 @@ def mapa(reg, rgb):
 PIEZAS = ['mochila', 'calcetines', 'botas', 'camiseta', 'pantalon', 'tiras', 'chaleco']   # de abajo arriba (la mochila, detrás de la base)
 ETIQUETA = {'mochila': MOCHILA, 'calcetines': CALCETINES, 'botas': BOTAS, 'camiseta': CAMISETA, 'pantalon': PANTALON,
             'tiras': TIRAS, 'chaleco': CHALECO}
-# el pelo de delante aprobado de la melena lleva 9 trocitos sueltos (1 318 px, restos del bordado del vestido) sobre el pecho
-# (x 410–575, y 660–790): con el vestido no se ven; con otra ropa, sí. COPIA corregida sin ellos (el original no cambia).
+# el pelo de delante aprobado de la melena lleva 9 trocitos sueltos (restos del bordado del vestido) sobre el pecho: con
+# este conjunto se usa la copia limpia de base-aprobada-d013-2026-10-14/pelo-sin-restos/ (limpiar_restos.py, reutilizable)
 PELO_DELANTE = PT.SIN_PIEL['pelo-delante']
-RESTOS_CAJA = (380, 620, 640, 1000)        # x0, y0, x1, y1: solo trocitos separados del pelo, con el centro en esta zona
+sys.path.insert(0, str(B / 'pelo-sin-restos'))
+import limpiar_restos as LR   # noqa: E402
 
 
 def pelo_sin_restos():
-    a = PT.abrir(PELO_DELANTE).copy(); al = a[..., 3] > 0
-    et, n = nd.label(al, structure=np.ones((3, 3))); tam = nd.sum(al, et, range(1, n + 1)); cm = nd.center_of_mass(al, et, range(1, n + 1))
-    x0, y0, x1, y1 = RESTOS_CAJA
-    quita = [i + 1 for i in range(n) if tam[i] < 2000 and y0 < cm[i][0] < y1 and x0 < cm[i][1] < x1]
-    m = np.isin(et, quita); a[m] = 0
-    return a, dict(trozos=len(quita), px=int(m.sum()))
+    return LR.sin_restos(PT.abrir(PELO_DELANTE))
 
 
 def capas_de(reg, rgb):
@@ -175,8 +171,7 @@ if __name__ == '__main__':
     capas = capas_de(reg, rgb)
     for k, c in capas.items():
         Image.fromarray(c, 'RGBA').save(SAL / f'{k}.png', optimize=True)
-    pd, restos = pelo_sin_restos()
-    Image.fromarray(pd, 'RGBA').save(SAL / 'pelo-delante-melena-sin-restos.png', optimize=True)
+    pd, restos = pelo_sin_restos()   # la copia limpia está en ../base-aprobada-d013-2026-10-14/pelo-sin-restos/
     zonas, info = comprobar(reg, capas, pd)
     montaje = PT.montar(pila(capas, pd)); montaje.save(SAL / 'montaje-melena.png', optimize=True)
     PT.montar([c for c in pila(capas, pd) if c is not capas['mochila'] and c is not capas['tiras']]).save(SAL / 'montaje-melena-sin-mochila.png', optimize=True)

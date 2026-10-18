@@ -1,0 +1,110 @@
+{
+ "nota": "x en el lienzo de 948 × 1659; el torso es el tramo entre los brazos",
+ "filas": [
+  {
+   "y": 820,
+   "torso_x": [
+    377,
+    580
+   ],
+   "ancho": 204,
+   "chaleco_actual_x": [
+    347,
+    620
+   ]
+  },
+  {
+   "y": 840,
+   "torso_x": [
+    377,
+    580
+   ],
+   "ancho": 204,
+   "chaleco_actual_x": [
+    336,
+    634
+   ]
+  },
+  {
+   "y": 860,
+   "torso_x": [
+    372,
+    585
+   ],
+   "ancho": 214,
+   "chaleco_actual_x": [
+    333,
+    638
+   ]
+  },
+  {
+   "y": 880,
+   "torso_x": [
+    364,
+    592
+   ],
+   "ancho": 229,
+   "chaleco_actual_x": [
+    327,
+    640
+   ]
+  },
+  {
+   "y": 900,
+   "torso_x": [
+    357,
+    600
+   ],
+   "ancho": 244,
+   "chaleco_actual_x": [
+    318,
+    646
+   ]
+  },
+  {
+   "y": 920,
+   "torso_x": [
+    350,
+    607
+   ],
+   "ancho": 258,
+   "chaleco_actual_x": [
+    311,
+    652
+   ]
+  },
+  {
+   "y": 940,
+   "torso_x": [
+    344,
+    613
+   ],
+   "ancho": 270,
+   "chaleco_actual_x": [
+    315,
+    657
+   ]
+  },
+  {
+   "y": 960,
+   "torso_x": [
+    337,
+    619
+   ],
+   "ancho": 283,
+   "chaleco_actual_x": [
+    363,
+    633
+   ]
+  },
+  {
+   "y": 980,
+   "torso_x": [
+    340,
+    618
+   ],
+   "ancho": 279,
+   "chaleco_actual_x": null
+  }
+ ]
+}

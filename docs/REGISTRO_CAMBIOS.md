@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-18 — D-024 · D-025 · D-026: lazo con la coleta aprobado; adornos para la coleta y las dos coletas (candidatos)
+### 2026-10-18 — D-027: rodillas por la opción A (máscara y referencia), guías de ropa por separado y limpieza del pelo reutilizable
+
+- **Solicitado por:** la propietaria («Sigamos con la opción A como propuesta… Prepara la máscara y la referencia para
+  hacerlo en ChatGPT. Para la ropa, prepara las guías por separado… Mantén localizada y documentada la limpieza de los
+  restos de bordado…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `06fdca5`, el de la entrada siguiente).
+- **Estado:** todo **propuesta**; nada pedido aún a ChatGPT. Nada activado ni publicado.
+- **Cambios:**
+  - `conjunto-aventura-2026-10-18/piernas/` (nueva): `preparar_piernas.py`, `base-copia.png` (mismos bytes que la base
+    aprobada), `mascara-zona.png`, `mascara-zona-transparente.png`, `para-chatgpt/` (base a completar, zona marcada,
+    referencia de la piel), `comprobaciones.json` y `LEEME.md`.
+  - `conjunto-aventura-2026-10-18/guia-chatgpt/`: `LEEME.md` (índice), `preparar_guias.py`, `medidas-torso.json`,
+    `1-camiseta-y-chaleco/` y `2-mochila/` (plantillas, referencias y mensajes).
+  - `base-aprobada-d013-2026-10-14/pelo-sin-restos/` (nueva): `limpiar_restos.py`, copias limpias de los cinco colores,
+    `restos-quitados.png`, `comprobaciones.json` y `LEEME.md`. Sale de aquí `capas/pelo-delante-melena-sin-restos.png`
+    del conjunto (borrado; mismos píxeles en la copia castaña nueva) y el visor apunta a la nueva.
+  - D-027 (2) (con la medida del chaleco corregida: 244 px, no 276), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+    `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del conjunto y del visor (30).
+- **Resultado:** la máscara (26 228 px) cubre todas las mallas a la vista bajo el pantalón (16 696 px, 0 fuera); la copia de
+  la base es idéntica y la base aprobada no cambia; los restos del pelo, la misma máscara en los cinco colores.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor con el conjunto (sin errores; a tamaño real igual que antes) y pruebas anteriores del visor.
+  `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `06fdca5` · D-024 · D-025 · D-026: lazo con la coleta aprobado; adornos para la coleta y las dos coletas (candidatos)
 
 - **Solicitado por:** la propietaria («Apruebo visualmente el lazo con la coleta, con y sin cinta… Prepara colocaciones
   del pasador de flores, la mariposa, la diadema y la corona para la coleta y las dos coletas. En las dos coletas, prueba

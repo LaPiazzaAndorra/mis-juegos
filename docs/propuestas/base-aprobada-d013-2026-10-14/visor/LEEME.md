@@ -179,3 +179,5 @@ diadema y la corona con las dos coletas con sombrero; los dos lazos pequeños co
 coleta y las dos coletas. Si al cambiar de peinado, de cinta o de sombrero un adorno deja de ser compatible, se quita
 avisando. Probados los 45 casos (5 peinados × 9 adornos); sin errores ni almacenamiento; a tamaño real, con adorno = sin
 adorno + la capa (≤ 2).
+**18/10/2026 (30) · D-027:** con el conjunto de aventura, el pelo de delante limpio sale ahora de
+`pelo-sin-restos/pelo-delante-castano-sin-restos.png` (mismos píxeles que antes). Nada más cambia.

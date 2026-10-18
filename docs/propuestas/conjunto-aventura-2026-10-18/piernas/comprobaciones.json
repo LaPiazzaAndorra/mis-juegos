@@ -1,0 +1,19 @@
+{
+ "zona_px": 26228,
+ "caja": [
+  342,
+  1135,
+  616,
+  1261
+ ],
+ "bajo_el_pantalon_px": 8389,
+ "a_la_vista_con_el_pantalon_px": 17839,
+ "mallas_a_la_vista_que_cubre": 16696,
+ "mallas_a_la_vista_fuera_de_la_zona": 0,
+ "y_desde": 1135,
+ "margen_px": 3,
+ "base": "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png",
+ "sha256_base": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+ "copia_identica": true,
+ "base_sin_cambios": true
+}

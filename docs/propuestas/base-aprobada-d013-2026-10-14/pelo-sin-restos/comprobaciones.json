@@ -1,0 +1,46 @@
+{
+ "metodo": "componentes sueltos de menos de 2000 px con el centro en RESTOS_CAJA",
+ "caja_busqueda": [
+  380,
+  620,
+  640,
+  1000
+ ],
+ "caja_restos": [
+  408,
+  657,
+  574,
+  795
+ ],
+ "por_color": {
+  "castano": {
+   "trozos": 9,
+   "px": 1318
+  },
+  "chocolate": {
+   "trozos": 9,
+   "px": 1318
+  },
+  "miel": {
+   "trozos": 9,
+   "px": 1318
+  },
+  "oscuro": {
+   "trozos": 9,
+   "px": 1318
+  },
+  "jengibre": {
+   "trozos": 9,
+   "px": 1318
+  }
+ },
+ "misma_mascara_en_los_cinco": true,
+ "sha256_originales": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-delante-chocolate.png": "163843fff7cd1e482321539defbd94a06d7479168d7ab5e80abf308702c9d3f8",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-delante-miel.png": "a213e497bc6860f78829e709d42ea2a4be18245d98b6e1e1de73521c4a2dbf5d",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-delante-oscuro.png": "67ac6c39f06998c57b936a77054cf1f81ca101389cc52c0d6ce2dcdd3020611b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-delante-jengibre.png": "7f69967d5e5fd17b30bd02a8ea6c39f1f883f6bad6f211b2212c0480a9036c50"
+ },
+ "originales_sin_cambios": true
+}
