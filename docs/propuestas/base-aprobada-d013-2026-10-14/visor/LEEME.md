@@ -154,3 +154,7 @@ coincide con el montaje (≤ 2).
 **17/10/2026 (25) · D-026:** con las dos coletas, fila «Dos coletas»: «Con sombrero, puntas cortadas (montaje anterior)»
 por defecto · «Con sombrero y puntas completas (candidata)» · «Sin sombrero y puntas completas (candidata)». Sin errores
 ni almacenamiento; a tamaño real coincide con el montaje (≤ 2) en las dos candidatas.
+**18/10/2026 (26) · D-026:** «Dos coletas (aprobadas)». Fila «Dos coletas»: «Con sombrero (aprobada)», seleccionada al
+elegir el peinado · «Sin sombrero (aprobada)» · «Montaje anterior, puntas cortadas (referencia)» (solo piel clara y
+castaño). Las dos completas siguen a la piel, al color de pelo, a las cejas y a los ojos (capa de bordes por tono, debajo
+de coleteros y sombrero). Probadas las 40 combinaciones y el parpadeo; sin errores; a tamaño real coincide (≤ 3).

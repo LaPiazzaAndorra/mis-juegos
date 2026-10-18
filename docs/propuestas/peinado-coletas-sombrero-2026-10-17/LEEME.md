@@ -1,5 +1,8 @@
 # Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026 (D-026)
 
+> **18/10/2026: las dos coletas completas (con y sin sombrero) están aprobadas visualmente**; sus variantes con los 5 colores
+> de pelo y los 4 tonos de piel, en el visor (aprobación pendiente). Ver «Colores de pelo y tonos de piel».
+>
 > **D-026:** la propietaria **aprueba la propuesta como peinado nuevo**. Se conservan los peinados anteriores (melena
 > suelta, por defecto, y coleta). **El encaje es candidato**, pendiente de revisión. Nada activado en el juego; las
 > pruebas congeladas, `main` y las partidas no cambian.
@@ -20,6 +23,10 @@
 | `referencias/referencia-coletas-sin-sombrero-puntas.png` | Propuesta de ChatGPT sin sombrero y con las coletas enteras, **sin modificar** (SHA-256 `011469e7…49ef90`). Solo se toma pelo. |
 | `completar_pelo.py` | Pelo bajo el sombrero y puntas (desde la raíz: `python3 docs/propuestas/peinado-coletas-sombrero-2026-10-17/completar_pelo.py`). |
 | `capas/completado/pelo-coletas-{con,sin}-sombrero-{detras,delante}.png` | **Candidatas:** pelo con las puntas completas, con sombrero y sin sombrero. |
+| `coletas2_variantes.py` | Colores de pelo y tonos de piel (desde la raíz: `python3 docs/propuestas/peinado-coletas-sombrero-2026-10-17/coletas2_variantes.py`). |
+| `capas/variantes/pelo-coletas-{con,sin}-sombrero-{detras,delante}-{color}.png` | Pelo de las dos coletas completas en los 5 colores (sin los restos de oreja; ver abajo). |
+| `capas/pieles/{dorado,moreno,profundo}/bordes-coletas-{con,sin}-{color}.png` | Capa pequeña de bordes por tono (encima del pelo de delante, debajo de coleteros y sombrero). |
+| `revision-variantes/`, `comprobaciones-variantes.json` | Las 40 combinaciones (ojos abiertos y cerrados), detalle a tamaño real de bordes por tono (antes · después · fondo oscuro) y cifras. |
 | `capas/completado/antes-despues.png`, `uniones.png`, `comprobaciones.json` | Antes/después, zona nueva en amarillo con las uniones (verde bien · magenta falla) y cifras. |
 
 ## Cómo se ha hecho
@@ -80,17 +87,39 @@ La propuesta de ChatGPT (sin sombrero, con las coletas enteras) tiene **otro enc
   salto en el iPhone, lo siguiente sería subir la unión de las puntas (más franja) antes de cambiar otra cosa.
 - Las puntas completas están en las dos candidatas, con sombrero y sin sombrero. El montaje anterior se conserva.
 
+## Colores de pelo y tonos de piel (18/10, `coletas2_variantes.py`)
+
+- **Color de pelo:** la transformación aprobada de cada color de la melena (D-022), aplicada solo al pelo (alfa igual en
+  los 5 colores). **Coleteros verdes y sombrero, sin cambios.** Cejas a juego del color de pelo.
+- **Tono de piel:** las piezas aprobadas de cada tono (base, ojos abiertos y cerrados, manos, cejas a juego) y una capa
+  pequeña de bordes por tono, versión y color: en el borde del pelo junto a la piel que se ve (frente, sienes, junto a las
+  orejas, cuello), la parte de piel clara pegada pasa a la piel nueva y la de pelo al pelo de alrededor (5 px como máximo;
+  0 px de pelo tocado más allá); la franja del cuero cabelludo se cubre con el pelo de detrás.
+- **Defectos encontrados al revisar con piel oscura, corregidos en las variantes:**
+  - encima de nuestra oreja derecha (y un poco de la izquierda) la capa de pelo aprobada tenía **restos del interior de la
+    oreja de la imagen generada** (salían claros con piel profunda y teñidos con otros colores de pelo). En el diseño las
+    orejas van delante del pelo: se quita el pelo encima de nuestras orejas (sin su borde suave) y se ve nuestra oreja;
+  - **sin sombrero**, faltaba pelo de detrás justo detrás del borde suave de nuestras orejas (se veía el fondo: una línea
+    clara con pieles oscuras): se rellena con el pelo de detrás de al lado (solo se ve a través de ese borde).
+  Por eso, con piel clara y castaño, las variantes difieren de las capas aprobadas **solo en las orejas** (ahora son
+  exactamente las nuestras). Las capas aprobadas no cambian.
+- **Revisado** (`revision-variantes/`): las 40 combinaciones con los ojos abiertos y cerrados, y el detalle a tamaño real
+  de frente y sienes, orejas con coleteros y cuello para los 5 colores en cada tono, en fondo claro y oscuro: sin halos en
+  el nacimiento del pelo ni parches en las orejas; parpadeo bien con cada piel.
+
 ## En el visor
 
 Fila «Peinado»: **Melena suelta (aprobada)** por defecto · **Coleta rizada (aprobada)** · **Dos coletas con sombrero
 (candidato)**. Por ahora, las dos coletas solo van con **piel clara y pelo castaño**, sin accesorio de pelo ni corona
 (el sombrero ocupa la cabeza); elegir otra piel, otro color, un accesorio, la corona u otro pelo de delante vuelve a la
 melena. El parpadeo funciona igual. Sin errores ni almacenamiento; a tamaño real coincide con el montaje (≤ 2 en lo
-opaco). Con las dos coletas aparece la fila «Dos coletas»: **Con sombrero, puntas cortadas (montaje anterior)** por
-defecto · **Con sombrero y puntas completas (candidata)** · **Sin sombrero y puntas completas (candidata)**.
+opaco). Con las dos coletas aparece la fila «Dos coletas»: **Con sombrero (aprobada)**, seleccionada al elegir el peinado ·
+**Sin sombrero (aprobada)** · **Montaje anterior, puntas cortadas (referencia)** (solo piel clara y castaño; otra piel u
+otro color pasan a la versión con sombrero). Las dos completas siguen a la piel, al color de pelo, a las cejas y a los
+ojos.
 
 ## Pendiente
 
 - Revisión del encaje por la propietaria.
-- Revisión de las dos candidatas (con y sin sombrero, puntas completas).
+- Aprobación visual de las variantes de color de pelo y tono de piel.
 - Colores de pelo y tonos de piel; copia de prueba del juego; 2000 × 3500.

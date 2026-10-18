@@ -1,6 +1,31 @@
 # Registro de cambios
 
-### 2026-10-17 — D-026: pelo bajo el sombrero y puntas completas (de ChatGPT); candidatas con y sin sombrero en el visor
+### 2026-10-18 — D-026: dos coletas completas aprobadas; variantes con los colores de pelo y los tonos de piel en el visor
+
+- **Solicitado por:** la propietaria («Apruebo visualmente ambas candidatas con las puntas completas… Prepara ahora sus
+  variantes con los cinco colores de pelo y los cuatro tonos de piel…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `ee8e1b4`, el de la entrada siguiente).
+- **Estado:** dos coletas completas (con y sin sombrero) **aprobadas visualmente**; variantes de color y piel en el visor,
+  aprobación pendiente. Nada activado ni publicado.
+- **Cambios:**
+  - `coletas2_variantes.py` (nuevo): pelo en los 5 colores (`capas/variantes/`, 20), bordes por tono (`capas/pieles/`,
+    30), revisión (`revision-variantes/`) y `comprobaciones-variantes.json`. Corrige en las variantes los restos de la oreja
+    de la imagen sobre nuestras orejas y el pelo que faltaba detrás de su borde sin sombrero.
+  - Visor: «Dos coletas (aprobadas)»; fila «Dos coletas»: Con sombrero (aprobada, al elegir el peinado) · Sin sombrero
+    (aprobada) · Montaje anterior (referencia); las dos completas siguen a la piel y al color de pelo.
+  - D-026, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del peinado
+    y del visor.
+- **Resultado:** alfa igual en los 5 colores; coleteros y sombrero sin cambios; bordes sin tocar el pelo a más de 5 px de
+  la piel; orejas limpias con todos los tonos; sin halos en el nacimiento del pelo; parpadeo bien.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `main`, partidas y pruebas congeladas sin cambios.
+- **Pruebas:** visor en Chromium (iPhone simulado): 40 combinaciones (con/sin sombrero × 4 pieles × 5 colores) con las
+  capas correctas y cargadas, parpadeo con cada piel, versión con sombrero al elegir el peinado, montaje anterior solo
+  claro/castaño, vuelta a la melena con la corona; sin errores ni almacenamiento; a tamaño real coincide con el montaje
+  (≤ 3 en lo opaco). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-17 — `ee8e1b4` · D-026: pelo bajo el sombrero y puntas completas (de ChatGPT); candidatas con y sin sombrero en el visor
 
 - **Solicitado por:** la propietaria («Usa esta imagen como fuente del pelo que faltaba bajo el sombrero y de las puntas…»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `daac493`, el de la entrada siguiente).

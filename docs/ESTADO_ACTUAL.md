@@ -127,7 +127,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **Pelo bajo el sombrero y puntas completas (17/10):** tomados de la propuesta de ChatGPT (otro encuadre; alineación
   medida: cara 0,3 px, coleteros 4,5 px). Dos candidatas en el visor (con y sin sombrero, puntas completas); se conserva
   el montaje anterior. Uniones revisadas: a la vista continúan; con diferencia alta en el 18,6 % de la de las puntas
-  (marcado). **Revisión pendiente.**
+  (marcado). **Aprobadas visualmente (18/10)**; con sombrero, por defecto al elegir el peinado.
+- **Colores de pelo y tonos de piel (18/10):** las dos coletas completas en los 5 colores de pelo y los 4 tonos de piel,
+  con coleteros verdes, cejas a juego y nuestra cara y orejas, en el visor. Corregidos en las variantes restos de la
+  oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobación pendiente.**
 
 **Peinado nuevo: coleta rizada con cinta (16/10, D-025):**
 - Propuesta aprobada como peinado nuevo; la melena suelta se conserva (por defecto).
@@ -262,7 +265,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 17/10/2026 (D-026: dos coletas, candidatas con puntas completas con y sin sombrero) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (D-026: dos coletas completas aprobadas; colores de pelo y tonos de piel en el visor) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

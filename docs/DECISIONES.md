@@ -15,7 +15,7 @@
   - **Defecto señalado:** la imagen termina a media altura de las coletas; sus puntas quedan cortadas en línea recta
     (también en la guía). Entre las coletas y el cuello se ve el fondo (natural; se deja así salvo que se pida).
   - En el visor: «Dos coletas con sombrero (candidato)», solo con piel clara y pelo castaño, sin accesorio ni corona.
-- **Estado:** **peinado aprobado; encaje candidato**, pendiente de revisión. Melena por defecto.
+- **Estado (18/10):** peinado y dos coletas completas (con y sin sombrero) **aprobados visualmente**; variantes de color de pelo y tono de piel en el visor, pendientes de aprobación. Melena por defecto.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
 - **17/10/2026 (2):** llega la **propuesta de ChatGPT sin sombrero y con las coletas enteras**
   (`referencias/referencia-coletas-sin-sombrero-puntas.png`, sin modificar). La propietaria pide usarla como fuente del
@@ -30,6 +30,22 @@
     los rizos continúan sin cortes. Marcado en `capas/completado/uniones.png`.
   - En el visor, fila «Dos coletas»: montaje anterior (por defecto) · con sombrero y puntas completas · sin sombrero y
     puntas completas (**candidatas**). Nada activado en el juego.
+- **18/10/2026 (3):** la propietaria **aprueba visualmente las dos candidatas con las puntas completas**, con sombrero y
+  sin sombrero (`capas/completado/`, commit `ee8e1b4`). Al elegir el peinado queda seleccionada **la versión completa con
+  sombrero**; se conservan la opción sin sombrero y el montaje anterior (puntas cortadas) como referencia. Pide las
+  variantes con los 5 colores de pelo y los 4 tonos de piel, con los coleteros verdes, las cejas a juego y nuestra cara y
+  orejas, revisando bordes y parpadeo, primero en el visor.
+  - Hecho (`coletas2_variantes.py`, `capas/variantes/`, `capas/pieles/`, `revision-variantes/`): el color de pelo con la
+    transformación de la melena (alfa igual); coleteros y sombrero sin cambios; base, ojos, manos y cejas a juego de cada
+    tono; y una capa pequeña de bordes por tono, versión y color (franja de 5 px junto a la piel; no toca el pelo más
+    allá: 0 px).
+  - **Defectos encontrados y corregidos en las variantes:** la capa de pelo aprobada tenía encima de nuestras orejas
+    restos de la oreja de la imagen generada (con piel clara no se notaban; con piel oscura salían claros): se quitan y
+    se ve nuestra oreja. Sin sombrero, faltaba pelo de detrás justo detrás del borde suave de nuestras orejas (se veía una
+    línea clara): se rellena con el pelo de al lado. Por eso el castaño con piel clara cambia ligeramente respecto a las
+    capas aprobadas, solo en las orejas (que ahora son exactamente las nuestras).
+  - En el visor: «Dos coletas (aprobadas)»; fila «Dos coletas»: Con sombrero (aprobada, por defecto) · Sin sombrero
+    (aprobada) · Montaje anterior (referencia, solo piel clara y castaño). **Aprobación visual de las variantes, pendiente.**
 
 ## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva

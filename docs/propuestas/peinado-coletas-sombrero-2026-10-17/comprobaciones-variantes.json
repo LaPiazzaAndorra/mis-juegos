@@ -1,0 +1,334 @@
+{
+ "versiones": {
+  "con": {
+   "alfa_igual_en_los_5_colores": true,
+   "restos_de_oreja_quitados_px": {
+    "detras": 2125,
+    "delante": 2073
+   },
+   "borde_de_la_oreja_tapado_px": 533,
+   "pieles": {
+    "dorado": {
+     "castano": {
+      "px": 3186,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 3075,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 3171,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 3053,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 3179,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "moreno": {
+     "castano": {
+      "px": 3191,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 3114,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 3179,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 3026,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 3181,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "profundo": {
+     "castano": {
+      "px": 3190,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 3139,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 3181,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 3099,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 3188,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    }
+   },
+   "montaje": {
+    "claro-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 375,
+     "despues": 375
+    },
+    "claro-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 374,
+     "despues": 374
+    },
+    "claro-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 391,
+     "despues": 391
+    },
+    "claro-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 373,
+     "despues": 373
+    },
+    "claro-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 375,
+     "despues": 375
+    },
+    "dorado-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 400,
+     "despues": 395
+    },
+    "dorado-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 399,
+     "despues": 393
+    },
+    "dorado-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 555,
+     "despues": 402
+    },
+    "dorado-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 398,
+     "despues": 393
+    },
+    "dorado-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 414,
+     "despues": 397
+    },
+    "moreno-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 410,
+     "despues": 403
+    },
+    "moreno-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 409,
+     "despues": 403
+    },
+    "moreno-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 980,
+     "despues": 575
+    },
+    "moreno-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 406,
+     "despues": 402
+    },
+    "moreno-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 498,
+     "despues": 406
+    },
+    "profundo-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 578,
+     "despues": 438
+    },
+    "profundo-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 556,
+     "despues": 436
+    },
+    "profundo-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 1441,
+     "despues": 1349
+    },
+    "profundo-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 457,
+     "despues": 432
+    },
+    "profundo-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 1143,
+     "despues": 746
+    }
+   }
+  },
+  "sin": {
+   "alfa_igual_en_los_5_colores": true,
+   "restos_de_oreja_quitados_px": {
+    "detras": 1254,
+    "delante": 1254
+   },
+   "borde_de_la_oreja_tapado_px": 788,
+   "pieles": {
+    "dorado": {
+     "castano": {
+      "px": 4808,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 4700,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 4778,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 4665,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 4802,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "moreno": {
+     "castano": {
+      "px": 4809,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 4726,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 4783,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 4660,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 4803,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    },
+    "profundo": {
+     "castano": {
+      "px": 4812,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "chocolate": {
+      "px": 4755,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "miel": {
+      "px": 4787,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "oscuro": {
+      "px": 4720,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     },
+     "jengibre": {
+      "px": 4811,
+      "pelo_tocado_lejos_de_la_piel_px": 0
+     }
+    }
+   },
+   "montaje": {
+    "claro-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 375,
+     "despues": 375
+    },
+    "claro-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 374,
+     "despues": 374
+    },
+    "claro-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 423,
+     "despues": 423
+    },
+    "claro-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 373,
+     "despues": 373
+    },
+    "claro-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 375,
+     "despues": 375
+    },
+    "dorado-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 400,
+     "despues": 395
+    },
+    "dorado-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 399,
+     "despues": 393
+    },
+    "dorado-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 997,
+     "despues": 597
+    },
+    "dorado-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 398,
+     "despues": 393
+    },
+    "dorado-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 452,
+     "despues": 397
+    },
+    "moreno-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 435,
+     "despues": 403
+    },
+    "moreno-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 442,
+     "despues": 403
+    },
+    "moreno-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 1640,
+     "despues": 1002
+    },
+    "moreno-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 406,
+     "despues": 402
+    },
+    "moreno-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 854,
+     "despues": 560
+    },
+    "profundo-castano": {
+     "borde_mas_claro_que_la_piel_px_antes": 1155,
+     "despues": 807
+    },
+    "profundo-chocolate": {
+     "borde_mas_claro_que_la_piel_px_antes": 1195,
+     "despues": 827
+    },
+    "profundo-miel": {
+     "borde_mas_claro_que_la_piel_px_antes": 2247,
+     "despues": 2091
+    },
+    "profundo-oscuro": {
+     "borde_mas_claro_que_la_piel_px_antes": 840,
+     "despues": 663
+    },
+    "profundo-jengibre": {
+     "borde_mas_claro_que_la_piel_px_antes": 1914,
+     "despues": 1401
+    }
+   }
+  }
+ },
+ "sha256_fuentes": {
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/completado/pelo-coletas-con-sombrero-detras.png": "aada877cfdb45599342caaa6f51befe12324617407e2817c7c8d6fd04fc262a9",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/completado/pelo-coletas-con-sombrero-delante.png": "4c2666adaf860a698a291f73aaf96a195c14c36984800b432ab3500788eddb87",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/completado/pelo-coletas-sin-sombrero-detras.png": "72e9dbf879f4fa576fefa0f76becef0633e4e5e0659f7075d6f3491670f5730d",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/completado/pelo-coletas-sin-sombrero-delante.png": "13831b5bf4ff9fc60f093a7f3b3d02f0247edb0607207d0ede9764d04ad90987",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/coleteros.png": "57b166af0720ce755702dae08ac02e290f56d9a31bee99b8a26331e308e369bf",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/sombrero-aventura.png": "4ade5aaf7f6194d8ffd55900240d77f7c75b752e46f206787fd4f8703c805894",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/sin-ojos/base-sin-ojos-propuesta-v3.png": "dd6bda4aad21418e967394bf4e750af440be8ad2d5785a878893153f8cb74d2f",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/mechones-completos-chatgpt/pelo-delante-mechones-completos.png": "75981aded1d5586140c581bf4a32eb5a9748bd380666e60c9a1f76f3f9422c05",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/referencia-tonos-pelo-aprobados.png": "649580bdf34d6d609f17427f8d3149a4adec09d55e10444eb6d6781ea95360e9",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/referencia-tonos-piel-aprobados.png": "56e3445009f5eda8b09d105ce745c0b6513b1a80d9f5fb4aecbf1ac6825ed697"
+ },
+ "fuentes_sin_cambios": true
+}
