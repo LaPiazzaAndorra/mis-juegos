@@ -1,7 +1,8 @@
 # Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026 (D-026)
 
 > **18/10/2026: las dos coletas completas (con y sin sombrero) están aprobadas visualmente**; sus variantes con los 5 colores
-> de pelo y los 4 tonos de piel, en el visor (aprobación pendiente). Ver «Colores de pelo y tonos de piel».
+> de pelo y los 4 tonos de piel, **aprobadas visualmente (18/10)** (sin probar una a una en el iPhone); en la copia aislada
+> `../prueba-juego-d026/`. Ver «Colores de pelo y tonos de piel».
 >
 > **D-026:** la propietaria **aprueba la propuesta como peinado nuevo**. Se conservan los peinados anteriores (melena
 > suelta, por defecto, y coleta). **El encaje es candidato**, pendiente de revisión. Nada activado en el juego; las
@@ -121,5 +122,5 @@ ojos.
 ## Pendiente
 
 - Revisión del encaje por la propietaria.
-- Aprobación visual de las variantes de color de pelo y tono de piel.
+- La prueba en el iPhone (copia `../prueba-juego-d026/`).
 - Colores de pelo y tonos de piel; copia de prueba del juego; 2000 × 3500.

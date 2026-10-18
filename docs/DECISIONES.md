@@ -15,7 +15,7 @@
   - **Defecto señalado:** la imagen termina a media altura de las coletas; sus puntas quedan cortadas en línea recta
     (también en la guía). Entre las coletas y el cuello se ve el fondo (natural; se deja así salvo que se pida).
   - En el visor: «Dos coletas con sombrero (candidato)», solo con piel clara y pelo castaño, sin accesorio ni corona.
-- **Estado (18/10):** peinado y dos coletas completas (con y sin sombrero) **aprobados visualmente**; variantes de color de pelo y tono de piel en el visor, pendientes de aprobación. Melena por defecto.
+- **Estado (18/10):** peinado, dos coletas completas (con y sin sombrero) y sus variantes de color de pelo y tono de piel **aprobados visualmente**; en la copia aislada `prueba-juego-d026`, pendiente de probar en el iPhone. Melena por defecto.
 - **Límites:** solo en propuestas; no se activa en el juego; no cambian `main`, las partidas ni las pruebas congeladas.
 - **17/10/2026 (2):** llega la **propuesta de ChatGPT sin sombrero y con las coletas enteras**
   (`referencias/referencia-coletas-sin-sombrero-puntas.png`, sin modificar). La propietaria pide usarla como fuente del
@@ -46,6 +46,12 @@
     capas aprobadas, solo en las orejas (que ahora son exactamente las nuestras).
   - En el visor: «Dos coletas (aprobadas)»; fila «Dos coletas»: Con sombrero (aprobada, por defecto) · Sin sombrero
     (aprobada) · Montaje anterior (referencia, solo piel clara y castaño). **Aprobación visual de las variantes, pendiente.**
+- **18/10/2026 (4):** la propietaria **aprueba visualmente las variantes revisadas** (colores de pelo y tonos de piel de
+  las dos coletas completas, commit `e9b1305`). La aprobación es **visual** (imágenes de revisión y visor): las 40
+  combinaciones **no se han probado una a una en su iPhone** (solo la prueba automática en Chromium con iPhone simulado).
+  Pide una **copia aislada nueva del juego** con los tres peinados y los accesorios aprobados, respetando sus
+  compatibilidades; la melena, predeterminada. Hecha: `docs/propuestas/prueba-juego-d026/` (datos propios `d026:`,
+  20/20 en Chromium; **pendiente de probar en el iPhone**). `main`, partidas y pruebas congeladas sin cambios.
 
 ## D-025 · Peinado nuevo: coleta alta rizada con cinta deportiva lila · 16/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: coleta alta rizada con cinta deportiva

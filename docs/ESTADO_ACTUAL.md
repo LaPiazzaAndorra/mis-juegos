@@ -130,7 +130,14 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   (marcado). **Aprobadas visualmente (18/10)**; con sombrero, por defecto al elegir el peinado.
 - **Colores de pelo y tonos de piel (18/10):** las dos coletas completas en los 5 colores de pelo y los 4 tonos de piel,
   con coleteros verdes, cejas a juego y nuestra cara y orejas, en el visor. Corregidos en las variantes restos de la
-  oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobación pendiente.**
+  oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
+  las 40 combinaciones no se han probado una a una en el iPhone.
+
+**Prueba aislada nueva D-026 (18/10):** `docs/propuestas/prueba-juego-d026/` con los tres peinados (melena por defecto,
+coleta con y sin cinta, dos coletas con y sin sombrero) y los accesorios aprobados (corona, lazo, flores, mariposa,
+diadema, gorrito B, gorra, pintacaras) con sus compatibilidades del visor; datos propios `d026:`. Probada en Chromium
+(20/20: selección, compatibilidades, 108 combinaciones, parpadeo, guardar y reabrir, «Mi Mundo», datos ajenos intactos).
+**Pendiente de probar en el iPhone.**
 
 **Peinado nuevo: coleta rizada con cinta (16/10, D-025):**
 - Propuesta aprobada como peinado nuevo; la melena suelta se conserva (por defecto).
@@ -265,7 +272,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (D-026: dos coletas completas aprobadas; colores de pelo y tonos de piel en el visor) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (D-026: variantes aprobadas; copia aislada prueba-juego-d026 con peinados y accesorios) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

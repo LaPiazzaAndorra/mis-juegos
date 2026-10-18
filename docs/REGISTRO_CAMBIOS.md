@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-18 — D-026: dos coletas completas aprobadas; variantes con los colores de pelo y los tonos de piel en el visor
+### 2026-10-18 — D-026: variantes aprobadas; copia aislada nueva prueba-juego-d026 con los tres peinados y los accesorios
+
+- **Solicitado por:** la propietaria («Registra en D-026 mi aprobación visual de las variantes revisadas… Prepara una
+  nueva copia aislada del juego con los tres peinados y los accesorios aprobados…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `e9b1305`, el de la entrada siguiente).
+- **Estado:** variantes de las dos coletas **aprobadas visualmente** (no probadas una a una en el iPhone). Copia aislada
+  nueva preparada y probada en Chromium; **pendiente de probar en el iPhone**. Nada activado ni publicado.
+- **Cambios:**
+  - `docs/propuestas/prueba-juego-d026/` (nueva): `preparar_prueba.py`, `index.html` (generado), `aislamiento.js`
+    (`d026:` / `d026-`), `manifest.json`, `avatar/motor.js` (copia con compatibilidades de adornos),
+    `avatar/catalogo-d026.js`, `avatar/arte/piezas.js` y 196 piezas WebP (18,5 MB), `prueba-aislada.js` y `LEEME.md`.
+  - D-026, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y el `LEEME.md` del peinado.
+- **Resultado:** melena por defecto; 5 peinados y 8 adornos con las compatibilidades del visor (adornos de pelo de uno en
+  uno; corona sin diadema, gorrito ni gorra; corona y adornos de pelo solo con la melena; pintacaras con todos).
+- **Datos guardados afectados:** ninguno del juego ni de las pruebas congeladas (la copia usa los suyos, `d026:`).
+  Juego, `sw.js` y `main` sin cambios.
+- **Pruebas:** `prueba-juego-d026/prueba-aislada.js` 20/20 (selección tocando, 104 casos de compatibilidad, 108
+  combinaciones, parpadeo con cada peinado y piel, guardar y reabrir, cambios sin guardar, «Mi Mundo», datos ajenos
+  intactos, muñeca anterior, sin errores; a tamaño real ≤ 4 en lo opaco). `pruebas/prueba-juego.js` 21/21,
+  `pruebas/prueba-copia.js` 45/45 y pruebas congeladas D-016 13/13, D-021 19/19, D-023 18/18. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `e9b1305` · D-026: dos coletas completas aprobadas; variantes con los colores de pelo y los tonos de piel en el visor
 
 - **Solicitado por:** la propietaria («Apruebo visualmente ambas candidatas con las puntas completas… Prepara ahora sus
   variantes con los cinco colores de pelo y los cuatro tonos de piel…»).
