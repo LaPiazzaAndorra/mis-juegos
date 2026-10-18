@@ -1,0 +1,45 @@
+{
+ "guia": "rodillas (opción A)",
+ "mascara": "docs/propuestas/conjunto-aventura-2026-10-18/piernas/mascara-zona-b.png",
+ "alineacion": {
+  "metodo": "silueta + ajuste fino (sin ojos en la imagen)",
+  "tamano_recibido": [
+   948,
+   1660
+  ],
+  "escala": 1.0004,
+  "desplazamiento": [
+   -0.2,
+   -0.35
+  ],
+  "mediana_dE_en_la_silueta": 2.24
+ },
+ "ajuste_de_tono_Lab": [
+  -2.0,
+  0.0,
+  2.0
+ ],
+ "tono_medido_en_px": 5510,
+ "fuera_de_la_zona_mediana_dE": 3.74,
+ "fuera_de_la_zona_px_con_dE_mayor_20": 15248,
+ "fuera_de_la_zona_px_comparados": 354085,
+ "zona_px": 27389,
+ "rosa_en_la_copia_bajo_y_1100_px": 16361,
+ "rosa_que_no_tapa_el_pantalon_px": 104,
+ "rosa_que_no_tapa_dentro_de_la_zona_px": 78,
+ "union_diferencia_mediana_Lab_dentro_menos_debajo": [
+  -4.0,
+  1.0,
+  2.0
+ ],
+ "linea_bajo_la_zona_L": {
+  "mediana": -3.7,
+  "peor": -16.9,
+  "columnas_mas_oscuras_de_6": 14,
+  "columnas": 199
+ },
+ "zona_que_queda_transparente_px": 204,
+ "piel_de_la_imagen_fuera_de_nuestra_silueta_px": 19,
+ "fuera_de_la_zona_sin_cambios": true,
+ "base_aprobada_sin_cambios": true
+}

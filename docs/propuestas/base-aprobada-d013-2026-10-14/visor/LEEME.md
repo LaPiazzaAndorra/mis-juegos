@@ -184,3 +184,6 @@ adorno + la capa (≤ 2).
 **18/10/2026 (31) · D-024:** colocaciones con la coleta y las dos coletas aprobadas visualmente: el botón pasa a «Dos
 lazos pequeños en los coleteros (dos coletas, aprobados)». Incompatibilidades y avisos, igual; no se cambia de peinado
 automáticamente.
+**18/10/2026 (32) · D-027:** con el conjunto de aventura, fila «Rodillas»: «Base aprobada (mallas)» · «Piel completada · A
+(solo la zona)» · «Piel completada · B (+6 px bajo el borde, candidata)», por defecto. Cambia solo la imagen de la base
+mientras se lleva el conjunto (la aprobada vuelve al quitarlo). A tamaño real coincide con el montaje (≤ 4).

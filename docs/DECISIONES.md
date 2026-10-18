@@ -43,6 +43,18 @@
   `conjunto-aventura-2026-10-18/integrar/recibir.py`: alinea cada imagen con nuestro lienzo (escala uniforme y
   desplazamiento, por los iris), toma solo lo pedido y lo comprueba; probado con imágenes de prueba hechas con nuestras
   capas, fuera del repositorio. **Pendiente:** las tres imágenes de ChatGPT.
+- **18/10/2026 (4):** llega la **imagen de ChatGPT para las rodillas** (`piernas/de-chatgpt/`, sin modificar). La
+  propietaria pide usarla **solo como fuente del relleno de piel dentro de `mascara-zona.png`**, comprobar la alineación,
+  que el pantalón tape todo el rosa restante y que la piel empalme bien, conservando la base original y sin tomar nada
+  fuera de la máscara.
+  - Alineación por la silueta (la imagen no tiene ojos): escala 1,0004, desplazamiento < 0,4 px. Fuera de la zona, la copia
+    es idéntica a la base; la base aprobada no cambia. Tono igualado con nuestra pierna (L −2, b +2).
+  - **A (solo la zona):** queda una **línea fina** bajo la rodilla: la sombra del borde de las mallas de nuestra base, justo
+    fuera de la zona. **B (zona + 6 px bajo el borde inferior, solo sobre nuestra piel):** la línea casi desaparece. B
+    pasa 1 161 px de la zona aprobada: **candidata, pendiente de aprobación**; A se conserva.
+  - **El pantalón no tapa todo el rosa:** quedan **104 px en tres trocitos de 2–5 px** (78 del pantalón corto que ChatGPT
+    dejó algo más largo, 26 de nuestra base entre las piernas, fuera de la zona). No se inventa piel: se señalan.
+  - En el visor, con el conjunto, fila «Rodillas»: base aprobada (mallas) · A · B (por defecto, candidata).
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

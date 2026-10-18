@@ -4,7 +4,7 @@ Preparado **antes** de tener las imágenes, para que integrar cada guía sea rá
 
 | Guía | Orden | Qué toma | Sale (candidato) |
 |---|---|---|---|
-| Rodillas (opción A) | `piernas <imagen>` | solo los píxeles de `../piernas/mascara-zona.png`, sobre `../piernas/base-copia.png` | `piernas/base-piernas-sin-mallas.png` |
+| Rodillas (opción A) | `piernas <imagen> [máscara carpeta]` | solo los píxeles de `../piernas/mascara-zona.png`, sobre `../piernas/base-copia.png` | `piernas/base-piernas-sin-mallas.png` |
 | 1 · Camiseta y chaleco | `ropa <imagen>` | lo que cambia respecto a nuestra plantilla en el torso, separado en camiseta (crema) y chaleco (arena y ribete) | `ropa/camiseta.png`, `ropa/chaleco.png` |
 | 2b · Tiras | `tiras <imagen>` | lo que cambia en los hombros, verde, con sus hebillas | `mochila/tiras.png` |
 | 2a · Cuerpo de la mochila | `mochila <imagen> [cx cy ancho giro]` | la pieza sobre el fondo crema; se coloca detrás de la base con `colocar()` (escala, posición y giro) | `mochila/mochila-recortada.png`, `mochila/mochila.png` |
@@ -23,6 +23,10 @@ Cada orden escribe también `comprobaciones.json` y `revision.png` en su carpeta
 como las devuelve ChatGPT), fuera del repositorio: la alineación recupera la escala y la posición (iris a 1 px; fuera de
 lo pedido, diferencia mediana ΔE 1,0) y las comprobaciones avisan de lo que debe avisar (mallas sin completar, camiseta
 rosa bajo las tiras, ropa sobre los brazos). Los parámetros finos de la separación se revisarán con cada imagen real.
+
+**Rodillas, hecho (18/10):** con la imagen de ChatGPT (`../piernas/de-chatgpt/`), A en `piernas/` y B en `piernas-b/`; la
+alineación de las rodillas es por la silueta (la plantilla no lleva ojos) y la piel se iguala en tono con la nuestra.
+Hoja: `comparacion-rodillas.png` (`comparar_rodillas.py`). Detalles en `../piernas/LEEME.md`.
 
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/recibir.py <guía> <imagen>`
 (para probar sin escribir en el repositorio: `SALIDA_INTEGRAR=/otra/carpeta`).

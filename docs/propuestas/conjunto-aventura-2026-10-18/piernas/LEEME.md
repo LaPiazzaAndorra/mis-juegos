@@ -43,3 +43,30 @@ seleccionar una zona, seleccionar solo la zona magenta.
    contorno.
 3. El resultado sería `base-piernas-sin-mallas.png` (copia nueva) y, después, sus tonos de piel con la transformación
    aprobada (D-023). La base aprobada y las partidas no cambian.
+
+## Resultado de ChatGPT (18/10)
+
+Imagen recibida (generada, sin modificar): `de-chatgpt/piernas-sin-mallas-chatgpt.png` (948 × 1 660, SHA-256
+`151ce6a6…9fff`). Se usa **solo como fuente del relleno de piel dentro de la zona**. Integrada con
+`../integrar/recibir.py piernas` (ver `../integrar/LEEME.md`):
+
+- **Alineación:** la imagen no tiene ojos (como la plantilla), así que se alinea por la silueta y un ajuste fino:
+  escala 1,0004 y desplazamiento (−0,2; −0,35) px; dentro de la silueta, diferencia mediana ΔE 2,2 (ChatGPT ha repintado
+  algo toda la muñeca; **fuera de la zona no se toma nada**: la copia es idéntica a la base fuera de ella).
+- **Tono:** su piel es un poco más clara que la nuestra; se mide en la pierna de debajo de la zona y se corrige con ese
+  desplazamiento (L −2, b +2 en Lab de 8 bits). No se pinta nada nuevo.
+- **Contorno:** la pierna sin mallas es un poco más fina; dentro de la zona, donde la imagen tiene fondo, la copia queda
+  transparente (204 px); en el contorno se sustituye del todo, sin restos del borde de las mallas.
+- **Unión con la rodilla:** con la zona tal cual (**A**), queda **una línea fina más oscura bajo la rodilla**: es la sombra
+  del borde de las mallas en **nuestra** base, justo fuera de la zona (141 de 199 columnas, L −7,9 de mediana). Con la
+  variante **B** (`mascara-zona-b.png`: la misma zona + **6 px por debajo del borde inferior**, solo sobre nuestra piel,
+  `mascara_b.py`) la línea casi desaparece (14 columnas, L −3,7). **B queda como candidata y necesita tu aprobación**
+  porque toma 1 161 px más allá de la zona aprobada.
+- **Rosa que asoma bajo el pantalón:** **104 px en tres trocitos de 2–5 px** junto al borde del pantalón (16 722 antes):
+  78 son del pantalón corto rosa que ChatGPT dejó un poco más largo que nuestro pantalón (borde exterior de la pierna
+  izquierda y borde interior de la derecha) y 26 son de nuestra base, entre las piernas, fuera de la zona. **No se
+  tapan del todo:** no se inventa piel para ellos. Marcados en azul en `../integrar/comparacion-rodillas.png`.
+  Para quitarlos: una segunda imagen de ChatGPT sin nada rosa en la zona, o ajustar la camiseta y el pantalón (guía 1).
+
+Resultado: `../integrar/piernas/` (A) y `../integrar/piernas-b/` (B), cada uno con `base-piernas-sin-mallas.png`,
+`comprobaciones.json` y `revision.png`. **La base aprobada no cambia.**

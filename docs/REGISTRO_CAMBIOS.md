@@ -1,6 +1,31 @@
 # Registro de cambios
 
-### 2026-10-18 — D-024: adornos de la coleta y las dos coletas aprobados; D-027: integración del conjunto preparada
+### 2026-10-18 — D-027: rodillas integradas desde la imagen de ChatGPT (candidatas A y B)
+
+- **Solicitado por:** la propietaria («Usa esta imagen solo como fuente del relleno de piel dentro de mascara-zona.png.
+  Comprueba la alineación, que el pantalón tape todo el rosa restante y que la piel empalme bien…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `e6b4369`, el de la entrada siguiente).
+- **Estado:** rodillas **candidatas** (A: solo la zona; B: +6 px bajo el borde, pendiente de aprobación). La base
+  aprobada no cambia. Nada activado ni publicado.
+- **Cambios:**
+  - `piernas/de-chatgpt/piernas-sin-mallas-chatgpt.png` (la imagen recibida, sin modificar), `piernas/mascara_b.py` y
+    `piernas/mascara-zona-b.png`; `piernas/LEEME.md` (resultado).
+  - `integrar/recibir.py`: alineación por la silueta (sin ojos), tono igualado con nuestra pierna, contorno sin restos de
+    las mallas, comprobaciones de unión y de rosa a la vista; `integrar/piernas/`, `integrar/piernas-b/`,
+    `integrar/comparar_rodillas.py` y `integrar/comparacion-rodillas.png`.
+  - Visor: fila «Rodillas» con el conjunto.
+  - D-027 (4), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del
+    conjunto, de integrar y del visor (32).
+- **Resultado:** alineación a < 0,4 px (escala 1,0004); fuera de la zona, la copia es idéntica a la base. A: línea fina
+  de la sombra de las mallas bajo la rodilla (141 de 199 columnas); B: casi sin línea (14). **Rosa a la vista: 104 px** en
+  tres trocitos de 2–5 px (antes 16 722): el pantalón no lo tapa todo.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (fila «Rodillas», cambio de base solo con el conjunto, a tamaño real ≤ 4; adornos 45 casos y conjunto
+  sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `e6b4369` · D-024: adornos de la coleta y las dos coletas aprobados; D-027: integración del conjunto preparada
 
 - **Solicitado por:** la propietaria («Registra mi aprobación visual de las colocaciones revisadas, sin dar por comprobadas
   individualmente todas las combinaciones en mi iPhone… Retoma ahora el conjunto de aventura D-027 y sus guías

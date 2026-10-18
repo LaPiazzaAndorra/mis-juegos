@@ -143,7 +143,11 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   `…/piernas/`) y guías separadas para ChatGPT: **1** camiseta y chaleco a nuestra medida, sin tiras; **2** mochila
   completa (cuerpo y tiras). Pendiente de hacerlas en ChatGPT.
 - **Integración preparada (18/10):** `…/integrar/recibir.py` alinea cada imagen de ChatGPT con nuestro lienzo (sin
-  deformar), toma solo lo pedido y lo comprueba; probado con imágenes de prueba. **Faltan las tres imágenes de ChatGPT.**
+  deformar), toma solo lo pedido y lo comprueba; probado con imágenes de prueba.
+- **Rodillas integradas (18/10, candidatas):** con la imagen de ChatGPT, solo dentro de la zona: A (zona tal cual; queda una
+  línea fina, la sombra de las mallas de nuestra base) y B (+6 px bajo el borde: sin línea; pendiente de aprobación).
+  Quedan **104 px de rosa** bajo el pantalón en tres trocitos de 2–5 px. La base aprobada no cambia. En el visor, fila
+  «Rodillas». **Faltan** las imágenes de la camiseta y el chaleco y de la mochila.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -298,7 +302,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 18/10/2026 (adornos de la coleta y las dos coletas aprobados; integración del conjunto preparada) · **Rama:** `avatar-creador` ·
+**Última actualización:** 18/10/2026 (D-027: rodillas integradas desde la imagen de ChatGPT, candidatas A y B) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 
