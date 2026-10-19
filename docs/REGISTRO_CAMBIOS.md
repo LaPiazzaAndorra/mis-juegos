@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: rodillas B aprobadas (paso suave de 3 px); máscara mínima y guía para el rosa que asoma
+### 2026-10-19 — D-027: restos rosas corregidos con piel contigua (candidato B2)
+
+- **Solicitado por:** la propietaria («Corrige los restos dentro de mascara-rosa.png copiando piel contigua de cada pierna
+  y fondo en la abertura central. Conserva el sombreado, no cambies el pantalón y verifica que fuera de la máscara todo
+  siga idéntico. Muéstrame el detalle antes y después.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `4bb3fb9`, el de la entrada siguiente).
+- **Estado:** **candidato B2**, pendiente de revisión. Las dos imágenes de ChatGPT recibidas no se usan ni se guardan.
+  Nada activado ni publicado.
+- **Cambios:** `piernas/corregir_rosa.py` (nuevo) → `integrar/piernas-b2/` (base, `comprobaciones.json`,
+  `antes-despues.png`); visor: opción «B + restos rosas corregidos (candidata)»; D-027 (6), `ESTADO_ACTUAL.md`,
+  `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de rodillas, conjunto y visor (34).
+- **Resultado:** rosa a la vista de 111 a 1 px (66 px quedan bajo el borde suave del pantalón, fuera de la máscara);
+  fuera de la máscara, idéntico píxel a píxel (también con el pantalón); base B, base aprobada y pantalón sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (rodillas, adornos 45 casos, conjunto) sin errores. `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `4bb3fb9` · D-027: rodillas B aprobadas (paso suave de 3 px); máscara mínima y guía para el rosa que asoma
 
 - **Solicitado por:** la propietaria («Adelante con B y la ampliación de 6 px. Para los 104 px rosas, prepara una máscara
   mínima que los incluya y una guía para completar esa piel… revisa también las 14 columnas…»).

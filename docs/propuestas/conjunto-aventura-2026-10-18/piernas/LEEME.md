@@ -78,3 +78,10 @@ Resultado: `../integrar/piernas/` (A) y `../integrar/piernas-b/` (B), cada uno c
   de tono en el borde de B. Se integra B con un **paso suave de 3 px dentro de su franja** (`recibir.py … piernas-b 3`):
   escalón en 4 de 199 columnas; fuera de la zona, nada cambia.
 - **Rosa que asoma:** máscara mínima `mascara-rosa.png` (248 px, `mascara_rosa.py`) y guía en `para-chatgpt/rosa/LEEME.md`.
+
+## Restos rosas corregidos con piel contigua (19/10, candidato B2)
+
+Por decisión de la propietaria, sin imágenes nuevas (las dos que llegaron de ChatGPT cambiaban más cosas): dentro de
+`mascara-rosa.png`, `corregir_rosa.py` pone fondo en la abertura central y, en las piernas, la piel de la misma columna
+justo por debajo, reflejada en el borde inferior de cada trocito. Rosa a la vista de 111 a 1 px; fuera de la máscara,
+idéntico. Resultado y detalle antes/después en `../integrar/piernas-b2/` (`antes-despues.png`).

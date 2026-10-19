@@ -68,6 +68,18 @@
     (111 con el umbral nuevo) más 2 px, solo donde el pantalón no es opaco: **248 px** en cuatro trocitos. Guía en
     `piernas/para-chatgpt/rosa/` (se envía la muñeca con el pantalón puesto). El pantalón, la base aprobada y la copia B
     no cambian.
+- **19/10/2026 (6):** llegan dos imágenes de ChatGPT para el rosa (SHA-256 `6cc5ce00…87a2`, 986 × 1 596, y `7e2373c4…4e0c`,
+  948 × 1 659); cambian más cosas (ojos, camiseta) y la segunda aún deja ver rosa bajo el pantalón. La propietaria pide
+  **corregir los restos dentro de `mascara-rosa.png` copiando piel contigua de cada pierna y fondo en la abertura
+  central**, conservando el sombreado y el pantalón, y comprobando que fuera de la máscara todo sigue idéntico. **No se
+  usan las imágenes** (no se guardan en el repositorio).
+  - Hecho (`piernas/corregir_rosa.py` → `integrar/piernas-b2/`): en la abertura, fondo (transparente, 84 px); en las
+    piernas, cada columna toma la piel de la misma columna justo por debajo, reflejada en el borde inferior del trocito
+    (unión continua; se conservan el sombreado y el contorno). Rosa a la vista: **de 111 a 1 px**; quedan 66 px rosas
+    bajo el borde suave del pantalón (opaco a medias, fuera de la máscara; a tamaño real no se ven). Fuera de la máscara,
+    **idéntico** (también con el pantalón puesto). La sombra que había bajo el borde rosa queda ahora justo bajo el
+    pantalón. Base B, base aprobada y pantalón sin cambios.
+  - Visor: «B + restos rosas corregidos (candidata)». **Pendiente de la revisión de la propietaria.**
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

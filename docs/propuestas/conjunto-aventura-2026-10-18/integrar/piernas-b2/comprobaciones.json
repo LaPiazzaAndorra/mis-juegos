@@ -1,0 +1,51 @@
+{
+ "partes": [
+  {
+   "centro": [
+    488,
+    1106
+   ],
+   "px": 84,
+   "tipo": "abertura: fondo"
+  },
+  {
+   "centro": [
+    504,
+    1166
+   ],
+   "px": 100,
+   "tipo": "pierna: piel contigua de debajo"
+  },
+  {
+   "centro": [
+    494,
+    1165
+   ],
+   "px": 2,
+   "tipo": "pierna: piel contigua de debajo"
+  },
+  {
+   "centro": [
+    359,
+    1168
+   ],
+   "px": 53,
+   "tipo": "pierna: piel contigua de debajo"
+  },
+  {
+   "centro": [
+    460,
+    1169
+   ],
+   "px": 9,
+   "tipo": "pierna: piel contigua de debajo"
+  }
+ ],
+ "mascara_px": 248,
+ "rosa_a_la_vista_antes_px": 111,
+ "rosa_a_la_vista_despues_px": 1,
+ "rosa_bajo_el_borde_suave_del_pantalon_px": 66,
+ "fuera_de_la_mascara_identico": true,
+ "con_el_pantalon_fuera_de_la_mascara_identico": true,
+ "fuentes_sin_cambios": true
+}

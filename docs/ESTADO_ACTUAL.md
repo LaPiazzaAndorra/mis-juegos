@@ -149,7 +149,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   Quedan **104 px de rosa** bajo el pantalón en tres trocitos de 2–5 px. La base aprobada no cambia. En el visor, fila
   «Rodillas». **Faltan** las imágenes de la camiseta y el chaleco y de la mochila.
 - **19/10: B aprobada** (con un paso suave de 3 px dentro de su franja: sin escalón de tono). Para el rosa que asoma,
-  máscara mínima (248 px) y guía para ChatGPT en `…/piernas/para-chatgpt/rosa/`; pendiente la imagen.
+  máscara mínima (248 px) y guía para ChatGPT en `…/piernas/para-chatgpt/rosa/`.
+- **19/10: restos rosas corregidos (candidato B2)** dentro de esa máscara, con nuestra propia piel de justo debajo y fondo en
+  la abertura (sin usar las imágenes de ChatGPT, que cambiaban más cosas): rosa a la vista de 111 a 1 px; fuera de la
+  máscara, idéntico. En el visor, «B + restos rosas corregidos (candidata)».
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -304,7 +307,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 19/10/2026 (D-027: rodillas B aprobadas; máscara y guía para el rosa que asoma) · **Rama:** `avatar-creador` ·
+**Última actualización:** 19/10/2026 (D-027: restos rosas corregidos con piel contigua, candidato B2) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

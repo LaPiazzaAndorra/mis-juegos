@@ -162,6 +162,7 @@
     <button data-rodillas="mallas" aria-pressed="false">Base aprobada (mallas)</button>
     <button data-rodillas="a" aria-pressed="false">Piel completada · A (solo la zona)</button>
     <button data-rodillas="b" aria-pressed="true">Piel completada · B (+6 px bajo el borde, aprobada)</button>
+    <button data-rodillas="b2" aria-pressed="false">B + restos rosas corregidos (candidata)</button>
   </div>
   <div class="fila">
     <b>Zapatos</b>
@@ -652,7 +653,8 @@
   // melena se usa una copia de su pelo de delante sin 9 trocitos sueltos del vestido que quedaban sobre el pecho.
   var ropa = 'vestido-ax', conMochila = true, zapatosSi = true, rodillas = 'b';
   var RODILLAS = { a: '../../conjunto-aventura-2026-10-18/integrar/piernas/base-piernas-sin-mallas.png',
-    b: '../../conjunto-aventura-2026-10-18/integrar/piernas-b/base-piernas-sin-mallas.png' };
+    b: '../../conjunto-aventura-2026-10-18/integrar/piernas-b/base-piernas-sin-mallas.png',
+    b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
   function mostrarAventura() {
     var av = ropa === 'aventura';
