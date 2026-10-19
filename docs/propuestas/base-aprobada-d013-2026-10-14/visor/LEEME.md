@@ -195,3 +195,6 @@ B y A se conservan.
 **19/10/2026 (36) · D-027:** con el conjunto, fila «Camiseta y chaleco»: «A nuestra medida (guía 1, candidata)», por
 defecto, y «De la imagen aprobada (anterior)». «Sin mochila» ya no avisa de los hombros (con la camiseta nueva están
 completos). A tamaño real coincide con el montaje (≤ 3).
+**19/10/2026 (37) · D-027:** fila «Camiseta y chaleco»: «A nuestra medida + filos de mangas y cadera (candidata)», por
+defecto (camiseta y pantalón de `integrar/ropa-b/`), «A nuestra medida (guía 1, sin retocar)» y «De la imagen aprobada
+(anterior)». Probada en un iPhone 13 simulado (tocando); a tamaño real coincide con el montaje (≤ 3).

@@ -102,6 +102,23 @@
     original no encajan con este chaleco (guía 2 pendiente).
   - Visor: fila «Camiseta y chaleco» con el conjunto: «A nuestra medida (guía 1, candidata)», por defecto, y «De la
     imagen aprobada (anterior)». **Candidata, pendiente de revisión.**
+- **19/10/2026 (10):** la propietaria pide una candidata que cubra el **filo rosa de las mangas con tela crema
+  contigua** (conservando costuras y bordes suaves) y revisar **por separado los 39 px de la cadera** (qué debería verse
+  antes de rellenar), con máscaras mínimas y conservando los originales; y probar la fila nueva en pantalla móvil.
+  - **Cadera:** es el **contorno de nuestra cadera** (con el rosa de las mallas de la base) que sale 1–4 px por fuera del
+    lateral del pantalón, en y ≈ 981–1004, justo encima de su bolsillo; en la imagen aprobada esa zona quedaba junto a la
+    mochila. **Debería verse el lateral del pantalón verde** (la ropa tapa el cuerpo).
+  - Hecho (`integrar/retocar_bordes.py` → `integrar/ropa-b/`, copias): máscaras `mascara-mangas.png` (389 px: el rosa que
+    se ve en las mangas + 1 px) y `mascara-cadera.png` (87 px). Cada fila se rellena con la **misma fila de la tela,
+    desplazada hacia fuera** lo que mide el filo (borde suave y costuras de la fila llegan al nuevo borde), cubriendo al
+    menos lo que cubría la base; bajo el dobladillo de la manga derecha solo se cierra el borde suave donde ya había tela
+    (alargar la manga dejaba dientes). La camiseta y el pantalón **cambian solo dentro de sus máscaras**; los originales
+    no cambian.
+  - Rosa a la vista sin mochila: **mangas 154 → 0 px, cadera 39 → 0 px; total 205 → 12** (quedan 4 px en la cintura
+    derecha, entre el chaleco y el pantalón, y 8 px en la abertura entre las piernas, fuera de lo pedido).
+  - Visor: «A nuestra medida + filos de mangas y cadera (candidata)», por defecto; se conservan «A nuestra medida (guía 1,
+    sin retocar)» y «De la imagen aprobada (anterior)». Probada la fila en un iPhone 13 simulado (aparece al tocar el
+    conjunto, los tres botones caben y cambian las capas correctas); no en el iPhone real.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

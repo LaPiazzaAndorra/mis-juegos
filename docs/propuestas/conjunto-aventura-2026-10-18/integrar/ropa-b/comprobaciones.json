@@ -1,0 +1,31 @@
+{
+ "mangas": {
+  "mascara_px": 389,
+  "caja": [
+   295,
+   674,
+   667,
+   796
+  ],
+  "rosa_antes_px": 154,
+  "rosa_despues_px": 0,
+  "camiseta_cambia_solo_en_la_mascara": true
+ },
+ "cadera": {
+  "mascara_px": 87,
+  "caja": [
+   334,
+   981,
+   340,
+   1004
+  ],
+  "rosa_antes_px": 39,
+  "rosa_despues_px": 0,
+  "pantalon_cambia_solo_en_la_mascara": true,
+  "que_deberia_verse": "el lateral del pantalón verde: es el contorno de nuestra cadera (rosa de las mallas de la base) que sale 1–4 px por fuera del pantalón, encima de su bolsillo; la ropa tapa el cuerpo"
+ },
+ "rosa_a_la_vista_total": {
+  "antes": 205,
+  "despues": 12
+ }
+}

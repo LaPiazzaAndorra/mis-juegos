@@ -65,3 +65,10 @@ Imagen de ChatGPT (generada, sin modificar): `de-chatgpt/camiseta-y-chaleco-chat
 - Con la mochila puesta se ven todavía **las tiras de la imagen original**, que no encajan con este chaleco: la guía 2 (tiras
   nuevas) sigue pendiente.
 - **Candidata, pendiente de tu revisión.** Las capas anteriores se conservan.
+
+## Filos retocados (19/10, candidata)
+
+`../../integrar/retocar_bordes.py` → `../../integrar/ropa-b/`: el filo rosa de las mangas, cubierto con la tela crema
+contigua de la misma fila (borde suave y costuras conservados), y la cadera izquierda, con el lateral del pantalón (lo que
+debería verse ahí: el contorno de nuestra cadera salía 1–4 px por fuera del pantalón). Máscaras mínimas, cambios solo
+dentro de ellas, originales sin cambios. Rosa a la vista: 205 → 12 px. Detalle en `../../integrar/ropa-b/antes-despues.png`.

@@ -159,6 +159,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **19/10: camiseta y chaleco a nuestra medida (guía 1), candidatos:** extraídos de la imagen de ChatGPT, entre nuestros
   brazos y sin tiras; rosa a la vista de 9 689 a 205 px (sin pelo). Quedan un filo rosa en las mangas y una rayita en la
   cadera izquierda (del pantalón). En el visor, fila «Camiseta y chaleco». **Pendientes de revisión;** falta la guía 2.
+- **19/10: filos retocados (candidata):** mangas con tela crema contigua y lateral del pantalón en la cadera, con máscaras
+  mínimas y en copias (`…/integrar/ropa-b/`): rosa a la vista de 205 a 12 px. Por defecto en el visor.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -313,7 +315,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 19/10/2026 (D-027: camiseta y chaleco a nuestra medida, candidatos) · **Rama:** `avatar-creador` ·
+**Última actualización:** 19/10/2026 (D-027: filos de mangas y cadera retocados, candidata) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

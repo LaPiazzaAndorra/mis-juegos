@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: camiseta y chaleco a nuestra medida (guía 1) integrados, candidatos
+### 2026-10-19 — D-027: filos de mangas y cadera retocados (candidata)
+
+- **Solicitado por:** la propietaria («Prepara una candidata que cubra el filo rosa de las mangas con tela crema
+  contigua… Revisa por separado los 39 px de la cadera… Usa máscaras mínimas, conserva los originales y enséñame el antes y
+  después. Prueba también la fila nueva en pantalla móvil.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `38cd59b`, el de la entrada siguiente).
+- **Estado:** candidata, pendiente de revisión. Nada activado ni publicado.
+- **Cambios:** `integrar/retocar_bordes.py` (nuevo) → `integrar/ropa-b/` (camiseta y pantalón retocados, máscaras de
+  mangas y cadera, comprobaciones, antes y después, montaje); visor: opción nueva por defecto; D-027 (10), `ESTADO_ACTUAL.md`,
+  `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de la guía 1, del conjunto y del visor (37).
+- **Resultado:** cadera: es nuestro contorno con el rosa de las mallas, 1–4 px fuera del pantalón; debería verse el lateral
+  del pantalón. Rosa a la vista: mangas 154 → 0, cadera 39 → 0, total 205 → 12 px. Cambios solo dentro de las máscaras.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor en un iPhone 13 simulado (la fila aparece al tocar el conjunto; los tres botones caben y cambian las
+  capas correctas), a tamaño real ≤ 3; adornos 45 casos y conjunto sin errores. `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `38cd59b` · D-027: camiseta y chaleco a nuestra medida (guía 1) integrados, candidatos
 
 - **Solicitado por:** la propietaria («Esta es la candidata de la guía 1. Revisa el encaje y extrae solo la camiseta y el
   chaleco, conservando nuestra muñeca original»).
