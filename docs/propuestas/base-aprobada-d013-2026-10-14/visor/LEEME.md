@@ -190,3 +190,5 @@ mientras se lleva el conjunto (la aprobada vuelve al quitarlo). A tamaño real c
 **19/10/2026 (33) · D-027:** rodillas B aprobadas: «Piel completada · B (+6 px bajo el borde, aprobada)», por defecto con el
 conjunto; la imagen de B se ha regenerado con el paso suave de 3 px.
 **19/10/2026 (34) · D-027:** fila «Rodillas»: nueva opción «B + restos rosas corregidos (candidata)»; B sigue por defecto.
+**19/10/2026 (35) · D-027:** rodillas B2 aprobadas: «B + restos rosas corregidos (aprobada)», por defecto con el conjunto;
+B y A se conservan.

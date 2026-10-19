@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: encaje del chaleco no aprobado; fila «Rodillas» comprobada
+### 2026-10-19 — D-027: rodillas B2 aprobadas y por defecto con el conjunto
+
+- **Solicitado por:** la propietaria («Apruebo B2… Regístrala y déjala por defecto con el conjunto de aventura. Esta
+  aprobación es solo de las rodillas…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `6f045a6`, el de la entrada siguiente).
+- **Estado:** rodillas B2 **aprobadas**; camiseta y chaleco **sin aprobar** (falta la imagen de la guía 1). Nada activado
+  ni publicado.
+- **Cambios:** visor (B2 por defecto con el conjunto, «aprobada»); D-027 (8), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de rodillas, conjunto y visor (35).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor en Chromium (iPhone 13 simulado: B2 marcada y cargada al elegir el conjunto; adornos 45 casos y
+  conjunto sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `6f045a6` · D-027: encaje del chaleco no aprobado; fila «Rodillas» comprobada
 
 - **Solicitado por:** la propietaria («El chaleco sigue viéndose ancho y cortado por los brazos. Revisa la candidata de
   camiseta y chaleco que te envié… Comprueba también que la fila «Rodillas» aparezca… No doy por aprobado este encaje.»).

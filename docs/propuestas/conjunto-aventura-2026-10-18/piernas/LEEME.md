@@ -85,3 +85,5 @@ Por decisión de la propietaria, sin imágenes nuevas (las dos que llegaron de C
 `mascara-rosa.png`, `corregir_rosa.py` pone fondo en la abertura central y, en las piernas, la piel de la misma columna
 justo por debajo, reflejada en el borde inferior de cada trocito. Rosa a la vista de 111 a 1 px; fuera de la máscara,
 idéntico. Resultado y detalle antes/después en `../integrar/piernas-b2/` (`antes-despues.png`).
+
+**19/10/2026: B2 aprobada** por la propietaria (solo las rodillas); por defecto con el conjunto en el visor.

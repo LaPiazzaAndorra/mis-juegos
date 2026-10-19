@@ -87,6 +87,10 @@
   - Fila «Rodillas»: en su captura las rodillas ya salen con la piel (B). Comprobado además en Chromium con un iPhone 13
     simulado: al tocar «Conjunto de aventura» aparecen debajo de «Ropa» las filas «Mochila» y «Rodillas» (B marcada); no
     se ha podido comprobar en Safari ni en el iPhone real desde aquí.
+- **19/10/2026 (8):** la propietaria **aprueba B2** («B + restos rosas corregidos», `integrar/piernas-b2/`, commit
+  `09904fe`): queda **por defecto con el conjunto de aventura**; B y A se conservan como opciones. **La aprobación es solo
+  de las rodillas**: el encaje de la camiseta y el chaleco sigue sin aprobar (pendiente de la imagen de la guía 1). La base
+  aprobada no cambia: B2 es una copia que solo se usa con este conjunto.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
