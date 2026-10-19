@@ -164,6 +164,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **19/10: conjunto limpio (candidato):** los últimos 12 px corregidos (cintura con la camiseta; abertura transparente,
   unida al fondo): **0 px de rosa a la vista**. En el visor, por defecto y **sin mochila** (las tiras nuevas, pendientes).
   Hoja `…/integrar/conjunto-limpio.png`. **Pendiente de aprobación.**
+- **19/10: conjunto NO aprobado todavía** (cortes y huecos del pantalón bajo el chaleco). **Candidata ajustada**
+  (`…/integrar/ropa-d/`): cadera izquierda y bolsillo recuperados de la imagen, cintura completada con la tela del propio
+  pantalón, sin el halo claro del chaleco, calcetines al ancho de nuestras piernas y botas sin el trozo de sombra. En el
+  visor, por defecto; antes y después sin pelo en `…/integrar/ropa-d/antes-despues.png`. La mochila, para después.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -318,7 +322,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 19/10/2026 (D-027: conjunto limpio sin mochila, candidato para aprobar) · **Rama:** `avatar-creador` ·
+**Última actualización:** 19/10/2026 (D-027: pantalón, calcetines y botas ajustados, candidata; conjunto sin aprobar) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

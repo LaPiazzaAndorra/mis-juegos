@@ -1,6 +1,28 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: últimos restos corregidos; conjunto limpio sin mochila (candidato)
+### 2026-10-19 — D-027: pantalón ajustado en cintura y caderas; uniones pierna–calcetín–bota (candidata)
+
+- **Solicitado por:** la propietaria («No apruebo todavía el conjunto. Revisa el encaje completo del pantalón en cintura y
+  caderas… Revisa también cada unión pierna–calcetín–bota por separado… Prepara las correcciones en copias y muéstrame el
+  antes y después sin pelo… Dejamos la mochila para después.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `5319cae`, el de la entrada siguiente).
+- **Estado:** candidata, **conjunto no aprobado**. Nada activado ni publicado.
+- **Cambios:** `integrar/ajustar_pantalon_y_pies.py` (nuevo) → `integrar/ropa-d/` (pantalón, chaleco, calcetines y botas
+  ajustados; máscaras de cadera, cintura, halo del chaleco, calcetines y sombra; `comprobaciones.json`;
+  `montaje-sin-pelo.png`; `antes-despues.png`); visor: opción nueva por defecto; D-027 (12), `ESTADO_ACTUAL.md`,
+  `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del conjunto y del visor (39).
+- **Resultado:** cadera izquierda y esquina del bolsillo recuperadas de la imagen aprobada (810 px); huecos de la cintura
+  bajo el chaleco de 362 a 0 px (quedan 12 px de canto suavizado, semitransparente); raya clara del borde del chaleco
+  quitada (395 px, mismo alfa); calcetines ajustados al ancho de nuestras piernas (escala horizontal ≤ 1,08 y ≤ 1,11):
+  pierna asomando de 171 a 0 px; botas sin el trozo de sombra del suelo (626 px). Cambios solo dentro de las máscaras.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (opción nueva por defecto y las cuatro opciones de la fila con las capas correctas en un iPhone 13
+  simulado; sin errores; a tamaño real, sin pelo, coincide con el montaje, ≤ 3). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `5319cae` · D-027: últimos restos corregidos; conjunto limpio sin mochila (candidato)
 
 - **Solicitado por:** la propietaria («Corrige también los 12 px restantes con máscaras mínimas… Deja «Sin mochila» por
   defecto mientras las tiras nuevas estén pendientes y enséñame el conjunto limpio para aprobarlo.»).

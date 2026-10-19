@@ -45,7 +45,7 @@ sin avisar). Las botas sustituyen a los zapatos.
 
 - Revisión del encaje por la propietaria (rodillas: opción A elegida, 18/10).
 - Rodillas: **integradas** (18/10) desde la imagen de ChatGPT; **B aprobada** (19/10); restos rosas corregidos con piel contigua: **B2 aprobada** (19/10, `integrar/piernas-b2/`), por defecto con el conjunto.
-- Camiseta y chaleco (guía 1): **integrados** (19/10) en `integrar/ropa/`, con los filos de mangas y cadera retocados en `integrar/ropa-b/` y los últimos restos en `integrar/ropa-c/` y `integrar/piernas-b2c/`: **conjunto limpio** (0 px de rosa; `integrar/conjunto-limpio.png`), candidato; sin mochila por defecto.
+- Camiseta y chaleco (guía 1): **integrados** (19/10) en `integrar/ropa/`, con los filos de mangas y cadera retocados en `integrar/ropa-b/` y los últimos restos en `integrar/ropa-c/` y `integrar/piernas-b2c/`: **conjunto limpio** (0 px de rosa; `integrar/conjunto-limpio.png`), candidato; sin mochila por defecto. **No aprobado (19/10):** pantalón ajustado en cintura y caderas, chaleco sin halo, calcetines al ancho de nuestras piernas y botas sin sombra en `integrar/ropa-d/` (`integrar/ajustar_pantalon_y_pies.py`; antes y después sin pelo: `integrar/ropa-d/antes-despues.png`), candidata.
 - Hacer en ChatGPT la guía de la mochila e integrarla con
   `integrar/recibir.py` (preparado el 18/10; ver `integrar/LEEME.md`).
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

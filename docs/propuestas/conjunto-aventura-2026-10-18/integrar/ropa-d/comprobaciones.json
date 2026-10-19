@@ -1,0 +1,58 @@
+{
+ "cadera_izquierda_y_bolsillo": {
+  "px": 810,
+  "caja": [
+   319,
+   950,
+   341,
+   1003
+  ],
+  "de_la_imagen_aprobada": true
+ },
+ "cintura": {
+  "px": 337,
+  "caja": [
+   338,
+   952,
+   632,
+   966
+  ],
+  "hueco_antes_px": 362,
+  "hueco_despues_px": 12
+ },
+ "calcetines": {
+  "px": 8224,
+  "caja": [
+   330,
+   1295,
+   633,
+   1352
+  ],
+  "escala_horizontal_max": {
+   "izquierda": 1.076,
+   "derecha": 1.114
+  },
+  "pierna_al_lado_del_calcetin_antes_px": 171,
+  "despues_px": 0
+ },
+ "chaleco": {
+  "halo_px": 395,
+  "caja": [
+   333,
+   901,
+   626,
+   965
+  ],
+  "alfa_igual": true
+ },
+ "botas": {
+  "sombra_quitada_px": 626,
+  "caja": [
+   456,
+   1486,
+   517,
+   1531
+  ]
+ },
+ "cambios_solo_en_las_mascaras": true
+}

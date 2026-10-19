@@ -31,5 +31,10 @@ Hoja: `comparacion-rodillas.png` (`comparar_rodillas.py`). Detalles en `../piern
 **Camiseta y chaleco, hecho (19/10):** con la imagen de la guía 1, en `ropa/`; alineados por la silueta del cuerpo (no por
 los iris); hoja `comparacion-camiseta-chaleco.png` (`comparar_ropa.py`).
 
+**Ajustes de encaje, candidatos (19/10):** `retocar_bordes.py` → `ropa-b/` (filos de mangas y cadera), `limpiar_ultimos.py`
+→ `ropa-c/` y `piernas-b2c/` (últimos restos), y `ajustar_pantalon_y_pies.py` → `ropa-d/` (pantalón en cintura y caderas,
+chaleco sin halo, calcetines al ancho de nuestras piernas, botas sin sombra; `antes-despues.png` sin pelo). Todos trabajan
+en copias y comprueban que solo cambia lo que hay dentro de sus máscaras (`comprobaciones.json`).
+
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/recibir.py <guía> <imagen>`
 (para probar sin escribir en el repositorio: `SALIDA_INTEGRAR=/otra/carpeta`).

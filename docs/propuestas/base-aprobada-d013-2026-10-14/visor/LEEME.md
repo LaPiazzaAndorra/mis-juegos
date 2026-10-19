@@ -202,3 +202,7 @@ defecto (camiseta y pantalón de `integrar/ropa-b/`), «A nuestra medida (guía 
 imagen original; nuevas pendientes), «A nuestra medida, sin restos rosas (candidata)» (camiseta de `integrar/ropa-c/`) y
 «B2 + abertura limpia (candidata)» (`integrar/piernas-b2c/`). B2 aprobada se conserva como opción. A tamaño real coincide
 con el montaje (≤ 3); comprobado también en un iPhone 13 simulado.
+**19/10/2026 (39) · D-027:** fila «Camiseta y chaleco»: «Ajustada: cintura, caderas, calcetines y botas (candidata)», por
+defecto (pantalón, chaleco, calcetines y botas de `integrar/ropa-d/`, camiseta de `integrar/ropa-c/`); «A nuestra medida,
+sin restos rosas» pasa a «(anterior)». Probadas las cuatro opciones en un iPhone 13 simulado; a tamaño real, sin pelo,
+coincide con el montaje (≤ 3).

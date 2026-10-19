@@ -131,6 +131,22 @@
   - Visor, con el conjunto: «Sin mochila» por defecto («Con mochila» avisa de que lleva las tiras de la imagen original);
     «A nuestra medida, sin restos rosas (candidata)» y «B2 + abertura limpia (candidata)» por defecto. **Pendiente de la
     aprobación de la propietaria.**
+- **19/10/2026 (12):** la propietaria **no aprueba todavía el conjunto**: se ven cortes y huecos del pantalón en la cintura y
+  las caderas, bajo el chaleco. Pide revisar cada unión pierna–calcetín–bota (posición, escala y recorte sobre nuestra base,
+  no solo el rosa), correcciones en copias y el antes y después sin pelo. La mochila, para después.
+  - Encontrado y corregido (`integrar/ajustar_pantalon_y_pies.py`, copias en `integrar/ropa-d/`):
+    **cadera izquierda y bolsillo:** al separar la imagen, la zona de la mochila se quedó con el lateral del pantalón; se
+    toman de nuevo de la imagen aprobada (810 px reales). **Cintura:** el chaleco de la imagen tapaba las esquinas de
+    arriba del pantalón y el nuevo, más estrecho, las dejaba ver cortadas (362 px de hueco): se completan con la tela del
+    propio pantalón de debajo, reflejada por columnas y saltando su franja de arriba (que traía pespuntes del chaleco),
+    con el canto de fuera suavizado. **Chaleco:** su canto de abajo traía un halo claro del fondo (una raya sobre el
+    pantalón): mismo alfa, color del píxel opaco más cercano (395 px). **Calcetines:** nuestras piernas son 2–6 px más
+    anchas por dentro: cada calcetín se ajusta fila a fila a nuestra pierna (+1 px) con un cambio de escala horizontal
+    suave (≤ 8 % y ≤ 11 %), sin estirar sus bordes (eso dejaba una franja borrosa): pierna asomando de 171 a 0 px.
+    **Botas:** ya tapaban del todo nuestros pies y la caña la pierna; se quita el trozo de sombra del suelo que la bota
+    derecha llevaba pegado (626 px).
+  - Visor: «Ajustada: cintura, caderas, calcetines y botas (candidata)», por defecto; se conservan las anteriores.
+    Hoja `integrar/ropa-d/antes-despues.png` (sin pelo). **Conjunto pendiente de aprobación; mochila aparcada.**
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
