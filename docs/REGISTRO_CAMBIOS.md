@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: restos rosas corregidos con piel contigua (candidato B2)
+### 2026-10-19 — D-027: encaje del chaleco no aprobado; fila «Rodillas» comprobada
+
+- **Solicitado por:** la propietaria («El chaleco sigue viéndose ancho y cortado por los brazos. Revisa la candidata de
+  camiseta y chaleco que te envié… Comprueba también que la fila «Rodillas» aparezca… No doy por aprobado este encaje.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `09904fe`, el de la entrada siguiente).
+- **Estado:** encaje del chaleco **no aprobado**; la imagen de la guía 1 **no ha llegado** a la sesión (solo la captura del
+  iPhone). Solo documentación; nada activado ni publicado.
+- **Cambios:** D-027 (7) y `ESTADO_ACTUAL.md`.
+- **Resultado:** fila «Rodillas» comprobada en Chromium con iPhone 13 simulado (aparece al tocar el conjunto, con B
+  marcada); en la captura de la propietaria las rodillas ya salen con la piel.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor en Chromium (iPhone 13 simulado), sin errores. No probado en Safari ni en un iPhone real desde aquí.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `09904fe` · D-027: restos rosas corregidos con piel contigua (candidato B2)
 
 - **Solicitado por:** la propietaria («Corrige los restos dentro de mascara-rosa.png copiando piel contigua de cada pierna
   y fondo en la abertura central. Conserva el sombreado, no cambies el pantalón y verifica que fuera de la máscara todo

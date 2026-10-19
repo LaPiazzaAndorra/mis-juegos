@@ -80,6 +80,13 @@
     **idéntico** (también con el pantalón puesto). La sombra que había bajo el borde rosa queda ahora justo bajo el
     pantalón. Base B, base aprobada y pantalón sin cambios.
   - Visor: «B + restos rosas corregidos (candidata)». **Pendiente de la revisión de la propietaria.**
+- **19/10/2026 (7):** la propietaria revisa el conjunto en el visor en su iPhone (versión de pruebas, raw.githack): **el
+  chaleco sigue viéndose ancho y cortado por los brazos; no da por aprobado este encaje.** Es el chaleco de la imagen
+  original (más ancho que nuestro torso, D-027 (1)); su arreglo es la guía 1 (camiseta y chaleco a nuestra medida). La
+  imagen de ChatGPT de la guía 1 **todavía no ha llegado** a esta sesión, así que no hay montaje nuevo que enseñar.
+  - Fila «Rodillas»: en su captura las rodillas ya salen con la piel (B). Comprobado además en Chromium con un iPhone 13
+    simulado: al tocar «Conjunto de aventura» aparecen debajo de «Ropa» las filas «Mochila» y «Rodillas» (B marcada); no
+    se ha podido comprobar en Safari ni en el iPhone real desde aquí.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

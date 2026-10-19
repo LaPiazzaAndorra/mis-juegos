@@ -153,6 +153,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 - **19/10: restos rosas corregidos (candidato B2)** dentro de esa máscara, con nuestra propia piel de justo debajo y fondo en
   la abertura (sin usar las imágenes de ChatGPT, que cambiaban más cosas): rosa a la vista de 111 a 1 px; fuera de la
   máscara, idéntico. En el visor, «B + restos rosas corregidos (candidata)».
+- **19/10: encaje del chaleco NO aprobado** (revisado por la propietaria en su iPhone): sigue ancho y cortado por los
+  brazos. Falta la imagen de ChatGPT de la guía 1 (camiseta y chaleco a nuestra medida).
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -307,7 +309,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 19/10/2026 (D-027: restos rosas corregidos con piel contigua, candidato B2) · **Rama:** `avatar-creador` ·
+**Última actualización:** 19/10/2026 (D-027: encaje del chaleco no aprobado; fila «Rodillas» comprobada) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 
