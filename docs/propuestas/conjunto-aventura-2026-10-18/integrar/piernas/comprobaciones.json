@@ -1,5 +1,6 @@
 {
  "guia": "rodillas (opción A)",
+ "transicion_px": 0,
  "mascara": "docs/propuestas/conjunto-aventura-2026-10-18/piernas/mascara-zona.png",
  "alineacion": {
   "metodo": "silueta + ajuste fino (sin ojos en la imagen)",
@@ -19,7 +20,7 @@
   0.0,
   2.0
  ],
- "tono_medido_en_px": 5428,
+ "tono_medido_en_px": 5382,
  "fuera_de_la_zona_mediana_dE": 3.74,
  "fuera_de_la_zona_px_con_dE_mayor_20": 15248,
  "fuera_de_la_zona_px_comparados": 355263,
@@ -36,6 +37,12 @@
   "mediana": -7.9,
   "peor": -23.8,
   "columnas_mas_oscuras_de_6": 141,
+  "columnas": 199,
+  "nota": "compara 1–3 px bajo la zona con 8–12 px: también recoge el sombreado natural junto al contorno"
+ },
+ "escalon_en_el_borde_L": {
+  "mediana": 5.0,
+  "columnas_con_mas_de_4": 115,
   "columnas": 199
  },
  "zona_que_queda_transparente_px": 204,

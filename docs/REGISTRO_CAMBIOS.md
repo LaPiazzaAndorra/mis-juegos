@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-18 — D-027: rodillas integradas desde la imagen de ChatGPT (candidatas A y B)
+### 2026-10-19 — D-027: rodillas B aprobadas (paso suave de 3 px); máscara mínima y guía para el rosa que asoma
+
+- **Solicitado por:** la propietaria («Adelante con B y la ampliación de 6 px. Para los 104 px rosas, prepara una máscara
+  mínima que los incluya y una guía para completar esa piel… revisa también las 14 columnas…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `51f6222`, el de la entrada siguiente).
+- **Estado:** rodillas **B aprobadas**; para el rosa que asoma, máscara y guía listas, **falta la imagen de ChatGPT**. La
+  base aprobada y el pantalón no cambian. Nada activado ni publicado.
+- **Cambios:**
+  - `integrar/recibir.py`: paso suave opcional dentro de la zona (B: 3 px), medida del escalón en el borde, tono medido solo
+    donde las dos imágenes tienen piel, alineación con la imagen enviada como referencia y base de partida elegible.
+  - `integrar/piernas-b/` regenerada (con el paso de 3 px) y `integrar/piernas/` (A) y `comparacion-rodillas.png`
+    actualizadas.
+  - `piernas/mascara_rosa.py`, `piernas/mascara-rosa.png`, `mascara-rosa-transparente.png`, `comprobaciones-rosa.json` y
+    `piernas/para-chatgpt/rosa/` (imágenes y `LEEME.md` con el mensaje).
+  - Visor: «B (… aprobada)».
+  - D-027 (5), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` de
+    rodillas, conjunto y visor (33).
+- **Resultado:** las 14 columnas eran sombreado natural junto al contorno (10) y el contorno interior (4); el escalón de
+  tono en el borde de B baja a 4 de 199 columnas (A: 115). Máscara del rosa: 248 px en cuatro trocitos, nada bajo el
+  pantalón opaco. `recibir.py` probado con la propia imagen enviada (alineación exacta).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (rodillas, adornos 45 casos, conjunto) sin errores. `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-18 — `51f6222` · D-027: rodillas integradas desde la imagen de ChatGPT (candidatas A y B)
 
 - **Solicitado por:** la propietaria («Usa esta imagen solo como fuente del relleno de piel dentro de mascara-zona.png.
   Comprueba la alineación, que el pantalón tape todo el rosa restante y que la piel empalme bien…»).

@@ -1,0 +1,42 @@
+{
+ "rosa_a_la_vista_px": 111,
+ "zona_px": 248,
+ "caja": [
+  353,
+  1094,
+  517,
+  1171
+ ],
+ "partes": [
+  {
+   "centro": [
+    488,
+    1107
+   ],
+   "px": 84
+  },
+  {
+   "centro": [
+    505,
+    1167
+   ],
+   "px": 102
+  },
+  {
+   "centro": [
+    359,
+    1168
+   ],
+   "px": 53
+  },
+  {
+   "centro": [
+    460,
+    1169
+   ],
+   "px": 9
+  }
+ ],
+ "bajo_el_pantalon_px": 0,
+ "base": "docs/propuestas/conjunto-aventura-2026-10-18/integrar/piernas-b/base-piernas-sin-mallas.png"
+}

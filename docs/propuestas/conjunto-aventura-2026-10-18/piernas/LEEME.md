@@ -70,3 +70,11 @@ Imagen recibida (generada, sin modificar): `de-chatgpt/piernas-sin-mallas-chatgp
 
 Resultado: `../integrar/piernas/` (A) y `../integrar/piernas-b/` (B), cada uno con `base-piernas-sin-mallas.png`,
 `comprobaciones.json` y `revision.png`. **La base aprobada no cambia.**
+
+## B aprobada y rosa que asoma (19/10)
+
+- La propietaria **aprueba B** (zona + 6 px bajo el borde). Revisadas las 14 columnas en que la medida marcaba línea: son
+  el sombreado natural junto al contorno (10) y el propio contorno interior (4); ampliado se veía además un escalón suave
+  de tono en el borde de B. Se integra B con un **paso suave de 3 px dentro de su franja** (`recibir.py … piernas-b 3`):
+  escalón en 4 de 199 columnas; fuera de la zona, nada cambia.
+- **Rosa que asoma:** máscara mínima `mascara-rosa.png` (248 px, `mascara_rosa.py`) y guía en `para-chatgpt/rosa/LEEME.md`.

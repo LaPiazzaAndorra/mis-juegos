@@ -5,8 +5,9 @@ cada imagen con nuestro lienzo, toma SOLO lo pedido en su guía y lo comprueba. 
 ropa (alineación con escala uniforme y desplazamiento, sin giro ni estiramiento) y no toca la base aprobada ni las capas
 candidatas actuales: todo sale a integrar/<guía>/ como candidato.
 
-  piernas  <imagen>   rodillas (opción A): toma solo la zona de ../piernas/mascara-zona.png sobre ../piernas/base-copia.png
-                      → piernas/base-piernas-sin-mallas.png
+  piernas  <imagen> [máscara carpeta transición base]   rodillas (opción A): toma solo la zona de la máscara (por defecto
+                      ../piernas/mascara-zona.png) sobre la base (por defecto ../piernas/base-copia.png)
+                      → <carpeta>/base-piernas-sin-mallas.png; la B: mascara-zona-b.png, carpeta piernas-b, transición 3
   ropa     <imagen>   guía 1: camiseta y chaleco sobre nuestra plantilla → ropa/camiseta.png y ropa/chaleco.png
   tiras    <imagen>   guía 2b: tiras sobre nuestra plantilla → mochila/tiras.png
   mochila  <imagen> [cx cy ancho giro]   guía 2a: la mochila sola sobre fondo crema → mochila/mochila-recortada.png y,
@@ -65,16 +66,20 @@ def alinear(ruta):
     return np.array(ali), info
 
 
-def alinear_por_silueta(ruta, excluir):
+def alinear_por_silueta(ruta, excluir, referencia=None):
     """Para imágenes sin ojos (la plantilla de las rodillas es la base sin ojos): escala por la caja de la silueta y ajuste
     fino de escala y desplazamiento (sub-píxel) minimizando la diferencia con nuestra base fuera de `excluir`."""
     from skimage.registration import phase_cross_correlation
     im = Image.open(ruta).convert('RGB'); a = np.array(im).astype(int)
     fondo = np.median(np.r_[a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3)], 0)
     fg = nd.binary_opening(np.abs(a - fondo).max(-1) > 12, iterations=2); ys, xs = np.where(fg)
-    base = PT.abrir(PT.SIN_OJOS); bm = base[..., 3] > 128; by, bx = np.where(bm)
+    if referencia is None:
+        base = PT.abrir(PT.SIN_OJOS); bm = base[..., 3] > 128; pl = plantilla()
+    else:   # la imagen que se envió (p. ej. la muñeca con el pantalón): su silueta es lo que no es fondo
+        pl = np.array(Image.open(referencia).convert('RGB')); bm = nd.binary_opening(np.abs(pl.astype(int) - np.array(CREMA)).max(-1) > 12, iterations=2)
+    by, bx = np.where(bm)
     s0 = ((by.max() - by.min()) / (ys.max() - ys.min()) + (bx.max() - bx.min()) / (xs.max() - xs.min())) / 2
-    pl = plantilla(); gpl = np.array(Image.fromarray(pl).convert('L')).astype(float)
+    gpl = np.array(Image.fromarray(pl).convert('L')).astype(float)
     sil = nd.binary_erosion(bm, iterations=3) & ~nd.binary_dilation(excluir, iterations=12)
     def poner(s, dx, dy):
         t = (1 / s, 0, -dx / s, 0, 1 / s, -dy / s)
@@ -101,10 +106,10 @@ def diferencia(a, b):
     return np.sqrt(((lab(a) - lab(b)) ** 2).sum(-1))
 
 
-def igual_fuera(ali, zona, nombre):
+def igual_fuera(ali, zona, nombre, ref=None):
     """Cuánto se parece la imagen alineada a nuestra muñeca fuera de la zona pedida (en la silueta de la muñeca)."""
     base = PT.abrir(PT.SIN_OJOS); sil = nd.binary_erosion(base[..., 3] > 128, iterations=4) & ~nd.binary_dilation(zona, iterations=12)
-    d = diferencia(ali, plantilla())[sil]
+    d = diferencia(ali, plantilla() if ref is None else ref)[sil]
     return {f'{nombre}_mediana_dE': round(float(np.median(d)), 2), f'{nombre}_px_con_dE_mayor_20': int((d > 20).sum()), f'{nombre}_px_comparados': int(sil.sum())}
 
 
@@ -126,19 +131,26 @@ def guardar(carpeta, comp, vistas):
     print(json.dumps(comp, ensure_ascii=False))
 
 
-def piernas(ruta, mascara=None, carpeta='piernas'):
+def piernas(ruta, mascara=None, carpeta='piernas', transicion=0, sobre=None, referencia=None):
     P = CJ / 'piernas'; mascara = Path(mascara).resolve() if mascara else P / 'mascara-zona.png'; zona = np.array(Image.open(mascara)) > 127
-    base_aprob = sha(PT.SIN_OJOS); copia = PT.abrir(P / 'base-copia.png'); ali, info = alinear_por_silueta(ruta, zona)
+    base_aprob = sha(PT.SIN_OJOS); copia = PT.abrir(Path(sobre) if sobre else P / 'base-copia.png'); ali, info = alinear_por_silueta(ruta, zona, referencia)
     peso = np.clip(nd.gaussian_filter(zona.astype(float), 0.8) * 1.6 - 0.3, 0, 1) * nd.binary_dilation(zona, iterations=1)
     peso = np.where(zona & ~nd.binary_dilation(~zona, iterations=1), 1.0, peso)      # borde suave de 1 px hacia la piel de alrededor
     junto_a_piel = nd.distance_transform_edt(~(~zona & (copia[..., 3] > 200))) <= 1.5
     peso = np.where(zona & ~junto_a_piel, 1.0, peso)                                  # en el contorno de la pierna se sustituye del todo (sin restos del borde de las mallas)
     peso *= (copia[..., 3] > 0)                                                       # nunca fuera de nuestra silueta
+    if transicion:   # (zona B) en los últimos `transicion` px de la franja de abajo, paso suave a nuestra piel (dentro de la zona)
+        YYt = np.mgrid[0:H, 0:W][0]; lct = PT.lab_de(copia)
+        piel_abajo = ~zona & (copia[..., 3] > 200) & ~((lct[..., 1] > 15) & (lct[..., 2] < 14)) & (YYt > 1200)
+        dist = nd.distance_transform_edt(~piel_abajo)
+        peso = np.where(zona & (dist <= transicion), np.minimum(peso, (dist - 0.5) / transicion), peso)
     # tono: la piel de la imagen es algo más clara que la nuestra; se mide la diferencia (Lab) en la piel de debajo de la
     # zona, donde las dos imágenes tienen la pierna sin mallas, y se corrige con ese desplazamiento (no se pinta nada nuevo)
     YY = np.mgrid[0:H, 0:W][0]; lc = PT.lab_de(copia); rosa_c = (lc[..., 1] > 15) & (lc[..., 2] < 14)
-    debajo = nd.binary_dilation(zona, iterations=30) & ~nd.binary_dilation(zona, iterations=4) & (copia[..., 3] > 200) & ~rosa_c & (YY > 1200) & (YY < 1330)
-    la = lab(ali); desv = np.median(lc[debajo] - la[debajo], 0)
+    la = lab(ali)
+    debajo = nd.binary_dilation(zona, iterations=30) & ~nd.binary_dilation(zona, iterations=4) & (copia[..., 3] > 200) & ~rosa_c & (YY > 1100) & (YY < 1330)
+    debajo &= np.sqrt(((lc - la) ** 2).sum(-1)) < 15                                  # piel en las dos (no el pantalón de la imagen)
+    desv = np.median(lc[debajo] - la[debajo], 0) if debajo.sum() >= 50 else np.zeros(3)
     ali = PT.a_rgb(la + desv)
     # dentro de la zona, donde la imagen tiene fondo (la pierna sin mallas es algo más fina que con ellas) queda transparente
     dfondo = np.sqrt(((lab(ali) - lab(np.full_like(ali, CREMA))) ** 2).sum(-1))
@@ -161,19 +173,22 @@ def piernas(ruta, mascara=None, carpeta='piernas'):
     # contorno: piel de la imagen justo fuera de nuestra silueta junto a la zona (quedaría cortada)
     fuera = nd.binary_dilation(zona, iterations=3) & (copia[..., 3] < 20) & (opaco > 0.5)
     # línea en la unión de abajo: luminosidad justo debajo de la zona (1–3 px) frente a un poco más abajo (8–12 px), por columna
-    lineas = []
+    lineas, saltos = [], []
     for x in range(W):
         col = np.where(zona[:, x] & (YY[:, x] > 1200))[0]
         if len(col) and nueva[col.max() + 12, x, 3] > 200 and nueva[col.max() + 1, x, 3] > 200:
             yb = col.max(); lineas.append(ln[yb + 1:yb + 4, x, 0].mean() - ln[yb + 8:yb + 13, x, 0].mean())
-    lineas = np.array(lineas)
-    comp = dict(guia='rodillas (opción A)', mascara=str(mascara.relative_to(A.RAIZ)), alineacion=info,
-                ajuste_de_tono_Lab=[round(float(x), 1) for x in desv], tono_medido_en_px=int(debajo.sum()), **igual_fuera(ali, zona, 'fuera_de_la_zona'),
+            saltos.append(ln[yb - 1:yb + 1, x, 0].mean() - ln[yb + 1:yb + 3, x, 0].mean())   # escalón justo en el borde
+    lineas = np.array(lineas or [0.0]); saltos = np.array(saltos or [0.0])
+    comp = dict(guia='rodillas (opción A)', transicion_px=transicion, mascara=str(mascara.relative_to(A.RAIZ)) if mascara.is_relative_to(A.RAIZ) else str(mascara), alineacion=info,
+                ajuste_de_tono_Lab=[round(float(x), 1) for x in desv], tono_medido_en_px=int(debajo.sum()), **igual_fuera(ali, zona, 'fuera_de_la_zona', None if referencia is None else np.array(Image.open(referencia).convert('RGB'))),
                 zona_px=int(zona.sum()), rosa_en_la_copia_bajo_y_1100_px=int(rosa_nueva.sum()),
                 rosa_que_no_tapa_el_pantalon_px=int(rosa_visto.sum()), rosa_que_no_tapa_dentro_de_la_zona_px=int((rosa_visto & zona).sum()),
                 union_diferencia_mediana_Lab_dentro_menos_debajo=union,
                 linea_bajo_la_zona_L=dict(mediana=round(float(np.median(lineas)), 1), peor=round(float(lineas.min()), 1),
-                                          columnas_mas_oscuras_de_6=int((lineas < -6).sum()), columnas=int(len(lineas))),
+                                          columnas_mas_oscuras_de_6=int((lineas < -6).sum()), columnas=int(len(lineas)),
+                                          nota='compara 1–3 px bajo la zona con 8–12 px: también recoge el sombreado natural junto al contorno'),
+                escalon_en_el_borde_L=dict(mediana=round(float(np.median(saltos)), 1), columnas_con_mas_de_4=int((np.abs(saltos) > 4).sum()), columnas=int(len(saltos))),
                 zona_que_queda_transparente_px=int((zona & (alfa < 128) & (a_old >= 128)).sum()),
                 piel_de_la_imagen_fuera_de_nuestra_silueta_px=int(fuera.sum()),
                 fuera_de_la_zona_sin_cambios=bool((nueva[~nd.binary_dilation(zona, iterations=1)] == copia[~nd.binary_dilation(zona, iterations=1)]).all()),
@@ -254,6 +269,7 @@ if __name__ == '__main__':
     if guia == 'mochila':
         mochila(ruta, *[float(x) for x in sys.argv[3:7]])
     elif guia == 'piernas' and len(sys.argv) > 3:
-        piernas(ruta, sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else 'piernas')
+        piernas(ruta, sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else 'piernas', int(sys.argv[5]) if len(sys.argv) > 5 else 0,
+                sys.argv[6] if len(sys.argv) > 6 else None, sys.argv[7] if len(sys.argv) > 7 else None)
     else:
         {'piernas': piernas, 'ropa': ropa, 'tiras': tiras}[guia](ruta)

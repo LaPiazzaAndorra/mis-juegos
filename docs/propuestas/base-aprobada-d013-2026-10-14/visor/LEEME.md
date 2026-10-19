@@ -187,3 +187,5 @@ automáticamente.
 **18/10/2026 (32) · D-027:** con el conjunto de aventura, fila «Rodillas»: «Base aprobada (mallas)» · «Piel completada · A
 (solo la zona)» · «Piel completada · B (+6 px bajo el borde, candidata)», por defecto. Cambia solo la imagen de la base
 mientras se lleva el conjunto (la aprobada vuelve al quitarlo). A tamaño real coincide con el montaje (≤ 4).
+**19/10/2026 (33) · D-027:** rodillas B aprobadas: «Piel completada · B (+6 px bajo el borde, aprobada)», por defecto con el
+conjunto; la imagen de B se ha regenerado con el paso suave de 3 px.

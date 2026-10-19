@@ -55,6 +55,19 @@
   - **El pantalón no tapa todo el rosa:** quedan **104 px en tres trocitos de 2–5 px** (78 del pantalón corto que ChatGPT
     dejó algo más largo, 26 de nuestra base entre las piernas, fuera de la zona). No se inventa piel: se señalan.
   - En el visor, con el conjunto, fila «Rodillas»: base aprobada (mallas) · A · B (por defecto, candidata).
+- **19/10/2026 (5):** la propietaria **aprueba B y la ampliación de 6 px**. Pide una **máscara mínima** que incluya los
+  104 px rosas y una guía para completar esa piel, conservando el pantalón y la base aprobados, y **revisar las 14
+  columnas** donde aún se detectaba la línea.
+  - **Las 14 columnas:** 10 están junto al contorno de las piernas (x 350, 441–443, 524–526, 612–614), donde la piel se
+    oscurece de forma natural hacia el borde (la medida comparaba 1–3 px bajo la zona con 8–12 px más abajo); 4 (x 445–446
+    y 516–517) están **en** el contorno interior, que es una línea dibujada. Ampliado, quedaba además un **escalón suave de
+    tono** justo en el borde inferior de B (L ±3–5). Se añade una medida del escalón en el propio borde y, **dentro de la
+    franja de 6 px de B**, un paso suave de 3 px hacia nuestra piel: el escalón queda en 4 de 199 columnas (A: 115) y no se
+    ve. Fuera de la zona B, nada cambia.
+  - **Máscara mínima del rosa** (`piernas/mascara-rosa.png`, `mascara_rosa.py`): los píxeles rosas que el pantalón no tapa
+    (111 con el umbral nuevo) más 2 px, solo donde el pantalón no es opaco: **248 px** en cuatro trocitos. Guía en
+    `piernas/para-chatgpt/rosa/` (se envía la muñeca con el pantalón puesto). El pantalón, la base aprobada y la copia B
+    no cambian.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
