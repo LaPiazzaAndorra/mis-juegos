@@ -91,6 +91,17 @@
   `09904fe`): queda **por defecto con el conjunto de aventura**; B y A se conservan como opciones. **La aprobación es solo
   de las rodillas**: el encaje de la camiseta y el chaleco sigue sin aprobar (pendiente de la imagen de la guía 1). La base
   aprobada no cambia: B2 es una copia que solo se usa con este conjunto.
+- **19/10/2026 (9):** llega la **imagen de ChatGPT de la guía 1** (camiseta y chaleco a nuestra medida,
+  `guia-chatgpt/1-camiseta-y-chaleco/de-chatgpt/`, sin modificar). La propietaria pide revisar el encaje y extraer **solo
+  la camiseta y el chaleco**, conservando nuestra muñeca original.
+  - Alineada por la silueta del cuerpo (escala 0,999, < 1 px); solo se toman la camiseta y el chaleco
+    (`integrar/ropa/`). El chaleco queda **entre nuestros brazos**, con los hombros completos y sin tiras. Rosa de la base a
+    la vista, sin mochila: 205 px sin pelo / 65 con la melena (antes 9 689 / 5 415).
+  - Queda: un **filo rosa de 1–3 px en el borde exterior de las mangas** (la manga nueva es algo más estrecha que la de la
+    base) y una **rayita en la cadera izquierda** (39 px, del pantalón original). Con la mochila, las tiras de la imagen
+    original no encajan con este chaleco (guía 2 pendiente).
+  - Visor: fila «Camiseta y chaleco» con el conjunto: «A nuestra medida (guía 1, candidata)», por defecto, y «De la
+    imagen aprobada (anterior)». **Candidata, pendiente de revisión.**
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

@@ -1,0 +1,24 @@
+{
+ "guia": "1 · camiseta y chaleco",
+ "alineacion": {
+  "metodo": "silueta + ajuste fino (sin ojos en la imagen)",
+  "tamano_recibido": [
+   948,
+   1659
+  ],
+  "escala": 0.9989,
+  "desplazamiento": [
+   0.52,
+   0.93
+  ],
+  "mediana_dE_en_la_silueta": 2.83
+ },
+ "fuera_de_la_ropa_mediana_dE": 2.45,
+ "fuera_de_la_ropa_px_con_dE_mayor_20": 5831,
+ "fuera_de_la_ropa_px_comparados": 283710,
+ "camiseta_px": 40277,
+ "chaleco_px": 49881,
+ "camiseta_rosa_a_la_vista_px": 197,
+ "ropa_sobre_nuestros_antebrazos_px": 400,
+ "cambios_en_nuestros_brazos_px": 3178
+}

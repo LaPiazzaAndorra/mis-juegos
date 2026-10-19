@@ -192,3 +192,6 @@ conjunto; la imagen de B se ha regenerado con el paso suave de 3 px.
 **19/10/2026 (34) · D-027:** fila «Rodillas»: nueva opción «B + restos rosas corregidos (candidata)»; B sigue por defecto.
 **19/10/2026 (35) · D-027:** rodillas B2 aprobadas: «B + restos rosas corregidos (aprobada)», por defecto con el conjunto;
 B y A se conservan.
+**19/10/2026 (36) · D-027:** con el conjunto, fila «Camiseta y chaleco»: «A nuestra medida (guía 1, candidata)», por
+defecto, y «De la imagen aprobada (anterior)». «Sin mochila» ya no avisa de los hombros (con la camiseta nueva están
+completos). A tamaño real coincide con el montaje (≤ 3).

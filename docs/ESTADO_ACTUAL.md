@@ -155,7 +155,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   máscara, idéntico. En el visor, «B + restos rosas corregidos (candidata)».
 - **19/10: rodillas B2 aprobadas** (solo las rodillas), por defecto con el conjunto en el visor.
 - **19/10: encaje del chaleco NO aprobado** (revisado por la propietaria en su iPhone): sigue ancho y cortado por los
-  brazos. Falta la imagen de ChatGPT de la guía 1 (camiseta y chaleco a nuestra medida).
+  brazos.
+- **19/10: camiseta y chaleco a nuestra medida (guía 1), candidatos:** extraídos de la imagen de ChatGPT, entre nuestros
+  brazos y sin tiras; rosa a la vista de 9 689 a 205 px (sin pelo). Quedan un filo rosa en las mangas y una rayita en la
+  cadera izquierda (del pantalón). En el visor, fila «Camiseta y chaleco». **Pendientes de revisión;** falta la guía 2.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -310,7 +313,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 19/10/2026 (D-027: rodillas B2 aprobadas; chaleco pendiente) · **Rama:** `avatar-creador` ·
+**Última actualización:** 19/10/2026 (D-027: camiseta y chaleco a nuestra medida, candidatos) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

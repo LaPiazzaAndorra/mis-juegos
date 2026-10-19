@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: rodillas B2 aprobadas y por defecto con el conjunto
+### 2026-10-19 — D-027: camiseta y chaleco a nuestra medida (guía 1) integrados, candidatos
+
+- **Solicitado por:** la propietaria («Esta es la candidata de la guía 1. Revisa el encaje y extrae solo la camiseta y el
+  chaleco, conservando nuestra muñeca original»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `8ac9b81`, el de la entrada siguiente).
+- **Estado:** camiseta y chaleco **candidatos**, pendientes de revisión; la muñeca no cambia. Nada activado ni publicado.
+- **Cambios:**
+  - `guia-chatgpt/1-camiseta-y-chaleco/de-chatgpt/camiseta-y-chaleco-chatgpt.png` (la imagen recibida, sin modificar) y el
+    `LEEME.md` de la guía (resultado).
+  - `integrar/recibir.py`: la ropa se alinea por la silueta del cuerpo; `integrar/ropa/` (camiseta, chaleco,
+    comprobaciones, revisión, montaje entero), `integrar/comparar_ropa.py` y `integrar/comparacion-camiseta-chaleco.png`.
+  - Visor: fila «Camiseta y chaleco»; «Sin mochila» sin aviso de hombros.
+  - D-027 (9), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del
+    conjunto, de integrar y del visor (36).
+- **Resultado:** chaleco entre nuestros brazos, hombros completos, sin tiras; rosa de la base a la vista (sin mochila) de
+  9 689 a 205 px sin pelo y de 5 415 a 65 con la melena. Quedan un filo rosa de 1–3 px en las mangas y una rayita de 39 px
+  en la cadera izquierda (del pantalón original). Con la mochila, las tiras viejas no encajan (guía 2 pendiente).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor en Chromium (fila nueva, cambio de prendas, a tamaño real ≤ 3; iPhone 13 simulado; adornos 45 casos y
+  conjunto sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `8ac9b81` · D-027: rodillas B2 aprobadas y por defecto con el conjunto
 
 - **Solicitado por:** la propietaria («Apruebo B2… Regístrala y déjala por defecto con el conjunto de aventura. Esta
   aprobación es solo de las rodillas…»).

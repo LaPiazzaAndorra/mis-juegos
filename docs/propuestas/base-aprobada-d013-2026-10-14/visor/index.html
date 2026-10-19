@@ -73,9 +73,11 @@
     <img id="c-av-calcetines" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/capas/calcetines.png">
     <img id="c-av-botas" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/capas/botas.png">
     <img id="c-av-camiseta" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/capas/camiseta.png">
+    <img id="c-av-camiseta2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa/camiseta.png">
     <img id="c-av-pantalon" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/capas/pantalon.png">
     <img id="c-av-tiras" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/capas/tiras.png">
     <img id="c-av-chaleco" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/capas/chaleco.png">
+    <img id="c-av-chaleco2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa/chaleco.png">
     <img id="c-brazos" class="" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
@@ -152,10 +154,15 @@
     <button data-ropa="vestido-ax" aria-pressed="true">Opción B + axilas (elegida)</button>
     <button data-ropa="aventura" aria-pressed="false">Conjunto de aventura (candidato)</button>
   </div>
+  <div class="fila" id="fila-prendas" hidden>
+    <b>Camiseta y chaleco</b>
+    <button data-prendas="medida" aria-pressed="true">A nuestra medida (guía 1, candidata)</button>
+    <button data-prendas="imagen" aria-pressed="false">De la imagen aprobada (anterior)</button>
+  </div>
   <div class="fila" id="fila-mochila" hidden>
     <b>Mochila</b>
     <button data-mochila="si" aria-pressed="true">Con mochila (candidata)</button>
-    <button data-mochila="no" aria-pressed="false">Sin mochila (faltan los hombros, ver guía)</button>
+    <button data-mochila="no" aria-pressed="false">Sin mochila</button>
   </div>
   <div class="fila" id="fila-rodillas" hidden>
     <b>Rodillas</b>
@@ -651,7 +658,7 @@
   // base; tiras encima de la camiseta y debajo del chaleco). Por ahora, con piel clara, pelo castaño y melena: elegirlo pasa
   // a esa combinación avisando, y con él puesto lo demás no se cambia sin avisar. Las botas sustituyen a los zapatos. Con la
   // melena se usa una copia de su pelo de delante sin 9 trocitos sueltos del vestido que quedaban sobre el pecho.
-  var ropa = 'vestido-ax', conMochila = true, zapatosSi = true, rodillas = 'b2';
+  var ropa = 'vestido-ax', conMochila = true, zapatosSi = true, rodillas = 'b2', prendas = 'medida';
   var RODILLAS = { a: '../../conjunto-aventura-2026-10-18/integrar/piernas/base-piernas-sin-mallas.png',
     b: '../../conjunto-aventura-2026-10-18/integrar/piernas-b/base-piernas-sin-mallas.png',
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png' };
@@ -659,6 +666,13 @@
   function mostrarAventura() {
     var av = ropa === 'aventura';
     AV_PIEZAS.forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av); });
+    // camiseta y chaleco: a nuestra medida (guía 1, candidatos) o los de la imagen aprobada (anteriores)
+    var med = prendas === 'medida';
+    ['camiseta', 'chaleco'].forEach(function (k) {
+      document.getElementById('c-av-' + k).classList.toggle('oculto', !av || med);
+      document.getElementById('c-av-' + k + '2').classList.toggle('oculto', !av || !med);
+    });
+    document.getElementById('fila-prendas').hidden = !av;
     ['mochila', 'tiras'].forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av || !conMochila); });
     document.getElementById('fila-mochila').hidden = !av; document.getElementById('fila-rodillas').hidden = !av;
     // rodillas (D-027, opción A): con el conjunto, una COPIA de la base con la piel completada bajo el pantalón (candidata);
@@ -679,6 +693,12 @@
       if (peinado !== 'melena') { cambios.push('melena'); document.querySelector('[data-peinado="melena"]').click(); }
       if (peloOp !== 'mc') { cambios.push('mechones completos'); document.querySelector('[data-pelo-op="mc"]').click(); }
       if (cambios.length) avisar('El conjunto de aventura (candidato) se ve por ahora con piel clara, pelo castaño y melena: se ha cambiado a ' + cambios.join(', ') + '.');
+    });
+  });
+  document.querySelectorAll('[data-prendas]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      prendas = b.dataset.prendas;
+      document.querySelectorAll('[data-prendas]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
   document.querySelectorAll('[data-rodillas]').forEach(function (b) {

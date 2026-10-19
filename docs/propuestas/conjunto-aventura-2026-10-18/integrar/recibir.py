@@ -200,7 +200,10 @@ def piernas(ruta, mascara=None, carpeta='piernas', transicion=0, sobre=None, ref
 
 
 def ropa(ruta):
-    ali, info = alinear(ruta); pl = plantilla(); base = PT.abrir(PT.SIN_OJOS)
+    # se alinea por la silueta del cuerpo (fuera del torso), que es lo que tiene que encajar con la ropa; los iris solo dan
+    # una escala aproximada (se miden a 1 px y la distancia entre ellos es de ~175 px: 1 px son ~0,6 %)
+    YY0 = np.mgrid[0:H, 0:W][0]; ali, info = alinear_por_silueta(ruta, (YY0 > 600) & (YY0 < 1010))
+    pl = plantilla(); base = PT.abrir(PT.SIN_OJOS)
     d = diferencia(ali, pl); cambia = nd.binary_opening(d > 12, iterations=1)
     YY, XX = np.mgrid[0:H, 0:W]; zona_torso = (YY > 590) & (YY < 1010)
     manos = PT.abrir(PT.MANOS)[..., 3] > 128

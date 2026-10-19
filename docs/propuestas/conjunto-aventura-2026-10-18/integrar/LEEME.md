@@ -28,5 +28,8 @@ rosa bajo las tiras, ropa sobre los brazos). Los parámetros finos de la separac
 alineación de las rodillas es por la silueta (la plantilla no lleva ojos) y la piel se iguala en tono con la nuestra.
 Hoja: `comparacion-rodillas.png` (`comparar_rodillas.py`). Detalles en `../piernas/LEEME.md`.
 
+**Camiseta y chaleco, hecho (19/10):** con la imagen de la guía 1, en `ropa/`; alineados por la silueta del cuerpo (no por
+los iris); hoja `comparacion-camiseta-chaleco.png` (`comparar_ropa.py`).
+
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/recibir.py <guía> <imagen>`
 (para probar sin escribir en el repositorio: `SALIDA_INTEGRAR=/otra/carpeta`).

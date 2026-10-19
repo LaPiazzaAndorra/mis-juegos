@@ -44,3 +44,24 @@ ribete, delanteros) va dentro del espacio verde; los costados del chaleco pueden
 
 Alineación con la plantilla; se toman solo la camiseta y el chaleco (sin piel ni brazos de la imagen); se comprueba que
 tapen la camiseta rosa de la base, que no pisen nuestros brazos y que los bolsillos y texturas sean los aprobados.
+
+## Candidata recibida (19/10)
+
+Imagen de ChatGPT (generada, sin modificar): `de-chatgpt/camiseta-y-chaleco-chatgpt.png` (948 × 1 659, SHA-256
+`f9c15652…41d0f7`). Integrada con `../../integrar/recibir.py ropa` → `../../integrar/ropa/` (`camiseta.png`, `chaleco.png`,
+`comprobaciones.json`, `revision.png`); hoja `../../integrar/comparacion-camiseta-chaleco.png` (`comparar_ropa.py`).
+
+- **Alineación por la silueta del cuerpo** (fuera del torso): escala 0.9989, desplazamiento
+  (0.52; 0.93) px. (Por los iris salía un 1 % más grande:
+  medidos a 1 px, no bastan para la ropa.) Fuera de la ropa, diferencia mediana ΔE 2.45: ChatGPT ha
+  retocado algo la muñeca (sobre todo los brazos), pero **solo se toman la camiseta y el chaleco**; la muñeca es la nuestra.
+- **Encaje:** el chaleco queda **entre nuestros brazos** (delanteros, bolsillos y botones a la vista), con los hombros
+  completos y **sin tiras**. Rosa de la base a la vista, sin mochila: **205 px sin pelo / 65 con la melena** (antes 9 689 /
+  5 415). Lo que queda:
+  - un **filo rosa en el borde exterior de las mangas** (sobre todo la derecha, 1–3 px): la manga de la camiseta nueva es un
+    poco más estrecha que la rosa de la base;
+  - una **rayita en la cadera izquierda**, entre el pantalón y el brazo (39 px): es del pantalón de la imagen original, que
+    no llega hasta ahí; y algún punto entre las piernas.
+- Con la mochila puesta se ven todavía **las tiras de la imagen original**, que no encajan con este chaleco: la guía 2 (tiras
+  nuevas) sigue pendiente.
+- **Candidata, pendiente de tu revisión.** Las capas anteriores se conservan.
