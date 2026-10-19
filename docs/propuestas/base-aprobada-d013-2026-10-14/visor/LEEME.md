@@ -198,3 +198,7 @@ completos). A tamaño real coincide con el montaje (≤ 3).
 **19/10/2026 (37) · D-027:** fila «Camiseta y chaleco»: «A nuestra medida + filos de mangas y cadera (candidata)», por
 defecto (camiseta y pantalón de `integrar/ropa-b/`), «A nuestra medida (guía 1, sin retocar)» y «De la imagen aprobada
 (anterior)». Probada en un iPhone 13 simulado (tocando); a tamaño real coincide con el montaje (≤ 3).
+**19/10/2026 (38) · D-027:** con el conjunto, por defecto: «Sin mochila» («Con mochila» avisa de que lleva las tiras de la
+imagen original; nuevas pendientes), «A nuestra medida, sin restos rosas (candidata)» (camiseta de `integrar/ropa-c/`) y
+«B2 + abertura limpia (candidata)» (`integrar/piernas-b2c/`). B2 aprobada se conserva como opción. A tamaño real coincide
+con el montaje (≤ 3); comprobado también en un iPhone 13 simulado.

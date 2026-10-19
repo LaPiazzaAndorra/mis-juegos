@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: filos de mangas y cadera retocados (candidata)
+### 2026-10-19 — D-027: últimos restos corregidos; conjunto limpio sin mochila (candidato)
+
+- **Solicitado por:** la propietaria («Corrige también los 12 px restantes con máscaras mínimas… Deja «Sin mochila» por
+  defecto mientras las tiras nuevas estén pendientes y enséñame el conjunto limpio para aprobarlo.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `55e993e`, el de la entrada siguiente).
+- **Estado:** conjunto limpio **candidato, pendiente de aprobación**. Nada activado ni publicado.
+- **Cambios:** `integrar/limpiar_ultimos.py` (nuevo) → `integrar/ropa-c/` (camiseta, máscara de la cintura,
+  comprobaciones, antes y después, montajes) e `integrar/piernas-b2c/` (base y máscara de la abertura);
+  `integrar/conjunto-limpio.png`; visor: sin mochila, prendas y rodillas limpias por defecto; D-027 (11), `ESTADO_ACTUAL.md`,
+  `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del conjunto y del visor (38).
+- **Resultado:** cintura (16 px, camiseta contigua) y abertura (35 px, transparente, unida al fondo): **rosa a la vista
+  0 px**. Cambios solo dentro de las máscaras; originales sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (por defecto lo limpio y sin mochila, en escritorio y en un iPhone 13 simulado; a tamaño real ≤ 3;
+  adornos 45 casos y conjunto sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en
+  un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `55e993e` · D-027: filos de mangas y cadera retocados (candidata)
 
 - **Solicitado por:** la propietaria («Prepara una candidata que cubra el filo rosa de las mangas con tela crema
   contigua… Revisa por separado los 39 px de la cadera… Usa máscaras mínimas, conserva los originales y enséñame el antes y

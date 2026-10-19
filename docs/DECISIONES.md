@@ -119,6 +119,18 @@
   - Visor: «A nuestra medida + filos de mangas y cadera (candidata)», por defecto; se conservan «A nuestra medida (guía 1,
     sin retocar)» y «De la imagen aprobada (anterior)». Probada la fila en un iPhone 13 simulado (aparece al tocar el
     conjunto, los tres botones caben y cambian las capas correctas); no en el iPhone real.
+- **19/10/2026 (11):** la propietaria pide corregir también **los 12 px restantes** con máscaras mínimas (tela contigua en la
+  cintura; transparencia en la abertura solo donde corresponda al fondo), conservando los originales, dejar **«Sin
+  mochila» por defecto** mientras faltan las tiras nuevas y enseñarle **el conjunto limpio para aprobarlo**.
+  - Hecho (`integrar/limpiar_ultimos.py`, copias): **cintura derecha** (16 px): el contorno de nuestra cintura salía 1–2 px
+    fuera de la camiseta, bajo el chaleco: se cubre con la camiseta estirada en la misma fila (`integrar/ropa-c/`);
+    **abertura entre las perneras** (35 px): la parte alta del hueco del pantalón, unida al fondo que ya había debajo:
+    transparente solo en los píxeles rosas de la base dentro de la abertura (`integrar/piernas-b2c/`). Las capas cambian
+    solo dentro de sus máscaras; B2, la camiseta de `ropa-b` y los originales no cambian.
+  - **Rosa de la base a la vista: 0 px.** Hoja `integrar/conjunto-limpio.png` (con la melena y sin pelo, sin mochila).
+  - Visor, con el conjunto: «Sin mochila» por defecto («Con mochila» avisa de que lleva las tiras de la imagen original);
+    «A nuestra medida, sin restos rosas (candidata)» y «B2 + abertura limpia (candidata)» por defecto. **Pendiente de la
+    aprobación de la propietaria.**
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

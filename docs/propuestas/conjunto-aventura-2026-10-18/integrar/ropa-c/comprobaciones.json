@@ -1,0 +1,17 @@
+{
+ "cintura": {
+  "mascara_px": 16,
+  "camiseta_cambia_solo_en_la_mascara": true,
+  "que_es": "el contorno de nuestra cintura, 1–2 px fuera de la camiseta, bajo el chaleco: se cubre con la camiseta"
+ },
+ "abertura": {
+  "mascara_px": 35,
+  "candidatos_px": 35,
+  "base_cambia_solo_en_la_mascara": true,
+  "que_es": "la parte alta del hueco entre las perneras, unida al fondo que ya hay debajo: transparente"
+ },
+ "rosa_a_la_vista": {
+  "antes": 12,
+  "despues": 0
+ }
+}
