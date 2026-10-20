@@ -216,3 +216,7 @@ elegida)»); B, la anterior y «Sin mochila» se conservan. Con el conjunto, el 
 y de las dos coletas (con y sin sombrero) usa las copias sin restos de `../pelo-sin-restos/`; sin él, los originales.
 **20/10/2026 (42) · D-027:** el botón «Ajustada: cintura, caderas, calcetines y botas» pasa a «(aprobada)»: la
 propietaria aprobó visualmente el conjunto sin mochila de `f857193`. Nada más cambia.
+**20/10/2026 (43) · D-027:** fila «Mochila»: «A (elegida) con las tiras nuevas (candidatas)», por defecto con el
+conjunto (capa `c-av-tiras2`, `integrar/mochila-b/tiras.png`, encima del chaleco y debajo de los brazos y del pelo de
+delante), y «A sin tiras»; B, la anterior y «Sin mochila» se conservan. Las tiras solo van con la mochila A: al quitarla
+desaparecen (idéntico píxel a píxel con los tres peinados).

@@ -40,7 +40,8 @@ en copias y comprueban que solo cambia lo que hay dentro de sus máscaras (`comp
 `recibir.py mochila`, sino `colocar_mochila.py` → `mochila-b/` (misma escala en los dos ejes, sin giro; A centrada y B
 como en la imagen aprobada; montajes con los tres peinados en `mochila-b/montajes-peinados.png`). **A elegida** (20/10).
 Tiras sobre A: `recibir.py tiras-a <imagen>` → `mochila-b/tiras.png` (compara con
-`../guia-chatgpt/2-mochila/plantilla-tiras-con-mochila-a.png`).
+`../guia-chatgpt/2-mochila/plantilla-tiras-con-mochila-a.png`). Hecho el 20/10: solo las dos tiras y sus hebillas (ChatGPT
+redibujó también el chaleco y eso no se toma); hojas `mochila-b/montajes-tiras.png` y `mochila-b/detalle-tiras.png`.
 
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/recibir.py <guía> <imagen>`
 (para probar sin escribir en el repositorio: `SALIDA_INTEGRAR=/otra/carpeta`).

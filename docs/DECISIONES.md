@@ -181,6 +181,19 @@
   pedir la mochila («sin … cambiar el conjunto aprobado de f857193») y no se registró entonces: se corrige aquí. **Esa
   aprobación se mantiene.** Confirma también las **tiras por encima del chaleco**. Quedan pendientes: **las tiras nuevas**
   (guía 2b sobre la mochila A) y **la revisión del pelo limpio** de la coleta y las dos coletas. Sin probar en el iPhone real.
+- **20/10/2026 (16):** llega de ChatGPT la imagen de las **tiras sobre la mochila A** (guardada sin cambios). La
+  propietaria pide extraer **solo las dos tiras y sus hebillas** con `recibir.py tiras-a`, conservando nuestra muñeca y el
+  conjunto aprobado; comprobar que conectan con la mochila A; revisar los tres peinados; que al quitar la mochila
+  desaparezcan también las tiras, y enseñarlo como candidato.
+  - ChatGPT redibujó la muñeca y el chaleco (escala 1,0115 por los ojos; contornos a 1–5 px; ribete de las solapas algo
+    movido), así que la primera extracción (todo lo nuevo y verde) tomaba también su chaleco. `tiras-a` se rehace: por
+    cada lado, el tramo de arriba y el de abajo (apertura más ancha que el ribete), una banda fila a fila con el ancho de la
+    tira, **la hebilla entera** (la caja de su marco dorado, con esquinas redondeadas) y la punta, que se estrecha y pasa
+    por detrás del chaleco. Resultado: 15 065 px; nada de la muñeca ni del chaleco de ChatGPT.
+  - Conexión con A: arriba, las tiras tapan la franja de la mochila que asomaba sobre los hombros (salen de ella).
+  - Visor: «A (elegida) con las tiras nuevas (candidatas)», por defecto, y «A sin tiras». Las tiras van encima del chaleco
+    y debajo de los brazos y del pelo de delante; solo con la mochila A. Al quitar la mochila, idéntico píxel a píxel
+    (los tres peinados). **Candidatas, pendientes de aprobación.**
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

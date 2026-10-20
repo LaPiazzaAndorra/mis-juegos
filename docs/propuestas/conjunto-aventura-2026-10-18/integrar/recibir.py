@@ -252,18 +252,73 @@ def tiras(ruta):
 
 
 def tiras_a(ruta):
-    """Guía 2b sobre la mochila A: se compara con la plantilla enviada (la muñeca con el conjunto y la mochila A); solo se
-    toma lo nuevo y verde (o junto a lo verde: hebillas) en la zona de los hombros y el pecho."""
+    """Guía 2b sobre la mochila A: solo las dos tiras y sus hebillas, sobre el conjunto aprobado. ChatGPT redibuja también
+    el chaleco a su manera (el ribete de las solapas, un poco movido): eso NO se toma. Por cada lado:
+    1. el tramo de arriba: lo verde que queda tras una apertura de radio 7 (más ancho que el ribete, ≈ 8 px), de y > 620;
+    2. el tramo de abajo: lo verde (apertura de radio 5) que sigue debajo de la hebilla, dentro del ancho del de arriba;
+    3. una banda fila a fila con el ancho de los tramos (+3 px; en la hebilla, que corta el verde, ancho interpolado y
+       +12 px, también 22 filas por encima y por debajo, para su marco) y, abajo, la punta que se estrecha mientras haya verde (allí la tira pasa por detrás del
+       chaleco);
+    4. dentro de la banda: lo verde, lo que cambia respecto a la plantilla (dE > 12) y los huecos cerrados;
+    5. la hebilla entera: la caja de su marco dorado (hallado donde se distingue de la plantilla), con esquinas redondeadas."""
+    from skimage.morphology import disk
     ref = CJ / 'guia-chatgpt' / '2-mochila' / 'plantilla-tiras-con-mochila-a.png'
     ali, info = alinear(ruta); pl = np.array(Image.open(ref).convert('RGB')); d = diferencia(ali, pl)
     YY, XX = np.mgrid[0:H, 0:W]; L, a, b = [lab(ali)[..., i] for i in range(3)]
-    zona = (YY > 600) & (YY < 900) & (XX > 300) & (XX < 660)
-    verde = (a < 6) & (b > 8) & (L < 215) & (L > 40)
-    nueva = nd.binary_fill_holes(nd.binary_opening((d > 12) & zona & (verde | nd.binary_dilation(verde, iterations=6)), iterations=1)) & zona
+    zona = (YY > 620) & (YY < 900) & (XX > 320) & (XX < 640)
+    verde = (a < 6) & (b > 8) & (L < 215) & (L > 40) & zona
+    oro = (b > 18) & (L > 95) & (a > 1) & (d > 12) & zona          # el marco de las hebillas, donde se distingue de la plantilla
+
+    def trozos(m):
+        et, n = nd.label(m); return [et == i + 1 for i in range(n)]
+    arriba = [c for c in trozos(nd.binary_opening(verde, structure=disk(7))) if c.sum() > 2000]
+    abajo = [c for c in trozos(nd.binary_opening(verde, structure=disk(5))) if 300 < c.sum() < 3000]
+    nueva = np.zeros((H, W), bool); lados = []
+    for u in sorted(arriba, key=lambda m: np.where(m)[1].mean()):
+        ys, xs = np.where(u); yb = ys.max(); bx = np.where(u[yb - 25:yb + 1].any(0))[0]; x0, x1 = bx.min(), bx.max()
+        partes = u.copy()
+        for c in abajo:
+            cy, cx = np.where(c)
+            if yb - 15 < cy.min() < yb + 40 and cx.min() >= x0 - 15 and cx.max() <= x1 + 15:
+                partes |= c
+        tramo = {y: (np.where(partes[y])[0].min(), np.where(partes[y])[0].max()) for y in np.unique(np.where(partes)[0])}
+        filas = sorted(tramo); y0, y1 = filas[0], filas[-1]
+        hueco = [y for y in range(y0, y1 + 1) if y not in tramo]; g0, g1 = (min(hueco), max(hueco)) if hueco else (-99, -99)
+        banda = np.zeros((H, W), bool)
+        for y in range(y0, y1 + 1):
+            if y in tramo:
+                s0, s1 = tramo[y]
+            else:
+                p = max(k for k in filas if k < y); q = min(k for k in filas if k > y); f = (y - p) / (q - p)
+                s0 = round(tramo[p][0] * (1 - f) + tramo[q][0] * f); s1 = round(tramo[p][1] * (1 - f) + tramo[q][1] * f)
+            m = 12 if g0 - 22 <= y <= g1 + 22 else 3
+            banda[y, max(s0 - m, 0):s1 + m + 1] = True
+        s0, s1 = tramo[y1]; y = y1 + 1                       # la punta
+        while y < H:
+            r = np.where(verde[y, s0 - 2:s1 + 3])[0]
+            if len(r) == 0:
+                break
+            s0, s1 = s0 - 2 + r.min(), s0 - 2 + r.max(); banda[y, s0 - 1:s1 + 2] = True; y += 1
+        t = nd.binary_fill_holes(nd.binary_opening(banda & (nd.binary_dilation(partes, iterations=2) | (d > 12) | verde), iterations=1))
+        if hueco:   # la hebilla: su marco dorado se parece al arena del chaleco de debajo; se toma la caja de todos sus trozos (esquinas redondeadas)
+            cajab = np.zeros((H, W), bool); cajab[g0 - 12:g1 + 9] = banda[g0 - 12:g1 + 9]
+            et, n = nd.label(oro & cajab)
+            if n:
+                tam = nd.sum(oro & cajab, et, range(1, n + 1)); hy, hx = np.where(np.isin(et, [i + 1 for i in range(n) if tam[i] >= 20]))
+                bx0, by0, bx1, by1 = hx.min(), hy.min(), hx.max(), hy.max(); r = 4
+                rect = np.zeros((H, W), bool); rect[by0:by1 + 1, bx0:bx1 + 1] = True
+                for (cx, cy) in ((bx0 + r, by0 + r), (bx1 - r, by0 + r), (bx0 + r, by1 - r), (bx1 - r, by1 - r)):
+                    esq = (np.abs(XX - cx) <= r) & (np.abs(YY - cy) <= r) & (((XX - cx) * np.sign(cx - (bx0 + bx1) / 2) < 0) | ((YY - cy) * np.sign(cy - (by0 + by1) / 2) < 0) | ((XX - cx) ** 2 + (YY - cy) ** 2 <= r * r))
+                    rect &= ~((np.abs(XX - cx) <= r) & (np.abs(YY - cy) <= r)) | esq
+                t |= rect
+        nueva |= t; ty, tx = np.where(t)
+        lados.append(dict(px=int(t.sum()), caja=[int(tx.min()), int(ty.min()), int(tx.max()), int(ty.max())], hebilla_filas=[int(g0), int(g1)]))
     S = SAL / 'mochila-b'; S.mkdir(exist_ok=True); c = A.CO.suave(nueva, ali, ~nueva); Image.fromarray(c, 'RGBA').save(S / 'tiras.png', optimize=True)
-    comp = dict(guia='2b · tiras sobre la mochila A', alineacion=info, **igual_fuera(ali, nueva, 'fuera_de_las_tiras', pl), tiras_px=int(nueva.sum()))
+    comp = dict(guia='2b · tiras sobre la mochila A', recibido_sha256=sha(ruta), alineacion=info,
+                **igual_fuera(ali, nueva, 'fuera_de_las_tiras', pl), tiras_px=int(nueva.sum()), tiras=lados)
     F = PT.MK.F(15); caja = (250, 560, 710, 900); fondo = np.dstack([pl, np.full((H, W), 255, np.uint8)])
-    guardar(S, comp, [vista([fondo], caja, F, 'Plantilla (mochila A)'), vista([fondo, c], caja, F, 'Con las tiras recibidas')])
+    guardar(S, comp, [vista([fondo], caja, F, 'Plantilla (mochila A)'), vista([np.dstack([ali, np.full((H, W), 255, np.uint8)])], caja, F, 'Imagen recibida (alineada)'),
+                      vista([fondo, c], caja, F, 'Plantilla + solo las tiras')])
 
 
 def mochila(ruta, cx=262, cy=890, ancho=150, giro=0):

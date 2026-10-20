@@ -1,6 +1,30 @@
 # Registro de cambios
 
-### 2026-10-20 — D-027: estado corregido (conjunto sin mochila de f857193 aprobado); tiras por encima del chaleco
+### 2026-10-20 — D-027: tiras nuevas sobre la mochila A, integradas (candidatas)
+
+- **Solicitado por:** la propietaria («Usa recibir.py tiras-a para extraer únicamente las dos tiras y sus hebillas.
+  Conserva nuestra muñeca y el conjunto aprobado. Comprueba que conecten con la mochila A y revisa el montaje con los tres
+  peinados. Al quitar la mochila deben desaparecer también las tiras. Enséñame el resultado como candidato antes de
+  aprobarlo.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `1601a82`, el de la entrada siguiente).
+- **Estado:** tiras **candidatas, pendientes de aprobación**. Nada activado ni publicado.
+- **Cambios:** imagen recibida, sin modificar, en `guia-chatgpt/2-mochila/de-chatgpt/tiras-sobre-a-chatgpt.png`;
+  `integrar/recibir.py tiras-a` rehecho (la primera versión tomaba también el chaleco que ChatGPT redibujó): tramos de cada
+  tira, hebilla entera y punta → `integrar/mochila-b/tiras.png`, `comprobaciones.json`, `revision.png`,
+  `montajes-tiras.png` y `detalle-tiras.png`; visor: «A (elegida) con las tiras nuevas (candidatas)», por defecto, y «A
+  sin tiras»; D-027 (16), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md`
+  del conjunto, de la guía 2, de `integrar/` y del visor (43).
+- **Resultado:** 15 065 px (izquierda 7 864, derecha 7 201), con las dos hebillas enteras. Encima del chaleco y debajo de
+  los brazos y del pelo de delante; arriba tapan la franja de la mochila A que asomaba sobre los hombros (salen de ella);
+  abajo se estrechan y pasan por detrás del chaleco, como en la imagen.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (con los tres peinados: sin mochila, idéntico a `1601a82`; al quitar la mochila desaparecen también
+  las tiras, idéntico píxel a píxel; «A sin tiras», igual que la A anterior; sin errores). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-20 — `1601a82` · D-027: estado corregido (conjunto sin mochila de f857193 aprobado); tiras por encima del chaleco
 
 - **Solicitado por:** la propietaria («Confirmo las tiras por encima del chaleco. Corrige también el estado de D-027: ya
   aprobé visualmente el conjunto sin mochila de f857193. Quedan pendientes las tiras nuevas y la revisión del pelo limpio;

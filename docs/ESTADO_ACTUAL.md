@@ -179,6 +179,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   preparada (`…/guia-chatgpt/2-mochila/`, **por encima del chaleco: confirmado**), pendiente de hacer en ChatGPT; recepción con
   `recibir.py tiras-a`. **Pelo limpio para el conjunto** (candidato): coleta sin el trocito del cuello y dos coletas sin el
   rosa entre los rizos (`base-aprobada-d013-2026-10-14/pelo-sin-restos/`, `antes-despues-coletas.png`).
+- **20/10: tiras nuevas sobre la mochila A, candidatas** (`…/integrar/mochila-b/tiras.png`): solo las dos tiras y sus
+  hebillas de la imagen de ChatGPT, sobre el conjunto aprobado; salen de la mochila A y pasan por detrás del chaleco. Con
+  los tres peinados (`montajes-tiras.png`, `detalle-tiras.png`); al quitar la mochila desaparecen también. En el visor, por
+  defecto con el conjunto. **Pendientes de aprobación**, igual que la revisión del pelo limpio.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -333,7 +337,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 20/10/2026 (D-027: conjunto sin mochila de `f857193` aprobado; mochila A elegida; pendientes las tiras nuevas y la revisión del pelo limpio) · **Rama:** `avatar-creador` ·
+**Última actualización:** 20/10/2026 (D-027: tiras nuevas sobre la mochila A integradas, candidatas; pendiente también la revisión del pelo limpio) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

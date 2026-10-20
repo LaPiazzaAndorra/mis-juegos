@@ -39,6 +39,10 @@ y que sin la mochila no quede nada de ella.
 - **20/10/2026 · cuerpo de la mochila, sin tiras** (guía 2a): `de-chatgpt/mochila-cuerpo-chatgpt.png` (1 348 × 1 167,
   fondo transparente, SHA-256 `858432cbb9c3b8402465e5b8346f54e6c4f7b7674a38aea4a5295d9873133cee`), sin modificar.
   Colocado en `../../integrar/mochila-b/` (candidatas A y B). **Las tiras (guía 2b), pendientes.**
+- **20/10/2026 · tiras sobre la mochila A** (guía 2b): `de-chatgpt/tiras-sobre-a-chatgpt.png` (948 × 1 660, SHA-256
+  `8dabb2daac8ceb65bccfd2da6cda563e7484817743ed576b9663ddad2946caa3`), sin modificar. ChatGPT redibujó también la muñeca y
+  el chaleco (ribete de las solapas algo movido; escala 1,0115 por los ojos, contornos a 1–5 px): de ella se toman **solo
+  las dos tiras y sus hebillas** (`integrar/recibir.py tiras-a` → `../../integrar/mochila-b/tiras.png`). Candidatas.
 
 ## Tiras nuevas sobre la mochila A (20/10/2026, guía 2b)
 

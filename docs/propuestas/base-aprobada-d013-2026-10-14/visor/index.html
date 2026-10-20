@@ -86,6 +86,7 @@
     <img id="c-av-chaleco2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa/chaleco.png">
     <img id="c-av-pantalon3" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa-d/pantalon.png">
     <img id="c-av-chaleco3" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa-d/chaleco.png">
+    <img id="c-av-tiras2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/tiras.png">
     <img id="c-brazos" class="" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
@@ -171,7 +172,8 @@
   </div>
   <div class="fila" id="fila-mochila" hidden>
     <b>Mochila</b>
-    <button data-mochila="centrada" aria-pressed="true">Cuerpo nuevo centrado, sin tiras (A, elegida)</button>
+    <button data-mochila="centrada" aria-pressed="true">A (elegida) con las tiras nuevas (candidatas)</button>
+    <button data-mochila="centrada-sin" aria-pressed="false">A sin tiras</button>
     <button data-mochila="lateral" aria-pressed="false">Cuerpo nuevo como en la imagen aprobada, sin tiras (candidata B)</button>
     <button data-mochila="si" aria-pressed="false">Mochila anterior (con las tiras de la imagen original)</button>
     <button data-mochila="no" aria-pressed="false">Sin mochila</button>
@@ -708,7 +710,9 @@
     // cuerpo nuevo de la mochila (guía 2a, candidato): detrás de todo (también del pelo de detrás: coletas y melena caen por
     // delante de ella); sin tiras hasta que estén las nuevas
     // (A: centrada en nuestro torso; B: corrida hacia su derecha, como en la imagen aprobada)
-    document.getElementById('c-av-mochila2').classList.toggle('oculto', !av || mochila !== 'centrada');
+    document.getElementById('c-av-mochila2').classList.toggle('oculto', !av || (mochila !== 'centrada' && mochila !== 'centrada-sin'));
+    // tiras nuevas (guía 2b, candidatas): encima del chaleco y debajo de los brazos; van con la mochila A y se quitan con ella
+    document.getElementById('c-av-tiras2').classList.toggle('oculto', !av || mochila !== 'centrada');
     document.getElementById('c-av-mochila3').classList.toggle('oculto', !av || mochila !== 'lateral');
     document.getElementById('fila-mochila').hidden = !av; document.getElementById('fila-rodillas').hidden = !av;
     // rodillas (D-027, opción A): con el conjunto, una COPIA de la base con la piel completada bajo el pantalón (candidata);
