@@ -49,6 +49,9 @@ no se cambia sin avisar). Las botas sustituyen a los zapatos.
 - Camiseta y chaleco (guía 1): **integrados** (19/10) en `integrar/ropa/`, con los filos de mangas y cadera retocados en `integrar/ropa-b/` y los últimos restos en `integrar/ropa-c/` y `integrar/piernas-b2c/`: **conjunto limpio** (0 px de rosa; `integrar/conjunto-limpio.png`), candidato; sin mochila por defecto. **No aprobado (19/10):** pantalón ajustado en cintura y caderas, chaleco sin halo, calcetines al ancho de nuestras piernas y botas sin sombra en `integrar/ropa-d/` (`integrar/ajustar_pantalon_y_pies.py`; antes y después sin pelo: `integrar/ropa-d/antes-despues.png`), candidata.
 - Mochila: **cuerpo recibido** (20/10, sin tiras; `guia-chatgpt/2-mochila/de-chatgpt/`) y colocado detrás de la muñeca en
   `integrar/mochila-b/` (`integrar/colocar_mochila.py`): candidatas A (centrada) y B (como en la imagen aprobada), con la
-  melena, la coleta y las dos coletas (`integrar/mochila-b/montajes-peinados.png`). Faltan elegir A o B y **las tiras
-  nuevas** (guía 2b, con `integrar/recibir.py tiras`); las antiguas no dan el montaje por terminado.
+  melena, la coleta y las dos coletas (`integrar/mochila-b/montajes-peinados.png`). **A elegida** (20/10; B, alternativa).
+  Faltan **las tiras nuevas**: guía 2b sobre A preparada en `guia-chatgpt/2-mochila/` (por encima del chaleco); al
+  recibirlas, `integrar/recibir.py tiras-a`. Las antiguas no dan el montaje por terminado.
+- Pelo para el conjunto: coleta y dos coletas sin restos (copias en `../base-aprobada-d013-2026-10-14/pelo-sin-restos/`,
+  candidato).
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

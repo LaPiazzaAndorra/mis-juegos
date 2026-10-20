@@ -165,6 +165,17 @@
   - Visto al revisarlo (anterior a esta tarea, no tocado): con la coleta, un trocito suelto (≈ 74 px) de su pelo de detrás
     junto al cuello; con las dos coletas, restos rosas del vestido entre los rizos y las mangas (con el vestido los tapaban
     sus mangas). Se pueden limpiar como el pelo de la melena (`pelo-sin-restos/`) cuando la propietaria lo pida.
+- **20/10/2026 (14):** la propietaria **elige la mochila A** (centrada en el torso), por defecto con el conjunto; **B se
+  conserva** como alternativa en el visor. Pide seguir con **las tiras nuevas sobre los hombros tomando A como referencia**,
+  y copias limpias del pelo para el conjunto (el fragmento junto al cuello de la coleta y los restos rosas de las dos
+  coletas), conservando los rizos y los originales, con el antes y después.
+  - Tiras: guía 2b preparada sobre A (`guia-chatgpt/2-mochila/plantilla-tiras-con-mochila-a.png`, `guia-tiras-sobre-a.png`
+    y mensaje en su `LEEME.md`). Como nuestro chaleco cubre los hombros hasta la manga, se piden **por encima del chaleco**
+    (por debajo no se verían). Recepción: `integrar/recibir.py tiras-a`. Falta hacerla en ChatGPT.
+  - Pelo (`base-aprobada-d013-2026-10-14/pelo-sin-restos/limpiar_coletas.py`, copias en esa carpeta, cinco colores): coleta,
+    2 trozos sueltos que no eran pelo (89 px junto al cuello y 229 px tapados detrás); dos coletas, 2 608 px de rosa del
+    vestido entre los rizos (el canto, con el color del pelo de al lado; los huecos al fondo, transparentes). Con el conjunto,
+    el visor usa las copias; con el vestido, los originales. **Candidato, pendiente de revisión.**
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

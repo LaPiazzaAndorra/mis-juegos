@@ -1,6 +1,32 @@
 # Registro de cambios
 
-### 2026-10-20 — D-027: cuerpo nuevo de la mochila detrás de la muñeca (candidatas A y B, sin tiras)
+### 2026-10-20 — D-027: mochila A elegida; guía de las tiras sobre A; pelo de la coleta y las dos coletas sin restos
+
+- **Solicitado por:** la propietaria («Elijo la mochila A, centrada en el torso. Registra la elección y déjala seleccionada
+  por defecto con el conjunto de aventura. Conserva B como alternativa. Seguimos con las tiras nuevas sobre los hombros,
+  tomando A como referencia… Prepara copias limpias del pelo para el conjunto: revisa el fragmento junto al cuello de la
+  coleta y elimina los restos rosas de las dos coletas, conservando los rizos y los originales. Enséñame las zonas antes y
+  después.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `efbd5ac`, el de la entrada siguiente).
+- **Estado:** mochila A **elegida** (sin tiras; B se conserva); guía de las tiras preparada (falta hacerla en ChatGPT);
+  pelo limpio, **candidato**. Nada activado ni publicado.
+- **Cambios:** visor (mochila A por defecto con el conjunto; con él, el pelo de detrás limpio de la coleta y las dos
+  coletas); `pelo-sin-restos/limpiar_coletas.py` (nuevo) y sus copias, máscaras, `comprobaciones-coletas.json` y
+  `antes-despues-coletas.png`; `guia-chatgpt/preparar_tiras_a.py` (nuevo) → `2-mochila/plantilla-tiras-con-mochila-a.png` y
+  `guia-tiras-sobre-a.png`; `integrar/recibir.py tiras-a` (nuevo); D-027 (14), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del conjunto, de la guía 2, de `integrar/`, de
+  `pelo-sin-restos/` y del visor (41).
+- **Resultado:** coleta: quitados 2 trozos sueltos (89 + 229 px); dos coletas: 2 608 px de rosa (1 629 recoloreados con el
+  pelo de al lado, 979 transparentes). Originales sin cambios; fuera de las máscaras, idéntico. Recepción de las tiras
+  probada con una imagen simulada (98 % recuperado).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (escritorio y iPhone 13 simulado: mochila A por defecto; copias limpias con el conjunto en los dos
+  peinados y sus variantes, originales sin él; sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45.
+  No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-20 — `efbd5ac` · D-027: cuerpo nuevo de la mochila detrás de la muñeca (candidatas A y B, sin tiras)
 
 - **Solicitado por:** la propietaria («Esta es la candidata del cuerpo completo de la mochila, sin tiras. Colócala detrás de
   nuestra muñeca, ajustando escala y posición sin deformarla ni cambiar el conjunto aprobado de f857193. Enséñame cómo queda

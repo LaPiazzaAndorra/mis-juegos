@@ -171,10 +171,10 @@
   </div>
   <div class="fila" id="fila-mochila" hidden>
     <b>Mochila</b>
-    <button data-mochila="centrada" aria-pressed="false">Cuerpo nuevo centrado, sin tiras (candidata A)</button>
+    <button data-mochila="centrada" aria-pressed="true">Cuerpo nuevo centrado, sin tiras (A, elegida)</button>
     <button data-mochila="lateral" aria-pressed="false">Cuerpo nuevo como en la imagen aprobada, sin tiras (candidata B)</button>
     <button data-mochila="si" aria-pressed="false">Mochila anterior (con las tiras de la imagen original)</button>
-    <button data-mochila="no" aria-pressed="true">Sin mochila</button>
+    <button data-mochila="no" aria-pressed="false">Sin mochila</button>
   </div>
   <div class="fila" id="fila-rodillas" hidden>
     <b>Rodillas</b>
@@ -672,14 +672,22 @@
   // coletas, 20/10): elegirlo pasa
   // a esa combinación avisando, y con él puesto lo demás no se cambia sin avisar. Las botas sustituyen a los zapatos. Con la
   // melena se usa una copia de su pelo de delante sin 9 trocitos sueltos del vestido que quedaban sobre el pecho.
-  var ropa = 'vestido-ax', mochila = 'no', zapatosSi = true, rodillas = 'b2c', prendas = 'medida3';   // sin mochila mientras faltan las tiras nuevas
+  var ropa = 'vestido-ax', mochila = 'centrada', zapatosSi = true, rodillas = 'b2c', prendas = 'medida3';   // mochila A (elegida, 20/10), aún sin tiras
   var RODILLAS = { a: '../../conjunto-aventura-2026-10-18/integrar/piernas/base-piernas-sin-mallas.png',
     b: '../../conjunto-aventura-2026-10-18/integrar/piernas-b/base-piernas-sin-mallas.png',
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
     b2c: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
+  var LIMPIO = '../pelo-sin-restos/';
   function mostrarAventura() {
     var av = ropa === 'aventura';
+    // con el conjunto, el pelo de detrás de la coleta y de las dos coletas sin restos (copias de pelo-sin-restos/, 20/10);
+    // sin el conjunto, los originales aprobados
+    mostrarColeta(); mostrarColetas2();
+    if (av && peinado === 'coleta') ['con', 'sin'].forEach(function (v) {
+      ponSrc(v === 'con' ? 'c-coleta-detras' : 'c-coleta-detras-sc', LIMPIO + 'pelo-coleta-' + v + '-detras-' + colorPelo + '-sin-restos.png'); });
+    if (av && peinado === 'coletas2' && versionColetas2 !== 'anterior')
+      ponSrc('c-coletas2-detras', LIMPIO + 'pelo-coletas-' + versionColetas2 + '-sombrero-detras-' + colorPelo + '-sin-restos.png');
     if (av && peinado === 'melena' && peloOp !== 'mc') elegirPeloOp('mc');   // al volver a la melena con el conjunto
     AV_PIEZAS.forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av); });
     // camiseta y chaleco: a nuestra medida (guía 1, candidatos) o los de la imagen aprobada (anteriores)

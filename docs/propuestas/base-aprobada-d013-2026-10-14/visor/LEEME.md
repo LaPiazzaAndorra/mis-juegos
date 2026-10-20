@@ -211,3 +211,6 @@ imagen aprobada, sin tiras (candidata B)» (`integrar/mochila-b/`, detrás de to
 «Mochila anterior (con las tiras de la imagen original)» y «Sin mochila» (por defecto). Con el conjunto se pueden elegir ya
 la melena, la coleta y las dos coletas (piel clara y castaño). Al quitar la mochila, idéntico píxel a píxel; con la melena,
 igual que en `f857193`. Probado en escritorio a tamaño real y en un iPhone 13 simulado (tocando).
+**20/10/2026 (41) · D-027:** con el conjunto, **mochila A por defecto** («Cuerpo nuevo centrado, sin tiras (A,
+elegida)»); B, la anterior y «Sin mochila» se conservan. Con el conjunto, el pelo de detrás de la coleta (con y sin cinta)
+y de las dos coletas (con y sin sombrero) usa las copias sin restos de `../pelo-sin-restos/`; sin él, los originales.

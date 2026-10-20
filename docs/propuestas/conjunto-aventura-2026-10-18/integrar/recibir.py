@@ -9,7 +9,9 @@ candidatas actuales: todo sale a integrar/<guía>/ como candidato.
                       ../piernas/mascara-zona.png) sobre la base (por defecto ../piernas/base-copia.png)
                       → <carpeta>/base-piernas-sin-mallas.png; la B: mascara-zona-b.png, carpeta piernas-b, transición 3
   ropa     <imagen>   guía 1: camiseta y chaleco sobre nuestra plantilla → ropa/camiseta.png y ropa/chaleco.png
-  tiras    <imagen>   guía 2b: tiras sobre nuestra plantilla → mochila/tiras.png
+  tiras    <imagen>   guía 2b (antigua): tiras sobre nuestra plantilla sin ropa → mochila/tiras.png
+  tiras-a  <imagen>   guía 2b sobre la mochila A (20/10): tiras sobre ../guia-chatgpt/2-mochila/plantilla-tiras-con-mochila-a.png
+                      (muñeca con el conjunto ajustado y la mochila A, sin pelo) → mochila-b/tiras.png
   mochila  <imagen> [cx cy ancho giro]   guía 2a: la mochila sola sobre fondo crema → mochila/mochila-recortada.png y,
                       colocada detrás de la base, mochila/mochila.png
 
@@ -249,6 +251,21 @@ def tiras(ruta):
     guardar(S, comp, [vista([PT.abrir(PT.SIN_OJOS), PT.abrir(PT.OJOS['marron']), c], caja, F, 'Tiras sobre nuestra muñeca')])
 
 
+def tiras_a(ruta):
+    """Guía 2b sobre la mochila A: se compara con la plantilla enviada (la muñeca con el conjunto y la mochila A); solo se
+    toma lo nuevo y verde (o junto a lo verde: hebillas) en la zona de los hombros y el pecho."""
+    ref = CJ / 'guia-chatgpt' / '2-mochila' / 'plantilla-tiras-con-mochila-a.png'
+    ali, info = alinear(ruta); pl = np.array(Image.open(ref).convert('RGB')); d = diferencia(ali, pl)
+    YY, XX = np.mgrid[0:H, 0:W]; L, a, b = [lab(ali)[..., i] for i in range(3)]
+    zona = (YY > 600) & (YY < 900) & (XX > 300) & (XX < 660)
+    verde = (a < 6) & (b > 8) & (L < 215) & (L > 40)
+    nueva = nd.binary_fill_holes(nd.binary_opening((d > 12) & zona & (verde | nd.binary_dilation(verde, iterations=6)), iterations=1)) & zona
+    S = SAL / 'mochila-b'; S.mkdir(exist_ok=True); c = A.CO.suave(nueva, ali, ~nueva); Image.fromarray(c, 'RGBA').save(S / 'tiras.png', optimize=True)
+    comp = dict(guia='2b · tiras sobre la mochila A', alineacion=info, **igual_fuera(ali, nueva, 'fuera_de_las_tiras', pl), tiras_px=int(nueva.sum()))
+    F = PT.MK.F(15); caja = (250, 560, 710, 900); fondo = np.dstack([pl, np.full((H, W), 255, np.uint8)])
+    guardar(S, comp, [vista([fondo], caja, F, 'Plantilla (mochila A)'), vista([fondo, c], caja, F, 'Con las tiras recibidas')])
+
+
 def mochila(ruta, cx=262, cy=890, ancho=150, giro=0):
     im = np.array(Image.open(ruta).convert('RGB')); lb = lab(im); C = np.hypot(lb[..., 1], lb[..., 2])
     fondo = (lb[..., 0] >= 240) & (C < 9)
@@ -275,4 +292,4 @@ if __name__ == '__main__':
         piernas(ruta, sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else 'piernas', int(sys.argv[5]) if len(sys.argv) > 5 else 0,
                 sys.argv[6] if len(sys.argv) > 6 else None, sys.argv[7] if len(sys.argv) > 7 else None)
     else:
-        {'piernas': piernas, 'ropa': ropa, 'tiras': tiras}[guia](ruta)
+        {'piernas': piernas, 'ropa': ropa, 'tiras': tiras, 'tiras-a': tiras_a}[guia](ruta)

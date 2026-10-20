@@ -1,0 +1,155 @@
+{
+ "coleta": {
+  "trozos": [
+   {
+    "px": 89,
+    "caja": [
+     403,
+     629,
+     413,
+     644
+    ]
+   },
+   {
+    "px": 229,
+    "caja": [
+     448,
+     657,
+     507,
+     661
+    ]
+   }
+  ],
+  "con-castano": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "con-chocolate": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "con-miel": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "con-oscuro": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "con-jengibre": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "sin-castano": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "sin-chocolate": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "sin-miel": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "sin-oscuro": {
+   "px": 318,
+   "fuera_igual": true
+  },
+  "sin-jengibre": {
+   "px": 318,
+   "fuera_igual": true
+  }
+ },
+ "coletas": {
+  "con-castano": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "con-chocolate": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "con-miel": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "con-oscuro": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "con-jengibre": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "sin-castano": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "sin-chocolate": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "sin-miel": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "sin-oscuro": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  },
+  "sin-jengibre": {
+   "px": 2608,
+   "canto_recoloreado": 1629,
+   "hueco_transparente": 979,
+   "fuera_igual": true
+  }
+ },
+ "zona_rosa": {
+  "x_izq": 380,
+  "x_der": 570,
+  "y0": 600,
+  "y1": 900
+ },
+ "originales_sin_cambios": true,
+ "sha256_originales": {
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-castano.png": "f94deec093cad74729e5ef2deff3c4a98d676a680f872757a07f689068fac1dd",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-chocolate.png": "743239f0c1370e5c7dad09d45683c5bf2d88ddbc1133829168ca8eb9b025f832",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-miel.png": "cca0268a06c0fea2c9bf5f40f7a76f5b52617d8d79ff58f7a88ed1bde0d1673e",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-oscuro.png": "f5037d8c0810554dda904643e7a35c45013229ed112673af73ad5d5e682839b2",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-jengibre.png": "4c08bda9e661c95533bc62ea31750c5d583448e1b3fde3ea9dca020ecab55c8f",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-castano.png": "b92bc4b31eaca55468b696f715e22680db29c5ee5178cc77d7b3940918d59b0a",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-chocolate.png": "4637c5f014229d0055de92deee988c29922aa9378d647ee41a0265a1708ad974",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-miel.png": "af8ca1e3a4933d53d46288893286d27fe066affa9298c2f3ff6ae5ffebab851d",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-oscuro.png": "512c169ee88614d8025549bbf400f4346d226e71448bc376a96cb811d570e9f2",
+  "docs/propuestas/peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-sin-detras-jengibre.png": "1c4b48d1875186ac3efbd6a40fbb21cfbd9adc17064343ac4bd2d85624843ee2",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-con-sombrero-detras-castano.png": "3a236b1c7dccb09ea1727354324407fb44b087ba313ec9f2a8c49a2cd8f10769",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-con-sombrero-detras-chocolate.png": "b3bc7e1efbe992d21e4a21b925972bc0ec9ed2fac590ffd3f70fbbd06d3f3a14",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-con-sombrero-detras-miel.png": "aff6ccb090de5f85912954b03e3829c284d0be0f1b935d748fb51fbb75e9cf06",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-con-sombrero-detras-oscuro.png": "e74611425a892a91fe1e8208584f458dd2853bf610649a5250eccffdecc5cbd3",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-con-sombrero-detras-jengibre.png": "eb5cca7cb63ee3697e95cab4cec26908cfdd9b0aa25401be2964ea6fe88dbf2b",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-sin-sombrero-detras-castano.png": "325ee1754c5bd26377f649de4b589fb2ce7c593eab9a782d7ceaae10a37ed767",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-sin-sombrero-detras-chocolate.png": "47cef1f25729b3140057c6f2b18a1bac81cffc095b0928c6225b3563c8145046",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-sin-sombrero-detras-miel.png": "47105222461cbd09028d02bbd11e6334dbb9d112fdb3d76338681623712855b9",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-sin-sombrero-detras-oscuro.png": "b1f41a5aee1de64d1d1ef13c171078b0833b882bec84b1557d0b9ff3012d807a",
+  "docs/propuestas/peinado-coletas-sombrero-2026-10-17/capas/variantes/pelo-coletas-sin-sombrero-detras-jengibre.png": "2e9ae4e1327ca6b2294ad3335d26bcc91c73a4dd9f7ffbda8ca56803ac68178e"
+ }
+}
