@@ -168,6 +168,12 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   (`…/integrar/ropa-d/`): cadera izquierda y bolsillo recuperados de la imagen, cintura completada con la tela del propio
   pantalón, sin el halo claro del chaleco, calcetines al ancho de nuestras piernas y botas sin el trozo de sombra. En el
   visor, por defecto; antes y después sin pelo en `…/integrar/ropa-d/antes-despues.png`. La mochila, para después.
+- **20/10: cuerpo nuevo de la mochila (de ChatGPT, sin tiras), candidatas A y B** (`…/integrar/mochila-b/`): misma
+  escala que en la imagen aprobada (0,38), sin deformar; A centrada en nuestro torso (apenas asoma), B como en la imagen
+  aprobada (se ve el bolsillo junto al brazo). Vistas con la melena, la coleta y las dos coletas (`montajes-peinados.png`);
+  al quitarla, idéntico. En el visor, fila «Mochila» («Sin mochila» por defecto); el conjunto admite ya los tres peinados.
+  **Pendientes:** elegir A o B y las tiras nuevas. Restos anteriores vistos con el conjunto: un trocito junto al cuello con
+  la coleta y rosa entre rizos y mangas con las dos coletas (sin tocar).
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -322,7 +328,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 19/10/2026 (D-027: pantalón, calcetines y botas ajustados, candidata; conjunto sin aprobar) · **Rama:** `avatar-creador` ·
+**Última actualización:** 20/10/2026 (D-027: cuerpo nuevo de la mochila, candidatas A y B, sin tiras; conjunto sin aprobar) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

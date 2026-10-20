@@ -1,6 +1,29 @@
 # Registro de cambios
 
-### 2026-10-19 — D-027: pantalón ajustado en cintura y caderas; uniones pierna–calcetín–bota (candidata)
+### 2026-10-20 — D-027: cuerpo nuevo de la mochila detrás de la muñeca (candidatas A y B, sin tiras)
+
+- **Solicitado por:** la propietaria («Esta es la candidata del cuerpo completo de la mochila, sin tiras. Colócala detrás de
+  nuestra muñeca, ajustando escala y posición sin deformarla ni cambiar el conjunto aprobado de f857193. Enséñame cómo queda
+  con la melena, la coleta y las dos coletas, y comprueba que al quitarla no quede ningún resto…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `f857193`, el de la entrada siguiente).
+- **Estado:** candidatas, **pendientes de revisión**; sin tiras (las nuevas, después). Nada activado ni publicado.
+- **Cambios:** imagen recibida, sin modificar, en `guia-chatgpt/2-mochila/de-chatgpt/mochila-cuerpo-chatgpt.png` (SHA-256
+  `858432cb…3cee`); `integrar/colocar_mochila.py` (nuevo) → `integrar/mochila-b/` (recorte limpio, capas A «centrada» y B
+  «lateral», `comprobaciones.json`, `montajes-peinados.png`); visor: fila «Mochila» con A y B (por defecto, «Sin mochila»)
+  y el conjunto ya se ve también con la coleta y las dos coletas (piel clara y castaño); D-027 (13), `ESTADO_ACTUAL.md`,
+  `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del conjunto, de la guía 2, de `integrar/`
+  y del visor (40).
+- **Resultado:** misma escala en los dos ejes (0,38, la de la imagen aprobada), sin giro; fondo en y ≈ 1 000. A, en el eje
+  del torso: de frente apenas asoma (entre brazos y cuerpo, y una franja sobre los hombros). B, corrida como en la imagen
+  aprobada: se ve el bolsillo junto al brazo. Al quitarla, idéntico píxel a píxel (en los tres peinados; con la melena,
+  también igual que en `f857193`).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (escritorio a tamaño real y un iPhone 13 simulado: las cuatro opciones de la mochila con los tres
+  peinados, sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-19 — `f857193` · D-027: pantalón ajustado en cintura y caderas; uniones pierna–calcetín–bota (candidata)
 
 - **Solicitado por:** la propietaria («No apruebo todavía el conjunto. Revisa el encaje completo del pantalón en cintura y
   caderas… Revisa también cada unión pierna–calcetín–bota por separado… Prepara las correcciones en copias y muéstrame el

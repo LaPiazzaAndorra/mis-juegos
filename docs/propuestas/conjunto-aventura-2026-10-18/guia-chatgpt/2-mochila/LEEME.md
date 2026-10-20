@@ -33,3 +33,9 @@ Se piden **dos piezas independientes**, para poder quitar la mochila:
 Se toman solo la mochila y las tiras (sin piel, pelo ni ropa de la imagen), cada una como capa independiente; el cuerpo
 va detrás de la base y las tiras entre la camiseta y el chaleco. Se comprueba con la melena, la coleta y las dos coletas,
 y que sin la mochila no quede nada de ella.
+
+## Recibido
+
+- **20/10/2026 · cuerpo de la mochila, sin tiras** (guía 2a): `de-chatgpt/mochila-cuerpo-chatgpt.png` (1 348 × 1 167,
+  fondo transparente, SHA-256 `858432cbb9c3b8402465e5b8346f54e6c4f7b7674a38aea4a5295d9873133cee`), sin modificar.
+  Colocado en `../../integrar/mochila-b/` (candidatas A y B). **Las tiras (guía 2b), pendientes.**

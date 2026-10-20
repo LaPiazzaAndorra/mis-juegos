@@ -37,15 +37,18 @@ Qué pedir en ChatGPT para completarlo (18/10, por separado): `guia-chatgpt/LEEM
 
 ## En el visor
 
-Fila «Ropa»: **Conjunto de aventura (candidato)**; fila «Mochila»: Con mochila (candidata) · Sin mochila. Por ahora con
-piel clara, pelo castaño y melena (al elegirlo se pasa a esa combinación avisando; con él puesto, lo demás no se cambia
-sin avisar). Las botas sustituyen a los zapatos.
+Fila «Ropa»: **Conjunto de aventura (candidato)**; fila «Mochila»: cuerpo nuevo A (centrado) · cuerpo nuevo B (como en
+la imagen aprobada) · mochila anterior · Sin mochila (por defecto). Por ahora con piel clara y pelo castaño, con la melena,
+la coleta o las dos coletas (desde el 20/10; al elegirlo se pasa a esa piel y ese color avisando; con él puesto, lo demás
+no se cambia sin avisar). Las botas sustituyen a los zapatos.
 
 ## Pendiente
 
 - Revisión del encaje por la propietaria (rodillas: opción A elegida, 18/10).
 - Rodillas: **integradas** (18/10) desde la imagen de ChatGPT; **B aprobada** (19/10); restos rosas corregidos con piel contigua: **B2 aprobada** (19/10, `integrar/piernas-b2/`), por defecto con el conjunto.
 - Camiseta y chaleco (guía 1): **integrados** (19/10) en `integrar/ropa/`, con los filos de mangas y cadera retocados en `integrar/ropa-b/` y los últimos restos en `integrar/ropa-c/` y `integrar/piernas-b2c/`: **conjunto limpio** (0 px de rosa; `integrar/conjunto-limpio.png`), candidato; sin mochila por defecto. **No aprobado (19/10):** pantalón ajustado en cintura y caderas, chaleco sin halo, calcetines al ancho de nuestras piernas y botas sin sombra en `integrar/ropa-d/` (`integrar/ajustar_pantalon_y_pies.py`; antes y después sin pelo: `integrar/ropa-d/antes-despues.png`), candidata.
-- Hacer en ChatGPT la guía de la mochila e integrarla con
-  `integrar/recibir.py` (preparado el 18/10; ver `integrar/LEEME.md`).
+- Mochila: **cuerpo recibido** (20/10, sin tiras; `guia-chatgpt/2-mochila/de-chatgpt/`) y colocado detrás de la muñeca en
+  `integrar/mochila-b/` (`integrar/colocar_mochila.py`): candidatas A (centrada) y B (como en la imagen aprobada), con la
+  melena, la coleta y las dos coletas (`integrar/mochila-b/montajes-peinados.png`). Faltan elegir A o B y **las tiras
+  nuevas** (guía 2b, con `integrar/recibir.py tiras`); las antiguas no dan el montaje por terminado.
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

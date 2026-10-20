@@ -36,5 +36,9 @@ los iris); hoja `comparacion-camiseta-chaleco.png` (`comparar_ropa.py`).
 chaleco sin halo, calcetines al ancho de nuestras piernas, botas sin sombra; `antes-despues.png` sin pelo). Todos trabajan
 en copias y comprueban que solo cambia lo que hay dentro de sus máscaras (`comprobaciones.json`).
 
+**Cuerpo de la mochila (20/10):** la imagen recibida tenía fondo transparente (no crema), así que no se usa
+`recibir.py mochila`, sino `colocar_mochila.py` → `mochila-b/` (misma escala en los dos ejes, sin giro; A centrada y B
+como en la imagen aprobada; montajes con los tres peinados en `mochila-b/montajes-peinados.png`).
+
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/recibir.py <guía> <imagen>`
 (para probar sin escribir en el repositorio: `SALIDA_INTEGRAR=/otra/carpeta`).

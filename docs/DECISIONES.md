@@ -147,6 +147,24 @@
     derecha llevaba pegado (626 px).
   - Visor: «Ajustada: cintura, caderas, calcetines y botas (candidata)», por defecto; se conservan las anteriores.
     Hoja `integrar/ropa-d/antes-despues.png` (sin pelo). **Conjunto pendiente de aprobación; mochila aparcada.**
+- **20/10/2026 (13):** llega de ChatGPT el **cuerpo completo de la mochila, sin tiras** (fondo transparente; guardado sin
+  cambios en `guia-chatgpt/2-mochila/de-chatgpt/`). La propietaria pide colocarlo detrás de nuestra muñeca ajustando solo
+  escala y posición, sin deformarlo ni cambiar el conjunto de `f857193`; verlo con la melena, la coleta y las dos coletas;
+  comprobar que al quitarlo no queda nada, y añadirlo al visor como candidato. Las tiras nuevas, después; no usar las
+  antiguas para dar el montaje por terminado.
+  - Hecho (`integrar/colocar_mochila.py` → `integrar/mochila-b/`): misma escala en los dos ejes, **0,38** (la de la
+    imagen aprobada, medida por el bolsillo lateral), sin giro; fondo en y ≈ 1 000. En la copia, interior de alfa 253 → 255
+    y fuera unas motas casi invisibles (alfa 1–49) del fondo. **Dos candidatas de posición:** **A** centrada en nuestro
+    torso (de frente casi no se ve: asoma entre los brazos y el cuerpo y, sin pelo que la tape, por encima de los hombros) y
+    **B** como en la imagen aprobada (corrida hacia su derecha; se ve el bolsillo junto al brazo y, con la coleta o sin pelo,
+    la parte de arriba sobre el hombro). Va detrás de todo, también del pelo de detrás (melena y coletas caen por delante).
+  - Al quitarla, **idéntico píxel a píxel** con los tres peinados (con la melena, igual que en `f857193`).
+  - Visor: fila «Mochila» con «Cuerpo nuevo centrado, sin tiras (candidata A)», «… como en la imagen aprobada, sin tiras
+    (candidata B)», la anterior y «Sin mochila» (por defecto). El conjunto se ve ya con la **melena, la coleta y las dos
+    coletas** (piel clara y castaño; con la melena, sus mechones limpios).
+  - Visto al revisarlo (anterior a esta tarea, no tocado): con la coleta, un trocito suelto (≈ 74 px) de su pelo de detrás
+    junto al cuello; con las dos coletas, restos rosas del vestido entre los rizos y las mangas (con el vestido los tapaban
+    sus mangas). Se pueden limpiar como el pelo de la melena (`pelo-sin-restos/`) cuando la propietaria lo pida.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

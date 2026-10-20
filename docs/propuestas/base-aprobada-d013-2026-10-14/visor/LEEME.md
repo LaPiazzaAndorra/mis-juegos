@@ -206,3 +206,8 @@ con el montaje (≤ 3); comprobado también en un iPhone 13 simulado.
 defecto (pantalón, chaleco, calcetines y botas de `integrar/ropa-d/`, camiseta de `integrar/ropa-c/`); «A nuestra medida,
 sin restos rosas» pasa a «(anterior)». Probadas las cuatro opciones en un iPhone 13 simulado; a tamaño real, sin pelo,
 coincide con el montaje (≤ 3).
+**20/10/2026 (40) · D-027:** fila «Mochila»: «Cuerpo nuevo centrado, sin tiras (candidata A)», «Cuerpo nuevo como en la
+imagen aprobada, sin tiras (candidata B)» (`integrar/mochila-b/`, detrás de todas las capas, también del pelo de detrás),
+«Mochila anterior (con las tiras de la imagen original)» y «Sin mochila» (por defecto). Con el conjunto se pueden elegir ya
+la melena, la coleta y las dos coletas (piel clara y castaño). Al quitar la mochila, idéntico píxel a píxel; con la melena,
+igual que en `f857193`. Probado en escritorio a tamaño real y en un iPhone 13 simulado (tocando).

@@ -1,0 +1,46 @@
+{
+ "original": "guia-chatgpt/2-mochila/de-chatgpt/mochila-cuerpo-chatgpt.png",
+ "sha256_original": "858432cbb9c3b8402465e5b8346f54e6c4f7b7674a38aea4a5295d9873133cee",
+ "original_sin_cambios": true,
+ "recibido": [
+  1348,
+  1167
+ ],
+ "recorte": [
+  1069,
+  918
+ ],
+ "motas_quitadas_px": 6318,
+ "alfa_interior_a_255_px": 748385,
+ "escala": 0.38,
+ "giro": 0,
+ "misma_escala_en_los_dos_ejes": true,
+ "tamano_en_el_lienzo": [
+  406,
+  349
+ ],
+ "colocaciones": {
+  "centrada": {
+   "centro_x": 478,
+   "fondo_y": 1000,
+   "caja_en_el_lienzo": [
+    275,
+    651,
+    680,
+    999
+   ],
+   "px": 110844
+  },
+  "lateral": {
+   "centro_x": 400,
+   "fondo_y": 1000,
+   "caja_en_el_lienzo": [
+    197,
+    651,
+    602,
+    999
+   ],
+   "px": 110844
+  }
+ }
+}

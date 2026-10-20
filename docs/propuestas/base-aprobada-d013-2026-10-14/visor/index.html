@@ -53,6 +53,8 @@
 
 <div id="escena" aria-label="Muñeca">
   <div id="lienzo">
+    <img id="c-av-mochila2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/mochila-cuerpo-centrada.png">
+    <img id="c-av-mochila3" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/mochila-cuerpo-lateral.png">
     <img id="c-coletas2-detras" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-detras.png">
     <img id="c-coleta-oreja-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/orejas-coleta-detras.png">
     <img id="c-coleta-detras" class="oculto" alt="" src="../../peinado-coleta-2026-10-16/capas/variantes/pelo-coleta-con-detras-castano.png">
@@ -169,7 +171,9 @@
   </div>
   <div class="fila" id="fila-mochila" hidden>
     <b>Mochila</b>
-    <button data-mochila="si" aria-pressed="false">Con mochila (tiras de la imagen original; nuevas pendientes)</button>
+    <button data-mochila="centrada" aria-pressed="false">Cuerpo nuevo centrado, sin tiras (candidata A)</button>
+    <button data-mochila="lateral" aria-pressed="false">Cuerpo nuevo como en la imagen aprobada, sin tiras (candidata B)</button>
+    <button data-mochila="si" aria-pressed="false">Mochila anterior (con las tiras de la imagen original)</button>
     <button data-mochila="no" aria-pressed="true">Sin mochila</button>
   </div>
   <div class="fila" id="fila-rodillas" hidden>
@@ -664,10 +668,11 @@
   });
 
   // --- conjunto de aventura (D-027, candidato): camiseta, chaleco, pantalón, calcetines, botas y mochila (cuerpo detrás de la
-  // base; tiras encima de la camiseta y debajo del chaleco). Por ahora, con piel clara, pelo castaño y melena: elegirlo pasa
+  // base; tiras encima de la camiseta y debajo del chaleco). Por ahora, con piel clara y pelo castaño (melena, coleta o dos
+  // coletas, 20/10): elegirlo pasa
   // a esa combinación avisando, y con él puesto lo demás no se cambia sin avisar. Las botas sustituyen a los zapatos. Con la
   // melena se usa una copia de su pelo de delante sin 9 trocitos sueltos del vestido que quedaban sobre el pecho.
-  var ropa = 'vestido-ax', conMochila = false, zapatosSi = true, rodillas = 'b2c', prendas = 'medida3';   // sin mochila mientras faltan las tiras nuevas
+  var ropa = 'vestido-ax', mochila = 'no', zapatosSi = true, rodillas = 'b2c', prendas = 'medida3';   // sin mochila mientras faltan las tiras nuevas
   var RODILLAS = { a: '../../conjunto-aventura-2026-10-18/integrar/piernas/base-piernas-sin-mallas.png',
     b: '../../conjunto-aventura-2026-10-18/integrar/piernas-b/base-piernas-sin-mallas.png',
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
@@ -675,6 +680,7 @@
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
   function mostrarAventura() {
     var av = ropa === 'aventura';
+    if (av && peinado === 'melena' && peloOp !== 'mc') elegirPeloOp('mc');   // al volver a la melena con el conjunto
     AV_PIEZAS.forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av); });
     // camiseta y chaleco: a nuestra medida (guía 1, candidatos) o los de la imagen aprobada (anteriores)
     // medida2: la camiseta sin restos rosas (integrar/ropa-c/) y el pantalón con el filo de la cadera (integrar/ropa-b/), con el chaleco de la guía 1
@@ -690,7 +696,12 @@
     ['pantalon3', 'chaleco3', 'calcetines2', 'botas2'].forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av || !med3); });
     ['calcetines', 'botas'].forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av || med3); });
     document.getElementById('fila-prendas').hidden = !av;
-    ['mochila', 'tiras'].forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av || !conMochila); });
+    ['mochila', 'tiras'].forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av || mochila !== 'si'); });
+    // cuerpo nuevo de la mochila (guía 2a, candidato): detrás de todo (también del pelo de detrás: coletas y melena caen por
+    // delante de ella); sin tiras hasta que estén las nuevas
+    // (A: centrada en nuestro torso; B: corrida hacia su derecha, como en la imagen aprobada)
+    document.getElementById('c-av-mochila2').classList.toggle('oculto', !av || mochila !== 'centrada');
+    document.getElementById('c-av-mochila3').classList.toggle('oculto', !av || mochila !== 'lateral');
     document.getElementById('fila-mochila').hidden = !av; document.getElementById('fila-rodillas').hidden = !av;
     // rodillas (D-027, opción A): con el conjunto, una COPIA de la base con la piel completada bajo el pantalón (candidata);
     // la base aprobada no cambia y vuelve al quitar el conjunto
@@ -707,9 +718,8 @@
       var cambios = [];
       if (piel !== 'claro') { cambios.push('piel clara'); document.querySelector('[data-piel="claro"]').click(); }
       if (colorPelo !== 'castano') { cambios.push('pelo castaño'); document.querySelector('[data-pelo-color="castano"]').click(); }
-      if (peinado !== 'melena') { cambios.push('melena'); document.querySelector('[data-peinado="melena"]').click(); }
-      if (peloOp !== 'mc') { cambios.push('mechones completos'); document.querySelector('[data-pelo-op="mc"]').click(); }
-      if (cambios.length) avisar('El conjunto de aventura (candidato) se ve por ahora con piel clara, pelo castaño y melena: se ha cambiado a ' + cambios.join(', ') + '.');
+      if (peinado === 'melena' && peloOp !== 'mc') { cambios.push('mechones completos'); document.querySelector('[data-pelo-op="mc"]').click(); }
+      if (cambios.length) avisar('El conjunto de aventura (candidato) se ve por ahora con piel clara y pelo castaño (melena, coleta o dos coletas): se ha cambiado a ' + cambios.join(', ') + '.');
     });
   });
   document.querySelectorAll('[data-prendas]').forEach(function (b) {
@@ -726,7 +736,7 @@
   });
   document.querySelectorAll('[data-mochila]').forEach(function (b) {
     b.addEventListener('click', function () {
-      conMochila = b.dataset.mochila === 'si';
+      mochila = b.dataset.mochila;
       document.querySelectorAll('[data-mochila]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
@@ -734,8 +744,8 @@
   document.getElementById('controles').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b || ropa !== 'aventura') return;
     var d = b.dataset, no = null;
-    if ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano') || (d.peinado && d.peinado !== 'melena') || (d.peloOp && d.peloOp !== 'mc'))
-      no = 'El conjunto de aventura (candidato) se ve por ahora solo con piel clara, pelo castaño y melena: elige otra ropa para cambiarlo.';
+    if ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano') || (d.peloOp && d.peloOp !== 'mc' && peinado === 'melena'))
+      no = 'El conjunto de aventura (candidato) se ve por ahora solo con piel clara y pelo castaño (melena, coleta o dos coletas): elige otra ropa para cambiarlo.';
     else if (d.zapatos) avisar('Con el conjunto de aventura van sus botas; los zapatos rosa se verán con otra ropa.');
     if (no) { e.stopImmediatePropagation(); e.preventDefault(); avisar(no); }
   }, true);
