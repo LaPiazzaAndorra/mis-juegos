@@ -176,6 +176,11 @@
     2 trozos sueltos que no eran pelo (89 px junto al cuello y 229 px tapados detrás); dos coletas, 2 608 px de rosa del
     vestido entre los rizos (el canto, con el color del pelo de al lado; los huecos al fondo, transparentes). Con el conjunto,
     el visor usa las copias; con el vestido, los originales. **Candidato, pendiente de revisión.**
+- **20/10/2026 (15) · corrección del estado:** la propietaria **aprobó visualmente el conjunto sin mochila de `f857193`**
+  (camiseta de `integrar/ropa-c/`, pantalón, chaleco, calcetines y botas de `integrar/ropa-d/`, rodillas B2c); lo dijo al
+  pedir la mochila («sin … cambiar el conjunto aprobado de f857193») y no se registró entonces: se corrige aquí. **Esa
+  aprobación se mantiene.** Confirma también las **tiras por encima del chaleco**. Quedan pendientes: **las tiras nuevas**
+  (guía 2b sobre la mochila A) y **la revisión del pelo limpio** de la coleta y las dos coletas. Sin probar en el iPhone real.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

@@ -51,8 +51,8 @@ referencia. Preparado con `../preparar_tiras_a.py`:
   (de donde salen las tiras); en morado, los hombros del chaleco, por donde bajan.
 
 **Cambio respecto a la guía antigua:** nuestro chaleco cubre los hombros hasta la manga, así que unas tiras **por debajo**
-del chaleco no se verían. Se piden **por encima del chaleco** (como se lleva una mochila sobre la ropa). Si la propietaria
-prefiere otra cosa, se cambia el mensaje antes de enviarlo.
+del chaleco no se verían. Se piden **por encima del chaleco** (como se lleva una mochila sobre la ropa): **confirmado por
+la propietaria** el 20/10/2026.
 
 **Adjuntar:** `../../referencias/referencia-conjunto-aventura-aprobada.png`, `plantilla-tiras-con-mochila-a.png` y
 `guia-tiras-sobre-a.png`.

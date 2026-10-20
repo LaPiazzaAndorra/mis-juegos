@@ -214,3 +214,5 @@ igual que en `f857193`. Probado en escritorio a tamaño real y en un iPhone 13 s
 **20/10/2026 (41) · D-027:** con el conjunto, **mochila A por defecto** («Cuerpo nuevo centrado, sin tiras (A,
 elegida)»); B, la anterior y «Sin mochila» se conservan. Con el conjunto, el pelo de detrás de la coleta (con y sin cinta)
 y de las dos coletas (con y sin sombrero) usa las copias sin restos de `../pelo-sin-restos/`; sin él, los originales.
+**20/10/2026 (42) · D-027:** el botón «Ajustada: cintura, caderas, calcetines y botas» pasa a «(aprobada)»: la
+propietaria aprobó visualmente el conjunto sin mochila de `f857193`. Nada más cambia.

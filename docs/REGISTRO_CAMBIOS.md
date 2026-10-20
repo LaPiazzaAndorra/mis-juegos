@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-20 — D-027: mochila A elegida; guía de las tiras sobre A; pelo de la coleta y las dos coletas sin restos
+### 2026-10-20 — D-027: estado corregido (conjunto sin mochila de f857193 aprobado); tiras por encima del chaleco
+
+- **Solicitado por:** la propietaria («Confirmo las tiras por encima del chaleco. Corrige también el estado de D-027: ya
+  aprobé visualmente el conjunto sin mochila de f857193. Quedan pendientes las tiras nuevas y la revisión del pelo limpio;
+  esa aprobación anterior se mantiene.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `4e490a0`, el de la entrada siguiente).
+- **Estado:** conjunto sin mochila de `f857193` **aprobado visualmente**; tiras por encima del chaleco **confirmadas**;
+  pendientes las tiras nuevas (ChatGPT) y la revisión del pelo limpio. Nada activado ni publicado.
+- **Cambios:** solo documentación y el texto de un botón del visor («Ajustada…» pasa de «(candidata)» a «(aprobada)»):
+  D-027 (15), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del
+  conjunto, de la guía 2 y del visor (42). Las entradas anteriores del registro se dejan como estaban (historia).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (el botón cambiado sigue funcionando; sin errores). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-20 — `4e490a0` · D-027: mochila A elegida; guía de las tiras sobre A; pelo de la coleta y las dos coletas sin restos
 
 - **Solicitado por:** la propietaria («Elijo la mochila A, centrada en el torso. Registra la elección y déjala seleccionada
   por defecto con el conjunto de aventura. Conserva B como alternativa. Seguimos con las tiras nuevas sobre los hombros,
