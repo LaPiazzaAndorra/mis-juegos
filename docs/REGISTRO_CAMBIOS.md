@@ -1,6 +1,20 @@
 # Registro de cambios
 
-### 2026-10-20 — D-027: tiras nuevas sobre la mochila A, integradas (candidatas)
+### 2026-10-20 — D-027: comprobaciones de la mochila A restauradas (las había sobrescrito `tiras-a`)
+
+- **Solicitado por:** corrección propia, dentro de la tarea anterior (integrar las tiras nuevas).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `2437f8f`, el de la entrada siguiente).
+- **Estado:** sin cambios de estado (tiras candidatas; mochila A elegida).
+- **Cambios:** `integrar/recibir.py tiras-a` escribía `comprobaciones.json` y `revision.png` en `integrar/mochila-b/`, encima
+  de las comprobaciones de `colocar_mochila.py`: ahora escribe `comprobaciones-tiras.json` y `revision-tiras.png`. Vueltos a
+  generar los dos: `comprobaciones.json` queda igual que en `efbd5ac`; las capas de la mochila y de las tiras, sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** capas idénticas a las del commit anterior (git no ve cambios en ellas). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45 (las del commit anterior; este no toca el juego ni el visor).
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-20 — `2437f8f` · D-027: tiras nuevas sobre la mochila A, integradas (candidatas)
 
 - **Solicitado por:** la propietaria («Usa recibir.py tiras-a para extraer únicamente las dos tiras y sus hebillas.
   Conserva nuestra muñeca y el conjunto aprobado. Comprueba que conecten con la mochila A y revisa el montaje con los tres
@@ -10,8 +24,8 @@
 - **Estado:** tiras **candidatas, pendientes de aprobación**. Nada activado ni publicado.
 - **Cambios:** imagen recibida, sin modificar, en `guia-chatgpt/2-mochila/de-chatgpt/tiras-sobre-a-chatgpt.png`;
   `integrar/recibir.py tiras-a` rehecho (la primera versión tomaba también el chaleco que ChatGPT redibujó): tramos de cada
-  tira, hebilla entera y punta → `integrar/mochila-b/tiras.png`, `comprobaciones.json`, `revision.png`,
-  `montajes-tiras.png` y `detalle-tiras.png`; visor: «A (elegida) con las tiras nuevas (candidatas)», por defecto, y «A
+  tira, hebilla entera y punta → `integrar/mochila-b/tiras.png`, `comprobaciones.json`, `revision.png` (renombrados en la entrada
+  siguiente), `montajes-tiras.png` y `detalle-tiras.png`; visor: «A (elegida) con las tiras nuevas (candidatas)», por defecto, y «A
   sin tiras»; D-027 (16), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md`
   del conjunto, de la guía 2, de `integrar/` y del visor (43).
 - **Resultado:** 15 065 px (izquierda 7 864, derecha 7 201), con las dos hebillas enteras. Encima del chaleco y debajo de

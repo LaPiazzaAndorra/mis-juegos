@@ -1,0 +1,58 @@
+{
+ "guia": "2b · tiras sobre la mochila A",
+ "recibido_sha256": "8dabb2daac8ceb65bccfd2da6cda563e7484817743ed576b9663ddad2946caa3",
+ "alineacion": {
+  "tamano_recibido": [
+   948,
+   1660
+  ],
+  "escala_total": 1.0115,
+  "desplazamiento": [
+   -4.5,
+   -5.1
+  ],
+  "iris_hallados": [
+   [
+    391,
+    443
+   ],
+   [
+    565,
+    443
+   ]
+  ],
+  "diferencia_de_altura_de_los_ojos_px": 0.0
+ },
+ "fuera_de_las_tiras_mediana_dE": 5.0,
+ "fuera_de_las_tiras_px_con_dE_mayor_20": 68029,
+ "fuera_de_las_tiras_px_comparados": 363354,
+ "tiras_px": 15065,
+ "tiras": [
+  {
+   "px": 7864,
+   "caja": [
+    349,
+    640,
+    422,
+    822
+   ],
+   "hebilla_filas": [
+    727,
+    755
+   ]
+  },
+  {
+   "px": 7201,
+   "caja": [
+    537,
+    639,
+    609,
+    814
+   ],
+   "hebilla_filas": [
+    725,
+    753
+   ]
+  }
+ ]
+}

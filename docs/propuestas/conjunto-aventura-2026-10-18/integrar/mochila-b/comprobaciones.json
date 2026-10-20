@@ -1,58 +1,46 @@
 {
- "guia": "2b · tiras sobre la mochila A",
- "recibido_sha256": "8dabb2daac8ceb65bccfd2da6cda563e7484817743ed576b9663ddad2946caa3",
- "alineacion": {
-  "tamano_recibido": [
-   948,
-   1660
-  ],
-  "escala_total": 1.0115,
-  "desplazamiento": [
-   -4.5,
-   -5.1
-  ],
-  "iris_hallados": [
-   [
-    391,
-    443
+ "original": "guia-chatgpt/2-mochila/de-chatgpt/mochila-cuerpo-chatgpt.png",
+ "sha256_original": "858432cbb9c3b8402465e5b8346f54e6c4f7b7674a38aea4a5295d9873133cee",
+ "original_sin_cambios": true,
+ "recibido": [
+  1348,
+  1167
+ ],
+ "recorte": [
+  1069,
+  918
+ ],
+ "motas_quitadas_px": 6318,
+ "alfa_interior_a_255_px": 748385,
+ "escala": 0.38,
+ "giro": 0,
+ "misma_escala_en_los_dos_ejes": true,
+ "tamano_en_el_lienzo": [
+  406,
+  349
+ ],
+ "colocaciones": {
+  "centrada": {
+   "centro_x": 478,
+   "fondo_y": 1000,
+   "caja_en_el_lienzo": [
+    275,
+    651,
+    680,
+    999
    ],
-   [
-    565,
-    443
-   ]
-  ],
-  "diferencia_de_altura_de_los_ojos_px": 0.0
- },
- "fuera_de_las_tiras_mediana_dE": 5.0,
- "fuera_de_las_tiras_px_con_dE_mayor_20": 68029,
- "fuera_de_las_tiras_px_comparados": 363354,
- "tiras_px": 15065,
- "tiras": [
-  {
-   "px": 7864,
-   "caja": [
-    349,
-    640,
-    422,
-    822
-   ],
-   "hebilla_filas": [
-    727,
-    755
-   ]
+   "px": 110844
   },
-  {
-   "px": 7201,
-   "caja": [
-    537,
-    639,
-    609,
-    814
+  "lateral": {
+   "centro_x": 400,
+   "fondo_y": 1000,
+   "caja_en_el_lienzo": [
+    197,
+    651,
+    602,
+    999
    ],
-   "hebilla_filas": [
-    725,
-    753
-   ]
+   "px": 110844
   }
- ]
+ }
 }

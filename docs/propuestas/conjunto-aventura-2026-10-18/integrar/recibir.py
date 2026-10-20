@@ -11,7 +11,8 @@ candidatas actuales: todo sale a integrar/<guía>/ como candidato.
   ropa     <imagen>   guía 1: camiseta y chaleco sobre nuestra plantilla → ropa/camiseta.png y ropa/chaleco.png
   tiras    <imagen>   guía 2b (antigua): tiras sobre nuestra plantilla sin ropa → mochila/tiras.png
   tiras-a  <imagen>   guía 2b sobre la mochila A (20/10): tiras sobre ../guia-chatgpt/2-mochila/plantilla-tiras-con-mochila-a.png
-                      (muñeca con el conjunto ajustado y la mochila A, sin pelo) → mochila-b/tiras.png
+                      (muñeca con el conjunto ajustado y la mochila A, sin pelo) → mochila-b/tiras.png,
+                      comprobaciones-tiras.json y revision-tiras.png
   mochila  <imagen> [cx cy ancho giro]   guía 2a: la mochila sola sobre fondo crema → mochila/mochila-recortada.png y,
                       colocada detrás de la base, mochila/mochila.png
 
@@ -123,13 +124,13 @@ def vista(capas, caja, F, titulo):
     ImageDraw.Draw(o).text((6, 6), titulo, font=F, fill=(40, 40, 60)); return o
 
 
-def guardar(carpeta, comp, vistas):
+def guardar(carpeta, comp, vistas, sufijo=''):
     carpeta.mkdir(exist_ok=True)
-    (carpeta / 'comprobaciones.json').write_text(json.dumps(comp, ensure_ascii=False, indent=1), encoding='utf-8')
+    (carpeta / f'comprobaciones{sufijo}.json').write_text(json.dumps(comp, ensure_ascii=False, indent=1), encoding='utf-8')
     w = sum(v.width for v in vistas) + 10 * (len(vistas) - 1); o = Image.new('RGB', (w, max(v.height for v in vistas)), 'white'); x = 0
     for v in vistas:
         o.paste(v, (x, 0)); x += v.width + 10
-    o.save(carpeta / 'revision.png', optimize=True)
+    o.save(carpeta / f'revision{sufijo}.png', optimize=True)
     print(json.dumps(comp, ensure_ascii=False))
 
 
@@ -318,7 +319,7 @@ def tiras_a(ruta):
                 **igual_fuera(ali, nueva, 'fuera_de_las_tiras', pl), tiras_px=int(nueva.sum()), tiras=lados)
     F = PT.MK.F(15); caja = (250, 560, 710, 900); fondo = np.dstack([pl, np.full((H, W), 255, np.uint8)])
     guardar(S, comp, [vista([fondo], caja, F, 'Plantilla (mochila A)'), vista([np.dstack([ali, np.full((H, W), 255, np.uint8)])], caja, F, 'Imagen recibida (alineada)'),
-                      vista([fondo, c], caja, F, 'Plantilla + solo las tiras')])
+                      vista([fondo, c], caja, F, 'Plantilla + solo las tiras')], '-tiras')   # (comprobaciones.json es de colocar_mochila.py)
 
 
 def mochila(ruta, cx=262, cy=890, ancho=150, giro=0):
