@@ -10,7 +10,8 @@ Trabajo **separado del avatar**: rama `pintar-heladeria` (en GitHub desde el 21/
 | --- | --- | --- |
 | 21/10/2026 | Revisión de Pintar, primera mejora en copia aislada (`pin1:`), propuestas de Heladería, recompensas y gincana | Hecho; commit `f62152d` (local). |
 | 21/10/2026 | Rama `pintar-heladeria` subida a GitHub por petición de la propietaria, con el enlace de prueba para Safari | Hecho (este commit). `main`, `avatar-creador`, partidas y archivos compartidos sin cambios. |
-| Siguiente | **Prueba de Pintar en el iPhone de la propietaria:** dibujar, girar, deshacer, rehacer y guardar (pasos del apartado 2) | Pendiente. |
+| 21/10/2026 | Láminas actuales **no aprobadas visualmente** por la propietaria (demasiado básicas). **12 láminas candidatas** suyas añadidas a la copia (apartado 2 bis), conservando las 19 anteriores; mejoras de guardado, giro, deshacer y rehacer sin cambios | Hecho (este commit); pendiente de revisión visual y de prueba en el iPhone. |
+| Siguiente | **Prueba de Pintar en el iPhone de la propietaria:** dibujar, girar, deshacer, rehacer, guardar y las láminas candidatas | Pendiente. |
 | Después | Heladería (apartado 3) | Pendiente; se empieza tras la prueba de Pintar. |
 | — | Recompensas (apartado 4) | **Propuesta pendiente, no aprobada:** ni los umbrales ni ningún cambio en el guardado. |
 | Al integrar | Documentos generales (`ESTADO_ACTUAL`, `REGISTRO_CAMBIOS`, `HOJA_DE_RUTA`, `MANUAL_PROYECTO`, `VERSION_DE_PRUEBAS`…) | Se coordinan con el chat del avatar al integrar; hasta entonces esta fase solo se documenta aquí. |
@@ -90,6 +91,8 @@ En el iPhone, **en Safari** (la rama ya está en GitHub):
 3. Girar el iPhone y volver: el dibujo sigue igual y ↩️ funciona.
 4. 🗑️ una vez (no borra) → otra vez (borra) → ↩️ (vuelve).
 5. 💾, seguir pintando, 💾 otra vez, salir: en «Mis dibujos» hay **un** dibujo, el último.
+   (Láminas candidatas: «Colorear dibujos» → las marcadas «✨ Nueva»; pintar con el cubo una zona grande, una fresa, el
+   cucurucho y el pelo; girar; guardar.)
 6. Abrir ese dibujo → ✏️ → pintar → 💾: hay dos, y el primero no ha cambiado.
 7. Lo mismo en el iPad, en vertical y en horizontal.
 
@@ -97,6 +100,46 @@ En el iPhone, **en Safari** (la rama ya está en GitHub):
 
 Pedir confirmación también al borrar un dibujo de la galería con un gesto más claro; deshacer tras salir y volver;
 ver «Mis dibujos» ordenados con el último arriba y una marca «nuevo»; láminas originales más elaboradas (hoja de ruta).
+
+## 2 bis. Láminas para colorear: las actuales y las candidatas (21/10/2026)
+
+**Las actuales (19, sin cambios):** se dibujan con código en `index.html` (objeto `TPL`): cada una es una lista de círculos,
+elipses, polígonos, líneas y curvas sobre un cuadrado de 1000 × 1000, con trazo de 10 y tinta `#2b2233` (`drawTpl`); el
+orden está en `TPL_ORDER`. Las láminas importadas con «Añadir lámina» se convierten en `importTpl` (escala de grises →
+contorno, engordado 1 px) y se guardan en IndexedDB `misjuegos`. La propietaria **no las aprueba visualmente** (formas
+geométricas simples); se conservan hasta decidir la colección nueva.
+
+**Las candidatas (12):** ilustraciones de la propietaria (originales sin modificar en `laminas/originales/`, 1024 × 1536):
+heladería, gatito, hada, unicornio, perrito, conejito, princesa, helado, mariposa, osito explorador, hada jardinera y
+sirena. En la copia salen **las primeras de «Elige un dibujo»**, con la marca «✨ Nueva»; las 19 anteriores siguen detrás.
+
+`laminas/preparar_laminas.py` las convierte (`laminas/<id>.png`) y las comprueba (`laminas/comprobaciones.json`,
+`laminas/revision-zonas.png`):
+- solo el contorno, con la tinta del juego y fondo transparente, **misma proporción y tamaño** (sin recortar ni deformar);
+- las líneas muy finas (1–2 px) se engrosan 1 px y los tramos desvanecidos de las uniones pasan a tinta llena, porque al
+  reducir la lámina en el iPhone el cubo los atravesaba (gatito: tablas del suelo; heladería: paneles del mostrador;
+  osito explorador: unión en la bota). Cambia entre el 0 y el 1,3 % de los píxeles, solo en las líneas;
+- **marco fino de 4 px**: la línea del suelo de la heladería se desvanecía en el borde y el relleno se escapaba por ahí.
+
+En la copia (`preparar_copia.py`, `LAMINAS_JS`):
+- el papel toma la proporción de la lámina (2:3): **entera y sin deformar** en el iPhone y el iPad, en vertical y horizontal;
+- **zonas diminutas** (menos de 14 × 14 px de pantalla: pepitas, pelitos, rejillas, lana): al pintar una zona grande se
+  pintan también las diminutas que tiene dentro (la fresa con sus pepitas), y un toque en una diminuta pinta todo su
+  grupo (el cucurucho entero). Las rodeadas de tinta gruesa (brillos de los ojos) quedan blancas;
+- guardado, giro, deshacer y rehacer: sin cambios (`laminas-candidatas.png` en `capturas/`).
+
+**Comprobado** (`prueba-pintar.js`, 179/179 con todo lo anterior): en las 4 pantallas y con las 12 láminas, cada zona
+grande pintada una a una sobre papel en blanco (de 11 a 164 zonas por lámina): **0 píxeles fuera de su zona**; enteras
+y sin deformar (diferencia de proporción ≤ 0,28 %, por redondeo); las diminutas se pintan con su zona o en grupo. Abrir
+una lámina tarda unos 0,1–0,3 s en Chromium. Quedan algunas diminutas sueltas que piden un toque preciso (como mucho el
+0,9 % del dibujo: brillos, puntitos del suelo).
+
+**Para tu revisión:**
+- en las más sencillas (perrito, conejito, unicornio, helado, mariposa) algunas partes comparten zona porque la línea está
+  abierta en el dibujo original (por ejemplo, cuerpo y patas del perrito): no es una fuga, el color no sale de la figura;
+- las más detalladas (heladería, gatito, hada, princesa) tienen muchas zonas pequeñas: con el relleno en grupo se pueden
+  colorear, pero en el iPhone horizontal el papel es pequeño (234 × 352);
+- el marco fino alrededor de cada lámina es nuevo (no estaba en los originales).
 
 ## 3. Heladería: revisión y propuesta (sin hacer)
 

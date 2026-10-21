@@ -274,6 +274,8 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
   #paint .sep{display:none}
 }
 #paint .pbot{padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+.tplgrid button.lnueva{position:relative;box-shadow:0 0 0 4px #ffd46b inset,0 5px 0 rgba(0,0,0,.1)}
+.lmarca{position:absolute;left:8px;top:8px;background:#fff3c4;color:#4a3a5c;font-weight:900;font-size:15px;padding:4px 10px;border-radius:12px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
 /* solo en esta copia: deja sitio a la cinta «PRUEBA PINTAR» para que no tape los colores */
 #paint.screen.on{padding-bottom:calc(30px + env(safe-area-inset-bottom))}
 </style>
@@ -676,11 +678,13 @@ function layoutCanvas(reset){
   const r=$('#pwrap').getBoundingClientRect();let w=r.width-20,h=r.height-8;
   if(w<50||h<50)return;
   if(reset){
-    if(P.tpl){w=h=Math.min(w,h)}w=Math.floor(w);h=Math.floor(h);
+    if(P.tpl&&LN[P.tpl]){const ar=LN[P.tpl].naturalWidth/LN[P.tpl].naturalHeight||2/3;if(w/h>ar)w=h*ar;else h=w/ar}   // láminas nuevas: sin deformar
+    else if(P.tpl){w=h=Math.min(w,h)}w=Math.floor(w);h=Math.floor(h);
     const W=Math.round(w*DPR),H=Math.round(h*DPR);
     pc.width=oc.width=W;pc.height=oc.height=H;
     pctx.fillStyle='#fff';pctx.fillRect(0,0,W,H);
     octx.clearRect(0,0,W,H);if(P.tpl)drawTpl(octx,P.tpl,W,H);
+    P.zn=P.tpl&&LN[P.tpl]?zonasLamina():null;
     MAXU=Math.max(6,Math.min(20,Math.floor(90e6/(W*H*4))));   // pasos de deshacer según la memoria (≈90 MB como máximo)
     P.undo=[];P.redo=[];updUR();
   }
@@ -688,7 +692,8 @@ function layoutCanvas(reset){
   const cv=$('#cv');cv.style.width=Math.floor(dw)+'px';cv.style.height=Math.floor(dh)+'px';
 }
 onShow.paint=async arg=>{
-  P.tpl=(TPL[arg]||UTPL[arg])?arg:null;P.dirty=false;P.saved=null;$('#clearBtn').classList.remove('arm');
+  P.tpl=(TPL[arg]||UTPL[arg]||LN[arg])?arg:null;P.dirty=false;P.saved=null;$('#clearBtn').classList.remove('arm');
+  if(LN[arg])await LN[arg].decode().catch(()=>{});
   if(UTPL[arg]&&!UTPL[arg].complete)await UTPL[arg].decode().catch(()=>{});
   layoutCanvas(true);
   if(arg==='img'&&P.img){const im=new Image();im.onload=()=>{const s=Math.min(pc.width/im.width,pc.height/im.height);
@@ -743,6 +748,7 @@ function floodFill(x0,y0,color){
       if(y<H-1){if(ok(i,y+1)){if(!dn){st.push(i,y+1);dn=true}}else dn=false}
     }
   }
+  rellenoDiminutas(x0,y0,d,seen,r,g,b);   // copia Pintar 21/10: zonas diminutas de las láminas nuevas
   // rellena también el borde suave junto a las líneas para que no queden halos blancos
   for(let y=1;y<H-1;y++)for(let x=1;x<W-1;x++){const k=y*W+x;if(seen[k])continue;const j=k*4;if(o[j+3]===0)continue;
     if(seen[k-1]||seen[k+1]||seen[k-W]||seen[k+W]){d[j]=r;d[j+1]=g;d[j+2]=b}}
@@ -867,6 +873,8 @@ function drawTpl(x,name,W,H){
     r:(a,b,w,h)=>x.strokeRect(a,b,w,h),
     d:path=>x.stroke(new Path2D(path)),
     star:(cx,cy,R,r)=>{const p=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,q=i%2?r:R;p.push([cx+q*Math.cos(a),cy+q*Math.sin(a)])}g.p(p)}};
+  if(name.startsWith('n:')){x.restore();const im=LN[name];if(im&&im.complete&&im.naturalWidth){const s=Math.min(W/im.naturalWidth,H/im.naturalHeight);
+    x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';x.drawImage(im,(W-im.naturalWidth*s)/2,(H-im.naturalHeight*s)/2,im.naturalWidth*s,im.naturalHeight*s)}return}
   if(name.startsWith('u:')){x.restore();const im=UTPL[name],S=Math.min(W,H);if(im&&im.complete)x.drawImage(im,(W-S)/2,(H-S)/2,S,S);return}
   TPL[name](g);x.restore();
 }
@@ -876,6 +884,46 @@ const idb={db:null,
   async tx(mode,fn){const db=await this.open();return new Promise((res,rej)=>{const t=db.transaction('tpl',mode),q=fn(t.objectStore('tpl'));t.oncomplete=()=>res(q&&q.result);t.onerror=()=>rej(t.error)})},
   all(){return this.tx('readonly',s=>s.getAll())},put(o){return this.tx('readwrite',s=>s.put(o))},del(id){return this.tx('readwrite',s=>s.delete(id))}};
 const UTPL={};
+/* ---------- láminas nuevas candidatas (copia Pintar 21/10): ilustraciones 2:3, sin deformar ----------
+   Zonas: al abrir una lámina nueva se calculan sus zonas (contorno = opacidad > 110, como el cubo). Las «diminutas»
+   (menos de 14 × 14 px de pantalla: pelitos, pepitas, rejillas…) se agrupan con sus vecinas a través del contorno y se
+   asocian a la zona grande que las rodea: al pintar una zona grande se pintan también sus diminutas, y al tocar una
+   diminuta se pinta todo su grupo. Las rodeadas de tinta gruesa (brillos de los ojos) no se asocian: quedan blancas. */
+const LNUEVAS={heladeria:'Heladería',gatito:'Gatito',hada:'Hada',unicornio:'Unicornio',perrito:'Perrito',conejito:'Conejito',princesa:'Princesa',helado:'Helado',mariposa:'Mariposa',explorador:'Osito explorador','hada-jardin':'Hada jardinera',sirena:'Sirena'},LN={};
+Object.keys(LNUEVAS).forEach(k=>{const im=new Image();im.src='docs/propuestas/pintar-2026-10-21/laminas/'+k+'.png';LN['n:'+k]=im});
+function zonasLamina(){
+  const W=oc.width,H=oc.height,N=W*H,o=octx.getImageData(0,0,W,H).data,libre=new Uint8Array(N);
+  for(let k=0;k<N;k++)libre[k]=o[k*4+3]<=110?1:0;
+  const lab=new Int32Array(N),st=new Int32Array(N),sz=[0];let n=0;
+  const vec=(q,f)=>{const x=q%W;if(x>0)f(q-1);if(x<W-1)f(q+1);if(q>=W)f(q-W);if(q<N-W)f(q+W)};
+  for(let k=0;k<N;k++){if(!libre[k]||lab[k])continue;n++;let top=0,c=0;lab[k]=n;st[top++]=k;
+    while(top){const q=st[--top];c++;vec(q,r=>{if(libre[r]&&!lab[r]){lab[r]=n;st[top++]=r}})}sz.push(c)}
+  const css=parseFloat($('#cv').style.width)||W/DPR,esc=W/css,T=196*esc*esc,g=Math.max(2,Math.round(6*W/1024));
+  const tiny=l=>l>0&&sz[l]<T;
+  // grupos: diminutas + contorno a menos de g px de ellas
+  const dist=new Int16Array(N).fill(-1);let top=0;
+  for(let k=0;k<N;k++)if(tiny(lab[k])){dist[k]=0;st[top++]=k}
+  for(let i=0;i<top;i++){const q=st[i];if(dist[q]>=g)continue;vec(q,r=>{if(dist[r]<0&&!libre[r]){dist[r]=dist[q]+1;st[top++]=r}})}
+  const gr=new Int32Array(N);let ng=0;
+  for(let k=0;k<N;k++){if(dist[k]<0||gr[k])continue;ng++;let tp=0;gr[k]=ng;const s2=[k];
+    while(s2.length){const q=s2.pop();vec(q,r=>{if(dist[r]>=0&&!gr[r]){gr[r]=ng;s2.push(r)}})}}
+  // zona grande que rodea cada grupo (la más votada a g+3 px; si no hay, ninguna)
+  const vot=Array.from({length:ng+1},()=>new Map()),d2=new Int16Array(N).fill(-1),own=new Int32Array(N);top=0;
+  for(let k=0;k<N;k++)if(gr[k]){d2[k]=0;own[k]=gr[k];st[top++]=k}
+  for(let i=0;i<top;i++){const q=st[i];if(d2[q]>=g+3)continue;vec(q,r=>{if(d2[r]>=0)return;d2[r]=d2[q]+1;own[r]=own[q];
+    if(libre[r]&&!tiny(lab[r])){const m=vot[own[q]];m.set(lab[r],(m.get(lab[r])||0)+1)}else st[top++]=r})}
+  const padre=new Int32Array(ng+1);
+  for(let c=1;c<=ng;c++){let best=0,bv=0,tot=0;vot[c].forEach((v,l)=>{tot+=v;if(v>bv){bv=v;best=l}});padre[c]=tot&&bv>=.6*tot?best:0}
+  const grupoDe=new Int32Array(n+1);for(let k=0;k<N;k++)if(tiny(lab[k])&&!grupoDe[lab[k]])grupoDe[lab[k]]=gr[k];
+  let nt=0;for(let l=1;l<=n;l++)if(tiny(l))nt++;
+  return{W,lab,sz,T,tiny,grupoDe,padre,zonas:n,diminutas:nt,grupos:ng};
+}
+/* pinta también las diminutas que tocan a la zona pintada (llamada desde floodFill, antes de los bordes suaves) */
+function rellenoDiminutas(x0,y0,d,seen,r,g,b){
+  const Z=P.zn;if(!Z||Z.W!==pc.width)return;const l=Z.lab[y0*Z.W+x0];if(!l)return;
+  const ok=Z.tiny(l)?(m=>Z.grupoDe[m]===Z.grupoDe[l]):(m=>Z.padre[Z.grupoDe[m]]===l);
+  for(let k=0;k<Z.lab.length;k++){const m=Z.lab[k];if(m&&!seen[k]&&Z.tiny(m)&&ok(m)){seen[k]=1;const j=k*4;d[j]=r;d[j+1]=g;d[j+2]=b;d[j+3]=255}}
+}
 const utplReady=(async()=>{try{for(const o of await idb.all()){const im=new Image();im.src=o.url;UTPL[o.id]=im}}catch(e){}})();
 function importTpl(file){
   const url=URL.createObjectURL(file),im=new Image();
@@ -914,10 +962,12 @@ let tplDel=false;
 const TPL_ORDER=['princesa','unicornio','sirena','castillo','osito','conejo','gato','mariposa','flor','dinosaurio','buho','tortuga','pez','helado','tarta','arcoiris','casa','coche','cohete'];
 function thumb(n){const c=document.createElement('canvas');c.width=c.height=300;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,300,300);drawTpl(x,n,300,300);return c}
 onShow.tpl=async()=>{
-  await utplReady;const box=$('#tplgrid');box.innerHTML='';
+  await utplReady;await Promise.all(Object.values(LN).map(i=>i.decode().catch(()=>{})));const box=$('#tplgrid');box.innerHTML='';
   const add=document.createElement('button');add.innerHTML='<div style="font-size:64px">➕</div><div style="font-size:20px;font-weight:900">Añadir lámina</div>';
   add.style.display='flex';add.style.flexDirection='column';add.style.alignItems='center';add.style.justifyContent='center';
   add.onclick=()=>$('#tplFile').click();box.appendChild(add);
+  Object.keys(LN).forEach(n=>{const b=document.createElement('button');b.dataset.go='paint';b.dataset.arg=n;b.className='lnueva';b.setAttribute('aria-label',LNUEVAS[n.slice(2)]);
+    b.appendChild(thumb(n));b.insertAdjacentHTML('beforeend','<span class="lmarca">✨ Nueva</span>');box.appendChild(b)});
   Object.keys(UTPL).sort().reverse().forEach(n=>{const b=document.createElement('button');b.appendChild(thumb(n));
     if(tplDel){b.style.boxShadow='0 0 0 5px var(--red) inset';b.onclick=async()=>{if(!confirm('¿Borrar esta lámina?'))return;await idb.del(n).catch(()=>{});delete UTPL[n];onShow.tpl()}}
     else{b.dataset.go='paint';b.dataset.arg=n}box.appendChild(b)});

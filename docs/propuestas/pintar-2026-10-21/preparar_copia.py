@@ -20,7 +20,9 @@ Cambios respecto a ../../../index.html (cada sustitución comprueba que el texto
      · guardar: cada dibujo se guarda en SU entrada de «Mis dibujos» (volver a guardar la actualiza, no duplica); un
        dibujo abierto desde la galería se guarda como copia nueva (el original no cambia); si no hay espacio, NO se
        borra ningún dibujo antiguo: se avisa y el dibujo sigue en pantalla.
-     · el cubo no gasta un paso de deshacer cuando no pinta nada.
+     · el cubo no gasta un paso de deshacer cuando no pinta nada;
+  4. Láminas nuevas candidatas (heladería, gatito, hada, unicornio, perrito, conejito, princesa, helado, mariposa, explorador, hada-jardin, sirena; laminas/*.png): primeras de la lista, con su proporción 2:3
+     sin deformar, y relleno de las zonas diminutas (ver LAMINAS_JS). Las 19 láminas anteriores se conservan.
 
 Uso (desde la raíz del repositorio): python3 docs/propuestas/pintar-2026-10-21/preparar_copia.py
 """
@@ -125,6 +127,8 @@ CSS = """<style>
   #paint .sep{display:none}
 }
 #paint .pbot{padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+.tplgrid button.lnueva{position:relative;box-shadow:0 0 0 4px #ffd46b inset,0 5px 0 rgba(0,0,0,.1)}
+.lmarca{position:absolute;left:8px;top:8px;background:#fff3c4;color:#4a3a5c;font-weight:900;font-size:15px;padding:4px 10px;border-radius:12px;box-shadow:0 2px 0 rgba(0,0,0,.08)}
 /* solo en esta copia: deja sitio a la cinta «PRUEBA PINTAR» para que no tape los colores */
 #paint.screen.on{padding-bottom:calc(30px + env(safe-area-inset-bottom))}
 </style>
@@ -183,11 +187,13 @@ function layoutCanvas(reset){
   const r=$('#pwrap').getBoundingClientRect();let w=r.width-20,h=r.height-8;
   if(w<50||h<50)return;
   if(reset){
-    if(P.tpl){w=h=Math.min(w,h)}w=Math.floor(w);h=Math.floor(h);
+    if(P.tpl&&LN[P.tpl]){const ar=LN[P.tpl].naturalWidth/LN[P.tpl].naturalHeight||2/3;if(w/h>ar)w=h*ar;else h=w/ar}   // láminas nuevas: sin deformar
+    else if(P.tpl){w=h=Math.min(w,h)}w=Math.floor(w);h=Math.floor(h);
     const W=Math.round(w*DPR),H=Math.round(h*DPR);
     pc.width=oc.width=W;pc.height=oc.height=H;
     pctx.fillStyle='#fff';pctx.fillRect(0,0,W,H);
     octx.clearRect(0,0,W,H);if(P.tpl)drawTpl(octx,P.tpl,W,H);
+    P.zn=P.tpl&&LN[P.tpl]?zonasLamina():null;
     MAXU=Math.max(6,Math.min(20,Math.floor(90e6/(W*H*4))));   // pasos de deshacer según la memoria (≈90 MB como máximo)
     P.undo=[];P.redo=[];updUR();
   }
@@ -195,7 +201,8 @@ function layoutCanvas(reset){
   const cv=$('#cv');cv.style.width=Math.floor(dw)+'px';cv.style.height=Math.floor(dh)+'px';
 }
 onShow.paint=async arg=>{
-  P.tpl=(TPL[arg]||UTPL[arg])?arg:null;P.dirty=false;P.saved=null;$('#clearBtn').classList.remove('arm');"""
+  P.tpl=(TPL[arg]||UTPL[arg]||LN[arg])?arg:null;P.dirty=false;P.saved=null;$('#clearBtn').classList.remove('arm');
+  if(LN[arg])await LN[arg].decode().catch(()=>{});"""
 
 JS_UNDO_VIEJO = """function pushUndo(){P.undo.push(pctx.getImageData(0,0,pc.width,pc.height));if(P.undo.length>6)P.undo.shift()}"""
 JS_UNDO_NUEVO = """function snap(){return pctx.getImageData(0,0,pc.width,pc.height)}
@@ -249,6 +256,48 @@ function savePaint(){
 }
 $('#saveBtn').onclick=()=>{const antes=P.saved;if(savePaint()&&P.saved!==antes){sfx.good();confetti();say('¡Qué dibujo tan bonito!')}};"""
 
+LAMINAS_JS = """/* ---------- láminas nuevas candidatas (copia Pintar 21/10): ilustraciones 2:3, sin deformar ----------
+   Zonas: al abrir una lámina nueva se calculan sus zonas (contorno = opacidad > 110, como el cubo). Las «diminutas»
+   (menos de 14 × 14 px de pantalla: pelitos, pepitas, rejillas…) se agrupan con sus vecinas a través del contorno y se
+   asocian a la zona grande que las rodea: al pintar una zona grande se pintan también sus diminutas, y al tocar una
+   diminuta se pinta todo su grupo. Las rodeadas de tinta gruesa (brillos de los ojos) no se asocian: quedan blancas. */
+const LNUEVAS={heladeria:'Heladería',gatito:'Gatito',hada:'Hada',unicornio:'Unicornio',perrito:'Perrito',conejito:'Conejito',princesa:'Princesa',helado:'Helado',mariposa:'Mariposa',explorador:'Osito explorador','hada-jardin':'Hada jardinera',sirena:'Sirena'},LN={};
+Object.keys(LNUEVAS).forEach(k=>{const im=new Image();im.src='docs/propuestas/pintar-2026-10-21/laminas/'+k+'.png';LN['n:'+k]=im});
+function zonasLamina(){
+  const W=oc.width,H=oc.height,N=W*H,o=octx.getImageData(0,0,W,H).data,libre=new Uint8Array(N);
+  for(let k=0;k<N;k++)libre[k]=o[k*4+3]<=110?1:0;
+  const lab=new Int32Array(N),st=new Int32Array(N),sz=[0];let n=0;
+  const vec=(q,f)=>{const x=q%W;if(x>0)f(q-1);if(x<W-1)f(q+1);if(q>=W)f(q-W);if(q<N-W)f(q+W)};
+  for(let k=0;k<N;k++){if(!libre[k]||lab[k])continue;n++;let top=0,c=0;lab[k]=n;st[top++]=k;
+    while(top){const q=st[--top];c++;vec(q,r=>{if(libre[r]&&!lab[r]){lab[r]=n;st[top++]=r}})}sz.push(c)}
+  const css=parseFloat($('#cv').style.width)||W/DPR,esc=W/css,T=196*esc*esc,g=Math.max(2,Math.round(6*W/1024));
+  const tiny=l=>l>0&&sz[l]<T;
+  // grupos: diminutas + contorno a menos de g px de ellas
+  const dist=new Int16Array(N).fill(-1);let top=0;
+  for(let k=0;k<N;k++)if(tiny(lab[k])){dist[k]=0;st[top++]=k}
+  for(let i=0;i<top;i++){const q=st[i];if(dist[q]>=g)continue;vec(q,r=>{if(dist[r]<0&&!libre[r]){dist[r]=dist[q]+1;st[top++]=r}})}
+  const gr=new Int32Array(N);let ng=0;
+  for(let k=0;k<N;k++){if(dist[k]<0||gr[k])continue;ng++;let tp=0;gr[k]=ng;const s2=[k];
+    while(s2.length){const q=s2.pop();vec(q,r=>{if(dist[r]>=0&&!gr[r]){gr[r]=ng;s2.push(r)}})}}
+  // zona grande que rodea cada grupo (la más votada a g+3 px; si no hay, ninguna)
+  const vot=Array.from({length:ng+1},()=>new Map()),d2=new Int16Array(N).fill(-1),own=new Int32Array(N);top=0;
+  for(let k=0;k<N;k++)if(gr[k]){d2[k]=0;own[k]=gr[k];st[top++]=k}
+  for(let i=0;i<top;i++){const q=st[i];if(d2[q]>=g+3)continue;vec(q,r=>{if(d2[r]>=0)return;d2[r]=d2[q]+1;own[r]=own[q];
+    if(libre[r]&&!tiny(lab[r])){const m=vot[own[q]];m.set(lab[r],(m.get(lab[r])||0)+1)}else st[top++]=r})}
+  const padre=new Int32Array(ng+1);
+  for(let c=1;c<=ng;c++){let best=0,bv=0,tot=0;vot[c].forEach((v,l)=>{tot+=v;if(v>bv){bv=v;best=l}});padre[c]=tot&&bv>=.6*tot?best:0}
+  const grupoDe=new Int32Array(n+1);for(let k=0;k<N;k++)if(tiny(lab[k])&&!grupoDe[lab[k]])grupoDe[lab[k]]=gr[k];
+  let nt=0;for(let l=1;l<=n;l++)if(tiny(l))nt++;
+  return{W,lab,sz,T,tiny,grupoDe,padre,zonas:n,diminutas:nt,grupos:ng};
+}
+/* pinta también las diminutas que tocan a la zona pintada (llamada desde floodFill, antes de los bordes suaves) */
+function rellenoDiminutas(x0,y0,d,seen,r,g,b){
+  const Z=P.zn;if(!Z||Z.W!==pc.width)return;const l=Z.lab[y0*Z.W+x0];if(!l)return;
+  const ok=Z.tiny(l)?(m=>Z.grupoDe[m]===Z.grupoDe[l]):(m=>Z.padre[Z.grupoDe[m]]===l);
+  for(let k=0;k<Z.lab.length;k++){const m=Z.lab[k];if(m&&!seen[k]&&Z.tiny(m)&&ok(m)){seen[k]=1;const j=k*4;d[j]=r;d[j+1]=g;d[j+2]=b;d[j+3]=255}}
+}
+"""
+
 GAL_VIEJO = """function addToGallery(url){
   const g=store.get('gal',[]);g.unshift(url);
   while(g.length){if(store.set('gal',g)){toast('¡Guardado! 🖼️');return true}g.pop()}
@@ -290,6 +339,21 @@ if __name__ == '__main__':
         h = sustituir(h, viejo, nuevo)
     h = sustituir(h, JS_BOTONES_VIEJO, JS_BOTONES_NUEVO)
     h = sustituir(h, GAL_VIEJO, GAL_NUEVO)
+    # láminas nuevas candidatas
+    h = sustituir(h, "const UTPL={};\n", "const UTPL={};\n" + LAMINAS_JS)
+    h = sustituir(h, "  if(name.startsWith('u:')){",
+                  "  if(name.startsWith('n:')){x.restore();const im=LN[name];if(im&&im.complete&&im.naturalWidth){const s=Math.min(W/im.naturalWidth,H/im.naturalHeight);\n"
+                  "    x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';x.drawImage(im,(W-im.naturalWidth*s)/2,(H-im.naturalHeight*s)/2,im.naturalWidth*s,im.naturalHeight*s)}return}\n"
+                  "  if(name.startsWith('u:')){")
+    h = sustituir(h, "  // rellena también el borde suave junto a las líneas para que no queden halos blancos\n",
+                  "  rellenoDiminutas(x0,y0,d,seen,r,g,b);   // copia Pintar 21/10: zonas diminutas de las láminas nuevas\n"
+                  "  // rellena también el borde suave junto a las líneas para que no queden halos blancos\n")
+    h = sustituir(h, "  await utplReady;const box=$('#tplgrid');box.innerHTML='';",
+                  "  await utplReady;await Promise.all(Object.values(LN).map(i=>i.decode().catch(()=>{})));const box=$('#tplgrid');box.innerHTML='';")
+    h = sustituir(h, "  add.onclick=()=>$('#tplFile').click();box.appendChild(add);\n",
+                  "  add.onclick=()=>$('#tplFile').click();box.appendChild(add);\n"
+                  "  Object.keys(LN).forEach(n=>{const b=document.createElement('button');b.dataset.go='paint';b.dataset.arg=n;b.className='lnueva';b.setAttribute('aria-label',LNUEVAS[n.slice(2)]);\n"
+                  "    b.appendChild(thumb(n));b.insertAdjacentHTML('beforeend','<span class=\"lmarca\">✨ Nueva</span>');box.appendChild(b)});\n")
     h = ('<!-- COPIA AISLADA para probar las mejoras de Pintar (generada por preparar_copia.py desde index.html). '
          'No es el juego de Amaia. -->\n') + h
     (AQUI / 'index.html').write_text(h, encoding='utf-8')

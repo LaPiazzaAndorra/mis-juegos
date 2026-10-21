@@ -1,0 +1,554 @@
+{
+ "heladeria": {
+  "zonas_original": 360,
+  "zonas_grandes": 60,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 331,
+    "diminutas_menos_14px": 223,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 333,
+    "diminutas_menos_14px": 262,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 329,
+    "diminutas_menos_14px": 181,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 338,
+    "diminutas_menos_14px": 212,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "gatito": {
+  "zonas_original": 291,
+  "zonas_grandes": 51,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 288,
+    "diminutas_menos_14px": 187,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 271,
+    "diminutas_menos_14px": 208,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 269,
+    "diminutas_menos_14px": 104,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 270,
+    "diminutas_menos_14px": 143,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "hada": {
+  "zonas_original": 255,
+  "zonas_grandes": 50,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 221,
+    "diminutas_menos_14px": 132,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 226,
+    "diminutas_menos_14px": 171,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 223,
+    "diminutas_menos_14px": 94,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 225,
+    "diminutas_menos_14px": 124,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "unicornio": {
+  "zonas_original": 65,
+  "zonas_grandes": 28,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 66,
+    "diminutas_menos_14px": 28,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 70,
+    "diminutas_menos_14px": 40,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 52,
+    "diminutas_menos_14px": 11,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 59,
+    "diminutas_menos_14px": 20,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "perrito": {
+  "zonas_original": 22,
+  "zonas_grandes": 9,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 22,
+    "diminutas_menos_14px": 11,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 22,
+    "diminutas_menos_14px": 11,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 23,
+    "diminutas_menos_14px": 8,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 23,
+    "diminutas_menos_14px": 12,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "conejito": {
+  "zonas_original": 53,
+  "zonas_grandes": 13,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 45,
+    "diminutas_menos_14px": 30,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 41,
+    "diminutas_menos_14px": 28,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 39,
+    "diminutas_menos_14px": 18,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 43,
+    "diminutas_menos_14px": 25,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "princesa": {
+  "zonas_original": 271,
+  "zonas_grandes": 32,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 235,
+    "diminutas_menos_14px": 169,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 240,
+    "diminutas_menos_14px": 198,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 239,
+    "diminutas_menos_14px": 109,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 233,
+    "diminutas_menos_14px": 153,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "helado": {
+  "zonas_original": 28,
+  "zonas_grandes": 17,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 26,
+    "diminutas_menos_14px": 5,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 27,
+    "diminutas_menos_14px": 10,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 26,
+    "diminutas_menos_14px": 3,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 26,
+    "diminutas_menos_14px": 4,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "mariposa": {
+  "zonas_original": 27,
+  "zonas_grandes": 17,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 27,
+    "diminutas_menos_14px": 9,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 24,
+    "diminutas_menos_14px": 6,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 25,
+    "diminutas_menos_14px": 5,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 28,
+    "diminutas_menos_14px": 8,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "explorador": {
+  "zonas_original": 115,
+  "zonas_grandes": 31,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 101,
+    "diminutas_menos_14px": 53,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 104,
+    "diminutas_menos_14px": 68,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 101,
+    "diminutas_menos_14px": 41,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 100,
+    "diminutas_menos_14px": 48,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "hada-jardin": {
+  "zonas_original": 172,
+  "zonas_grandes": 32,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 146,
+    "diminutas_menos_14px": 104,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 137,
+    "diminutas_menos_14px": 104,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 139,
+    "diminutas_menos_14px": 72,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 146,
+    "diminutas_menos_14px": 95,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ },
+ "sirena": {
+  "zonas_original": 136,
+  "zonas_grandes": 31,
+  "pantallas": {
+   "iPhone vertical": {
+    "papel_css": [
+     346,
+     518
+    ],
+    "zonas": 127,
+    "diminutas_menos_14px": 79,
+    "fugas": []
+   },
+   "iPhone horizontal": {
+    "papel_css": [
+     234,
+     352
+    ],
+    "zonas": 127,
+    "diminutas_menos_14px": 91,
+    "fugas": []
+   },
+   "iPad vertical": {
+    "papel_css": [
+     628,
+     942
+    ],
+    "zonas": 116,
+    "diminutas_menos_14px": 53,
+    "fugas": []
+   },
+   "iPad horizontal": {
+    "papel_css": [
+     426,
+     640
+    ],
+    "zonas": 122,
+    "diminutas_menos_14px": 71,
+    "fugas": []
+   }
+  },
+  "tamano": [
+   1024,
+   1536
+  ]
+ }
+}

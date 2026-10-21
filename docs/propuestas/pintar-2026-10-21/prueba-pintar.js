@@ -17,7 +17,10 @@
      · 🗑️ necesita dos toques y se puede deshacer;
      · guardar: una entrada por dibujo, actualizar sin duplicar, salir sin duplicar, editar desde la galería crea copia
        nueva sin tocar el original, y sin espacio no se borra ningún dibujo;
-     · las láminas para colorear siguen funcionando (cubo dentro de una zona); sin errores de JavaScript.
+     · las láminas para colorear siguen funcionando (cubo dentro de una zona);
+     · láminas nuevas (heladería, gatito, hada, unicornio, perrito, conejito, princesa, helado, mariposa, osito explorador, hada jardinera, sirena), en las cuatro pantallas: primeras de la lista y las 19 anteriores
+       conservadas; enteras y sin deformar; el cubo no atraviesa el contorno (cada zona grande, una a una); las zonas
+       diminutas se pintan con su zona o en grupo; sin errores de JavaScript.
    Las capturas se guardan FUERA del repositorio.
    ===================================================================== */
 const path = require('path'), os = require('os'), fs = require('fs');
@@ -164,6 +167,52 @@ const gal = p => p.evaluate(() => JSON.parse(localStorage.getItem('gal') || '[]'
     await p.mouse.click(r.x + r.width * .5, r.y + r.height * .33);
     ok('Láminas: abren con el cubo y pintan dentro de una zona', t.tool === 'fill' && t.tpl === 'flor' && await huella(p) !== h0);
     await p.screenshot({ path: path.join(OUT, 'despues-lamina-ipad.png') });
+    await c.close();
+  }
+  // ---------- 5. láminas nuevas candidatas ----------
+  for (const [n, [w, h, mov]] of Object.entries(DEV)) {
+    const c = await b.newContext({ viewport: { width: w, height: h }, hasTouch: true, isMobile: mov, deviceScaleFactor: 2 });
+    const p = await c.newPage(); p.on('pageerror', e => errores.push(e.message));
+    await p.goto(COPIA); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(300);
+    if (n === 'iPhone vertical') {
+      await p.evaluate(() => go('tpl')); await p.waitForTimeout(600);
+      const l = await p.evaluate(() => [...document.querySelectorAll('#tplgrid button')].map(b => b.dataset.arg || 'añadir'));
+      ok('Lista de láminas: «Añadir», las 12 nuevas primero y las 19 anteriores conservadas', l[0] === 'añadir' && l.slice(1, 13).join() === ['heladeria', 'gatito', 'hada', 'unicornio', 'perrito', 'conejito', 'princesa', 'helado', 'mariposa', 'explorador', 'hada-jardin', 'sirena'].map(x => 'n:' + x).join() && l.filter(x => x && !x.startsWith('n:') && x !== 'añadir').length === 19);
+    }
+    for (const L of ['heladeria', 'gatito', 'hada', 'unicornio', 'perrito', 'conejito', 'princesa', 'helado', 'mariposa', 'explorador', 'hada-jardin', 'sirena']) {
+      await p.evaluate(L => { P.zn = null; go('paint', 'n:' + L); }, L); await p.waitForFunction(() => P.zn, null, { timeout: 10000 });
+      const m = await p.evaluate(() => {
+        const im = LN[P.tpl], cv = document.querySelector('#cv').getBoundingClientRect(), pw = document.querySelector('#pwrap').getBoundingClientRect();
+        const ar = im.naturalWidth / im.naturalHeight, arc = pc.width / pc.height;
+        const Z = P.zn, N = Z.lab.length, W = Z.W, big = [];
+        for (let l = 1; l < Z.sz.length; l++) if (!Z.tiny(l)) big.push(l);
+        const first = new Int32Array(Z.sz.length).fill(-1); for (let k = 0; k < N; k++) if (first[Z.lab[k]] < 0) first[Z.lab[k]] = k;
+        // fugas: cada zona grande, en un papel en blanco
+        let fugas = 0, hijasMal = 0;
+        for (const l of big) {
+          pctx.fillStyle = '#fff'; pctx.fillRect(0, 0, pc.width, pc.height);
+          const k = first[l]; floodFill(k % W, (k / W) | 0, '#ff0000');
+          const d = pctx.getImageData(0, 0, pc.width, pc.height).data;
+          for (let q = 0; q < N; q++) { const m = Z.lab[q]; if (!m || m === l) continue; const rojo = d[q * 4] > 200 && d[q * 4 + 1] < 60;
+            if (!rojo) { if (Z.tiny(m) && Z.padre[Z.grupoDe[m]] === l) hijasMal++; continue; }
+            if (!Z.tiny(m)) fugas++; else if (Z.padre[Z.grupoDe[m]] !== l) fugas++; }
+        }
+        // un toque en una diminuta pinta todo su grupo
+        const tam = {}; for (let l = 1; l < Z.sz.length; l++) if (Z.tiny(l)) tam[Z.grupoDe[l]] = (tam[Z.grupoDe[l]] || 0) + 1;
+        const gg = +Object.keys(tam).sort((a, b) => tam[b] - tam[a])[0]; let grupoOk = true;
+        { pctx.fillStyle = '#fff'; pctx.fillRect(0, 0, pc.width, pc.height); let l0 = 0; for (let l = 1; l < Z.sz.length; l++) if (Z.tiny(l) && Z.grupoDe[l] === gg) { l0 = l; break; }
+          const k = first[l0]; floodFill(k % W, (k / W) | 0, '#ff0000'); const d = pctx.getImageData(0, 0, pc.width, pc.height).data;
+          for (let l = 1; l < Z.sz.length; l++) if (Z.tiny(l) && Z.grupoDe[l] === gg) { const q = first[l]; if (!(d[q * 4] > 200 && d[q * 4 + 1] < 60)) grupoOk = false; } }
+        // zonas que exigen un toque preciso: diminutas sin zona grande y solas en su grupo
+        let sueltas = 0, area = 0, libre = 0; for (let l = 1; l < Z.sz.length; l++) { libre += Z.sz[l]; if (Z.tiny(l) && !Z.padre[Z.grupoDe[l]] && tam[Z.grupoDe[l]] === 1) { sueltas++; area += Z.sz[l]; } }
+        pctx.fillStyle = '#fff'; pctx.fillRect(0, 0, pc.width, pc.height);
+        return { def: Math.abs(arc / ar - 1), dentro: cv.left >= pw.left - 1 && cv.right <= pw.right + 1 && cv.top >= pw.top - 1 && cv.bottom <= pw.bottom + 1,
+          grandes: big.length, fugas, hijasMal, grupo: tam[gg], grupoOk, sueltas, pctSueltas: (100 * area / libre).toFixed(2), css: [Math.round(cv.width), Math.round(cv.height)] };
+      });
+      ok(`${n} · ${L}: entera y sin deformar (papel ${m.css.join(' × ')})`, m.dentro && m.def < .006, `diferencia de proporción ${(m.def * 100).toFixed(2)} %`);
+      ok(`${n} · ${L}: el cubo no atraviesa el contorno (${m.grandes} zonas grandes probadas una a una)`, m.fugas === 0, `píxeles fuera de su zona: ${m.fugas}`);
+      ok(`${n} · ${L}: al pintar una zona se pintan sus diminutas, y un toque pinta un grupo entero`, m.hijasMal === 0 && m.grupoOk, `grupo mayor: ${m.grupo} diminutas · sueltas: ${m.sueltas} (${m.pctSueltas} % del área)`);
+    }
     await c.close();
   }
   ok('Sin errores de JavaScript', !errores.length, errores.slice(0, 3).join(' | '));
