@@ -975,14 +975,15 @@ function iceNew(){
   const a=$('#iceAnimal');a.textContent=pick(CUST);a.classList.remove('enter','happy');void a.offsetWidth;a.classList.add('enter');
   const nv=NIVELES[ICE.nv.L];$('#iceLv').textContent=`Nivel ${ICE.nv.L+1} · ${nv.nom} ${'●'.repeat(ICE.nv.ok)}${'○'.repeat(3-ICE.nv.ok)}`;
   verPedido(ICE.order.t==='memoria'?(ICE.order.scoops.length>1?5:4):0);iceDraw();
-  setTimeout(()=>say(ICE.order.t==='memoria'?'¡Mira bien mi helado y recuérdalo! '+orderText(ICE.order):orderText(ICE.order)),400);
+  const o=ICE.order;   // la voz solo habla si este pedido sigue en pantalla (se puede cambiar de modo antes)
+  setTimeout(()=>{if(ICE.order===o&&current==='ice')say(o.t==='memoria'?'¡Mira bien mi helado y recuérdalo! '+orderText(o):orderText(o))},400);
 }
 /* ---------- juego libre ---------- */
 function iceLibre(){
   clearTimeout(tapaT);clearTimeout(sigT);ICE.order=null;ICE.build=nuevoHelado();
   const a=$('#iceAnimal');a.textContent=pick(CUST);a.classList.remove('enter','happy');void a.offsetWidth;a.classList.add('enter');
   $('#iceOrder').classList.remove('cover');$('#iceOrder').innerHTML='<div class="tapa">🎨</div><div class="ord"><span class="ico">😋</span></div>';
-  $('#iceLv').textContent='Juego libre';iceDraw();setTimeout(()=>say('¡Invéntate un helado! Cuando quieras, dámelo a probar.'),400);
+  $('#iceLv').textContent='Juego libre';iceDraw();setTimeout(()=>{if(ICE.mode==='libre'&&current==='ice')say('¡Invéntate un helado! Cuando quieras, dámelo a probar.')},400);
 }
 function setMode(m){
   ICE.mode=m==='libre'?'libre':'pedidos';const L=ICE.mode==='libre';

@@ -6,6 +6,17 @@ Rama `pintar-heladeria` (la misma que Pintar). **No es el juego de Amaia y no es
 
 **Enlace para probarla (Safari):** el fijo de este commit está en el apartado 5.
 
+## Fases y estado
+
+| Fecha | Fase | Estado |
+| --- | --- | --- |
+| 21/10/2026 | Revisión y primera versión nueva en esta copia aislada (`hel1:`) | Hecho, commit `ef9a583`. |
+| 21/10/2026, 20:38 | **Aprobación general de la propietaria** tras probarla en su iPhone: «la Heladería me parece bien» | Aprobación **general**. **No** se dan por comprobados en el iPhone todos los casos de la prueba (cada nivel, cada pista, memoria, «quitar la última», foto, aviso sin espacio, giro, iPad). |
+| 21/10/2026 | **Copia de seguridad comprobada** con los datos de la Heladería y el nivel nuevo (apartado 4 bis) | Hecho en Chromium (19/19); **sin probar en el iPhone real**. |
+| 21/10/2026 | Corrección menor encontrada al comprobarlo: error de JavaScript si se cambia de modo antes de que el animal hable (0,4 s). La voz solo habla si el pedido sigue en pantalla | Hecho. Es el único cambio de código respecto a la versión aprobada `ef9a583`. |
+| 21/10/2026 | **Versión de referencia estable de la Heladería:** la de este commit (el siguiente a `ef9a583`; el hash se anota en la entrada siguiente). **No se integra todavía en el juego principal** | Hecho. La copia queda congelada hasta que se decida integrarla. |
+| — | Recompensas | **Pendientes de diseñar.** |
+
 ## 1. La Heladería de hoy (revisión)
 
 Medido en Chromium con pantallas simuladas (iPhone 390 × 844 y 844 × 390; iPad 820 × 1180 y 1180 × 820). **No probado
@@ -96,8 +107,32 @@ Chromium con pantallas simuladas; **sin probar en un iPhone ni un iPad reales**.
   - sin errores de JavaScript.
 - El juego sigue igual: `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45.
 - La copia de Pintar no ha cambiado desde `708c2f2` (solo su `LEEME.md`).
-- **Sin probar:** iPhone/iPad reales, voces de iOS, dedos de verdad, la app instalada sin conexión, la copia de seguridad
-  con `lv_heladeria` (se deduce del código de `progreso.js`, que guarda las claves `lv_…`; no se ha ejecutado).
+- **Sin probar:** iPhone/iPad reales (salvo la aprobación general de la propietaria), voces de iOS, dedos de verdad, la
+  app instalada sin conexión.
+
+## 4 bis. «Guardar / Recuperar mi progreso» con los datos de la Heladería (21/10/2026)
+
+`prueba-progreso-heladeria.js`: **19/19**, dos veces seguidas. Igual que `pruebas/prueba-copia.js`, simula la app instalada
+en el iPhone y su hoja de compartir; **no sustituye la prueba en el iPhone real**. `progreso.js` **no se ha cambiado**.
+
+En la copia de la Heladería, jugando de verdad (4 pedidos y una foto del juego libre):
+- **Guardar** exporta tal cual `stars`, `iceCoins`, `iceServed`, **`lv_heladeria`** (`{"L":1,"ok":1}`) y la foto en `gal`.
+  El archivo es de pruebas (`PRUEBAS-…json`, marca `version_pruebas`); el resumen cuenta el nivel.
+- Tras seguir jugando (sube al nivel 3, más estrellas, se borra la foto), **Recuperar** enseña la comparación; cancelar no
+  cambia nada; al confirmar vuelven **exactamente** los datos de la copia, y la Heladería abre en «Nivel 2 · Contar ●○○»
+  con las monedas de la copia.
+- **Deshacer la última recuperación** vuelve al estado de antes, nivel incluido.
+- Una copia **antigua sin `lv_heladeria`** recupera lo que trae y **no borra** el nivel actual: «Recuperar» escribe las
+  claves de la copia, pero no quita las que la copia no tiene (así funciona hoy para todas las claves).
+- Una copia con `lv_heladeria` **dañado** se rechaza («El archivo está dañado») sin cambiar nada; con valores **fuera de
+  rango** (`{"L":99,"ok":-4}`) se acepta y la Heladería abre en el nivel 6 y se puede jugar.
+- Las claves del juego y de otras copias no se tocan; la copia de seguridad interna va en `hel1-misjuegos-copias`.
+
+En el **juego principal** (sin cambios): recupera una copia normal con `lv_heladeria` y los datos de la Heladería, la vuelve
+a exportar al guardar, y **rechaza** la copia hecha en la versión de pruebas.
+
+**Para cuando se integre:** no hace falta tocar `progreso.js`; `lv_heladeria` entra por el prefijo `lv_`. Si se quisiera que
+recuperar una copia antigua devolviera la Heladería al nivel 1, habría que cambiar `progreso.js` (archivo compartido).
 
 ## 5. Cómo probarla
 
@@ -121,7 +156,7 @@ En el ordenador: desde la raíz, `python3 -m http.server 8765` y abrir
 
 ## 6. Pendiente y para decidir
 
-- **Aprobación visual y de juego** de la propietaria (modos, niveles, pistas) tras probarla en el iPhone.
+- Aprobación **general** recibida (21/10). Quedan por comprobar en el iPhone los casos concretos de la prueba (apartado 5).
 - Los clientes y adornos siguen siendo **emojis** (como en el juego); ilustrarlos sería otra tarea.
 - ¿Elegir el nivel a mano (por ejemplo, un adulto), además de subir solo? Hoy sube solo y no baja.
 - ¿Usar las monedas para algo? Forma parte del diseño de recompensas, **pendiente**.

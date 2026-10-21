@@ -194,6 +194,14 @@ const dice = p => p.evaluate(() => window.__dicho || '');
     await p.evaluate(() => { for (let i = 0; i < 2000; i++) localStorage.removeItem('relleno' + i); });
     await c.close();
   }
+  // cambiar de modo enseguida (antes de que hable el animal) no da errores
+  {
+    const { c, p } = await pagina(b, DEV['iPhone vertical']); const n0 = errores.length;
+    for (let i = 0; i < 4; i++) { await p.evaluate(() => go('ice', 'pedidos')); await p.waitForTimeout(60); await p.click('#ice .imode[data-m="libre"]'); await p.waitForTimeout(60); await p.click('#ice .imode[data-m="pedidos"]'); await p.waitForTimeout(60); await p.evaluate(() => go('m-ice')); }
+    await p.waitForTimeout(800);
+    ok('Cambiar de modo o salir enseguida no da errores', errores.length === n0, errores.slice(n0).join(' | '));
+    await c.close();
+  }
   ok('Sin errores de JavaScript', !errores.length, errores.slice(0, 3).join(' | '));
   await b.close();
   const bien = res.filter(r => r[0]).length;
