@@ -1,8 +1,22 @@
 # Pintar, Heladería y recompensas · revisión y primera mejora (21/10/2026)
 
-Trabajo **separado del avatar**: rama local `pintar-heladeria`, creada desde `avatar-creador` (`884a775`). No cambia
+Trabajo **separado del avatar**: rama `pintar-heladeria` (en GitHub desde el 21/10, sin publicar), creada desde `avatar-creador` (`884a775`). No cambia
 `main`, ningún archivo del juego, las propuestas del avatar ni las copias congeladas (`prueba-juego-d016/d021/d023/d026`).
 **Nada publicado.** Todo lo nuevo está en esta carpeta.
+
+## Fases y estado
+
+| Fecha | Fase | Estado |
+| --- | --- | --- |
+| 21/10/2026 | Revisión de Pintar, primera mejora en copia aislada (`pin1:`), propuestas de Heladería, recompensas y gincana | Hecho; commit `f62152d` (local). |
+| 21/10/2026 | Rama `pintar-heladeria` subida a GitHub por petición de la propietaria, con el enlace de prueba para Safari | Hecho (este commit). `main`, `avatar-creador`, partidas y archivos compartidos sin cambios. |
+| Siguiente | **Prueba de Pintar en el iPhone de la propietaria:** dibujar, girar, deshacer, rehacer y guardar (pasos del apartado 2) | Pendiente. |
+| Después | Heladería (apartado 3) | Pendiente; se empieza tras la prueba de Pintar. |
+| — | Recompensas (apartado 4) | **Propuesta pendiente, no aprobada:** ni los umbrales ni ningún cambio en el guardado. |
+| Al integrar | Documentos generales (`ESTADO_ACTUAL`, `REGISTRO_CAMBIOS`, `HOJA_DE_RUTA`, `MANUAL_PROYECTO`, `VERSION_DE_PRUEBAS`…) | Se coordinan con el chat del avatar al integrar; hasta entonces esta fase solo se documenta aquí. |
+
+**Enlace de la prueba (Safari):**
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/pintar-heladeria/docs/propuestas/pintar-2026-10-21/index.html>
 
 ## 1. Pintar: revisión del juego actual
 
@@ -68,7 +82,7 @@ En el ordenador: desde la raíz, `python3 -m http.server 8765` y abrir
 `http://localhost:8765/docs/propuestas/pintar-2026-10-21/index.html` (con el modo móvil del navegador).
 Prueba automática: `node docs/propuestas/pintar-2026-10-21/prueba-pintar.js`.
 
-En el iPhone (cuando la rama esté en GitHub; **todavía no está subida**):
+En el iPhone, **en Safari** (la rama ya está en GitHub):
 `https://raw.githack.com/LaPiazzaAndorra/mis-juegos/pintar-heladeria/docs/propuestas/pintar-2026-10-21/index.html`
 → comprobar la cinta «PRUEBA PINTAR» → Pintar → Hoja en blanco, y:
 1. Pintar con varios colores: ¿se ven todos los botones y colores sin desplazar? ¿Dice el nombre del color?
@@ -109,7 +123,7 @@ en Vestir; Parejas +2 / +3 / +5 según el nivel; Contar, ¿Qué sigue?, Sombras 
 un poco el nivel, `lv_<juego>`, pero no quita estrellas). Las estrellas solo se cuentan y se enseñan: **no se gastan ni
 desbloquean nada**. Van en la copia de seguridad.
 
-**Propuesta**
+**Propuesta — pendiente: la propietaria no ha aprobado todavía los umbrales ni cambios en el guardado (21/10).**
 - **Actividades breves (2–3 minutos, 5 rondas):** Letras (encontrar la letra inicial: «¿con qué letra empieza oso?»; su
   nombre), Contar (ya existe), Memoria (Parejas o el pedido tapado de la Heladería) y Colores (toca el color que se dice).
   Reintentos ilimitados; fallar nunca resta.
