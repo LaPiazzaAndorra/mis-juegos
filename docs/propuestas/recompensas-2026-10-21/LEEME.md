@@ -18,7 +18,8 @@ La propietaria aprobó hacer la primera prueba pequeña: copia aislada `../logro
 10 logros** y **premios provisionales nuevos de Pintar y la Heladería**, claramente identificados. Cada reto da un logro una
 vez al día y cada tarea confirmada cuenta una vez; sin otro límite diario. Sin tocar Vestir, el catálogo, `progreso.js` del
 juego ni las referencias congeladas; recuperación como hoy (la unión queda pendiente). Detalles, pruebas y cómo probarla
-en su `LEEME.md`. Enlace fijo: en la entrada siguiente.
+en su `LEEME.md`. Commit `192e9b9`. Enlace fijo (Safari):
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/192e9b9d4d9f84bf66da394004a54fac8473d34c/docs/propuestas/logros-prueba-2026-10-21/index.html>
 
 ## 0. Lo que hay hoy (comprobado en el código)
 
