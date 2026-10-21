@@ -1,7 +1,10 @@
 # Conjunto de hada · 22/10/2026 (D-029)
 
-> **Fase de diseño.** Primero se revisa aquí el diseño (una imagen de ChatGPT sobre nuestra base); con él aprobado, se
-> piden las piezas por separado y se extraen. Nada activado en el juego; `main`, las partidas y las pruebas congeladas no
+> **Diseño aprobado (22/10):** vestido lila y rosa de pétalos con flores bordadas, mangas de farol y lazo con estrella;
+> alas irisadas con nervios dorados; varita de estrella dorada con flor y cintas; bailarinas lilas con flor. Referencia
+> en `referencias/referencia-hada-aprobada.png` (imagen generada, **sin modificar**, 948 × 1660, SHA-256
+> `93cb91fe39843064138d11c01cbf7e913b24903e7af799a16a8c2afb51a0540d`). **El encaje sobre nuestra base queda pendiente:**
+> faltan la versión sin pelo y las piezas completas (abajo). Nada activado en el juego; `main`, las partidas y las pruebas congeladas no
 > cambian. Se conservan la cara, el cuerpo y la postura de la base aprobada (D-013).
 
 **Cuatro piezas separadas:** vestido, alas, varita y zapatos (cada una, su capa: se podrán poner y quitar por separado).
@@ -39,3 +42,38 @@
 el vestido tape toda la ropa rosa; que no deforme el cuerpo; el encaje con el pelo (melena, coleta y dos coletas). Con el
 diseño aprobado se pedirá, si hace falta, cada pieza sola (sobre todo las alas enteras, que el cuerpo tapa en parte) y se
 extraerán como capas separadas.
+
+## Referencia aprobada: lo medido (22/10)
+
+- Mismo lienzo (948 × 1660, una fila más); iris en (391, 441) y (564, 441): escala 1,0173 por los ojos, como otras
+  imágenes de ChatGPT. Piernas y pies a 1–3 px de los nuestros (y = 1 350–1 520). Las zapatillas (bailarinas) se ajustan a
+  nuestros pies.
+- **ChatGPT ha redibujado la melena** (con raya y más volumen arriba): no se usa; va **nuestra melena** (y la coleta y
+  las dos coletas). Del diseño solo se tomarán las cuatro piezas.
+- **Lo que no se ve entero:** los hombros, las mangas y el escote (los tapa la melena), y las **alas** (el pelo y el cuerpo
+  tapan su centro y parte de las de abajo). La **varita** se ve entera salvo el palo bajo los dedos.
+
+## Siguiente: versión sin pelo y piezas completas (`guia-chatgpt/`)
+
+**Adjuntar:** `referencias/referencia-hada-aprobada.png`, `guia-chatgpt/plantilla-sin-pelo.png` y `guia-chatgpt/zonas-hada.png`.
+
+> **1 · Conjunto sin pelo.** Sobre `plantilla-sin-pelo.png` (la misma imagen: mismo lienzo, tamaño, posición y encuadre),
+> viste a la muñeca con **exactamente el mismo conjunto de hada de la imagen aprobada**: el mismo vestido (pétalos,
+> flores, mangas de farol, lazo con estrella), las mismas alas, la misma varita en su mano derecha (a la izquierda de la
+> imagen) y las mismas bailarinas; mismos colores, tamaños y detalles. **Sin pelo**, para que se vean completos el escote,
+> los hombros y las mangas. Conserva exactamente su cara, sus ojos, su cuerpo, sus proporciones y su postura; no los
+> redibujes. El vestido tapa entera la ropa rosa de la base (magenta en `zonas-hada.png`). Fondo crema liso, sin texto,
+> sin sombra en el suelo, sin brillos sueltos y sin marcos.
+
+> **2 · Alas solas.** En el mismo lienzo y en **la misma posición y tamaño** que en la imagen anterior, dibuja **solo las
+> alas, enteras** (las cuatro, con su parte central de detrás de la espalda), sin la niña, sin el vestido ni la varita.
+> Mismos colores, nervios dorados y brillo. Fondo crema liso, sin texto ni marcos.
+
+> **3 · Varita sola.** En el mismo lienzo y en **la misma posición, tamaño y giro** que en la imagen anterior, dibuja **solo
+> la varita, entera** (también el palo que tapaban los dedos), sin la niña ni la mano. Mismos detalles: estrella dorada,
+> flor, hojas y cintas. Fondo crema liso.
+
+Las bailarinas y el vestido salen de la imagen 1 (se ven enteros sin pelo). **Al recibirlas, se revisará aquí:**
+alineación, que fuera de las piezas coincida con nuestra muñeca, que el vestido tape toda la ropa rosa, que las alas y la
+varita coincidan con la imagen 1 y que sean las del diseño aprobado. Después se extraen las cuatro capas: alas detrás de
+todo (también del pelo de detrás), vestido y zapatos sobre la base, y la varita con nuestros dedos por delante del palo.

@@ -6,6 +6,12 @@
 - **Hecho:** guía en `docs/propuestas/hada-2026-10-22/guia-chatgpt/` (plantillas con melena y sin pelo, zonas de cada pieza
   —vestido, alas por detrás, mano de la varita, pies— y lo que no se toca, medidas y dos mensajes para ChatGPT). Cada pieza
   será una capa separada. **Pendiente:** el diseño en ChatGPT y su revisión aquí.
+- **22/10/2026 (2): diseño aprobado** por la propietaria («Apruebo este diseño de hada»). Referencia (imagen generada, sin
+  modificar, SHA-256 `93cb91fe…540d`): `docs/propuestas/hada-2026-10-22/referencias/referencia-hada-aprobada.png`. **El
+  encaje queda pendiente:** se pedirán la versión sin pelo y las piezas completas (vestido, alas, varita y zapatos) para
+  montarlas sobre nuestra muñeca original, conservando su cara, cuerpo y postura (mensajes preparados en el `LEEME.md`).
+  Medido: mismo lienzo y cuerpo (piernas y pies a 1–3 px); la melena de la imagen está redibujada y no se usa (va la
+  nuestra); las alas y los hombros no se ven enteros.
 
 ## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el

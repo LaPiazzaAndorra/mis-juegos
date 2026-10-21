@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-22 — D-028: variantes del pijama aprobadas; D-029: guía del conjunto de hada
+### 2026-10-22 — D-029: diseño del hada aprobado (referencia guardada)
+
+- **Solicitado por:** la propietaria («Apruebo este diseño de hada. Guárdalo como referencia en D-029; el encaje sigue
+  pendiente. Prepararemos la versión sin pelo y las piezas completas de vestido, alas, varita y zapatos para montarlas
+  sobre nuestra muñeca original. Conserva su cara, cuerpo y postura.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `e11b9cf`, el de la entrada siguiente).
+- **Estado:** diseño **aprobado**; encaje pendiente. Nada activado ni publicado.
+- **Cambios:** `docs/propuestas/hada-2026-10-22/referencias/referencia-hada-aprobada.png` (sin modificar); `LEEME.md` del
+  hada (lo medido y tres mensajes: conjunto sin pelo, alas solas y varita sola); D-029 (2), `ESTADO_ACTUAL.md`,
+  `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md` y `HOJA_DE_RUTA.md`. Ninguna capa cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `e11b9cf` · D-028: variantes del pijama aprobadas; D-029: guía del conjunto de hada
 
 - **Solicitado por:** la propietaria («Apruebo las variantes revisadas del pijama y la copia de la camiseta con el borde
   limpio. Regístralo en D-028, sin dar por probadas individualmente las 60 combinaciones en mi iPhone. Conserva las
