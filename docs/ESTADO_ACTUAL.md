@@ -131,8 +131,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   en el iPhone; integración en una copia nueva del juego, más adelante. Los gorros, más adelante.
 
 **Pijama (22/10, D-028):** **diseño aprobado** (azul con lunas y estrellas, puños rosas y zapatillas crema; referencia en
-`docs/propuestas/pijama-2026-10-22/referencias/`). Encaje sobre nuestra base pendiente: falta el mismo pijama sin pelo ni
-gorrito, con hombros y mangas completos (mensaje para ChatGPT preparado); después, extraer las prendas.
+`docs/propuestas/pijama-2026-10-22/referencias/`). Recibido el mismo pijama sin pelo ni gorrito y **extraídas la
+camiseta, el pantalón y las zapatillas** sobre nuestra muñeca (`…/integrar/capas/`): rosa a la vista 0 px; montajes con
+melena y gorrito B, coleta y dos coletas; en el visor, «Pijama (candidato)», con la piel clara. **Encaje pendiente de
+aprobación.**
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -351,7 +353,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-028: diseño del pijama aprobado; encaje pendiente) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-028: prendas del pijama extraídas sobre nuestra base, candidatas) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

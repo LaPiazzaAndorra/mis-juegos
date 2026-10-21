@@ -17,6 +17,16 @@
   completos** (mensaje preparado en el `LEEME.md` de la carpeta). Medido: mismo lienzo y cuerpo que el nuestro (escala
   1,0115 por los ojos; manos y piernas a 1–5 px); los hombros y las mangas no se ven (los tapa la melena); el gorrito de la
   imagen no se usa (va el B aprobado).
+- **22/10/2026 (3):** llega el **pijama sin pelo ni gorrito** (sin modificar, en `guia-chatgpt/de-chatgpt/`). La
+  propietaria pide comprobar alineación, diseño y que tape toda la ropa rosa, extraer solo camiseta, pantalón y
+  zapatillas conservando nuestra muñeca, y ver el montaje con los tres peinados y el gorrito B antes de aprobar el encaje.
+  - Alineado por la silueta (escala 0.9964; fuera del pijama, mediana dE 4.58 en la cara y 5.74 en las manos);
+    mismo diseño que la referencia, con hombros y mangas completos.
+  - Tres capas (`integrar/capas/`). Donde el pijama era 1–4 px más estrecho que la ropa rosa de la base (esquinas de las
+    mangas cortas y costado de una pernera, 1 977 px), se alarga con su propia tela: **rosa a la vista 0 px**. El retoque
+    del hombro derecho se nota un poco: a revisar.
+  - Montajes sin pelo, melena con gorrito B, coleta y dos coletas (`integrar/montajes-peinados.png`); en el visor,
+    «Pijama (candidato)», con la piel clara. **Encaje pendiente de aprobación.**
 
 ## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
 - **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas

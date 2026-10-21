@@ -1,0 +1,76 @@
+{
+ "recibida": "guia-chatgpt/de-chatgpt/pijama-sin-pelo-chatgpt.png",
+ "sha256": "fba129f44e895c49eadf24185c5aa9d4f184035cd767cff652ff655701f1d7fb",
+ "recibida_sin_cambios": true,
+ "alineacion": {
+  "metodo": "silueta + ajuste fino (sin ojos en la imagen)",
+  "tamano_recibido": [
+   948,
+   1659
+  ],
+  "escala": 0.9964,
+  "desplazamiento": [
+   2.74,
+   1.62
+  ],
+  "mediana_dE_en_la_silueta": 4.58
+ },
+ "prendas": {
+  "camiseta": {
+   "px": 137684,
+   "caja": [
+    221,
+    639,
+    739,
+    1015
+   ]
+  },
+  "pantalon": {
+   "px": 99920,
+   "caja": [
+    331,
+    1003,
+    631,
+    1421
+   ]
+  },
+  "zapatillas": {
+   "px": 26995,
+   "caja": [
+    315,
+    1431,
+    649,
+    1542
+   ]
+  }
+ },
+ "fuera_del_pijama": {
+  "cara_mediana_dE": 4.58,
+  "manos_mediana_dE": 5.74
+ },
+ "ampliado_para_tapar_el_rosa_px": {
+  "camiseta": {
+   "px": 1711,
+   "caja": [
+    241,
+    640,
+    717,
+    1011
+   ]
+  },
+  "pantalon": {
+   "px": 2502,
+   "caja": [
+    330,
+    1012,
+    628,
+    1408
+   ]
+  }
+ },
+ "ropa_rosa_de_la_base_px": 154187,
+ "ropa_rosa_a_la_vista_antes_de_ampliar_px": 1977,
+ "ropa_rosa_a_la_vista_px": 0,
+ "ropa_rosa_a_la_vista_caja": null,
+ "pies_fuera_de_las_zapatillas_px": 81
+}

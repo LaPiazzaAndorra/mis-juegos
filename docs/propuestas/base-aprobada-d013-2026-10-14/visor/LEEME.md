@@ -227,3 +227,7 @@ con la melena, la coleta y las dos coletas (candidatas): base B2c del tono, capa
 `c-av-bordes-tiras` (encima de las tiras), bordes del pelo para el conjunto (`integrar/pieles/<tono>/`) y pelo limpio de
 `pelo-sin-restos/conjunto/`. Con un tono que no es el claro, solo la versión aprobada (prendas ajustadas, rodillas B2c,
 mochila A o B): las otras opciones avisan. Fuera del conjunto, todo como antes (originales y bordes aprobados).
+**22/10/2026 (46) · D-028:** fila «Ropa»: «Pijama (candidato)»: capas `c-pij-zapatillas`, `c-pij-pantalon` y
+`c-pij-camiseta` (`pijama-2026-10-22/integrar/capas/`) sobre la base original, sin los brazos de delante del vestido;
+pelo limpio para la ropa (como el conjunto); por ahora solo con la piel clara (otro tono avisa). A tamaño real coincide con
+los montajes (≤ 3).

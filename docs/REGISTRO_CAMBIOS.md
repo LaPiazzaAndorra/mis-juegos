@@ -1,6 +1,26 @@
 # Registro de cambios
 
-### 2026-10-22 — D-028: diseño del pijama aprobado (referencia guardada)
+### 2026-10-22 — D-028: prendas del pijama extraídas sobre nuestra base (candidatas)
+
+- **Solicitado por:** la propietaria («Comprueba la alineación, el diseño y que cubra toda la ropa rosa. Extrae solo la
+  camiseta, el pantalón y las zapatillas, conservando nuestra muñeca original. Enséñame el montaje con los tres peinados y
+  nuestro gorrito B antes de aprobar el encaje.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `6a74dea`, el de la entrada siguiente).
+- **Estado:** candidato; **encaje pendiente de aprobación**. Nada activado ni publicado.
+- **Cambios:** imagen recibida sin modificar en `pijama-2026-10-22/guia-chatgpt/de-chatgpt/`; `pijama-2026-10-22/integrar/`
+  (`extraer_pijama.py`, `capas/`, máscaras, comprobaciones, montajes y comparación); visor: «Pijama (candidato)»; D-028
+  (3), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del pijama y del
+  visor (46).
+- **Resultado:** alineado por la silueta; mismo diseño; tres capas; rosa de la base a la vista 0 px (tras alargar 1–4 px la
+  tela en las esquinas de las mangas cortas y en una pernera).
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** visor (pijama con melena y gorrito B, coleta y dos coletas; bloqueo de otros tonos; salida al vestido; a
+  tamaño real coincide con los montajes, ≤ 3; sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45.
+  No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `6a74dea` · D-028: diseño del pijama aprobado (referencia guardada)
 
 - **Solicitado por:** la propietaria («Apruebo el diseño: pijama azul con lunas y estrellas, puños rosas y zapatillas
   crema. Guárdalo como referencia en D-028. El encaje sobre nuestra base queda pendiente; antes de extraer las prendas

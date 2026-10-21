@@ -65,3 +65,26 @@ el conjunto de aventura) y se adaptan a los tonos de piel y colores de pelo apro
 cuello, manos), que tape toda la ropa rosa, que no cambie el ancho del cuerpo, que los hombros y las mangas estén
 completos y que sea el mismo pijama que la referencia. Con ella aprobada, se extraen las prendas (camiseta, pantalón y
 zapatillas por separado) y se prueban con la melena, la coleta, las dos coletas y el gorrito B.
+
+## Imagen sin pelo ni gorrito recibida y prendas extraídas (22/10, candidato)
+
+- Recibida sin modificar: `guia-chatgpt/de-chatgpt/pijama-sin-pelo-chatgpt.png` (948 × 1659, SHA-256 `fba129f44e895c49eadf24185c5aa9d4f184035cd767cff652ff655701f1d7fb`).
+- **Alineación** por la silueta (cabeza, cuello y manos): escala 0.9964, desplazamiento
+  [2.74, 1.62], sin giro ni deformación. Fuera del pijama coincide con nuestra muñeca (mediana dE
+  cara 4.58, manos 5.74). Por los ojos salía un 2 % más grande (los iris se miden a 1 px).
+- **Diseño:** el mismo de la referencia (azul con lunas y estrellas, cuello y puños rosas, pantalón largo con puños,
+  zapatillas crema con suela rosa); hombros y mangas completos.
+- **Ropa rosa de la base:** el pijama de la imagen era 1–4 px más estrecho en las esquinas de las mangas cortas de la
+  camiseta de la base (junto a los hombros) y en el costado de una pernera (donde asomaba también la pierna): 1 977 px.
+  Ahí cada prenda se alarga con su propia tela azul y un contorno suavizado (`integrar/mascara-ampliado-*.png`,
+  1711 y 2502 px). **Rosa a la vista: 0 px.** En el hombro derecho el retoque
+  se nota un poco (textura repetida): a revisar.
+- **Capas** (`integrar/capas/`, 948 × 1659): `camiseta.png`, `pantalon.png`, `zapatillas.png`. Nada de su cara, piel, cuerpo
+  ni fondo. Las zapatillas son algo más anchas que nuestros pies (los tapan; 81 px del borde del pie asoman por el
+  tobillo, bajo el puño del pantalón).
+- **Montajes** (`integrar/montajes-peinados.png`; sueltos en `integrar/montaje-1…4.png`): sin pelo, melena con el gorrito B,
+  coleta (con cinta) y dos coletas (sin sombrero), con el pelo limpio para la ropa. El gorrito B solo está colocado para
+  la melena (con la coleta y las dos coletas sigue pendiente, D-024). `integrar/comparacion-recibida.png`: la imagen
+  alineada frente a nuestra muñeca con solo el pijama.
+- **Visor:** fila «Ropa», «Pijama (candidato)»; por ahora con la piel clara (los cinco colores de pelo y los tres
+  peinados). Programa: `integrar/extraer_pijama.py`. **Encaje pendiente de aprobación.**
