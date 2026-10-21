@@ -1,6 +1,30 @@
 # Registro de cambios
 
-### 2026-10-21 — D-027: tiras nuevas aprobadas con la mochila A (por defecto)
+### 2026-10-21 — D-027: el conjunto con los 4 tonos de piel y los 5 colores de pelo (candidatas)
+
+- **Solicitado por:** la propietaria («Adelante con los 4 tonos de piel y los 5 colores de pelo aprobados, con melena,
+  coleta y dos coletas. Conserva el conjunto, la mochila A y las tiras aprobadas. Revisa especialmente rodillas, brazos y
+  bordes de mangas, calcetines y pelo para evitar halos o restos del tono anterior. Añade las combinaciones al visor como
+  candidatas y enséñame las comparaciones, incluyendo el pelo limpio pendiente de revisión. Mantén intactos el juego
+  principal y las copias congeladas.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `884a775`, el de la entrada siguiente).
+- **Estado:** candidatas, pendientes de revisión (también el pelo limpio). Nada activado ni publicado.
+- **Cambios:** `integrar/pieles/conjunto_pieles.py` (nuevo) → `integrar/pieles/<tono>/` (base B2c, bordes de ropa, tiras y
+  pelo), hojas y `LEEME.md`; `pelo-sin-restos/limpiar_conjunto.py` (nuevo) → `pelo-sin-restos/conjunto/` (melena sin rosa y
+  rendijas rellenadas; copias de coleta y dos coletas con rendijas rellenadas); visor (tonos y colores con el conjunto,
+  capas nuevas); D-027 (18), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md`
+  del conjunto, de `integrar/`, de `pelo-sin-restos/` y del visor (45).
+- **Resultado:** 60 combinaciones revisadas en capturas del visor (4 tonos × 5 colores × 3 peinados). Rodillas sin mallas
+  ni piel clara en todos los tonos; bordes de mangas, chaleco, cuello, calcetines y tiras sin piel clara; melena sin rosa en
+  los rizos; sin la línea de puntos claros entre los rizos y el brazo. Originales, conjunto, mochila A y tiras sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d016`, `-d021`, `-d023`, `-d026` y `main` sin
+  cambios.
+- **Pruebas:** visor (60 combinaciones en escritorio; en un iPhone 13 simulado, cambios de tono, avisos y salida del
+  conjunto; sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-21 — `884a775` · D-027: tiras nuevas aprobadas con la mochila A (por defecto)
 
 - **Solicitado por:** la propietaria («Apruebo las tiras nuevas con la mochila A. Regístralo en D-027 y conserva esta
   combinación por defecto. Después seguimos adaptando el conjunto a los tonos de piel y colores de pelo aprobados.»).

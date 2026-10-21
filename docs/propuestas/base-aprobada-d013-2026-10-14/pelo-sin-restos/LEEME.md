@@ -38,3 +38,19 @@ máscaras `restos-coleta.png` y `restos-coletas-<con|sin>.png`, `comprobaciones-
 de delante de los dos peinados no lleva restos. Con el conjunto, el visor usa estas copias; con el vestido, los originales.
 
 Uso (desde la raíz): `python3 docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/limpiar_coletas.py`
+
+## Pelo para el conjunto con todos los tonos de piel · 21/10/2026 (D-027) · `conjunto/`
+
+Con la piel oscura se veían dos cosas más (con la clara y el vestido apenas se notaban):
+- **Melena:** restos **rosas** del vestido en el canto de los rizos, delante y detrás, junto a los brazos, las manos y la
+  cintura (con el vestido largo quedaban sobre su falda): 2 641 px delante y 2 494 detrás, limpiados como los de las dos
+  coletas (el canto toma el color del pelo de al lado; los huecos al fondo, transparentes).
+- **Rendijas de fondo** entre los rizos y el borde del brazo (una línea de puntos claros, sobre todo con las dos coletas
+  y la piel profunda): el pelo de detrás estaba recortado a cuadros junto al brazo. Se rellenan con el pelo más cercano:
+  dos coletas 205 px, melena 60 px, coleta 0.
+
+`limpiar_conjunto.py` → `conjunto/pelo-delante-<color>.png` y `conjunto/pelo-detras-<color>.png` (melena),
+`conjunto/pelo-coleta-<con|sin>-detras-<color>.png` y `conjunto/pelo-coletas-<con|sin>-sombrero-detras-<color>.png` (parten
+de las copias sin restos de arriba), máscaras (`rosa-melena-*.png`, `rendijas-*.png`), `comprobaciones.json` y
+`antes-despues.png` (profundo, antes y después). Las copias anteriores y los originales **no cambian** (sha256). Con el
+conjunto, el visor usa estas copias en los cuatro tonos. **Pendiente de revisión**, junto con lo de arriba.

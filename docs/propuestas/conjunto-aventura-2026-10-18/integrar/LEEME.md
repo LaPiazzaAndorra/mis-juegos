@@ -43,5 +43,8 @@ Tiras sobre A: `recibir.py tiras-a <imagen>` → `mochila-b/tiras.png` (compara 
 `../guia-chatgpt/2-mochila/plantilla-tiras-con-mochila-a.png`). Hecho el 20/10: solo las dos tiras y sus hebillas (ChatGPT
 redibujó también el chaleco y eso no se toma); hojas `mochila-b/montajes-tiras.png` y `mochila-b/detalle-tiras.png`.
 
+**Tonos de piel y colores de pelo (21/10):** `pieles/conjunto_pieles.py` → `pieles/<tono>/` (base B2c, bordes de la ropa,
+de las tiras y del pelo), con su `LEEME.md` y las hojas de comparación. Candidatas.
+
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/recibir.py <guía> <imagen>`
 (para probar sin escribir en el repositorio: `SALIDA_INTEGRAR=/otra/carpeta`).

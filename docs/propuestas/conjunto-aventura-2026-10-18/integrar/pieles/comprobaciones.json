@@ -1,0 +1,360 @@
+{
+ "rodillas_px": 27736,
+ "tonos": {
+  "dorado": {
+   "base_rodillas_px": 27736,
+   "bordes_ropa_px": 2945,
+   "bordes_tiras_px": 306,
+   "base_igual_a_la_aprobada_fuera_de_las_rodillas": true,
+   "pelo": {
+    "castano": {
+     "px": 21058,
+     "quitados_px": 240
+    },
+    "chocolate": {
+     "px": 20588,
+     "quitados_px": 230
+    },
+    "miel": {
+     "px": 21124,
+     "quitados_px": 239
+    },
+    "oscuro": {
+     "px": 20816,
+     "quitados_px": 232
+    },
+    "jengibre": {
+     "px": 21151,
+     "quitados_px": 245
+    }
+   },
+   "coletas": {
+    "bordes-coleta-con-castano": {
+     "px": 5136,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-chocolate": {
+     "px": 5027,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-miel": {
+     "px": 5101,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-oscuro": {
+     "px": 4986,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-jengibre": {
+     "px": 5137,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-castano": {
+     "px": 3336,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-chocolate": {
+     "px": 3244,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-miel": {
+     "px": 3306,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-oscuro": {
+     "px": 3197,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-jengibre": {
+     "px": 3336,
+     "quitados_px": 0
+    },
+    "bordes-coletas-con-castano": {
+     "px": 3186,
+     "quitados_px": 149
+    },
+    "bordes-coletas-con-chocolate": {
+     "px": 3075,
+     "quitados_px": 146
+    },
+    "bordes-coletas-con-miel": {
+     "px": 3171,
+     "quitados_px": 148
+    },
+    "bordes-coletas-con-oscuro": {
+     "px": 3053,
+     "quitados_px": 136
+    },
+    "bordes-coletas-con-jengibre": {
+     "px": 3179,
+     "quitados_px": 148
+    },
+    "bordes-coletas-sin-castano": {
+     "px": 4808,
+     "quitados_px": 149
+    },
+    "bordes-coletas-sin-chocolate": {
+     "px": 4700,
+     "quitados_px": 146
+    },
+    "bordes-coletas-sin-miel": {
+     "px": 4778,
+     "quitados_px": 148
+    },
+    "bordes-coletas-sin-oscuro": {
+     "px": 4665,
+     "quitados_px": 136
+    },
+    "bordes-coletas-sin-jengibre": {
+     "px": 4802,
+     "quitados_px": 148
+    }
+   }
+  },
+  "moreno": {
+   "base_rodillas_px": 27736,
+   "bordes_ropa_px": 2950,
+   "bordes_tiras_px": 314,
+   "base_igual_a_la_aprobada_fuera_de_las_rodillas": true,
+   "pelo": {
+    "castano": {
+     "px": 21108,
+     "quitados_px": 238
+    },
+    "chocolate": {
+     "px": 20744,
+     "quitados_px": 234
+    },
+    "miel": {
+     "px": 21180,
+     "quitados_px": 238
+    },
+    "oscuro": {
+     "px": 20440,
+     "quitados_px": 226
+    },
+    "jengibre": {
+     "px": 21163,
+     "quitados_px": 240
+    }
+   },
+   "coletas": {
+    "bordes-coleta-con-castano": {
+     "px": 5144,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-chocolate": {
+     "px": 5058,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-miel": {
+     "px": 5106,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-oscuro": {
+     "px": 4992,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-jengibre": {
+     "px": 5141,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-castano": {
+     "px": 3342,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-chocolate": {
+     "px": 3269,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-miel": {
+     "px": 3310,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-oscuro": {
+     "px": 3211,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-jengibre": {
+     "px": 3339,
+     "quitados_px": 0
+    },
+    "bordes-coletas-con-castano": {
+     "px": 3191,
+     "quitados_px": 149
+    },
+    "bordes-coletas-con-chocolate": {
+     "px": 3114,
+     "quitados_px": 147
+    },
+    "bordes-coletas-con-miel": {
+     "px": 3179,
+     "quitados_px": 148
+    },
+    "bordes-coletas-con-oscuro": {
+     "px": 3026,
+     "quitados_px": 138
+    },
+    "bordes-coletas-con-jengibre": {
+     "px": 3181,
+     "quitados_px": 148
+    },
+    "bordes-coletas-sin-castano": {
+     "px": 4809,
+     "quitados_px": 149
+    },
+    "bordes-coletas-sin-chocolate": {
+     "px": 4726,
+     "quitados_px": 147
+    },
+    "bordes-coletas-sin-miel": {
+     "px": 4783,
+     "quitados_px": 148
+    },
+    "bordes-coletas-sin-oscuro": {
+     "px": 4660,
+     "quitados_px": 138
+    },
+    "bordes-coletas-sin-jengibre": {
+     "px": 4803,
+     "quitados_px": 148
+    }
+   }
+  },
+  "profundo": {
+   "base_rodillas_px": 27736,
+   "bordes_ropa_px": 2950,
+   "bordes_tiras_px": 310,
+   "base_igual_a_la_aprobada_fuera_de_las_rodillas": true,
+   "pelo": {
+    "castano": {
+     "px": 21192,
+     "quitados_px": 240
+    },
+    "chocolate": {
+     "px": 20925,
+     "quitados_px": 238
+    },
+    "miel": {
+     "px": 21260,
+     "quitados_px": 241
+    },
+    "oscuro": {
+     "px": 20627,
+     "quitados_px": 234
+    },
+    "jengibre": {
+     "px": 21303,
+     "quitados_px": 241
+    }
+   },
+   "coletas": {
+    "bordes-coleta-con-castano": {
+     "px": 5152,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-chocolate": {
+     "px": 5092,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-miel": {
+     "px": 5110,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-oscuro": {
+     "px": 5053,
+     "quitados_px": 0
+    },
+    "bordes-coleta-con-jengibre": {
+     "px": 5146,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-castano": {
+     "px": 3349,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-chocolate": {
+     "px": 3298,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-miel": {
+     "px": 3314,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-oscuro": {
+     "px": 3270,
+     "quitados_px": 0
+    },
+    "bordes-coleta-sin-jengibre": {
+     "px": 3344,
+     "quitados_px": 0
+    },
+    "bordes-coletas-con-castano": {
+     "px": 3190,
+     "quitados_px": 149
+    },
+    "bordes-coletas-con-chocolate": {
+     "px": 3139,
+     "quitados_px": 147
+    },
+    "bordes-coletas-con-miel": {
+     "px": 3181,
+     "quitados_px": 149
+    },
+    "bordes-coletas-con-oscuro": {
+     "px": 3099,
+     "quitados_px": 146
+    },
+    "bordes-coletas-con-jengibre": {
+     "px": 3188,
+     "quitados_px": 149
+    },
+    "bordes-coletas-sin-castano": {
+     "px": 4812,
+     "quitados_px": 149
+    },
+    "bordes-coletas-sin-chocolate": {
+     "px": 4755,
+     "quitados_px": 147
+    },
+    "bordes-coletas-sin-miel": {
+     "px": 4787,
+     "quitados_px": 149
+    },
+    "bordes-coletas-sin-oscuro": {
+     "px": 4720,
+     "quitados_px": 146
+    },
+    "bordes-coletas-sin-jengibre": {
+     "px": 4811,
+     "quitados_px": 149
+    }
+   }
+  }
+ },
+ "originales_sin_cambios": true,
+ "sha256_originales": {
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png": "0323f34ed09b84db22fc1539405e58cdb8d1d967b7bb64ceacb152a306d17a5f",
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/ropa-d/calcetines.png": "3a4428ca231f3a87cdb45bc7eae56deb372d56ed716a7fc24c23e7a59e0bf3c6",
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/ropa-d/botas.png": "1f2242c989e81a33d0f271f8a2f70d0043deb648a23b05d9f1a5079bbbc6fdd7",
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/ropa-c/camiseta.png": "ddeb0378bee2a752bc21d750715796e1529d06142bb9465475ce8b6e3eb96d42",
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/ropa-d/pantalon.png": "c42495f20cbad4287c3c248aeb770d2e7870153fe04acf4cc953d522d9203978",
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/ropa-d/chaleco.png": "ae4c33e1295ba027e87e46bdebfd1b639c34fa64675d02c98e162818159d47c2",
+  "docs/propuestas/conjunto-aventura-2026-10-18/integrar/mochila-b/tiras.png": "936833a202eb321b94f30e8c6903c44a2b15a71a79a56569f9b4d456569cced1",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/bordes-pelo-castano.png": "1ea812f5205a8e5c085a39bcbb77af19b9e791186464890a5cefcb594f3bbe5c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/bordes-pelo-chocolate.png": "e0a2609cfdc11235dd259ded1b9dc982249f5a8b82760beec715b360998959fd",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/bordes-pelo-miel.png": "4245f6db79ca1c4d3c570381d40c6526bf89e7a018cc00ee7b798e0c780560fd",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/bordes-pelo-oscuro.png": "e7b6457474a38cd821abc1d31f79fb9bfbd85073b36429583d321a7bf5a76e50",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/bordes-pelo-jengibre.png": "96d7d1f5dac46c2dd62e2abf7e711cdf986b993a2a5c31e98f33b820298f03f8",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/bordes-pelo-castano.png": "84a41d32650006991228acbb3ca8d26eb18f4824eb7cd74ab7245c97886878aa",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/bordes-pelo-chocolate.png": "c24ee1986a3226eaa633844c93718a9fc6e4f39cd767cba75e42b7bbda4bc18a",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/bordes-pelo-miel.png": "cacc17cf016e8c77533838aea949d51da4f588578d152b36048f053ea50d0eec",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/bordes-pelo-oscuro.png": "d41e9a965fceb34e6ccf1dd4ce0a714324cd37708bc4cdc1a626f74afa8215c3",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/bordes-pelo-jengibre.png": "a4d48d0a578e428e36782b00b8ad78336abd9d4d27da0887e15a0ae9d24d7cc8",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/bordes-pelo-castano.png": "72e693f1bc06e857a0c1503bd2708a008f6e9dde18cf90a6801d326d1566ebed",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/bordes-pelo-chocolate.png": "17e2113c7a04d8c7a9aa656c84433bba11da5a2beb5994168fa4eb1a4b613677",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/bordes-pelo-miel.png": "b9b082934f1a2ed244185ea5388451aca9aebc993f3ec150aab2462a2d51ec8e",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/bordes-pelo-oscuro.png": "5c15147cd32ae04cba6ca4274d29817747a73de40eab5fdbb376e5b7e262905b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/bordes-pelo-jengibre.png": "4d569bb11cee1962fc20d7245449303426736520e2acc904996cb3c6ad78ef52"
+ }
+}

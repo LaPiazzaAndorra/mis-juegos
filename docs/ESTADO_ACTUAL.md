@@ -185,6 +185,11 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   defecto con el conjunto. **Pendientes de aprobación**, igual que la revisión del pelo limpio.
 - **21/10: tiras nuevas aprobadas con la mochila A**, por defecto con el conjunto. Pendiente: la revisión del pelo limpio.
   Siguiente: el conjunto con los tonos de piel y colores de pelo aprobados.
+- **21/10: el conjunto con los 4 tonos de piel y los 5 colores de pelo** (melena, coleta y dos coletas), candidatas
+  (`…/integrar/pieles/`): base B2c en cada tono, bordes de la ropa y de las tiras sin la piel clara pegada, bordes del pelo
+  adaptados y pelo limpio para el conjunto (`base-aprobada-d013-2026-10-14/pelo-sin-restos/conjunto/`: sin rosa en la
+  melena ni rendijas junto al brazo). En el visor; hojas `tonos-peinados.png`, `colores-*.png` y
+  `detalles-antes-despues.png`. **Pendiente de revisión**, igual que el pelo limpio.
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -339,7 +344,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 21/10/2026 (D-027: tiras nuevas aprobadas con la mochila A, por defecto; siguiente, tonos de piel y colores de pelo) · **Rama:** `avatar-creador` ·
+**Última actualización:** 21/10/2026 (D-027: el conjunto con los 4 tonos de piel y los 5 colores de pelo, candidatas; pelo limpio pendiente de revisión) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

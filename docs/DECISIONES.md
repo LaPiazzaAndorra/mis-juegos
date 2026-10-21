@@ -199,6 +199,20 @@
   se conservan como opciones). Sigue pendiente la revisión del pelo limpio de la coleta y las dos coletas. **Siguiente:**
   adaptar el conjunto a los tonos de piel y colores de pelo aprobados (hoy, solo piel clara y castaño). Sin probar en el
   iPhone real.
+- **21/10/2026 (18):** la propietaria pide el conjunto con **los 4 tonos de piel y los 5 colores de pelo aprobados**, con
+  melena, coleta y dos coletas, conservando el conjunto, la mochila A y las tiras; revisar en especial rodillas, brazos y
+  bordes de mangas, calcetines y pelo (halos o restos del tono anterior); añadirlo al visor como candidatas y enseñar las
+  comparaciones, también del pelo limpio pendiente.
+  - Hecho (`integrar/pieles/conjunto_pieles.py`, con la transformación aprobada de `piel_tonos`): por tono, la **base B2c**
+    (la del tono aprobada y, solo en las rodillas, B2c transformada), **bordes de la ropa y de las tiras** (solo la parte de
+    piel clara de sus bordes pasa a la piel nueva; el contorno no cambia) y copias de los **bordes del pelo** aprobados sin
+    lo que cae sobre la ropa del conjunto o sobre el pelo limpiado.
+  - Pelo (`pelo-sin-restos/limpiar_conjunto.py` → `pelo-sin-restos/conjunto/`): melena sin el **rosa del vestido** en el
+    canto de los rizos (con el vestido largo no se veía) y **rendijas de puntos claros** entre los rizos y el brazo
+    rellenadas con pelo (dos coletas y melena).
+  - Visor: con el conjunto, los cuatro tonos y los cinco colores con los tres peinados; con un tono que no es el claro, solo
+    la versión aprobada (prendas ajustadas, rodillas B2c, mochila A o B). Revisadas las 60 combinaciones en capturas.
+    **Candidatas, pendientes de revisión** (también el pelo limpio). Sin probar en el iPhone real.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

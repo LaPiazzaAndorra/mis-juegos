@@ -1,0 +1,180 @@
+{
+ "melena-castano": {
+  "rosa_delante": {
+   "px": 2641,
+   "canto": 2107,
+   "transparente": 534
+  },
+  "rosa_detras": {
+   "px": 2494,
+   "canto": 2232,
+   "transparente": 262
+  },
+  "rendijas_px": 60
+ },
+ "melena-chocolate": {
+  "rosa_delante": {
+   "px": 2641,
+   "canto": 2107,
+   "transparente": 534
+  },
+  "rosa_detras": {
+   "px": 2494,
+   "canto": 2232,
+   "transparente": 262
+  },
+  "rendijas_px": 60
+ },
+ "melena-miel": {
+  "rosa_delante": {
+   "px": 2641,
+   "canto": 2107,
+   "transparente": 534
+  },
+  "rosa_detras": {
+   "px": 2494,
+   "canto": 2232,
+   "transparente": 262
+  },
+  "rendijas_px": 60
+ },
+ "melena-oscuro": {
+  "rosa_delante": {
+   "px": 2641,
+   "canto": 2107,
+   "transparente": 534
+  },
+  "rosa_detras": {
+   "px": 2494,
+   "canto": 2232,
+   "transparente": 262
+  },
+  "rendijas_px": 60
+ },
+ "melena-jengibre": {
+  "rosa_delante": {
+   "px": 2641,
+   "canto": 2107,
+   "transparente": 534
+  },
+  "rosa_detras": {
+   "px": 2494,
+   "canto": 2232,
+   "transparente": 262
+  },
+  "rendijas_px": 60
+ },
+ "coleta-con-castano": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-chocolate": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-miel": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-oscuro": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-jengibre": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-castano": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-chocolate": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-miel": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-oscuro": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-jengibre": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coletas-con-castano": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-con-chocolate": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-con-miel": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-con-oscuro": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-con-jengibre": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-sin-castano": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-sin-chocolate": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-sin-miel": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-sin-oscuro": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "coletas-sin-jengibre": {
+  "rendijas_px": 205,
+  "fuera_igual": true
+ },
+ "originales_sin_cambios": true,
+ "sha256_originales": {
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-delante-castano-sin-restos.png": "856c12cf771bb5a10ced1cdbbba87e1a9cef28d26c8040a170617d92840f2465",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-delante-chocolate-sin-restos.png": "57c360272d09610300371d154ba81f5b4f39c0b697153c58eeddcb86c4085b2a",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-delante-miel-sin-restos.png": "e9555fed6ca33c5c9901c7f319c5b40ddb2e96d26e9cdeffa3aa752e155981d5",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-delante-oscuro-sin-restos.png": "ac74129c50a2ebe176184b96f1e9045522d0753f4d1b4122018309179f031dc5",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-delante-jengibre-sin-restos.png": "794fa21d4ee0e346b4210b50eeed107e9a1f7242268b092ce9587b6341b6ea9c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-detras.png": "40950160ca11e025f3c42ca21ccb199e9358a5f5efea1761d602468a7fe4f3fb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-detras-chocolate.png": "21d45a15926842b5a0e332f63042a37c192c19fa6b0f88832a2c61a0b928a948",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-detras-miel.png": "3583060187786364553ccf27a6ff5cc66697862e1336d21afc4f9d712cef4d07",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-detras-oscuro.png": "84b8d7883a71e74353ba204421e9d3d531249c97f22a81d8921938a2a1673226",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-colores/pelo-detras-jengibre.png": "6e0404d450a70ab28ae7b4b8fb541fda90c8b65c6502c118c3aaebd926696bb5",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-con-detras-castano-sin-restos.png": "24ac26c961bbac817b1946cd655b6bf207ea24fb866978de29fafa1d8377eb54",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-con-detras-chocolate-sin-restos.png": "531e473d7a9ac0b204a0c0ef2da2e5a2b296049422c031ef5a9291510081a467",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-con-detras-miel-sin-restos.png": "37cb973b596640d029f9411008a80e08685ef878a4152090c2c1be9bfead5a8c",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-con-detras-oscuro-sin-restos.png": "3690808fba1d7d5e2807a934040f2db51a31cbeea2a25985125901eb2b91c7f0",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-con-detras-jengibre-sin-restos.png": "613642af7dd7bd38da7446434aa20c22c297310410da0a00d2bfe0de3e0c484b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-sin-detras-castano-sin-restos.png": "0731fa1f603fb86c8ca159b57197d15078bbf17fbc099f34aba8050f86b67020",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-sin-detras-chocolate-sin-restos.png": "fbd58acfb23a20209518dc7212d01dae3a4bb6891e6a4bd25c8c1138c649daa6",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-sin-detras-miel-sin-restos.png": "0cbd289876ed7e91fe141eb42cde0ec6ee1834c7adf72a021bf89d37e339c421",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-sin-detras-oscuro-sin-restos.png": "c9c14c3ee9d59547bd1ea8b99b5c46fe822b4594f60b2f64d41a289fad1e0a8a",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coleta-sin-detras-jengibre-sin-restos.png": "c4129d5a968b31cb9df4928da3d2a49fe5023ea69d000abb1648aebb65a0f029",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-con-sombrero-detras-castano-sin-restos.png": "26081717833b225934b49ded837f1a5e92948a48524ee900cd5c32061f336feb",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-con-sombrero-detras-chocolate-sin-restos.png": "a3bfb0acc7202d91c9257ab67cf8cca5d2170537df53071d1c0eb2b180628299",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-con-sombrero-detras-miel-sin-restos.png": "17431a879787574055a3761bde262c3fcdf78478796b83d1353ed0cf4d25c7fc",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-con-sombrero-detras-oscuro-sin-restos.png": "00cf638c36127625ba218d3f4c9e7cce8537b46769fdac0d9a18e9366eb5a98a",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-con-sombrero-detras-jengibre-sin-restos.png": "8ccf9ab6679bfe623282975b72cf5972b38af33a776e8fbfb7c337c6a00850d8",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-sin-sombrero-detras-castano-sin-restos.png": "cdd729c4af29db5cd1d006959da483ccc2d3b2d4f36129a484db3d776e347e50",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-sin-sombrero-detras-chocolate-sin-restos.png": "6c4d8ce3ec83b3ecd91dad335bddf1a1271c12deb386017ee08686b92e44faec",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-sin-sombrero-detras-miel-sin-restos.png": "671252bc9ebe73c8cebfccc1168baf33ab4a47580f35a53d59128080123c6b22",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-sin-sombrero-detras-oscuro-sin-restos.png": "e2390da6931af29f90c0b72008a4998d08c987282595db7768d25ade7601014b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/pelo-sin-restos/pelo-coletas-sin-sombrero-detras-jengibre-sin-restos.png": "d8bcb5f94292451a949c96619c939e94509918fc0a4838bb3b8ab3b40a17f102"
+ }
+}

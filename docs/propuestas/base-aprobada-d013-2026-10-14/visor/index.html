@@ -86,7 +86,9 @@
     <img id="c-av-chaleco2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa/chaleco.png">
     <img id="c-av-pantalon3" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa-d/pantalon.png">
     <img id="c-av-chaleco3" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/ropa-d/chaleco.png">
+    <img id="c-av-bordes-ropa" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/pieles/dorado/bordes-ropa.png">
     <img id="c-av-tiras2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/tiras.png">
+    <img id="c-av-bordes-tiras" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/pieles/dorado/bordes-tiras.png">
     <img id="c-brazos" class="" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
@@ -680,16 +682,24 @@
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
     b2c: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
-  var LIMPIO = '../pelo-sin-restos/';
+  var LIMPIO = '../pelo-sin-restos/', PIELES_AV = '../../conjunto-aventura-2026-10-18/integrar/pieles/';
   function mostrarAventura() {
     var av = ropa === 'aventura';
     // con el conjunto, el pelo de detrás de la coleta y de las dos coletas sin restos (copias de pelo-sin-restos/, 20/10);
     // sin el conjunto, los originales aprobados
+    // (21/10) para el conjunto, las copias de pelo-sin-restos/conjunto/: también sin el rosa del vestido en los rizos de la
+    // melena y sin las rendijas de fondo entre los rizos y el brazo; y, con otro tono de piel, sus capas de bordes sin lo
+    // que cae sobre la ropa del conjunto ni sobre el pelo limpiado (integrar/pieles/<tono>/)
     mostrarColeta(); mostrarColetas2();
+    var PC = LIMPIO + 'conjunto/', tonoAv = av && piel !== 'claro';
     if (av && peinado === 'coleta') ['con', 'sin'].forEach(function (v) {
-      ponSrc(v === 'con' ? 'c-coleta-detras' : 'c-coleta-detras-sc', LIMPIO + 'pelo-coleta-' + v + '-detras-' + colorPelo + '-sin-restos.png'); });
-    if (av && peinado === 'coletas2' && versionColetas2 !== 'anterior')
-      ponSrc('c-coletas2-detras', LIMPIO + 'pelo-coletas-' + versionColetas2 + '-sombrero-detras-' + colorPelo + '-sin-restos.png');
+      ponSrc(v === 'con' ? 'c-coleta-detras' : 'c-coleta-detras-sc', PC + 'pelo-coleta-' + v + '-detras-' + colorPelo + '.png'); });
+    if (tonoAv && peinado === 'coleta') ponSrc('c-bordes-coleta', PIELES_AV + piel + '/bordes-coleta-' + (conCinta ? 'con' : 'sin') + '-' + colorPelo + '.png');
+    if (av && peinado === 'coletas2' && versionColetas2 !== 'anterior') {
+      ponSrc('c-coletas2-detras', PC + 'pelo-coletas-' + versionColetas2 + '-sombrero-detras-' + colorPelo + '.png');
+      if (tonoAv) ponSrc('c-bordes-coletas2', PIELES_AV + piel + '/bordes-coletas-' + versionColetas2 + '-' + colorPelo + '.png');
+    }
+    ponSrc('c-pelo-detras', av && peinado === 'melena' ? PC + 'pelo-detras-' + colorPelo + '.png' : srcPelo(colorPelo, 'detras'));
     if (av && peinado === 'melena' && peloOp !== 'mc') elegirPeloOp('mc');   // al volver a la melena con el conjunto
     AV_PIEZAS.forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av); });
     // camiseta y chaleco: a nuestra medida (guía 1, candidatos) o los de la imagen aprobada (anteriores)
@@ -717,21 +727,30 @@
     document.getElementById('fila-mochila').hidden = !av; document.getElementById('fila-rodillas').hidden = !av;
     // rodillas (D-027, opción A): con el conjunto, una COPIA de la base con la piel completada bajo el pantalón (candidata);
     // la base aprobada no cambia y vuelve al quitar el conjunto
-    var srcBase = av && rodillas !== 'mallas' ? RODILLAS[rodillas] : (piel === 'claro' ? ORIG.base : T('base-sin-ojos.png'));
+    // con otro tono de piel, la base B2c de ese tono (integrar/pieles/<tono>/, candidata)
+    var srcBase = av && rodillas !== 'mallas' ? (piel === 'claro' ? RODILLAS[rodillas] : PIELES_AV + piel + '/base-piernas-sin-mallas.png') : (piel === 'claro' ? ORIG.base : T('base-sin-ojos.png'));
     if (capaBase.getAttribute('src') !== srcBase) capaBase.src = srcBase;
+    // y las capas de bordes de la ropa y de las tiras (sin la piel clara pegada en sus bordes)
+    var tono = av && piel !== 'claro';
+    if (tono) { ponSrc('c-av-bordes-ropa', PIELES_AV + piel + '/bordes-ropa.png'); ponSrc('c-av-bordes-tiras', PIELES_AV + piel + '/bordes-tiras.png'); }
+    document.getElementById('c-av-bordes-ropa').classList.toggle('oculto', !tono || !med3);
+    document.getElementById('c-av-bordes-tiras').classList.toggle('oculto', !tono || mochila !== 'centrada');
     document.getElementById('c-zapatos').classList.toggle('oculto', av || !zapatosSi);
-    var mc = document.getElementById('c-pelo-delante-mc'), limpio = av && peinado === 'melena' && peloOp === 'mc' && colorPelo === 'castano' && peloDelanteVisible;
+    var mc = document.getElementById('c-pelo-delante-mc'), limpio = av && peinado === 'melena' && peloOp === 'mc' && peloDelanteVisible;
     if (limpio) mc.classList.add('oculto'); else if (peinado === 'melena') mostrarPelo();
+    if (limpio) ponSrc('c-av-pelo-delante', LIMPIO + 'conjunto/pelo-delante-' + colorPelo + '.png');   // los cinco colores
     document.getElementById('c-av-pelo-delante').classList.toggle('oculto', !limpio);
+    bordes();
+    // bordes del pelo de la melena con otro tono: la copia para el conjunto (sin lo que cae sobre su ropa)
+    if (limpio && piel !== 'claro') { ponSrc('c-bordes-pelo', PIELES_AV + piel + '/bordes-pelo-' + colorPelo + '.png'); document.getElementById('c-bordes-pelo').classList.remove('oculto'); }
   }
   document.querySelectorAll('[data-ropa]').forEach(function (b) {
     b.addEventListener('click', function () {
       ropa = b.dataset.ropa; if (ropa !== 'aventura') return;
       var cambios = [];
-      if (piel !== 'claro') { cambios.push('piel clara'); document.querySelector('[data-piel="claro"]').click(); }
-      if (colorPelo !== 'castano') { cambios.push('pelo castaño'); document.querySelector('[data-pelo-color="castano"]').click(); }
       if (peinado === 'melena' && peloOp !== 'mc') { cambios.push('mechones completos'); document.querySelector('[data-pelo-op="mc"]').click(); }
-      if (cambios.length) avisar('El conjunto de aventura (candidato) se ve por ahora con piel clara y pelo castaño (melena, coleta o dos coletas): se ha cambiado a ' + cambios.join(', ') + '.');
+      if (piel !== 'claro') cambios = cambios.concat(aprobadoAventura());
+      if (cambios.length) avisar('Con el conjunto de aventura se ha elegido: ' + cambios.join(', ') + '.');
     });
   });
   document.querySelectorAll('[data-prendas]').forEach(function (b) {
@@ -756,11 +775,23 @@
   document.getElementById('controles').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b || ropa !== 'aventura') return;
     var d = b.dataset, no = null;
-    if ((d.piel && d.piel !== 'claro') || (d.peloColor && d.peloColor !== 'castano') || (d.peloOp && d.peloOp !== 'mc' && peinado === 'melena'))
-      no = 'El conjunto de aventura (candidato) se ve por ahora solo con piel clara y pelo castaño (melena, coleta o dos coletas): elige otra ropa para cambiarlo.';
+    // (20/10) los cuatro tonos de piel y los cinco colores de pelo, con la melena, la coleta y las dos coletas (candidatos);
+    // con un tono que no es el claro, solo la versión aprobada del conjunto (prendas ajustadas, rodillas B2c, mochila A o B)
+    if (d.peloOp && d.peloOp !== 'mc' && peinado === 'melena')
+      no = 'Con el conjunto de aventura, la melena va con sus mechones completos (sin los restos del vestido).';
+    else if (piel !== 'claro' && ((d.prendas && d.prendas !== 'medida3') || (d.rodillas && d.rodillas !== 'b2c') || d.mochila === 'si'))
+      no = 'Con este tono de piel, el conjunto de aventura se ve solo en su versión aprobada; para comparar con las anteriores, elige la piel clara.';
     else if (d.zapatos) avisar('Con el conjunto de aventura van sus botas; los zapatos rosa se verán con otra ropa.');
-    if (no) { e.stopImmediatePropagation(); e.preventDefault(); avisar(no); }
+    if (no) { e.stopImmediatePropagation(); e.preventDefault(); avisar(no); return; }
+    if (d.piel && d.piel !== 'claro') { var c = aprobadoAventura(); if (c.length) avisar('Con este tono de piel, el conjunto de aventura en su versión aprobada: ' + c.join(', ') + '.'); }
   }, true);
+  function aprobadoAventura() {   // la versión aprobada (prendas ajustadas, rodillas B2c y, si estaba la mochila anterior, la A)
+    var c = [];
+    if (prendas !== 'medida3') { c.push('prendas ajustadas'); prendas = 'medida3'; document.querySelectorAll('[data-prendas]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.prendas === 'medida3')); }); }
+    if (rodillas !== 'b2c') { c.push('rodillas B2c'); rodillas = 'b2c'; document.querySelectorAll('[data-rodillas]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.rodillas === 'b2c')); }); }
+    if (mochila === 'si') { c.push('mochila A con las tiras nuevas'); mochila = 'centrada'; document.querySelectorAll('[data-mochila]').forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.mochila === 'centrada')); }); }
+    return c;
+  }
   document.getElementById('controles').addEventListener('click', function () { mostrarAventura(); });
 
   // --- carga: se espera a todas las capas (también la de ojos cerrados, para que el parpadeo no parpadee en blanco)

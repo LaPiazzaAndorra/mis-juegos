@@ -222,3 +222,8 @@ delante), y «A sin tiras»; B, la anterior y «Sin mochila» se conservan. Las 
 desaparecen (idéntico píxel a píxel con los tres peinados).
 **21/10/2026 (44) · D-027:** el botón por defecto de la fila «Mochila» pasa a «A con las tiras nuevas (aprobada)». Nada
 más cambia.
+**21/10/2026 (45) · D-027:** con el conjunto se pueden elegir los **cuatro tonos de piel** y los **cinco colores de pelo**,
+con la melena, la coleta y las dos coletas (candidatas): base B2c del tono, capas `c-av-bordes-ropa` (encima de la ropa) y
+`c-av-bordes-tiras` (encima de las tiras), bordes del pelo para el conjunto (`integrar/pieles/<tono>/`) y pelo limpio de
+`pelo-sin-restos/conjunto/`. Con un tono que no es el claro, solo la versión aprobada (prendas ajustadas, rodillas B2c,
+mochila A o B): las otras opciones avisan. Fuera del conjunto, todo como antes (originales y bordes aprobados).
