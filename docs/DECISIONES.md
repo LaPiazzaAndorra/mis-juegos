@@ -1,5 +1,16 @@
 # Registro de decisiones
 
+## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
+- **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el
+  encaje. Conserva la cara, el cuerpo y la postura. Usaremos el gorrito de dormir que ya tenemos. Primero revisaremos el
+  diseño aquí; después extraeremos las prendas.»
+- **Decisiones:** el gorrito de dormir es el aprobado (D-024, variante B) y no se rediseña; primero se revisa el diseño y
+  solo con él aprobado se extraen las prendas.
+- **Hecho:** guía en `docs/propuestas/pijama-2026-10-22/guia-chatgpt/` (plantilla con melena y gorrito, plantilla sin pelo,
+  zonas que el pijama tiene que tapar y lo que no se toca, medidas y dos mensajes para ChatGPT). La imagen del pijama no
+  llegó con el mensaje: la guía pide adjuntarla a ChatGPT («el pijama de la imagen adjunta»). **Pendiente:** la imagen del
+  diseño y su revisión aquí.
+
 ## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
 - **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas
   y mochila». Referencia (generada, sin modificar, SHA-256 `f3e5d5c3…f4fe0`):

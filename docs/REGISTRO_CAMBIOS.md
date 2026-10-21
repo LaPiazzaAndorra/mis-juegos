@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-22 — D-027: variantes del conjunto y pelo limpio aprobados visualmente
+### 2026-10-22 — D-028: guía de diseño del pijama sobre nuestra base
+
+- **Solicitado por:** la propietaria («Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para
+  ver el encaje. Conserva la cara, el cuerpo y la postura. Usaremos el gorrito de dormir que ya tenemos. Primero
+  revisaremos el diseño aquí; después extraeremos las prendas.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `b85d74f`, el de la entrada siguiente).
+- **Estado:** guía preparada; **falta la imagen del pijama** (no llegó con el mensaje). Nada activado ni publicado.
+- **Cambios:** `docs/propuestas/pijama-2026-10-22/` (nuevo): `LEEME.md` y `guia-chatgpt/` (`preparar_guia.py`, plantilla con
+  melena y gorrito B, plantilla sin pelo, zonas, medidas); D-028, `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md` y `HOJA_DE_RUTA.md`. Ninguna capa cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `b85d74f` · D-027: variantes del conjunto y pelo limpio aprobados visualmente
 
 - **Solicitado por:** la propietaria («Apruebo las variantes revisadas del conjunto de aventura y el pelo limpio.
   Regístralo en D-027, sin dar por probadas individualmente las 60 combinaciones en mi iPhone. Conserva las versiones

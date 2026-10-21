@@ -130,6 +130,10 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   y lo que no es compatible se avisa. **Aprobados visualmente (18/10)**; no probadas una a una todas las combinaciones
   en el iPhone; integración en una copia nueva del juego, más adelante. Los gorros, más adelante.
 
+**Pijama (22/10, D-028):** guía de diseño sobre nuestra base preparada (`docs/propuestas/pijama-2026-10-22/`: plantillas
+con melena y gorrito de dormir B y sin pelo, zonas y mensajes). Pendiente: la imagen del diseño (no llegó con el
+mensaje) y su revisión; después, extraer las prendas.
+
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
   `docs/propuestas/conjunto-aventura-2026-10-18/referencias/`.
@@ -347,7 +351,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-027: variantes del conjunto y pelo limpio aprobados visualmente; siguiente, pijama y ropa de hada) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-028: guía de diseño del pijama preparada; falta la imagen del diseño) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 
