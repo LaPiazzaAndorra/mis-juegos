@@ -17,7 +17,7 @@ Trabajo **separado del avatar**: rama `pintar-heladeria` (en GitHub desde el 21/
 | 21/10/2026 | Heladería: revisión y primera versión nueva en copia aislada propia (`docs/propuestas/heladeria-2026-10-21/`, datos `hel1:`): juego libre y pedidos con retos de colores, contar, dos sabores y memoria; economía sin cambios | Hecho, commit `ef9a583`. |
 | 21/10/2026, 20:38 | **Heladería: aprobación general** de la propietaria en su iPhone (sin dar por comprobados todos los casos); «Guardar / Recuperar mi progreso» comprobado con sus datos y el nivel nuevo (Chromium, 19/19) | Ver `heladeria-2026-10-21/LEEME.md`. |
 | 21/10/2026 | **Referencias estables, sin integrar en el juego principal:** Pintar `708c2f2` (sin cambios de código desde entonces; la prueba de Pintar sigue 188/188) y la Heladería `7aeb5b7` (enlace fijo en su `LEEME.md`) | Hecho. Integrarlas en el juego queda para cuando se decida, coordinado con el chat del avatar. |
-| — | Recompensas (apartado 4) | **Pendientes de diseñar** (21/10, 18:46): ni umbrales, ni cambios en la economía de estrellas, ni en el guardado. |
+| 21/10/2026, 21:11 | Recompensas: **propuesta** de actividades educativas, logros separados de las estrellas, desbloqueos, tareas reales y zona de adultos, sin código (`docs/propuestas/recompensas-2026-10-21/LEEME.md`; sustituye al apartado 4) | Propuesta; pendiente de decisiones de la propietaria y de coordinar con el Chat 1 los cambios de catálogo y guardado. |
 | Al integrar | Documentos generales (`ESTADO_ACTUAL`, `REGISTRO_CAMBIOS`, `HOJA_DE_RUTA`, `MANUAL_PROYECTO`, `VERSION_DE_PRUEBAS`…) | Se coordinan con el chat del avatar al integrar; hasta entonces esta fase solo se documenta aquí. |
 
 **Enlace de la versión de referencia de Pintar (fijo, commit `708c2f2`; Safari):**
@@ -204,6 +204,8 @@ gastan en nada**. Detalles: los animales y adornos son emojis; en el iPhone hori
   las existentes. **Pendiente de tu aprobación** antes de programarlo.
 
 ## 4. Estrellas y recompensas: cómo funcionan hoy y propuesta (sin cambiar nada)
+
+> **21/10:** sustituido por la propuesta completa en `docs/propuestas/recompensas-2026-10-21/LEEME.md`.
 
 **Hoy** (`stars` en `localStorage`, `addStar`): +1 por pedido correcto de la Heladería; +1 al guardar el primer personaje
 en Vestir; Parejas +2 / +3 / +5 según el nivel; Contar, ¿Qué sigue?, Sombras y El diferente +1 por acierto (fallar baja
