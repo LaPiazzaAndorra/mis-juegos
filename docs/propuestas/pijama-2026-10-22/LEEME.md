@@ -1,7 +1,10 @@
 # Pijama · 22/10/2026 (D-028)
 
-> **Fase de diseño.** Primero se revisa aquí el diseño (una imagen de ChatGPT sobre nuestra base); solo después de
-> aprobarlo se extraen las prendas. Nada activado en el juego; `main`, las partidas y las pruebas congeladas no cambian.
+> **Diseño aprobado (22/10):** pijama azul con lunas y estrellas, puños rosas y zapatillas crema. Referencia en
+> `referencias/referencia-pijama-aprobada.png` (imagen generada, **sin modificar**, 948 × 1659, SHA-256
+> `96c9e39e216774a85a80e0d382a1fa054e11ff4dc52189aba5f33a88ed68ce4c`). **El encaje sobre nuestra base queda pendiente:**
+> antes de extraer las prendas se pide el mismo pijama sin pelo ni gorrito, con hombros y mangas completos (abajo).
+> Nada activado en el juego; `main`, las partidas y las pruebas congeladas no cambian.
 
 Con el **gorrito de dormir aprobado** (D-024, variante B: `../accesorios-2026-10-16/gorrito/capa-gorrito-b.png`), que no
 se rediseña. Se conservan **la cara, el cuerpo y la postura** de la base aprobada (D-013).
@@ -34,3 +37,31 @@ se rediseña. Se conservan **la cara, el cuerpo y la postura** de la base aproba
 pijama tiene que coincidir (cara, manos, pies, pelo y gorrito); que tape toda la ropa rosa; que no deforme el cuerpo; y
 el encaje con el pelo y el gorrito. Si se aprueba el diseño, después se extraen las prendas sobre nuestra base (como con
 el conjunto de aventura) y se adaptan a los tonos de piel y colores de pelo aprobados.
+
+## Referencia aprobada: lo medido (22/10)
+
+- Mismo lienzo que el nuestro (948 × 1659). Los iris están en (391, 443) y (565, 443) (los nuestros, en 391 y 567):
+  escala 1,0115 y desplazamiento (−4,5; −5,1), como en las imágenes anteriores de ChatGPT sobre nuestra plantilla.
+- El cuerpo coincide con el nuestro donde se ve: manos (y = 1 000: x 196–763 frente a 195–764) y piernas (y = 1 100–1 300:
+  a 1–5 px). Las zapatillas son un poco más anchas que nuestros pies (y = 1 500: x 313–647 frente a 334–630).
+- **No se puede medir el encaje de los hombros y las mangas:** la melena los tapa. El gorrito lo ha redibujado ChatGPT (más
+  grande); se usará **nuestro gorrito B aprobado**, no el de la imagen.
+
+## Siguiente: el mismo pijama sin pelo ni gorrito (`guia-chatgpt/`)
+
+**Adjuntar:** `referencias/referencia-pijama-aprobada.png`, `guia-chatgpt/plantilla-sin-pelo.png` y
+`guia-chatgpt/zonas-pijama.png`.
+
+> **Pijama sin pelo.** Sobre la plantilla `plantilla-sin-pelo.png` (la misma imagen: mismo lienzo, tamaño, posición y
+> encuadre), viste a la muñeca con **exactamente el mismo pijama de la imagen aprobada**: azul con lunas y estrellas crema,
+> cuello y puños rosas, pantalón largo con puños rosas y zapatillas crema con suela rosa; mismos colores, estampado, tamaño
+> de las lunas y estrellas, costuras y textura. **Sin pelo y sin gorrito**, para que se vean los hombros y las mangas
+> **completos** (sin huecos donde antes estaba el pelo). Conserva exactamente su cara, sus ojos, su cuerpo, sus
+> proporciones y su postura: no los redibujes; la ropa se adapta a la muñeca. Tiene que tapar entera la ropa rosa de la
+> base (magenta en `zonas-pijama.png`) y dejar a la vista la cara, el cuello y las manos (azul). Fondo crema liso, sin
+> texto, sin sombra en el suelo y sin marcos.
+
+**Al recibirla, se revisará aquí:** alineación por los ojos con nuestra plantilla, que fuera del pijama coincida (cara,
+cuello, manos), que tape toda la ropa rosa, que no cambie el ancho del cuerpo, que los hombros y las mangas estén
+completos y que sea el mismo pijama que la referencia. Con ella aprobada, se extraen las prendas (camiseta, pantalón y
+zapatillas por separado) y se prueban con la melena, la coleta, las dos coletas y el gorrito B.

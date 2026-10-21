@@ -10,6 +10,13 @@
   zonas que el pijama tiene que tapar y lo que no se toca, medidas y dos mensajes para ChatGPT). La imagen del pijama no
   llegó con el mensaje: la guía pide adjuntarla a ChatGPT («el pijama de la imagen adjunta»). **Pendiente:** la imagen del
   diseño y su revisión aquí.
+- **22/10/2026 (2): diseño aprobado** por la propietaria: «Apruebo el diseño: pijama azul con lunas y estrellas, puños
+  rosas y zapatillas crema». Referencia (imagen generada, sin modificar, SHA-256 `96c9e39e…ce4c`):
+  `docs/propuestas/pijama-2026-10-22/referencias/referencia-pijama-aprobada.png`. **El encaje sobre nuestra base queda
+  pendiente:** antes de extraer las prendas se pide el mismo pijama **sin pelo ni gorrito, con hombros y mangas
+  completos** (mensaje preparado en el `LEEME.md` de la carpeta). Medido: mismo lienzo y cuerpo que el nuestro (escala
+  1,0115 por los ojos; manos y piernas a 1–5 px); los hombros y las mangas no se ven (los tapa la melena); el gorrito de la
+  imagen no se usa (va el B aprobado).
 
 ## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
 - **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas

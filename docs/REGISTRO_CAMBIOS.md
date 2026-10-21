@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-22 — D-028: guía de diseño del pijama sobre nuestra base
+### 2026-10-22 — D-028: diseño del pijama aprobado (referencia guardada)
+
+- **Solicitado por:** la propietaria («Apruebo el diseño: pijama azul con lunas y estrellas, puños rosas y zapatillas
+  crema. Guárdalo como referencia en D-028. El encaje sobre nuestra base queda pendiente; antes de extraer las prendas
+  prepararemos la versión del mismo pijama sin pelo ni gorrito, con hombros y mangas completos.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `794ff6c`, el de la entrada siguiente).
+- **Estado:** diseño **aprobado**; encaje pendiente. Nada activado ni publicado.
+- **Cambios:** `docs/propuestas/pijama-2026-10-22/referencias/referencia-pijama-aprobada.png` (sin modificar); `LEEME.md` de
+  la carpeta (lo medido y el mensaje del pijama sin pelo ni gorrito); D-028 (2), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md` y `HOJA_DE_RUTA.md`. Ninguna capa cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `794ff6c` · D-028: guía de diseño del pijama sobre nuestra base
 
 - **Solicitado por:** la propietaria («Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para
   ver el encaje. Conserva la cara, el cuerpo y la postura. Usaremos el gorrito de dormir que ya tenemos. Primero
