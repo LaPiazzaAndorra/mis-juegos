@@ -1,6 +1,22 @@
 # Registro de cambios
 
-### 2026-10-21 — D-027: el conjunto con los 4 tonos de piel y los 5 colores de pelo (candidatas)
+### 2026-10-22 — D-027: variantes del conjunto y pelo limpio aprobados visualmente
+
+- **Solicitado por:** la propietaria («Apruebo las variantes revisadas del conjunto de aventura y el pelo limpio.
+  Regístralo en D-027, sin dar por probadas individualmente las 60 combinaciones en mi iPhone. Conserva las versiones
+  anteriores. Seguimos con el pijama y después con la ropa de hada.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `99acf1f`, el de la entrada siguiente).
+- **Estado:** variantes del conjunto (4 tonos × 5 colores × 3 peinados) y pelo limpio **aprobados visualmente**; las 60
+  combinaciones no se dan por probadas una a una en el iPhone. Versiones anteriores conservadas. Nada activado ni publicado.
+- **Cambios:** solo documentación: D-027 (19), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` (pijama y ropa de hada, siguientes) y los `LEEME.md` del conjunto, de `integrar/pieles/` y de
+  `pelo-sin-restos/`. Capas y visor sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-21 — `99acf1f` · D-027: el conjunto con los 4 tonos de piel y los 5 colores de pelo (candidatas)
 
 - **Solicitado por:** la propietaria («Adelante con los 4 tonos de piel y los 5 colores de pelo aprobados, con melena,
   coleta y dos coletas. Conserva el conjunto, la mochila A y las tiras aprobadas. Revisa especialmente rodillas, brazos y

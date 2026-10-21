@@ -213,6 +213,11 @@
   - Visor: con el conjunto, los cuatro tonos y los cinco colores con los tres peinados; con un tono que no es el claro, solo
     la versión aprobada (prendas ajustadas, rodillas B2c, mochila A o B). Revisadas las 60 combinaciones en capturas.
     **Candidatas, pendientes de revisión** (también el pelo limpio). Sin probar en el iPhone real.
+- **22/10/2026 (19):** la propietaria **aprueba visualmente las variantes revisadas del conjunto** (4 tonos de piel × 5
+  colores de pelo, con melena, coleta y dos coletas; mochila A con las tiras) **y el pelo limpio** (coleta, dos coletas y
+  melena para el conjunto), **sin dar por probadas individualmente las 60 combinaciones en su iPhone**. Se conservan las
+  versiones anteriores (prendas, rodillas, mochilas y pelo sin limpiar siguen en el visor y en sus carpetas). Siguiente:
+  el **pijama** y después la **ropa de hada** (todavía sin diseño ni referencia en el proyecto).
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros

@@ -52,7 +52,7 @@ no se cambia sin avisar). Las botas sustituyen a los zapatos.
   melena, la coleta y las dos coletas (`integrar/mochila-b/montajes-peinados.png`). **A elegida** (20/10; B, alternativa).
   **Tiras nuevas** (guía 2b sobre A, por encima del chaleco): recibidas e integradas el 20/10 con
   `integrar/recibir.py tiras-a` → `integrar/mochila-b/tiras.png` (solo las tiras y sus hebillas), **aprobadas con la mochila A** (21/10), por defecto con el conjunto.
-- Tonos de piel y colores de pelo (21/10): `integrar/pieles/` (ver su `LEEME.md`), candidatas. Tiras **por encima del chaleco: confirmado** por la propietaria (20/10). Las antiguas no dan el montaje por terminado.
+- Tonos de piel y colores de pelo (21/10): `integrar/pieles/` (ver su `LEEME.md`), aprobadas visualmente por la propietaria (22/10), sin dar por probadas una a una las 60 combinaciones en su iPhone; también el pelo limpio. Tiras **por encima del chaleco: confirmado** por la propietaria (20/10). Las antiguas no dan el montaje por terminado.
 - Pelo para el conjunto: coleta y dos coletas sin restos (copias en `../base-aprobada-d013-2026-10-14/pelo-sin-restos/`,
   candidato).
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

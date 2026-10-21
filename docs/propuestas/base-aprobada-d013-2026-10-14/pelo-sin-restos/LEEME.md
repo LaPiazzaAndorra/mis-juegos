@@ -53,4 +53,5 @@ Con la piel oscura se veían dos cosas más (con la clara y el vestido apenas se
 `conjunto/pelo-coleta-<con|sin>-detras-<color>.png` y `conjunto/pelo-coletas-<con|sin>-sombrero-detras-<color>.png` (parten
 de las copias sin restos de arriba), máscaras (`rosa-melena-*.png`, `rendijas-*.png`), `comprobaciones.json` y
 `antes-despues.png` (profundo, antes y después). Las copias anteriores y los originales **no cambian** (sha256). Con el
-conjunto, el visor usa estas copias en los cuatro tonos. **Pendiente de revisión**, junto con lo de arriba.
+conjunto, el visor usa estas copias en los cuatro tonos. **Aprobado visualmente por la propietaria (22/10, D-027 (19))**,
+junto con lo de arriba (coleta y dos coletas), sin probar en el iPhone real.

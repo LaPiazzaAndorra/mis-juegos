@@ -1,4 +1,4 @@
-# Conjunto de aventura con los tonos de piel y colores de pelo aprobados · 21/10/2026 (D-027, candidatas)
+# Conjunto de aventura con los tonos de piel y colores de pelo aprobados · 21/10/2026 (D-027, aprobadas)
 
 El conjunto aprobado (prendas ajustadas de `f857193`, rodillas B2c), la mochila A y sus tiras aprobadas **no cambian**.
 Para los tonos dorado, moreno y profundo (D-023) se añaden capas propias, hechas con la misma transformación aprobada de
@@ -25,7 +25,8 @@ Hojas: `tonos-peinados.png` (4 tonos × 3 peinados), `colores-melena.png`, `colo
 (4 tonos × 5 colores) y `detalles-antes-despues.png` (claro, profundo antes y después: rodillas, mangas y brazos, chaleco,
 cuello, calcetines y pelo junto al brazo). En el visor, con el conjunto se pueden elegir los cuatro tonos y los cinco
 colores; con un tono que no es el claro, solo la versión aprobada del conjunto (prendas ajustadas, rodillas B2c, mochila A
-o B). **Candidatas, pendientes de revisión; sin probar en el iPhone real.**
+o B). **Aprobadas visualmente por la propietaria (22/10, D-027 (19)), sin dar por probadas una a una las 60 combinaciones
+en su iPhone.** Sin probar en el iPhone real.
 
 Uso (desde la raíz): `python3 docs/propuestas/conjunto-aventura-2026-10-18/integrar/pieles/conjunto_pieles.py`
 (después de `base-aprobada-d013-2026-10-14/pelo-sin-restos/limpiar_conjunto.py`).

@@ -190,6 +190,9 @@ en `docs/VERSION_DE_PRUEBAS.md`).
   adaptados y pelo limpio para el conjunto (`base-aprobada-d013-2026-10-14/pelo-sin-restos/conjunto/`: sin rosa en la
   melena ni rendijas junto al brazo). En el visor; hojas `tonos-peinados.png`, `colores-*.png` y
   `detalles-antes-despues.png`. **Pendiente de revisión**, igual que el pelo limpio.
+- **22/10: aprobadas visualmente** las variantes del conjunto (4 tonos × 5 colores × 3 peinados, mochila A con tiras) y el
+  pelo limpio, **sin dar por probadas una a una las 60 combinaciones en el iPhone**. Se conservan las versiones
+  anteriores. Siguiente: pijama y después ropa de hada (sin diseño todavía).
 
 **Peinado nuevo: dos coletas rizadas con sombrero de aventura (17/10, D-026):**
 - Propuesta aprobada como peinado nuevo; se conservan la melena (por defecto) y la coleta.
@@ -344,7 +347,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 21/10/2026 (D-027: el conjunto con los 4 tonos de piel y los 5 colores de pelo, candidatas; pelo limpio pendiente de revisión) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-027: variantes del conjunto y pelo limpio aprobados visualmente; siguiente, pijama y ropa de hada) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 
