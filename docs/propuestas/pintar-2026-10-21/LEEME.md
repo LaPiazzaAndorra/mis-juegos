@@ -11,13 +11,17 @@ Trabajo **separado del avatar**: rama `pintar-heladeria` (en GitHub desde el 21/
 | 21/10/2026 | Revisión de Pintar, primera mejora en copia aislada (`pin1:`), propuestas de Heladería, recompensas y gincana | Hecho; commit `f62152d` (local). |
 | 21/10/2026 | Rama `pintar-heladeria` subida a GitHub por petición de la propietaria, con el enlace de prueba para Safari | Hecho (este commit). `main`, `avatar-creador`, partidas y archivos compartidos sin cambios. |
 | 21/10/2026 | Láminas actuales **no aprobadas visualmente** por la propietaria (demasiado básicas). **12 láminas candidatas** suyas añadidas a la copia (apartado 2 bis), conservando las 19 anteriores; mejoras de guardado, giro, deshacer y rehacer sin cambios | Hecho (este commit); pendiente de revisión visual y de prueba en el iPhone. |
-| 21/10/2026 | **Corrección:** en el iPhone de la propietaria, al tocar una lámina nueva no se abría nada (apartado 2 ter) | Hecho (este commit); enlace fijo a este commit; pendiente de confirmar en el iPhone. |
-| Siguiente | **Prueba de Pintar en el iPhone de la propietaria:** dibujar, girar, deshacer, rehacer, guardar y las láminas candidatas | Pendiente. |
-| Después | Heladería (apartado 3) | Pendiente; se empieza tras la prueba de Pintar. |
-| — | Recompensas (apartado 4) | **Propuesta pendiente, no aprobada:** ni los umbrales ni ningún cambio en el guardado. |
+| 21/10/2026 | **Corrección:** en el iPhone de la propietaria, al tocar una lámina nueva no se abría nada (apartado 2 ter) | Hecho, commit `708c2f2`. |
+| 21/10/2026, 18:46 | **Confirmación de la propietaria en su iPhone:** «la corrección funciona y las láminas ya se abren bien» | Confirmado **solo eso**: que las láminas se abren. **No** se dan por comprobados en el iPhone los demás pasos de la prueba (girar, deshacer, rehacer, guardar sin duplicar, editar desde la galería, borrar con dos toques, aviso sin espacio, relleno de las zonas diminutas, iPad). Tampoco las láminas candidatas están aprobadas visualmente como colección definitiva. |
+| 21/10/2026 | **Versión de referencia de Pintar:** el commit `708c2f2` (enlace fijo abajo). La copia `pintar-2026-10-21/` queda **congelada**: no se cambia mientras se trabaja en la Heladería | Hecho. |
+| 21/10/2026 | Heladería: revisión y copia aislada propia (`docs/propuestas/heladeria-2026-10-21/`, datos `hel1:`) | En curso; ver su `LEEME.md`. |
+| — | Recompensas (apartado 4) | **Pendientes de diseñar** (21/10, 18:46): ni umbrales, ni cambios en la economía de estrellas, ni en el guardado. |
 | Al integrar | Documentos generales (`ESTADO_ACTUAL`, `REGISTRO_CAMBIOS`, `HOJA_DE_RUTA`, `MANUAL_PROYECTO`, `VERSION_DE_PRUEBAS`…) | Se coordinan con el chat del avatar al integrar; hasta entonces esta fase solo se documenta aquí. |
 
-**Enlace de la prueba (Safari):**
+**Enlace de la versión de referencia de Pintar (fijo, commit `708c2f2`; Safari):**
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/708c2f2d1d34b65f4a10eb5bdbdf52bd4abb03dc/docs/propuestas/pintar-2026-10-21/index.html>
+
+Enlace de la rama (se actualiza con cada subida; la copia de Pintar no cambia):
 <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/pintar-heladeria/docs/propuestas/pintar-2026-10-21/index.html>
 
 ## 1. Pintar: revisión del juego actual
@@ -176,7 +180,10 @@ aviso y después se abre; lienzo bloqueado → abre y avisa al pintar; toque sob
 que en Safari se ven los mismos dibujos guardados que con el enlace de la rama (la app añadida a la pantalla de inicio
 tiene sus datos aparte, como siempre en iOS).
 
-## 3. Heladería: revisión y propuesta (sin hacer)
+## 3. Heladería: revisión y propuesta inicial
+
+> **21/10:** el trabajo de la Heladería sigue en su propia carpeta, `docs/propuestas/heladeria-2026-10-21/LEEME.md`.
+> Lo de abajo es la propuesta inicial, tal como se escribió.
 
 **Hoy:** un animal pide un helado (dibujo + voz); se elige cucurucho o vasito, hasta 3 bolas de 6 sabores y un adorno
 de 5; ✅ ¡Toma! comprueba. Acierto: +1 ⭐, monedas (`iceCoins`) por bolas y adorno, `iceServed` sube y la dificultad crece
