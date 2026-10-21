@@ -163,6 +163,6 @@ En el ordenador: desde la raíz, `python3 -m http.server 8765` y abrir
 - Aprobación **general** recibida (21/10). Quedan por comprobar en el iPhone los casos concretos de la prueba (apartado 5).
 - Los clientes y adornos siguen siendo **emojis** (como en el juego); ilustrarlos sería otra tarea.
 - ¿Elegir el nivel a mano (por ejemplo, un adulto), además de subir solo? Hoy sube solo y no baja.
-- ¿Usar las monedas para algo? Forma parte del diseño de recompensas, **pendiente**.
-- Integración en el juego: tocaría `index.html` y `sw.js` (versión de la caché) y los documentos generales; se coordinará
-  con el chat del avatar antes de hacerlo.
+- ¿Usar las monedas para algo? Forma parte del diseño de recompensas (propuesta en `../recompensas-2026-10-21/`), **pendiente**.
+- Integración en el juego: tocaría `index.html` y `sw.js` (versión de la caché) y los documentos generales; lo coordina la
+  propietaria antes de hacerlo.

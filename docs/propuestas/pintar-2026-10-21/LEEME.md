@@ -16,9 +16,10 @@ Trabajo **separado del avatar**: rama `pintar-heladeria` (en GitHub desde el 21/
 | 21/10/2026 | **Versión de referencia de Pintar:** el commit `708c2f2` (enlace fijo abajo). La copia `pintar-2026-10-21/` queda **congelada**: no se cambia mientras se trabaja en la Heladería | Hecho. |
 | 21/10/2026 | Heladería: revisión y primera versión nueva en copia aislada propia (`docs/propuestas/heladeria-2026-10-21/`, datos `hel1:`): juego libre y pedidos con retos de colores, contar, dos sabores y memoria; economía sin cambios | Hecho, commit `ef9a583`. |
 | 21/10/2026, 20:38 | **Heladería: aprobación general** de la propietaria en su iPhone (sin dar por comprobados todos los casos); «Guardar / Recuperar mi progreso» comprobado con sus datos y el nivel nuevo (Chromium, 19/19) | Ver `heladeria-2026-10-21/LEEME.md`. |
-| 21/10/2026 | **Referencias estables, sin integrar en el juego principal:** Pintar `708c2f2` (sin cambios de código desde entonces; la prueba de Pintar sigue 188/188) y la Heladería `7aeb5b7` (enlace fijo en su `LEEME.md`) | Hecho. Integrarlas en el juego queda para cuando se decida, coordinado con el chat del avatar. |
-| 21/10/2026, 21:11 | Recompensas: **propuesta** de actividades educativas, logros separados de las estrellas, desbloqueos, tareas reales y zona de adultos, sin código (`docs/propuestas/recompensas-2026-10-21/LEEME.md`; sustituye al apartado 4) | Propuesta; pendiente de decisiones de la propietaria y de coordinar con el Chat 1 los cambios de catálogo y guardado. |
-| Al integrar | Documentos generales (`ESTADO_ACTUAL`, `REGISTRO_CAMBIOS`, `HOJA_DE_RUTA`, `MANUAL_PROYECTO`, `VERSION_DE_PRUEBAS`…) | Se coordinan con el chat del avatar al integrar; hasta entonces esta fase solo se documenta aquí. |
+| 21/10/2026 | **Referencias estables, sin integrar en el juego principal:** Pintar `708c2f2` (sin cambios de código desde entonces; la prueba de Pintar sigue 188/188) y la Heladería `7aeb5b7` (enlace fijo en su `LEEME.md`) | Hecho. Integrarlas en el juego queda para cuando se decida; lo coordina la propietaria. |
+| 21/10/2026, 21:11 | Recompensas: **propuesta** de actividades educativas, logros separados de las estrellas, desbloqueos, tareas reales y zona de adultos, sin código (`docs/propuestas/recompensas-2026-10-21/LEEME.md`; sustituye al apartado 4) | Propuesta; pendiente de decisiones de la propietaria, que coordina cualquier cambio de catálogo o guardado. |
+| 21/10/2026, 21:15 | Recompensas: **propuesta revisada** con un único contador de logros (retos y tareas confirmadas) separado de las estrellas, sin retirar piezas del catálogo ni cambiar `normalizar()`, sin duplicados al guardar y recuperar, y una primera prueba pequeña con premios provisionales | Propuesta, sin código. |
+| Al integrar | Documentos generales (`ESTADO_ACTUAL`, `REGISTRO_CAMBIOS`, `HOJA_DE_RUTA`, `MANUAL_PROYECTO`, `VERSION_DE_PRUEBAS`…) | Los coordina la propietaria al integrar; hasta entonces esta fase solo se documenta aquí. |
 
 **Enlace de la versión de referencia de Pintar (fijo, commit `708c2f2`; Safari):**
 <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/708c2f2d1d34b65f4a10eb5bdbdf52bd4abb03dc/docs/propuestas/pintar-2026-10-21/index.html>
@@ -233,10 +234,11 @@ Propuesta · Obstáculos sencillos, dificultad progresiva y controles fáciles»
 histórico del 14/10 (`docs/historico/…/HOJA_DE_RUTA.md`: «Carrera/gincana infantil… sin controles complejos»). **No hay
 decisión, diseño, código ni arte**: no hay nada acordado más allá de que es una idea de prioridad media.
 
-## 6. Archivos compartidos con el chat del avatar
+## 6. Archivos compartidos
 
 Este trabajo **no ha cambiado** ninguno. Para integrar después habría que tocar (se avisará antes):
 `index.html` (Pintar, Heladería, estrellas), `sw.js` (versión de la caché), y los documentos comunes
 `docs/ESTADO_ACTUAL.md`, `docs/REGISTRO_CAMBIOS.md`, `docs/HOJA_DE_RUTA.md`, `docs/MANUAL_PROYECTO.md`,
-`docs/DECISIONES.md`, `docs/ARQUITECTURA_Y_DATOS.md`, `docs/VERSION_DE_PRUEBAS.md` y `docs/propuestas/LEEME.md`. Para
-las recompensas, además, `avatar/catalogo-*.js` y `avatar/motor.js`, que son del avatar.
+`docs/DECISIONES.md`, `docs/ARQUITECTURA_Y_DATOS.md`, `docs/VERSION_DE_PRUEBAS.md` y `docs/propuestas/LEEME.md`. La
+propietaria coordina cuándo se tocan. Para las recompensas, ver el apartado 7 de su propuesta (`premios.js` nuevo, Vestir
+y `progreso.js`; **ni el catálogo ni `normalizar()`** necesitan cambios).
