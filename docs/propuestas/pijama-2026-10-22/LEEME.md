@@ -104,3 +104,10 @@ zapatillas por separado) y se prueban con la melena, la coleta, las dos coletas 
 - Hojas: `integrar/pieles/tonos-peinados.png`, `colores-melena.png`, `colores-coleta.png`, `colores-coletas2.png` (4 tonos ×
   5 colores) y `detalles-antes-despues.png` (cuello, puños, tobillos y pelo). Visor: «Pijama (candidato)» con los cuatro
   tonos y los cinco colores. **Tonos candidatos, pendientes de revisión; sin probar en el iPhone real.**
+
+**22/10 (indicaciones de la propietaria):** la camiseta con el borde limpio (`integrar/capas-b/`) **se mantiene como
+candidata**; la aprobada de `75e2cb5` (`integrar/capas/camiseta.png`) se conserva **intacta**. En el visor, con el pijama,
+fila «Camiseta del pijama» para compararlas (borde limpio, por defecto, o aprobada); hoja
+`integrar/capas-b/comparacion-camisetas.png`. La propietaria revisará los tonos en el visor antes de aprobar esta fase.
+**En las comparaciones del pijama, las dos coletas se muestran sin el sombrero de aventura** (hojas de `integrar/pieles/`
+rehechas así).

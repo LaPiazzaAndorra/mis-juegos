@@ -234,3 +234,6 @@ los montajes (≤ 3).
 **22/10/2026 (47) · D-028:** el pijama con los **cuatro tonos de piel** (candidatos): capa `c-pij-bordes`
 (`pijama-2026-10-22/integrar/pieles/<tono>/bordes-ropa.png`), bordes del pelo de esa carpeta y pelo de detrás de
 `pijama-2026-10-22/integrar/pelo/`; la camiseta es la del borde limpio (`integrar/capas-b/`). Ya no avisa al elegir otro tono.
+**22/10/2026 (48) · D-028:** con el pijama, fila «Camiseta del pijama»: «Borde de las mangas limpio (candidata)», por
+defecto (`integrar/capas-b/`), y «Aprobada (75e2cb5)» (`integrar/capas/`, sin cambios). (Con la aprobada, la capa de
+bordes de los tonos es la calculada para la del borde limpio: difieren solo en ese borde.)

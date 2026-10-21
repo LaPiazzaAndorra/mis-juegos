@@ -35,6 +35,10 @@
   - Encontrado al revisar: el borde de las mangas alargadas tenía 127 píxeles sueltos a cuadros (una línea de puntos
     claros). Copia corregida en `integrar/capas-b/camiseta.png` (solo en esa zona); **la aprobada se conserva** y el visor
     usa la corregida, **a confirmar**. Tonos **candidatos**.
+- **22/10/2026 (5):** la propietaria pide **mantener la camiseta con el borde limpio como candidata** y conservar intacta la
+  anterior (aprobada); revisará los tonos en el visor antes de aprobar esta fase; **en las comparaciones del pijama, las dos
+  coletas sin el sombrero de aventura**. Hecho: fila «Camiseta del pijama» en el visor (borde limpio por defecto, o la
+  aprobada), hoja `integrar/capas-b/comparacion-camisetas.png` y hojas de tonos rehechas con las dos coletas sin sombrero.
 
 ## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
 - **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas

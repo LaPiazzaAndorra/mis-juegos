@@ -1,6 +1,22 @@
 # Registro de cambios
 
-### 2026-10-22 — D-028: encaje del pijama aprobado; pijama con los cuatro tonos de piel (candidatos)
+### 2026-10-22 — D-028: camiseta del borde limpio como candidata, comparable en el visor; dos coletas sin sombrero
+
+- **Solicitado por:** la propietaria («Mantén la camiseta con el borde limpio como candidata; conserva intacta la anterior.
+  Revisaré los tonos en el visor antes de aprobar esta fase. Para las próximas comparaciones del pijama, muestra las dos
+  coletas sin el sombrero de aventura.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `ad32d12`, el de la entrada siguiente).
+- **Estado:** camiseta del borde limpio **candidata**; la aprobada, intacta; tonos pendientes de revisión. Nada activado.
+- **Cambios:** visor (fila «Camiseta del pijama»); `pijama-2026-10-22/integrar/capas-b/comparacion-camisetas.png`; hojas de
+  `integrar/pieles/` rehechas con las dos coletas sin sombrero; D-028 (5), `ESTADO_ACTUAL.md` y los `LEEME.md` del pijama y
+  del visor (48). Las capas no cambian.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** visor (60 combinaciones con el pijama y las dos coletas sin sombrero; fila nueva; sin errores).
+  `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `ad32d12` · D-028: encaje del pijama aprobado; pijama con los cuatro tonos de piel (candidatos)
 
 - **Solicitado por:** la propietaria («Apruebo el encaje del pijama de 75e2cb5. Regístralo en D-028 y continúa con los
   cuatro tonos de piel, conservando las prendas aprobadas. Revisa cuello, puños y tobillos para evitar halos claros.

@@ -135,7 +135,8 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 camiseta, el pantalón y las zapatillas** sobre nuestra muñeca (`…/integrar/capas/`): rosa a la vista 0 px; montajes con
 melena y gorrito B, coleta y dos coletas. **Encaje aprobado** (22/10, `75e2cb5`). Con los **cuatro tonos de piel** y los
 cinco colores de pelo (`…/integrar/pieles/`, candidatos): sin halos claros en cuello, puños y tobillos; camiseta con el
-borde de las mangas limpio (`…/integrar/capas-b/`, a confirmar; la aprobada se conserva). Siguiente: ropa de hada.
+borde de las mangas limpio (`…/integrar/capas-b/`, candidata; la aprobada se conserva intacta y se puede comparar en el
+visor). Tonos pendientes de la revisión de la propietaria en el visor. Siguiente: ropa de hada.
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -354,7 +355,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-028: encaje del pijama aprobado; pijama con los cuatro tonos, candidatos) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-028: camiseta del borde limpio como candidata, comparable con la aprobada; tonos del pijama pendientes de revisión) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

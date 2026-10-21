@@ -170,6 +170,11 @@
     <button data-ropa="aventura" aria-pressed="false">Conjunto de aventura (candidato)</button>
     <button data-ropa="pijama" aria-pressed="false">Pijama (candidato)</button>
   </div>
+  <div class="fila" id="fila-pij-camiseta" hidden>
+    <b>Camiseta del pijama</b>
+    <button data-pij-camiseta="b" aria-pressed="true">Borde de las mangas limpio (candidata)</button>
+    <button data-pij-camiseta="a" aria-pressed="false">Aprobada (75e2cb5)</button>
+  </div>
   <div class="fila" id="fila-prendas" hidden>
     <b>Camiseta y chaleco</b>
     <button data-prendas="medida3" aria-pressed="true">Ajustada: cintura, caderas, calcetines y botas (aprobada)</button>
@@ -687,6 +692,13 @@
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
     b2c: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
+  var pijCamiseta = 'b';
+  document.querySelectorAll('[data-pij-camiseta]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      pijCamiseta = b.dataset.pijCamiseta;
+      document.querySelectorAll('[data-pij-camiseta]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
   var LIMPIO = '../pelo-sin-restos/', PIELES_AV = '../../conjunto-aventura-2026-10-18/integrar/pieles/', PIELES_PIJ = '../../pijama-2026-10-22/integrar/pieles/';
   function mostrarAventura() {
     var av = ropa === 'aventura';
@@ -700,6 +712,9 @@
     // conjunto; por ahora solo con la piel clara
     var pij = ropa === 'pijama', limpiaRopa = av || pij;
     ['zapatillas', 'pantalon', 'camiseta'].forEach(function (k) { document.getElementById('c-pij-' + k).classList.toggle('oculto', !pij); });
+    // camiseta: la del borde limpio (capas-b, candidata, por defecto) o la aprobada de 75e2cb5 (capas, sin cambios)
+    ponSrc('c-pij-camiseta', '../../pijama-2026-10-22/integrar/' + (pijCamiseta === 'a' ? 'capas' : 'capas-b') + '/camiseta.png');
+    document.getElementById('fila-pij-camiseta').hidden = !pij;
     if (pij) document.getElementById('c-brazos').classList.add('oculto');
     mostrarColeta(); mostrarColetas2();
     // (22/10) con otro tono de piel, las capas de bordes de la ropa y del pelo de esa ropa (integrar/pieles/<tono>/)
