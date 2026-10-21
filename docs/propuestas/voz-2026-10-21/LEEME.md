@@ -52,7 +52,7 @@ etiqueta, oculta las de efectos, habla con la voz, velocidad y tono elegidos, co
 `bestVoice`), guarda y copia las favoritas, avisa si no hay voces o ninguna de calidad alta, no toca los datos del juego,
 sin desbordar y sin errores. **Cómo suenan solo se puede saber en el iPhone.**
 
-**Enlace fijo:** ENLACE_PENDIENTE
+**Enlace fijo (commit `f56be6c`):** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/f56be6c20f14ab738e5d76d99c9769c88bde3a5b/docs/propuestas/voz-2026-10-21/index.html>
 
 **Cómo probarla (en el iPhone):**
 1. Abrir el enlace en **Safari** (sin modo silencio y con volumen).
