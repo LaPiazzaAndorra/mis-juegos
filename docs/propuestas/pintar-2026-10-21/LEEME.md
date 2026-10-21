@@ -11,6 +11,7 @@ Trabajo **separado del avatar**: rama `pintar-heladeria` (en GitHub desde el 21/
 | 21/10/2026 | Revisión de Pintar, primera mejora en copia aislada (`pin1:`), propuestas de Heladería, recompensas y gincana | Hecho; commit `f62152d` (local). |
 | 21/10/2026 | Rama `pintar-heladeria` subida a GitHub por petición de la propietaria, con el enlace de prueba para Safari | Hecho (este commit). `main`, `avatar-creador`, partidas y archivos compartidos sin cambios. |
 | 21/10/2026 | Láminas actuales **no aprobadas visualmente** por la propietaria (demasiado básicas). **12 láminas candidatas** suyas añadidas a la copia (apartado 2 bis), conservando las 19 anteriores; mejoras de guardado, giro, deshacer y rehacer sin cambios | Hecho (este commit); pendiente de revisión visual y de prueba en el iPhone. |
+| 21/10/2026 | **Corrección:** en el iPhone de la propietaria, al tocar una lámina nueva no se abría nada (apartado 2 ter) | Hecho (este commit); enlace fijo a este commit; pendiente de confirmar en el iPhone. |
 | Siguiente | **Prueba de Pintar en el iPhone de la propietaria:** dibujar, girar, deshacer, rehacer, guardar y las láminas candidatas | Pendiente. |
 | Después | Heladería (apartado 3) | Pendiente; se empieza tras la prueba de Pintar. |
 | — | Recompensas (apartado 4) | **Propuesta pendiente, no aprobada:** ni los umbrales ni ningún cambio en el guardado. |
@@ -140,6 +141,40 @@ una lámina tarda unos 0,1–0,3 s en Chromium. Quedan algunas diminutas sueltas
 - las más detalladas (heladería, gatito, hada, princesa) tienen muchas zonas pequeñas: con el relleno en grupo se pueden
   colorear, pero en el iPhone horizontal el papel es pequeño (234 × 352);
 - el marco fino alrededor de cada lámina es nuevo (no estaba en los originales).
+
+## 2 ter. Corrección: tocar una lámina nueva no abría nada en el iPhone (21/10/2026)
+
+**Lo que se vio:** en el iPhone de la propietaria, las 12 láminas salían en la lista, pero al tocar una no se abría nada.
+
+**Lo que se ha podido comprobar y lo que no:** en este entorno no hay Safari ni WebKit y `raw.githack.com` no es accesible,
+así que **el fallo no se ha podido reproducir**. Revisado el recorrido (miniatura → imagen → lienzo → pintar), había tres
+puntos donde Safari podía quedarse sin respuesta y sin avisar:
+1. la apertura esperaba a `decode()` de la imagen (Safari tiene fallos conocidos con él);
+2. el cubo y las zonas leen el lienzo (`getImageData`): si Safari trata la imagen como de otro origen, la lectura falla
+   (lienzo «bloqueado») y el error se perdía;
+3. cualquier error dentro de la apertura no se mostraba.
+
+Además, en Chromium apareció un caso real de «toque sin respuesta»: si el dedo cae justo sobre una línea del dibujo, el
+cubo no hace nada (también en las láminas antiguas del juego).
+
+**Cambios** (solo en la copia, `preparar_copia.py`):
+- la lámina para pintar se descarga como *blob* (siempre de la misma procedencia: el lienzo nunca queda bloqueado), con
+  20 s como máximo; las miniaturas ya no usan `decode()`;
+- mientras carga, aviso «Abriendo la lámina… ⏳»; si falla, aviso «No se ha podido abrir esta lámina 😢 · Comprueba la
+  conexión y vuelve a tocarla» y vuelta a la lista; última red: cualquier error al abrir un dibujo da un aviso;
+- si el lienzo estuviera bloqueado, la lámina se abre igual y el cubo avisa «No se ha podido pintar aquí»;
+- en las copias de prueba, cualquier error de JavaScript se ve en pantalla con su texto (para poder diagnosticar en el iPhone);
+- **si el dedo cae sobre una línea, el cubo pinta la zona libre más cercana** (hasta 6 px de pantalla).
+
+**Probado** (`prueba-pintar.js`, 188/188, dos veces seguidas): tocando de verdad cada miniatura (las 12 en iPhone vertical
+y dos en cada otra pantalla), con `decode()` simulado «sin respuesta», se abre la lámina con su dibujo y se puede
+pintar; imagen inexistente (404) → aviso y vuelta a la lista, y al volver a tocarla con conexión se abre; imagen lenta →
+aviso y después se abre; lienzo bloqueado → abre y avisa al pintar; toque sobre una línea → pinta. Juego 21/21 y 45/45.
+**Pendiente: confirmarlo en el iPhone.** Si vuelve a fallar, el aviso mostrará el error concreto entre paréntesis.
+
+**Datos:** sin cambios en el guardado ni en las claves (`pin1:`). El enlace fijo es del mismo origen (`raw.githack.com`), así
+que en Safari se ven los mismos dibujos guardados que con el enlace de la rama (la app añadida a la pantalla de inicio
+tiene sus datos aparte, como siempre en iOS).
 
 ## 3. Heladería: revisión y propuesta (sin hacer)
 

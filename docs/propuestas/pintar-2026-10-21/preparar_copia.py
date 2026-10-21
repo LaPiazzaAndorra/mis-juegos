@@ -20,7 +20,7 @@ Cambios respecto a ../../../index.html (cada sustitución comprueba que el texto
      · guardar: cada dibujo se guarda en SU entrada de «Mis dibujos» (volver a guardar la actualiza, no duplica); un
        dibujo abierto desde la galería se guarda como copia nueva (el original no cambia); si no hay espacio, NO se
        borra ningún dibujo antiguo: se avisa y el dibujo sigue en pantalla.
-     · el cubo no gasta un paso de deshacer cuando no pinta nada;
+     · el cubo no gasta un paso de deshacer cuando no pinta nada, y si el dedo cae sobre una línea pinta la zona más cercana;
   4. Láminas nuevas candidatas (heladería, gatito, hada, unicornio, perrito, conejito, princesa, helado, mariposa, explorador, hada-jardin, sirena; laminas/*.png): primeras de la lista, con su proporción 2:3
      sin deformar, y relleno de las zonas diminutas (ver LAMINAS_JS). Las 19 láminas anteriores se conservan.
 
@@ -187,13 +187,13 @@ function layoutCanvas(reset){
   const r=$('#pwrap').getBoundingClientRect();let w=r.width-20,h=r.height-8;
   if(w<50||h<50)return;
   if(reset){
-    if(P.tpl&&LN[P.tpl]){const ar=LN[P.tpl].naturalWidth/LN[P.tpl].naturalHeight||2/3;if(w/h>ar)w=h*ar;else h=w/ar}   // láminas nuevas: sin deformar
+    if(P.tpl&&LN[P.tpl]){const im=LNB[P.tpl],ar=im&&im.naturalWidth?im.naturalWidth/im.naturalHeight:2/3;if(w/h>ar)w=h*ar;else h=w/ar}   // láminas nuevas: sin deformar
     else if(P.tpl){w=h=Math.min(w,h)}w=Math.floor(w);h=Math.floor(h);
     const W=Math.round(w*DPR),H=Math.round(h*DPR);
     pc.width=oc.width=W;pc.height=oc.height=H;
     pctx.fillStyle='#fff';pctx.fillRect(0,0,W,H);
     octx.clearRect(0,0,W,H);if(P.tpl)drawTpl(octx,P.tpl,W,H);
-    P.zn=P.tpl&&LN[P.tpl]?zonasLamina():null;
+    P.zn=null;if(P.tpl&&LN[P.tpl]){try{P.zn=zonasLamina()}catch(e){console.warn('zonas',e)}}   // si fallan, se pinta igual (sin el relleno en grupo)
     MAXU=Math.max(6,Math.min(20,Math.floor(90e6/(W*H*4))));   // pasos de deshacer según la memoria (≈90 MB como máximo)
     P.undo=[];P.redo=[];updUR();
   }
@@ -202,7 +202,11 @@ function layoutCanvas(reset){
 }
 onShow.paint=async arg=>{
   P.tpl=(TPL[arg]||UTPL[arg]||LN[arg])?arg:null;P.dirty=false;P.saved=null;$('#clearBtn').classList.remove('arm');
-  if(LN[arg])await LN[arg].decode().catch(()=>{});"""
+  if(LN[arg]){   /* lámina nueva: se carga antes de abrir; si falla, aviso y vuelta a la lista (nunca un toque sin respuesta) */
+    P.tpl=null;layoutCanvas(true);const tc=setTimeout(()=>toast('Abriendo la lámina… ⏳'),500);
+    try{await cargarLamina(arg)}catch(e){clearTimeout(tc);avisoLamina(e);return}
+    clearTimeout(tc);if(current!=='paint')return;P.tpl=arg;
+  }"""
 
 JS_UNDO_VIEJO = """function pushUndo(){P.undo.push(pctx.getImageData(0,0,pc.width,pc.height));if(P.undo.length>6)P.undo.shift()}"""
 JS_UNDO_NUEVO = """function snap(){return pctx.getImageData(0,0,pc.width,pc.height)}
@@ -213,7 +217,8 @@ function updUR(){$('#undoBtn').classList.toggle('off',!P.undo.length);$('#redoBt
 JS_DOWN_VIEJO = """  e.preventDefault();if(drawing!==null)return;const p=pt(e);pushUndo();P.dirty=true;
   if(P.tool==='fill'){floodFill(Math.floor(p.x),Math.floor(p.y),P.color);sfx.pop();return}"""
 JS_DOWN_NUEVO = """  e.preventDefault();if(drawing!==null)return;const p=pt(e);
-  if(P.tool==='fill'){const s=snap();if(floodFill(Math.floor(p.x),Math.floor(p.y),P.color)){pushSnap(s);P.dirty=true;sfx.pop()}return}
+  if(P.tool==='fill'){try{const s=snap(),q=puntoLibre(Math.floor(p.x),Math.floor(p.y));if(q&&floodFill(q[0],q[1],P.color)){pushSnap(s);P.dirty=true;sfx.pop()}}
+    catch(err){console.warn(err);toast('⚠️ No se ha podido pintar aquí'+(window.MODO_PRUEBAS?'\\n('+(err&&err.message||err)+')':''))}return}
   pushUndo();P.dirty=true;"""
 
 FILL_RET = [
@@ -223,6 +228,17 @@ FILL_RET = [
     ("    if(seen[k-1]||seen[k+1]||seen[k-W]||seen[k+W]){d[j]=r;d[j+1]=g;d[j+2]=b}}\n  pctx.putImageData(img,0,0);\n}",
      "    if(seen[k-1]||seen[k+1]||seen[k-W]||seen[k+W]){d[j]=r;d[j+1]=g;d[j+2]=b}}\n  pctx.putImageData(img,0,0);return true;\n}"),
 ]
+
+JS_PUNTO = """/* copia Pintar 21/10: si el dedo cae justo sobre una línea, el cubo pinta la zona libre más cercana (hasta 6 px de
+   pantalla) en vez de no hacer nada */
+function puntoLibre(x,y){
+  const W=pc.width,H=pc.height;if(x<0||y<0||x>=W||y>=H)return null;
+  const r=Math.round(6*DPR),x0=Math.max(0,x-r),y0=Math.max(0,y-r),w=Math.min(W,x+r+1)-x0,h=Math.min(H,y+r+1)-y0;
+  const a=octx.getImageData(x0,y0,w,h).data;if(a[((y-y0)*w+(x-x0))*4+3]<=110)return[x,y];
+  let best=null,bd=1e9;for(let j=0;j<h;j++)for(let i=0;i<w;i++){if(a[(j*w+i)*4+3]>110)continue;const d=(x0+i-x)**2+(y0+j-y)**2;if(d<bd&&d<=r*r){bd=d;best=[x0+i,y0+j]}}
+  return best;
+}
+"""
 
 JS_BOTONES_VIEJO = """$('#undoBtn').onclick=()=>{const u=P.undo.pop();if(u){pctx.putImageData(u,0,0);sfx.pop()}};
 $('#clearBtn').onclick=()=>{pushUndo();pctx.fillStyle='#fff';pctx.fillRect(0,0,pc.width,pc.height);tone(300,.2,'sawtooth',.06)};
@@ -262,7 +278,28 @@ LAMINAS_JS = """/* ---------- láminas nuevas candidatas (copia Pintar 21/10): i
    asocian a la zona grande que las rodea: al pintar una zona grande se pintan también sus diminutas, y al tocar una
    diminuta se pinta todo su grupo. Las rodeadas de tinta gruesa (brillos de los ojos) no se asocian: quedan blancas. */
 const LNUEVAS={heladeria:'Heladería',gatito:'Gatito',hada:'Hada',unicornio:'Unicornio',perrito:'Perrito',conejito:'Conejito',princesa:'Princesa',helado:'Helado',mariposa:'Mariposa',explorador:'Osito explorador','hada-jardin':'Hada jardinera',sirena:'Sirena'},LN={};
-Object.keys(LNUEVAS).forEach(k=>{const im=new Image();im.src='docs/propuestas/pintar-2026-10-21/laminas/'+k+'.png';LN['n:'+k]=im});
+const LNURL={},LNB={};
+Object.keys(LNUEVAS).forEach(k=>{LNURL['n:'+k]='docs/propuestas/pintar-2026-10-21/laminas/'+k+'.png';const im=new Image();im.src=LNURL['n:'+k];LN['n:'+k]=im});
+/* Para pintar, la lámina se descarga como «blob» (misma procedencia siempre: el lienzo nunca queda bloqueado para
+   leerlo, que es lo que necesita el cubo) y con un tiempo máximo. Las miniaturas usan la imagen normal. */
+const conTiempo=(pr,ms,qué)=>Promise.race([pr,new Promise((_,r)=>setTimeout(()=>r(new Error(qué+': más de '+ms/1000+' s')),ms))]);
+function cargarLamina(id){
+  if(LNB[id])return Promise.resolve(LNB[id]);
+  if(!LNURL[id])return Promise.reject(new Error('lámina desconocida '+id));
+  return conTiempo(fetch(LNURL[id]).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status+' '+LNURL[id]);return r.blob()})
+    .then(b=>new Promise((res,rej)=>{const im=new Image();im.onload=()=>im.naturalWidth?res(im):rej(new Error('imagen vacía'));
+      im.onerror=()=>rej(new Error('imagen no válida ('+b.type+', '+b.size+' bytes)'));im.src=URL.createObjectURL(b)})),20000,'descarga')
+    .then(im=>LNB[id]=im);
+}
+function avisoLamina(e){console.warn('lámina',e);toast('No se ha podido abrir esta lámina 😢\\nComprueba la conexión y vuelve a tocarla.'+(window.MODO_PRUEBAS?'\\n('+(e&&e.message||e)+')':''));sfx.bad();go('tpl')}
+/* imagen de miniatura lista (cargada o fallida), sin depender de decode() */
+const imgLista=im=>im.complete?Promise.resolve():conTiempo(new Promise(r=>{im.addEventListener('load',r,{once:true});im.addEventListener('error',r,{once:true})}),8000,'miniatura').catch(()=>{});
+/* última red: si abrir el papel falla por cualquier motivo, aviso (y, si era una lámina nueva, vuelta a la lista) */
+{const abrirPapel=onShow.paint;onShow.paint=arg=>Promise.resolve().then(()=>abrirPapel(arg)).catch(e=>{console.warn('abrir',e);
+  toast('No se ha podido abrir el dibujo 😢'+(window.MODO_PRUEBAS?'\\n('+(e&&e.message||e)+')':''));sfx.bad();if(LN[arg])go('tpl')})}
+/* solo en las copias de prueba: cualquier error se ve en pantalla en vez de perderse */
+if(window.MODO_PRUEBAS){addEventListener('error',e=>toast('⚠️ Error: '+(e.message||'desconocido')));
+  addEventListener('unhandledrejection',e=>toast('⚠️ Error: '+((e.reason&&e.reason.message)||e.reason||'desconocido')))}
 function zonasLamina(){
   const W=oc.width,H=oc.height,N=W*H,o=octx.getImageData(0,0,W,H).data,libre=new Uint8Array(N);
   for(let k=0;k<N;k++)libre[k]=o[k*4+3]<=110?1:0;
@@ -337,19 +374,19 @@ if __name__ == '__main__':
     h = sustituir(h, JS_DOWN_VIEJO, JS_DOWN_NUEVO)
     for viejo, nuevo in FILL_RET:
         h = sustituir(h, viejo, nuevo)
-    h = sustituir(h, JS_BOTONES_VIEJO, JS_BOTONES_NUEVO)
+    h = sustituir(h, JS_BOTONES_VIEJO, JS_PUNTO + JS_BOTONES_NUEVO)
     h = sustituir(h, GAL_VIEJO, GAL_NUEVO)
     # láminas nuevas candidatas
     h = sustituir(h, "const UTPL={};\n", "const UTPL={};\n" + LAMINAS_JS)
     h = sustituir(h, "  if(name.startsWith('u:')){",
-                  "  if(name.startsWith('n:')){x.restore();const im=LN[name];if(im&&im.complete&&im.naturalWidth){const s=Math.min(W/im.naturalWidth,H/im.naturalHeight);\n"
+                  "  if(name.startsWith('n:')){x.restore();const im=LNB[name]||LN[name];if(im&&im.complete&&im.naturalWidth){const s=Math.min(W/im.naturalWidth,H/im.naturalHeight);\n"
                   "    x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';x.drawImage(im,(W-im.naturalWidth*s)/2,(H-im.naturalHeight*s)/2,im.naturalWidth*s,im.naturalHeight*s)}return}\n"
                   "  if(name.startsWith('u:')){")
     h = sustituir(h, "  // rellena también el borde suave junto a las líneas para que no queden halos blancos\n",
                   "  rellenoDiminutas(x0,y0,d,seen,r,g,b);   // copia Pintar 21/10: zonas diminutas de las láminas nuevas\n"
                   "  // rellena también el borde suave junto a las líneas para que no queden halos blancos\n")
     h = sustituir(h, "  await utplReady;const box=$('#tplgrid');box.innerHTML='';",
-                  "  await utplReady;await Promise.all(Object.values(LN).map(i=>i.decode().catch(()=>{})));const box=$('#tplgrid');box.innerHTML='';")
+                  "  await utplReady;await Promise.all(Object.values(LN).map(imgLista));const box=$('#tplgrid');box.innerHTML='';")
     h = sustituir(h, "  add.onclick=()=>$('#tplFile').click();box.appendChild(add);\n",
                   "  add.onclick=()=>$('#tplFile').click();box.appendChild(add);\n"
                   "  Object.keys(LN).forEach(n=>{const b=document.createElement('button');b.dataset.go='paint';b.dataset.arg=n;b.className='lnueva';b.setAttribute('aria-label',LNUEVAS[n.slice(2)]);\n"

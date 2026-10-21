@@ -20,7 +20,10 @@
      · las láminas para colorear siguen funcionando (cubo dentro de una zona);
      · láminas nuevas (heladería, gatito, hada, unicornio, perrito, conejito, princesa, helado, mariposa, osito explorador, hada jardinera, sirena), en las cuatro pantallas: primeras de la lista y las 19 anteriores
        conservadas; enteras y sin deformar; el cubo no atraviesa el contorno (cada zona grande, una a una); las zonas
-       diminutas se pintan con su zona o en grupo; sin errores de JavaScript.
+       diminutas se pintan con su zona o en grupo;
+     · recorrido real tocando la miniatura (con decode() de Safari simulado «sin respuesta»): abre, dibuja y pinta; si la
+       imagen no carga, aviso y vuelta a la lista; si tarda, aviso «Abriendo la lámina…»; con el lienzo bloqueado, aviso al
+       pintar; tocar sobre una línea pinta la zona más cercana; sin errores de JavaScript.
    Las capturas se guardan FUERA del repositorio.
    ===================================================================== */
 const path = require('path'), os = require('os'), fs = require('fs');
@@ -214,6 +217,91 @@ const gal = p => p.evaluate(() => JSON.parse(localStorage.getItem('gal') || '[]'
       ok(`${n} · ${L}: al pintar una zona se pintan sus diminutas, y un toque pinta un grupo entero`, m.hijasMal === 0 && m.grupoOk, `grupo mayor: ${m.grupo} diminutas · sueltas: ${m.sueltas} (${m.pctSueltas} % del área)`);
     }
     await c.close();
+  }
+  // ---------- 6. recorrido real: tocar la miniatura → cargar → abrir → pintar (y fallos con aviso) ----------
+  {
+    const abrir = async (p, id) => {
+      await p.evaluate(() => go('tpl')); await p.waitForSelector(`#tplgrid button[data-arg="${id}"]`);
+      await p.click(`#tplgrid button[data-arg="${id}"]`);
+    };
+    const pinta = async p => { const r = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
+      await p.evaluate(() => document.querySelectorAll('#colors .sw')[0].click());
+      const antes = await p.evaluate(() => { const d = pctx.getImageData(0, 0, pc.width, pc.height).data; let n = 0; for (let i = 0; i < d.length; i += 4) if (d[i] > 200 && d[i + 1] < 120) n++; return n; });
+      // toca el centro de la zona grande más grande que no sea el fondo
+      const q = await p.evaluate(() => { const Z = P.zn; if (!Z) return null; let best = 0, bl = 0; const borde = Z.lab[Z.W * 10 + 10];
+        for (let l = 1; l < Z.sz.length; l++) if (l !== borde && Z.sz[l] > best) { best = Z.sz[l]; bl = l; }
+        // un punto bien dentro de la zona (a 8 px o más de cualquier borde), no el primero pegado a la línea
+        const W = Z.W, H = Z.lab.length / W, R = 8;
+        for (let y = R; y < H - R; y += 2) for (let x = R; x < W - R; x += 2) { const k = y * W + x; if (Z.lab[k] !== bl) continue;
+          if (Z.lab[k - R] === bl && Z.lab[k + R] === bl && Z.lab[k - R * W] === bl && Z.lab[k + R * W] === bl) return [x, y, pc.width]; }
+        for (let k = 0; k < Z.lab.length; k++) if (Z.lab[k] === bl) return [k % W, (k / W) | 0, pc.width]; });
+      if (!q) return 0; await p.mouse.click(r.x + q[0] * r.width / q[2], r.y + q[1] * r.width / q[2]); await p.waitForTimeout(150);
+      const desp = await p.evaluate(() => { const d = pctx.getImageData(0, 0, pc.width, pc.height).data; let n = 0; for (let i = 0; i < d.length; i += 4) if (d[i] > 200 && d[i + 1] < 120) n++; return n; });
+      return desp - antes; };
+    // a) todas las láminas, tocando de verdad, con decode() de Safari simulado como «nunca termina»
+    for (const [n, [w, h, mov]] of Object.entries(DEV)) {
+      const c = await b.newContext({ viewport: { width: w, height: h }, hasTouch: true, isMobile: mov, deviceScaleFactor: 2 });
+      await c.addInitScript(() => { HTMLImageElement.prototype.decode = () => new Promise(() => {}); });
+      const p = await c.newPage(); p.on('pageerror', e => errores.push(e.message));
+      await p.goto(COPIA); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(300);
+      const ids = n === 'iPhone vertical' ? await p.evaluate(() => Object.keys(LN)) : ['n:heladeria', 'n:perrito'];
+      const mal = [];
+      for (const id of ids) {
+        await abrir(p, id);
+        try { await p.waitForFunction(id => current === 'paint' && P.tpl === id && P.zn, id, { timeout: 8000 }); } catch (e) { mal.push(id + ' no abre'); continue; }
+        const lineas = await p.evaluate(() => { const d = octx.getImageData(0, 0, oc.width, oc.height).data; let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i] > 110) n++; return n / (oc.width * oc.height); });
+        if (lineas < .02) { mal.push(id + ' sin dibujo'); continue; }
+        if ((await pinta(p)) < 500) mal.push(id + ' no pinta');
+      }
+      ok(`${n}: tocar la miniatura abre la lámina con su dibujo y se puede pintar (${ids.length}), aunque decode() no responda`, !mal.length, mal.join(', '));
+      if (n === 'iPhone vertical') await p.screenshot({ path: path.join(OUT, 'recorrido-iphone.png') });
+      await c.close();
+    }
+    // b) la imagen no existe (404): aviso y vuelta a la lista, sin errores
+    {
+      const c = await b.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 2 });
+      const p = await c.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message));
+      await p.goto(COPIA); await p.waitForTimeout(300);
+      await p.route('**/laminas/gatito.png', r => r.fulfill({ status: 404, body: 'no' }));
+      await p.evaluate(() => { for (const k in LNB) delete LNB[k]; });
+      await abrir(p, 'n:gatito'); await p.waitForTimeout(800);
+      const st = await p.evaluate(() => ({ cur: current, toast: document.querySelector('#toast').textContent, on: document.querySelector('#toast').classList.contains('on') }));
+      ok('Si la imagen no carga (404): aviso en pantalla y vuelve a la lista', st.cur === 'tpl' && /No se ha podido abrir/.test(st.toast) && st.on && !errs.length, st.toast.replace(/\n/g, ' '));
+      await p.unroute('**/laminas/gatito.png');
+      await abrir(p, 'n:gatito'); let reabre = true; try { await p.waitForFunction(() => P.tpl === 'n:gatito' && P.zn, null, { timeout: 8000 }); } catch (e) { reabre = false; }
+      ok('Al volver a tocarla con conexión, se abre', reabre);
+      // c) imagen lenta: «Abriendo la lámina…» y después se abre
+      await p.route('**/laminas/hada.png', async r => { await new Promise(s => setTimeout(s, 1500)); await r.continue(); });
+      await p.evaluate(() => { for (const k in LNB) delete LNB[k]; });
+      await abrir(p, 'n:hada'); await p.waitForTimeout(900);
+      const aviso = await p.evaluate(() => document.querySelector('#toast').textContent);
+      let abre = true; try { await p.waitForFunction(() => P.tpl === 'n:hada' && P.zn, null, { timeout: 8000 }); } catch (e) { abre = false; }
+      ok('Si tarda: aviso «Abriendo la lámina…» y después se abre', /Abriendo/.test(aviso) && abre);
+      // e) el dedo cae justo sobre una línea: pinta la zona más cercana
+      const q = await p.evaluate(() => { const Z = P.zn, W = Z.W, o = octx.getImageData(0, 0, W, oc.height).data;
+        for (let y = 40; y < oc.height - 40; y += 3) for (let x = 40; x < W - 40; x += 3) { const k = y * W + x;
+          if (o[k * 4 + 3] > 200 && Z.lab[k + 3] && !Z.tiny(Z.lab[k + 3])) return [x, y, W]; } });
+      const r = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
+      const u0 = await p.evaluate(() => P.undo.length);
+      await p.mouse.click(r.x + (q[0] + .5) * r.width / q[2], r.y + (q[1] + .5) * r.width / q[2]); await p.waitForTimeout(150);
+      ok('Tocar justo encima de una línea pinta la zona más cercana (no un toque sin respuesta)', await p.evaluate(() => P.undo.length) === u0 + 1);
+      await c.close();
+    }
+    // d) lienzo bloqueado para leer (como haría Safari con una imagen de otro origen): abre igual y avisa al pintar
+    {
+      const c = await b.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 2 });
+      await c.addInitScript(() => { const g = CanvasRenderingContext2D.prototype.getImageData;
+        CanvasRenderingContext2D.prototype.getImageData = function (...a) { if (this.canvas.id === 'oc' && window.__bloquear) throw new DOMException('The operation is insecure.', 'SecurityError'); return g.apply(this, a); }; });
+      const p = await c.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message));
+      await p.goto(COPIA); await p.waitForTimeout(300); await p.evaluate(() => { window.__bloquear = true; });
+      await abrir(p, 'n:conejito'); await p.waitForTimeout(1200);
+      const st = await p.evaluate(() => ({ cur: current, tpl: P.tpl, zn: P.zn }));
+      const r = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
+      await p.mouse.click(r.x + r.width / 2, r.y + r.height / 2); await p.waitForTimeout(200);
+      const msg = await p.evaluate(() => document.querySelector('#toast').textContent);
+      ok('Lienzo bloqueado: la lámina se abre igual y al pintar sale un aviso (no un toque sin respuesta)', st.cur === 'paint' && st.tpl === 'n:conejito' && /No se ha podido pintar/.test(msg) && !errs.length, msg.replace(/\n/g, ' '));
+      await c.close();
+    }
   }
   ok('Sin errores de JavaScript', !errores.length, errores.slice(0, 3).join(' | '));
   await b.close();
