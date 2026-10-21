@@ -237,3 +237,5 @@ los montajes (≤ 3).
 **22/10/2026 (48) · D-028:** con el pijama, fila «Camiseta del pijama»: «Borde de las mangas limpio (candidata)», por
 defecto (`integrar/capas-b/`), y «Aprobada (75e2cb5)» (`integrar/capas/`, sin cambios). (Con la aprobada, la capa de
 bordes de los tonos es la calculada para la del borde limpio: difieren solo en ese borde.)
+**22/10/2026 (49) · D-028:** «Pijama (aprobado)»; en «Camiseta del pijama», «Borde de las mangas limpio (aprobada)» (por
+defecto) y «Anterior (75e2cb5)». Nada más cambia.

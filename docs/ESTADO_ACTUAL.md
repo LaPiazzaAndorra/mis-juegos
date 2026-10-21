@@ -136,7 +136,10 @@ camiseta, el pantalón y las zapatillas** sobre nuestra muñeca (`…/integrar/c
 melena y gorrito B, coleta y dos coletas. **Encaje aprobado** (22/10, `75e2cb5`). Con los **cuatro tonos de piel** y los
 cinco colores de pelo (`…/integrar/pieles/`, candidatos): sin halos claros en cuello, puños y tobillos; camiseta con el
 borde de las mangas limpio (`…/integrar/capas-b/`, candidata; la aprobada se conserva intacta y se puede comparar en el
-visor). Tonos pendientes de la revisión de la propietaria en el visor. Siguiente: ropa de hada.
+visor). **22/10: variantes y camiseta con el borde limpio aprobadas visualmente** (sin probar una a una en el iPhone).
+
+**Conjunto de hada (22/10, D-029):** guía de diseño sobre nuestra base preparada (`docs/propuestas/hada-2026-10-22/`:
+plantillas con melena y sin pelo, zonas del vestido, las alas, la varita y los zapatos, y mensajes). Pendiente: el diseño.
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -355,7 +358,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-028: camiseta del borde limpio como candidata, comparable con la aprobada; tonos del pijama pendientes de revisión) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-028: variantes del pijama aprobadas; D-029: guía del conjunto de hada) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

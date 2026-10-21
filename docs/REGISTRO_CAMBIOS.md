@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-22 — D-028: camiseta del borde limpio como candidata, comparable en el visor; dos coletas sin sombrero
+### 2026-10-22 — D-028: variantes del pijama aprobadas; D-029: guía del conjunto de hada
+
+- **Solicitado por:** la propietaria («Apruebo las variantes revisadas del pijama y la copia de la camiseta con el borde
+  limpio. Regístralo en D-028, sin dar por probadas individualmente las 60 combinaciones en mi iPhone. Conserva las
+  anteriores y prepara la guía sobre nuestra base para diseñar el conjunto de hada, con vestido, alas, varita y zapatos como
+  piezas separadas.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `555eca5`, el de la entrada siguiente).
+- **Estado:** pijama y camiseta del borde limpio **aprobados visualmente** (no probados uno a uno en el iPhone); guía del
+  hada preparada, falta el diseño. Nada activado ni publicado.
+- **Cambios:** D-028 (6) y D-029 nuevo; `docs/propuestas/hada-2026-10-22/` (`LEEME.md`, `guia-chatgpt/` con plantillas, zonas,
+  medidas y programa); textos de los botones del pijama en el visor; `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del pijama y del visor (49). Ninguna capa cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `555eca5` · D-028: camiseta del borde limpio como candidata, comparable en el visor; dos coletas sin sombrero
 
 - **Solicitado por:** la propietaria («Mantén la camiseta con el borde limpio como candidata; conserva intacta la anterior.
   Revisaré los tonos en el visor antes de aprobar esta fase. Para las próximas comparaciones del pijama, muestra las dos

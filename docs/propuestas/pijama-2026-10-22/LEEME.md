@@ -1,5 +1,8 @@
 # Pijama · 22/10/2026 (D-028)
 
+> **22/10: variantes (4 tonos × 5 colores × 3 peinados) y camiseta con el borde limpio aprobadas visualmente**, sin dar
+> por probadas una a una las 60 combinaciones en el iPhone. Se conservan las anteriores.
+
 > **Diseño aprobado (22/10):** pijama azul con lunas y estrellas, puños rosas y zapatillas crema. Referencia en
 > `referencias/referencia-pijama-aprobada.png` (imagen generada, **sin modificar**, 948 × 1659, SHA-256
 > `96c9e39e216774a85a80e0d382a1fa054e11ff4dc52189aba5f33a88ed68ce4c`). **El encaje sobre nuestra base queda pendiente:**

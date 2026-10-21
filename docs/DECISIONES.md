@@ -1,5 +1,12 @@
 # Registro de decisiones
 
+## D-029 · Conjunto de hada: guía de diseño sobre nuestra base · 22/10/2026
+- **Pedido de la propietaria:** «prepara la guía sobre nuestra base para diseñar el conjunto de hada, con vestido, alas,
+  varita y zapatos como piezas separadas».
+- **Hecho:** guía en `docs/propuestas/hada-2026-10-22/guia-chatgpt/` (plantillas con melena y sin pelo, zonas de cada pieza
+  —vestido, alas por detrás, mano de la varita, pies— y lo que no se toca, medidas y dos mensajes para ChatGPT). Cada pieza
+  será una capa separada. **Pendiente:** el diseño en ChatGPT y su revisión aquí.
+
 ## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el
   encaje. Conserva la cara, el cuerpo y la postura. Usaremos el gorrito de dormir que ya tenemos. Primero revisaremos el
@@ -39,6 +46,10 @@
   anterior (aprobada); revisará los tonos en el visor antes de aprobar esta fase; **en las comparaciones del pijama, las dos
   coletas sin el sombrero de aventura**. Hecho: fila «Camiseta del pijama» en el visor (borde limpio por defecto, o la
   aprobada), hoja `integrar/capas-b/comparacion-camisetas.png` y hojas de tonos rehechas con las dos coletas sin sombrero.
+- **22/10/2026 (6):** la propietaria **aprueba visualmente las variantes revisadas del pijama** (4 tonos × 5 colores × 3
+  peinados) **y la copia de la camiseta con el borde limpio** (`integrar/capas-b/camiseta.png`), **sin dar por probadas
+  individualmente las 60 combinaciones en su iPhone**. Se conservan las anteriores (la camiseta de `75e2cb5`, intacta y
+  elegible en el visor). Siguiente: el conjunto de hada (D-029).
 
 ## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
 - **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas
