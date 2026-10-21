@@ -27,6 +27,14 @@
     del hombro derecho se nota un poco: a revisar.
   - Montajes sin pelo, melena con gorrito B, coleta y dos coletas (`integrar/montajes-peinados.png`); en el visor,
     «Pijama (candidato)», con la piel clara. **Encaje pendiente de aprobación.**
+- **22/10/2026 (4):** la propietaria **aprueba el encaje del pijama de `75e2cb5`** y pide los cuatro tonos de piel,
+  conservando las prendas aprobadas y revisando cuello, puños y tobillos (sin halos claros). Después, la ropa de hada.
+  - Tonos (`integrar/pieles/`): base del tono aprobada, capa de bordes de las prendas (la piel clara pegada en cuello,
+    puños, tobillos y zapatillas pasa a la piel nueva) y bordes del pelo adaptados; pelo para el pijama sin las rendijas
+    junto a sus mangas (`integrar/pelo/`). Las 60 combinaciones revisadas en capturas del visor.
+  - Encontrado al revisar: el borde de las mangas alargadas tenía 127 píxeles sueltos a cuadros (una línea de puntos
+    claros). Copia corregida en `integrar/capas-b/camiseta.png` (solo en esa zona); **la aprobada se conserva** y el visor
+    usa la corregida, **a confirmar**. Tonos **candidatos**.
 
 ## D-027 · Conjunto de aventura: diseño aprobado · 18/10/2026
 - **Decisión de la propietaria:** «Apruebo el diseño: camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas

@@ -133,8 +133,9 @@ en `docs/VERSION_DE_PRUEBAS.md`).
 **Pijama (22/10, D-028):** **diseño aprobado** (azul con lunas y estrellas, puños rosas y zapatillas crema; referencia en
 `docs/propuestas/pijama-2026-10-22/referencias/`). Recibido el mismo pijama sin pelo ni gorrito y **extraídas la
 camiseta, el pantalón y las zapatillas** sobre nuestra muñeca (`…/integrar/capas/`): rosa a la vista 0 px; montajes con
-melena y gorrito B, coleta y dos coletas; en el visor, «Pijama (candidato)», con la piel clara. **Encaje pendiente de
-aprobación.**
+melena y gorrito B, coleta y dos coletas. **Encaje aprobado** (22/10, `75e2cb5`). Con los **cuatro tonos de piel** y los
+cinco colores de pelo (`…/integrar/pieles/`, candidatos): sin halos claros en cuello, puños y tobillos; camiseta con el
+borde de las mangas limpio (`…/integrar/capas-b/`, a confirmar; la aprobada se conserva). Siguiente: ropa de hada.
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -353,7 +354,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-028: prendas del pijama extraídas sobre nuestra base, candidatas) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-028: encaje del pijama aprobado; pijama con los cuatro tonos, candidatos) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

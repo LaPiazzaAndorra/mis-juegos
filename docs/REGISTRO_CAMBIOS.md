@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-22 — D-028: prendas del pijama extraídas sobre nuestra base (candidatas)
+### 2026-10-22 — D-028: encaje del pijama aprobado; pijama con los cuatro tonos de piel (candidatos)
+
+- **Solicitado por:** la propietaria («Apruebo el encaje del pijama de 75e2cb5. Regístralo en D-028 y continúa con los
+  cuatro tonos de piel, conservando las prendas aprobadas. Revisa cuello, puños y tobillos para evitar halos claros.
+  Después seguimos con la ropa de hada.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `75e2cb5`, el de la entrada siguiente).
+- **Estado:** encaje **aprobado**; tonos **candidatos**; camiseta con el borde limpio **a confirmar**. Nada activado.
+- **Cambios:** `pijama-2026-10-22/integrar/pieles/` (`pijama_pieles.py`, bordes por tono, hojas), `integrar/pelo/`
+  (`pelo_pijama.py`, pelo de detrás sin rendijas junto a las mangas), `integrar/capas-b/` (`limpiar_borde.py`, camiseta
+  con el borde limpio); visor (tonos con el pijama); D-028 (4), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`,
+  `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del pijama y del visor (47). Las capas aprobadas no cambian.
+- **Resultado:** cuello, puños y tobillos sin la línea clara; sin la línea de puntos junto a las mangas; 60 combinaciones
+  revisadas en capturas.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** visor (60 combinaciones con el pijama, sin errores). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `75e2cb5` · D-028: prendas del pijama extraídas sobre nuestra base (candidatas)
 
 - **Solicitado por:** la propietaria («Comprueba la alineación, el diseño y que cubra toda la ropa rosa. Extrae solo la
   camiseta, el pantalón y las zapatillas, conservando nuestra muñeca original. Enséñame el montaje con los tres peinados y

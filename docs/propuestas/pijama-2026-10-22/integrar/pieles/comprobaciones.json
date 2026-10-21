@@ -1,0 +1,103 @@
+{
+ "tonos": {
+  "dorado": {
+   "bordes_ropa_px": 1814,
+   "pelo": {
+    "melena-castano": 4596,
+    "melena-chocolate": 4505,
+    "melena-miel": 4591,
+    "melena-oscuro": 4545,
+    "melena-jengibre": 4603,
+    "bordes-coleta-con-castano": 0,
+    "bordes-coleta-con-chocolate": 0,
+    "bordes-coleta-con-miel": 0,
+    "bordes-coleta-con-oscuro": 0,
+    "bordes-coleta-con-jengibre": 0,
+    "bordes-coleta-sin-castano": 0,
+    "bordes-coleta-sin-chocolate": 0,
+    "bordes-coleta-sin-miel": 0,
+    "bordes-coleta-sin-oscuro": 0,
+    "bordes-coleta-sin-jengibre": 0,
+    "bordes-coletas-con-castano": 190,
+    "bordes-coletas-con-chocolate": 185,
+    "bordes-coletas-con-miel": 188,
+    "bordes-coletas-con-oscuro": 172,
+    "bordes-coletas-con-jengibre": 189,
+    "bordes-coletas-sin-castano": 190,
+    "bordes-coletas-sin-chocolate": 185,
+    "bordes-coletas-sin-miel": 188,
+    "bordes-coletas-sin-oscuro": 172,
+    "bordes-coletas-sin-jengibre": 189
+   }
+  },
+  "moreno": {
+   "bordes_ropa_px": 1839,
+   "pelo": {
+    "melena-castano": 4600,
+    "melena-chocolate": 4553,
+    "melena-miel": 4592,
+    "melena-oscuro": 4422,
+    "melena-jengibre": 4600,
+    "bordes-coleta-con-castano": 0,
+    "bordes-coleta-con-chocolate": 0,
+    "bordes-coleta-con-miel": 0,
+    "bordes-coleta-con-oscuro": 0,
+    "bordes-coleta-con-jengibre": 0,
+    "bordes-coleta-sin-castano": 0,
+    "bordes-coleta-sin-chocolate": 0,
+    "bordes-coleta-sin-miel": 0,
+    "bordes-coleta-sin-oscuro": 0,
+    "bordes-coleta-sin-jengibre": 0,
+    "bordes-coletas-con-castano": 190,
+    "bordes-coletas-con-chocolate": 187,
+    "bordes-coletas-con-miel": 188,
+    "bordes-coletas-con-oscuro": 177,
+    "bordes-coletas-con-jengibre": 189,
+    "bordes-coletas-sin-castano": 190,
+    "bordes-coletas-sin-chocolate": 187,
+    "bordes-coletas-sin-miel": 188,
+    "bordes-coletas-sin-oscuro": 177,
+    "bordes-coletas-sin-jengibre": 189
+   }
+  },
+  "profundo": {
+   "bordes_ropa_px": 1840,
+   "pelo": {
+    "melena-castano": 4606,
+    "melena-chocolate": 4577,
+    "melena-miel": 4597,
+    "melena-oscuro": 4544,
+    "melena-jengibre": 4603,
+    "bordes-coleta-con-castano": 0,
+    "bordes-coleta-con-chocolate": 0,
+    "bordes-coleta-con-miel": 0,
+    "bordes-coleta-con-oscuro": 0,
+    "bordes-coleta-con-jengibre": 0,
+    "bordes-coleta-sin-castano": 0,
+    "bordes-coleta-sin-chocolate": 0,
+    "bordes-coleta-sin-miel": 0,
+    "bordes-coleta-sin-oscuro": 0,
+    "bordes-coleta-sin-jengibre": 0,
+    "bordes-coletas-con-castano": 190,
+    "bordes-coletas-con-chocolate": 188,
+    "bordes-coletas-con-miel": 189,
+    "bordes-coletas-con-oscuro": 186,
+    "bordes-coletas-con-jengibre": 190,
+    "bordes-coletas-sin-castano": 190,
+    "bordes-coletas-sin-chocolate": 188,
+    "bordes-coletas-sin-miel": 189,
+    "bordes-coletas-sin-oscuro": 186,
+    "bordes-coletas-sin-jengibre": 190
+   }
+  }
+ },
+ "originales_sin_cambios": true,
+ "sha256_originales": {
+  "docs/propuestas/pijama-2026-10-22/integrar/capas/zapatillas.png": "98fdf0a6576258b74efb98c4bb1917b08b6090520624dd77c63c6b5761c28228",
+  "docs/propuestas/pijama-2026-10-22/integrar/capas/pantalon.png": "02236b3dd66b229c80017ed7bdca3436e24f8543c0ec03dcf5c3337ead17f359",
+  "docs/propuestas/pijama-2026-10-22/integrar/capas-b/camiseta.png": "3e51808bac8c1a1f95edee59977a1253707b7773ab262fb4509512cf642d2a58",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/base-sin-ojos.png": "5cf47cb58d2d4d2bd64a5aa0422df78cce5ef5be88b4d7d5a5f79f26b7e67b5b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/base-sin-ojos.png": "544f5bb32eaae255f9b8c3416058f869624cf549d1a4535e1d1fab70d8b5ae54",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/base-sin-ojos.png": "35a02845e600da9015a561e79cb717c5b513be34431d4c42711c79ec30cf546b"
+ }
+}

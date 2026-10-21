@@ -231,3 +231,6 @@ mochila A o B): las otras opciones avisan. Fuera del conjunto, todo como antes (
 `c-pij-camiseta` (`pijama-2026-10-22/integrar/capas/`) sobre la base original, sin los brazos de delante del vestido;
 pelo limpio para la ropa (como el conjunto); por ahora solo con la piel clara (otro tono avisa). A tamaño real coincide con
 los montajes (≤ 3).
+**22/10/2026 (47) · D-028:** el pijama con los **cuatro tonos de piel** (candidatos): capa `c-pij-bordes`
+(`pijama-2026-10-22/integrar/pieles/<tono>/bordes-ropa.png`), bordes del pelo de esa carpeta y pelo de detrás de
+`pijama-2026-10-22/integrar/pelo/`; la camiseta es la del borde limpio (`integrar/capas-b/`). Ya no avisa al elegir otro tono.

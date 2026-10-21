@@ -1,0 +1,102 @@
+{
+ "melena-castano": {
+  "rendijas_px": 120,
+  "fuera_igual": true
+ },
+ "melena-chocolate": {
+  "rendijas_px": 120,
+  "fuera_igual": true
+ },
+ "melena-miel": {
+  "rendijas_px": 120,
+  "fuera_igual": true
+ },
+ "melena-oscuro": {
+  "rendijas_px": 120,
+  "fuera_igual": true
+ },
+ "melena-jengibre": {
+  "rendijas_px": 120,
+  "fuera_igual": true
+ },
+ "coleta-con-castano": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-chocolate": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-miel": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-oscuro": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-con-jengibre": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-castano": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-chocolate": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-miel": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-oscuro": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coleta-sin-jengibre": {
+  "rendijas_px": 0,
+  "fuera_igual": true
+ },
+ "coletas-con-castano": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-con-chocolate": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-con-miel": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-con-oscuro": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-con-jengibre": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-sin-castano": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-sin-chocolate": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-sin-miel": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-sin-oscuro": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ },
+ "coletas-sin-jengibre": {
+  "rendijas_px": 111,
+  "fuera_igual": true
+ }
+}

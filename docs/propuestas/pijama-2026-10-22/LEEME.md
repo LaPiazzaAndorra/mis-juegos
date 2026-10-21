@@ -88,3 +88,19 @@ zapatillas por separado) y se prueban con la melena, la coleta, las dos coletas 
   alineada frente a nuestra muñeca con solo el pijama.
 - **Visor:** fila «Ropa», «Pijama (candidato)»; por ahora con la piel clara (los cinco colores de pelo y los tres
   peinados). Programa: `integrar/extraer_pijama.py`. **Encaje pendiente de aprobación.**
+
+## Encaje aprobado (22/10, `75e2cb5`) y tonos de piel (22/10, candidatas)
+
+- **Encaje aprobado** por la propietaria: camiseta, pantalón y zapatillas de `integrar/capas/` (sin cambios).
+- **Camiseta con el borde limpio** (`integrar/capas-b/camiseta.png`, `limpiar_borde.py`): al alargar la tela de las mangas
+  quedaron 127 píxeles sueltos a cuadros en el contorno (una línea de puntos claros sobre el fondo, el pelo o la piel
+  oscura, también con la piel clara). Solo en esa zona alargada se quitan y el borde se rehace suave (1 838 px de alfa; el
+  color no cambia). La aprobada se conserva; el visor usa la limpia. **A confirmar por la propietaria.**
+- **Tonos de piel** (`integrar/pieles/pijama_pieles.py` → `integrar/pieles/<tono>/`): base del tono aprobada; `bordes-ropa.png`
+  (cuello, puños, puños de los tobillos y zapatillas: la piel clara pegada en el borde pasa a la piel nueva, ≈ 1 840 px);
+  bordes del pelo aprobados sin lo que cae sobre el pijama.
+- **Pelo para el pijama** (`integrar/pelo/pelo_pijama.py`): las copias limpias para la ropa con las rendijas de fondo
+  rellenadas también junto a las mangas del pijama (melena 120 px, dos coletas 111 px).
+- Hojas: `integrar/pieles/tonos-peinados.png`, `colores-melena.png`, `colores-coleta.png`, `colores-coletas2.png` (4 tonos ×
+  5 colores) y `detalles-antes-despues.png` (cuello, puños, tobillos y pelo). Visor: «Pijama (candidato)» con los cuatro
+  tonos y los cinco colores. **Tonos candidatos, pendientes de revisión; sin probar en el iPhone real.**

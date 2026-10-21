@@ -91,7 +91,8 @@
     <img id="c-av-bordes-tiras" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/pieles/dorado/bordes-tiras.png">
     <img id="c-pij-zapatillas" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas/zapatillas.png">
     <img id="c-pij-pantalon" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas/pantalon.png">
-    <img id="c-pij-camiseta" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas/camiseta.png">
+    <img id="c-pij-camiseta" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas-b/camiseta.png">
+    <img id="c-pij-bordes" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/pieles/dorado/bordes-ropa.png">
     <img id="c-brazos" class="" alt="" src="../../vestido-rosa-2026-10-15/montaje/brazos-delante-copiados-de-la-base.png">
     <img id="c-pelo-delante" class="pelo-delante oculto" data-pelo="actual" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/pelo-variante-sin-mechon-delante.png">
     <img id="c-pelo-delante-a" class="pelo-delante oculto" data-pelo="a" alt="" src="../pelo-borrador-d012/revision-localizada/variante-experimental/redistribucion-hombros/pelo-delante-redistribuido.png">
@@ -686,7 +687,7 @@
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
     b2c: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
-  var LIMPIO = '../pelo-sin-restos/', PIELES_AV = '../../conjunto-aventura-2026-10-18/integrar/pieles/';
+  var LIMPIO = '../pelo-sin-restos/', PIELES_AV = '../../conjunto-aventura-2026-10-18/integrar/pieles/', PIELES_PIJ = '../../pijama-2026-10-22/integrar/pieles/';
   function mostrarAventura() {
     var av = ropa === 'aventura';
     // con el conjunto, el pelo de detrás de la coleta y de las dos coletas sin restos (copias de pelo-sin-restos/, 20/10);
@@ -701,15 +702,20 @@
     ['zapatillas', 'pantalon', 'camiseta'].forEach(function (k) { document.getElementById('c-pij-' + k).classList.toggle('oculto', !pij); });
     if (pij) document.getElementById('c-brazos').classList.add('oculto');
     mostrarColeta(); mostrarColetas2();
-    var PC = LIMPIO + 'conjunto/', tonoAv = av && piel !== 'claro';
+    // (22/10) con otro tono de piel, las capas de bordes de la ropa y del pelo de esa ropa (integrar/pieles/<tono>/)
+    // con el pijama, el pelo de detrás sin las rendijas junto a sus mangas (pijama-2026-10-22/integrar/pelo/)
+    var PCD = pij ? '../../pijama-2026-10-22/integrar/pelo/' : LIMPIO + 'conjunto/';
+    var PC = LIMPIO + 'conjunto/', tonoAv = limpiaRopa && piel !== 'claro', PR = pij ? PIELES_PIJ : PIELES_AV;
+    if (tonoAv && pij) ponSrc('c-pij-bordes', PIELES_PIJ + piel + '/bordes-ropa.png');
+    document.getElementById('c-pij-bordes').classList.toggle('oculto', !(tonoAv && pij));
     if (limpiaRopa && peinado === 'coleta') ['con', 'sin'].forEach(function (v) {
-      ponSrc(v === 'con' ? 'c-coleta-detras' : 'c-coleta-detras-sc', PC + 'pelo-coleta-' + v + '-detras-' + colorPelo + '.png'); });
-    if (tonoAv && peinado === 'coleta') ponSrc('c-bordes-coleta', PIELES_AV + piel + '/bordes-coleta-' + (conCinta ? 'con' : 'sin') + '-' + colorPelo + '.png');
+      ponSrc(v === 'con' ? 'c-coleta-detras' : 'c-coleta-detras-sc', PCD + 'pelo-coleta-' + v + '-detras-' + colorPelo + '.png'); });
+    if (tonoAv && peinado === 'coleta') ponSrc('c-bordes-coleta', PR + piel + '/bordes-coleta-' + (conCinta ? 'con' : 'sin') + '-' + colorPelo + '.png');
     if (limpiaRopa && peinado === 'coletas2' && versionColetas2 !== 'anterior') {
-      ponSrc('c-coletas2-detras', PC + 'pelo-coletas-' + versionColetas2 + '-sombrero-detras-' + colorPelo + '.png');
-      if (tonoAv) ponSrc('c-bordes-coletas2', PIELES_AV + piel + '/bordes-coletas-' + versionColetas2 + '-' + colorPelo + '.png');
+      ponSrc('c-coletas2-detras', PCD + 'pelo-coletas-' + versionColetas2 + '-sombrero-detras-' + colorPelo + '.png');
+      if (tonoAv) ponSrc('c-bordes-coletas2', PR + piel + '/bordes-coletas-' + versionColetas2 + '-' + colorPelo + '.png');
     }
-    ponSrc('c-pelo-detras', limpiaRopa && peinado === 'melena' ? PC + 'pelo-detras-' + colorPelo + '.png' : srcPelo(colorPelo, 'detras'));
+    ponSrc('c-pelo-detras', limpiaRopa && peinado === 'melena' ? PCD + 'pelo-detras-' + colorPelo + '.png' : srcPelo(colorPelo, 'detras'));
     if (limpiaRopa && peinado === 'melena' && peloOp !== 'mc') elegirPeloOp('mc');   // al volver a la melena con el conjunto
     AV_PIEZAS.forEach(function (k) { document.getElementById('c-av-' + k).classList.toggle('oculto', !av); });
     // camiseta y chaleco: a nuestra medida (guía 1, candidatos) o los de la imagen aprobada (anteriores)
@@ -752,16 +758,13 @@
     document.getElementById('c-av-pelo-delante').classList.toggle('oculto', !limpio);
     bordes();
     // bordes del pelo de la melena con otro tono: la copia para el conjunto (sin lo que cae sobre su ropa)
-    if (limpio && piel !== 'claro') { ponSrc('c-bordes-pelo', PIELES_AV + piel + '/bordes-pelo-' + colorPelo + '.png'); document.getElementById('c-bordes-pelo').classList.remove('oculto'); }
+    if (limpio && piel !== 'claro') { ponSrc('c-bordes-pelo', PR + piel + '/bordes-pelo-' + colorPelo + '.png'); document.getElementById('c-bordes-pelo').classList.remove('oculto'); }
   }
   document.querySelectorAll('[data-ropa]').forEach(function (b) {
     b.addEventListener('click', function () {
       ropa = b.dataset.ropa;
       if (ropa === 'pijama') {
-        var c2 = [];
-        if (piel !== 'claro') { c2.push('piel clara'); document.querySelector('[data-piel="claro"]').click(); }
-        if (peinado === 'melena' && peloOp !== 'mc') { c2.push('mechones completos'); document.querySelector('[data-pelo-op="mc"]').click(); }
-        if (c2.length) avisar('El pijama (candidato) se ve por ahora con la piel clara: se ha elegido ' + c2.join(', ') + '.');
+        if (peinado === 'melena' && peloOp !== 'mc') { document.querySelector('[data-pelo-op="mc"]').click(); avisar('Con el pijama, la melena va con sus mechones completos.'); }
         return;
       }
       if (ropa !== 'aventura') return;
@@ -794,8 +797,7 @@
     var b = e.target.closest('button'); if (!b) return;
     if (ropa === 'pijama') {
       var dp = b.dataset;
-      if (dp.piel && dp.piel !== 'claro') { e.stopImmediatePropagation(); e.preventDefault(); avisar('El pijama (candidato) se ve por ahora solo con la piel clara: elige otra ropa para cambiar el tono.'); }
-      else if (dp.peloOp && dp.peloOp !== 'mc' && peinado === 'melena') { e.stopImmediatePropagation(); e.preventDefault(); avisar('Con el pijama, la melena va con sus mechones completos (sin los restos del vestido).'); }
+      if (dp.peloOp && dp.peloOp !== 'mc' && peinado === 'melena') { e.stopImmediatePropagation(); e.preventDefault(); avisar('Con el pijama, la melena va con sus mechones completos (sin los restos del vestido).'); }
       else if (dp.zapatos) avisar('Con el pijama van sus zapatillas; los zapatos rosa se verán con otra ropa.');
       return;
     }
