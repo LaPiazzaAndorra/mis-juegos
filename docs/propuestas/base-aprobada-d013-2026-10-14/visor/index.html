@@ -53,6 +53,8 @@
 
 <div id="escena" aria-label="Muñeca">
   <div id="lienzo">
+    <img id="c-hada-alas" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/alas.png">
+    <img id="c-hada-alas-solas" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/alas-solas.png">
     <img id="c-av-mochila2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/mochila-cuerpo-centrada.png">
     <img id="c-av-mochila3" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/mochila-cuerpo-lateral.png">
     <img id="c-coletas2-detras" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/pelo-coletas-detras.png">
@@ -89,6 +91,8 @@
     <img id="c-av-bordes-ropa" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/pieles/dorado/bordes-ropa.png">
     <img id="c-av-tiras2" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/mochila-b/tiras.png">
     <img id="c-av-bordes-tiras" class="oculto" alt="" src="../../conjunto-aventura-2026-10-18/integrar/pieles/dorado/bordes-tiras.png">
+    <img id="c-hada-bailarinas" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/bailarinas.png">
+    <img id="c-hada-vestido" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/vestido.png">
     <img id="c-pij-zapatillas" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas/zapatillas.png">
     <img id="c-pij-pantalon" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas/pantalon.png">
     <img id="c-pij-camiseta" class="oculto" alt="" src="../../pijama-2026-10-22/integrar/capas-b/camiseta.png">
@@ -126,6 +130,8 @@
     <img id="c-pein-mariposa-coletas2-con" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/mariposa-coletas2-con.png">
     <img id="c-pein-mariposa-coletas2-sin" class="pein oculto" alt="" src="../../accesorios-2026-10-16/peinados/capas/mariposa-coletas2-sin.png">
     <img id="c-coletas2-sombrero" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/sombrero-aventura.png">
+    <img id="c-hada-varita" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/varita.png">
+    <img id="c-hada-dedos" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/dedos.png">
     <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
     <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
     <img id="c-acc-mariposa" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-mariposa.png">
@@ -169,6 +175,15 @@
     <button data-ropa="vestido-ax" aria-pressed="true">Opción B + axilas (elegida)</button>
     <button data-ropa="aventura" aria-pressed="false">Conjunto de aventura (candidato)</button>
     <button data-ropa="pijama" aria-pressed="false">Pijama (aprobado)</button>
+    <button data-ropa="hada" aria-pressed="false">Hada (candidato)</button>
+  </div>
+  <div class="fila" id="fila-hada" hidden>
+    <b>Hada</b>
+    <button data-hada-alas="diseno" aria-pressed="true">Alas del diseño (candidatas)</button>
+    <button data-hada-alas="solas" aria-pressed="false">Alas solas de ChatGPT</button>
+    <button data-hada-alas="no" aria-pressed="false">Sin alas</button>
+    <button data-hada-varita="si" aria-pressed="true">Con varita</button>
+    <button data-hada-varita="no" aria-pressed="false">Sin varita</button>
   </div>
   <div class="fila" id="fila-pij-camiseta" hidden>
     <b>Camiseta del pijama</b>
@@ -692,7 +707,19 @@
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
     b2c: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
-  var pijCamiseta = 'b';
+  var pijCamiseta = 'b', hadaAlas = 'diseno', hadaVarita = true;
+  document.querySelectorAll('[data-hada-alas]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      hadaAlas = b.dataset.hadaAlas;
+      document.querySelectorAll('[data-hada-alas]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
+  document.querySelectorAll('[data-hada-varita]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      hadaVarita = b.dataset.hadaVarita === 'si';
+      document.querySelectorAll('[data-hada-varita]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    });
+  });
   document.querySelectorAll('[data-pij-camiseta]').forEach(function (b) {
     b.addEventListener('click', function () {
       pijCamiseta = b.dataset.pijCamiseta;
@@ -710,7 +737,15 @@
     // pijama (D-028, candidato): camiseta, pantalón y zapatillas de pijama-2026-10-22/integrar/capas/, sobre la base
     // original (sin los brazos de delante del vestido: las mangas los tapan); con el pelo limpio para la ropa, como el
     // conjunto; por ahora solo con la piel clara
-    var pij = ropa === 'pijama', limpiaRopa = av || pij;
+    var pij = ropa === 'pijama', hada = ropa === 'hada', limpiaRopa = av || pij || hada;
+    // hada (D-029, candidato): vestido y bailarinas sobre una copia de la base con los brazos completados bajo las mangas
+    // de farol (hada-2026-10-22/integrar/); alas detrás de todo (también del pelo de detrás); varita con nuestra mano
+    // por delante del palo; alas y varita se pueden quitar. Por ahora solo con la piel clara
+    ['vestido', 'bailarinas'].forEach(function (k) { document.getElementById('c-hada-' + k).classList.toggle('oculto', !hada); });
+    document.getElementById('c-hada-alas').classList.toggle('oculto', !hada || hadaAlas !== 'diseno');
+    document.getElementById('c-hada-alas-solas').classList.toggle('oculto', !hada || hadaAlas !== 'solas');
+    ['varita', 'dedos'].forEach(function (k) { document.getElementById('c-hada-' + k).classList.toggle('oculto', !hada || !hadaVarita); });
+    document.getElementById('fila-hada').hidden = !hada;
     ['zapatillas', 'pantalon', 'camiseta'].forEach(function (k) { document.getElementById('c-pij-' + k).classList.toggle('oculto', !pij); });
     // camiseta: la del borde limpio (capas-b, candidata, por defecto) o la aprobada de 75e2cb5 (capas, sin cambios)
     ponSrc('c-pij-camiseta', '../../pijama-2026-10-22/integrar/' + (pijCamiseta === 'a' ? 'capas' : 'capas-b') + '/camiseta.png');
@@ -759,14 +794,14 @@
     // rodillas (D-027, opción A): con el conjunto, una COPIA de la base con la piel completada bajo el pantalón (candidata);
     // la base aprobada no cambia y vuelve al quitar el conjunto
     // con otro tono de piel, la base B2c de ese tono (integrar/pieles/<tono>/, candidata)
-    var srcBase = av && rodillas !== 'mallas' ? (piel === 'claro' ? RODILLAS[rodillas] : PIELES_AV + piel + '/base-piernas-sin-mallas.png') : (piel === 'claro' ? ORIG.base : T('base-sin-ojos.png'));
+    var srcBase = hada ? '../../hada-2026-10-22/integrar/base-hada.png' : av && rodillas !== 'mallas' ? (piel === 'claro' ? RODILLAS[rodillas] : PIELES_AV + piel + '/base-piernas-sin-mallas.png') : (piel === 'claro' ? ORIG.base : T('base-sin-ojos.png'));
     if (capaBase.getAttribute('src') !== srcBase) capaBase.src = srcBase;
     // y las capas de bordes de la ropa y de las tiras (sin la piel clara pegada en sus bordes)
     var tono = av && piel !== 'claro';
     if (tono) { ponSrc('c-av-bordes-ropa', PIELES_AV + piel + '/bordes-ropa.png'); ponSrc('c-av-bordes-tiras', PIELES_AV + piel + '/bordes-tiras.png'); }
     document.getElementById('c-av-bordes-ropa').classList.toggle('oculto', !tono || !med3);
     document.getElementById('c-av-bordes-tiras').classList.toggle('oculto', !tono || mochila !== 'centrada');
-    document.getElementById('c-zapatos').classList.toggle('oculto', av || pij || !zapatosSi);
+    document.getElementById('c-zapatos').classList.toggle('oculto', av || pij || hada || !zapatosSi);
     var mc = document.getElementById('c-pelo-delante-mc'), limpio = limpiaRopa && peinado === 'melena' && peloOp === 'mc' && peloDelanteVisible;
     if (limpio) mc.classList.add('oculto'); else if (peinado === 'melena') mostrarPelo();
     if (limpio) ponSrc('c-av-pelo-delante', LIMPIO + 'conjunto/pelo-delante-' + colorPelo + '.png');   // los cinco colores
@@ -780,6 +815,13 @@
       ropa = b.dataset.ropa;
       if (ropa === 'pijama') {
         if (peinado === 'melena' && peloOp !== 'mc') { document.querySelector('[data-pelo-op="mc"]').click(); avisar('Con el pijama, la melena va con sus mechones completos.'); }
+        return;
+      }
+      if (ropa === 'hada') {
+        var ch = [];
+        if (piel !== 'claro') { ch.push('piel clara'); document.querySelector('[data-piel="claro"]').click(); }
+        if (peinado === 'melena' && peloOp !== 'mc') { ch.push('mechones completos'); document.querySelector('[data-pelo-op="mc"]').click(); }
+        if (ch.length) avisar('El hada (candidato) se ve por ahora con la piel clara: se ha elegido ' + ch.join(', ') + '.');
         return;
       }
       if (ropa !== 'aventura') return;
@@ -810,6 +852,13 @@
   document.querySelectorAll('[data-zapatos]').forEach(function (b) { b.addEventListener('click', function () { zapatosSi = b.dataset.zapatos === 'si'; }); });
   document.getElementById('controles').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
+    if (ropa === 'hada') {
+      var dh = b.dataset;
+      if (dh.piel && dh.piel !== 'claro') { e.stopImmediatePropagation(); e.preventDefault(); avisar('El hada (candidato) se ve por ahora solo con la piel clara: elige otra ropa para cambiar el tono.'); }
+      else if (dh.peloOp && dh.peloOp !== 'mc' && peinado === 'melena') { e.stopImmediatePropagation(); e.preventDefault(); avisar('Con el hada, la melena va con sus mechones completos (sin los restos del vestido).'); }
+      else if (dh.zapatos) avisar('Con el hada van sus bailarinas; los zapatos rosa se verán con otra ropa.');
+      return;
+    }
     if (ropa === 'pijama') {
       var dp = b.dataset;
       if (dp.peloOp && dp.peloOp !== 'mc' && peinado === 'melena') { e.stopImmediatePropagation(); e.preventDefault(); avisar('Con el pijama, la melena va con sus mechones completos (sin los restos del vestido).'); }

@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-22 — D-029: diseño del hada aprobado (referencia guardada)
+### 2026-10-22 — D-029: vestido, bailarinas, alas y varita del hada sobre nuestra muñeca (candidatos)
+
+- **Solicitado por:** la propietaria («Estas son las tres candidatas para completar el diseño aprobado de D-029… Comprueba la
+  escala y la posición de cada pieza por separado… Prepara los montajes con melena, coleta y dos coletas… Añade opciones
+  para poner y quitar alas y varita. Conserva los originales y enséñame el resultado como candidato, sin activar nada en el
+  juego.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `124ed51`, el de la entrada siguiente).
+- **Estado:** candidatos; **encaje pendiente de aprobación**. Nada activado ni publicado.
+- **Cambios:** imágenes recibidas sin modificar en `hada-2026-10-22/guia-chatgpt/de-chatgpt/`; `hada-2026-10-22/integrar/`
+  (`extraer_hada.py`, `capas/`, `base-hada.png`, máscara de los brazos, comprobaciones, montajes, comparación, detalles);
+  visor (hada con opciones de alas y varita); D-029 (3), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y los `LEEME.md` del hada y del visor (50).
+- **Resultado:** conjunto escala 1,0023; alas 0,9925; varita 0,318 (venía unas 3 veces más grande). Rosa a la vista 0 px.
+  Diferencias señaladas: alas solas más saturadas (dos opciones); agarre con el palo detrás de nuestra mano abierta.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** visor (tres peinados, opciones de alas y varita, aviso con otro tono, salida al vestido; a tamaño real
+  coincide con los montajes, ≤ 3; sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en
+  un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `124ed51` · D-029: diseño del hada aprobado (referencia guardada)
 
 - **Solicitado por:** la propietaria («Apruebo este diseño de hada. Guárdalo como referencia en D-029; el encaje sigue
   pendiente. Prepararemos la versión sin pelo y las piezas completas de vestido, alas, varita y zapatos para montarlas

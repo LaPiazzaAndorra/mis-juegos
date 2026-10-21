@@ -140,8 +140,9 @@ visor). **22/10: variantes y camiseta con el borde limpio aprobadas visualmente*
 
 **Conjunto de hada (22/10, D-029):** guía de diseño sobre nuestra base preparada (`docs/propuestas/hada-2026-10-22/`:
 plantillas con melena y sin pelo, zonas del vestido, las alas, la varita y los zapatos, y mensajes). **Diseño aprobado**
-(22/10; referencia en `…/hada-2026-10-22/referencias/`). Encaje pendiente: faltan la versión sin pelo y las alas y la varita
-enteras (mensajes preparados).
+(22/10; referencia en `…/hada-2026-10-22/referencias/`). Vestido, bailarinas, alas y varita extraídos y montados sobre
+nuestra muñeca (`…/hada-2026-10-22/integrar/`, candidatos; rosa a la vista 0 px); en el visor, «Hada (candidato)» con
+opciones para alas y varita. **Encaje pendiente de aprobación.**
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -360,7 +361,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-029: diseño del hada aprobado; encaje pendiente) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-029: piezas del hada extraídas y montadas, candidatas) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

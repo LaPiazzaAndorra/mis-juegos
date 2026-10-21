@@ -12,6 +12,13 @@
   montarlas sobre nuestra muñeca original, conservando su cara, cuerpo y postura (mensajes preparados en el `LEEME.md`).
   Medido: mismo lienzo y cuerpo (piernas y pies a 1–3 px); la melena de la imagen está redibujada y no se usa (va la
   nuestra); las alas y los hombros no se ven enteros.
+- **22/10/2026 (3):** llegan el **conjunto sin pelo, las alas solas y la varita sola** (sin modificar, en
+  `guia-chatgpt/de-chatgpt/`). Extraídos solo el vestido y las bailarinas (del conjunto), las alas y la varita, cada uno
+  medido y colocado por separado (`integrar/extraer_hada.py`): conjunto, escala 1,0023; alas, 0,9925 (más saturadas y con
+  el contorno más grueso que en el diseño: dos opciones, la del diseño por defecto); varita, 0,318 (venía unas 3 veces más
+  grande), con el palo por detrás de nuestra mano (no se copia la mano cerrada de ChatGPT). El brazo bajo las mangas de
+  farol (más cortas que la manga de la base) se completa con nuestra piel en una copia de la base. Rosa a la vista 0 px.
+  Visor: «Hada (candidato)», con opciones para poner y quitar alas y varita. **Encaje pendiente de aprobación.**
 
 ## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el

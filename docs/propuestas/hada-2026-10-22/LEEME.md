@@ -77,3 +77,23 @@ Las bailarinas y el vestido salen de la imagen 1 (se ven enteros sin pelo). **Al
 alineación, que fuera de las piezas coincida con nuestra muñeca, que el vestido tape toda la ropa rosa, que las alas y la
 varita coincidan con la imagen 1 y que sean las del diseño aprobado. Después se extraen las cuatro capas: alas detrás de
 todo (también del pelo de detrás), vestido y zapatos sobre la base, y la varita con nuestros dedos por delante del palo.
+
+## Piezas recibidas y montadas (22/10, candidato)
+
+Recibidas sin modificar en `guia-chatgpt/de-chatgpt/`: `conjunto-sin-pelo-chatgpt.png` (948 × 1659, SHA-256 `0b72e5d7…3e`),
+`alas-chatgpt.png` (948 × 1659, fondo transparente, `f788857c…0c`) y `varita-chatgpt.png` (985 × 1596, fondo transparente,
+`da68d605…96`). Programa: `integrar/extraer_hada.py`. **Cada pieza se ha medido y colocado por separado** (escala uniforme y
+desplazamiento, sin deformar):
+
+| Pieza | De dónde | Escala y posición medidas | Diferencias con el diseño aprobado |
+| --- | --- | --- | --- |
+| Vestido y bailarinas | conjunto sin pelo | escala 1,0023 (afinada por la cara, la mano libre y las piernas; mediana dE de la cara 3,2) | Mismo diseño. La manga de farol es más corta que la manga de la camiseta de nuestra base: debajo, ChatGPT pintó brazo; esa piel no se toma: el brazo se completa en una **copia de la base** (`integrar/base-hada.png`, 2 579 px, con nuestra piel de justo debajo). El vestido se alarga 1 076 px con su propia tela junto a los hombros. **Rosa a la vista: 0 px.** Las bailarinas dejan ver el empeine, como en el diseño. |
+| Alas | alas solas | escala **0,9925**, desplazamiento (5,6; 3,6): casi el mismo tamaño y sitio que las del conjunto | Las solas son **más saturadas** (más rosa y lila) y con el **contorno dorado más grueso**; las alas de abajo, algo distintas. Dos capas: `alas.png` (por defecto: la forma de las solas con el color del diseño donde se ve, y lo que tapan el cuerpo y la varita con el color igualado) y `alas-solas.png` (tal cual). |
+| Varita | varita sola | estaba unas **3 veces más grande**: escala **0,318**, sin giro, centro (112,5; 916) | Coincide con la del diseño (estrella, flor, hojas y cintas). **Agarre:** ChatGPT cerró la mano alrededor del palo; nuestra mano no se cambia (está abierta), así que el palo pasa **por detrás de la mano** (`dedos.png`, 653 px de nuestra mano encima) y asoma por arriba y por abajo: se ve sujeta, pero no agarrada con los dedos cerrados. |
+
+Montajes: `integrar/montajes-peinados.png` (sin pelo, melena, coleta con cinta y dos coletas sin sombrero; con y sin alas y
+varita), `integrar/comparacion-recibida.png` y `integrar/detalles.png` (hombros y mangas, agarre, bailarinas y las dos
+alas). Orden de las capas: alas (detrás de todo, también del pelo de detrás), pelo de detrás, base del hada, ojos,
+bailarinas, vestido, manos de delante, pelo de delante, varita y dedos. En el visor: fila «Ropa», «Hada (candidato)» (por
+ahora con la piel clara), y fila «Hada» para poner y quitar alas (del diseño, solas o sin alas) y varita. **Encaje
+pendiente de aprobación.** Sin probar en el iPhone real.

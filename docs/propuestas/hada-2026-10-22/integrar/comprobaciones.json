@@ -1,0 +1,101 @@
+{
+ "sha256_recibidas": {
+  "conjunto-sin-pelo-chatgpt.png": "0b72e5d76012556c602c7c9f3994ace267776ce31e42799e3ebd38fd3414ec3e",
+  "alas-chatgpt.png": "f788857cc38633d7a3a87730d7b58e0cef3b0e78cde0138a47ef10ef6c96160c",
+  "varita-chatgpt.png": "da68d605ad5c5bc2a0d76438f6ba0620011bbf7f2ca7e6036454876873452a96"
+ },
+ "recibidas_sin_cambios": true,
+ "conjunto": {
+  "s": 1.0023,
+  "dx": -0.63,
+  "dy": 0.9,
+  "cara_mediana_dE": 3.16
+ },
+ "alas": {
+  "s": 0.9925,
+  "dx": 5.555,
+  "dy": 3.625,
+  "visibles_en_el_conjunto_px": 281620,
+  "diferencia_de_color_media_Lab": [
+   6.0,
+   -1.0,
+   3.0
+  ]
+ },
+ "varita": {
+  "s": 0.318,
+  "ang": 0.0,
+  "cx": 112.5,
+  "cy": 916.0,
+  "recorte": [
+   633,
+   1107
+  ],
+  "en_el_lienzo": [
+   201,
+   352
+  ],
+  "dedos_delante_del_palo_px": 653
+ },
+ "prendas": {
+  "vestido": {
+   "px": 277478,
+   "caja": [
+    152,
+    641,
+    816,
+    1361
+   ]
+  },
+  "bailarinas": {
+   "px": 13951,
+   "caja": [
+    331,
+    1444,
+    634,
+    1551
+   ]
+  },
+  "alas": {
+   "px": 464214,
+   "caja": [
+    23,
+    322,
+    929,
+    1168
+   ]
+  },
+  "alas-solas": {
+   "px": 464214,
+   "caja": [
+    23,
+    322,
+    929,
+    1168
+   ]
+  },
+  "varita": {
+   "px": 19345,
+   "caja": [
+    12,
+    740,
+    212,
+    1091
+   ]
+  },
+  "dedos": {
+   "px": 653,
+   "caja": [
+    177,
+    1025,
+    212,
+    1083
+   ]
+  }
+ },
+ "vestido_alargado_px": 1076,
+ "brazos_completados_en_la_copia_de_la_base_px": 2579,
+ "ropa_rosa_a_la_vista_px": 0,
+ "ropa_rosa_a_la_vista_caja": null,
+ "pies_a_la_vista_px": 6994
+}

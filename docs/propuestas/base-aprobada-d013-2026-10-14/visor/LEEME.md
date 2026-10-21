@@ -239,3 +239,7 @@ defecto (`integrar/capas-b/`), y «Aprobada (75e2cb5)» (`integrar/capas/`, sin 
 bordes de los tonos es la calculada para la del borde limpio: difieren solo en ese borde.)
 **22/10/2026 (49) · D-028:** «Pijama (aprobado)»; en «Camiseta del pijama», «Borde de las mangas limpio (aprobada)» (por
 defecto) y «Anterior (75e2cb5)». Nada más cambia.
+**22/10/2026 (50) · D-029:** fila «Ropa»: «Hada (candidato)» (piel clara): capas `c-hada-alas` / `c-hada-alas-solas` (detrás
+de todo), `c-hada-bailarinas`, `c-hada-vestido`, `c-hada-varita` y `c-hada-dedos` (`hada-2026-10-22/integrar/capas/`), con la
+base `hada-2026-10-22/integrar/base-hada.png` y el pelo limpio para la ropa. Fila «Hada»: alas del diseño (por defecto),
+alas solas o sin alas; con o sin varita. Otro tono avisa. A tamaño real coincide con los montajes (≤ 3).
