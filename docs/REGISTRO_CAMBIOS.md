@@ -1,6 +1,22 @@
 # Registro de cambios
 
-### 2026-10-20 — D-027: comprobaciones de la mochila A restauradas (las había sobrescrito `tiras-a`)
+### 2026-10-21 — D-027: tiras nuevas aprobadas con la mochila A (por defecto)
+
+- **Solicitado por:** la propietaria («Apruebo las tiras nuevas con la mochila A. Regístralo en D-027 y conserva esta
+  combinación por defecto. Después seguimos adaptando el conjunto a los tonos de piel y colores de pelo aprobados.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `75cd4b6`, el de la entrada siguiente).
+- **Estado:** mochila A con las tiras nuevas **aprobada visualmente**, por defecto con el conjunto. Pendiente: la revisión
+  del pelo limpio. Nada activado ni publicado.
+- **Cambios:** el texto del botón por defecto de la fila «Mochila» del visor («A con las tiras nuevas (aprobada)»); D-027
+  (17), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los `LEEME.md` del conjunto y
+  del visor (44). Capas sin cambios.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, `prueba-juego-d026` y `main` sin cambios.
+- **Pruebas:** visor (botón por defecto y capas de la mochila A y las tiras; sin errores). `pruebas/prueba-juego.js` 21/21 y
+  `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-20 — `75cd4b6` · D-027: comprobaciones de la mochila A restauradas (las había sobrescrito `tiras-a`)
 
 - **Solicitado por:** corrección propia, dentro de la tarea anterior (integrar las tiras nuevas).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `2437f8f`, el de la entrada siguiente).

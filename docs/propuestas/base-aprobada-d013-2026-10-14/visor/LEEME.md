@@ -220,3 +220,5 @@ propietaria aprobó visualmente el conjunto sin mochila de `f857193`. Nada más 
 conjunto (capa `c-av-tiras2`, `integrar/mochila-b/tiras.png`, encima del chaleco y debajo de los brazos y del pelo de
 delante), y «A sin tiras»; B, la anterior y «Sin mochila» se conservan. Las tiras solo van con la mochila A: al quitarla
 desaparecen (idéntico píxel a píxel con los tres peinados).
+**21/10/2026 (44) · D-027:** el botón por defecto de la fila «Mochila» pasa a «A con las tiras nuevas (aprobada)». Nada
+más cambia.

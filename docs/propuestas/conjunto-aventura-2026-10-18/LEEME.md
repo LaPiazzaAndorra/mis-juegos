@@ -51,7 +51,7 @@ no se cambia sin avisar). Las botas sustituyen a los zapatos.
   `integrar/mochila-b/` (`integrar/colocar_mochila.py`): candidatas A (centrada) y B (como en la imagen aprobada), con la
   melena, la coleta y las dos coletas (`integrar/mochila-b/montajes-peinados.png`). **A elegida** (20/10; B, alternativa).
   **Tiras nuevas** (guía 2b sobre A, por encima del chaleco): recibidas e integradas el 20/10 con
-  `integrar/recibir.py tiras-a` → `integrar/mochila-b/tiras.png` (solo las tiras y sus hebillas), **candidatas**. Tiras **por encima del chaleco: confirmado** por la propietaria (20/10). Las antiguas no dan el montaje por terminado.
+  `integrar/recibir.py tiras-a` → `integrar/mochila-b/tiras.png` (solo las tiras y sus hebillas), **aprobadas con la mochila A** (21/10), por defecto con el conjunto. Tiras **por encima del chaleco: confirmado** por la propietaria (20/10). Las antiguas no dan el montaje por terminado.
 - Pelo para el conjunto: coleta y dos coletas sin restos (copias en `../base-aprobada-d013-2026-10-14/pelo-sin-restos/`,
   candidato).
 - Después: colores de pelo, tonos de piel y peinados; copia de prueba del juego; 2000 × 3500.

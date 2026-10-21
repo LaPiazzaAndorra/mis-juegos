@@ -194,6 +194,11 @@
   - Visor: «A (elegida) con las tiras nuevas (candidatas)», por defecto, y «A sin tiras». Las tiras van encima del chaleco
     y debajo de los brazos y del pelo de delante; solo con la mochila A. Al quitar la mochila, idéntico píxel a píxel
     (los tres peinados). **Candidatas, pendientes de aprobación.**
+- **21/10/2026 (17):** la propietaria **aprueba las tiras nuevas con la mochila A** y pide conservar esa combinación por
+  defecto con el conjunto (en el visor, «A con las tiras nuevas (aprobada)»; «A sin tiras», B, la anterior y «Sin mochila»
+  se conservan como opciones). Sigue pendiente la revisión del pelo limpio de la coleta y las dos coletas. **Siguiente:**
+  adaptar el conjunto a los tonos de piel y colores de pelo aprobados (hoy, solo piel clara y castaño). Sin probar en el
+  iPhone real.
 
 ## D-026 · Peinado nuevo: dos coletas rizadas bajas con coleteros verdes y sombrero de aventura · 17/10/2026
 - **Decisión de la propietaria:** «Apruebo esta propuesta como peinado nuevo: dos coletas rizadas bajas con coleteros
