@@ -4,7 +4,11 @@ Rama `pintar-heladeria` (la misma que Pintar). **No es el juego de Amaia y no es
 `avatar-creador`, ningún archivo del juego, las propuestas del avatar, las copias congeladas ni la copia de Pintar
 (`../pintar-2026-10-21/`, versión de referencia `708c2f2`). Todo lo nuevo está en esta carpeta.
 
-**Enlace para probarla (Safari):** el fijo de este commit está en el apartado 5.
+**Versión de referencia (fija, commit `7aeb5b7`; Safari):**
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/7aeb5b7cfc7a66a2453653c14ff10e02f7f5d7f7/docs/propuestas/heladeria-2026-10-21/index.html>
+
+Versión aprobada en el iPhone (commit `ef9a583`, sin la corrección de la voz):
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/ef9a583571d5c97e2e86c65f564388f982588c0a/docs/propuestas/heladeria-2026-10-21/index.html>
 
 ## Fases y estado
 
@@ -14,7 +18,7 @@ Rama `pintar-heladeria` (la misma que Pintar). **No es el juego de Amaia y no es
 | 21/10/2026, 20:38 | **Aprobación general de la propietaria** tras probarla en su iPhone: «la Heladería me parece bien» | Aprobación **general**. **No** se dan por comprobados en el iPhone todos los casos de la prueba (cada nivel, cada pista, memoria, «quitar la última», foto, aviso sin espacio, giro, iPad). |
 | 21/10/2026 | **Copia de seguridad comprobada** con los datos de la Heladería y el nivel nuevo (apartado 4 bis) | Hecho en Chromium (19/19); **sin probar en el iPhone real**. |
 | 21/10/2026 | Corrección menor encontrada al comprobarlo: error de JavaScript si se cambia de modo antes de que el animal hable (0,4 s). La voz solo habla si el pedido sigue en pantalla | Hecho. Es el único cambio de código respecto a la versión aprobada `ef9a583`. |
-| 21/10/2026 | **Versión de referencia estable de la Heladería:** la de este commit (el siguiente a `ef9a583`; el hash se anota en la entrada siguiente). **No se integra todavía en el juego principal** | Hecho. La copia queda congelada hasta que se decida integrarla. |
+| 21/10/2026 | **Versión de referencia estable de la Heladería:** commit `7aeb5b7` (la aprobada, `ef9a583`, más la corrección de la voz). **No se integra todavía en el juego principal** | Hecho. La copia queda congelada hasta que se decida integrarla. |
 | — | Recompensas | **Pendientes de diseñar.** |
 
 ## 1. La Heladería de hoy (revisión)
