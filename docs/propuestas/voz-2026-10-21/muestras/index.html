@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff4fa">
+<title>Comparar voces · Mi Mundo de Juegos</title>
+<!-- Comparación a ciegas de muestras de voz (21/10/2026). No es el juego, no lee ni cambia sus datos y no cambia su voz.
+     Las muestras se describen en muestras.json (misma carpeta) y los audios van en esta carpeta. Solo guarda el orden de
+     preferencia en este navegador (clave «voz2:orden»). -->
+<style>
+:root{--bg:#fff6fb;--ink:#4a3a5c;--soft:#8a7a9c;--card:#fff;--line:rgba(74,58,92,.12);--purple:#a083ff;--green:#5fd39b;
+  --shadow:0 6px 0 rgba(74,58,92,.10),0 10px 24px rgba(74,58,92,.08)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-rounded,"SF Pro Rounded","Nunito","Arial Rounded MT Bold",system-ui,sans-serif}
+body{padding:calc(12px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));max-width:860px;margin:0 auto}
+h1{font-size:clamp(26px,7vw,36px);margin:4px 0 2px}.sub{color:var(--soft);font-weight:700;margin:0 0 14px}
+.card{background:var(--card);border-radius:24px;padding:14px;box-shadow:var(--shadow);margin:0 0 14px}.card h2{font-size:19px;margin:0 0 8px}
+.frases{margin:0;padding-left:22px;font-weight:800;line-height:1.6}
+button{font:inherit;color:var(--ink);cursor:pointer}
+.b{border:none;border-radius:16px;background:#fff;box-shadow:0 3px 0 rgba(0,0,0,.1),0 0 0 2px var(--line) inset;min-height:48px;padding:0 14px;font-weight:900;font-size:17px}
+.b:active{transform:scale(.95)}.b[disabled]{opacity:.4}
+.b.p{background:linear-gradient(150deg,#efe7ff,#d8c9ff)}.b.g{background:linear-gradient(150deg,#ddfaeb,#b8efd3)}.b.y{background:linear-gradient(150deg,#fff6d3,#ffe49a)}
+.b.on{background:linear-gradient(150deg,#fff3c4,#ffd46b)}
+.fila{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.voz{background:var(--card);border-radius:22px;padding:12px 14px;box-shadow:var(--shadow);margin:0 0 12px}
+.voz.sonando{box-shadow:0 0 0 4px var(--purple),var(--shadow)}
+.vnom{font-size:24px;font-weight:900}.vdet{color:var(--soft);font-weight:700;font-size:15px;margin:2px 0 8px}
+.vdet.oculta{display:none}.pend{color:#c0392b;font-weight:800;font-size:15px}
+.orden{display:flex;gap:6px;margin-top:8px}
+.nota{font-size:15px;color:var(--soft);font-weight:700;line-height:1.4}
+#resultado{white-space:pre-wrap;font-size:14px;background:#f8f2fd;border-radius:14px;padding:10px;font-family:ui-monospace,Menlo,monospace;min-height:44px}
+@media (prefers-color-scheme:dark){:root{--bg:#1e1a26;--ink:#f1eaf8;--soft:#b9aecb;--card:#2a2434;--line:rgba(255,255,255,.14)}#resultado{background:#352d42}.b{background:#352d42}.voz,.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<h1>🎧 Comparar voces</h1>
+<p class="sub">Las mismas tres frases con varias voces. Escúchalas sin saber de qué servicio es cada una y ordénalas.</p>
+
+<div class="card"><h2>Las frases</h2><ol class="frases">
+  <li>¡Hola, Amaia! ¿Jugamos juntas?</li><li>Cuenta las bolas de helado.</li><li>¡Lo has conseguido! Puedes abrir tu cofre.</li></ol>
+  <p class="nota">🔈 Sin modo silencio y con volumen. Mejor con auriculares o el altavoz del iPhone, como jugaría Amaia.</p></div>
+
+<div id="lista"><div class="card nota" id="estado">Cargando las muestras…</div></div>
+
+<div class="card"><h2>🎮 Referencia: la voz del iPhone</h2>
+  <p class="nota">La voz que usa hoy el juego (tono 1,45) y la misma con tono natural, para comparar.</p>
+  <div class="fila"><button class="b y" id="refJuego">▶ Como el juego</button><button class="b" id="refNatural">▶ Natural</button></div></div>
+
+<div class="card"><h2>Tu orden</h2>
+  <div class="fila"><button class="b" id="destapar">👀 Ver de qué servicio es cada voz</button></div>
+  <div id="resultado" style="margin-top:10px">Elige 1.º, 2.º y 3.º en cada voz.</div>
+  <div class="fila" style="margin-top:8px"><button class="b g" id="copiar">📋 Copiar para enviarlo</button><button class="b" id="reiniciar">Empezar de nuevo</button></div></div>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const FRASES=['¡Hola, Amaia! ¿Jugamos juntas?','Cuenta las bolas de helado.','¡Lo has conseguido! Puedes abrir tu cofre.'];
+let M=[],destapado=false,actual=null;
+const leer=()=>{try{return JSON.parse(localStorage.getItem('voz2:orden')||'{}')}catch(e){return{}}};
+const guardar=o=>{try{localStorage.setItem('voz2:orden',JSON.stringify(o))}catch(e){}};
+function parar(){if(actual){actual.a.pause();actual.c&&actual.c.classList.remove('sonando');actual=null}try{speechSynthesis.cancel()}catch(e){}}
+function tocar(src,tarjeta){   // reproduce uno o varios archivos seguidos
+  parar();const lista=[].concat(src);let i=0;const a=new Audio();actual={a,c:tarjeta};tarjeta&&tarjeta.classList.add('sonando');
+  a.onended=()=>{if(++i<lista.length){a.src=lista[i];a.play()}else{tarjeta&&tarjeta.classList.remove('sonando');actual=null}};
+  a.onerror=()=>{tarjeta&&tarjeta.classList.remove('sonando');alert('No se ha podido reproducir: '+lista[i])};
+  a.src=lista[0];a.play().catch(()=>{});window.__ultimo=lista;
+}
+function pintar(){
+  const o=leer(),l=$('#lista');l.innerHTML='';
+  if(!M.length){l.innerHTML='<div class="card nota">Todavía no hay muestras en <b>muestras.json</b>. Cuando lleguen los audios, aparecerán aquí.</div>';return}
+  M.forEach(m=>{
+    const listo=m.archivos&&m.archivos.length===3&&m.archivos.every(Boolean);
+    const d=document.createElement('div');d.className='voz';
+    d.innerHTML=`<div class="vnom">Voz ${m.letra}</div><div class="vdet${destapado?'':' oculta'}"></div>${listo?'':'<div class="pend">Muestra pendiente</div>'}
+      <div class="fila"><button class="b p" data-i="0">▶ 1</button><button class="b p" data-i="1">▶ 2</button><button class="b p" data-i="2">▶ 3</button><button class="b g" data-i="todas">▶ Las tres</button></div>
+      <div class="orden">${[1,2,3].map(n=>`<button class="b${o[m.letra]===n?' on':''}" data-n="${n}">${n}.º</button>`).join('')}</div>`;
+    d.querySelector('.vdet').textContent=`${m.servicio} · ${m.voz}${m.nota?' · '+m.nota:''}`;
+    d.querySelectorAll('[data-i]').forEach(b=>{b.disabled=!listo;b.onclick=()=>tocar(b.dataset.i==='todas'?m.archivos:m.archivos[+b.dataset.i],d)});
+    d.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{const x=leer(),n=+b.dataset.n;Object.keys(x).forEach(k=>{if(x[k]===n)delete x[k]});
+      if(o[m.letra]===n)delete x[m.letra];else x[m.letra]=n;guardar(x);pintar()});
+    l.appendChild(d);
+  });
+  resumen();
+}
+function resumen(){
+  const o=leer(),ord=Object.entries(o).sort((a,b)=>a[1]-b[1]);
+  $('#resultado').textContent=ord.length?ord.map(([l,n])=>{const m=M.find(x=>x.letra===l)||{};return`${n}.º Voz ${l}${destapado&&m.servicio?` (${m.servicio} · ${m.voz})`:''}`}).join('\n'):'Elige 1.º, 2.º y 3.º en cada voz.';
+}
+function vozJuego(){const vs=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang));return vs.find(v=>/premium|enhanced|mejorad/i.test(v.voiceURI+v.name))||vs.find(v=>/m[oó]nica/i.test(v.name))||vs[0]||null}
+function decir(p,r){parar();try{const u=new SpeechSynthesisUtterance(FRASES[0]),v=vozJuego();if(v){u.voice=v;u.lang=v.lang}else u.lang='es-ES';u.pitch=p;u.rate=r;speechSynthesis.speak(u)}catch(e){}}
+$('#refJuego').onclick=()=>decir(1.45,.95);$('#refNatural').onclick=()=>decir(1,1);
+$('#destapar').onclick=()=>{destapado=!destapado;$('#destapar').textContent=destapado?'🙈 Ocultar otra vez':'👀 Ver de qué servicio es cada voz';pintar()};
+$('#copiar').onclick=async()=>{const t='Comparación de voces:\n'+$('#resultado').textContent+(destapado?'':'\n(sin destapar; letras de muestras.json)');
+  try{await navigator.clipboard.writeText(t);$('#copiar').textContent='✅ Copiado'}catch(e){$('#copiar').textContent='Selecciónalo y cópialo'}setTimeout(()=>$('#copiar').textContent='📋 Copiar para enviarlo',2500)};
+$('#reiniciar').onclick=()=>{guardar({});pintar()};
+fetch('muestras.json',{cache:'no-store'}).then(r=>r.ok?r.json():{muestras:[]}).then(j=>{M=(j.muestras||[]).map((m,i)=>Object.assign({letra:'ABCDEFG'[i]},m));pintar()})
+  .catch(()=>{M=[];pintar()});
+</script>
+</body>
+</html>

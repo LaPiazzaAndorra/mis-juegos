@@ -1,0 +1,8 @@
+{
+  "nota": "Muestras para comparar a ciegas. Cada una: servicio, voz, nota y los 3 archivos (frase 1, 2 y 3) en esta carpeta. El orden de la lista se baraja al añadir los audios para que la letra no delate el servicio.",
+  "muestras": [
+    { "servicio": "Microsoft Azure AI Speech", "voz": "neuronal es-ES (por elegir)", "nota": "pendiente de generar", "archivos": [null, null, null] },
+    { "servicio": "Google Cloud Text-to-Speech", "voz": "Chirp 3: HD es-ES (por elegir)", "nota": "pendiente de generar", "archivos": [null, null, null] },
+    { "servicio": "ElevenLabs", "voz": "multilingüe, en español (por elegir)", "nota": "pendiente de generar", "archivos": [null, null, null] }
+  ]
+}

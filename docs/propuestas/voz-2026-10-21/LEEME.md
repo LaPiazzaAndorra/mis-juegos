@@ -110,3 +110,62 @@ trozos («Quiero un cucurucho» + «con dos bolas» + «de fresa»…), unos 80 
    guardados (la elección en Ajustes se respeta). Requiere aprobación: cambia la voz general.
 3. Si no hay ninguna buena: decidir entre audios preparados (servicio o grabación), mixto o esperar. Se prepararía antes
    una prueba aislada con unas pocas frases grabadas o generadas para escucharlas.
+
+## 6. Muestras de voces más naturales (21/10/2026, 22:21)
+
+La propietaria ha escuchado las voces del iPhone (también con tono natural) y no la convencen. Quiere **comparar tres
+muestras** de voces más naturales con las mismas tres frases **antes de elegir proveedor** o preparar todos los audios.
+Después se usarían **audios para las frases habituales** y la voz del dispositivo solo para los textos variables.
+**No se ha contratado nada ni creado ninguna cuenta.**
+
+**Por qué no hay muestras todavía:** desde el entorno de Claude no se pueden generar. Los modelos abiertos que funcionarían
+sin cuenta (Kokoro, Piper) se descargan de Hugging Face o de las versiones de GitHub, que este entorno tiene bloqueados (y
+en ese momento tampoco respondían los repositorios de paquetes). No se ha intentado rodear el bloqueo.
+
+### Opciones y qué piden (comprobado el 21/10/2026; condiciones y precios pueden cambiar)
+
+| Opción | ¿Cuenta? | ¿Tarjeta o pago? | Para las muestras (3 frases, unos 110 caracteres) | Uso de los audios en el juego |
+| --- | --- | --- | --- | --- |
+| **Microsoft Azure AI Speech** (voces neuronales es-ES; herramienta «Audio Content Creation» de Speech Studio, sin programar) | Sí (cuenta de Azure) | La cuenta gratuita pide **tarjeta para verificar la identidad**; límite de gasto 0 $, no cobra si no se quita | **Gratis** (0,5 millones de caracteres al mes) | Según sus condiciones de servicio (revisar antes) |
+| **Google Cloud Text-to-Speech** (Chirp 3: HD o Neural2, es-ES) | Sí (Google Cloud) | **Hay que activar la facturación** (tarjeta); 300 US$ de crédito los 90 primeros días | **Gratis** (1 millón de caracteres al mes) | Según sus condiciones de servicio (revisar antes) |
+| **Amazon Polly** (Neural o Generative, es-ES) | Sí (AWS) | **Tarjeta obligatoria**; cargo temporal de 1 US$ que se devuelve | **Gratis** (12 primeros meses) | Según sus condiciones de servicio (revisar antes) |
+| **ElevenLabs** (voces multilingües muy naturales) | Sí | Plan gratuito: 10 000 créditos al mes (unos 10 minutos); no consta si pide tarjeta | **Gratis** | Plan gratuito: **sin licencia comercial** y con **atribución** («elevenlabs.io») al publicar; plan Starter: 6 US$/mes, con licencia comercial |
+| **Mac con una voz «Premium» o «Mejorada»** (orden `say` o Contenido leído, exportando a archivo) | No | No | **Gratis**, si hay un Mac | Licencia de macOS: solo **«contenido propio para uso personal, no comercial»**; no permite publicarlo o redistribuirlo en contextos públicos |
+| **Kokoro** (modelo abierto, voces `ef_dora`, `em_alex`, `em_santa`; licencia Apache-2.0), en un ordenador | No | No | **Gratis**, sin internet tras descargar el modelo (unos 170 MB) | Libre (Apache-2.0) |
+| **Piper** (modelo abierto), por ejemplo en webs como tts.ai | Según la web (pide correo tras un uso) | No | Gratis con límite diario | El motor es MIT, pero **muchas voces en español son solo para uso personal y no comercial** |
+
+**Importante para cualquier opción:** el repositorio y la versión de pruebas son **públicos**. Los audios que se suban al
+repositorio se pueden descargar por cualquiera; las licencias «personal, no comercial» o con atribución (Mac, ElevenLabs
+gratuito, Piper) pueden no cubrir eso. Antes de usar audios en el juego hay que elegir una opción cuyas condiciones lo
+permitan, o guardarlos fuera del repositorio público. Para **escuchar muestras** no hay problema.
+
+### Propuesta de comparación
+
+Tres muestras de calidad alta y distinto tipo, **sin coste** para estas frases:
+1. **Microsoft Azure** — una voz neuronal de España (es-ES).
+2. **Google Cloud** — una voz Chirp 3: HD de España (es-ES).
+3. **ElevenLabs** — una voz multilingüe en español de España.
+
+Alternativas **sin cuenta**: un **Mac** con una voz premium (para escuchar; con la limitación de licencia de arriba) o
+**Kokoro** en un ordenador (libre, algo menos natural que las comerciales). Si se permitiera a este entorno descargar de
+Hugging Face, Claude podría generar las de Kokoro y Piper sin ninguna cuenta.
+
+**Cómo generarlas:** con la cuenta de cada servicio, escribir las tres frases (una por archivo), voz femenina cálida de
+España, **velocidad y tono normales**, y descargar en MP3 o M4A. Nombres: `a-1.mp3`, `a-2.mp3`, `a-3.mp3` (y `b-…`, `c-…`).
+Adjuntarlos en el chat con el nombre del servicio y de la voz: Claude los coloca en la página de comparación.
+
+### Página «Comparar voces»
+
+`muestras/index.html` (con `muestras/muestras.json`): **escucha a ciegas** (Voz A, B, C; el servicio se puede destapar al
+final), ▶ 1, ▶ 2, ▶ 3 y ▶ Las tres, orden **1.º, 2.º, 3.º** para copiar y enviar, y la **voz del iPhone** como referencia (como
+el juego y con tono natural). Ahora tiene los tres huecos **pendientes**. No es el juego ni toca sus datos; guarda el orden
+en el navegador (`voz2:orden`).
+**Probado** (`muestras/prueba-muestras.js`, 10/10, con pitidos de prueba que no se guardan en el repositorio).
+
+### Plan mixto, cuando se elija (no hecho)
+
+- **Audios** para lo fijo y frecuente: saludos, ánimos, pistas, retos, colores, números, sabores y frases de los pedidos
+  (los pedidos, por trozos o enteros, según cómo suenen las uniones).
+- **Voz del dispositivo, con tono natural**, solo para lo variable (frases escritas por un adulto, nombres nuevos).
+- Los audios irían en la caché sin conexión del juego (`sw.js`, archivo compartido): funcionan sin internet.
+- Se probaría primero en una copia aislada con pocas frases, sin cambiar la voz general ni las referencias aprobadas.
