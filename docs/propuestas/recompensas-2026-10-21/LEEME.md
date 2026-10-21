@@ -11,6 +11,15 @@ ni se cambia `normalizar()`** (no hace falta, apartado 4); cómo **evitar duplic
 (apartado 6); y una **primera prueba pequeña** con premios provisionales que no bloquea nada aprobado (apartado 8).
 La versión anterior está en el historial de Git (commit `bacbc3a`).
 
+## Primera prueba (21/10/2026, 21:21)
+
+La propietaria aprobó hacer la primera prueba pequeña: copia aislada `../logros-prueba-2026-10-21/` (datos `rec1:`) con
+**Contar y Colores (3 rondas)**, **dos tareas de ejemplo**, **zona de adultos con código de 4 cifras**, **cofres a los 3, 6 y
+10 logros** y **premios provisionales nuevos de Pintar y la Heladería**, claramente identificados. Cada reto da un logro una
+vez al día y cada tarea confirmada cuenta una vez; sin otro límite diario. Sin tocar Vestir, el catálogo, `progreso.js` del
+juego ni las referencias congeladas; recuperación como hoy (la unión queda pendiente). Detalles, pruebas y cómo probarla
+en su `LEEME.md`. Enlace fijo: en la entrada siguiente.
+
 ## 0. Lo que hay hoy (comprobado en el código)
 
 - **Estrellas** (`stars`, `addStar`): +1 por pedido correcto en la Heladería; +1 al guardar el primer personaje en Vestir;
