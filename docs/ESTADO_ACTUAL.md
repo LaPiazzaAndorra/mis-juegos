@@ -142,8 +142,10 @@ visor). **22/10: variantes y camiseta con el borde limpio aprobadas visualmente*
 plantillas con melena y sin pelo, zonas del vestido, las alas, la varita y los zapatos, y mensajes). **Diseño aprobado**
 (22/10; referencia en `…/hada-2026-10-22/referencias/`). Vestido, bailarinas, alas y varita extraídos y montados sobre
 nuestra muñeca (`…/hada-2026-10-22/integrar/`, candidatos; rosa a la vista 0 px); en el visor, «Hada (candidato)» con
-opciones para alas y varita. Resto del conjunto **visto bien** por la propietaria en el iPhone; **varita pendiente**:
-candidata con mano de agarre (`…/hada-2026-10-22/integrar/agarre/`), solo con la varita.
+opciones para alas y varita. Varita con mano de agarre (`…/hada-2026-10-22/integrar/agarre/`, solo con la varita).
+**Agarre y conjunto en piel clara aprobados visualmente** (22/10, con las alas del diseño). Tonos dorado, moreno y profundo
+con los cinco colores de pelo (`…/integrar/pieles/`, con su mano de agarre; sin varita, la mano original): **candidatos**,
+pendientes de aprobación. Sin probar en el iPhone real.
 
 **Conjunto de aventura (18/10, D-027):**
 - **Diseño aprobado** (camiseta con hoja, chaleco arena, pantalón verde, calcetines, botas y mochila); referencia en
@@ -362,7 +364,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-029: mano de agarre de la varita, candidata) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-029: agarre y hada en piel clara aprobados; tonos candidatos) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

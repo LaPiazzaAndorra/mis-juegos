@@ -1,0 +1,32 @@
+{
+ "brazos_completados_px": 2578,
+ "mano_original_quitada_px": 6619,
+ "tonos": {
+  "dorado": {
+   "bordes_ropa_px": 4816,
+   "piel_dentro_de_las_prendas_px": 4095,
+   "base_igual_a_la_aprobada_fuera_de_los_brazos": true
+  },
+  "moreno": {
+   "bordes_ropa_px": 4826,
+   "piel_dentro_de_las_prendas_px": 4095,
+   "base_igual_a_la_aprobada_fuera_de_los_brazos": true
+  },
+  "profundo": {
+   "bordes_ropa_px": 4817,
+   "piel_dentro_de_las_prendas_px": 4095,
+   "base_igual_a_la_aprobada_fuera_de_los_brazos": true
+  }
+ },
+ "originales_sin_cambios": true,
+ "sha256_originales": {
+  "docs/propuestas/hada-2026-10-22/integrar/capas/bailarinas.png": "48e70a01a143c8ebe258e9254c4608154ed559b31e37b2ffe0078518dc996e5b",
+  "docs/propuestas/hada-2026-10-22/integrar/capas/vestido.png": "e1aca45e38cea8d3a66800bbd4456d25d0d4d30f0dfa48ed9471fd06a1cd1c68",
+  "docs/propuestas/hada-2026-10-22/integrar/base-hada.png": "9da467e4bbc016576702e5b60d978fd8b3cf53b28fbd6a4f383aab71ae21dfe8",
+  "docs/propuestas/hada-2026-10-22/integrar/agarre/mano-agarre.png": "bea5d094e552821a010f45d6c0cf495ffe14523e70464eb831e525d6ec9f346b",
+  "docs/propuestas/hada-2026-10-22/integrar/capas/dedos.png": "966c8d867303645cac2bdfda6ae8fb846ddccbb2a2c8973fbec3bc716ecf11c0",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/dorado/base-sin-ojos.png": "5cf47cb58d2d4d2bd64a5aa0422df78cce5ef5be88b4d7d5a5f79f26b7e67b5b",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/moreno/base-sin-ojos.png": "544f5bb32eaae255f9b8c3416058f869624cf549d1a4535e1d1fab70d8b5ae54",
+  "docs/propuestas/base-aprobada-d013-2026-10-14/piel-tonos/profundo/base-sin-ojos.png": "35a02845e600da9015a561e79cb717c5b513be34431d4c42711c79ec30cf546b"
+ }
+}

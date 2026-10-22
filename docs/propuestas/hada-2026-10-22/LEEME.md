@@ -115,3 +115,21 @@ La propietaria aprueba visualmente el resto del conjunto en su iPhone; queda pen
 - Hojas: `integrar/agarre/antes-despues.png` y `integrar/agarre/montajes-peinados.png`. Visor: fila «Hada»: «Varita con mano
   de agarre (candidata)» (por defecto), «Varita con la mano original (anterior)» y «Sin varita».
 - Por si se prefiere que ChatGPT dibuje el agarre sobre nuestra mano: recorte y guía localizada en `guia-chatgpt/3-agarre/`.
+
+**Aprobado (22/10):** «Apruebo el agarre de 78bf1bc tal como está, sin alargar el palo ni cambiar la bolita. El conjunto de
+hada en piel clara queda aprobado visualmente con las alas del diseño.» `integrar/agarre/` no cambia.
+
+## Tonos de piel y colores de pelo (22/10, candidatos)
+
+`integrar/pieles/hada_pieles.py` (como el pijama), con la transformación de piel aprobada (D-023), en `integrar/pieles/<tono>/`
+(dorado, moreno, profundo; el claro es el aprobado):
+- `base-hada.png` (la base del tono y, solo en los brazos completados bajo las mangas, la misma transformación) y
+  `base-hada-agarre.png` (sin nuestra mano abierta); `brazos-agarre.png` (manos de delante del tono sin esa mano).
+- `mano-agarre.png`: la mano de agarre aprobada con la transformación del tono (alfa sin cambios); `dedos.png` para «varita
+  con la mano original». **Sin varita, vuelven las manos del tono aprobadas tal cual** (mano original).
+- `bordes-ropa.png`: canto del vestido y de las bailarinas junto a la piel (≈ 4 800 px) y la piel clara que quedó dentro de
+  las prendas (empeine y escote, 4 095 px), pasados al tono; `bordes-pelo-*`, `bordes-coleta-*`, `bordes-coletas-*`.
+- Comprobado (`comprobaciones.json`): base igual a la aprobada fuera de los brazos; capas aprobadas sin cambios (SHA-256).
+- Hojas: `tonos-peinados.png` (4 tonos × 3 peinados), `colores-melena.png`, `colores-coleta.png`, `colores-coletas2.png`
+  (4 tonos × 5 colores) y `detalles-antes-despues.png` (mano de agarre, mano izquierda, escote y mangas, bailarinas, melena).
+  En el visor, «Hada» con cualquier tono. **Pendientes de aprobación;** sin probar en el iPhone real.

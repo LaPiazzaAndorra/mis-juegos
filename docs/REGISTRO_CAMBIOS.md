@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-22 — D-029: mano de agarre de la varita (candidata)
+### 2026-10-22 — D-029: hada con los cuatro tonos de piel y los cinco colores de pelo (candidatas); agarre y hada en piel clara aprobados
+
+- **Solicitado por:** la propietaria («Apruebo el agarre de 78bf1bc tal como está, sin alargar el palo ni cambiar la bolita.
+  El conjunto de hada en piel clara queda aprobado visualmente con las alas del diseño. Regístralo en D-029 y sigue con los
+  cuatro tonos de piel y los cinco colores de pelo, adaptando también la mano de agarre. Conserva la mano original al
+  quitar la varita y enséñame las variantes antes de aprobarlas.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `78bf1bc`, el de la entrada siguiente).
+- **Estado:** agarre y hada en piel clara **aprobados** (visualmente); variantes de tono **candidatas**. Nada activado ni publicado.
+- **Cambios:** `hada-2026-10-22/integrar/pieles/` (`hada_pieles.py`; por tono: base, base sin la mano, brazos sin la mano,
+  mano de agarre, dedos, bordes de la ropa y del pelo; hojas `tonos-peinados.png`, `colores-melena.png`,
+  `colores-coleta.png`, `colores-coletas2.png`, `detalles-antes-despues.png`; `comprobaciones.json`); visor (hada con
+  todos los tonos); D-029 (5), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y los
+  `LEEME.md` del hada y del visor (52). Las capas aprobadas no cambian.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** visor (60 combinaciones: 4 tonos × 5 colores × 3 peinados con la mano de agarre, y sin varita con la mano
+  original; sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `78bf1bc` · D-029: mano de agarre de la varita (candidata)
 
 - **Solicitado por:** la propietaria («El resto del conjunto me gusta; queda pendiente la varita. Prepara una candidata con
   una capa de mano de agarre, con los dedos cerrados alrededor del palo, conservando la posición de la muñeca y del brazo.

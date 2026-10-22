@@ -246,3 +246,6 @@ alas solas o sin alas; con o sin varita. Otro tono avisa. A tamaño real coincid
 **22/10/2026 (51) · D-029:** fila «Hada»: «Varita con mano de agarre (candidata)» (por defecto: `c-hada-varita-agarre` y
 `c-hada-mano-agarre`, con la base, los brazos y las alas de `hada-2026-10-22/integrar/agarre/`), «Varita con la mano original
 (anterior)» y «Sin varita» (vuelven la base, los brazos y las alas anteriores). A tamaño real coincide con los montajes (≤ 3).
+**22/10/2026 (52) · D-029:** «Hada (aprobado en piel clara; tonos candidatos)»: con dorado, moreno o profundo usa
+`hada-2026-10-22/integrar/pieles/<tono>/` (base, brazos y mano de agarre del tono, dedos y `c-hada-bordes`); sin varita, las
+manos del tono aprobadas (mano original). Ya no avisa con otro tono. 60 combinaciones sin errores.

@@ -26,6 +26,18 @@
     igualado y fundida con nuestro brazo; varita recolocada (giro -1.5°, traslación [10, -10]) para que el palo pase por el
     puño; copias de la base, los brazos y las alas para el modo con varita. La bola del palo queda dentro del puño (en el
     diseño asoma). Guía localizada en `guia-chatgpt/3-agarre/` por si se prefiere dibujarla en ChatGPT. **Pendiente.**
+- **22/10/2026 (5): agarre y hada en piel clara aprobados.** La propietaria: «Apruebo el agarre de 78bf1bc tal como está,
+  sin alargar el palo ni cambiar la bolita. El conjunto de hada en piel clara queda aprobado visualmente con las alas del
+  diseño.» Quedan **aprobados** la mano de agarre y la varita recolocada de `integrar/agarre/` (sin cambios: palo y bolita
+  como están) y el conjunto en piel clara (vestido, bailarinas, alas del diseño, varita con mano de agarre). Sin probar en
+  el iPhone real como juego. Pide seguir con los cuatro tonos de piel y los cinco colores de pelo, adaptando también la mano
+  de agarre y conservando la mano original al quitar la varita.
+  - **Variantes candidatas** (`integrar/pieles/`, `hada_pieles.py`): dorado, moreno y profundo con la transformación de
+    piel aprobada (D-023) aplicada a la base con los brazos completados, a la mano de agarre y a los dedos; sin varita, las
+    manos del tono aprobadas tal cual (mano original). Bordes del vestido y de las bailarinas junto a la piel corregidos
+    (≈ 4 800 px por tono) y la piel clara que quedó dentro de las prendas (empeine y escote, 4 095 px) pasada al tono. Pelo:
+    los cinco colores con el pelo limpio para la ropa (melena, coleta y dos coletas). Base idéntica a la aprobada fuera de
+    los brazos; capas aprobadas sin cambios (SHA-256 comprobados). **Pendientes de aprobación.**
 
 ## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el
