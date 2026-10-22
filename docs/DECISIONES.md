@@ -38,6 +38,10 @@
     (≈ 4 800 px por tono) y la piel clara que quedó dentro de las prendas (empeine y escote, 4 095 px) pasada al tono. Pelo:
     los cinco colores con el pelo limpio para la ropa (melena, coleta y dos coletas). Base idéntica a la aprobada fuera de
     los brazos; capas aprobadas sin cambios (SHA-256 comprobados). **Pendientes de aprobación.**
+- **22/10/2026 (6): variantes aprobadas visualmente.** La propietaria: «Apruebo visualmente las variantes del hada de 1d9d410, con los cuatro tonos de piel, los cinco colores de pelo y los tres peinados, incluida la mano de agarre. Regístralo sin dar por probadas individualmente las 60 combinaciones en mi iPhone.» Quedan **aprobadas visualmente** las
+  variantes de `1d9d410` (`integrar/pieles/`: dorado, moreno y profundo, con la mano de agarre de cada tono y, sin
+  varita, la mano original) con los cinco colores de pelo y los tres peinados. **No se dan por probadas una a una las 60
+  combinaciones en su iPhone.** Nada activado en el juego.
 
 ## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el

@@ -132,4 +132,6 @@ hada en piel clara queda aprobado visualmente con las alas del diseño.» `integ
 - Comprobado (`comprobaciones.json`): base igual a la aprobada fuera de los brazos; capas aprobadas sin cambios (SHA-256).
 - Hojas: `tonos-peinados.png` (4 tonos × 3 peinados), `colores-melena.png`, `colores-coleta.png`, `colores-coletas2.png`
   (4 tonos × 5 colores) y `detalles-antes-despues.png` (mano de agarre, mano izquierda, escote y mangas, bailarinas, melena).
-  En el visor, «Hada» con cualquier tono. **Pendientes de aprobación;** sin probar en el iPhone real.
+  En el visor, «Hada» con cualquier tono. Sin probar en el iPhone real.
+
+**Aprobadas visualmente (22/10):** «Apruebo visualmente las variantes del hada de 1d9d410, con los cuatro tonos de piel, los cinco colores de pelo y los tres peinados, incluida la mano de agarre. Regístralo sin dar por probadas individualmente las 60 combinaciones en mi iPhone.»

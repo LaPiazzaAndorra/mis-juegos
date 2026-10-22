@@ -249,3 +249,4 @@ alas solas o sin alas; con o sin varita. Otro tono avisa. A tamaño real coincid
 **22/10/2026 (52) · D-029:** «Hada (aprobado en piel clara; tonos candidatos)»: con dorado, moreno o profundo usa
 `hada-2026-10-22/integrar/pieles/<tono>/` (base, brazos y mano de agarre del tono, dedos y `c-hada-bordes`); sin varita, las
 manos del tono aprobadas (mano original). Ya no avisa con otro tono. 60 combinaciones sin errores.
+**22/10/2026 (53) · D-029:** la etiqueta pasa a «Hada (aprobado)» (variantes aprobadas visualmente). Nada más cambia.

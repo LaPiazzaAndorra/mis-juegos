@@ -1,6 +1,19 @@
 # Registro de cambios
 
-### 2026-10-22 — D-029: hada con los cuatro tonos de piel y los cinco colores de pelo (candidatas); agarre y hada en piel clara aprobados
+### 2026-10-22 — D-029: variantes del hada aprobadas visualmente (tonos, colores y peinados)
+
+- **Solicitado por:** la propietaria («Apruebo visualmente las variantes del hada de 1d9d410, con los cuatro tonos de piel, los cinco colores de pelo y los tres peinados, incluida la mano de agarre. Regístralo sin dar por probadas individualmente las 60 combinaciones en mi iPhone.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `1d9d410`, el de la entrada siguiente).
+- **Estado:** variantes del hada **aprobadas visualmente**; las 60 combinaciones **no** se dan por probadas una a una en
+  su iPhone. Nada activado ni publicado.
+- **Cambios:** solo documentación: D-029 (6), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md`, `LEEME.md` del hada y etiqueta del visor. Ninguna capa cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `1d9d410` · D-029: hada con los cuatro tonos de piel y los cinco colores de pelo (candidatas); agarre y hada en piel clara aprobados
 
 - **Solicitado por:** la propietaria («Apruebo el agarre de 78bf1bc tal como está, sin alargar el palo ni cambiar la bolita.
   El conjunto de hada en piel clara queda aprobado visualmente con las alas del diseño. Regístralo en D-029 y sigue con los
