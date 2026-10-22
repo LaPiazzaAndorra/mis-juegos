@@ -1,5 +1,18 @@
 # Registro de decisiones
 
+## D-030 · Prueba completa: muñeca nueva con sus conjuntos y adornos + Pintar, Heladería y logros · 22/10/2026
+- **Pedido de la propietaria:** «Después prepara una nueva copia aislada que reúna la muñeca nueva, los conjuntos y accesorios aprobados, y Pintar, Heladería y logros de la prueba conjunta de 461c4f245f15c0942ecd7f93f825d9a92771f42c, en la rama pintar-heladeria. Conserva las referencias congeladas y usa datos propios para la copia, sin modificar las partidas de Amaia ni main. Envíame un único enlace para probarlo todo en Safari.»
+- **Hecho:** rama `pintar-heladeria` unida a `avatar-creador` sin cambios (solo añade sus carpetas de propuestas); copia
+  aislada nueva en `docs/propuestas/prueba-completa-2026-10-22/` con datos propios `com1:`, sin service worker y con su
+  manifiesto («PRUEBA COMPLETA»). Pintar, Heladería, logros y voz natural: los mismos pasos que la prueba conjunta
+  (`461c4f2`), comprobado reproduciendo su `index.html` exacto. Muñeca: catálogo «todo» con recetas tomadas del visor
+  aprobado (vestido, camiseta, aventura con y sin mochila, pijama, hada con y sin alas y varita × 5 peinados × 4 pieles × 5
+  colores) y los adornos aprobados con la colocación de cada peinado; en «Adornos» solo salen los que van con el peinado y
+  la ropa (sin cambiar de peinado solo; lo que deja de ir se quita avisando).
+- **Probado en Chromium:** 23/23 de la muñeca (900 recetas y 160 casos de adornos iguales al visor; 539 piezas que cargan; 8 combinaciones a tamaño real con diferencia máxima 4; «Vestir», parpadeo, guardar y reabrir, «Mi Mundo», datos ajenos intactos, iPhone horizontal e iPad) y 37/37 de Pintar, Heladería y logros (la prueba de la copia conjunta sobre esta copia). **No probado en el iPhone real.**
+- **Límites:** referencias congeladas (`prueba-juego-d016/-d021/-d023/-d026`, `prueba-conjunta-2026-10-22`, Pintar,
+  Heladería y logros), juego, `sw.js`, partidas y `main` sin cambios. Nada publicado.
+
 ## D-029 · Conjunto de hada: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «prepara la guía sobre nuestra base para diseñar el conjunto de hada, con vestido, alas,
   varita y zapatos como piezas separadas».

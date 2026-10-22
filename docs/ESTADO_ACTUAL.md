@@ -225,6 +225,12 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
   oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
   las 40 combinaciones no se han probado una a una en el iPhone.
 
+**Prueba completa (22/10, D-030):** `docs/propuestas/prueba-completa-2026-10-22/` reúne la muñeca nueva con todos sus
+conjuntos (vestido, camiseta, aventura con y sin mochila, pijama, hada con y sin alas y varita) y adornos aprobados, en
+los 4 tonos, 5 colores y 5 peinados, con Pintar, Heladería, logros y voz natural de la prueba conjunta (`461c4f2`,
+unida desde `pintar-heladeria`). Datos propios `com1:`. Probada en Chromium (23/23 + 37/37). **Pendiente de probar en el
+iPhone.** Enlace: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-completa-2026-10-22/index.html>.
+
 **Prueba aislada nueva D-026 (18/10):** `docs/propuestas/prueba-juego-d026/` con los tres peinados (melena por defecto,
 coleta con y sin cinta, dos coletas con y sin sombrero) y los accesorios aprobados (corona, lazo, flores, mariposa,
 diadema, gorrito B, gorra, pintacaras) con sus compatibilidades del visor; datos propios `d026:`. Probada en Chromium
@@ -364,7 +370,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-029: variantes del hada aprobadas visualmente) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-030: prueba completa preparada, sin probar en el iPhone) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

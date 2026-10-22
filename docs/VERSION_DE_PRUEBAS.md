@@ -8,6 +8,10 @@ Es la rama `avatar-creador` (sin publicar) servida desde **otra dirección web**
 un servicio gratuito que muestra los archivos públicos de GitHub como una web. Se actualiza sola unos
 minutos después de cada subida a la rama.
 
+**Prueba completa (D-030, 22/10):** la muñeca nueva con todos sus conjuntos y adornos aprobados + Pintar, Heladería y
+logros, con datos propios (`com1:`):
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-completa-2026-10-22/index.html>
+
 **Prueba aislada nueva: piel, pelo, cejas, ojos y pintacaras (D-023), 16/10/2026:**
 <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-juego-d023/index.html>
 — copia aparte con datos propios (claves `d023:`). No toca los datos de esta versión de pruebas, ni los de las pruebas

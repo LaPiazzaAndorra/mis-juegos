@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-22 — D-029: variantes del hada aprobadas visualmente (tonos, colores y peinados)
+### 2026-10-22 — D-030: prueba completa (muñeca con conjuntos y adornos + Pintar, Heladería y logros)
+
+- **Solicitado por:** la propietaria («Después prepara una nueva copia aislada que reúna la muñeca nueva, los conjuntos y accesorios aprobados, y Pintar, Heladería y logros de la prueba conjunta de 461c4f245f15c0942ecd7f93f825d9a92771f42c, en la rama pintar-heladeria. Conserva las referencias congeladas y usa datos propios para la copia, sin modificar las partidas de Amaia ni main. Envíame un único enlace para probarlo todo en Safari.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `93286c6`, la unión de `pintar-heladeria` en `ee5677b`, que
+  contiene `461c4f2`; esa unión solo añade las carpetas de propuestas de esa rama, sin cambios; antes, `14107c5`).
+- **Estado:** copia aislada **preparada y probada en Chromium**; pendiente de probar en el iPhone. Nada publicado.
+- **Cambios:** `docs/propuestas/prueba-completa-2026-10-22/` (`preparar_copia.py`, `capas-del-visor.js` y `.json`,
+  `index.html`, `progreso.js`, `logros.js`, `aislamiento.js` (`com1:`), `manifest.json`, `avatar/motor.js`,
+  `avatar/catalogo-todo.js`, `avatar/arte/piezas.js`, `avatar/arte/todo/` (539 piezas WebP sin pérdida, 53,4 MB),
+  `prueba-completa.js`, `LEEME.md`); D-030, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`,
+  `VERSION_DE_PRUEBAS.md` y `docs/propuestas/LEEME.md`.
+- **Datos guardados afectados:** ninguno (la copia usa `com1:`). Juego, `sw.js`, partidas, referencias congeladas y `main`
+  sin cambios.
+- **Pruebas:** `prueba-completa.js`: 23/23 de la muñeca (900 recetas y 160 casos de adornos iguales al visor; 539 piezas que cargan; 8 combinaciones a tamaño real con diferencia máxima 4; «Vestir», parpadeo, guardar y reabrir, «Mi Mundo», datos ajenos intactos, iPhone horizontal e iPad) y 37/37 de Pintar, Heladería y logros (la prueba de la copia conjunta sobre esta copia). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado
+  en un iPhone real.
+- **Enlace:** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-completa-2026-10-22/index.html> (el fijo, con el hash de este commit, en la entrada siguiente).
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit (y, si se quiere, `git revert -m 1 93286c6` para quitar la unión).
+
+### 2026-10-22 — `14107c5` · D-029: variantes del hada aprobadas visualmente (tonos, colores y peinados)
 
 - **Solicitado por:** la propietaria («Apruebo visualmente las variantes del hada de 1d9d410, con los cuatro tonos de piel, los cinco colores de pelo y los tres peinados, incluida la mano de agarre. Regístralo sin dar por probadas individualmente las 60 combinaciones en mi iPhone.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `1d9d410`, el de la entrada siguiente).
