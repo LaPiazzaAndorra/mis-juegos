@@ -1,6 +1,21 @@
 # Registro de cambios
 
-### 2026-10-22 — D-030: prueba completa (muñeca con conjuntos y adornos + Pintar, Heladería y logros)
+### 2026-10-22 — D-030 aprobada en general; D-031: propuesta de la habitación de Mi Mundo
+
+- **Solicitado por:** la propietaria («La prueba completa me parece bien en el iPhone. Registra mi aprobación general, sin dar por comprobadas todas las combinaciones.» y «Seguimos con Mi Mundo: prepara una primera habitación para jugar con la muñeca guardada, moverla y mover algunos objetos. Quiero poder acostarla en la cama y sentarla en una silla. Primero enséñame una propuesta de distribución y las ilustraciones que necesitamos. Mantengamos el estilo de nuestra muñeca; podemos generar aquí los dibujos. Trabaja sobre una nueva copia aislada, conservando la prueba completa y las partidas. No cambies main. Los peinados nuevos quedan para después.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `4d950bc`, el de la entrada siguiente).
+- **Enlace fijo de la prueba completa** (commit `4d950bc`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/4d950bc2632aaed7492a6868deb5f541f24717ad/docs/propuestas/prueba-completa-2026-10-22/index.html>.
+- **Estado:** prueba completa **aprobada en general** (sin dar por comprobadas todas las combinaciones en el iPhone);
+  habitación de Mi Mundo: **propuesta**, pendiente de aprobación. Nada activado ni publicado.
+- **Cambios:** `docs/propuestas/mi-mundo-habitacion-2026-10-22/` (`LEEME.md`, `preparar_propuesta.py`, `distribucion.png`,
+  `estados.png`, `plantilla-escala.png`, `antes.png`); D-030 (2), D-031, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y `docs/propuestas/LEEME.md`. Ninguna capa ni copia cambia.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, partidas, copias y `main` sin cambios.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `4d950bc` · D-030: prueba completa (muñeca con conjuntos y adornos + Pintar, Heladería y logros)
 
 - **Solicitado por:** la propietaria («Después prepara una nueva copia aislada que reúna la muñeca nueva, los conjuntos y accesorios aprobados, y Pintar, Heladería y logros de la prueba conjunta de 461c4f245f15c0942ecd7f93f825d9a92771f42c, en la rama pintar-heladeria. Conserva las referencias congeladas y usa datos propios para la copia, sin modificar las partidas de Amaia ni main. Envíame un único enlace para probarlo todo en Safari.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `93286c6`, la unión de `pintar-heladeria` en `ee5677b`, que

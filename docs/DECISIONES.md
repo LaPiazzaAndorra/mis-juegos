@@ -1,5 +1,15 @@
 # Registro de decisiones
 
+## D-031 · Mi Mundo: primera habitación ilustrada para jugar con la muñeca · 22/10/2026
+- **Pedido de la propietaria:** «Seguimos con Mi Mundo: prepara una primera habitación para jugar con la muñeca guardada, moverla y mover algunos objetos. Quiero poder acostarla en la cama y sentarla en una silla. Primero enséñame una propuesta de distribución y las ilustraciones que necesitamos. Mantengamos el estilo de nuestra muñeca; podemos generar aquí los dibujos. Trabaja sobre una nueva copia aislada, conservando la prueba completa y las partidas. No cambies main. Los peinados nuevos quedan para después.»
+- **Propuesta (pendiente de aprobación)** en `docs/propuestas/mi-mundo-habitacion-2026-10-22/`: distribución con la muñeca
+  guardada a escala, 15 ilustraciones en el estilo de la muñeca y mensaje para generarlas. **Acostada y sentada sin posturas
+  nuevas de la muñeca:** cama y mesa en dos capas (detrás: cabecero y almohada, silla; delante: edredón y mantel hasta el
+  suelo) con la muñeca entre ellas, para que valga con toda la ropa, peinados y tonos. Pendiente de decidir si se ocultan
+  alas, mochila y varita al acostarla o sentarla.
+- **Límites:** nada en el juego ni en ninguna copia todavía; la copia aislada nueva se hará al aprobar el diseño y las piezas;
+  prueba completa, partidas y `main` sin cambios; peinados nuevos, después.
+
 ## D-030 · Prueba completa: muñeca nueva con sus conjuntos y adornos + Pintar, Heladería y logros · 22/10/2026
 - **Pedido de la propietaria:** «Después prepara una nueva copia aislada que reúna la muñeca nueva, los conjuntos y accesorios aprobados, y Pintar, Heladería y logros de la prueba conjunta de 461c4f245f15c0942ecd7f93f825d9a92771f42c, en la rama pintar-heladeria. Conserva las referencias congeladas y usa datos propios para la copia, sin modificar las partidas de Amaia ni main. Envíame un único enlace para probarlo todo en Safari.»
 - **Hecho:** rama `pintar-heladeria` unida a `avatar-creador` sin cambios (solo añade sus carpetas de propuestas); copia
@@ -12,6 +22,9 @@
 - **Probado en Chromium:** 23/23 de la muñeca (900 recetas y 160 casos de adornos iguales al visor; 539 piezas que cargan; 8 combinaciones a tamaño real con diferencia máxima 4; «Vestir», parpadeo, guardar y reabrir, «Mi Mundo», datos ajenos intactos, iPhone horizontal e iPad) y 37/37 de Pintar, Heladería y logros (la prueba de la copia conjunta sobre esta copia). **No probado en el iPhone real.**
 - **Límites:** referencias congeladas (`prueba-juego-d016/-d021/-d023/-d026`, `prueba-conjunta-2026-10-22`, Pintar,
   Heladería y logros), juego, `sw.js`, partidas y `main` sin cambios. Nada publicado.
+- **22/10/2026 (2): aprobación general.** La propietaria, tras probarla en su iPhone: «La prueba completa me parece bien en el iPhone. Registra mi aprobación general, sin dar por comprobadas todas las combinaciones.» Queda **aprobada en general**
+  la prueba completa (`4d950bc`); **no se dan por comprobadas en el iPhone todas las combinaciones** (ropa, peinados, tonos,
+  colores, adornos, ni cada recorrido de Pintar, Heladería y logros). La copia se conserva sin cambios.
 
 ## D-029 · Conjunto de hada: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «prepara la guía sobre nuestra base para diseñar el conjunto de hada, con vestido, alas,
