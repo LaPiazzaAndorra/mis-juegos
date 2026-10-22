@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-22 — D-031: habitación ilustrada de Mi Mundo en una copia aislada (fondo y cama propuestos)
+### 2026-10-22 — D-032: publicación en main de la prueba completa, con juego sin conexión
+
+- **Solicitado y autorizado por:** la propietaria («Cambio de prioridad: quiero que Amaia pueda jugar mañana durante el vuelo. Pausa la habitación nueva y las funciones pendientes. Autorizo integrar y publicar en main la versión aprobada de la prueba completa 4d950bc, con la muñeca nueva, ropa y accesorios aprobados, Pintar, Heladería y logros. Conserva una referencia de la versión anterior para poder volver atrás. Prepara la instalación en iPhone/iPad y el funcionamiento sin conexión. Incluye en la caché las láminas, las piezas de la muñeca y los archivos necesarios para jugar; muestra cuándo la descarga está completa. La voz puede quedar sin sonido si no está disponible. Protege las partidas actuales: no borres ni reinicies datos. Conserva «Guardar / Recuperar mi progreso». Centra las comprobaciones en instalar, abrir sin conexión, vestir, colorear, jugar a la Heladería y guardar. Comprueba también que una actualización no deje archivos mezclados. Evita nuevas propuestas y comparativas extensas. Entrégame el enlace publicado y los pasos mínimos para instalar y comprobar en modo avión. Indica cualquier limitación que quede.»).
+- **Rama y commit:** `main` = `031ce07` (sobre `4bbf51d`); en `avatar-creador`, este commit (sobre `a0bad34`, el de la entrada
+  siguiente) con el generador y la prueba. Referencia para volver atrás: rama `version-anterior-2026-10-11` (`4bbf51d`).
+- **Estado:** **publicado** (GitHub Pages: <https://lapiazzaandorra.github.io/mis-juegos/>). La habitación nueva y las funciones pendientes, en pausa.
+- **Cambios:** en `main`, solo los archivos para jugar (591; 57 MB): `index.html` (la prueba completa con la cabecera del
+  juego), `sw.js`, `offline-lista.js`, `offline.js`, `.nojekyll`, y en sus rutas de la prueba completa: `progreso.js`,
+  `logros.js`, motor, catálogo y piezas de la muñeca, láminas de Pintar, `plantilla.js`, `avatar.css` y catálogos,
+  manifiestos e iconos (el manifiesto no cambia: la app instalada se actualiza sola). En `avatar-creador`:
+  `herramientas/publicar/` (`preparar_publicacion.py`, `sw-plantilla.js`, `offline.js`, `prueba-publicacion.js`); D-032,
+  `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y `README.md`.
+- **Datos guardados afectados:** ninguno se borra ni se reinicia (mismas claves; se añaden `logros`, `tareas`, `premios` al
+  usar los logros). «Guardar / Recuperar mi progreso» se conserva.
+- **Pruebas:** `herramientas/publicar/prueba-publicacion.js` 17/17 (Chromium, iPhone simulado y app instalada simulada): con la versión del 11/10 instalada y una partida, la nueva entra sola sin perder ni cambiar ningún dato (también una lámina propia en IndexedDB); descarga todo y avisa «✅ Lista para jugar sin conexión» (una sola caché, 587 archivos); en modo avión abre, están todas las piezas y láminas, vestir y guardar el personaje, colorear una lámina nueva y guardar el dibujo, Heladería (+1 ⭐), «Mis logros» y «Guardar mi progreso», sin errores; una actualización posterior espera sin mezclar archivos, avisa, entra entera al tocar «Actualizar» y deja solo su caché, con la partida igual. `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45 (la versión de pruebas de
+  `avatar-creador`, que no cambia). No probado en un iPhone ni en un iPad reales.
+- **¿`main` intacta?:** no: cambiada con autorización expresa (`4bbf51d` → `031ce07`).
+- **Cómo volver atrás:** subir a `main` la rama `version-anterior-2026-10-11` (en GitHub: «revert» del commit `031ce07`, o
+  `git push origin version-anterior-2026-10-11:main --force-with-lease`). La app instalada vuelve a la versión anterior al
+  abrirse con internet; los datos no se tocan.
+
+### 2026-10-22 — `a0bad34` · D-031: habitación ilustrada de Mi Mundo en una copia aislada (fondo y cama propuestos)
 
 - **Solicitado por:** la propietaria («Hemos elegido este nuevo estilo para Mi Mundo. Te adjunto el fondo vacío y la cama como propuestas; comprueba perspectiva, escala y bordes antes de integrarlos. La cama todavía necesita separarse en capas para acostar a nuestra muñeca original. El rediseño incluirá habitación, casa y parque, todos jugables con la muñeca. Sustituiremos los emojis por un catálogo de muebles y objetos adecuados para cada escenario, que se puedan colocar, mover y guardar. Habrá objetos iniciales gratuitos y otros nuevos desbloqueables mediante actividades y logros, sin bloquear contenido ya aprobado. Empieza por la habitación en una copia aislada. Indícame qué piezas y capas necesitas que preparemos a continuación. Conserva la prueba completa, las partidas y main.» y «Oculta temporalmente alas, mochila y varita al acostarla o sentarla; recupéralas al levantarse sin modificar la muñeca guardada. La cama es una propuesta visual. Comprueba si su perspectiva permite acostarla; si necesita una versión más frontal, indícanoslo antes de recortar. Conservemos el estilo aprobado.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `fed1d53`, el de la entrada siguiente).

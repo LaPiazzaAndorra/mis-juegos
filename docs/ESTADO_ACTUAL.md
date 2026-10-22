@@ -225,6 +225,9 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
   oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
   las 40 combinaciones no se han probado una a una en el iPhone.
 
+**Publicado (22/10, D-032):** la prueba completa en `main` (`031ce07`), con juego sin conexión; 17/17 en la prueba de
+publicación (Chromium); **sin probar en el iPhone ni en el iPad reales**. La habitación nueva (D-031), **en pausa**.
+
 **Mi Mundo · habitación ilustrada (22/10, D-031):** propuesta de distribución, 15 ilustraciones y mensaje para generarlas
 en `docs/propuestas/mi-mundo-habitacion-2026-10-22/` (acostarla y sentarla con muebles en dos capas, sin posturas nuevas).
 Nuevo estilo elegido (22/10): fondo vacío y cama recibidos como **propuestas** y revisados; **copia aislada
@@ -377,18 +380,20 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-031: habitación ilustrada en una copia aislada, sin probar en el iPhone) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-032: prueba completa publicada en main, con juego sin conexión) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
-integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
+integrada), probado solo en simulación · **`main`:** `031ce07` (22/10/2026, D-032: la prueba completa publicada, con juego sin
+conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bbf51d`).
 
 ## Repositorio
 
 - Juego: `LaPiazzaAndorra/mis-juegos` (**público**). No confundir con `la-piazza-gestio`.
-- `main` = versión publicada (11/10/2026), commit `4bbf51d`: es el **punto de recuperación**. La etiqueta
-  `publicado-2026-10-11` está pendiente: el entorno de Claude no puede subir etiquetas (error 403);
-  hay que crearla desde la web (ver `docs/PRUEBAS_Y_RECUPERACION.md`, apartado D).
+- `main` = versión publicada: **`031ce07` (22/10/2026, D-032)**, la prueba completa aprobada con juego sin conexión, generada
+  con `herramientas/publicar/preparar_publicacion.py` (solo los archivos del juego). **Punto de recuperación:** la rama
+  `version-anterior-2026-10-11` (`4bbf51d`, la versión del 11/10). Las etiquetas no se pueden subir desde el entorno de
+  Claude (error 403).
 - `avatar-creador` = desarrollo en curso, **sin publicar**.
-- Dirección pública del juego: **por confirmar** con la propietaria.
+- Dirección pública del juego: <https://lapiazzaandorra.github.io/mis-juegos/> (GitHub Pages desde `main`).
 
 ## Qué hay en `avatar-creador`
 
