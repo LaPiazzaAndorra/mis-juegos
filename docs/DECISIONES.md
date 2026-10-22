@@ -9,6 +9,17 @@
   alas, mochila y varita al acostarla o sentarla.
 - **Límites:** nada en el juego ni en ninguna copia todavía; la copia aislada nueva se hará al aprobar el diseño y las piezas;
   prueba completa, partidas y `main` sin cambios; peinados nuevos, después.
+- **22/10/2026 (2): nuevo estilo elegido para Mi Mundo.** La propietaria: «Hemos elegido este nuevo estilo para Mi Mundo. Te adjunto el fondo vacío y la cama como propuestas; comprueba perspectiva, escala y bordes antes de integrarlos. La cama todavía necesita separarse en capas para acostar a nuestra muñeca original. El rediseño incluirá habitación, casa y parque, todos jugables con la muñeca. Sustituiremos los emojis por un catálogo de muebles y objetos adecuados para cada escenario, que se puedan colocar, mover y guardar. Habrá objetos iniciales gratuitos y otros nuevos desbloqueables mediante actividades y logros, sin bloquear contenido ya aprobado. Empieza por la habitación en una copia aislada. Indícame qué piezas y capas necesitas que preparemos a continuación. Conserva la prueba completa, las partidas y main.» Y después: «Oculta temporalmente alas, mochila y varita al acostarla o sentarla; recupéralas al levantarse sin modificar la muñeca guardada. La cama es una propuesta visual. Comprueba si su perspectiva permite acostarla; si necesita una versión más frontal, indícanoslo antes de recortar. Conservemos el estilo aprobado.»
+  - **Decisiones:** rediseño de habitación, casa y parque, jugables con la muñeca; catálogo de muebles y objetos por
+    escenario (colocar, mover, guardar) en lugar de los emojis; objetos iniciales gratis y otros desbloqueables con
+    actividades y logros, sin bloquear nada ya aprobado; al acostarla o sentarla se ocultan alas, mochila y varita, que
+    vuelven al levantarla, sin cambiar la muñeca guardada. Fondo y cama: **propuestas** (pendientes de aprobación).
+  - **Revisado:** el fondo encaja en perspectiva y escala con la muñeca; la cama tiene bordes limpios, pero alfa 252–253 en
+    todo su interior y 599 motitas sueltas (corregidos en copias); su perspectiva **sí permite acostarla** (girada −25°, cabeza
+    en las almohadas, embozo delante): no hace falta una cama más frontal.
+  - **Hecho:** copia aislada `docs/propuestas/prueba-habitacion-2026-10-22/` (prueba completa + habitación nueva; datos
+    `hab1:`): mover y acostar a la muñeca, mover y quitar la cama, catálogo con desbloqueos por logros; 18/18 en Chromium.
+    **Sin probar en el iPhone.**
 
 ## D-030 · Prueba completa: muñeca nueva con sus conjuntos y adornos + Pintar, Heladería y logros · 22/10/2026
 - **Pedido de la propietaria:** «Después prepara una nueva copia aislada que reúna la muñeca nueva, los conjuntos y accesorios aprobados, y Pintar, Heladería y logros de la prueba conjunta de 461c4f245f15c0942ecd7f93f825d9a92771f42c, en la rama pintar-heladeria. Conserva las referencias congeladas y usa datos propios para la copia, sin modificar las partidas de Amaia ni main. Envíame un único enlace para probarlo todo en Safari.»

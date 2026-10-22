@@ -1,6 +1,27 @@
 # Registro de cambios
 
-### 2026-10-22 — D-030 aprobada en general; D-031: propuesta de la habitación de Mi Mundo
+### 2026-10-22 — D-031: habitación ilustrada de Mi Mundo en una copia aislada (fondo y cama propuestos)
+
+- **Solicitado por:** la propietaria («Hemos elegido este nuevo estilo para Mi Mundo. Te adjunto el fondo vacío y la cama como propuestas; comprueba perspectiva, escala y bordes antes de integrarlos. La cama todavía necesita separarse en capas para acostar a nuestra muñeca original. El rediseño incluirá habitación, casa y parque, todos jugables con la muñeca. Sustituiremos los emojis por un catálogo de muebles y objetos adecuados para cada escenario, que se puedan colocar, mover y guardar. Habrá objetos iniciales gratuitos y otros nuevos desbloqueables mediante actividades y logros, sin bloquear contenido ya aprobado. Empieza por la habitación en una copia aislada. Indícame qué piezas y capas necesitas que preparemos a continuación. Conserva la prueba completa, las partidas y main.» y «Oculta temporalmente alas, mochila y varita al acostarla o sentarla; recupéralas al levantarse sin modificar la muñeca guardada. La cama es una propuesta visual. Comprueba si su perspectiva permite acostarla; si necesita una versión más frontal, indícanoslo antes de recortar. Conservemos el estilo aprobado.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `fed1d53`, el de la entrada siguiente).
+- **Estado:** copia aislada **preparada y probada en Chromium**; fondo y cama, **propuestas** pendientes de aprobación. Nada
+  publicado.
+- **Cambios:** `docs/propuestas/prueba-habitacion-2026-10-22/` (`recibidas/` sin modificar, `preparar_piezas.py`, `arte/`
+  (fondo, cama detrás y cama delante, comprobaciones), `habitacion.js`, `habitacion.css`, `preparar_copia.py`, `index.html`,
+  `progreso.js`, `logros.js`, `aislamiento.js` (`hab1:`), `manifest.json`, `prueba-habitacion.js`, `revision/`, `LEEME.md`);
+  D-031 (2), `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`, `VERSION_DE_PRUEBAS.md` y `docs/propuestas/LEEME.md`.
+  La prueba completa no cambia (la copia usa sus archivos de la muñeca y sus pasos).
+- **Datos guardados afectados:** ninguno (la copia usa `hab1:`; `mm_hab` y `sc_habitacion` no se tocan). Juego, `sw.js`,
+  partidas, copias y `main` sin cambios.
+- **Pruebas:** `prueba-habitacion.js` 18/18 (aislamiento, habitación, acostar y levantar con alas y varita ocultas y de
+  vuelta, arrastrar muñeca y cama, soltar en la cama, volver a abrir, catálogo y desbloqueos, demás escenas como hoy,
+  iPhone e iPad, datos ajenos intactos, sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No
+  probado en un iPhone real.
+- **Enlace:** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-habitacion-2026-10-22/index.html> (el fijo, con el hash de este commit, en la entrada siguiente).
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `fed1d53` · D-030 aprobada en general; D-031: propuesta de la habitación de Mi Mundo
 
 - **Solicitado por:** la propietaria («La prueba completa me parece bien en el iPhone. Registra mi aprobación general, sin dar por comprobadas todas las combinaciones.» y «Seguimos con Mi Mundo: prepara una primera habitación para jugar con la muñeca guardada, moverla y mover algunos objetos. Quiero poder acostarla en la cama y sentarla en una silla. Primero enséñame una propuesta de distribución y las ilustraciones que necesitamos. Mantengamos el estilo de nuestra muñeca; podemos generar aquí los dibujos. Trabaja sobre una nueva copia aislada, conservando la prueba completa y las partidas. No cambies main. Los peinados nuevos quedan para después.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `4d950bc`, el de la entrada siguiente).

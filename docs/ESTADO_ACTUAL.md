@@ -227,7 +227,10 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
 
 **Mi Mundo · habitación ilustrada (22/10, D-031):** propuesta de distribución, 15 ilustraciones y mensaje para generarlas
 en `docs/propuestas/mi-mundo-habitacion-2026-10-22/` (acostarla y sentarla con muebles en dos capas, sin posturas nuevas).
-**Pendiente de aprobación;** después, una copia aislada nueva.
+Nuevo estilo elegido (22/10): fondo vacío y cama recibidos como **propuestas** y revisados; **copia aislada
+`docs/propuestas/prueba-habitacion-2026-10-22/`** (datos `hab1:`): mover y acostar a la muñeca (sin alas, mochila ni
+varita mientras duerme), mover y quitar la cama, catálogo con desbloqueos por logros; 18/18 en Chromium; **sin probar en el
+iPhone**. Enlace: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-habitacion-2026-10-22/index.html>.
 
 **Prueba completa (22/10, D-030):** `docs/propuestas/prueba-completa-2026-10-22/` reúne la muñeca nueva con todos sus
 conjuntos (vestido, camiseta, aventura con y sin mochila, pijama, hada con y sin alas y varita) y adornos aprobados, en
@@ -374,7 +377,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-030 aprobada en general; D-031: propuesta de la habitación de Mi Mundo) · **Rama:** `avatar-creador` ·
+**Última actualización:** 22/10/2026 (D-031: habitación ilustrada en una copia aislada, sin probar en el iPhone) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `4bbf51d`, sin cambios desde el 11/10/2026.
 

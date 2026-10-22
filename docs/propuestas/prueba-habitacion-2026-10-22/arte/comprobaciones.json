@@ -1,0 +1,100 @@
+{
+ "cama": {
+  "tam": [
+   1312,
+   1199
+  ],
+  "alfa_casi_opaco_corregido_px": 856371,
+  "motitas_quitadas": 599,
+  "motitas_px": 1875,
+  "delante_px": 610243
+ },
+ "fondo": {
+  "tam": [
+   1536,
+   1024
+  ]
+ },
+ "acostada": {
+  "cx": 385,
+  "cy": 525,
+  "giro": -25,
+  "alto": 560
+ },
+ "embozo": [
+  [
+   40,
+   452
+  ],
+  [
+   130,
+   468
+  ],
+  [
+   200,
+   488
+  ],
+  [
+   300,
+   483
+  ],
+  [
+   400,
+   479
+  ],
+  [
+   460,
+   475
+  ],
+  [
+   530,
+   469
+  ],
+  [
+   600,
+   456
+  ],
+  [
+   700,
+   447
+  ],
+  [
+   760,
+   441
+  ],
+  [
+   820,
+   443
+  ],
+  [
+   900,
+   449
+  ],
+  [
+   1000,
+   463
+  ],
+  [
+   1100,
+   490
+  ],
+  [
+   1180,
+   520
+  ],
+  [
+   1312,
+   540
+  ]
+ ],
+ "kb": {
+  "cama-delante.webp": 179.2,
+  "cama-detras.webp": 261.3,
+  "fondo-habitacion.webp": 237.1
+ },
+ "recibidas_sin_cambios": true,
+ "sha256_recibidas": {
+  "cama-propuesta.png": "26d5e3a4f307ba5dbf6d5661587bfeceeafd4ea0c56ea0140482156c3c0d2fb0",
+  "fondo-habitacion-propuesta.png": "6f337998d86f71bac33e14cfc1b9ad09f25ee4d30c8a71f217b07291f1776cee"
+ }
+}

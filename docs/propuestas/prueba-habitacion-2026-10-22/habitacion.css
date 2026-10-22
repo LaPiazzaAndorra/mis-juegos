@@ -1,0 +1,16 @@
+/* Prueba de la habitación ilustrada de «Mi Mundo» (D-031) · solo en esta copia */
+.hab2{position:absolute;inset:0;overflow:hidden;touch-action:none}
+.hab2-escena{position:absolute;left:0;top:0;width:1536px;height:1024px;transform-origin:0 0;transition:transform .5s ease-out}
+.hab2-fondo{position:absolute;left:0;top:0;width:1536px;height:1024px;pointer-events:none;user-select:none}
+.hab2-obj{position:absolute;user-select:none;-webkit-user-drag:none;cursor:grab}
+.hab2-obj[data-capa="delante"]{pointer-events:none}
+.hab2-obj.sel[data-capa="detras"]{filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #a083ff)}
+.hab2-muneca{position:absolute;transition-property:left,top,width,height;transition-timing-function:linear;transform-origin:50% 50%;cursor:grab}
+.hab2-muneca>.hab2-av{width:100%;height:100%}
+.hab2-zzz{display:none;position:absolute;left:62%;top:2%;font:900 34px system-ui,sans-serif;color:#a083ff;text-shadow:0 2px 0 #fff;transform:rotate(25deg);animation:zzz 2s ease-in-out infinite;pointer-events:none}
+.hab2-muneca.acostada .hab2-zzz{display:block}
+.hab2-item{position:relative;width:auto;padding:0 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:92px}
+.hab2-item img{height:52px;width:auto;pointer-events:none}
+.hab2-item span{font:700 13px system-ui,sans-serif;color:#5a4a6a}
+.hab2-item i{position:absolute;right:4px;top:2px;font-style:normal;font-size:20px}
+.hab2-item.bloq img{filter:grayscale(1) opacity(.55)}
