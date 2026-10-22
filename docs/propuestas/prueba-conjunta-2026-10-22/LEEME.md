@@ -48,7 +48,14 @@ node docs/propuestas/prueba-conjunta-2026-10-22/prueba-conjunta.js        # 37 c
 Resultado 22/10/2026: **37/37**. Además, sin cambios y otra vez correctas: Pintar 188/188, Heladería 47/47,
 progreso de la Heladería 19/19, logros 37/37, juego 21/21 y copia de seguridad 45/45.
 
-**No probado:** en un iPhone o iPad reales, con la app instalada, ni sin conexión. Las voces reales del iPhone tampoco
+**Comprobado por la propietaria en su iPhone (22/10/2026, 08:47):** todas las páginas se abren bien. Es lo único
+confirmado en el iPhone; el resto del recorrido (pintar, pedidos, retos, tareas, cofres, premios, voz, copia de seguridad)
+no se da por comprobado allí.
+Se ve la **muñeca antigua**, como estaba previsto: esta copia sale de la rama `pintar-heladeria` y no incluye el trabajo
+del avatar. Cuando terminen las variantes del hada se preparará otra copia que reúna los dos trabajos (la coordina la
+propietaria). Esta prueba y sus datos (`con1:`) se conservan.
+
+**No probado:** en un iPad real, con la app instalada, ni sin conexión. Las voces reales del iPhone tampoco
 (en Chromium la voz está simulada: se comprueban el tono, la velocidad y el silencio).
 
 ![Premios: sabor arcoíris y color dorado](capturas/premios-iphone.png)
