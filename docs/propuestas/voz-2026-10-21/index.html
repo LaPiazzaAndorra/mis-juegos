@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff4fa">
+<title>Prueba de voces · Mi Mundo de Juegos</title>
+<!-- Prueba aparte (21/10/2026): escuchar las voces en español que el iPhone ofrece al navegador y elegir.
+     No es el juego, no lee ni cambia sus datos y no cambia la voz del juego. Solo guarda las favoritas en este
+     navegador con la clave «voz1:favoritas». -->
+<style>
+:root{--bg:#fff6fb;--ink:#4a3a5c;--soft:#8a7a9c;--card:#fff;--line:rgba(74,58,92,.12);--purple:#a083ff;--lila2:#e7defe;--green:#5fd39b;--yellow:#ffd46b;
+  --shadow:0 6px 0 rgba(74,58,92,.10),0 10px 24px rgba(74,58,92,.08)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-rounded,"SF Pro Rounded","Nunito","Arial Rounded MT Bold",system-ui,sans-serif}
+body{padding:calc(12px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));max-width:860px;margin:0 auto}
+h1{font-size:clamp(26px,7vw,36px);margin:4px 0 2px}
+.sub{color:var(--soft);font-weight:700;margin:0 0 14px}
+.card{background:var(--card);border-radius:24px;padding:14px;box-shadow:var(--shadow);margin:0 0 14px}
+.card h2{font-size:19px;margin:0 0 8px}
+.frases{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.frases li{font-weight:800;background:#f8f2fd;border-radius:14px;padding:8px 12px}
+.frases li b{color:var(--purple);margin-right:6px}
+.ctrl{display:grid;grid-template-columns:auto 1fr auto;gap:8px 12px;align-items:center;font-weight:800}
+.ctrl input[type=range]{width:100%;accent-color:var(--purple);height:32px}
+.ctrl output{font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+button{font:inherit;color:var(--ink);cursor:pointer}
+.b{border:none;border-radius:16px;background:#fff;box-shadow:0 3px 0 rgba(0,0,0,.1),0 0 0 2px var(--line) inset;min-height:48px;padding:0 14px;font-weight:900;font-size:17px}
+.b:active{transform:scale(.95)}
+.b.p{background:linear-gradient(150deg,#efe7ff,#d8c9ff)}.b.g{background:linear-gradient(150deg,#ddfaeb,#b8efd3)}.b.y{background:linear-gradient(150deg,#fff6d3,#ffe49a)}
+.b.fav{background:#fff}.b.fav.on{background:linear-gradient(150deg,#fff3c4,#ffd46b)}
+.fila{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.voz{background:var(--card);border-radius:22px;padding:12px 14px;box-shadow:var(--shadow);margin:0 0 12px}
+.voz.sonando{box-shadow:0 0 0 4px var(--purple),var(--shadow)}
+.vcab{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.vnom{font-size:21px;font-weight:900}
+.vlang{color:var(--soft);font-weight:800;font-size:15px}
+.etq{display:inline-block;font-size:13px;font-weight:900;border-radius:10px;padding:2px 8px;margin:4px 4px 0 0;background:#f1ebfa}
+.etq.premium{background:#fff1c4}.etq.mejorada{background:#ddfaeb}.etq.basica{background:#f1ebfa}.etq.robot{background:#ffe3e3}.etq.red{background:#e2f5ff}
+.uri{font-size:12px;color:var(--soft);word-break:break-all;margin-top:6px}
+.grupo{font-size:18px;font-weight:900;color:var(--soft);margin:18px 4px 8px}
+.aviso{background:#fff4e0;border:2px dashed #ffb347;border-radius:18px;padding:10px 12px;font-weight:700;margin:0 0 14px}
+.nota{font-size:15px;color:var(--soft);font-weight:700;line-height:1.4}
+textarea{width:100%;font:inherit;font-size:17px;border-radius:14px;border:2px solid var(--line);padding:10px;min-height:64px}
+#favs{white-space:pre-wrap;font-size:14px;background:#f8f2fd;border-radius:14px;padding:10px;font-family:ui-monospace,Menlo,monospace;min-height:44px}
+.oculta{display:none}
+@media (prefers-color-scheme:dark){:root{--bg:#1e1a26;--ink:#f1eaf8;--soft:#b9aecb;--card:#2a2434;--line:rgba(255,255,255,.14)}
+  .frases li,#favs,.etq{background:#352d42}.b{background:#352d42}.aviso{background:#3a2f1f}.voz,.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<h1>🗣️ Prueba de voces</h1>
+<p class="sub">Escucha las voces en español de este dispositivo y marca las que te gusten. No cambia la voz del juego.</p>
+
+<div class="aviso" id="avisoSonido">🔈 Si no oyes nada: quita el modo silencio del iPhone, sube el volumen y toca un botón ▶ (el iPhone solo deja hablar después de un toque).</div>
+
+<div class="card">
+  <h2>Las frases</h2>
+  <ol class="frases">
+    <li><b>1</b>¡Hola, Amaia! ¿Jugamos juntas?</li>
+    <li><b>2</b>Cuenta las bolas de helado.</li>
+    <li><b>3</b>¡Lo has conseguido! Puedes abrir tu cofre.</li>
+  </ol>
+  <p class="nota" style="margin:10px 2px 4px">Otra frase (opcional, se usa con el botón ✏️):</p>
+  <textarea id="libre">¡Qué dibujo tan bonito! ¿Lo guardamos?</textarea>
+</div>
+
+<div class="card">
+  <h2>Velocidad y tono (para todas)</h2>
+  <div class="ctrl">
+    <label for="vel">Velocidad</label><input id="vel" type="range" min="0.7" max="1.2" step="0.05" value="1"><output id="velO">1,00</output>
+    <label for="ton">Tono</label><input id="ton" type="range" min="0.8" max="1.3" step="0.05" value="1"><output id="tonO">1,00</output>
+  </div>
+  <div class="fila" style="margin-top:10px"><button class="b" id="natural">↺ Natural (1,00 · 1,00)</button><button class="b y" id="comoJuego">🎮 Así suena ahora el juego</button></div>
+  <p class="nota" id="notaJuego">El juego usa hoy la voz que elige solo (o la de ⚙️ Ajustes) con el tono «🧒»: tono 1,45 y velocidad 0,95. Un tono tan alto hace que cualquier voz suene aguda y más artificial.</p>
+</div>
+
+<div class="card" id="resumen"><h2>Voces encontradas</h2><div class="nota" id="cuenta">Buscando voces…</div>
+  <div class="fila" style="margin-top:8px"><label class="nota"><input type="checkbox" id="verEfectos"> Ver también las voces de efectos (Abuela, Burbujas…)</label>
+  <label class="nota"><input type="checkbox" id="verUri"> Ver el identificador técnico</label></div></div>
+
+<div id="lista"></div>
+
+<div class="card">
+  <h2>⭐ Tus favoritas</h2>
+  <div id="favs">Todavía ninguna.</div>
+  <div class="fila" style="margin-top:8px"><button class="b g" id="copiar">📋 Copiar para enviarlo</button><button class="b" id="borrarFavs">Quitar favoritas</button></div>
+  <p class="nota">Copia esto y pégalo en el chat: así sé exactamente qué voz, velocidad y tono has elegido.</p>
+</div>
+
+<div class="card">
+  <h2>¿No hay ninguna buena?</h2>
+  <p class="nota">En Ajustes → Accesibilidad → Contenido leído → Voces → Español se pueden descargar voces «mejoradas» o «premium». Según Apple, Safari
+  solo ofrece a las páginas web las voces <b>preinstaladas</b>, así que las descargadas pueden <b>no aparecer aquí</b> aunque estén en el iPhone.
+  Si descargas alguna, vuelve a abrir esta página y mira si sale (etiqueta «Premium» o «Mejorada»). Las voces de Siri tampoco suelen estar disponibles para las webs.</p>
+</div>
+
+<script>
+'use strict';
+const FRASES=['¡Hola, Amaia! ¿Jugamos juntas?','Cuenta las bolas de helado.','¡Lo has conseguido! Puedes abrir tu cofre.'];
+const $=s=>document.querySelector(s);
+const EFECTOS=/eloquence|grandma|grandpa|abuel|rocko|shelley|sandy|flo\b|reed|eddy|bad news|bells|bubbles|burbuj|boing|cellos|organ|jester|superstar|whisper|wobble|zarvox|trinoids|albert|fred|junior|ralph|kathy|good news|hysterical/i;
+const sintesis=window.speechSynthesis;
+let voces=[],sonando=null,buscando=true;
+const fmt=n=>(+n).toFixed(2).replace('.',',');
+// favoritas: solo en este navegador (clave propia «voz1:favoritas»)
+const leerFavs=()=>{try{return JSON.parse(localStorage.getItem('voz1:favoritas')||'{}')}catch(e){return{}}};
+const guardarFavs=f=>{try{localStorage.setItem('voz1:favoritas',JSON.stringify(f))}catch(e){}};
+
+/* calidad según el identificador que da el sistema (Apple: …compact… / …enhanced… / …premium…) */
+function calidad(v){
+  const t=(v.voiceURI+' '+v.name).toLowerCase();
+  if(/premium/.test(t))return{k:'premium',t:'Premium',n:4};
+  if(/enhanced|mejorad/.test(t))return{k:'mejorada',t:'Mejorada',n:3};
+  if(/siri/.test(t))return{k:'premium',t:'Siri',n:4};
+  if(/natural|neural|online/.test(t))return{k:'red',t:'Natural (con internet)',n:3};
+  if(/eloquence/.test(t)||EFECTOS.test(t))return{k:'robot',t:'Efectos / robótica',n:0};
+  if(/compact/.test(t))return{k:'basica',t:'Básica',n:1};
+  return{k:'basica',t:'Estándar',n:2};
+}
+const region=l=>/^es[-_]es/i.test(l)?'España':/^es[-_](mx|us|419|ar|co|cl)/i.test(l)?'América':'Otra';
+/* la que elegiría hoy el juego (misma regla que index.html → bestVoice) */
+function comoElJuego(vs){
+  const ok=vs.filter(v=>/^es/i.test(v.lang)&&!EFECTOS.test(v.name+' '+v.voiceURI));if(!ok.length)return null;
+  const score=v=>{const n=v.name.toLowerCase();let s=0;if(/premium|enhanced|mejorad|neural|natural|siri/.test(n+v.voiceURI.toLowerCase()))s+=10;
+    if(/m[oó]nica|paulina|marisol|isabela|helena|elvira|luc[ií]a|google espa/.test(n))s+=5;if(/es[-_]es/i.test(v.lang))s+=2;return s};
+  return ok.slice().sort((a,b)=>score(b)-score(a))[0];
+}
+
+function hablar(texto,v,rate,pitch,tarjeta){
+  if(!sintesis){alert('Este navegador no tiene voz.');return}
+  sintesis.cancel();
+  if(sonando)sonando.classList.remove('sonando');sonando=tarjeta||null;if(tarjeta)tarjeta.classList.add('sonando');
+  setTimeout(()=>{   // en iOS, hablar justo después de cancel() a veces no suena
+    const u=new SpeechSynthesisUtterance(texto);if(v){u.voice=v;u.lang=v.lang}else u.lang='es-ES';
+    u.rate=rate;u.pitch=pitch;u.onend=u.onerror=()=>{if(tarjeta&&sonando===tarjeta){tarjeta.classList.remove('sonando');sonando=null}};
+    sintesis.speak(u);window.__ultima={texto,voz:v&&v.voiceURI,rate,pitch};
+  },60);
+}
+function hablarTodas(v,tarjeta){   // las tres seguidas, con su pausa
+  const r=+$('#vel').value,p=+$('#ton').value;hablar(FRASES[0],v,r,p,tarjeta);
+  for(let i=1;i<FRASES.length;i++){const u=new SpeechSynthesisUtterance(FRASES[i]);if(v){u.voice=v;u.lang=v.lang}u.rate=r;u.pitch=p;setTimeout(()=>sintesis.speak(u),80)}
+}
+
+function pintar(){
+  const verEf=$('#verEfectos').checked,verUri=$('#verUri').checked,favs=leerFavs();
+  const es=voces.filter(v=>/^es/i.test(v.lang));
+  const mostrar=es.filter(v=>verEf||!EFECTOS.test(v.name+' '+v.voiceURI));
+  const nEf=es.length-es.filter(v=>!EFECTOS.test(v.name+' '+v.voiceURI)).length;
+  const altas=es.filter(v=>calidad(v).n>=3).length;
+  $('#cuenta').innerHTML=voces.length?`Este dispositivo ofrece al navegador <b>${voces.length}</b> voces; <b>${es.length}</b> en español`+
+    (nEf?` (${nEf} de efectos, ocultas)`:'')+`. De calidad alta (Premium, Mejorada o Siri): <b>${altas}</b>.`+(altas?'':' <br>No hay ninguna de calidad alta disponible para las webs en este dispositivo.'):
+    (!sintesis?'Este navegador no tiene síntesis de voz.':buscando?'Buscando voces…':'No se han encontrado voces en este dispositivo. Toca «🎮 Así suena ahora el juego» y vuelve a abrir la página; si sigue igual, este navegador no ofrece voces.');
+  const orden=mostrar.slice().sort((a,b)=>calidad(b).n-calidad(a).n||region(a.lang).localeCompare(region(b.lang))||a.name.localeCompare(b.name,'es'));
+  const lista=$('#lista');lista.innerHTML='';let grupo='';
+  orden.forEach(v=>{
+    const c=calidad(v),g=c.n>=3?'Calidad alta':c.n===0?'Voces de efectos':'Estándar y básicas';
+    if(g!==grupo){grupo=g;lista.insertAdjacentHTML('beforeend',`<div class="grupo">${g}</div>`)}
+    const d=document.createElement('div');d.className='voz';d.dataset.uri=v.voiceURI;
+    d.innerHTML=`<div class="vcab"><div><div class="vnom"></div><div class="vlang"></div><div><span class="etq ${c.k}">${c.t}</span>${v.localService===false?'<span class="etq red">Necesita internet</span>':''}${v.default?'<span class="etq">Predeterminada</span>':''}</div></div>
+      <button class="b fav${favs[v.voiceURI]?' on':''}" aria-label="Me gusta">${favs[v.voiceURI]?'⭐':'☆'}</button></div>
+      <div class="fila"><button class="b p" data-f="0">▶ 1</button><button class="b p" data-f="1">▶ 2</button><button class="b p" data-f="2">▶ 3</button><button class="b g" data-f="todas">▶ Las tres</button><button class="b" data-f="libre">✏️</button></div>
+      <div class="uri${verUri?'':' oculta'}"></div>`;
+    d.querySelector('.vnom').textContent=v.name;d.querySelector('.vlang').textContent=`${v.lang} · ${region(v.lang)}`;d.querySelector('.uri').textContent=v.voiceURI;
+    d.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{const f=b.dataset.f,r=+$('#vel').value,p=+$('#ton').value;
+      if(f==='todas')hablarTodas(v,d);else hablar(f==='libre'?$('#libre').value:FRASES[+f],v,r,p,d)});
+    d.querySelector('.fav').onclick=()=>{const fs=leerFavs();if(fs[v.voiceURI])delete fs[v.voiceURI];else fs[v.voiceURI]={nombre:v.name,lang:v.lang,calidad:c.t,velocidad:+$('#vel').value,tono:+$('#ton').value};guardarFavs(fs);pintar()};
+    lista.appendChild(d);
+  });
+  pintarFavs();
+}
+function pintarFavs(){
+  const fs=Object.entries(leerFavs());
+  $('#favs').textContent=fs.length?fs.map(([uri,f])=>`⭐ ${f.nombre} (${f.lang}, ${f.calidad}) · velocidad ${fmt(f.velocidad)} · tono ${fmt(f.tono)}\n   ${uri}`).join('\n'):'Todavía ninguna.';
+}
+function cargar(){const vs=sintesis?sintesis.getVoices():[];if(vs.length!==voces.length){voces=vs;pintar()}}
+if(sintesis){sintesis.onvoiceschanged=cargar;let n=0;const t=setInterval(()=>{cargar();if(++n>12){clearInterval(t);buscando=false;pintar()}},250)}else buscando=false;
+cargar();
+['vel','ton'].forEach(id=>$('#'+id).oninput=()=>{$('#'+id+'O').textContent=fmt($('#'+id).value)});
+$('#natural').onclick=()=>{$('#vel').value=1;$('#ton').value=1;$('#velO').textContent=fmt(1);$('#tonO').textContent=fmt(1)};
+$('#comoJuego').onclick=()=>hablar(FRASES[0],comoElJuego(voces),.95,1.45,null);
+$('#verEfectos').onchange=pintar;$('#verUri').onchange=pintar;
+$('#copiar').onclick=async()=>{const t='Voces elegidas (prueba de voces):\n'+$('#favs').textContent;
+  try{await navigator.clipboard.writeText(t);$('#copiar').textContent='✅ Copiado'}catch(e){const r=document.createRange();r.selectNodeContents($('#favs'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('#copiar').textContent='Selecciónalo y cópialo'}
+  setTimeout(()=>$('#copiar').textContent='📋 Copiar para enviarlo',2500)};
+$('#borrarFavs').onclick=()=>{guardarFavs({});pintar()};
+</script>
+</body>
+</html>

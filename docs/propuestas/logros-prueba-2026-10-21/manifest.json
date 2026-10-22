@@ -1,0 +1,16 @@
+{
+  "id": "./?version=prueba-logros",
+  "name": "PRUEBA LOGROS · Mi Mundo de Juegos",
+  "short_name": "PRUEBA LOGROS",
+  "description": "Copia aislada de pruebas con retos, logros, tareas y cofres con premios provisionales (datos propios). No es el juego de Amaia.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff6fb",
+  "theme_color": "#5fd39b",
+  "icons": [
+    { "src": "../../../icon-pruebas-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "../../../icon-pruebas-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
