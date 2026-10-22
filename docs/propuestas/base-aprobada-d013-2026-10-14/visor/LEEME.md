@@ -243,3 +243,6 @@ defecto) y «Anterior (75e2cb5)». Nada más cambia.
 de todo), `c-hada-bailarinas`, `c-hada-vestido`, `c-hada-varita` y `c-hada-dedos` (`hada-2026-10-22/integrar/capas/`), con la
 base `hada-2026-10-22/integrar/base-hada.png` y el pelo limpio para la ropa. Fila «Hada»: alas del diseño (por defecto),
 alas solas o sin alas; con o sin varita. Otro tono avisa. A tamaño real coincide con los montajes (≤ 3).
+**22/10/2026 (51) · D-029:** fila «Hada»: «Varita con mano de agarre (candidata)» (por defecto: `c-hada-varita-agarre` y
+`c-hada-mano-agarre`, con la base, los brazos y las alas de `hada-2026-10-22/integrar/agarre/`), «Varita con la mano original
+(anterior)» y «Sin varita» (vuelven la base, los brazos y las alas anteriores). A tamaño real coincide con los montajes (≤ 3).

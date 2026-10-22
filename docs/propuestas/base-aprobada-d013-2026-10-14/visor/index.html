@@ -132,6 +132,8 @@
     <img id="c-coletas2-sombrero" class="oculto" alt="" src="../../peinado-coletas-sombrero-2026-10-17/capas/sombrero-aventura.png">
     <img id="c-hada-varita" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/varita.png">
     <img id="c-hada-dedos" class="oculto" alt="" src="../../hada-2026-10-22/integrar/capas/dedos.png">
+    <img id="c-hada-varita-agarre" class="oculto" alt="" src="../../hada-2026-10-22/integrar/agarre/varita-agarre.png">
+    <img id="c-hada-mano-agarre" class="oculto" alt="" src="../../hada-2026-10-22/integrar/agarre/mano-agarre.png">
     <img id="c-acc-lazo" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-lazo.png">
     <img id="c-acc-flores" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-flores.png">
     <img id="c-acc-mariposa" class="acc-pelo oculto" alt="" src="../../accesorios-2026-10-16/capas/capa-mariposa.png">
@@ -182,7 +184,8 @@
     <button data-hada-alas="diseno" aria-pressed="true">Alas del diseño (candidatas)</button>
     <button data-hada-alas="solas" aria-pressed="false">Alas solas de ChatGPT</button>
     <button data-hada-alas="no" aria-pressed="false">Sin alas</button>
-    <button data-hada-varita="si" aria-pressed="true">Con varita</button>
+    <button data-hada-varita="agarre" aria-pressed="true">Varita con mano de agarre (candidata)</button>
+    <button data-hada-varita="si" aria-pressed="false">Varita con la mano original (anterior)</button>
     <button data-hada-varita="no" aria-pressed="false">Sin varita</button>
   </div>
   <div class="fila" id="fila-pij-camiseta" hidden>
@@ -707,7 +710,7 @@
     b2: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2/base-piernas-sin-mallas.png',
     b2c: '../../conjunto-aventura-2026-10-18/integrar/piernas-b2c/base-piernas-sin-mallas.png' };
   var AV_PIEZAS = ['calcetines', 'botas', 'camiseta', 'pantalon', 'chaleco'];
-  var pijCamiseta = 'b', hadaAlas = 'diseno', hadaVarita = true;
+  var pijCamiseta = 'b', hadaAlas = 'diseno', hadaVarita = 'agarre';
   document.querySelectorAll('[data-hada-alas]').forEach(function (b) {
     b.addEventListener('click', function () {
       hadaAlas = b.dataset.hadaAlas;
@@ -716,7 +719,7 @@
   });
   document.querySelectorAll('[data-hada-varita]').forEach(function (b) {
     b.addEventListener('click', function () {
-      hadaVarita = b.dataset.hadaVarita === 'si';
+      hadaVarita = b.dataset.hadaVarita;
       document.querySelectorAll('[data-hada-varita]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
     });
   });
@@ -744,7 +747,14 @@
     ['vestido', 'bailarinas'].forEach(function (k) { document.getElementById('c-hada-' + k).classList.toggle('oculto', !hada); });
     document.getElementById('c-hada-alas').classList.toggle('oculto', !hada || hadaAlas !== 'diseno');
     document.getElementById('c-hada-alas-solas').classList.toggle('oculto', !hada || hadaAlas !== 'solas');
-    ['varita', 'dedos'].forEach(function (k) { document.getElementById('c-hada-' + k).classList.toggle('oculto', !hada || !hadaVarita); });
+    // varita: con la mano de agarre (candidata: mano cerrada y varita recolocada; la mano original y la base, sin la mano
+    // abierta, en copias de hada-2026-10-22/integrar/agarre/), con la mano original (anterior) o sin varita
+    var agarre = hada && hadaVarita === 'agarre';
+    ['varita', 'dedos'].forEach(function (k) { document.getElementById('c-hada-' + k).classList.toggle('oculto', !hada || hadaVarita !== 'si'); });
+    ['varita-agarre', 'mano-agarre'].forEach(function (k) { document.getElementById('c-hada-' + k).classList.toggle('oculto', !agarre); });
+    ponSrc('c-hada-alas', '../../hada-2026-10-22/integrar/' + (agarre ? 'agarre/alas-agarre.png' : 'capas/alas.png'));
+    if (hada) ponSrc('c-brazos', agarre ? '../../hada-2026-10-22/integrar/agarre/brazos-agarre.png' : ORIG.brazos);
+    else if (document.getElementById('c-brazos').getAttribute('src').indexOf('brazos-agarre') >= 0) ponSrc('c-brazos', piel === 'claro' ? ORIG.brazos : T('manos-delante.png'));
     document.getElementById('fila-hada').hidden = !hada;
     ['zapatillas', 'pantalon', 'camiseta'].forEach(function (k) { document.getElementById('c-pij-' + k).classList.toggle('oculto', !pij); });
     // camiseta: la del borde limpio (capas-b, candidata, por defecto) o la aprobada de 75e2cb5 (capas, sin cambios)
@@ -794,7 +804,7 @@
     // rodillas (D-027, opción A): con el conjunto, una COPIA de la base con la piel completada bajo el pantalón (candidata);
     // la base aprobada no cambia y vuelve al quitar el conjunto
     // con otro tono de piel, la base B2c de ese tono (integrar/pieles/<tono>/, candidata)
-    var srcBase = hada ? '../../hada-2026-10-22/integrar/base-hada.png' : av && rodillas !== 'mallas' ? (piel === 'claro' ? RODILLAS[rodillas] : PIELES_AV + piel + '/base-piernas-sin-mallas.png') : (piel === 'claro' ? ORIG.base : T('base-sin-ojos.png'));
+    var srcBase = hada ? '../../hada-2026-10-22/integrar/' + (agarre ? 'agarre/base-hada-agarre.png' : 'base-hada.png') : av && rodillas !== 'mallas' ? (piel === 'claro' ? RODILLAS[rodillas] : PIELES_AV + piel + '/base-piernas-sin-mallas.png') : (piel === 'claro' ? ORIG.base : T('base-sin-ojos.png'));
     if (capaBase.getAttribute('src') !== srcBase) capaBase.src = srcBase;
     // y las capas de bordes de la ropa y de las tiras (sin la piel clara pegada en sus bordes)
     var tono = av && piel !== 'claro';

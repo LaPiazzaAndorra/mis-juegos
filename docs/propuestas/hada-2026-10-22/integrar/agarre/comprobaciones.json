@@ -1,0 +1,30 @@
+{
+ "mano": {
+  "px": 7832,
+  "traslacion": [
+   6,
+   0
+  ],
+  "diferencia_de_tono_Lab": [
+   -2.0,
+   -1.0,
+   -1.0
+  ]
+ },
+ "varita": {
+  "escala": 0.318,
+  "giro": -1.5,
+  "traslacion": [
+   10,
+   -10
+  ],
+  "centro": [
+   122.5,
+   906.0
+  ]
+ },
+ "corte_muneca_y": 978,
+ "alas_halo_px": 3827,
+ "mano_original_quitada_px": 6619,
+ "hueco_bajo_el_puno_px": 140
+}

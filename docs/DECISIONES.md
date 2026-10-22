@@ -19,6 +19,13 @@
   grande), con el palo por detrás de nuestra mano (no se copia la mano cerrada de ChatGPT). El brazo bajo las mangas de
   farol (más cortas que la manga de la base) se completa con nuestra piel en una copia de la base. Rosa a la vista 0 px.
   Visor: «Hada (candidato)», con opciones para poner y quitar alas y varita. **Encaje pendiente de aprobación.**
+- **22/10/2026 (4):** la propietaria, tras verlo en su iPhone: «El resto del conjunto me gusta; queda pendiente la
+  varita». Pide una **capa de mano de agarre** con los dedos cerrados alrededor del palo, conservando la posición de la
+  muñeca y del brazo, que solo se use con la varita (sin ella, la mano original), conservando la base aprobada.
+  - Candidata (`integrar/agarre/`): la mano cerrada del diseño de ChatGPT, trasladada 6 px a nuestra muñeca, con el tono
+    igualado y fundida con nuestro brazo; varita recolocada (giro -1.5°, traslación [10, -10]) para que el palo pase por el
+    puño; copias de la base, los brazos y las alas para el modo con varita. La bola del palo queda dentro del puño (en el
+    diseño asoma). Guía localizada en `guia-chatgpt/3-agarre/` por si se prefiere dibujarla en ChatGPT. **Pendiente.**
 
 ## D-028 · Pijama: guía de diseño sobre nuestra base · 22/10/2026
 - **Pedido de la propietaria:** «Prepara la guía sobre nuestra base aprobada para este pijama, con y sin pelo para ver el

@@ -97,3 +97,21 @@ alas). Orden de las capas: alas (detrás de todo, también del pelo de detrás),
 bailarinas, vestido, manos de delante, pelo de delante, varita y dedos. En el visor: fila «Ropa», «Hada (candidato)» (por
 ahora con la piel clara), y fila «Hada» para poner y quitar alas (del diseño, solas o sin alas) y varita. **Encaje
 pendiente de aprobación.** Sin probar en el iPhone real.
+
+## Varita con mano de agarre (22/10, candidata)
+
+La propietaria aprueba visualmente el resto del conjunto en su iPhone; queda pendiente la varita. Candidata en
+`integrar/agarre/` (`mano_agarre.py`); la base aprobada, `integrar/base-hada.png` y el resto del conjunto no cambian:
+- **Mano de agarre** (`mano-agarre.png`): la mano cerrada alrededor del palo que dibujó ChatGPT en el conjunto sin pelo,
+  sin el palo, trasladada 6 px para que su muñeca encaje con nuestro brazo (sin escalar ni girar), con el tono
+  igualado al nuestro (diferencia Lab [-2.0, -1.0, -1.0]) y fundida con nuestro brazo en la muñeca (y ≈ 978). Va
+  encima de la varita: los dedos por delante del palo.
+- **Varita recolocada** (`varita-agarre.png`): misma escala (0,318), giro -1.5° y traslación [10, -10] px para que el palo
+  pase por el puño. **Diferencia con el diseño:** el palo de la varita suelta es más corto que en la imagen del conjunto:
+  la bola del extremo queda dentro del puño (en el diseño asoma por debajo).
+- Solo con la varita: `base-hada-agarre.png` y `brazos-agarre.png` (sin nuestra mano abierta por debajo de la muñeca,
+  6619 px) y `alas-agarre.png` (sin el canto claro que la mano de ChatGPT dejó en las alas). Sin la varita, todo vuelve a
+  lo anterior (mano original).
+- Hojas: `integrar/agarre/antes-despues.png` y `integrar/agarre/montajes-peinados.png`. Visor: fila «Hada»: «Varita con mano
+  de agarre (candidata)» (por defecto), «Varita con la mano original (anterior)» y «Sin varita».
+- Por si se prefiere que ChatGPT dibuje el agarre sobre nuestra mano: recorte y guía localizada en `guia-chatgpt/3-agarre/`.

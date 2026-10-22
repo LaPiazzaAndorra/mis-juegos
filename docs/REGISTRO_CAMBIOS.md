@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-10-22 — D-029: vestido, bailarinas, alas y varita del hada sobre nuestra muñeca (candidatos)
+### 2026-10-22 — D-029: mano de agarre de la varita (candidata)
+
+- **Solicitado por:** la propietaria («El resto del conjunto me gusta; queda pendiente la varita. Prepara una candidata con
+  una capa de mano de agarre, con los dedos cerrados alrededor del palo, conservando la posición de la muñeca y del brazo.
+  Esa mano se usará solo cuando lleve la varita; al quitarla volverá la original. Conserva la base aprobada. Si necesitas
+  una imagen para dibujar el agarre, prepara un recorte y una guía localizada. No cambies el resto del conjunto.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `b7c8a0c`, el de la entrada siguiente).
+- **Estado:** varita con mano de agarre **candidata**. Nada activado ni publicado.
+- **Cambios:** `hada-2026-10-22/integrar/agarre/` (`mano_agarre.py`, mano de agarre, varita recolocada, copias de base,
+  brazos y alas para el modo con varita, montajes, antes y después); `hada-2026-10-22/guia-chatgpt/3-agarre/` (recorte y
+  guía localizada); visor (tres opciones de varita); D-029 (4), `ESTADO_ACTUAL.md`, `AVATAR_Y_ASSETS.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y los `LEEME.md` del hada y del visor (51). Las capas anteriores no cambian.
+- **Datos guardados afectados:** ninguno. Juego, `sw.js`, copias congeladas y `main` sin cambios.
+- **Pruebas:** visor (tres peinados con la mano de agarre; mano original; sin varita; salida al vestido; a tamaño real
+  coincide con los montajes, ≤ 3; sin errores). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en
+  un iPhone real.
+- **¿`main` intacta?:** sí (`4bbf51d`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `b7c8a0c` · D-029: vestido, bailarinas, alas y varita del hada sobre nuestra muñeca (candidatos)
 
 - **Solicitado por:** la propietaria («Estas son las tres candidatas para completar el diseño aprobado de D-029… Comprueba la
   escala y la posición de cada pieza por separado… Prepara los montajes con melena, coleta y dos coletas… Añade opciones
