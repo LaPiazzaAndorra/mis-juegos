@@ -60,7 +60,7 @@ recorrer: pintar y guardar; abrir una lámina nueva; servir pedidos y jugar libr
 Contar y Colores, marcar una tarea y confirmarla en 👪 «Adultos» (la primera vez se elige un código de 4 cifras y se repite; es propio de esta copia), abrir el cofre y elegir un
 premio; comprobar que aparece en la Pintar o la Heladería; escuchar la voz y silenciarla con 🔇.
 
-Enlace fijo: se añade en el commit siguiente.
+Enlace fijo (commit `461c4f2`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/461c4f245f15c0942ecd7f93f825d9a92771f42c/docs/propuestas/prueba-conjunta-2026-10-22/index.html>
 
 ## Pendiente (decide la propietaria)
 
