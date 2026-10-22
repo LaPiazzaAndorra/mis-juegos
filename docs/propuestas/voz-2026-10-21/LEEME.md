@@ -1,5 +1,11 @@
 # Voz del juego · revisión y prueba de voces (21/10/2026)
 
+> **22/10/2026, 07:14 — Investigación cerrada por ahora (decisión de la propietaria).** No se paga por la voz, no se
+> buscan más servicios y no se abre ninguna cuenta ni se contrata nada. Los huecos de `muestras/` quedan vacíos.
+> Se mantiene la **voz del dispositivo con tono natural** (sin agudizarla) y la opción de **silenciarla con 🔊/🔇**.
+> Aplicado en la prueba conjunta (`../prueba-conjunta-2026-10-22/`: tono 1,00, velocidad 0,95; la clave `tone` guardada
+> no se toca). El juego y las referencias congeladas no cambian (siguen con su tono anterior hasta que se decida integrar).
+
 Pedido de la propietaria (22:07): la voz suena muy robótica; se busca una voz en español **más natural, cálida y fluida**,
 de calidad parecida a Siri, **sin imitarla ni forzar una voz infantil**. Rama `pintar-heladeria`. **Solo revisión y una
 página de prueba aparte**: no cambia la voz del juego, ni sus datos, ni las referencias aprobadas (Pintar `708c2f2`,
