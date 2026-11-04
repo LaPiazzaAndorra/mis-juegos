@@ -433,5 +433,6 @@
   onShow.serie = () => { sr.turno++; showStars(); if (intro($('#serie'), nvSe, () => { prSe.empezar(); rondaSe(); }, rondaSe)) { pintarCamino($('#seCamino'), nvSe, prSe, SE_NOM); $('#sePads').innerHTML = ''; } else rondaSe(); };
   onLeave.serie = () => { sr.turno++; prSe.activa = false; };
 
+  window.PENSAR_UTIL = { Nivel, Prueba, pintarCamino, finPrueba, introHTML, intro, encajar, TAM, espera, may, barra, lado };   // para pensar2.js
   window.PENSAR = { crearCt, CT_PRUEBA, nvCt, nvPj, nvDo, nvSe, prCt, prDo, prSe, ct, pj, dn, sr, CT, PJ, DO, SE };   // para las pruebas
 })();

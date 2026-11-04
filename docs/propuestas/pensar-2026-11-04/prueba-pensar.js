@@ -60,7 +60,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     ok('El generador reproduce la copia y comprueba que es la prueba completa (lo publicado) + Contar y Memoria', git(`git status --porcelain -- ${CARP}index.html ${CARP}progreso.js ${CARP}logros.js`).split('\n').every(l => !l.startsWith(' M')));
     const h = fs.readFileSync(path.join(RAIZ, CARP, 'index.html'), 'utf8');
     ok('Solo añade pensar.css, dibujos.js y pensar.js (después de todo lo demás)', /logros\.js"><\/script>\n<link rel="stylesheet" href="docs\/propuestas\/pensar-2026-11-04\/pensar\.css">\n<script src="docs\/propuestas\/pensar-2026-11-04\/dibujos\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/pensar\.js"><\/script>/.test(h));
-    const fuera = git(`git status --porcelain -- . ':!${CARP}'`) + git(`git diff --stat origin/avatar-creador -- . ':!${CARP}'`);
+    const fuera = git(`git status --porcelain -- . ':!${CARP}'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}'`);
     ok('Fuera de su carpeta no cambia nada (juego, sw.js, progreso.js, logros, muñeca, otras copias, documentos)', fuera === '', fuera.slice(0, 200));
   }
   const b = await pw.chromium.launch();
@@ -75,7 +75,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     await p.evaluate(a => { localStorage.clear(); for (const [k, v] of Object.entries(a)) localStorage.setItem(k, v); }, PREVIOS); await p.reload(); await p.waitForTimeout(400);
     await p.evaluate(() => go('m-think')); await p.waitForTimeout(300);
     const menu = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim() + '→' + e.dataset.go));
-    ok('Menú Pensar: Memoria y Contar nuevos; ¿Qué sigue?, Sombras y El diferente como hoy', menu.join('|') === 'Memoria→memoria|Contar→contar|¿Qué sigue?→quiz|Sombras→quiz|El diferente→quiz', menu.join('|'));
+    ok('Menú Pensar: Memoria y Contar nuevos (¿Qué sigue?, Sombras y El diferente: ver prueba-pensar2.js)', menu.join('|') === 'Memoria→memoria|Contar→contar|¿Qué sigue?→obs|Sombras→obs|El diferente→obs', menu.join('|'));
     await p.click('#m-think [data-go="contar"]'); await p.waitForTimeout(500);
     ok('La primera vez, Contar ofrece «Prueba rápida» o «Empezar»', await p.isVisible('#contar .pnIntro .pnSi') && await p.isVisible('#contar .pnIntro .pnNo'));
     await p.click('#contar .pnNo'); await p.waitForTimeout(500);
@@ -262,7 +262,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     // otros juegos de Pensar
     let otros = true;
     for (const m of ['sigue', 'sombras', 'distinto']) { await p.evaluate(m => go('quiz', m), m); await p.waitForTimeout(500); const n = await p.$$eval('#qopts .qopt', x => x.length); if (n < 3) otros = false; }
-    ok('¿Qué sigue?, Sombras y El diferente se abren y funcionan como hoy', otros);
+    ok('La pantalla de preguntas de antes sigue funcionando (por si se vuelve atrás)', otros);
     // logros
     const l0 = await p.evaluate(() => Logros.total()); await p.evaluate(() => { PENSAR.nvCt.marcar('x'); go('contar'); }); await p.waitForTimeout(400);
     for (let i = 0; i < 3; i++) await aciertoCt(p);

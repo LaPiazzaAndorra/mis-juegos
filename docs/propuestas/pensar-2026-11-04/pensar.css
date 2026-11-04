@@ -73,7 +73,7 @@
 .pnBusca .pnCara{width:80%;height:80%}.pnBusca svg{width:100%;height:100%;display:block}
 .pnAcciones{display:flex;gap:10px}
 .pnAccion{font-size:21px;height:62px;padding:0 18px}
-.pnAccion[hidden]{display:none}
+.pnAccion[hidden],.pnAcciones[hidden]{display:none}
 #doListo{background:var(--mint2)}
 /* repite la serie */
 .pnPads{flex:1;min-height:0;width:100%;display:grid;gap:16px;align-content:center;justify-content:center;
@@ -98,4 +98,52 @@
   .pnBusca{width:72px;height:72px}
   .pnAccion{font-size:18px;height:54px;padding:0 12px}
   .pnAcciones{flex-direction:column}
+}
+/* ===== 2.ª entrega: ¿Qué sigue?, Sombras, El diferente y Unir puntos ===== */
+.pnFig{cursor:default;border-radius:18%}
+.pnTr{display:block;width:100%;height:100%;transform-origin:50% 50%}
+.pnTr svg{width:100%;height:100%;display:block}
+.pnSerie{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:calc(var(--os)*.12);background:#fff;border-radius:28px;padding:calc(var(--os)*.18);box-shadow:var(--shadow);max-width:100%}
+.pnSerie .pnO{border-radius:18px}
+.pnSerie.grupos .g0{background:#efe6ff}.pnSerie.grupos .g1{background:#e0f5ff}
+.pnHuecoQ{display:flex!important;align-items:center;justify-content:center;border:4px dashed var(--purple);box-sizing:border-box;font-size:calc(var(--os)*.6);font-weight:900;color:var(--purple);background:#faf6ff;animation:pista 1.4s infinite}
+.pnO.puesto{animation:pnLlega .5s ease-out both;background:#e6ffe9}
+.pnModelo{background:#fff;border-radius:32px;box-shadow:var(--shadow);padding:calc(var(--os)*.1)}
+.pnModelo .pnO{width:var(--os);height:var(--os)}
+.pnOptFig{width:96px;height:96px;min-width:0;padding:8px}
+.pnOptFig .pnO{width:100%;height:100%}
+.pnOptFig.grande{width:104px;height:104px}
+.pnSil svg *{fill:#5b4a72!important;stroke:#5b4a72!important}
+.pnSil svg [fill="none"]{fill:none!important}
+#obWrap.rejilla{flex-direction:column-reverse}
+#obWrap.rejilla .pnEscena{display:flex;align-items:center;justify-content:center}
+.pnRejilla{display:grid;grid-template-columns:repeat(var(--cols),var(--lado,90px));grid-auto-rows:var(--lado,90px);gap:12px}
+.pnOpt.celda{width:var(--lado,90px);height:var(--lado,90px);padding:10%;min-width:0}
+.pnTarjeta{display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:4%;width:100%;height:100%}
+.pnMini{width:40%;height:40%;display:block}.pnMini svg{width:100%;height:100%;display:block}
+@media (orientation:landscape) and (max-height:600px){.pnOptFig{width:72px;height:72px;padding:6px}.pnOptFig.grande{width:76px;height:76px}#obWrap.rejilla{flex-direction:row}}
+/* unir puntos */
+.pnTablero2{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
+#puSvg{background:#fff;border-radius:28px;box-shadow:var(--shadow);touch-action:none;user-select:none;-webkit-user-select:none;display:block}
+.puLinea{fill:none;stroke:var(--purple);stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.puGuia{stroke:#ffb84d;stroke-width:9;stroke-dasharray:6 22;stroke-linecap:round;opacity:0}
+.puGuia.on{opacity:1;animation:puGuia 1s linear infinite}
+@keyframes puGuia{to{stroke-dashoffset:-56}}
+.puAro{fill:transparent}
+.puBola{fill:#fff;stroke:#4a3a5c;stroke-width:6}
+.puPunto.hecho .puBola{fill:var(--purple);stroke:var(--purple)}
+.puPunto.sig .puAro{fill:#ffd46b;opacity:.6;animation:puLate 1s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes puLate{50%{transform:scale(1.25);opacity:.35}}
+.puNum{font:900 44px ui-rounded,system-ui,sans-serif;text-anchor:middle;fill:#4a3a5c;paint-order:stroke;stroke:#fff;stroke-width:12px;stroke-linejoin:round}
+.puPunto.sig .puNum{font-size:62px;fill:#7a5cff}
+.puPunto.hecho .puNum{fill:#b3a6c6}
+#puSvg.fin .puPunto,#puSvg.fin .puLinea,#puSvg.fin .puGuia{opacity:.12;transition:opacity .8s}
+.puArte path{fill:none;stroke:#2b2233;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;animation:puDibujar 1.2s ease-out both}
+@keyframes puDibujar{from{opacity:0}}
+.pnPintar{background:var(--lila2);font-size:23px}
+.pnSerie.filas{display:grid;justify-content:center}
+@media (orientation:landscape) and (max-height:600px){
+  #puntos .subbar{position:absolute;right:14px;top:74px;width:clamp(170px,30vw,300px);flex-wrap:wrap;justify-content:center;z-index:2;padding:0}
+  #puntos .pnLado{padding-top:120px}
+  #puntos .pnWrap{padding-bottom:22px}
 }
