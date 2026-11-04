@@ -1,12 +1,18 @@
-# Coordinación entre ramas: `avatar-creador` (Mi Mundo) y `pintar-heladeria` (Contar, Memoria…)
+# Coordinación entre ramas: `avatar-creador` (Mi Mundo), `juegos-pensar` (Contar, Memoria…) y `pintar-heladeria`
 
 Actualizado el 04/11/2026. Lo publicado es `main` (`031ce07`, D-032): la prueba completa generada con
-`herramientas/publicar/preparar_publicacion.py` (rama `avatar-creador`). En GitHub, `pintar-heladeria` sigue en `ee5677b`:
-las mejoras de Contar y Memoria aún no están subidas.
+`herramientas/publicar/preparar_publicacion.py` (rama `avatar-creador`). Las mejoras de Contar y Memoria se hacen en la
+rama **`juegos-pensar`** (creada desde `avatar-creador` `6a91012`; copia `docs/propuestas/pensar-2026-11-04/`, datos
+`pen1:`, último commit `f9a2f40`); `pintar-heladeria` sigue en `ee5677b` sin cambios nuevos.
+
+**Las dos copias siguen el mismo patrón y no se pisan:** parten de la prueba completa (importan su `preparar_copia.py`),
+no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos propios al final de la página, después de
+`logros.js` (Pensar: `pensar.css`, `dibujos.js`, `pensar.js`; Mi Mundo: `mimundo/…`). Pensar no cambia `progreso.js`
+(sus claves empiezan por `lv_`); Mi Mundo añade el prefijo `mm_`. Ninguna toca `logros.js`.
 
 ## Archivos compartidos y quién los toca
 
-| Archivo | Mi Mundo (D-033, `avatar-creador`) | Contar y Memoria (`pintar-heladeria`) |
+| Archivo | Mi Mundo (D-033/D-034, `avatar-creador`) | Contar y Memoria (`juegos-pensar`) |
 | --- | --- | --- |
 | `index.html` del juego (secciones PENSAR/«Contar», PAREJAS/«Memoria», MI MUNDO) | **No lo modifica.** Mi Mundo va en archivos propios (`mimundo/`) que se cargan con 4 líneas añadidas antes de `offline-lista.js`. | Sus secciones. |
 | `logros.js` | **No lo toca.** Las misiones dan ⭐ y se anotan en `mm_misiones`. Si se quiere que den logros, se añadirá una función pública en `logros.js` (por ejemplo `Logros.sumar(id)`), coordinada. | Puede cambiar retos (Contar, Colores). |
@@ -16,11 +22,14 @@ las mejoras de Contar y Memoria aún no están subidas.
 
 ## Cómo se juntan
 
-1. `pintar-heladeria` genera sus cambios como hasta ahora (generadores que reaplican sustituciones sobre `index.html`).
-2. Al preparar una publicación, se parte de la versión aprobada y se aplican, en este orden: Contar y Memoria (sus pasos),
-   y después Mi Mundo (`--con-mimundo`). Las 4 líneas de Mi Mundo y la línea de `PREFIJOS` no chocan con sus secciones.
-3. Antes de publicar: las pruebas de cada parte (Pintar 188, Heladería 47, logros 37, Mi Mundo 20 + 5 sin conexión, la
-   de publicación 17) y el modo avión en el iPhone.
+1. Cada rama genera su copia como hasta ahora; ninguna modifica los archivos de la otra.
+2. Al preparar una publicación, se parte de la versión aprobada y se añaden los archivos de cada parte al final de la
+   página (primero Pensar, después Mi Mundo, `--con-mimundo`), y sus archivos a las listas sin conexión. Se recomienda
+   que Pensar añada una opción igual (`--con-pensar`) al generador, que recorra su carpeta como hace Mi Mundo.
+3. Antes de unir las ramas, solo `docs/*.md` (registro, estado, decisiones…) pueden chocar: se juntan a mano, sin borrar
+   entradas de ninguna.
+4. Antes de publicar: las pruebas de cada parte (Pintar 188, Heladería 47, logros 37, Pensar 52, Mi Mundo 22 + 7 sin
+   conexión, la de publicación 17) y el modo avión en el iPhone.
 
 ## Reglas comunes
 

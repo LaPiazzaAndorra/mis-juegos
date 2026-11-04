@@ -225,7 +225,11 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
   oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
   las 40 combinaciones no se han probado una a una en el iPhone.
 
-**Mi Mundo jugable (04/11, D-033):** copia aislada `docs/propuestas/prueba-mimundo-2026-11-04/` (datos `mmu1:`):
+**Salón de Mi Mundo (04/11, D-034):** propuesta a escala y lista de 14 imágenes en
+`docs/propuestas/mimundo-salon-2026-11-04/` (misión «Preparar la merienda para tres»); **pendiente de aprobación y de las
+ilustraciones**. Después, el parque.
+
+**Mi Mundo jugable (04/11, D-033; aprobado en general el 04/11, sin todos los casos en el iPhone):** copia aislada `docs/propuestas/prueba-mimundo-2026-11-04/` (datos `mmu1:`):
 habitación con fondo y cama, muñeca que se mueve y se acuesta, catálogo ilustrado y misiones (la primera, «Guardar los
 juguetes»). Las cinco ilustraciones (cesta, osito, pelota, cubos, cuento) **integradas** el 04/11 (sin el resplandor; los
 originales, sin modificar): la misión se juega. 22/22 y 7/7 (sin conexión) en Chromium; sin probar en el iPhone. Coordinación con `pintar-heladeria`: `docs/COORDINACION_RAMAS.md`.
@@ -385,7 +389,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 04/11/2026 (D-033 (2): misión «Guardar los juguetes» jugable con las ilustraciones definitivas, en la copia aislada) · **Rama:** `avatar-creador` ·
+**Última actualización:** 04/11/2026 (D-033 aprobada en general; D-034: propuesta del salón) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` (22/10/2026, D-032: la prueba completa publicada, con juego sin
 conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bbf51d`).

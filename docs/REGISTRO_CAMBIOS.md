@@ -1,6 +1,20 @@
 # Registro de cambios
 
-### 2026-11-04 — D-033 (2): ilustraciones de los objetos de Mi Mundo y misión «Guardar los juguetes» activa
+### 2026-11-04 — D-033 aprobada en general; D-034: propuesta del salón de Mi Mundo
+
+- **Solicitado por:** la propietaria («La habitación me ha gustado. Registra mi aprobación general, sin dar por comprobados todos los casos en el iPhone.» y «Seguimos ampliando Mi Mundo: primero el salón de la casa y después el parque. Ambos deben ser jugables con nuestra muñeca guardada, con el mismo acabado ilustrado de la habitación. Para el salón: catálogo de muebles y objetos que se puedan colocar, mover, quitar y guardar; sofá, mesa, estantería, cojines y objetos para preparar una merienda; una misión opcional: «Preparar la merienda para tres», con todos sus objetos necesarios gratuitos; juego libre disponible sin hacer la misión. Para el parque: zona de pícnic, banco, árboles y juguetes adecuados al lugar; la muñeca podrá moverse y llevar objetos; prepara después una misión de buscar objetos mediante pistas. No uses emojis ni dibujos básicos como sustitutos de las ilustraciones. Antes de programar cada escenario, prepara la distribución a escala con nuestra muñeca y la lista exacta de imágenes y capas que necesitamos generar aquí. Evita diseñar muebles solo para esconder la postura de pie; señala dónde hace falta resolver una postura o interacción. Conserva el contenido aprobado y las reglas actuales de logros. Los objetos nuevos desbloqueables se propondrán aparte. Trabaja en una copia aislada, mantén el funcionamiento sin conexión y protege las partidas. No publiques en main todavía. Coordina los archivos compartidos con la rama juegos-pensar, donde se están ampliando los juegos educativos. Empieza por el salón y envíame la propuesta visual y las piezas necesarias.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `b99eee5`, el de la entrada siguiente). `main` sin cambios (`031ce07`).
+- **Estado:** habitación **aprobada en general** (sin dar por comprobados todos los casos en el iPhone); salón: **propuesta**,
+  pendiente de aprobación y de las ilustraciones. Nada programado ni publicado.
+- **Cambios:** `docs/propuestas/mimundo-salon-2026-11-04/` (`LEEME.md`, `preparar_propuesta.py`, `distribucion-salon.png`,
+  `merienda-en-la-mesa.png`, `plantilla-salon.png`); `docs/COORDINACION_RAMAS.md` (rama `juegos-pensar`); D-033 (3), D-034,
+  `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y `docs/propuestas/LEEME.md`.
+- **Datos guardados afectados:** ninguno.
+- **Pruebas:** `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45 (sin cambios en el juego).
+- **¿`main` intacta?:** sí (`031ce07`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-11-04 — `b99eee5` · D-033 (2): ilustraciones de los objetos de Mi Mundo y misión «Guardar los juguetes» activa
 
 - **Solicitado por:** la propietaria («Te adjunto las cinco ilustraciones para Mi Mundo: cesta, osito, pelota, cubos y cuento. Son imágenes fuente: todavía tienen un resplandor alrededor y no deben integrarse directamente. 1. Guarda los originales sin modificar y trabaja en copias. 2. Elimina el fondo y el resplandor, conservando los contornos, el pelo del osito y las texturas. Comprueba los bordes sobre fondos claros y oscuros. 3. Ajusta la escala de cada objeto respecto a nuestra muñeca y la cama, sin deformarlos. 4. Añádelos como objetos gratuitos al catálogo y activa la misión «Guardar los juguetes». Los cuatro juguetes deben poder meterse en la cesta y recuperarse después. 5. Enséñame el montaje en la habitación y comprueba que los objetos se pueden tocar y arrastrar cómodamente en el iPhone. 6. Verifica guardar y reabrir, recuperar el progreso y jugar sin conexión con las imágenes definitivas. Si algún recorte no queda limpio, señala la pieza y el problema antes de sustituirla por otro dibujo. Mantén las reglas actuales de recompensas. Todo queda en la copia aislada: no publiques en main ni modifiques las partidas de Amaia. Al terminar, pásame el enlace fijo y una captura de la misión lista para revisar.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `b2df840`, el de la entrada siguiente). `main` sin cambios (`031ce07`).
