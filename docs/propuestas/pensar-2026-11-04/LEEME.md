@@ -148,7 +148,7 @@ Chromium está simulada).
 3. **Pensar → Memoria** → Parejas (elegir 10 o 12), «¿Dónde estaba?» y «Repite la serie».
 4. Salir y volver a entrar: cada juego debe seguir en su nivel.
 
-Enlace fijo: se añade en el commit siguiente (el hash de un commit no puede ir dentro de él).
+Enlace fijo (commit `5390dfc`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/5390dfc72baa906c6dacd8a147432bd473e20df5/docs/propuestas/pensar-2026-11-04/index.html>
 
 ## Pendiente (decide la propietaria)
 
