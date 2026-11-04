@@ -292,9 +292,14 @@ Enlace fijo de la 1.ª entrega (commit `5390dfc`): <https://raw.githack.com/LaPi
    guardar y volver con la flecha. Probar el botón «26».
 4. Salir y volver a entrar: cada juego sigue en su nivel.
 
-Enlace fijo de la 2.ª entrega: se añade en el commit siguiente.
+Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/cf8069124cc85e54a12927aed0c5a9a6d16a0ffa/docs/propuestas/pensar-2026-11-04/index.html>
 
 ## Pendiente (decide la propietaria)
+
+- **Coordinación con avatar-creador (Mi Mundo):** el otro chat ha ampliado el generador de publicación con
+  `--con-mimundo` (`b6f2515`). Lo de Pensar se añadiría en el mismo punto de la página (antes de `offline-lista.js`) y en
+  la misma lista para jugar sin conexión, sin tocar sus archivos. Al integrar habrá que juntar las dos cosas en ese
+  generador (lo coordina la propietaria).
 
 - La valoración en el iPhone con Amaia: si los saltos de nivel y las pistas van bien, o hay que ajustar cuántos aciertos
   hacen falta para subir (3, o 2 en las parejas).
