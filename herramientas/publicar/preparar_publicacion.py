@@ -14,7 +14,11 @@ prueba completa (así el código aprobado no cambia de rutas):
     Pintar, plantilla.js, avatar.css y los catálogos del juego, manifiestos e iconos; y .nojekyll (GitHub Pages sin Jekyll).
 La versión es una huella de todos los archivos: si cambia cualquiera, cambia la caché (no se mezclan versiones).
 
-Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_publicacion.py DESTINO
+Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_publicacion.py DESTINO [--sin-git] [--con-mimundo CARPETA]
+  --con-mimundo CARPETA  (solo para comprobar, aún sin publicar) añade Mi Mundo (D-033): los archivos de CARPETA (motor,
+                         estilos, catálogo y arte) van en la página y en lo básico para jugar sin conexión, y «Guardar /
+                         Recuperar mi progreso» incluye sus datos (prefijo «mm_»). Sin esta opción, el resultado es
+                         exactamente lo publicado.
 """
 import hashlib, json, shutil, sys
 from pathlib import Path
@@ -54,12 +58,23 @@ def pagina():
 
 
 if __name__ == '__main__':
-    destino = Path(sys.argv[1]).resolve(); destino.mkdir(parents=True, exist_ok=True)
-    assert (destino / '.git').exists() or len(sys.argv) > 2 and sys.argv[2] == '--sin-git', 'DESTINO debe ser una copia de trabajo de main'
+    args = sys.argv[1:]; destino = Path(args[0]).resolve(); destino.mkdir(parents=True, exist_ok=True)
+    assert (destino / '.git').exists() or '--sin-git' in args, 'DESTINO debe ser una copia de trabajo de main'
+    mm = args[args.index('--con-mimundo') + 1].strip('/') if '--con-mimundo' in args else None
     archivos = {'index.html': pagina().encode('utf-8'), 'offline.js': (AQUI / 'offline.js').read_bytes(), '.nojekyll': b''}
     for f in COPIAR + PIEZAS:
         archivos[f] = (RAIZ / f).read_bytes()
     basico = ['./', 'index.html', 'offline.js'] + [f for f in COPIAR if f != 'manifest-pruebas.json' and 'pruebas' not in f] + ['offline-lista.js']
+    if mm:   # Mi Mundo (D-033), solo para comprobar
+        mmf = sorted(str(q.relative_to(RAIZ)) for q in (RAIZ / mm).rglob('*') if q.is_file() and q.suffix in ('.js', '.css', '.webp'))
+        for f in mmf:
+            archivos[f] = (RAIZ / f).read_bytes()
+        basico[-1:-1] = mmf
+        etiquetas = f'<link rel="stylesheet" href="{mm}/mimundo.css">\n<script src="{mm}/catalogo-mimundo.js"></script>\n' \
+                    f'<script src="{mm}/arte/medidas.js"></script>\n<script src="{mm}/mimundo.js"></script>\n'
+        archivos['index.html'] = sustituir(archivos['index.html'].decode('utf-8'), '<script src="offline-lista.js"></script>', etiquetas + '<script src="offline-lista.js"></script>').encode('utf-8')
+        archivos[CC + 'progreso.js'] = sustituir(archivos[CC + 'progreso.js'].decode('utf-8'), "  const PREFIJOS = ['sc_', 'lv_'];",
+                                                 "  const PREFIJOS = ['sc_', 'lv_', 'mm_'];   // Mi Mundo (D-033): habitación y misiones").encode('utf-8')
     huella = hashlib.sha256(b''.join(hashlib.sha256(archivos[k]).digest() for k in sorted(archivos)) + (AQUI / 'sw-plantilla.js').read_bytes()).hexdigest()[:12]
     lista = 'self.OFFLINE = ' + json.dumps(dict(version=huella, basico=basico, piezas=PIEZAS), ensure_ascii=False) + ';\n'
     archivos['offline-lista.js'] = ('/* Generado por herramientas/publicar/preparar_publicacion.py: versión y archivos para jugar sin conexión */\n' + lista).encode('utf-8')

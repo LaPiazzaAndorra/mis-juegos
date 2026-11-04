@@ -1,6 +1,23 @@
 # Registro de cambios
 
-### 2026-10-22 — D-032: publicación en main de la prueba completa, con juego sin conexión
+### 2026-11-04 — D-033: Mi Mundo jugable en una copia aislada (habitación, catálogo ilustrado, misiones)
+
+- **Solicitado por:** la propietaria («Retomamos Mi Mundo desde la habitación ilustrada que dejamos preparada. Comprueba primero el estado actual del proyecto y reutiliza el fondo y la cama existentes. Quiero una primera habitación jugable donde Amaia pueda mover a su muñeca guardada, acostarla y colocar objetos desde un catálogo ilustrado, sustituyendo los emojis. Además del juego libre, prepara la estructura para pequeñas misiones opcionales, como guardar juguetes, encontrar objetos mediante pistas o preparar una merienda para tres. Empieza por una sola misión completa; los objetos necesarios para resolverla deben estar disponibles gratuitamente. Conserva el estilo visual aprobado. Si faltan ilustraciones, dime exactamente cuáles necesitamos generar aquí; no las sustituyas por dibujos básicos. Trabaja en una copia aislada, sin publicar en main ni alterar las partidas. Coordina los archivos compartidos con las mejoras de Contar y Memoria que se preparan en la rama pintar-heladeria. Mantén el funcionamiento sin conexión como requisito.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `6a91012`, el de la entrada siguiente). `main` sin cambios (`031ce07`).
+- **Estado:** copia aislada **probada en Chromium**; faltan cinco ilustraciones para que la misión se vea; nada publicado.
+- **Cambios:** `docs/propuestas/prueba-mimundo-2026-11-04/` (`recibidas/` (fondo y cama, sin modificar), `preparar_piezas.py`,
+  `mimundo/` (motor, estilos, catálogo, arte y medidas), `preparar_copia.py`, `index.html`, `progreso.js` (+ prefijo `mm_`),
+  `logros.js`, `aislamiento.js` (`mmu1:`), `manifest.json`, `prueba-mimundo.js`, `prueba-sin-conexion.js`, `LEEME.md`);
+  `herramientas/publicar/preparar_publicacion.py` (opción `--con-mimundo`; sin ella, idéntico a `main`);
+  `docs/COORDINACION_RAMAS.md`; D-033, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`, `VERSION_DE_PRUEBAS.md` y
+  `docs/propuestas/LEEME.md`.
+- **Datos guardados afectados:** ninguno (la copia usa `mmu1:`).
+- **Pruebas:** `prueba-mimundo.js` 20/20 (aislamiento; habitación sin emojis; sin ilustraciones, el catálogo solo enseña la cama y la misión no se ofrece; acostar y levantar con alas y varita ocultas; con arte de prueba solo durante la prueba: catálogo de seis objetos, la misión «Guardar los juguetes» completa con ⭐ y registro, sacar y guardar en juego libre, quitar y volver a poner, volver a abrir; «Guardar mi progreso» con la habitación y las misiones; demás escenas como hoy; iPhone e iPad; datos ajenos intactos; sin errores) y `prueba-sin-conexion.js` 5/5 (versión publicable con Mi Mundo, en modo avión). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **Enlace:** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-mimundo-2026-11-04/index.html> (el fijo, con el hash de este commit, en la entrada siguiente).
+- **¿`main` intacta?:** sí (`031ce07`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-10-22 — `6a91012` · D-032: publicación en main de la prueba completa, con juego sin conexión
 
 - **Solicitado y autorizado por:** la propietaria («Cambio de prioridad: quiero que Amaia pueda jugar mañana durante el vuelo. Pausa la habitación nueva y las funciones pendientes. Autorizo integrar y publicar en main la versión aprobada de la prueba completa 4d950bc, con la muñeca nueva, ropa y accesorios aprobados, Pintar, Heladería y logros. Conserva una referencia de la versión anterior para poder volver atrás. Prepara la instalación en iPhone/iPad y el funcionamiento sin conexión. Incluye en la caché las láminas, las piezas de la muñeca y los archivos necesarios para jugar; muestra cuándo la descarga está completa. La voz puede quedar sin sonido si no está disponible. Protege las partidas actuales: no borres ni reinicies datos. Conserva «Guardar / Recuperar mi progreso». Centra las comprobaciones en instalar, abrir sin conexión, vestir, colorear, jugar a la Heladería y guardar. Comprueba también que una actualización no deje archivos mezclados. Evita nuevas propuestas y comparativas extensas. Entrégame el enlace publicado y los pasos mínimos para instalar y comprobar en modo avión. Indica cualquier limitación que quede.»).
 - **Rama y commit:** `main` = `031ce07` (sobre `4bbf51d`); en `avatar-creador`, este commit (sobre `a0bad34`, el de la entrada

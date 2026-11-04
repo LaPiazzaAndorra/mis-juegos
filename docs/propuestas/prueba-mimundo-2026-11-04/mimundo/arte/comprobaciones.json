@@ -1,0 +1,46 @@
+{
+ "piezas": {
+  "cama": {
+   "alfa_casi_opaco_corregido_px": 856371,
+   "motitas_quitadas": 599,
+   "motitas_px": 1875
+  }
+ },
+ "pendientes": [
+  {
+   "id": "cesta",
+   "nombre": "Cesta de juguetes",
+   "archivo": "recibidas/cesta.png"
+  },
+  {
+   "id": "osito",
+   "nombre": "Osito",
+   "archivo": "recibidas/osito.png"
+  },
+  {
+   "id": "pelota",
+   "nombre": "Pelota",
+   "archivo": "recibidas/pelota.png"
+  },
+  {
+   "id": "cubos",
+   "nombre": "Cubos de colores",
+   "archivo": "recibidas/cubos.png"
+  },
+  {
+   "id": "cuento",
+   "nombre": "Libro de cuentos",
+   "archivo": "recibidas/cuento.png"
+  }
+ ],
+ "kb": {
+  "cama-delante.webp": 175.9,
+  "cama-detras.webp": 260.5,
+  "fondo.webp": 237.1
+ },
+ "recibidas_sin_cambios": true,
+ "sha256_recibidas": {
+  "cama-propuesta.png": "26d5e3a4f307ba5dbf6d5661587bfeceeafd4ea0c56ea0140482156c3c0d2fb0",
+  "fondo-habitacion-propuesta.png": "6f337998d86f71bac33e14cfc1b9ad09f25ee4d30c8a71f217b07291f1776cee"
+ }
+}

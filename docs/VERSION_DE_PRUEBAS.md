@@ -8,6 +8,9 @@ Es la rama `avatar-creador` (sin publicar) servida desde **otra dirección web**
 un servicio gratuito que muestra los archivos públicos de GitHub como una web. Se actualiza sola unos
 minutos después de cada subida a la rama.
 
+**Mi Mundo jugable (D-033, 04/11):** lo publicado + la habitación con catálogo y misiones, con datos propios (`mmu1:`):
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-mimundo-2026-11-04/index.html>
+
 **Prueba de la habitación ilustrada de Mi Mundo (D-031, 22/10):** la prueba completa + la habitación nueva, con datos
 propios (`hab1:`):
 <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-habitacion-2026-10-22/index.html>

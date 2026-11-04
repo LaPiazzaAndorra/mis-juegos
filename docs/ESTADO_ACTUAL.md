@@ -225,6 +225,11 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
   oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
   las 40 combinaciones no se han probado una a una en el iPhone.
 
+**Mi Mundo jugable (04/11, D-033):** copia aislada `docs/propuestas/prueba-mimundo-2026-11-04/` (datos `mmu1:`):
+habitación con fondo y cama, muñeca que se mueve y se acuesta, catálogo ilustrado y misiones (la primera, «Guardar los
+juguetes»). **Faltan cinco ilustraciones** (cesta, osito, pelota, cubos, cuento) para que la misión aparezca. 20/20 y 5/5
+(sin conexión) en Chromium; sin probar en el iPhone. Coordinación con `pintar-heladeria`: `docs/COORDINACION_RAMAS.md`.
+
 **Publicado (22/10, D-032):** la prueba completa en `main` (`031ce07`), con juego sin conexión; 17/17 en la prueba de
 publicación (Chromium); **sin probar en el iPhone ni en el iPad reales**. La habitación nueva (D-031), **en pausa**.
 
@@ -380,7 +385,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 22/10/2026 (D-032: prueba completa publicada en main, con juego sin conexión) · **Rama:** `avatar-creador` ·
+**Última actualización:** 04/11/2026 (D-033: Mi Mundo jugable en una copia aislada; faltan cinco ilustraciones) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` (22/10/2026, D-032: la prueba completa publicada, con juego sin
 conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bbf51d`).
