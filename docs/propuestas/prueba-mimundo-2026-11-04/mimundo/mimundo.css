@@ -25,3 +25,5 @@
 .mm-panel-caja h3{margin:0 0 4px;font:800 22px system-ui,sans-serif;color:#5a4a6a;text-align:center}
 .mm-panel-caja .btn{min-height:52px;font:800 18px system-ui,sans-serif;justify-content:center}
 .mm-panel-caja small{font-weight:700;color:#3a9a6a}
+.mm-mision b{overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:520px){.mm-mision{font-size:14px;gap:7px;padding:4px 4px 4px 12px}.mm-mision .mm-cuenta{display:none}.mm-puntos i{width:12px;height:12px}}

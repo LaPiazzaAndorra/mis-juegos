@@ -24,32 +24,37 @@ necesita conexión; el juego sin conexión se comprueba aparte, abajo). Las dem�
   (prefijo `mm_`). No se tocan `mm_hab` ni `sc_habitacion`.
 
 **Una misión solo se ofrece cuando todos sus objetos tienen ilustración, y un objeto sin ilustración no sale en el
-catálogo:** no hay dibujos de relleno. Hoy solo está ilustrada la cama, así que en la copia se ve la habitación con la cama
-y la misión aún no aparece.
+catálogo:** no hay dibujos de relleno.
 
-## Ilustraciones que necesitamos (para la misión «Guardar los juguetes»)
+## Ilustraciones de los objetos (04/11/2026)
 
-Cinco piezas, cada una **por separado**, en **el mismo estilo, cámara y luz que la cama** (tres cuartos, desde delante y un
-poco desde arriba, luz cálida de la ventana), **PNG con el fondo transparente**, el interior **totalmente opaco**, **sin
-motitas** alrededor, **sin sombra en el suelo** (se pone aquí), sin texto ni personajes, con la base apoyada en el suelo y
-de buen tamaño (unos 800–1200 px de alto). Se guardan tal cual en `recibidas/` con estos nombres:
+La propietaria envió las cinco (cesta, osito, pelota, cubos y cuento) como **imágenes fuente** con un resplandor alrededor.
+Se guardan **sin modificar** en `recibidas/` (SHA-256 en `mimundo/arte/comprobaciones.json`); se trabaja en copias
+(`preparar_piezas.py`, función `limpiar_objeto`).
 
-| Archivo | Pieza | Tamaño real (para la escala) |
-| --- | --- | --- |
-| `recibidas/cesta.png` | **Cesta de juguetes** de mimbre claro, abierta por arriba, vacía, con un lazo rosa | 40 cm de alto |
-| `recibidas/osito.png` | **Osito de peluche** sentado, mirando al frente | 32 cm |
-| `recibidas/pelota.png` | **Pelota** rosa con rayas blancas | 24 cm |
-| `recibidas/cubos.png` | **Cubos de colores** apilados (tres o cuatro, colores pastel) | 20 cm |
-| `recibidas/cuento.png` | **Libro de cuentos** cerrado, tumbado en el suelo, tapa con una estrella | 18 cm |
+- **Qué era el resplandor:** píxeles casi invisibles (alfa 1–3) de color naranja, rojo o blanco, a 3–500 px de cada
+  objeto, que sobre fondos oscuros forman un halo; además, motitas sueltas y el interior con alfa 252–253 (como la cama).
+- **Qué se ha hecho:** interior opaco; fuera las motitas; fuera todo lo de alfa menor de 12 o a más de 6 px del cuerpo del
+  objeto (12 px en el osito, para conservar su pelo). **Ningún píxel cambia de color**; contornos, pelo y texturas,
+  intactos. Revisado sobre fondo oscuro, claro y el color del suelo: `revision/bordes-antes-despues.jpg` y
+  `revision/objetos-sobre-fondos.jpg`. **Ningún recorte ha dado problemas.**
 
-Mensaje para generarlas (adjuntando la cama aprobada como referencia de estilo):
+| Pieza | Resplandor quitado (px) | Motitas quitadas | Borde conservado (px) | Radio del borde |
+| --- | --- | --- | --- | --- |
+| cesta | 8 622 | 1095 (4 022 px) | 3 918 | 6 px |
+| osito | 18 724 | 1483 (3 810 px) | 14 290 | 12 px |
+| pelota | 5 739 | 451 (880 px) | 3 125 | 6 px |
+| cubos | 6 588 | 203 (555 px) | 3 794 | 6 px |
+| cuento | 7 083 | 451 (1 038 px) | 4 471 | 6 px |
 
-> Dibuja, en el mismo estilo, cámara y luz que esta cama, [la pieza]. Vista de tres cuartos, desde delante y un poco desde
-> arriba, luz cálida desde la izquierda. Fondo transparente (PNG), sin sombra en el suelo, sin texto ni personajes, la
-> pieza sola y entera, apoyada en el suelo.
+- **Escala** (respecto a la muñeca, 1,10 m, y la cama; misma escala en ancho y alto, sin deformar): cesta 40 cm, osito
+  34 cm, pelota 26 cm, cubos 24 cm, cuento 20 cm (los juguetes, algo generosos para tocarlos bien en el iPhone).
+- **En el iPhone:** durante la misión, la cámara mira a la cesta y los juguetes, que aparecen juntos junto a ella (en
+  vertical miden 47–79 px en la pantalla); **toque tolerante**: un toque a menos de 26 px de un juguete o la cesta cuenta
+  (aunque caiga sobre la zona transparente de la cama o sobre la muñeca), y soltar un juguete cerca de la cesta también.
+- Montaje: `revision/mision-lista-ipad.jpg`, `revision/mision-lista-iphone.jpg`, `revision/mision-cumplida-ipad.jpg`.
 
-Con ellas: `python3 docs/propuestas/prueba-mimundo-2026-11-04/preparar_piezas.py` las comprueba (transparencia, interior
-opaco, motitas), las recorta y mide su punto de apoyo; la misión aparece sola en la copia.
+## Misiones siguientes (ilustraciones que harán falta)
 
 Para las misiones siguientes (más adelante): **encontrar con pistas** usará estos objetos y muebles donde esconderlos
 (baúl, cojines, cortina…); **merienda para tres**: mesa infantil, tres sillas o cojines, tres platos, tres tazas, tetera,
@@ -67,12 +72,13 @@ básico que guarda el service worker.
 python3 -m http.server 8765 &
 python3 docs/propuestas/prueba-mimundo-2026-11-04/preparar_piezas.py      # piezas (cuando lleguen ilustraciones)
 python3 docs/propuestas/prueba-mimundo-2026-11-04/preparar_copia.py       # la copia (comprueba que es lo publicado + Mi Mundo)
-node docs/propuestas/prueba-mimundo-2026-11-04/prueba-mimundo.js          # 20 comprobaciones
-node docs/propuestas/prueba-mimundo-2026-11-04/prueba-sin-conexion.js     # 5 comprobaciones, en modo avión
+node docs/propuestas/prueba-mimundo-2026-11-04/prueba-mimundo.js          # 22 comprobaciones
+node docs/propuestas/prueba-mimundo-2026-11-04/prueba-sin-conexion.js     # 7 comprobaciones, en modo avión
 ```
 
-Resultado 04/11/2026: **20/20** y **5/5**. La misión se ha comprobado con **arte de prueba** (formas de colores que solo
-existen mientras corre la prueba; no están en la copia). **No probado en el iPhone ni en el iPad reales.**
+Resultado 04/11/2026, con las ilustraciones definitivas: **22/22** (también la misión entera en el iPad y en el iPhone en
+vertical, toque tolerante, volver a abrir, «Guardar» y «Recuperar mi progreso») y **7/7** sin conexión (también las ocho
+ilustraciones y la misión entera en modo avión). **No probado en el iPhone ni en el iPad reales.**
 
 ## Coordinación con `pintar-heladeria`
 

@@ -1,6 +1,22 @@
 # Registro de cambios
 
-### 2026-11-04 — D-033: Mi Mundo jugable en una copia aislada (habitación, catálogo ilustrado, misiones)
+### 2026-11-04 — D-033 (2): ilustraciones de los objetos de Mi Mundo y misión «Guardar los juguetes» activa
+
+- **Solicitado por:** la propietaria («Te adjunto las cinco ilustraciones para Mi Mundo: cesta, osito, pelota, cubos y cuento. Son imágenes fuente: todavía tienen un resplandor alrededor y no deben integrarse directamente. 1. Guarda los originales sin modificar y trabaja en copias. 2. Elimina el fondo y el resplandor, conservando los contornos, el pelo del osito y las texturas. Comprueba los bordes sobre fondos claros y oscuros. 3. Ajusta la escala de cada objeto respecto a nuestra muñeca y la cama, sin deformarlos. 4. Añádelos como objetos gratuitos al catálogo y activa la misión «Guardar los juguetes». Los cuatro juguetes deben poder meterse en la cesta y recuperarse después. 5. Enséñame el montaje en la habitación y comprueba que los objetos se pueden tocar y arrastrar cómodamente en el iPhone. 6. Verifica guardar y reabrir, recuperar el progreso y jugar sin conexión con las imágenes definitivas. Si algún recorte no queda limpio, señala la pieza y el problema antes de sustituirla por otro dibujo. Mantén las reglas actuales de recompensas. Todo queda en la copia aislada: no publiques en main ni modifiques las partidas de Amaia. Al terminar, pásame el enlace fijo y una captura de la misión lista para revisar.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `b2df840`, el de la entrada siguiente). `main` sin cambios (`031ce07`).
+- **Estado:** misión jugable en la copia aislada, **probada en Chromium**; sin probar en el iPhone; nada publicado.
+- **Cambios:** `docs/propuestas/prueba-mimundo-2026-11-04/`: `recibidas/` (las cinco imágenes, sin modificar),
+  `preparar_piezas.py` (`limpiar_objeto`: fuera el resplandor), `mimundo/arte/` (cinco piezas nuevas, medidas y
+  comprobaciones), `mimundo/catalogo-mimundo.js` (escalas y sitios de la misión), `mimundo/mimundo.js` (cámara de la misión,
+  toque tolerante), `mimundo/mimundo.css` (aviso de la misión en pantallas estrechas), `prueba-mimundo.js`,
+  `prueba-sin-conexion.js`, `revision/`, `LEEME.md`; D-033 (2), `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md` y `docs/propuestas/LEEME.md`.
+- **Datos guardados afectados:** ninguno (la copia usa `mmu1:`).
+- **Pruebas:** `prueba-mimundo.js` 22/22 con las ilustraciones definitivas (catálogo de seis objetos con imagen; misión entera en el iPad y en el iPhone en vertical, con juguetes y cesta en la pantalla y de 47–79 px; toque tolerante; sacar y volver a guardar; quitar y poner; volver a abrir; «Guardar» y «Recuperar mi progreso» con la habitación y las misiones; demás escenas como hoy; datos ajenos intactos; sin errores) y `prueba-sin-conexion.js` 7/7 (en modo avión, las ocho ilustraciones y la misión entera). `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45. No probado en un iPhone real.
+- **¿`main` intacta?:** sí (`031ce07`, comprobado con `git ls-remote`).
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-11-04 — `b2df840` · D-033: Mi Mundo jugable en una copia aislada (habitación, catálogo ilustrado, misiones)
 
 - **Solicitado por:** la propietaria («Retomamos Mi Mundo desde la habitación ilustrada que dejamos preparada. Comprueba primero el estado actual del proyecto y reutiliza el fondo y la cama existentes. Quiero una primera habitación jugable donde Amaia pueda mover a su muñeca guardada, acostarla y colocar objetos desde un catálogo ilustrado, sustituyendo los emojis. Además del juego libre, prepara la estructura para pequeñas misiones opcionales, como guardar juguetes, encontrar objetos mediante pistas o preparar una merienda para tres. Empieza por una sola misión completa; los objetos necesarios para resolverla deben estar disponibles gratuitamente. Conserva el estilo visual aprobado. Si faltan ilustraciones, dime exactamente cuáles necesitamos generar aquí; no las sustituyas por dibujos básicos. Trabaja en una copia aislada, sin publicar en main ni alterar las partidas. Coordina los archivos compartidos con las mejoras de Contar y Memoria que se preparan en la rama pintar-heladeria. Mantén el funcionamiento sin conexión como requisito.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `6a91012`, el de la entrada siguiente). `main` sin cambios (`031ce07`).

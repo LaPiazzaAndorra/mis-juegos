@@ -6,8 +6,8 @@ Mi Mundo · piezas de la habitación a partir de las imágenes recibidas (recibi
   · recibidas/cama-propuesta.png → mimundo/arte/cama-detras.webp y cama-delante.webp (como en la prueba de la
     habitación, D-031: alfa ≥ 240 → 255, motitas sueltas fuera, «delante» = lo que queda por delante del embozo)
   · recibidas/<id>.png de cada objeto del catálogo (cesta, osito, pelota, cubos, cuento…) → mimundo/arte/<id>.webp,
-    con las mismas comprobaciones: transparencia, interior opaco (alfa ≥ 240 → 255), motitas sueltas fuera y recorte a su
-    contenido. Si falta la imagen de un objeto, NO se dibuja nada en su lugar: queda en la lista de pendientes.
+    con las mismas comprobaciones: transparencia, interior opaco (alfa ≥ 240 → 255), motitas sueltas fuera, sin el
+    resplandor de alrededor (limpiar_objeto) y recorte a su contenido. Si falta la imagen de un objeto, NO se dibuja nada en su lugar: queda en la lista de pendientes.
 Escribe mimundo/arte/medidas.js (tamaño y punto de apoyo de cada capa) y mimundo/arte/comprobaciones.json.
 
 Uso (desde la raíz): python3 docs/propuestas/prueba-mimundo-2026-11-04/preparar_piezas.py
@@ -40,6 +40,27 @@ def limpiar(ruta):
     return c.astype(np.uint8), dict(alfa_casi_opaco_corregido_px=casi, motitas_quitadas=len(quitar), motitas_px=int(sueltas.sum()))
 
 
+# Objetos (04/11/2026): las imágenes llegan con un «resplandor» alrededor: píxeles casi invisibles (alfa 1–3) de color
+# naranja, rojo o blanco, a 3–500 px del objeto, que sobre fondos oscuros forman un halo. Se quita SOLO eso:
+#   · se conserva el borde de verdad: el antialiasing (alfa ≥ ALFA_MIN) a ≤ RADIO px del cuerpo del objeto (alfa ≥ 240);
+#   · para el osito, RADIO mayor: su pelo llega a unos 8–10 px con alfa ~60, y se conserva;
+#   · todo lo demás (alfa < ALFA_MIN o más lejos) pasa a transparente. Ningún píxel cambia de color.
+ALFA_MIN = 12
+RADIO = {'osito': 12}
+
+
+def limpiar_objeto(ruta, oid):
+    c, info = limpiar(ruta); a = c[..., 3].astype(int)
+    cuerpo = a >= 240; lab, n = nd.label(cuerpo); tam = nd.sum(cuerpo, lab, range(1, n + 1))
+    cuerpo = np.isin(lab, [i + 1 for i in range(n) if tam[i] >= 0.005 * tam.max()])
+    d = nd.distance_transform_edt(~cuerpo)
+    quitar = (a > 0) & ((a < ALFA_MIN) | (d > RADIO.get(oid, 6)))
+    info.update(resplandor_quitado_px=int(quitar.sum()), radio_borde_px=RADIO.get(oid, 6), alfa_min=ALFA_MIN,
+                borde_conservado_px=int(((a > 0) & (a < 255) & ~quitar).sum()))
+    c[quitar, 3] = 0
+    return c, info
+
+
 def guardar(arr, nombre, caja):
     x0, y0, x1, y1 = caja; im = Image.fromarray(arr).crop(caja)
     im.save(ARTE / f'{nombre}.webp', 'WEBP', quality=92, alpha_quality=100, method=6)
@@ -69,7 +90,7 @@ if __name__ == '__main__':
         r = REC / f'{oid}.png'
         if not r.exists():
             pendientes.append(dict(id=oid, nombre=nombre, archivo=f'recibidas/{oid}.png')); continue
-        arr, comp[oid] = limpiar(r); caja = Image.fromarray(arr).getchannel('A').getbbox()
+        arr, comp[oid] = limpiar_objeto(r, oid); caja = Image.fromarray(arr).getchannel('A').getbbox()
         a = arr[..., 3] > 128; ys = np.where(a.any(1))[0]; fila = a[ys.max()]; xs = np.where(fila)[0]
         medidas[oid] = dict(guardar(arr, oid, caja), base=[int((xs.min() + xs.max()) / 2) - caja[0], int(ys.max()) - caja[1]])
     (ARTE / 'medidas.js').write_text('/* Generado por preparar_piezas.py: tamaño (px) y punto de apoyo (base) de cada capa del arte de Mi Mundo */\n'

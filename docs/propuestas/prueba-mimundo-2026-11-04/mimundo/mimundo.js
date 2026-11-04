@@ -53,6 +53,7 @@
 
   /* ---------- montaje ---------- */
   function foco() {
+    const mi = misionActiva(); if (mi && mi.foco) return mi.foco;   // durante una misión, la cámara mira a sus juguetes
     const m = est.muneca, cama = m.en && est.objetos.find(x => x.uid === m.en);
     if (cama) { const [cx, cy] = anclaCama(cama); return [cx, cy]; }
     return [m.x, m.y - alto(m.y) * 0.5];
@@ -183,7 +184,7 @@
   function contenedorBajo(e, sinUid) {
     return [...escena.querySelectorAll('.mm-obj[data-capa="detras"]')].reverse().map(el => est.objetos.find(o => o.uid === el.dataset.uid))
       .find(it => { if (!it || it.uid === sinUid || !porId(it.id).contenedor) return false;
-        const r = escena.querySelector(`[data-uid="${it.uid}"][data-capa="detras"]`).getBoundingClientRect(), m = 14;
+        const r = escena.querySelector(`[data-uid="${it.uid}"][data-capa="detras"]`).getBoundingClientRect(), m = TOQUE;
         return e.clientX > r.left - m && e.clientX < r.right + m && e.clientY > r.top - m && e.clientY < r.bottom + m; });
   }
 
@@ -195,7 +196,8 @@
   }
   function empezar(id) {
     const m = MISIONES.find(x => x.id === id); if (!m || !misionLista(m)) return false;
-    levantar(false); cerrarPanel();
+    levantar(false); cerrarPanel(); seleccionar(null);
+    if (m.sitioMuneca && est.muneca.x > m.sitioMuneca[0] + 50) { est.muneca.x = m.sitioMuneca[0]; est.muneca.y = m.sitioMuneca[1]; }   // que no tape los juguetes
     let cont = est.objetos.find(x => x.id === m.objetivo.contenedor);
     if (!cont) { cont = { uid: nuevoUid(), id: m.objetivo.contenedor, x: m.sitioContenedor[0], y: m.sitioContenedor[1] }; est.objetos.push(cont); }
     cont.dentro = null;
@@ -207,11 +209,11 @@
       if (!it) { it = { uid: nuevoUid(), id }; est.objetos.push(it); }
       it.dentro = null; [it.x, it.y] = sitios[i % sitios.length];
     });
-    mis.activa = m.id; guardar(); guardarMis(); pintarTodo(); pintarMision();
+    mis.activa = m.id; guardar(); guardarMis(); pintarTodo(); pintarMision(); encajar();
     say(m.inicio); tone(600, .1, 'triangle'); tone(800, .12, 'sine', .1, .1);
     return true;
   }
-  function dejar() { mis.activa = null; guardarMis(); pintarMision(); sfx.pop(); }
+  function dejar() { mis.activa = null; guardarMis(); pintarMision(); encajar(); sfx.pop(); }
   function revisarMision() {
     const m = misionActiva(); if (!m) return;
     const n = progreso(m), total = m.objetivo.objetos.length;
@@ -219,7 +221,7 @@
     if (n >= total) {
       mis.activa = null; mis.hechas[m.id] = (mis.hechas[m.id] || 0) + 1; guardarMis();
       if (m.premio && m.premio.estrellas) addStar(m.premio.estrellas);
-      setTimeout(() => { confetti(); sfx.good(); say(m.fin); toast('⭐ ¡Misión cumplida!'); av && av.saludar(); pintarMision(); }, 400);
+      setTimeout(() => { confetti(); sfx.good(); say(m.fin); toast('⭐ ¡Misión cumplida!'); av && av.saludar(); pintarMision(); encajar(); }, 400);
     } else say(`${pick(m.bien)} ${total - n === 1 ? 'Falta uno' : 'Faltan ' + (total - n)}`);
   }
   function pintarMision() {
@@ -228,7 +230,7 @@
     if (!m) { if (b) b.remove(); return; }
     if (!b) { b = document.createElement('div'); b.className = 'mm-mision'; caja.appendChild(b); }
     const n = progreso(m), total = m.objetivo.objetos.length;
-    b.innerHTML = `<b>${m.titulo}</b><span class="mm-puntos">${m.objetivo.objetos.map((_, i) => `<i class="${i < n ? 'si' : ''}"></i>`).join('')}</span><span>${n} de ${total}</span><button class="btn" aria-label="Dejar la misión">✖</button>`;
+    b.innerHTML = `<b>${m.titulo}</b><span class="mm-puntos" aria-hidden="true">${m.objetivo.objetos.map((_, i) => `<i class="${i < n ? 'si' : ''}"></i>`).join('')}</span><span class="mm-cuenta">${n} de ${total}</span><button class="btn" aria-label="Dejar la misión">✖</button>`;
     b.querySelector('button').onclick = e => { e.stopPropagation(); dejar(); };
     b.addEventListener('pointerdown', e => e.stopPropagation());
   }
@@ -244,10 +246,25 @@
   function cerrarPanel() { const p = caja && caja.querySelector('.mm-panel'); if (p) p.remove(); }
 
   /* ---------- tocar y arrastrar ---------- */
+  const TOQUE = 26;
+  function cercano(e) {
+    let mejor = null, dm = Infinity;
+    escena.querySelectorAll('.mm-obj[data-capa="detras"]').forEach(el => {
+      const o = porId(el.dataset.id); if (!o || !(o.guardable || o.contenedor)) return;
+      const r = el.getBoundingClientRect(), dx = Math.max(r.left - e.clientX, 0, e.clientX - r.right), dy = Math.max(r.top - e.clientY, 0, e.clientY - r.bottom), d = Math.hypot(dx, dy);
+      if (d <= TOQUE && d < dm) { dm = d; mejor = el; }
+    });
+    return mejor;
+  }
   function punto(e) { const r = escena.getBoundingClientRect(), k = +escena.dataset.k; return [(e.clientX - r.left) / k, (e.clientY - r.top) / k]; }
   function abajo(e) {
     e.stopPropagation(); e.preventDefault();
-    const [x, y] = punto(e), objEl = e.target.closest('.mm-obj'), enMun = e.target.closest('.mm-muneca');
+    const [x, y] = punto(e);
+    let enMun = e.target.closest('.mm-muneca'), objEl = e.target.closest('.mm-obj');
+    // toque tolerante (iPhone): los juguetes y la cesta tienen preferencia: si el dedo cae junto a uno (a menos de TOQUE px
+    // de pantalla), aunque sea sobre la zona transparente de la cama o sobre la muñeca, se toca el juguete
+    const pequeno = el => { const o = el && porId(el.dataset.id); return !!o && (o.guardable || o.contenedor); };
+    if (!pequeno(objEl)) { const c = cercano(e); if (c) { objEl = c; enMun = null; } }
     if (enMun) arrastre = { tipo: 'muneca', x0: x, y0: y, dx: est.muneca.x - x, dy: est.muneca.y - y, movido: false };
     else if (objEl) { const it = est.objetos.find(o => o.uid === objEl.dataset.uid); arrastre = { tipo: 'obj', it, x0: x, y0: y, dx: it.x - x, dy: it.y - y, movido: false }; }
     else arrastre = { tipo: 'suelo', x0: x, y0: y };

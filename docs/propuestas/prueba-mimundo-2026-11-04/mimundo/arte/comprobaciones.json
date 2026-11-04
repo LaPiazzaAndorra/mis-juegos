@@ -4,43 +4,72 @@
    "alfa_casi_opaco_corregido_px": 856371,
    "motitas_quitadas": 599,
    "motitas_px": 1875
+  },
+  "cesta": {
+   "alfa_casi_opaco_corregido_px": 433930,
+   "motitas_quitadas": 1095,
+   "motitas_px": 4022,
+   "resplandor_quitado_px": 8622,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 3918
+  },
+  "osito": {
+   "alfa_casi_opaco_corregido_px": 415869,
+   "motitas_quitadas": 1483,
+   "motitas_px": 3810,
+   "resplandor_quitado_px": 18724,
+   "radio_borde_px": 12,
+   "alfa_min": 12,
+   "borde_conservado_px": 14290
+  },
+  "pelota": {
+   "alfa_casi_opaco_corregido_px": 434890,
+   "motitas_quitadas": 451,
+   "motitas_px": 880,
+   "resplandor_quitado_px": 5739,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 3125
+  },
+  "cubos": {
+   "alfa_casi_opaco_corregido_px": 399392,
+   "motitas_quitadas": 203,
+   "motitas_px": 555,
+   "resplandor_quitado_px": 6588,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 3794
+  },
+  "cuento": {
+   "alfa_casi_opaco_corregido_px": 534663,
+   "motitas_quitadas": 451,
+   "motitas_px": 1038,
+   "resplandor_quitado_px": 7083,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 4471
   }
  },
- "pendientes": [
-  {
-   "id": "cesta",
-   "nombre": "Cesta de juguetes",
-   "archivo": "recibidas/cesta.png"
-  },
-  {
-   "id": "osito",
-   "nombre": "Osito",
-   "archivo": "recibidas/osito.png"
-  },
-  {
-   "id": "pelota",
-   "nombre": "Pelota",
-   "archivo": "recibidas/pelota.png"
-  },
-  {
-   "id": "cubos",
-   "nombre": "Cubos de colores",
-   "archivo": "recibidas/cubos.png"
-  },
-  {
-   "id": "cuento",
-   "nombre": "Libro de cuentos",
-   "archivo": "recibidas/cuento.png"
-  }
- ],
+ "pendientes": [],
  "kb": {
   "cama-delante.webp": 175.9,
   "cama-detras.webp": 260.5,
-  "fondo.webp": 237.1
+  "cesta.webp": 120.3,
+  "cubos.webp": 76.6,
+  "cuento.webp": 196.3,
+  "fondo.webp": 237.1,
+  "osito.webp": 168.8,
+  "pelota.webp": 51.9
  },
  "recibidas_sin_cambios": true,
  "sha256_recibidas": {
   "cama-propuesta.png": "26d5e3a4f307ba5dbf6d5661587bfeceeafd4ea0c56ea0140482156c3c0d2fb0",
-  "fondo-habitacion-propuesta.png": "6f337998d86f71bac33e14cfc1b9ad09f25ee4d30c8a71f217b07291f1776cee"
+  "cesta.png": "d9f643e17df3b696cf992354ea2feaaad7077fabbf92cbbc5efad452cf954928",
+  "cubos.png": "08ed1d895c6e86ff53079b5d09fac4a088237d23e5cd45fcb1e243026884148e",
+  "cuento.png": "49dd07459ff71f090a37ccd65a8e4d2347eebc1ad2a49681b95ced88b535f364",
+  "fondo-habitacion-propuesta.png": "6f337998d86f71bac33e14cfc1b9ad09f25ee4d30c8a71f217b07291f1776cee",
+  "osito.png": "c1811f42f87c11335ca910c44ee1e4d9d0606f0f751b454666846446b812a649",
+  "pelota.png": "bca78bc7410d87d8b3f3673ce0a8ce619d3e4ec438831b52e609f87ef3172a56"
  }
 }

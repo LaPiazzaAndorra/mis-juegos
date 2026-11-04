@@ -3,8 +3,8 @@
    Mi Mundo sin conexión (requisito): genera la versión publicable CON Mi Mundo en una carpeta temporal (sin publicar
    nada), la sirve como GitHub Pages (/mis-juegos/) y comprueba, en un iPhone simulado:
      · descarga todo y avisa «✅ Lista para jugar sin conexión» (Mi Mundo va en lo básico);
-     · en modo avión: Mi Mundo abre la habitación con el fondo y la cama, la muñeca se acuesta y se levanta, y no falla
-       ninguna petición;
+     · en modo avión: Mi Mundo abre la habitación con el fondo y la cama, la muñeca se acuesta y se levanta, están las
+       ilustraciones de los cinco objetos, la misión «Guardar los juguetes» se juega entera, y no falla ninguna petición;
      · «Guardar mi progreso» incluye la habitación (mm_habitacion2).
    Uso (desde la raíz): node docs/propuestas/prueba-mimundo-2026-11-04/prueba-sin-conexion.js [capturas]
    ===================================================================== */
@@ -44,6 +44,17 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   const ac = await p.evaluate(() => ({ en: !!MM.estado().muneca.en, mochila: [...document.querySelectorAll('.mm-av image')].filter(i => /mochila|tiras/.test(i.getAttribute('href'))).length }));
   ok('Sin conexión: la muñeca se acuesta en la cama (sin la mochila a la vista)', ac.en && ac.mochila === 0, JSON.stringify(ac));
   await p.screenshot({ path: path.join(OUT, 'mimundo-sin-conexion.png') });
+  // la misión, sin conexión, con las ilustraciones definitivas
+  const arte = await p.evaluate(async () => { let mal = []; for (const u of OFFLINE.basico.filter(u => /mimundo\/arte\/.*\.webp$/.test(u))) { try { if (!(await fetch(u)).ok) mal.push(u); } catch (e) { mal.push(u); } } return { n: OFFLINE.basico.filter(u => /mimundo\/arte\/.*\.webp$/.test(u)).length, mal }; });
+  ok('Sin conexión: están las ilustraciones de Mi Mundo (fondo, cama y los cinco objetos)', arte.n === 8 && !arte.mal.length, `${arte.n} imágenes`);
+  const mr = await p.$('.mm-muneca').then(e => e.boundingBox()); await p.mouse.click(mr.x + mr.width / 2, mr.y + mr.height / 2); await p.waitForTimeout(800);   // se levanta
+  await p.click('#mmMisiones'); await p.waitForTimeout(300); await p.click('.mm-panel .mm-mis[data-id="guardar-juguetes"]'); await p.waitForTimeout(900);
+  const caja = sel => p.$(sel).then(e => e.boundingBox());
+  for (const id of ['osito', 'pelota', 'cubos', 'cuento']) { const a = await caja(`.mm-obj[data-id="${id}"]`), d = await caja('.mm-obj[data-id="cesta"]');
+    await p.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await p.mouse.down(); await p.mouse.move(d.x + d.width / 2, d.y + d.height / 2, { steps: 12 }); await p.mouse.up(); await p.waitForTimeout(700); }
+  await p.waitForTimeout(800);
+  ok('Sin conexión: la misión «Guardar los juguetes» se juega entera', await p.evaluate(() => MM.misiones().hechas['guardar-juguetes'] === 1 && !MM.misiones().activa));
+  await p.screenshot({ path: path.join(OUT, 'mision-sin-conexion.png') });
   await p.evaluate(() => go('home')); await p.waitForTimeout(300); await p.tap('#setBtn'); await p.waitForTimeout(600); await p.tap('#bkGuardar'); await p.waitForTimeout(800);
   const copia = await p.evaluate(() => window.__comp.length && JSON.parse(window.__comp[0].text).local_storage);
   ok('Sin conexión: «Guardar mi progreso» incluye la habitación', copia && 'mm_habitacion2' in copia);
