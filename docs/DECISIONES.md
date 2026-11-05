@@ -1,5 +1,26 @@
 # Registro de decisiones
 
+## D-035 · Publicación en main: Contar y Memoria (Pensar, 1.ª entrega) y la habitación de Mi Mundo · 05/11/2026
+- **Pedido y autorización de la propietaria (04/11/2026, 17:27; retomado el 05/11):** «La publicación quedó pendiente. No prepares más funciones ahora: termina la actualización de la app instalada. Comprueba primero el estado actual de main y los despliegues de GitHub Pages. Si sigue en 031ce07, publica lo ya autorizado y aprobado: Contar y Memoria de la primera entrega, y la habitación de Mi Mundo con sus juguetes y la misión de guardarlos. La segunda entrega de Pensar (cf80691), Unir puntos, Repasar y el salón quedan fuera hasta que los pruebe y apruebe. Reúne los cambios sin sobrescribir el trabajo de las ramas. Conserva una referencia para volver atrás, protege todos los datos existentes y actualiza la caché sin conexión con todos los archivos necesarios. Haz el push a main y comprueba que GitHub Pages completa el despliegue. No des la tarea por terminada solo porque las ramas de prueba estén subidas. Envíame el commit publicado, el identificador visible de versión y los pasos para actualizar la misma app instalada, sin desinstalarla.»
+- **Estado comprobado (05/11):** `main` = `031ce07` (D-032); su despliegue de GitHub Pages («pages build and deployment»,
+  ejecución 6, 22/10) terminó bien. `avatar-creador` = `b6f2515`, `juegos-pensar` = `3a0b508`.
+- **Qué se publica:** lo publicado (la prueba completa `4d950bc`) + **Contar y Memoria** tal como se aprobaron (`5390dfc`,
+  `docs/propuestas/pensar-2026-11-04/`: `pensar.css`, `dibujos.js`, `pensar.js`) + **la habitación de Mi Mundo** aprobada
+  (`b99eee5`, `docs/propuestas/prueba-mimundo-2026-11-04/mimundo/`: habitación, catálogo ilustrado de seis objetos y misión
+  «Guardar los juguetes»).
+- **Fuera:** la 2.ª entrega de Pensar (`cf80691`: ¿Qué sigue?, Sombras y El diferente nuevos, Unir puntos), Repasar y el
+  salón (D-034). ¿Qué sigue?, Sombras y El diferente siguen como estaban.
+- **Cómo se ha reunido, sin pisar las ramas:** rama nueva **`publicacion-2026-11-05`** desde `avatar-creador` `b6f2515`, con
+  la 1.ª entrega de Pensar unida (`f9a2f40`). El generador de publicación recibe la opción **`--con-pensar CARPETA`**
+  (como `--con-mimundo`, recomendada en `docs/COORDINACION_RAMAS.md`): sus archivos van en la página antes que los de Mi
+  Mundo y en la lista para jugar sin conexión. `avatar-creador` y `juegos-pensar` no se han tocado.
+- **Versión visible:** `offline.js` muestra en **Ajustes** «Versión del juego: …» (la huella de la versión, la misma que da
+  nombre a la caché sin conexión).
+- **Datos:** no se borra ni se cambia ninguna clave. Las nuevas son `lv_contar2`, `lv_parejas`, `lv_donde` y `lv_serie`
+  (Pensar; prefijo `lv_`, ya en la copia de seguridad), y `mm_habitacion2` y `mm_misiones` (Mi Mundo; se añade el prefijo
+  `mm_` a «Guardar / Recuperar mi progreso»). `lv_contar`, `mm_hab` y `sc_*` solo se leen.
+- **Volver atrás:** rama **`version-anterior-2026-11-05`** = `031ce07` (lo publicado hasta hoy); además sigue
+  `version-anterior-2026-10-11` (`4bbf51d`).
 ## D-034 · Mi Mundo: el salón (y después el parque) · 04/11/2026
 - **Pedido de la propietaria:** «Seguimos ampliando Mi Mundo: primero el salón de la casa y después el parque. Ambos deben ser jugables con nuestra muñeca guardada, con el mismo acabado ilustrado de la habitación. Para el salón: catálogo de muebles y objetos que se puedan colocar, mover, quitar y guardar; sofá, mesa, estantería, cojines y objetos para preparar una merienda; una misión opcional: «Preparar la merienda para tres», con todos sus objetos necesarios gratuitos; juego libre disponible sin hacer la misión. Para el parque: zona de pícnic, banco, árboles y juguetes adecuados al lugar; la muñeca podrá moverse y llevar objetos; prepara después una misión de buscar objetos mediante pistas. No uses emojis ni dibujos básicos como sustitutos de las ilustraciones. Antes de programar cada escenario, prepara la distribución a escala con nuestra muñeca y la lista exacta de imágenes y capas que necesitamos generar aquí. Evita diseñar muebles solo para esconder la postura de pie; señala dónde hace falta resolver una postura o interacción. Conserva el contenido aprobado y las reglas actuales de logros. Los objetos nuevos desbloqueables se propondrán aparte. Trabaja en una copia aislada, mantén el funcionamiento sin conexión y protege las partidas. No publiques en main todavía. Coordina los archivos compartidos con la rama juegos-pensar, donde se están ampliando los juegos educativos. Empieza por el salón y envíame la propuesta visual y las piezas necesarias.»
 - **Propuesta (pendiente de aprobación)** en `docs/propuestas/mimundo-salon-2026-11-04/`: distribución a escala con la

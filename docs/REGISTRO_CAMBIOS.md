@@ -1,5 +1,32 @@
 # Registro de cambios
 
+### 2026-11-05 — D-035: publicación en main de Contar y Memoria y de la habitación de Mi Mundo (rama de publicación)
+
+- **Solicitado por:** la propietaria (04/11, 17:27; retomado el 05/11: «Reanuda»), pedido completo en D-035.
+- **Rama y commit:** `publicacion-2026-11-05`, este commit (sobre `avatar-creador` `b6f2515` + la 1.ª entrega de Pensar
+  `f9a2f40`). El commit de `main` se genera desde este y se anota en la entrada siguiente.
+- **Estado:** listo para publicar; Pages de `031ce07` desplegado bien (22/10).
+- **Cambios:**
+  - `herramientas/publicar/preparar_publicacion.py`: opción `--con-pensar CARPETA` (archivos de Pensar en la página antes
+    de Mi Mundo y en la lista sin conexión).
+  - `herramientas/publicar/offline.js`: «Versión del juego: …» en Ajustes.
+  - `herramientas/publicar/prueba-actualizacion.js` (nueva).
+  - D-035, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md` y `COORDINACION_RAMAS.md`.
+  - La carpeta `docs/propuestas/pensar-2026-11-04/` entra tal como se aprobó (`f9a2f40`).
+- **Datos guardados afectados:** ninguno se cambia ni se borra. Claves nuevas: `lv_contar2`, `lv_parejas`, `lv_donde`,
+  `lv_serie`, `mm_habitacion2` y `mm_misiones`; la copia de seguridad incluye también el prefijo `mm_`.
+- **Pruebas:**
+  - `prueba-actualizacion.js` **15/15**: de `031ce07` instalada, con una partida completa y una lámina propia, a la
+    versión nueva `5889ab82ca5d`. Aviso «Hay una versión nueva» → «Actualizar»; ningún dato cambia; una sola caché;
+    versión en Ajustes. En modo avión: Contar, Memoria, la habitación, la misión, Pintar, Heladería, Vestir y «Guardar
+    mi progreso». Sin la 2.ª entrega ni el salón; sin peticiones fallidas ni errores.
+  - `prueba-publicacion.js` **17/17** (desde la versión del 11/10).
+  - `prueba-mimundo-2026-11-04/prueba-sin-conexion.js` **7/7**.
+  - `pruebas/prueba-juego.js` **21/21** y `pruebas/prueba-copia.js` **45/45**.
+  - **Sin probar en el iPhone ni en el iPad reales.**
+- **¿`main` intacta?:** en este commit, sí (`031ce07`); se publica a continuación.
+- **Cómo revertir:** `main` → rama `version-anterior-2026-11-05` (`031ce07`); esta rama, `git revert` de este commit.
+
 ### 2026-11-04 — D-033 aprobada en general; D-034: propuesta del salón de Mi Mundo
 
 - **Solicitado por:** la propietaria («La habitación me ha gustado. Registra mi aprobación general, sin dar por comprobados todos los casos en el iPhone.» y «Seguimos ampliando Mi Mundo: primero el salón de la casa y después el parque. Ambos deben ser jugables con nuestra muñeca guardada, con el mismo acabado ilustrado de la habitación. Para el salón: catálogo de muebles y objetos que se puedan colocar, mover, quitar y guardar; sofá, mesa, estantería, cojines y objetos para preparar una merienda; una misión opcional: «Preparar la merienda para tres», con todos sus objetos necesarios gratuitos; juego libre disponible sin hacer la misión. Para el parque: zona de pícnic, banco, árboles y juguetes adecuados al lugar; la muñeca podrá moverse y llevar objetos; prepara después una misión de buscar objetos mediante pistas. No uses emojis ni dibujos básicos como sustitutos de las ilustraciones. Antes de programar cada escenario, prepara la distribución a escala con nuestra muñeca y la lista exacta de imágenes y capas que necesitamos generar aquí. Evita diseñar muebles solo para esconder la postura de pie; señala dónde hace falta resolver una postura o interacción. Conserva el contenido aprobado y las reglas actuales de logros. Los objetos nuevos desbloqueables se propondrán aparte. Trabaja en una copia aislada, mantén el funcionamiento sin conexión y protege las partidas. No publiques en main todavía. Coordina los archivos compartidos con la rama juegos-pensar, donde se están ampliando los juegos educativos. Empieza por el salón y envíame la propuesta visual y las piezas necesarias.»).

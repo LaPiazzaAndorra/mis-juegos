@@ -14,7 +14,10 @@ prueba completa (así el código aprobado no cambia de rutas):
     Pintar, plantilla.js, avatar.css y los catálogos del juego, manifiestos e iconos; y .nojekyll (GitHub Pages sin Jekyll).
 La versión es una huella de todos los archivos: si cambia cualquiera, cambia la caché (no se mezclan versiones).
 
-Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_publicacion.py DESTINO [--sin-git] [--con-mimundo CARPETA]
+Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_publicacion.py DESTINO [--sin-git] [--con-pensar CARPETA] [--con-mimundo CARPETA]
+  --con-pensar CARPETA   añade los juegos de Pensar aprobados (juegos-pensar): los archivos de ARCHIVOS_PENSAR que haya en
+                         CARPETA van en la página (antes que Mi Mundo) y en lo básico para jugar sin conexión. Sus datos
+                         empiezan por «lv_», que «Guardar / Recuperar mi progreso» ya incluye.
   --con-mimundo CARPETA  (solo para comprobar, aún sin publicar) añade Mi Mundo (D-033): los archivos de CARPETA (motor,
                          estilos, catálogo y arte) van en la página y en lo básico para jugar sin conexión, y «Guardar /
                          Recuperar mi progreso» incluye sus datos (prefijo «mm_»). Sin esta opción, el resultado es
@@ -31,6 +34,7 @@ COPIAR = ['manifest.json', 'manifest-pruebas.json', 'icon-192.png', 'icon-512.pn
           'plantilla/plantilla.js', 'avatar/avatar.css', 'avatar/catalogo.js', 'avatar/catalogo-muneca.js',
           CC + 'progreso.js', CC + 'logros.js', CC + 'avatar/motor.js', CC + 'avatar/catalogo-todo.js', CC + 'avatar/arte/piezas.js'] + \
          [LAM + n + '.png' for n in LAMINAS]
+ARCHIVOS_PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js']   # en este orden; solo los que existan
 PIEZAS = sorted(str(p.relative_to(RAIZ)) for d in ('avatar/arte/m', 'avatar/arte/s', CC + 'avatar/arte/todo') for p in (RAIZ / d).glob('*.webp'))
 
 
@@ -61,11 +65,20 @@ if __name__ == '__main__':
     args = sys.argv[1:]; destino = Path(args[0]).resolve(); destino.mkdir(parents=True, exist_ok=True)
     assert (destino / '.git').exists() or '--sin-git' in args, 'DESTINO debe ser una copia de trabajo de main'
     mm = args[args.index('--con-mimundo') + 1].strip('/') if '--con-mimundo' in args else None
+    pe = args[args.index('--con-pensar') + 1].strip('/') if '--con-pensar' in args else None
     archivos = {'index.html': pagina().encode('utf-8'), 'offline.js': (AQUI / 'offline.js').read_bytes(), '.nojekyll': b''}
     for f in COPIAR + PIEZAS:
         archivos[f] = (RAIZ / f).read_bytes()
     basico = ['./', 'index.html', 'offline.js'] + [f for f in COPIAR if f != 'manifest-pruebas.json' and 'pruebas' not in f] + ['offline-lista.js']
-    if mm:   # Mi Mundo (D-033), solo para comprobar
+    if pe:   # Pensar (juegos-pensar): Contar y Memoria…
+        pef = [f'{pe}/{n}' for n in ARCHIVOS_PENSAR if (RAIZ / pe / n).is_file()]
+        assert pef, 'no hay archivos de Pensar en ' + pe
+        for f in pef:
+            archivos[f] = (RAIZ / f).read_bytes()
+        basico[-1:-1] = pef
+        etiquetas = ''.join(f'<link rel="stylesheet" href="{f}">\n' if f.endswith('.css') else f'<script src="{f}"></script>\n' for f in pef)
+        archivos['index.html'] = sustituir(archivos['index.html'].decode('utf-8'), '<script src="offline-lista.js"></script>', etiquetas + '<script src="offline-lista.js"></script>').encode('utf-8')
+    if mm:   # Mi Mundo (D-033)
         mmf = sorted(str(q.relative_to(RAIZ)) for q in (RAIZ / mm).rglob('*') if q.is_file() and q.suffix in ('.js', '.css', '.webp'))
         for f in mmf:
             archivos[f] = (RAIZ / f).read_bytes()

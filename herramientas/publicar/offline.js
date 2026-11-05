@@ -4,6 +4,10 @@
    datos guardados. */
 (function () {
   'use strict';
+  // versión visible en Ajustes (para comprobar que la app instalada se ha actualizado)
+  { const listo = document.getElementById('setClose'); if (listo && window.OFFLINE) { const v = document.createElement('p'); v.id = 'verApp';
+    v.textContent = 'Versión del juego: ' + OFFLINE.version; v.style.cssText = 'margin:2px 0 0;text-align:center;font:700 13px system-ui,sans-serif;color:#8a7a9a';
+    listo.parentNode.insertBefore(v, listo); } }
   if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http') || !window.caches) return;
   const C = 'mis-juegos-' + OFFLINE.version, todos = OFFLINE.basico.concat(OFFLINE.piezas);
   const aviso = document.createElement('div'); aviso.id = 'offlineAviso';

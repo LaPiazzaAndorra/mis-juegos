@@ -10,6 +10,11 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
 `logros.js` (Pensar: `pensar.css`, `dibujos.js`, `pensar.js`; Mi Mundo: `mimundo/…`). Pensar no cambia `progreso.js`
 (sus claves empiezan por `lv_`); Mi Mundo añade el prefijo `mm_`. Ninguna toca `logros.js`.
 
+**05/11/2026 (D-035):** publicada en `main` la versión con Contar y Memoria (1.ª entrega, `f9a2f40`) y la habitación de
+Mi Mundo, desde la rama **`publicacion-2026-11-05`** (`avatar-creador` `b6f2515` + `f9a2f40` + opción `--con-pensar` del
+generador, versión visible en Ajustes y `prueba-actualizacion.js`). Esa rama hay que unirla a `avatar-creador` (y
+`juegos-pensar` puede unirla o seguir aparte): solo pueden chocar los `docs/*.md`.
+
 ## Archivos compartidos y quién los toca
 
 | Archivo | Mi Mundo (D-033/D-034, `avatar-creador`) | Contar y Memoria (`juegos-pensar`) |

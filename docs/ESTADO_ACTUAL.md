@@ -225,6 +225,16 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
   oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
   las 40 combinaciones no se han probado una a una en el iPhone.
 
+**Publicación del 05/11 (D-035): Contar y Memoria + la habitación de Mi Mundo.** Rama `publicacion-2026-11-05`
+(`avatar-creador` `b6f2515` + la 1.ª entrega de Pensar `f9a2f40`), generada con
+`preparar_publicacion.py --con-pensar docs/propuestas/pensar-2026-11-04 --con-mimundo docs/propuestas/prueba-mimundo-2026-11-04/mimundo`.
+Fuera: la 2.ª entrega de Pensar, Unir puntos, Repasar y el salón. Versión visible en Ajustes. Probado en Chromium
+(iPhone y app instalada simulados): `herramientas/publicar/prueba-actualizacion.js` (de `031ce07` a la nueva, con una
+partida completa: aviso «Hay una versión nueva», «Actualizar», ningún dato cambia, una sola caché, modo avión con Contar,
+Memoria, la habitación y su misión, Pintar, Heladería, Vestir y «Guardar mi progreso») y `prueba-publicacion.js`.
+**Sin probar en el iPhone ni en el iPad reales.** El commit de `main` y el despliegue de GitHub Pages se anotan en la
+entrada siguiente del registro.
+
 **Salón de Mi Mundo (04/11, D-034):** propuesta a escala y lista de 14 imágenes en
 `docs/propuestas/mimundo-salon-2026-11-04/` (misión «Preparar la merienda para tres»); **pendiente de aprobación y de las
 ilustraciones**. Después, el parque.
@@ -389,10 +399,10 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 04/11/2026 (D-033 aprobada en general; D-034: propuesta del salón) · **Rama:** `avatar-creador` ·
+**Última actualización:** 05/11/2026 (D-035: publicación de Contar y Memoria y de la habitación de Mi Mundo) · **Rama:** `publicacion-2026-11-05` (para unir a `avatar-creador`) ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` (22/10/2026, D-032: la prueba completa publicada, con juego sin
-conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bbf51d`).
+conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bbf51d`). **D-035 (05/11):** se publica en `main` la versión con Contar, Memoria y la habitación; la de `031ce07` queda en la rama `version-anterior-2026-11-05`.
 
 ## Repositorio
 
@@ -401,6 +411,7 @@ conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bb
   con `herramientas/publicar/preparar_publicacion.py` (solo los archivos del juego). **Punto de recuperación:** la rama
   `version-anterior-2026-10-11` (`4bbf51d`, la versión del 11/10). Las etiquetas no se pueden subir desde el entorno de
   Claude (error 403).
+- **D-035 (05/11):** `main` pasa a la versión con Contar y Memoria (Pensar) y la habitación de Mi Mundo, generada desde la rama `publicacion-2026-11-05`; punto de recuperación: rama `version-anterior-2026-11-05` (`031ce07`).
 - `avatar-creador` = desarrollo en curso, **sin publicar**.
 - Dirección pública del juego: <https://lapiazzaandorra.github.io/mis-juegos/> (GitHub Pages desde `main`).
 
