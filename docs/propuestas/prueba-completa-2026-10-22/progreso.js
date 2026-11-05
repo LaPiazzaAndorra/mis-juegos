@@ -27,7 +27,7 @@
   const FORMATO = 'mi-mundo-juegos-respaldo', VERSION = 1;
   const CLAVES = ['stars', 'gal', 'sound', 'voice', 'tone', 'iceServed', 'iceCoins', 'scKey', 'mm_hab', 'avatar', 'avatar_draft', 'doll',
     'logros', 'tareas', 'premios'];   // COPIA de la prueba conjunta: solo se añaden estas tres claves
-  const PREFIJOS = ['sc_', 'lv_'];
+  const PREFIJOS = ['sc_', 'lv_', 'mm_'];   // Mi Mundo (D-033): habitación y misiones
   const ULTIMA = 'bk_ultima';            // fecha de la última copia guardada (clave nueva, solo informativa)
   const PRUEBAS = !!window.MODO_PRUEBAS;  // versión de pruebas (otro origen, datos ficticios)
   const esDelJuego = k => CLAVES.includes(k) || PREFIJOS.some(p => k.startsWith(p));
