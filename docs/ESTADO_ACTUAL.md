@@ -232,8 +232,8 @@ Fuera: la 2.ª entrega de Pensar, Unir puntos, Repasar y el salón. Versión vis
 (iPhone y app instalada simulados): `herramientas/publicar/prueba-actualizacion.js` (de `031ce07` a la nueva, con una
 partida completa: aviso «Hay una versión nueva», «Actualizar», ningún dato cambia, una sola caché, modo avión con Contar,
 Memoria, la habitación y su misión, Pintar, Heladería, Vestir y «Guardar mi progreso») y `prueba-publicacion.js`.
-**Sin probar en el iPhone ni en el iPad reales.** El commit de `main` y el despliegue de GitHub Pages se anotan en la
-entrada siguiente del registro.
+**Publicado:** `main` = **`021c67e`**, versión **`5889ab82ca5d`** (visible en Ajustes), desplegado en GitHub Pages
+(05/11, `success`). Anterior: rama `version-anterior-2026-11-05` (`031ce07`). **Sin probar en el iPhone ni en el iPad reales.**
 
 **Salón de Mi Mundo (04/11, D-034):** propuesta a escala y lista de 14 imágenes en
 `docs/propuestas/mimundo-salon-2026-11-04/` (misión «Preparar la merienda para tres»); **pendiente de aprobación y de las

@@ -1,5 +1,29 @@
 # Registro de cambios
 
+### 2026-11-05 — D-035 publicada: `main` = `021c67e` (versión `5889ab82ca5d`), desplegada en GitHub Pages
+
+- **Solicitado por:** la propietaria (D-035).
+- **Rama y commit:** `main` = **`021c67e`**, generado desde `publicacion-2026-11-05` `f1bd6e1` (la entrada siguiente).
+  Comprobado con `git ls-remote origin`. Referencia para volver atrás: rama **`version-anterior-2026-11-05`** = `031ce07`.
+  Esta anotación: `publicacion-2026-11-05`, este commit.
+- **Estado:** **publicado**.
+  - GitHub Pages: «pages build and deployment», ejecución 7 de `021c67e`, `completed` / `success` (05/11 04:49 UTC).
+  - Despliegue `7565490838` en `github-pages`, estado `success`, en <https://lapiazzaandorra.github.io/mis-juegos/>.
+  - Desde el entorno de Claude no se puede abrir la web publicada (el proxy no deja entrar en `github.io`).
+- **Cambios en `main`:**
+  - `index.html`: 7 líneas, las de Pensar y Mi Mundo.
+  - `offline.js`: versión en Ajustes.
+  - `offline-lista.js` y `sw.js`: versión `5889ab82ca5d`, con los archivos nuevos en la caché.
+  - `progreso.js`: prefijo `mm_`.
+  - `docs/propuestas/pensar-2026-11-04/`: 3 archivos.
+  - `docs/propuestas/prueba-mimundo-2026-11-04/mimundo/`: 12 archivos.
+  - Son exactamente los archivos probados en `prueba-actualizacion.js` (comparados uno a uno).
+- **Datos guardados afectados:** ninguno se cambia ni se borra (ver la entrada siguiente).
+- **Pruebas:** las de la entrada siguiente. **Sin probar en el iPhone ni en el iPad reales.**
+- **¿`main` intacta?:** no: cambia, con la autorización de la propietaria (D-035).
+- **Cómo revertir:** `git push origin version-anterior-2026-11-05:main --force-with-lease`, o un commit en `main` que
+  restaure `031ce07`. Las apps instaladas se actualizan igual que ahora, con el aviso y «Actualizar».
+
 ### 2026-11-05 — D-035: publicación en main de Contar y Memoria y de la habitación de Mi Mundo (rama de publicación)
 
 - **Solicitado por:** la propietaria (04/11, 17:27; retomado el 05/11: «Reanuda»), pedido completo en D-035.
