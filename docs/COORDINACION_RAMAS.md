@@ -1,10 +1,14 @@
 # Coordinación entre ramas: `avatar-creador` (Mi Mundo), `juegos-pensar` (Contar, Memoria…) y `pintar-heladeria`
 
-**05/11/2026 (D-035):** publicado en `main` Contar y Memoria tal como se aprobaron (`juegos-pensar` hasta `f9a2f40`, unido a
+**05/11/2026 (D-035):** publicado en `main` (`021c67e`, versión `5889ab82ca5d`, por otra sesión desde la rama
+`publicacion-2026-11-05`) Contar y Memoria tal como se aprobaron (`juegos-pensar` hasta `f9a2f40`, unido a
 `avatar-creador` sin la 2.ª entrega) con `--con-pensar`, y la habitación de Mi Mundo con `--con-mimundo`. La 2.ª entrega de
 Pensar (`cf80691`, `3a0b508`) sigue solo en `juegos-pensar`: para publicarla, `--con-pensar` usará su carpeta tal como
 esté y la lista `PENSAR` del generador (hoy, los tres archivos de la 1.ª entrega) tendrá que incluir `figuras.js` y
 `pensar2.js`.
+**Generador separado en dos ramas:** `publicacion-2026-11-05` (`f1bd6e1`, el usado para `main`: versión en Ajustes) y
+`avatar-creador` (`ec737be`: versión en el aviso «Lista», `--fecha`, prueba ampliada). Antes de la próxima publicación se
+juntan en uno, sin perder ninguna de las dos cosas.
 
 Actualizado el 04/11/2026. Lo publicado es `main` (`031ce07`, D-032): la prueba completa generada con
 `herramientas/publicar/preparar_publicacion.py` (rama `avatar-creador`). Las mejoras de Contar y Memoria se hacen en la

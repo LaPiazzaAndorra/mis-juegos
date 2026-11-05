@@ -7,11 +7,21 @@
   habitación, catálogo, juguetes y misión «Guardar los juguetes»). Todo lo publicado antes sigue igual.
 - **Qué queda fuera:** el salón (D-034, en curso, guardado aparte sin publicar), la 2.ª entrega de Pensar (¿Qué sigue?,
   Sombras, El diferente progresivos y Unir puntos, sin probar en el iPhone), el parque y los desbloqueables.
-- **Cómo:** `herramientas/publicar/preparar_publicacion.py --con-pensar … --con-mimundo … --fecha 2026-11-05`; versión
-  visible «2026-11-05 · b9d00e» en el aviso «Lista para jugar sin conexión»; caché nueva por versión (sin mezclar); la
-  versión nueva entra al cerrar la app o al tocar «Actualizar». Referencia para volver atrás: rama
-  `version-anterior-2026-10-22` (`031ce07`).
-- **Probado:** `herramientas/publicar/prueba-publicacion.js` 22/22 (desde lo publicado hoy, `031ce07`, con una partida: la versión nueva entra sin perder ni cambiar ningún dato; «Lista para jugar sin conexión» con la versión visible y una sola caché de 602 archivos; en modo avión: vestir, colorear, Heladería, logros, Contar (+1 ⭐), Memoria (los tres juegos), Mi Mundo con la misión entera, «Guardar» y «Recuperar mi progreso», sin peticiones fallidas ni errores; una actualización posterior espera sin mezclar archivos y entra entera); Pensar 52/52 y Mi Mundo 22/22 en sus copias; juego 21/21 y copia de seguridad 45/45. **No probado en el iPhone ni en el iPad reales.**
+- **Quién publicó:** la publicación la hizo **otra sesión de Claude** (rama `publicacion-2026-11-05`, `f1bd6e1`) a las
+  05:49 del 05/11, con el mismo contenido: **`main` = `021c67e`**, versión **`5889ab82ca5d`**, visible en **Ajustes**
+  («Versión del juego: 5889ab82ca5d»); GitHub Pages lo desplegó con éxito. Referencia para volver atrás: rama
+  **`version-anterior-2026-11-05`** (`031ce07`; esta sesión creó también `version-anterior-2026-10-22`, que apunta al mismo
+  commit). Esta sesión preparó una versión equivalente (con la versión en el aviso «Lista para jugar sin conexión») y, al
+  ver `main` ya publicada, **no la subió** para no sobrescribirla.
+- **Comprobado aquí sobre lo publicado:** Pensar idéntico a `f9a2f40` y Mi Mundo idéntico a `b99eee5`, byte a byte; los demás
+  archivos, iguales a la versión preparada aquí salvo `offline.js`, `offline-lista.js` y `sw.js` (versión y su
+  visualización). `herramientas/publicar/prueba-publicacion.js` sobre `021c67e`, actualizando desde `031ce07` con una
+  partida: **22/22** (ningún dato perdido; «Lista para jugar sin conexión» con una sola caché de 602 archivos; en modo
+  avión vestir, colorear, Heladería, logros, Contar +1 ⭐, Memoria, Mi Mundo con la misión, «Guardar» y «Recuperar mi
+  progreso»; una actualización posterior sin mezclar archivos). Además Pensar 52/52 y Mi Mundo 22/22 en sus copias; juego
+  21/21 y copia de seguridad 45/45. **No probado en el iPhone ni en el iPad reales.**
+- **Pendiente de juntar:** el generador de `publicacion-2026-11-05` (versión en Ajustes) y el de `avatar-creador` (versión
+  en el aviso) se separaron; antes de la próxima publicación hay que quedarse con uno (ver `docs/COORDINACION_RAMAS.md`).
 
 ## D-034 · Mi Mundo: el salón (y después el parque) · 04/11/2026
 - **Pedido de la propietaria:** «Seguimos ampliando Mi Mundo: primero el salón de la casa y después el parque. Ambos deben ser jugables con nuestra muñeca guardada, con el mismo acabado ilustrado de la habitación. Para el salón: catálogo de muebles y objetos que se puedan colocar, mover, quitar y guardar; sofá, mesa, estantería, cojines y objetos para preparar una merienda; una misión opcional: «Preparar la merienda para tres», con todos sus objetos necesarios gratuitos; juego libre disponible sin hacer la misión. Para el parque: zona de pícnic, banco, árboles y juguetes adecuados al lugar; la muñeca podrá moverse y llevar objetos; prepara después una misión de buscar objetos mediante pistas. No uses emojis ni dibujos básicos como sustitutos de las ilustraciones. Antes de programar cada escenario, prepara la distribución a escala con nuestra muñeca y la lista exacta de imágenes y capas que necesitamos generar aquí. Evita diseñar muebles solo para esconder la postura de pie; señala dónde hace falta resolver una postura o interacción. Conserva el contenido aprobado y las reglas actuales de logros. Los objetos nuevos desbloqueables se propondrán aparte. Trabaja en una copia aislada, mantén el funcionamiento sin conexión y protege las partidas. No publiques en main todavía. Coordina los archivos compartidos con la rama juegos-pensar, donde se están ampliando los juegos educativos. Empieza por el salón y envíame la propuesta visual y las piezas necesarias.»

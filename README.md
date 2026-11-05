@@ -18,7 +18,7 @@ Pide literalmente: *«Abre `CLAUDE.md` y la carpeta `docs/` del repositorio `LaP
 
 | Rama | Contenido |
 | --- | --- |
-| `main` | Versión publicada del juego (05/11/2026, D-035: la prueba completa + Contar y Memoria + la habitación de Mi Mundo, con juego sin conexión; generada con `herramientas/publicar/`). Protegida: no se cambia sin aprobación. Las anteriores, en las ramas `version-anterior-2026-10-22` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`). |
+| `main` | Versión publicada del juego (`021c67e`, versión `5889ab82ca5d`, 05/11/2026, D-035: la prueba completa + Contar y Memoria + la habitación de Mi Mundo, con juego sin conexión; generada con `herramientas/publicar/`). Protegida: no se cambia sin aprobación. Las anteriores, en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`). |
 | `avatar-creador` | Desarrollo del nuevo creador de avatar, la habitación de «Mi Mundo», la muñeca nueva (en propuestas: visor y prueba aislada, ver `docs/MANUAL_PROYECTO.md`), las herramientas y esta documentación. |
 
 ## Documentación

@@ -3,21 +3,23 @@
 ### 2026-11-05 — D-035: publicación en main de Contar y Memoria y la habitación de Mi Mundo
 
 - **Solicitado y autorizado por:** la propietaria («Quiero actualizar la app que Amaia ya tiene instalada en el iPhone/iPad. Autorizo reunir, comprobar y publicar en main las mejoras que ya he aprobado: Contar y Memoria, y la habitación de Mi Mundo con sus juguetes y la misión de guardarlos. Comprueba los commits actuales; no sobrescribas el trabajo de las otras ramas. El salón y los juegos nuevos que todavía no he probado quedan fuera de esta publicación. Antes del push: conserva una referencia de la versión publicada para poder volver atrás; comprueba la integración, el guardado y la recuperación del progreso; no borres ni reinicies partidas, dibujos, muñecas, estrellas, logros ni premios; incluye todos los archivos nuevos en la descarga sin conexión y actualiza la versión del service worker, evitando mezclar archivos de distintas versiones. Haz el push a main y confirma que GitHub Pages termina el despliegue. Quiero actualizar la misma app instalada, sin desinstalarla ni crear otra app.»).
-- **Rama y commit:** en `avatar-creador`, la unión de `juegos-pensar` hasta `f9a2f40` (`1884198`) y este commit (generador,
-  oferta de versión visible y prueba), sobre `b6f2515`. `main`: el commit de publicación (en la entrada siguiente).
-  Referencia para volver atrás: rama `version-anterior-2026-10-22` (`031ce07`).
-- **Estado:** **publicado** en <https://lapiazzaandorra.github.io/mis-juegos/> (versión visible «2026-11-05 · b9d00e»). Salón, 2.ª entrega de Pensar y parque,
-  fuera.
-- **Cambios:** `herramientas/publicar/preparar_publicacion.py` (`--con-pensar`, `--fecha`, versión visible),
-  `herramientas/publicar/offline.js` (aviso con la versión, en dos líneas), `herramientas/publicar/prueba-publicacion.js`
-  (Contar, Memoria, Mi Mundo y «Recuperar mi progreso» sin conexión; parte de cualquier versión con caché por versión);
-  D-035, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`, `README.md` y `docs/COORDINACION_RAMAS.md`.
-- **Datos guardados afectados:** ninguno se borra ni se reinicia; Contar y Memoria guardan su avance en `lv_*`, Mi Mundo en
-  `mm_habitacion2` y `mm_misiones` (todo entra en «Guardar / Recuperar mi progreso»).
-- **Pruebas:** `herramientas/publicar/prueba-publicacion.js` 22/22 (desde lo publicado hoy, `031ce07`, con una partida: la versión nueva entra sin perder ni cambiar ningún dato; «Lista para jugar sin conexión» con la versión visible y una sola caché de 602 archivos; en modo avión: vestir, colorear, Heladería, logros, Contar (+1 ⭐), Memoria (los tres juegos), Mi Mundo con la misión entera, «Guardar» y «Recuperar mi progreso», sin peticiones fallidas ni errores; una actualización posterior espera sin mezclar archivos y entra entera); Pensar 52/52 y Mi Mundo 22/22 en sus copias; juego 21/21 y copia de seguridad 45/45. No probado en un iPhone ni en un iPad reales.
-- **¿`main` intacta?:** no: cambiada con autorización expresa (`031ce07` → el commit de publicación).
-- **Cómo volver atrás:** subir a `main` la rama `version-anterior-2026-10-22` (o «revert» del commit de publicación). La
-  app vuelve a la versión anterior al abrirse con internet; los datos no se tocan.
+- **Rama y commit:** en `avatar-creador`, la unión de `juegos-pensar` hasta `f9a2f40` (`1884198`), `ec737be` (generador,
+  versión visible en el aviso y prueba) y este commit (corrección del registro). **`main` = `021c67e`**, publicado por
+  **otra sesión de Claude** desde la rama `publicacion-2026-11-05` (`f1bd6e1`, `64e77d9`) a las 05:49 con el mismo
+  contenido; esta sesión no subió su versión para no sobrescribirla. Referencia para volver atrás: rama
+  `version-anterior-2026-11-05` (`031ce07`; también `version-anterior-2026-10-22`, mismo commit).
+- **Estado:** **publicado** en <https://lapiazzaandorra.github.io/mis-juegos/>, versión **`5889ab82ca5d`** (visible en
+  Ajustes: «Versión del juego: 5889ab82ca5d»); GitHub Pages: despliegue completado con éxito. Fuera: el salón, la 2.ª
+  entrega de Pensar y el parque.
+- **Comprobado sobre lo publicado:** Pensar idéntico a `f9a2f40` y Mi Mundo a `b99eee5`; `prueba-publicacion.js` 22/22 sobre
+  `021c67e` actualizando desde `031ce07` con una partida (también Contar, Memoria, Mi Mundo y «Recuperar mi progreso» en
+  modo avión); Pensar 52/52 y Mi Mundo 22/22 en sus copias; juego 21/21 y copia de seguridad 45/45. No probado en un
+  iPhone ni en un iPad reales.
+- **Cambios en esta rama:** `herramientas/publicar/` (`--con-pensar`, `--fecha`, versión en el aviso, prueba ampliada); D-035,
+  `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`, `README.md`, `docs/COORDINACION_RAMAS.md`.
+- **Datos guardados afectados:** ninguno se borra ni se reinicia.
+- **Cómo volver atrás:** subir a `main` la rama `version-anterior-2026-11-05` (o «revert» de `021c67e`). La app vuelve a la
+  versión anterior al abrirse con internet; los datos no se tocan.
 
 ### 2026-11-04 — `b6f2515` · D-033 aprobada en general; D-034: propuesta del salón de Mi Mundo
 
