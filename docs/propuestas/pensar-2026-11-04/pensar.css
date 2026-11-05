@@ -1,0 +1,101 @@
+/* Juegos de pensar · Contar y Memoria (copia aislada, 04/11/2026). Mismo diseño pastel que el juego. */
+.pn .bar .title{flex:1;min-width:0;font-size:clamp(18px,4.7vw,28px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pnFila{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:0 12px 4px;flex:0 0 auto}
+.pnSaltar{height:44px;font-size:16px;padding:0 14px;border-radius:16px}
+.pnCamino{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:0;flex:0 1 auto;font-weight:800;font-size:15px;color:var(--soft)}
+.pnPasos{display:flex;gap:5px}
+.pnPasos i{width:12px;height:12px;border-radius:50%;background:#efe8f7;box-shadow:0 0 0 2px #e2d8ef inset}
+.pnPasos i.hecho{background:var(--lila2);box-shadow:0 0 0 2px var(--purple) inset}
+.pnPasos i.actual{background:var(--purple);transform:scale(1.35)}
+.pnWrap{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:12px;padding:6px 12px 30px}
+.pnLado{display:flex;flex-direction:column;align-items:center;gap:12px;flex:0 0 auto;max-width:100%}
+.pnTexto{font-size:clamp(19px,4.6vw,25px);font-weight:900;text-align:center;line-height:1.25;max-width:640px;min-height:1.25em}
+.pnEscena{flex:1;min-height:0;width:100%;max-width:960px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;overflow:hidden;--os:92px;align-content:center}
+/* objetos para contar */
+.pnCaja{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:calc(var(--os)*.14);background:#fff;border-radius:28px;padding:calc(var(--os)*.2);box-shadow:var(--shadow);max-width:100%}
+.pnCaja.grupos{gap:calc(var(--os)*.22)}
+.pnDecena{display:flex;flex-direction:column;gap:calc(var(--os)*.08);padding:calc(var(--os)*.1);border-radius:18px;background:#faf6ff;box-shadow:0 0 0 2px #ece3f8 inset}
+.pnFila5{display:flex;gap:calc(var(--os)*.08)}
+.pnO{position:relative;width:var(--os);height:var(--os);display:inline-block;border-radius:22%;transition:opacity .6s,transform .6s;cursor:pointer;flex:0 0 auto}
+.pnO svg{width:100%;height:100%;display:block;pointer-events:none}
+.pnCaja.suelta .pnO:nth-child(3n+1){transform:rotate(-8deg) translateY(4px)}.pnCaja.suelta .pnO:nth-child(3n+2){transform:rotate(6deg) translateY(-5px)}
+.pnO.contado,.pnHueco.contado{background:#fff2b8}
+.pnO b,.pnHueco b{position:absolute;top:-6px;right:-6px;background:var(--purple);color:#fff;font-size:18px;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;z-index:2}
+.pnO.llega{animation:pnLlega .7s ease-out both}
+@keyframes pnLlega{from{transform:translateX(40px);opacity:0}}
+.pnO.ido{opacity:.22;transform:translateY(-14px) scale(.9);outline:3px dashed #cbbde0;outline-offset:-3px;cursor:default}
+.pnHueco{position:relative;width:var(--os);height:var(--os);border-radius:50%;border:4px dashed #cbbde0;box-sizing:border-box;flex:0 0 auto;cursor:pointer;background:#fcfaff}
+.pnHueco.oculto{display:none}
+.pnSuma{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;max-width:100%}
+.pnMas{width:52px;height:52px;border-radius:50%;background:var(--purple);color:#fff;font-size:38px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.pnMeta{display:flex;align-items:center;gap:6px;background:var(--lila2);border-radius:24px;padding:6px 16px 6px 18px;box-shadow:var(--shadow)}
+.pnMeta b{font-size:calc(var(--os)*.7);font-weight:900;color:var(--purple);line-height:1}
+.pnMeta .pnO{width:calc(var(--os)*.7);height:calc(var(--os)*.7);cursor:default}
+/* respuestas */
+.pnOpts{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.pnOpt{min-width:96px;height:96px;padding:0 12px}
+.pnOpt .num{font-size:58px}
+.pnOpts.cuatro{flex-wrap:nowrap;gap:10px}.pnOpts.cuatro .pnOpt{min-width:0;width:min(96px,calc((100vw - 64px) / 4))}
+.pnOpt.fuera{opacity:.35;pointer-events:none}
+/* presentación (primera vez) */
+.pnIntro{position:absolute;inset:0;z-index:20;background:rgba(255,246,251,.92);display:flex;align-items:center;justify-content:center;padding:16px}
+.pnIntro[hidden]{display:none}
+.pnIntroCaja{background:#fff;border-radius:32px;box-shadow:var(--shadow);padding:22px;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:420px;width:100%}
+.pnIntroCaja p{margin:0;font-size:24px;font-weight:900;text-align:center}
+.pnIntroCaja .btn{width:100%;font-size:22px;height:64px}
+.pnIntroCaja .pnSi{background:var(--lila2)}
+/* menú de Memoria */
+.pnNv{display:block;font-size:15px;font-weight:800;color:var(--soft);margin-top:2px}
+@media (max-width:520px){.pnNv{margin-top:0}}
+/* parejas */
+.pnChip{min-width:48px;height:48px;font-size:22px;border-radius:16px;position:relative}
+.pnChip.hecho:after{content:'';position:absolute;top:4px;right:4px;width:8px;height:8px;border-radius:50%;background:var(--purple)}
+.pnCard{background:linear-gradient(135deg,#c9b6ff,#ffb3d1)}
+.pnCard:before{content:'';width:42%;height:42%;font-size:0;opacity:.9;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 0Q10 10 20 10Q10 10 10 20Q10 10 0 10Q10 10 10 0Z' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat}
+.pnCard .pnCara{width:82%;height:82%}
+.pnCard .pnCara svg{width:100%;height:100%;display:block}
+.pnCard.open .pnCara,.pnCard.asoma .pnCara{display:block}
+.pnCard.asoma{background:#fff;box-shadow:0 0 0 5px #ffd46b inset;animation:pista 1s infinite}
+.pnCard.asoma:before{display:none}
+/* ¿dónde estaba? */
+.pnTablero{flex:1;min-height:0;width:100%;display:grid;gap:10px;align-content:center;justify-content:center;
+  --lado:80px;grid-auto-rows:var(--lado);grid-template-columns:repeat(var(--c),var(--lado))!important}
+.pnCelda{border:none;border-radius:22%;background:linear-gradient(135deg,#c9b6ff,#b9e4fb);box-shadow:0 5px 0 rgba(0,0,0,.12);padding:0;display:flex;align-items:center;justify-content:center;width:var(--lado);height:var(--lado)}
+.pnCelda .pnCara{display:none;width:78%;height:78%}
+.pnCelda .pnCara svg{width:100%;height:100%;display:block}
+.pnCelda.vista{background:#fff}
+.pnCelda.vista .pnCara{display:block}
+.pnCelda.bien{box-shadow:0 0 0 5px var(--green) inset;background:#e6ffe9}
+.pnCelda.mal{background:#ffe3e3;animation:shake .45s}
+.pnCelda.pista{box-shadow:0 0 0 6px #ffd46b inset;animation:pista 1s infinite}
+.pnBusca{width:96px;height:96px;background:#fff;border-radius:26px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center}
+.pnBusca:empty{display:none}
+.pnBusca .pnCara{width:80%;height:80%}.pnBusca svg{width:100%;height:100%;display:block}
+.pnAcciones{display:flex;gap:10px}
+.pnAccion{font-size:21px;height:62px;padding:0 18px}
+.pnAccion[hidden]{display:none}
+#doListo{background:var(--mint2)}
+/* repite la serie */
+.pnPads{flex:1;min-height:0;width:100%;display:grid;gap:16px;align-content:center;justify-content:center;
+  --lado:100px;grid-template-columns:repeat(var(--pc-col),var(--lado));grid-auto-rows:var(--lado)}
+.pnPads.p3{--pc-col:3;--pc-fil:1}.pnPads.p4{--pc-col:2;--pc-fil:2}.pnPads.p6{--pc-col:3;--pc-fil:2}
+.pnPad{border:none;border-radius:50%;background:var(--pc);box-shadow:0 6px 0 rgba(74,58,92,.14),0 0 0 4px rgba(74,58,92,.08) inset;padding:0;display:flex;align-items:center;justify-content:center;transition:transform .15s,filter .15s;opacity:.85}
+.pnPad .pnCara{width:64%;height:64%}.pnPad svg{width:100%;height:100%;display:block}
+.pnPad.luz{opacity:1;transform:scale(1.12);filter:brightness(1.08) drop-shadow(0 0 14px #ffd46b);box-shadow:0 0 0 7px #ffd46b inset}
+.pnPad.pista{animation:pista 1s infinite;box-shadow:0 0 0 6px #ffd46b inset}
+.pnPuntos{display:flex;gap:8px;min-height:18px}
+.pnPuntos i{width:16px;height:16px;border-radius:50%;background:#efe8f7;box-shadow:0 0 0 2px #e2d8ef inset}
+.pnPuntos i.hecho{background:var(--green);box-shadow:none}
+/* pantallas apaisadas y bajas (iPhone horizontal): dibujo a la izquierda, pregunta y respuestas a la derecha */
+@media (orientation:landscape) and (max-height:600px){
+  .pnWrap{flex-direction:row;align-items:stretch;gap:14px;padding:2px 14px 26px}
+  .pnFila{padding-bottom:0}.pnSaltar{height:44px;font-size:15px}
+  .pnLado{justify-content:center;width:clamp(230px,36vw,330px);gap:8px}
+  .pnTexto{font-size:19px}
+  .pnOpts{gap:10px}.pnOpt{min-width:72px;height:72px}.pnOpt .num{font-size:44px}
+  .pnOpts.cuatro{display:grid;grid-template-columns:repeat(2,auto)}.pnOpts.cuatro .pnOpt{width:72px}
+  .pnCamino{font-size:13px}
+  .pnBusca{width:72px;height:72px}
+  .pnAccion{font-size:18px;height:54px;padding:0 12px}
+  .pnAcciones{flex-direction:column}
+}

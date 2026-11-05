@@ -1,0 +1,16 @@
+{
+  "id": "./?version=prueba-pensar",
+  "name": "PRUEBA PENSAR · Mi Mundo de Juegos",
+  "short_name": "PRUEBA PENSAR",
+  "description": "Copia aislada de pruebas del juego publicado con Contar y Memoria mejorados (datos propios). No es el juego de Amaia.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff6fb",
+  "theme_color": "#a083ff",
+  "icons": [
+    { "src": "../../../icon-pruebas-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "../../../icon-pruebas-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
