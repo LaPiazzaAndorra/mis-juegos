@@ -46,7 +46,24 @@ def limpiar(ruta):
 #   · para el osito, RADIO mayor: su pelo llega a unos 8–10 px con alfa ~60, y se conserva;
 #   · todo lo demás (alfa < ALFA_MIN o más lejos) pasa a transparente. Ningún píxel cambia de color.
 ALFA_MIN = 12
-RADIO = {'osito': 12}
+RADIO = {'osito': 12, 'conejito': 12}   # los peluches: su pelo llega a unos 8–10 px del cuerpo
+# Salón (04/11/2026): imágenes recibidas en recibidas/salon/ (sin modificar) → objeto del catálogo. Los dos cojines del
+# sofá llegan en una sola imagen: se separan por sus dos manchas grandes (izquierda: corazón; derecha: estrella).
+SALON = {'sofa': '02-sofa.png', 'estanteria': '03-estanteria.png', 'lampara': '04-lampara.png', 'alfombra': '05-alfombra.png',
+         'mesa': '06-mesa.png', 'cojin-rosa': '07-cojin-rosa.png', 'cojin-lila': '08-cojin-lila.png',
+         'cojin-corazon': ('09-cojines-sofa.png', 0), 'cojin-estrella': ('09-cojines-sofa.png', 1),
+         'plato': '10-plato.png', 'taza': '11-taza.png', 'tetera': '12-tetera.png', 'galletas': '13-galletas.png', 'conejito': '14-conejito.png'}
+
+
+def separar(arr, cual):
+    """De una imagen con dos piezas, la de la izquierda (0) o la de la derecha (1): cada píxel va con la pieza más cercana."""
+    cuerpo = arr[..., 3] >= 240; lab, n = nd.label(cuerpo); tam = nd.sum(cuerpo, lab, range(1, n + 1))
+    dos = [int(i) + 1 for i in np.argsort(tam)[-2:]]
+    dos.sort(key=lambda i: np.where(lab == i)[1].mean())
+    d0 = nd.distance_transform_edt(lab != dos[0]); d1 = nd.distance_transform_edt(lab != dos[1])
+    otra = (d1 < d0) if cual == 0 else (d0 <= d1)
+    o = arr.copy(); o[otra, 3] = 0
+    return o
 
 
 def limpiar_objeto(ruta, oid):
@@ -69,11 +86,13 @@ def guardar(arr, nombre, caja):
 
 if __name__ == '__main__':
     ARTE.mkdir(parents=True, exist_ok=True)
-    antes = {p.name: sha(p) for p in sorted(REC.glob('*.png'))}
+    antes = {str(p.relative_to(REC)): sha(p) for p in sorted(REC.rglob('*.png'))}
     medidas, comp, pendientes = {}, {}, []
     # fondo
     Image.open(REC / 'fondo-habitacion-propuesta.png').convert('RGB').save(ARTE / 'fondo.webp', 'WEBP', quality=92, method=6)
     medidas['fondo'] = dict(f='fondo.webp', px=list(Image.open(REC / 'fondo-habitacion-propuesta.png').size))
+    Image.open(REC / 'salon' / '01-fondo.png').convert('RGB').save(ARTE / 'fondo-salon.webp', 'WEBP', quality=92, method=6)
+    medidas['fondo-salon'] = dict(f='fondo-salon.webp', px=list(Image.open(REC / 'salon' / '01-fondo.png').size))
     # cama en dos capas (mismo recorte)
     c, comp['cama'] = limpiar(REC / 'cama-propuesta.png'); Hc, Wc = c.shape[:2]
     linea = Image.new('L', (Wc, Hc), 0); ImageDraw.Draw(linea).polygon(EMBOZO + [(Wc, Hc), (0, Hc)], fill=255)
@@ -84,18 +103,27 @@ if __name__ == '__main__':
     medidas['cama-delante'] = dict(guardar(d, 'cama-delante', caja), base=[656 - caja[0], 1190 - caja[1]])
     # objetos del catálogo
     ids = re.findall(r"\{ id: '([a-z-]+)', nombre: '([^']+)'", (AQUI / 'mimundo' / 'catalogo-mimundo.js').read_text(encoding='utf-8'))
+    en_curso = AQUI / 'mimundo' / 'catalogo-salon-en-curso.js'   # el salón (D-034), en curso: sus piezas también se preparan
+    if en_curso.exists():
+        ids += [x for x in re.findall(r"\{ id: '([a-z-]+)', nombre: '([^']+)'", en_curso.read_text(encoding='utf-8')) if x not in ids]
     for oid, nombre in ids:
         if oid == 'cama':
             continue
-        r = REC / f'{oid}.png'
+        fuente = SALON.get(oid, f'{oid}.png'); parte = None
+        if isinstance(fuente, tuple):
+            fuente, parte = fuente
+        r = REC / ('salon/' + fuente if oid in SALON else fuente)
         if not r.exists():
-            pendientes.append(dict(id=oid, nombre=nombre, archivo=f'recibidas/{oid}.png')); continue
-        arr, comp[oid] = limpiar_objeto(r, oid); caja = Image.fromarray(arr).getchannel('A').getbbox()
+            pendientes.append(dict(id=oid, nombre=nombre, archivo=str(r.relative_to(AQUI)))); continue
+        arr, comp[oid] = limpiar_objeto(r, oid)
+        if parte is not None:
+            arr = separar(arr, parte); comp[oid]['separado_de'] = fuente
+        caja = Image.fromarray(arr).getchannel('A').getbbox()
         a = arr[..., 3] > 128; ys = np.where(a.any(1))[0]; fila = a[ys.max()]; xs = np.where(fila)[0]
         medidas[oid] = dict(guardar(arr, oid, caja), base=[int((xs.min() + xs.max()) / 2) - caja[0], int(ys.max()) - caja[1]])
     (ARTE / 'medidas.js').write_text('/* Generado por preparar_piezas.py: tamaño (px) y punto de apoyo (base) de cada capa del arte de Mi Mundo */\n'
                                      'window.MM_MEDIDAS = ' + json.dumps(medidas, ensure_ascii=False) + ';\n', encoding='utf-8')
     res = dict(piezas=comp, pendientes=pendientes, kb={p.name: round(p.stat().st_size / 1024, 1) for p in sorted(ARTE.glob('*.webp'))},
-               recibidas_sin_cambios=antes == {p.name: sha(p) for p in sorted(REC.glob('*.png'))}, sha256_recibidas=antes)
+               recibidas_sin_cambios=antes == {str(p.relative_to(REC)): sha(p) for p in sorted(REC.rglob('*.png'))}, sha256_recibidas=antes)
     (ARTE / 'comprobaciones.json').write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding='utf-8')
     print(json.dumps(dict(hechas=sorted(medidas), pendientes=[p['id'] for p in pendientes], recibidas_sin_cambios=res['recibidas_sin_cambios']), ensure_ascii=False))

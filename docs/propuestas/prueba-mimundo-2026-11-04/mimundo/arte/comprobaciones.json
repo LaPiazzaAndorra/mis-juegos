@@ -49,18 +49,161 @@
    "radio_borde_px": 6,
    "alfa_min": 12,
    "borde_conservado_px": 4471
+  },
+  "sofa": {
+   "alfa_casi_opaco_corregido_px": 1006470,
+   "motitas_quitadas": 297,
+   "motitas_px": 667,
+   "resplandor_quitado_px": 11099,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 8422
+  },
+  "mesa": {
+   "alfa_casi_opaco_corregido_px": 671269,
+   "motitas_quitadas": 1448,
+   "motitas_px": 3231,
+   "resplandor_quitado_px": 21518,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 9699
+  },
+  "estanteria": {
+   "alfa_casi_opaco_corregido_px": 886995,
+   "motitas_quitadas": 483,
+   "motitas_px": 1444,
+   "resplandor_quitado_px": 17474,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 6911
+  },
+  "lampara": {
+   "alfa_casi_opaco_corregido_px": 213100,
+   "motitas_quitadas": 513,
+   "motitas_px": 940,
+   "resplandor_quitado_px": 19354,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 7182
+  },
+  "alfombra": {
+   "alfa_casi_opaco_corregido_px": 1018387,
+   "motitas_quitadas": 363,
+   "motitas_px": 765,
+   "resplandor_quitado_px": 11440,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 8354
+  },
+  "cojin-rosa": {
+   "alfa_casi_opaco_corregido_px": 834810,
+   "motitas_quitadas": 287,
+   "motitas_px": 545,
+   "resplandor_quitado_px": 8169,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 7485
+  },
+  "cojin-lila": {
+   "alfa_casi_opaco_corregido_px": 610801,
+   "motitas_quitadas": 1648,
+   "motitas_px": 7348,
+   "resplandor_quitado_px": 10136,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 5232
+  },
+  "cojin-corazon": {
+   "alfa_casi_opaco_corregido_px": 749374,
+   "motitas_quitadas": 1185,
+   "motitas_px": 2071,
+   "resplandor_quitado_px": 26272,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 12563,
+   "separado_de": "09-cojines-sofa.png"
+  },
+  "cojin-estrella": {
+   "alfa_casi_opaco_corregido_px": 749374,
+   "motitas_quitadas": 1185,
+   "motitas_px": 2071,
+   "resplandor_quitado_px": 26272,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 12563,
+   "separado_de": "09-cojines-sofa.png"
+  },
+  "plato": {
+   "alfa_casi_opaco_corregido_px": 732389,
+   "motitas_quitadas": 981,
+   "motitas_px": 6388,
+   "resplandor_quitado_px": 13668,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 6291
+  },
+  "taza": {
+   "alfa_casi_opaco_corregido_px": 423278,
+   "motitas_quitadas": 805,
+   "motitas_px": 2160,
+   "resplandor_quitado_px": 8736,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 4977
+  },
+  "tetera": {
+   "alfa_casi_opaco_corregido_px": 541289,
+   "motitas_quitadas": 1362,
+   "motitas_px": 3470,
+   "resplandor_quitado_px": 619877,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 16546
+  },
+  "galletas": {
+   "alfa_casi_opaco_corregido_px": 449438,
+   "motitas_quitadas": 851,
+   "motitas_px": 1762,
+   "resplandor_quitado_px": 7834,
+   "radio_borde_px": 6,
+   "alfa_min": 12,
+   "borde_conservado_px": 4065
+  },
+  "conejito": {
+   "alfa_casi_opaco_corregido_px": 483437,
+   "motitas_quitadas": 288,
+   "motitas_px": 509,
+   "resplandor_quitado_px": 16655,
+   "radio_borde_px": 12,
+   "alfa_min": 12,
+   "borde_conservado_px": 14770
   }
  },
  "pendientes": [],
  "kb": {
+  "alfombra.webp": 462.6,
   "cama-delante.webp": 175.9,
   "cama-detras.webp": 260.5,
   "cesta.webp": 120.3,
+  "cojin-corazon.webp": 155.7,
+  "cojin-estrella.webp": 152.9,
+  "cojin-lila.webp": 236.6,
+  "cojin-rosa.webp": 362.8,
+  "conejito.webp": 171.9,
   "cubos.webp": 76.6,
   "cuento.webp": 196.3,
+  "estanteria.webp": 252.6,
+  "fondo-salon.webp": 261.5,
   "fondo.webp": 237.1,
+  "galletas.webp": 141.6,
+  "lampara.webp": 88.3,
+  "mesa.webp": 183.9,
   "osito.webp": 168.8,
-  "pelota.webp": 51.9
+  "pelota.webp": 51.9,
+  "plato.webp": 95.4,
+  "sofa.webp": 447.8,
+  "taza.webp": 76.0,
+  "tetera.webp": 98.9
  },
  "recibidas_sin_cambios": true,
  "sha256_recibidas": {
@@ -70,6 +213,20 @@
   "cuento.png": "49dd07459ff71f090a37ccd65a8e4d2347eebc1ad2a49681b95ced88b535f364",
   "fondo-habitacion-propuesta.png": "6f337998d86f71bac33e14cfc1b9ad09f25ee4d30c8a71f217b07291f1776cee",
   "osito.png": "c1811f42f87c11335ca910c44ee1e4d9d0606f0f751b454666846446b812a649",
-  "pelota.png": "bca78bc7410d87d8b3f3673ce0a8ce619d3e4ec438831b52e609f87ef3172a56"
+  "pelota.png": "bca78bc7410d87d8b3f3673ce0a8ce619d3e4ec438831b52e609f87ef3172a56",
+  "salon/01-fondo.png": "e3c4d2fb8cb2903af1c4f35a0869b6060f1f7046306d0829839383337ba5beef",
+  "salon/02-sofa.png": "438877e3b9097408589df5bc3ae1be98a5ed172a0fef91837fb4261af180fc49",
+  "salon/03-estanteria.png": "c55cd66eda3f0ed76a2634482eddfbdba4c98a914e324dbfe14b1bd015b39747",
+  "salon/04-lampara.png": "cde91aa796f0c5388433e18bf57741c1116d19f60869caedecf17477f081dd41",
+  "salon/05-alfombra.png": "e1471da052d2e800e038d21b450447557c09f5eb3a47ceddf70edb7ca792b55b",
+  "salon/06-mesa.png": "c8d058da125ebbbdfb22a4743f62a12f7843a4757d0aaaba3c1984f624b2f510",
+  "salon/07-cojin-rosa.png": "a61c8b55246f177e1e78a0d077583599f8648eb6b88c06a7576ba597b37f2b01",
+  "salon/08-cojin-lila.png": "5cd9c9f8120b23bca4fa317f39c59d6860792856cd4bfb26dec027e6fea54dd0",
+  "salon/09-cojines-sofa.png": "f98d7a4830faf429cdc2ac59a1d1d7233db5b8ca339e750dcfdacaf0ecdf8f26",
+  "salon/10-plato.png": "dc28606453e469c4ed3abd523e0a3d477c0a7c78f8da9bada53a404edf37a4d1",
+  "salon/11-taza.png": "53620fe33046deaa7b3874cfcac79647845196525ddf8c5dc30369c58ff001f1",
+  "salon/12-tetera.png": "2e93fcaccc02c3d4d1d3dfc13446279fa66910ee02ada27bfa7773e984c1b892",
+  "salon/13-galletas.png": "f803c1b9fe1e41e7a19c6e0c1abbc91d3c31cd57da47c1f3f00a9e0a6024ad96",
+  "salon/14-conejito.png": "4a2bde5a069819310662f50e411290cd2005e58e5cc2585bf183c250abb3840a"
  }
 }

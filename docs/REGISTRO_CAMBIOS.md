@@ -1,5 +1,22 @@
 # Registro de cambios
 
+### 2026-11-05 — D-034: piezas del salón preparadas (en curso, sin montar ni publicar)
+
+- **Solicitado por:** la propietaria (14 imágenes del salón, 04/11: «Conserva los originales sin modificar. Limpia en copias
+  las motitas, el resplandor exterior y la transparencia residual… Los dos cojines del sofá vienen en una misma imagen:
+  sepáralos…»). Trabajo interrumpido por la publicación D-035; se guarda para seguir.
+- **Rama y commit:** `avatar-creador`, este commit (sobre `a2f0cab`, el de la entrada siguiente). `main` sin cambios (`021c67e`).
+- **Estado:** **en curso.** Llegaron las 14 (ninguna falta); originales sin modificar en
+  `prueba-mimundo-2026-11-04/recibidas/salon/`; limpias en `mimundo/arte/` (sin motitas ni resplandor —la tetera traía un
+  velo de unos 500 000 px casi invisibles—, interior opaco; los dos cojines del sofá separados). Catálogo del salón en
+  `mimundo/catalogo-salon-en-curso.js`, que **ninguna página carga**: la copia de la habitación sigue igual (22/22). Falta
+  ampliar el motor (varios escenarios, cosas encima de la mesa y del sofá, misión «poner»), el montaje y las pruebas.
+- **Cuidado al publicar:** `--con-mimundo` incluye todo el arte de `mimundo/`; mientras el salón no esté aprobado, hay que
+  publicar la habitación desde su commit aprobado (`b99eee5`), como se hizo en D-035.
+- **Datos guardados afectados:** ninguno.
+- **Pruebas:** `prueba-mimundo.js` 22/22 (la habitación, sin cambios).
+- **Cómo revertir:** `git revert` de este commit.
+
 ### 2026-11-05 — D-035: publicación en main de Contar y Memoria y la habitación de Mi Mundo
 
 - **Solicitado y autorizado por:** la propietaria («Quiero actualizar la app que Amaia ya tiene instalada en el iPhone/iPad. Autorizo reunir, comprobar y publicar en main las mejoras que ya he aprobado: Contar y Memoria, y la habitación de Mi Mundo con sus juguetes y la misión de guardarlos. Comprueba los commits actuales; no sobrescribas el trabajo de las otras ramas. El salón y los juegos nuevos que todavía no he probado quedan fuera de esta publicación. Antes del push: conserva una referencia de la versión publicada para poder volver atrás; comprueba la integración, el guardado y la recuperación del progreso; no borres ni reinicies partidas, dibujos, muñecas, estrellas, logros ni premios; incluye todos los archivos nuevos en la descarga sin conexión y actualiza la versión del service worker, evitando mezclar archivos de distintas versiones. Haz el push a main y confirma que GitHub Pages termina el despliegue. Quiero actualizar la misma app instalada, sin desinstalarla ni crear otra app.»).

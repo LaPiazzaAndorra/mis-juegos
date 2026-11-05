@@ -231,6 +231,8 @@ misión «Guardar los juguetes»): `main` = `021c67e`, versión `5889ab82ca5d` (
 en el iPad reales**. Anterior: rama `version-anterior-2026-11-05` (`031ce07`). Fuera: el salón,
 la 2.ª entrega de Pensar y el parque.
 
+**Salón de Mi Mundo (05/11):** las 14 imágenes recibidas y limpias (en curso; sin montar ni publicar).
+
 **Salón de Mi Mundo (04/11, D-034):** propuesta a escala y lista de 14 imágenes en
 `docs/propuestas/mimundo-salon-2026-11-04/` (misión «Preparar la merienda para tres»); **pendiente de aprobación y de las
 ilustraciones**. Después, el parque.
@@ -395,7 +397,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 05/11/2026 (D-035: Contar y Memoria + la habitación de Mi Mundo publicados en main) · **Rama:** `avatar-creador` ·
+**Última actualización:** 05/11/2026 (D-035 publicado; piezas del salón preparadas, en curso) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` `021c67e` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo, versión `5889ab82ca5d`);
 versiones anteriores en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).
