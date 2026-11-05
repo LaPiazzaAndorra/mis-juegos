@@ -1,7 +1,7 @@
 /* Mi Mundo de Juegos · jugar sin conexión (generado junto a sw.js; no editar a mano en main)
    Registra el service worker y descarga las piezas de la muñeca a la caché de esta versión. En el inicio, un aviso
-   pequeño dice cómo va: «Descargando para jugar sin conexión… 40 %» → «✅ Lista para jugar sin conexión». No toca los
-   datos guardados. */
+   pequeño dice cómo va: «Descargando para jugar sin conexión… 40 %» → «✅ Lista para jugar sin conexión · versión
+   AAAA-MM-DD · huella» (la versión visible). No toca los datos guardados. */
 (function () {
   'use strict';
   if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http') || !window.caches) return;
@@ -9,7 +9,7 @@
   const aviso = document.createElement('div'); aviso.id = 'offlineAviso';
   aviso.style.cssText = 'position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:50;' +
     'background:#fff;border-radius:999px;padding:8px 16px;font:700 15px system-ui,sans-serif;color:#5a4a6a;box-shadow:0 3px 12px rgba(0,0,0,.15);' +
-    'display:none;align-items:center;gap:10px;white-space:nowrap';
+    'display:none;align-items:center;gap:10px;white-space:pre-line;text-align:center;line-height:1.3;width:max-content;max-width:calc(100vw - 24px);box-sizing:border-box';
   document.body.appendChild(aviso);
   const enInicio = () => { const h = document.getElementById('home'); return !h || h.classList.contains('on'); };
   let texto = '', boton = null;
@@ -21,7 +21,7 @@
   }
   function mostrar() { aviso.style.display = texto && enInicio() ? 'flex' : 'none'; }
   new MutationObserver(mostrar).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'] });
-  window.OfflineEstado = { version: OFFLINE.version, listo: false, texto: () => texto };
+  window.OfflineEstado = { version: OFFLINE.version, etiqueta: OFFLINE.etiqueta, listo: false, texto: () => texto };
 
   async function contar(c) {
     let n = 0; for (const u of todos) if (await c.match(new URL(u, location.href).href)) n++;
@@ -43,7 +43,7 @@
         poner(`⬇️ Descargando para jugar sin conexión… ${pct()} %`);
       }
       n = await contar(c);
-      if (n === todos.length) { window.OfflineEstado.listo = true; poner('✅ Lista para jugar sin conexión'); }
+      if (n === todos.length) { window.OfflineEstado.listo = true; poner('✅ Lista para jugar sin conexión\nversión ' + (OFFLINE.etiqueta || OFFLINE.version)); }
       else poner(navigator.onLine ? `⚠️ Falta descargar un poco (${pct()} %): vuelve a abrir con internet` : `📴 Sin conexión: falta descargar (${pct()} %)`);
     } finally { descargando = false; }
   }

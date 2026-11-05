@@ -1,6 +1,25 @@
 # Registro de cambios
 
-### 2026-11-04 — D-033 aprobada en general; D-034: propuesta del salón de Mi Mundo
+### 2026-11-05 — D-035: publicación en main de Contar y Memoria y la habitación de Mi Mundo
+
+- **Solicitado y autorizado por:** la propietaria («Quiero actualizar la app que Amaia ya tiene instalada en el iPhone/iPad. Autorizo reunir, comprobar y publicar en main las mejoras que ya he aprobado: Contar y Memoria, y la habitación de Mi Mundo con sus juguetes y la misión de guardarlos. Comprueba los commits actuales; no sobrescribas el trabajo de las otras ramas. El salón y los juegos nuevos que todavía no he probado quedan fuera de esta publicación. Antes del push: conserva una referencia de la versión publicada para poder volver atrás; comprueba la integración, el guardado y la recuperación del progreso; no borres ni reinicies partidas, dibujos, muñecas, estrellas, logros ni premios; incluye todos los archivos nuevos en la descarga sin conexión y actualiza la versión del service worker, evitando mezclar archivos de distintas versiones. Haz el push a main y confirma que GitHub Pages termina el despliegue. Quiero actualizar la misma app instalada, sin desinstalarla ni crear otra app.»).
+- **Rama y commit:** en `avatar-creador`, la unión de `juegos-pensar` hasta `f9a2f40` (`1884198`) y este commit (generador,
+  oferta de versión visible y prueba), sobre `b6f2515`. `main`: el commit de publicación (en la entrada siguiente).
+  Referencia para volver atrás: rama `version-anterior-2026-10-22` (`031ce07`).
+- **Estado:** **publicado** en <https://lapiazzaandorra.github.io/mis-juegos/> (versión visible «2026-11-05 · b9d00e»). Salón, 2.ª entrega de Pensar y parque,
+  fuera.
+- **Cambios:** `herramientas/publicar/preparar_publicacion.py` (`--con-pensar`, `--fecha`, versión visible),
+  `herramientas/publicar/offline.js` (aviso con la versión, en dos líneas), `herramientas/publicar/prueba-publicacion.js`
+  (Contar, Memoria, Mi Mundo y «Recuperar mi progreso» sin conexión; parte de cualquier versión con caché por versión);
+  D-035, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`, `README.md` y `docs/COORDINACION_RAMAS.md`.
+- **Datos guardados afectados:** ninguno se borra ni se reinicia; Contar y Memoria guardan su avance en `lv_*`, Mi Mundo en
+  `mm_habitacion2` y `mm_misiones` (todo entra en «Guardar / Recuperar mi progreso»).
+- **Pruebas:** `herramientas/publicar/prueba-publicacion.js` 22/22 (desde lo publicado hoy, `031ce07`, con una partida: la versión nueva entra sin perder ni cambiar ningún dato; «Lista para jugar sin conexión» con la versión visible y una sola caché de 602 archivos; en modo avión: vestir, colorear, Heladería, logros, Contar (+1 ⭐), Memoria (los tres juegos), Mi Mundo con la misión entera, «Guardar» y «Recuperar mi progreso», sin peticiones fallidas ni errores; una actualización posterior espera sin mezclar archivos y entra entera); Pensar 52/52 y Mi Mundo 22/22 en sus copias; juego 21/21 y copia de seguridad 45/45. No probado en un iPhone ni en un iPad reales.
+- **¿`main` intacta?:** no: cambiada con autorización expresa (`031ce07` → el commit de publicación).
+- **Cómo volver atrás:** subir a `main` la rama `version-anterior-2026-10-22` (o «revert» del commit de publicación). La
+  app vuelve a la versión anterior al abrirse con internet; los datos no se tocan.
+
+### 2026-11-04 — `b6f2515` · D-033 aprobada en general; D-034: propuesta del salón de Mi Mundo
 
 - **Solicitado por:** la propietaria («La habitación me ha gustado. Registra mi aprobación general, sin dar por comprobados todos los casos en el iPhone.» y «Seguimos ampliando Mi Mundo: primero el salón de la casa y después el parque. Ambos deben ser jugables con nuestra muñeca guardada, con el mismo acabado ilustrado de la habitación. Para el salón: catálogo de muebles y objetos que se puedan colocar, mover, quitar y guardar; sofá, mesa, estantería, cojines y objetos para preparar una merienda; una misión opcional: «Preparar la merienda para tres», con todos sus objetos necesarios gratuitos; juego libre disponible sin hacer la misión. Para el parque: zona de pícnic, banco, árboles y juguetes adecuados al lugar; la muñeca podrá moverse y llevar objetos; prepara después una misión de buscar objetos mediante pistas. No uses emojis ni dibujos básicos como sustitutos de las ilustraciones. Antes de programar cada escenario, prepara la distribución a escala con nuestra muñeca y la lista exacta de imágenes y capas que necesitamos generar aquí. Evita diseñar muebles solo para esconder la postura de pie; señala dónde hace falta resolver una postura o interacción. Conserva el contenido aprobado y las reglas actuales de logros. Los objetos nuevos desbloqueables se propondrán aparte. Trabaja en una copia aislada, mantén el funcionamiento sin conexión y protege las partidas. No publiques en main todavía. Coordina los archivos compartidos con la rama juegos-pensar, donde se están ampliando los juegos educativos. Empieza por el salón y envíame la propuesta visual y las piezas necesarias.»).
 - **Rama y commit:** `avatar-creador`, este commit (sobre `b99eee5`, el de la entrada siguiente). `main` sin cambios (`031ce07`).

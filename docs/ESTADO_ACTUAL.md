@@ -225,6 +225,11 @@ original): **aprobados visualmente** (22/10, `1d9d410`), sin dar por probadas un
   oreja de la imagen sobre nuestras orejas y una línea clara junto a ellas sin sombrero. **Aprobadas visualmente (18/10)**;
   las 40 combinaciones no se han probado una a una en el iPhone.
 
+**Publicado (05/11, D-035):** `main` con Contar y Memoria (1.ª entrega aprobada) y la habitación de Mi Mundo (con la
+misión «Guardar los juguetes»), versión visible «2026-11-05 · b9d00e»; 22/22 en la prueba de publicación (Chromium);
+**sin probar en el iPhone ni en el iPad reales**. Anterior: rama `version-anterior-2026-10-22` (`031ce07`). Fuera: el salón,
+la 2.ª entrega de Pensar y el parque.
+
 **Salón de Mi Mundo (04/11, D-034):** propuesta a escala y lista de 14 imágenes en
 `docs/propuestas/mimundo-salon-2026-11-04/` (misión «Preparar la merienda para tres»); **pendiente de aprobación y de las
 ilustraciones**. Después, el parque.
@@ -389,10 +394,10 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 04/11/2026 (D-033 aprobada en general; D-034: propuesta del salón) · **Rama:** `avatar-creador` ·
+**Última actualización:** 05/11/2026 (D-035: Contar y Memoria + la habitación de Mi Mundo publicados en main) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
-integrada), probado solo en simulación · **`main`:** `031ce07` (22/10/2026, D-032: la prueba completa publicada, con juego sin
-conexión); la versión anterior, en la rama `version-anterior-2026-10-11` (`4bbf51d`).
+integrada), probado solo en simulación · **`main`:** `031ce07` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo); versiones
+anteriores en las ramas `version-anterior-2026-10-22` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).
 
 ## Repositorio
 

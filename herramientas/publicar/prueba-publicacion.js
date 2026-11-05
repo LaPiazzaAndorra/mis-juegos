@@ -34,7 +34,7 @@ const INIT = () => { const mm = window.matchMedia.bind(window); window.__comp = 
   Object.defineProperty(navigator, 'standalone', { value: true }); navigator.canShare = d => !!(d && d.files);
   navigator.share = async d => { window.__comp.push({ text: await d.files[0].text() }); }; };
 const DIB = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==';
-const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', iceServed: '9', lv_contar: '2', voice: '"com.apple.voice.compact.es-ES.Monica"', tone: '1',
+const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', iceServed: '9', lv_contar: '2', lv_heladeria: '{"L":1,"ok":2}', voice: '"com.apple.voice.compact.es-ES.Monica"', tone: '1',
   sound: 'true', doll: '{"skin":1,"hc":0,"hs":1}', sc_casa: '[{"e":"🐶","x":50,"y":50,"s":13,"f":1}]', scKey: '"casa"' };
 
 (async () => {
@@ -57,13 +57,16 @@ const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', i
       r.onsuccess = () => { const tx = r.result.transaction('tpl', 'readwrite'); tx.objectStore('tpl').put({ id: 'u:mi-lamina', url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=' }); tx.oncomplete = () => { r.result.close(); ok(); }; }; }); }, PARTIDA);
   await p.reload(); await p.waitForTimeout(1500);
   const antes = await datos(p); const cAntes = await cachesDe(p);
-  ok('Hoy: versión del 11/10 instalada (caché mis-juegos-v3) con una partida', 'mis-juegos-v3' in cAntes && antes.stars === '37' && antes.__lamina === 'u:mi-lamina', JSON.stringify(cAntes));
+  // la muñeca guardada, creada con la propia versión de hoy (formato real)
+  await p.evaluate(() => window.Avatar && Avatar.guardar({ piel: 'morena', ojos: { color: 'verde' }, pelo: { estilo: 'coleta', color: 'miel' }, ropa: 'hada', accesorios: ['alas', 'varita'] }));
+  const antes2 = await datos(p); Object.assign(antes, antes2); antes.avatar = await p.evaluate(() => localStorage.getItem('avatar'));
+  ok('Hoy: la versión publicada instalada (su caché «mis-juegos-…») con una partida', Object.keys(cAntes).some(k => k.startsWith('mis-juegos-')) && antes.stars === '37' && antes.__lamina === 'u:mi-lamina', JSON.stringify(cAntes));
   // ---------- 2. se publica la nueva ----------
   servir(NUEVA);
   await p.reload(); await p.waitForTimeout(4000);       // la página vieja (de su caché) encuentra el service worker nuevo
   await p.close(); p = await abrir(); await p.waitForTimeout(1500);
   const ver = await p.evaluate(() => ({ offline: window.OFFLINE && OFFLINE.version, juego: window.Avatar && Avatar.JUEGO, pruebas: window.MODO_PRUEBAS, cinta: !!document.querySelector('.testbanner, #testBanner') && getComputedStyle(document.querySelector('.testbanner, #testBanner')).display }));
-  const despues = await datos(p);
+  const despues = await datos(p); despues.avatar = await p.evaluate(() => localStorage.getItem('avatar'));
   ok('Al volver a abrir entra la versión nueva (muñeca nueva, sin modo de pruebas)', ver.offline && ver.juego === 'todo' && ver.pruebas === false, JSON.stringify(ver));
   ok('Ningún dato de la partida se ha perdido ni ha cambiado (también la lámina propia)', JSON.stringify(antes) === JSON.stringify(despues), Object.keys(PARTIDA).filter(k => antes[k] !== despues[k]).join(', ') || 'todo igual');
   ok('Lee la partida: ⭐ 37 y 🪙 5', await p.textContent('.sc') === '37');
@@ -107,10 +110,47 @@ const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', i
   await p.screenshot({ path: path.join(OUT, '4-heladeria-sin-conexion.png') });
   await p.evaluate(() => go('logros')); await p.waitForTimeout(500);
   ok('Sin conexión: «Mis logros» abre', await p.evaluate(() => document.getElementById('logros').classList.contains('on')));
+  // Contar y Memoria (si van en esta versión)
+  if (await p.evaluate(() => !!window.PENSAR)) {
+    await p.evaluate(() => go('contar')); await p.waitForTimeout(900);
+    // con un nivel guardado, Contar ofrece primero una «prueba rápida»: se elige seguir sin ella
+    if (await p.isVisible('#contar .pnNo')) { await p.click('#contar .pnNo'); await p.waitForTimeout(600); }
+    await p.waitForFunction(() => PENSAR.ct.item && !PENSAR.ct.ocupado && document.querySelectorAll('#ctOpts .pnOpt').length >= 3, null, { timeout: 15000 });
+    const s0 = await p.evaluate(() => stars), resp = await p.evaluate(() => PENSAR.ct.item.resp);
+    await p.click(`#ctOpts .pnOpt:has-text("${resp}") >> nth=0`, { force: true }); await p.waitForTimeout(1500);
+    ok('Sin conexión: Contar (nuevo) pregunta, se contesta y suma +1 ⭐ como siempre', await p.evaluate(() => stars) === s0 + 1, `⭐ ${s0} → ${s0 + 1}`);
+    await p.screenshot({ path: path.join(OUT, '4b-contar-sin-conexion.png') });
+    const mem = [];
+    for (const pant of ['memoria', 'donde', 'serie']) { await p.evaluate(s => go(s), pant); await p.waitForTimeout(800);
+      mem.push(await p.evaluate(s => { const el = document.getElementById(s); return !!el && el.classList.contains('on') && el.querySelectorAll('button').length > 3; }, pant)); }
+    ok('Sin conexión: Memoria (Parejas, ¿Dónde estaba? y Repite la serie) abre con sus tableros', mem.every(Boolean), mem.join(','));
+  }
+  // Mi Mundo: la habitación (si va en esta versión)
+  if (await p.evaluate(() => !!window.MM)) {
+    await p.evaluate(() => { go('scene'); }); await p.waitForTimeout(800); await p.click('#scenePick .btn[data-k=habitacion]'); await p.waitForTimeout(2200);
+    const hab = await p.evaluate(() => ({ fondo: (document.querySelector('.mm-fondo') || {}).naturalWidth, cama: document.querySelectorAll('.mm-obj').length, bandeja: document.querySelectorAll('#stkRow .mm-item').length }));
+    ok('Sin conexión: Mi Mundo abre la habitación ilustrada con su catálogo', hab.fondo === 1536 && hab.cama >= 2 && hab.bandeja === 6, JSON.stringify(hab));
+    await p.click('#mmMisiones'); await p.waitForTimeout(300); await p.click('.mm-panel .mm-mis[data-id="guardar-juguetes"]'); await p.waitForTimeout(900);
+    const caja = sel => p.$(sel).then(e => e.boundingBox());
+    for (const id of ['osito', 'pelota', 'cubos', 'cuento']) { const a = await caja(`.mm-obj[data-id="${id}"]`), d = await caja('.mm-obj[data-id="cesta"]');
+      await p.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await p.mouse.down(); await p.mouse.move(d.x + d.width / 2, d.y + d.height / 2, { steps: 12 }); await p.mouse.up(); await p.waitForTimeout(700); }
+    await p.waitForTimeout(800);
+    ok('Sin conexión: la misión «Guardar los juguetes» se juega entera', await p.evaluate(() => MM.misiones().hechas['guardar-juguetes'] === 1));
+    await p.screenshot({ path: path.join(OUT, '4c-mimundo-sin-conexion.png') });
+  }
   // guardar mi progreso
   await p.evaluate(() => go('home')); await p.waitForTimeout(300); await p.tap('#setBtn'); await p.waitForTimeout(600); await p.tap('#bkGuardar'); await p.waitForTimeout(800);
   const copia = await p.evaluate(() => window.__comp.length && JSON.parse(window.__comp[0].text));
   ok('Sin conexión: «Guardar mi progreso» guarda dibujos, estrellas, personaje y logros', copia && ['gal', 'stars', 'avatar', 'iceCoins'].every(k => k in copia.local_storage), copia ? Object.keys(copia.local_storage).length + ' claves' : 'sin copia');
+  await p.tap('#setClose').catch(() => {});
+  // recuperar el progreso con esa copia (después de cambiar algo)
+  const fich = path.join(OUT, 'copia-progreso.json'); fs.writeFileSync(fich, JSON.stringify(copia));
+  const guardado = await p.evaluate(() => JSON.stringify(Object.fromEntries(Object.keys(localStorage).filter(k => !/^(voice|sound)$/.test(k)).sort().map(k => [k, localStorage.getItem(k)]))));
+  await p.evaluate(() => { localStorage.setItem('stars', '0'); localStorage.setItem('gal', '[]'); localStorage.removeItem('mm_habitacion2'); localStorage.removeItem('mm_misiones'); });
+  await p.evaluate(() => go('home')); await p.waitForTimeout(300); await p.tap('#setBtn'); await p.waitForTimeout(500);
+  const [fc] = await Promise.all([p.waitForEvent('filechooser'), p.tap('#bkRecuperar')]); await fc.setFiles(fich); await p.waitForTimeout(600); await p.tap('#bkConfirmar'); await p.waitForTimeout(3000);
+  const recuperado = await p.evaluate(() => JSON.stringify(Object.fromEntries(Object.keys(localStorage).filter(k => !/^(voice|sound)$/.test(k)).sort().map(k => [k, localStorage.getItem(k)]))));
+  ok('Sin conexión: «Recuperar mi progreso» devuelve todo lo guardado (estrellas, dibujos, muñeca, niveles, logros, Mi Mundo)', recuperado === guardado && copia && ['lv_contar', 'avatar'].every(k => k in copia.local_storage) && (!copia.local_storage.mm_misiones || 'mm_habitacion2' in copia.local_storage), `${Object.keys(copia.local_storage).length} claves`);
   await p.tap('#setClose').catch(() => {});
   ok('Sin conexión: ninguna petición fallida ni error de JavaScript', !fallos.length && !errs.length, fallos.concat(errs).slice(0, 3).join(' | '));
   const partida = await datos(p);
