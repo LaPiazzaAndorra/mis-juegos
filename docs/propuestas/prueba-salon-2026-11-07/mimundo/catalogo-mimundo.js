@@ -2,6 +2,8 @@
    Mi Mundo · escenarios, catálogo y misiones (datos)
    ---------------------------------------------------------------------
    Escenarios: la habitación (D-033, aprobada en general) y el salón (D-034).
+   «escena»: la escena del juego que ocupan (🛏️ habitación, 🏠 casa); «bg»: el color de los bordes;
+   «sitioNuevo»: dónde aparece lo que se pone desde la bandeja; «saludo»: lo que dice la muñeca al tocarla.
    Cada uno con su fondo, la profundidad de su suelo (dónde mide la muñeca
    250 px), su zona de suelo, sus objetos del catálogo, sus misiones, lo que
    hay al empezar y su clave de datos.
@@ -23,18 +25,20 @@
    Tipos: «meter» (guardar en un contenedor) y «poner» (cosas encima de un
    mueble y peluches sentados); más adelante, «encontrar» (pistas, parque).
    ===================================================================== */
-/* EN CURSO (05/11/2026): catálogo del salón (D-034), aún NO lo carga ninguna página: la copia de la habitación usa
-   catalogo-mimundo.js (aprobado). Falta ampliar el motor (varios escenarios, cosas encima de muebles, misión «poner»). */
-window.MM_CATALOGO_SALON_EN_CURSO = {
+/* Copia del salón (D-034, 07/11/2026): habitación (aprobada) + salón (pendiente de la prueba y la aprobación de la
+   propietaria). En el juego, el salón ocupa la escena 🏠 «casa» de Mi Mundo. */
+window.MM_CATALOGO = {
   escenarios: {
-    habitacion: { nombre: 'Habitación', fondo: 'fondo', suelo0: 560, suelo: { x0: 90, x1: 1450, y0: 585, y1: 1005 }, clave: 'mm_habitacion2',
+    habitacion: { nombre: 'Habitación', escena: 'habitacion', fondo: 'fondo', suelo0: 560, suelo: { x0: 90, x1: 1450, y0: 585, y1: 1005 }, clave: 'mm_habitacion2',
+      bg: 'linear-gradient(#f6dcd0 0 55%,#d9924f 55%)', sitioNuevo: [760, 820], saludo: '¡Qué bonita es mi habitación!',
       muneca: [1000, 860], objetos: ['cama', 'cesta', 'osito', 'pelota', 'cubos', 'cuento'], misiones: ['guardar-juguetes'],
       inicial: [{ id: 'cama', x: 416, y: 979 }] },
-    salon: { nombre: 'Salón', fondo: 'fondo-salon', suelo0: 520, suelo: { x0: 90, x1: 1450, y0: 545, y1: 1005 }, clave: 'mm_salon',
+    salon: { nombre: 'Salón', escena: 'casa', fondo: 'fondo-salon', suelo0: 520, suelo: { x0: 90, x1: 1450, y0: 545, y1: 1005 }, clave: 'mm_salon',
+      bg: 'linear-gradient(#fbc89b 0 50%,#d9894a 50%)', sitioNuevo: [1050, 900], saludo: '¡Qué bonito es el salón!',
       muneca: [1150, 800], objetos: ['sofa', 'mesa', 'estanteria', 'lampara', 'alfombra', 'cojin-rosa', 'cojin-lila', 'cojin-corazon', 'cojin-estrella',
         'plato', 'taza', 'tetera', 'galletas', 'conejito', 'osito'], misiones: ['merienda'],
-      inicial: [{ id: 'alfombra', x: 790, y: 960 }, { id: 'sofa', x: 520, y: 640 }, { id: 'estanteria', x: 1300, y: 615 }, { id: 'lampara', x: 140, y: 650 },
-        { id: 'mesa', x: 790, y: 880 }, { id: 'cojin-rosa', x: 520, y: 935 }, { id: 'cojin-lila', x: 1060, y: 935 }] },
+      inicial: [{ id: 'alfombra', x: 805, y: 965 }, { id: 'sofa', x: 520, y: 640 }, { id: 'estanteria', x: 1300, y: 615 }, { id: 'lampara', x: 140, y: 650 },
+        { id: 'mesa', x: 800, y: 860 }, { id: 'cojin-rosa', x: 575, y: 950 }, { id: 'cojin-lila', x: 1040, y: 950 }] },
   },
   objetos: [
     // ---------------- habitación ----------------
@@ -78,10 +82,13 @@ window.MM_CATALOGO_SALON_EN_CURSO = {
       inicio: '¡Vamos a preparar la merienda para tres! Pon tres platos, tres tazas, la tetera y las galletas en la mesa, y sienta al osito y al conejito.',
       // exactamente 3 platos y 3 tazas (la mesa tiene 3 sitios de cada), la tetera y las galletas; dos invitados sentados
       objetivo: { tipo: 'poner', mueble: 'mesa', cosas: { plato: 3, taza: 3, tetera: 1, galletas: 1 }, sentar: ['osito', 'conejito'], asientos: ['cojin-rosa', 'cojin-lila', 'sofa'] },
-      // si faltan, aparecen aquí (en el suelo, a la derecha de la mesa, a la vista en el iPhone)
-      sitios: [[1010, 990], [1090, 1000], [1170, 990], [1250, 1000], [1330, 990], [1110, 940], [1200, 950], [1290, 940]],
-      sitiosInvitados: [[1395, 900], [1440, 1000]], sitioMueble: [790, 880], sitiosAsientos: [[520, 935], [1060, 935]],
-      foco: [930, 820], sitioMuneca: [930, 800],
+      // al empezar se prepara la mesa: la mesa y los dos cojines de suelo van a su sitio (con lo que tengan encima no: todo
+      // lo de la merienda baja al suelo, delante, y los invitados esperan detrás, a los lados); la muñeca, detrás de la mesa.
+      // Todo cabe en el iPhone en vertical: la cámara mira a «foco» y, en pantallas estrechas, se abre hasta ver «vista»
+      // (de x0 a x1) entera
+      sitios: [[565, 1003], [683, 1003], [801, 1003], [919, 1003], [1037, 1003], [732, 962], [818, 962], [904, 962]],
+      sitiosInvitados: [[560, 770], [1095, 770]], sitioMueble: [800, 860], sitiosAsientos: [[575, 950], [1040, 950]],
+      foco: [830, 800], vista: [480, 1180], sitioMuneca: [830, 700],
       bien: ['¡Muy bien!', '¡Qué bonito!', '¡Perfecto!', '¡Eso es!'],
       fin: '¡La merienda está lista! ¡A merendar!', premio: { estrellas: 1 } },
   ],

@@ -74,6 +74,11 @@ const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', i
   await p.waitForFunction(() => window.OfflineEstado && OfflineEstado.listo, null, { timeout: 240000 });
   const aviso = await p.textContent('#offlineAviso'), c1 = await cachesDe(p), total = await p.evaluate(() => OFFLINE.basico.length + OFFLINE.piezas.length);
   ok('Avisa «✅ Lista para jugar sin conexión» y hay una sola caché con todo', /Lista para jugar sin conexión/.test(aviso) && Object.keys(c1).length === 1 && Object.values(c1)[0] === total, `${JSON.stringify(c1)} de ${total}`);
+  // la versión visible, en Ajustes (la que se le dice a la propietaria para comprobar que la app se ha actualizado)
+  await p.tap('#setBtn').catch(() => {}); await p.waitForTimeout(500);
+  const verAj = await p.evaluate(() => ({ t: (document.getElementById('verApp') || {}).textContent || '', v: window.OFFLINE && OFFLINE.version }));
+  ok('Ajustes muestra la versión del juego (la de esta publicación)', verAj.v && verAj.t === 'Versión del juego: ' + verAj.v, verAj.t);
+  await p.tap('#setClose').catch(() => {}); await p.waitForTimeout(300);
   await p.screenshot({ path: path.join(OUT, '1-lista.png') });
   // ---------- 4. modo avión ----------
   await ctx.setOffline(true); await p.close(); p = await abrir(); await p.waitForTimeout(1500);

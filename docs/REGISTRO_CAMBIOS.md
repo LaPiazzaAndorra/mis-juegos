@@ -1,11 +1,45 @@
 # Registro de cambios
 
+### 2026-11-07 — D-034: el salón de Mi Mundo montado en una copia aislada; D-036: un solo generador y un solo encargado de publicar
+
+- **Solicitado por:** la propietaria («Continúa con el salón que dejaste preparado en 2073695… Móntalo en una copia aislada
+  con: cambio entre habitación y salón, conservando la distribución de cada uno; catálogo propio y objetos que se puedan
+  colocar, mover y guardar; objetos apoyados en la mesa o el sofá que los acompañen al moverlos; juego libre y misión
+  «Preparar la merienda para tres»; nuestra muñeca original y los peluches aprobados… Antes de la próxima publicación,
+  unifica el generador con el que produjo la versión 5889ab82ca5d. A partir de ahora este chat será el único encargado de
+  publicar… No vuelvas a publicar lo que ya está en main. El salón queda pendiente de mi prueba y aprobación…»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `2073695`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Salón (pendiente de la prueba y la aprobación):** copia nueva `docs/propuestas/prueba-salon-2026-11-07/` (datos `sal1:`;
+  lo publicado con Contar y Memoria + Mi Mundo con habitación y salón). Motor `mimundo/mimundo.js` con varios escenarios
+  (🛏️ habitación, 🏠 casa → salón; claves `mm_habitacion2` y `mm_salon`), cosas encima de muebles que los acompañan
+  (merienda en la mesa; peluches en el sofá o los cojines; cojines de sofá en el sofá), escala por ancho real, alfombra
+  siempre debajo, misión «poner» («Merienda para tres»: exactamente 3 platos y 3 tazas, la tetera, las galletas y el osito y
+  el conejito sentados; 1 ⭐), cámara que se abre en el iPhone en vertical durante la misión y toque sobre el dibujo (no sobre
+  los márgenes transparentes de la imagen). Catálogo `mimundo/catalogo-mimundo.js` (antes `catalogo-salon-en-curso.js`).
+  Originales del salón movidos a `recibidas/` (mismos bytes); `preparar_piezas.py` propio (copia la habitación tal cual; el
+  punto de apoyo de los muebles del salón, el centro de abajo). Enlace: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-salon-2026-11-07/index.html>.
+- **Habitación publicada intacta:** `prueba-mimundo-2026-11-04/mimundo/` vuelve a ser idéntica a `main` (sin el arte del
+  salón); su `preparar_piezas.py`, el de antes de `2073695`. Su prueba: el toque tolerante elige el lado más libre si
+  ninguno lo está (antes fallaba la prueba a veces).
+- **Generador único (D-036):** `herramientas/publicar/` = el de `publicacion-2026-11-05` (`f1bd6e1`: versión en Ajustes,
+  `ARCHIVOS_PENSAR`, `prueba-actualizacion.js`) + la prueba ampliada de esta rama (y la versión en Ajustes). Reproduce
+  `main` `021c67e` byte a byte. Solo publica esta sesión, con aprobación expresa.
+- **Documentación:** D-034, D-036, `ESTADO_ACTUAL.md`, `MANUAL_PROYECTO.md`, `HOJA_DE_RUTA.md`, `COORDINACION_RAMAS.md`,
+  `docs/propuestas/LEEME.md` y `prueba-salon-2026-11-07/LEEME.md`.
+- **Datos guardados afectados:** ninguno. Clave nueva `mm_salon` (con el prefijo `mm_`, ya en la copia de seguridad); nada
+  se borra ni se migra; las pegatinas de la escena «casa» (`sc_casa`) se conservan.
+- **Pruebas (Chromium, iPad e iPhone simulados):** `prueba-salon.js` 31/31; salón sin conexión 8/8 (versión publicable con
+  el salón en una carpeta temporal, sin publicar); habitación 22/22 y 7/7 sin conexión; juego 21/21; copia de seguridad 45/45;
+  publicación 23/23 (sobre la versión que reproduce `main`, actualizando desde `031ce07`). **No probado en el iPhone ni en el
+  iPad reales.**
+- **Cómo revertir:** `git revert` de este commit (vuelve `2073695`; `main` no cambia).
+
 ### 2026-11-05 — D-034: piezas del salón preparadas (en curso, sin montar ni publicar)
 
 - **Solicitado por:** la propietaria (14 imágenes del salón, 04/11: «Conserva los originales sin modificar. Limpia en copias
   las motitas, el resplandor exterior y la transparencia residual… Los dos cojines del sofá vienen en una misma imagen:
   sepáralos…»). Trabajo interrumpido por la publicación D-035; se guarda para seguir.
-- **Rama y commit:** `avatar-creador`, este commit (sobre `a2f0cab`, el de la entrada siguiente). `main` sin cambios (`021c67e`).
+- **Rama y commit:** `avatar-creador`, `2073695` (sobre `a2f0cab`, el de la entrada siguiente). `main` sin cambios (`021c67e`).
 - **Estado:** **en curso.** Llegaron las 14 (ninguna falta); originales sin modificar en
   `prueba-mimundo-2026-11-04/recibidas/salon/`; limpias en `mimundo/arte/` (sin motitas ni resplandor —la tetera traía un
   velo de unos 500 000 px casi invisibles—, interior opaco; los dos cojines del sofá separados). Catálogo del salón en

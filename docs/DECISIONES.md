@@ -1,5 +1,22 @@
 # Registro de decisiones
 
+## D-036 · Un solo encargado de publicar y un solo generador · 07/11/2026
+- **Pedido de la propietaria:** «Antes de la próxima publicación, unifica el generador con el que produjo la versión
+  5889ab82ca5d. A partir de ahora este chat será el único encargado de publicar; el otro seguirá preparando los juegos. No
+  vuelvas a publicar lo que ya está en main.»
+- **Quién publica:** solo la sesión del avatar y Mi Mundo (rama `avatar-creador`), y solo con la aprobación expresa de la
+  propietaria. La otra sesión (`juegos-pensar`) prepara los juegos y no publica. Lo que ya está en `main` (`021c67e`,
+  versión `5889ab82ca5d`) no se vuelve a publicar.
+- **Generador único:** `herramientas/publicar/` en `avatar-creador` es ahora el de `publicacion-2026-11-05` (`f1bd6e1`, el que
+  produjo `main`: versión en Ajustes, `--con-pensar` con la lista de archivos de Pensar y `prueba-actualizacion.js`) con la
+  prueba ampliada de `avatar-creador` (Contar, Memoria, Mi Mundo y «Recuperar mi progreso» en modo avión, y ahora la versión
+  en Ajustes). La versión con fecha en el aviso «Lista» (`ec737be`) no se publicó nunca y se deja. **Comprobado:** con
+  `--con-pensar docs/propuestas/pensar-2026-11-04 --con-mimundo docs/propuestas/prueba-mimundo-2026-11-04/mimundo`
+  reproduce `main` `021c67e` **byte a byte** (versión `5889ab82ca5d`).
+- **Lo publicado de Mi Mundo, separado del salón:** `prueba-mimundo-2026-11-04/mimundo/` vuelve a ser idéntica a `main`
+  (solo la habitación); el salón está en su propia copia (`prueba-salon-2026-11-07/`), así `--con-mimundo` no puede llevar
+  por error arte sin aprobar.
+
 ## D-035 · Publicación en main: Contar y Memoria + la habitación de Mi Mundo · 05/11/2026
 - **Autorización de la propietaria:** «Quiero actualizar la app que Amaia ya tiene instalada en el iPhone/iPad. Autorizo reunir, comprobar y publicar en main las mejoras que ya he aprobado: Contar y Memoria, y la habitación de Mi Mundo con sus juguetes y la misión de guardarlos. Comprueba los commits actuales; no sobrescribas el trabajo de las otras ramas. El salón y los juegos nuevos que todavía no he probado quedan fuera de esta publicación. Antes del push: conserva una referencia de la versión publicada para poder volver atrás; comprueba la integración, el guardado y la recuperación del progreso; no borres ni reinicies partidas, dibujos, muñecas, estrellas, logros ni premios; incluye todos los archivos nuevos en la descarga sin conexión y actualiza la versión del service worker, evitando mezclar archivos de distintas versiones. Haz el push a main y confirma que GitHub Pages termina el despliegue. Quiero actualizar la misma app instalada, sin desinstalarla ni crear otra app.»
 - **Qué entra:** Contar y Memoria tal como se aprobaron (rama `juegos-pensar`, 1.ª entrega, `f9a2f40`: `pensar.css`,
@@ -36,6 +53,14 @@
 - **Coordinación:** rama `juegos-pensar` (copia `pensar-2026-11-04`, Contar y Memoria) en `docs/COORDINACION_RAMAS.md`.
 - **Límites:** nada programado ni publicado; partidas, `main` y lo aprobado sin cambios; logros como hoy; desbloqueables,
   aparte.
+- **07/11/2026 · montado en una copia aislada, pendiente de la prueba y la aprobación de la propietaria.** Pedido:
+  «Continúa con el salón que dejaste preparado en 2073695. Ya tienes las 14 imágenes; no hace falta volver a pedirlas. Móntalo en una copia aislada con: Cambio entre habitación y salón, conservando la distribución de cada uno. Catálogo propio y objetos que se puedan colocar, mover y guardar. Objetos apoyados en la mesa o el sofá que los acompañen al moverlos. Juego libre y misión «Preparar la merienda para tres». Nuestra muñeca original y los peluches aprobados. Comprueba el uso en pantalla de iPhone, guardar y reabrir, copia de seguridad y funcionamiento sin conexión. Envíame el enlace de prueba y capturas para revisarlo. Antes de la próxima publicación, unifica el generador con el que produjo la versión 5889ab82ca5d. A partir de ahora este chat será el único encargado de publicar; el otro seguirá preparando los juegos. No vuelvas a publicar lo que ya está en main. El salón queda pendiente de mi prueba y aprobación, y las partidas de Amaia deben conservarse.»
+  Copia `docs/propuestas/prueba-salon-2026-11-07/` (datos `sal1:`; lo publicado + Mi Mundo con habitación y salón): cambio
+  🛏️ ↔ 🏠 conservando cada distribución (`mm_habitacion2`, `mm_salon`); catálogo del salón (15 objetos ilustrados); poner,
+  mover, quitar y guardar; la merienda en la mesa, peluches sentados en el sofá o en los cojines, cojines de sofá en el sofá,
+  y lo de encima acompaña al mueble; misión «Merienda para tres» (exactamente 3 platos y 3 tazas, tetera, galletas, osito y
+  conejito sentados; 1 ⭐). Pruebas en Chromium: `prueba-salon.js` 31/31 y sin conexión 8/8; **no probado en el iPhone ni en
+  el iPad reales**. La muñeca no se sienta (necesita postura sentada).
 
 ## D-033 · Mi Mundo jugable: habitación, catálogo ilustrado y misiones opcionales · 04/11/2026
 - **Pedido de la propietaria:** «Retomamos Mi Mundo desde la habitación ilustrada que dejamos preparada. Comprueba primero el estado actual del proyecto y reutiliza el fondo y la cama existentes. Quiero una primera habitación jugable donde Amaia pueda mover a su muñeca guardada, acostarla y colocar objetos desde un catálogo ilustrado, sustituyendo los emojis. Además del juego libre, prepara la estructura para pequeñas misiones opcionales, como guardar juguetes, encontrar objetos mediante pistas o preparar una merienda para tres. Empieza por una sola misión completa; los objetos necesarios para resolverla deben estar disponibles gratuitamente. Conserva el estilo visual aprobado. Si faltan ilustraciones, dime exactamente cuáles necesitamos generar aquí; no las sustituyas por dibujos básicos. Trabaja en una copia aislada, sin publicar en main ni alterar las partidas. Coordina los archivos compartidos con las mejoras de Contar y Memoria que se preparan en la rama pintar-heladeria. Mantén el funcionamiento sin conexión como requisito.»

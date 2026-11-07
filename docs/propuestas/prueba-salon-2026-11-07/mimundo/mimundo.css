@@ -1,0 +1,32 @@
+/* Mi Mundo · habitación y salón ilustrados jugables (D-033, D-034) */
+.mm{position:absolute;inset:0;overflow:hidden;touch-action:none}
+.mm-escena{position:absolute;left:0;top:0;width:1536px;height:1024px;transform-origin:0 0;transition:transform .5s ease-out}
+.mm-fondo{position:absolute;left:0;top:0;width:1536px;height:1024px;pointer-events:none;user-select:none}
+.mm-obj{position:absolute;user-select:none;-webkit-user-drag:none;cursor:grab;transition:transform .35s ease-in,opacity .35s ease-in;transform-origin:50% 100%}
+.mm-obj[data-capa="delante"]{pointer-events:none}
+.mm-obj.sel[data-capa="detras"]{filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #a083ff)}
+.mm-obj.encima[data-capa="detras"]{filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #5fd39b)}
+.mm-obj.mm-entra{transform:scale(.2) translateY(-40px);opacity:0}
+.mm-muneca{position:absolute;transition-property:left,top,width,height;transition-timing-function:linear;transform-origin:50% 50%;cursor:grab}
+.mm-muneca>.mm-av{width:100%;height:100%}
+.mm-zzz{display:none;position:absolute;left:62%;top:2%;font:900 34px system-ui,sans-serif;color:#a083ff;text-shadow:0 2px 0 #fff;animation:zzz 2s ease-in-out infinite;pointer-events:none}
+.mm-muneca.acostada .mm-zzz{display:block}
+.mm-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:auto;min-width:92px;padding:0 10px}
+.mm-item img{height:52px;width:auto;pointer-events:none}
+.mm-item span{font:700 13px system-ui,sans-serif;color:#5a4a6a}
+.mm-item i{position:absolute;right:4px;top:2px;font-style:normal;font-size:20px}
+.mm-item.bloq img{filter:grayscale(1) opacity(.55)}
+.mm-mision{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;
+  padding:6px 8px 6px 18px;font:700 16px system-ui,sans-serif;color:#5a4a6a;box-shadow:0 4px 14px rgba(0,0,0,.16);white-space:nowrap;max-width:calc(100% - 20px)}
+.mm-mision .btn{min-width:44px;min-height:44px;padding:0;font-size:18px}
+.mm-puntos{display:flex;gap:5px}.mm-puntos i{width:14px;height:14px;border-radius:50%;background:#eadff5}.mm-puntos i.si{background:#5fd39b}
+.mm-panel{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;background:rgba(60,40,80,.25)}
+.mm-panel-caja{background:#fff;border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:260px;box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.mm-panel-caja h3{margin:0 0 4px;font:800 22px system-ui,sans-serif;color:#5a4a6a;text-align:center}
+.mm-panel-caja .btn{min-height:52px;font:800 18px system-ui,sans-serif;justify-content:center}
+.mm-panel-caja small{font-weight:700;color:#3a9a6a}
+.mm-mision b{overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:520px){.mm-mision{font-size:14px;gap:7px;padding:4px 4px 4px 12px}.mm-mision .mm-cuenta{display:none}.mm-puntos i{width:12px;height:12px}}
+/* salón (D-034): misiones con muchos pasos (merienda: 10 puntos) */
+.mm-puntos.muchos{gap:3px}.mm-puntos.muchos i{width:10px;height:10px}
+@media (max-width:520px){.mm-puntos.muchos i{width:8px;height:8px}.mm-puntos.muchos{gap:2px}}

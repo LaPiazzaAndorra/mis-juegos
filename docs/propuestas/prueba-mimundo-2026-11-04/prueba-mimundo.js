@@ -125,7 +125,10 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   const punto18 = await p.evaluate(() => { const r = document.querySelector('.mm-obj[data-id="osito"]').getBoundingClientRect();
     const otros = [...document.querySelectorAll('.mm-obj[data-capa="detras"]')].filter(e => e.dataset.id !== 'osito' && e.dataset.id !== 'cama').map(e => e.getBoundingClientRect());
     const libre = (x, y) => otros.every(o => Math.hypot(Math.max(o.left - x, 0, x - o.right), Math.max(o.top - y, 0, y - o.bottom)) > 30);
-    return [[r.left - 18, r.top + r.height / 2], [r.right + 18, r.top + r.height / 2], [r.left + r.width / 2, r.bottom + 18], [r.left + r.width / 2, r.top - 18]].find(([x, y]) => libre(x, y)); });
+    // si ningún lado queda libre (los sitios son al azar), el lado más alejado de los demás
+    const lados = [[r.left - 18, r.top + r.height / 2], [r.right + 18, r.top + r.height / 2], [r.left + r.width / 2, r.bottom + 18], [r.left + r.width / 2, r.top - 18]];
+    const holgura = ([x, y]) => Math.min(...otros.map(o => Math.hypot(Math.max(o.left - x, 0, x - o.right), Math.max(o.top - y, 0, y - o.bottom))));
+    return lados.find(([x, y]) => libre(x, y)) || lados.sort((a, b) => holgura(b) - holgura(a))[0]; });
   await p.mouse.click(punto18[0], punto18[1]); await p.waitForTimeout(400);
   const elegido = await p.evaluate(() => (document.querySelector('.mm-obj.sel') || {}).dataset);
   ok('iPhone vertical · un toque a 18 px del osito lo selecciona (toque tolerante)', elegido && elegido.id === 'osito', elegido ? elegido.id : 'nada');

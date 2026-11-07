@@ -6,9 +6,17 @@
 Pensar (`cf80691`, `3a0b508`) sigue solo en `juegos-pensar`: para publicarla, `--con-pensar` usará su carpeta tal como
 esté y la lista `PENSAR` del generador (hoy, los tres archivos de la 1.ª entrega) tendrá que incluir `figuras.js` y
 `pensar2.js`.
-**Generador separado en dos ramas:** `publicacion-2026-11-05` (`f1bd6e1`, el usado para `main`: versión en Ajustes) y
-`avatar-creador` (`ec737be`: versión en el aviso «Lista», `--fecha`, prueba ampliada). Antes de la próxima publicación se
-juntan en uno, sin perder ninguna de las dos cosas.
+**07/11/2026 (D-036): publica solo la sesión del avatar y Mi Mundo (`avatar-creador`)**, con la aprobación expresa de la
+propietaria; la de `juegos-pensar` prepara los juegos y no publica. Lo que ya está en `main` no se vuelve a publicar.
+**Generador único** en `avatar-creador` (`herramientas/publicar/`): el de `publicacion-2026-11-05` (`f1bd6e1`, versión en
+Ajustes) con la prueba ampliada; reproduce `main` `021c67e` byte a byte. La rama `publicacion-2026-11-05` queda como
+referencia; no se usa para publicar.
+**Mi Mundo:** lo publicado es `prueba-mimundo-2026-11-04/mimundo/` (solo la habitación, idéntica a `main`); el salón
+(D-034, pendiente de aprobación) está en `prueba-salon-2026-11-07/mimundo/` (habitación + salón; datos `mm_salon`, también
+con el prefijo `mm_`). Cuando se apruebe, se publicará con `--con-mimundo docs/propuestas/prueba-salon-2026-11-07/mimundo`.
+**Para la 2.ª entrega de Pensar:** `--con-pensar` lleva los archivos de `ARCHIVOS_PENSAR` (`pensar.css`, `dibujos.js`,
+`pensar.js`, `figuras.js`, `pensar2.js`) que haya en la carpeta indicada: la de `avatar-creador` tiene solo la 1.ª entrega;
+la 2.ª entra cuando se una su carpeta aprobada.
 
 Actualizado el 04/11/2026. Lo publicado es `main` (`031ce07`, D-032): la prueba completa generada con
 `herramientas/publicar/preparar_publicacion.py` (rama `avatar-creador`). Las mejoras de Contar y Memoria se hacen en la
@@ -39,7 +47,7 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
 3. Antes de unir las ramas, solo `docs/*.md` (registro, estado, decisiones…) pueden chocar: se juntan a mano, sin borrar
    entradas de ninguna.
 4. Antes de publicar: las pruebas de cada parte (Pintar 188, Heladería 47, logros 37, Pensar 52, Mi Mundo 22 + 7 sin
-   conexión, la de publicación 17) y el modo avión en el iPhone.
+   conexión, el salón 31 + 8 sin conexión, la de publicación 23 y la de actualización) y el modo avión en el iPhone.
 
 ## Reglas comunes
 

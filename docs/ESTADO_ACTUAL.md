@@ -231,7 +231,16 @@ misión «Guardar los juguetes»): `main` = `021c67e`, versión `5889ab82ca5d` (
 en el iPad reales**. Anterior: rama `version-anterior-2026-11-05` (`031ce07`). Fuera: el salón,
 la 2.ª entrega de Pensar y el parque.
 
-**Salón de Mi Mundo (05/11):** las 14 imágenes recibidas y limpias (en curso; sin montar ni publicar).
+**Salón de Mi Mundo (07/11, D-034): montado en una copia aislada, pendiente de la prueba y la aprobación de la
+propietaria.** `docs/propuestas/prueba-salon-2026-11-07/` (datos `sal1:`): habitación (como la publicada) y salón (🏠) con
+su catálogo de 15 objetos ilustrados, cosas encima de la mesa, el sofá y los cojines que acompañan al mueble, juego libre y
+la misión «Merienda para tres» (exactamente 3 platos y 3 tazas; 1 ⭐). 31/31 y 8/8 sin conexión en Chromium (iPad e iPhone
+simulados); **sin probar en el iPhone ni en el iPad reales**. Enlace: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-salon-2026-11-07/index.html>.
+
+**Publicación (07/11, D-036):** solo publica la sesión del avatar y Mi Mundo, con aprobación expresa. Generador único
+(`herramientas/publicar/`): reproduce `main` `021c67e` byte a byte. La copia de la habitación vuelve a ser idéntica a `main`.
+
+**Salón de Mi Mundo (05/11):** las 14 imágenes recibidas y limpias.
 
 **Salón de Mi Mundo (04/11, D-034):** propuesta a escala y lista de 14 imágenes en
 `docs/propuestas/mimundo-salon-2026-11-04/` (misión «Preparar la merienda para tres»); **pendiente de aprobación y de las
@@ -397,7 +406,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 05/11/2026 (D-035 publicado; piezas del salón preparadas, en curso) · **Rama:** `avatar-creador` ·
+**Última actualización:** 07/11/2026 (D-034: el salón montado en una copia aislada, pendiente de aprobación; D-036: un solo generador y un solo encargado de publicar) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` `021c67e` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo, versión `5889ab82ca5d`);
 versiones anteriores en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).
