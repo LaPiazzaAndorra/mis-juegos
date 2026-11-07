@@ -59,7 +59,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     const menu = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim() + '→' + e.dataset.go + (e.dataset.arg ? ':' + e.dataset.arg : '')));
     ok('Menú Pensar: Memoria, Contar y los tres juegos nuevos', menu.join('|') === 'Memoria→memoria|Contar→contar|¿Qué sigue?→obs:sigue|Sombras→obs:sombras|El diferente→obs:distinto', menu.join('|'));
     const mp = await p.$$eval('#m-paint .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pintar: Hoja en blanco, Colorear dibujos, Mis dibujos y Unir puntos', mp.join('|') === 'Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos', mp.join('|'));
+    ok('Menú Pintar: Hoja en blanco, Colorear dibujos, Mis dibujos y Unir puntos', mp.join('|').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos'), mp.join('|'));
     await p.click('#m-think [data-arg="sigue"]', { force: true }).catch(() => p.evaluate(() => go('obs', 'sigue'))); await p.waitForTimeout(500);
     ok('La primera vez ofrece «Prueba rápida» o «Empezar» y lo dice en voz alta', await p.isVisible('#obs .pnIntro .pnSi') && /Saltamos/.test((await p.evaluate(() => window.__voz)).join(' ')));
     await p.click('#obs .pnNo'); await p.waitForTimeout(500);

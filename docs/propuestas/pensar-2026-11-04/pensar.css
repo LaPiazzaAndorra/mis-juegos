@@ -147,3 +147,23 @@
   #puntos .pnLado{padding-top:120px}
   #puntos .pnWrap{padding-bottom:22px}
 }
+/* ===== 3.ª entrega: Repasar dibujos ===== */
+#rpSvg{background:#fff;border-radius:28px;box-shadow:var(--shadow);touch-action:none;user-select:none;-webkit-user-select:none;display:block}
+.rpGuia{fill:none;stroke:#efe6ff;stroke-width:96;stroke-linecap:round;stroke-linejoin:round}
+.rpLinea{fill:none;stroke:#c9b6ff;stroke-width:7;stroke-dasharray:2 20;stroke-linecap:round}
+.rpGuia.espera,.rpLinea.espera{opacity:.35}
+.rpGuia.hecho{stroke:#f4effd}
+.rpTinta{fill:none;stroke:#7a5cff;stroke-width:26;stroke-linecap:round;stroke-linejoin:round}
+.rpFlechas path{fill:none;stroke:#a083ff;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+.rpMarca{fill:#ffd46b;stroke:#fff;stroke-width:8;opacity:.9;animation:puLate 1s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.rpMarca.tocando{fill:#5fd39b;animation:none}
+.rpDedo{fill:#7a5cff;opacity:0;pointer-events:none}.rpDedo.on{opacity:.25}
+.rpDemo{fill:#ffab73;stroke:#fff;stroke-width:6;opacity:0;pointer-events:none}.rpDemo.on{opacity:1}
+#rpSvg.fin .rpGuia,#rpSvg.fin .rpLinea,#rpSvg.fin .rpTinta,#rpSvg.fin .rpDeco{opacity:.12;transition:opacity .8s}
+.rpIco{width:30px;height:30px;display:block}.rpIco path{fill:none;stroke:#4a3a5c;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.pnChip .rpIco{pointer-events:none}
+@media (orientation:landscape) and (max-height:600px){
+  #repasar .subbar{position:absolute;right:14px;top:74px;width:clamp(170px,30vw,300px);flex-wrap:wrap;justify-content:center;z-index:2;padding:0}
+  #repasar .pnLado{padding-top:120px}
+  #repasar .pnWrap{padding-bottom:22px}
+}

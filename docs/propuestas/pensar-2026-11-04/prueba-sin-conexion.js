@@ -28,7 +28,7 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
 (async () => {
   const sal = execSync(`python3 ${path.join(__dirname, 'simular_publicacion.py')} "${DEST}"`, { cwd: RAIZ }).toString().trim();
   const lista = fs.readFileSync(path.join(DEST, 'offline-lista.js'), 'utf8');
-  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
+  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
     execSync('git status --porcelain', { cwd: RAIZ }).toString().split('\n').every(l => !l || l.includes('pensar-2026-11-04/')), sal);
   const srv = spawn('python3', ['-m', 'http.server', String(PUERTO), '--bind', '127.0.0.1'], { cwd: SITIO, stdio: 'ignore' });
   process.on('exit', () => srv.kill()); await new Promise(r => setTimeout(r, 900));
@@ -67,6 +67,16 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
   const r0 = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
   await p.mouse.click(r0.x + r0.width / 2, r0.y + r0.height / 2); await p.waitForTimeout(200); await p.click('#saveBtn'); await p.waitForTimeout(300);
   ok('Sin conexión: Unir puntos → pintar con el cubo → guardar en «Mis dibujos»', await p.evaluate(() => JSON.parse(localStorage.getItem('gal')).length) === 1);
+  // Repasar dibujos: recorrer el camino, pintar y guardar
+  await p.evaluate(() => go('repasar')); await p.waitForTimeout(600);
+  const nt = await p.evaluate(() => REPASAR.rp.tr.length);
+  for (let k = 0; k < nt; k++) { const pts = await p.evaluate(() => { const T = REPASAR.rp.tr[REPASAR.rp.k], g = document.querySelector('#rpSvg'), M = g.getScreenCTM(), o = [];
+      for (let i = 0; i <= 50; i++) { const q = T.guia.getPointAtLength(T.L * i / 50), pt = g.createSVGPoint(); pt.x = q.x; pt.y = q.y; const r = pt.matrixTransform(M); o.push([r.x, r.y]); } return o; });
+    await p.mouse.move(...pts[0]); await p.mouse.down(); for (const q of pts.slice(1)) await p.mouse.move(...q, { steps: 2 }); await p.mouse.up(); }
+  await p.waitForTimeout(1200); await p.click('#rpPintar'); await p.waitForTimeout(1200);
+  const r1 = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
+  await p.mouse.click(r1.x + r1.width / 2, r1.y + r1.height / 2); await p.waitForTimeout(200); await p.click('#saveBtn'); await p.waitForTimeout(300);
+  ok('Sin conexión: Repasar → pintar con el cubo → guardar en «Mis dibujos»', await p.evaluate(() => JSON.parse(localStorage.getItem('gal')).length) === 2);
   await p.screenshot({ path: path.join(OUT, 'sin-conexion-pintar.png') });
   const d = await p.evaluate(ks => Object.fromEntries(ks.map(k => [k, localStorage.getItem(k)])), Object.keys(PARTIDA));
   ok('La partida se conserva (solo suman estrellas y el dibujo nuevo)', ['iceCoins', 'lv_contar', 'lv_sigue', 'avatar', 'sound'].every(k => d[k] === PARTIDA[k]) && +d.stars > 37);
