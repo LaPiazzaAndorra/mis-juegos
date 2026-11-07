@@ -10,9 +10,11 @@ que llevar al juego **cuando la propietaria apruebe cada entrega**: hasta entonc
 | --- | --- | --- |
 | 1.ª · Contar y Memoria | `5390dfc` (+ enlace `f9a2f40`) | **Publicada** en `main` `021c67e` (D-035). Ya unida a `avatar-creador` (`1884198`). |
 | 2.ª · ¿Qué sigue?, Sombras y El diferente progresivos + Unir puntos | `cf80691` (+ enlace `3a0b508`) | **Pendiente de la prueba de la propietaria.** No publicar. |
-| 3.ª · Repasar dibujos | la del registro de esta carpeta (ver `LEEME.md`, «Fases y estado») | **Pendiente de la prueba de la propietaria.** No publicar. |
+| 3.ª · Repasar dibujos | `9ca48f1` (+ enlace en el commit siguiente; los archivos del juego son los de `9ca48f1`) | **Pendiente de la prueba de la propietaria.** No publicar. |
 
 ## Archivos del juego (solo estos; todo en `docs/propuestas/pensar-2026-11-04/`)
+
+Entre `cf80691` y `9ca48f1` solo cambian `pensar.css` (estilos de Repasar añadidos al final) y el nuevo `repasar.js`.
 
 En el orden en que se cargan, después de `logros.js` y antes de Mi Mundo:
 

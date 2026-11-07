@@ -378,7 +378,7 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 4. Probar los botones de nivel (círculo, gatito, pez = varios trazos).
 5. Salir y volver a entrar: sigue en su nivel.
 
-Enlace fijo de la 3.ª entrega: se añade en el commit siguiente.
+Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
 
 ## Pendiente (decide la propietaria)
 
