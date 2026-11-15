@@ -57,7 +57,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     const PREVIOS = { stars: '20', lv_sigue: '8', lv_sombras: '2', lv_distinto: '7', gal: '[]', avatar: '{"v":1}', logros: '{"v":1,"lista":[]}' };
     await p.evaluate(a => { localStorage.clear(); for (const [k, v] of Object.entries(a)) localStorage.setItem(k, v); }, PREVIOS); await p.reload(); await p.waitForTimeout(400);
     const menu = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim() + '→' + e.dataset.go + (e.dataset.arg ? ':' + e.dataset.arg : '')));
-    ok('Menú Pensar: Memoria, Contar y los tres juegos nuevos', menu.join('|') === 'Memoria→memoria|Contar→contar|¿Qué sigue?→obs:sigue|Sombras→obs:sombras|El diferente→obs:distinto', menu.join('|'));
+    ok('Menú Pensar: Memoria, Contar y los tres juegos nuevos', menu.join('|').startsWith('Memoria→memoria|Contar→contar|¿Qué sigue?→obs:sigue|Sombras→obs:sombras|El diferente→obs:distinto'), menu.join('|'));
     const mp = await p.$$eval('#m-paint .big', x => x.map(e => e.lastChild.textContent.trim()));
     ok('Menú Pintar: Hoja en blanco, Colorear dibujos, Mis dibujos y Unir puntos', mp.join('|').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos'), mp.join('|'));
     await p.click('#m-think [data-arg="sigue"]', { force: true }).catch(() => p.evaluate(() => go('obs', 'sigue'))); await p.waitForTimeout(500);

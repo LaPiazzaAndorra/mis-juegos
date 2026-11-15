@@ -7,8 +7,8 @@
    1. simular_publicacion.py escribe en una carpeta TEMPORAL el juego publicado + Pensar con el generador de
       publicación de avatar-creador (sin modificarlo); nada va al repositorio ni a main;
    2. se sirve como GitHub Pages (/mis-juegos/), se abre con una partida, espera «Lista para jugar sin conexión»;
-   3. en modo avión: Contar, Memoria (parejas, ¿dónde estaba?, serie), ¿Qué sigue?, Sombras, El diferente y Unir
-      puntos (con pintar y guardar) funcionan, sin peticiones fallidas ni errores, y la partida no se pierde.
+   3. en modo avión: Contar, Memoria (parejas, ¿dónde estaba?, serie), ¿Qué sigue?, Sombras, El diferente, Unir
+      puntos, Repasar y Dibujos por partes (con pintar y guardar) y ¿Quién es? funcionan, sin peticiones fallidas ni errores, y la partida no se pierde.
    ===================================================================== */
 const path = require('path'), os = require('os'), fs = require('fs');
 const { execSync, spawn } = require('child_process');
@@ -28,7 +28,7 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
 (async () => {
   const sal = execSync(`python3 ${path.join(__dirname, 'simular_publicacion.py')} "${DEST}"`, { cwd: RAIZ }).toString().trim();
   const lista = fs.readFileSync(path.join(DEST, 'offline-lista.js'), 'utf8');
-  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
+  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
     execSync('git status --porcelain', { cwd: RAIZ }).toString().split('\n').every(l => !l || l.includes('pensar-2026-11-04/')), sal);
   const srv = spawn('python3', ['-m', 'http.server', String(PUERTO), '--bind', '127.0.0.1'], { cwd: SITIO, stdio: 'ignore' });
   process.on('exit', () => srv.kill()); await new Promise(r => setTimeout(r, 900));
@@ -77,6 +77,19 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
   const r1 = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
   await p.mouse.click(r1.x + r1.width / 2, r1.y + r1.height / 2); await p.waitForTimeout(200); await p.click('#saveBtn'); await p.waitForTimeout(300);
   ok('Sin conexión: Repasar → pintar con el cubo → guardar en «Mis dibujos»', await p.evaluate(() => JSON.parse(localStorage.getItem('gal')).length) === 2);
+  // Dibujos por partes: unir todos los puntos del búho por etapas, pintar y guardar
+  await p.evaluate(() => go('etapa', 'buho:pu')); await p.waitForTimeout(700);
+  for (let n = 0; n < 150 && !(await p.evaluate(() => ETAPAS.et.hecho)); n++) {
+    const q = await p.evaluate(() => { if (ETAPAS.et.ocupado) return null; const t = ETAPAS.actual(); if (!t) return null; const g = document.querySelector('#etSvg'), pt = g.createSVGPoint(); [pt.x, pt.y] = t.pts[ETAPAS.et.i]; const r = pt.matrixTransform(g.getScreenCTM()); return [r.x, r.y]; });
+    if (q) await p.mouse.click(...q); else await p.waitForTimeout(200); }
+  await p.waitForTimeout(1200); await p.click('#etPintar'); await p.waitForTimeout(1200);
+  const r2 = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON());
+  await p.mouse.click(r2.x + r2.width * .43, r2.y + r2.height * .55); await p.waitForTimeout(200); await p.click('#saveBtn'); await p.waitForTimeout(300);
+  ok('Sin conexión: Dibujos por partes (el búho, parte a parte) → pintar → guardar en «Mis dibujos»', await p.evaluate(() => JSON.parse(localStorage.getItem('gal')).length) === 3);
+  // ¿Quién es?
+  await p.evaluate(() => { QUIEN.nv.elegir(3); go('quien'); }); await p.waitForTimeout(600); await p.click('#qnListo', { force: true }); await p.waitForTimeout(300);
+  const q0 = await p.evaluate(() => stars); await p.click(`#qnRejilla .qnCarta >> nth=${await p.evaluate(() => QUIEN.qn.caso.cartas.indexOf(QUIEN.qn.caso.sol))}`); await p.waitForTimeout(300);
+  ok('Sin conexión: ¿Quién es? (pistas escondidas) se juega y suma su estrella', await p.evaluate(() => stars) === q0 + 1);
   await p.screenshot({ path: path.join(OUT, 'sin-conexion-pintar.png') });
   const d = await p.evaluate(ks => Object.fromEntries(ks.map(k => [k, localStorage.getItem(k)])), Object.keys(PARTIDA));
   ok('La partida se conserva (solo suman estrellas y el dibujo nuevo)', ['iceCoins', 'lv_contar', 'lv_sigue', 'avatar', 'sound'].every(k => d[k] === PARTIDA[k]) && +d.stars > 37);

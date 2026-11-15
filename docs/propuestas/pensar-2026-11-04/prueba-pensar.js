@@ -75,7 +75,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     await p.evaluate(a => { localStorage.clear(); for (const [k, v] of Object.entries(a)) localStorage.setItem(k, v); }, PREVIOS); await p.reload(); await p.waitForTimeout(400);
     await p.evaluate(() => go('m-think')); await p.waitForTimeout(300);
     const menu = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim() + '→' + e.dataset.go));
-    ok('Menú Pensar: Memoria y Contar nuevos (¿Qué sigue?, Sombras y El diferente: ver prueba-pensar2.js)', menu.join('|') === 'Memoria→memoria|Contar→contar|¿Qué sigue?→obs|Sombras→obs|El diferente→obs', menu.join('|'));
+    ok('Menú Pensar: Memoria y Contar nuevos (¿Qué sigue?, Sombras y El diferente: ver prueba-pensar2.js)', menu.join('|').startsWith('Memoria→memoria|Contar→contar|¿Qué sigue?→obs|Sombras→obs|El diferente→obs'), menu.join('|'));
     await p.click('#m-think [data-go="contar"]'); await p.waitForTimeout(500);
     ok('La primera vez, Contar ofrece «Prueba rápida» o «Empezar»', await p.isVisible('#contar .pnIntro .pnSi') && await p.isVisible('#contar .pnIntro .pnNo'));
     await p.click('#contar .pnNo'); await p.waitForTimeout(500);

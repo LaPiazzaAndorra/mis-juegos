@@ -9,12 +9,14 @@ que llevar al juego **cuando la propietaria apruebe cada entrega**: hasta entonc
 | Entrega | Commit de `juegos-pensar` | Estado (07/11) |
 | --- | --- | --- |
 | 1.ª · Contar y Memoria | `5390dfc` (+ enlace `f9a2f40`) | **Publicada** en `main` `021c67e` (D-035). Ya unida a `avatar-creador` (`1884198`). |
-| 2.ª · ¿Qué sigue?, Sombras y El diferente progresivos + Unir puntos | `cf80691` (+ enlace `3a0b508`) | **Pendiente de la prueba de la propietaria.** No publicar. |
-| 3.ª · Repasar dibujos | `9ca48f1` (+ enlace en el commit siguiente; los archivos del juego son los de `9ca48f1`) | **Pendiente de la prueba de la propietaria.** No publicar. |
+| 2.ª · ¿Qué sigue?, Sombras y El diferente progresivos + Unir puntos | `cf80691` (+ enlace `3a0b508`) | Probada el 15/11: **se ve bien, pero demasiado básica; no aprobada.** No publicar. |
+| 3.ª · Repasar dibujos | `9ca48f1` (+ enlace `025f294`) | Probada el 15/11: **se ve bien, pero demasiado básica; no aprobada.** No publicar. |
+| 4.ª · Ejemplos: Dibujos por partes (búho, furgoneta, unicornio) y ¿Quién es? | el commit que añade `etapas.js` y `quien.js` (su hash está en el registro de la rama: `git log -- docs/propuestas/pensar-2026-11-04/etapas.js`) | **Ejemplos para revisar, pendientes de la propietaria.** No publicar. |
 
 ## Archivos del juego (solo estos; todo en `docs/propuestas/pensar-2026-11-04/`)
 
 Entre `cf80691` y `9ca48f1` solo cambian `pensar.css` (estilos de Repasar añadidos al final) y el nuevo `repasar.js`.
+La 4.ª **no cambia ninguno de los seis**: añade cuatro archivos nuevos (`etapas.css`, `ilustraciones.js`, `etapas.js`, `quien.js`).
 
 En el orden en que se cargan, después de `logros.js` y antes de Mi Mundo:
 
@@ -26,6 +28,10 @@ En el orden en que se cargan, después de `logros.js` y antes de Mi Mundo:
 | `figuras.js` | figuras de Unir puntos (contornos cerrados) | — | **nuevo** | igual que la 2.ª (Repasar también la usa) |
 | `pensar2.js` | ¿Qué sigue?, Sombras, El diferente y Unir puntos | — | **nuevo** | igual que la 2.ª |
 | `repasar.js` | Repasar dibujos | — | — | **nuevo** (necesita `figuras.js` y `pensar2.js` antes) |
+| `etapas.css` | estilos de Dibujos por partes y ¿Quién es? | — | — | — (4.ª: **nuevo**) |
+| `ilustraciones.js` | los tres dibujos por partes | — | — | — (4.ª: **nuevo**) |
+| `etapas.js` | Dibujos por partes (menú Pintar) | — | — | — (4.ª: **nuevo**; necesita `pensar.js` antes) |
+| `quien.js` | ¿Quién es? (menú Pensar) | — | — | — (4.ª: **nuevo**; necesita `dibujos.js` y `pensar2.js` antes) |
 
 **Lo demás de la carpeta no va al juego**: `index.html`, `aislamiento.js`, `manifest.json`, `progreso.js`, `logros.js`,
 `preparar_copia.py`, `simular_publicacion.py`, las pruebas `prueba-*.js`, `capturas/`, `LEEME.md` y esta nota.
@@ -43,12 +49,14 @@ usan lo que exportan `pensar.js` y `dibujos.js` en ese commit.
 2. En el generador, ampliar la lista:
    - con la 2.ª: `['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js']`;
    - con la 3.ª: `[…, 'pensar2.js', 'repasar.js']`.
+   - con la 4.ª: `[…, 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js']` (el `.css` como hoja de
+     estilos; `simular_publicacion.py` de esta carpeta ya enseña cómo, sin tocar el generador).
    Todos van en la página y en lo básico sin conexión, en ese orden.
 3. Generar y comprobar con sus pruebas de publicación; la versión (huella) cambia sola y la caché sin conexión se
    renueva.
 
 `simular_publicacion.py` + `prueba-sin-conexion.js` de esta carpeta hacen lo mismo en una carpeta temporal, para
-comprobar antes el modo avión (10/10 con las tres entregas).
+comprobar antes el modo avión (12/12 con las cuatro entregas).
 
 ## Datos (nada que migrar)
 
@@ -57,17 +65,18 @@ comprobar antes el modo avión (10/10 con las tres entregas).
   - 1.ª: `lv_contar2`, `lv_parejas`, `lv_donde`, `lv_serie`;
   - 2.ª: `lv_sigue2`, `lv_sombras2`, `lv_distinto2`, `lv_puntos`;
   - 3.ª: `lv_repasar`.
+  - 4.ª: `lv_etapas` (incluye lo que está a medias) y `lv_quien`.
 - **Solo se leen** las antiguas `lv_contar`, `lv_sigue`, `lv_sombras` y `lv_distinto`, para no empezar por lo fácil.
 - **Ninguna clave se borra ni se cambia.** Los dibujos de Unir puntos y Repasar se guardan con el «Guardar» de Pintar
   (`gal`).
-- **Pintar no cambia:** las figuras se registran como plantillas no enumerables (`TPL['pz:…']` y `TPL['rp:…']`), que
+- **Pintar no cambia:** las figuras se registran como plantillas no enumerables (`TPL['pz:…']`, `TPL['rp:…']` y `TPL['gd:…']`), que
   no salen en «Colorear dibujos».
-- La flecha de Pintar vuelve a Unir puntos o a Repasar solo cuando el dibujo viene de ahí.
+- La flecha de Pintar vuelve a Unir puntos, a Repasar o a Dibujos por partes solo cuando el dibujo viene de ahí.
 
 ## Puntos de contacto con lo de `avatar-creador`
 
 - Las pantallas nuevas se añaden antes de `#logros`.
 - Los botones nuevos van al final del menú Pintar (`#m-paint .menu`).
-- Pensar cambia los botones de `#m-think`.
+- Pensar cambia los botones de `#m-think` y añade «¿Quién es?» al final.
 - No tocan Mi Mundo, Vestir, la muñeca, logros ni `progreso.js`.
 - Envuelven `onShow.paint` (sin cambiar lo que hace con las demás láminas).

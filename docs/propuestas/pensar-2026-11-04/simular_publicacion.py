@@ -14,7 +14,7 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent; RAIZ = AQUI.parents[2]
 CARPETA = 'docs/propuestas/pensar-2026-11-04/'
-PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js']
+PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js']
 GEN = RAIZ / 'herramientas' / 'publicar' / 'preparar_publicacion.py'
 
 destino = Path(sys.argv[1]).resolve()
@@ -23,7 +23,7 @@ spec = importlib.util.spec_from_file_location('preparar_publicacion', GEN); G = 
 pagina_original = G.pagina
 def pagina():
     h = pagina_original()
-    extra = f'<link rel="stylesheet" href="{CARPETA}pensar.css">\n' + ''.join(f'<script src="{CARPETA}{f}"></script>\n' for f in PENSAR if f.endswith('.js'))
+    extra = ''.join(f'<link rel="stylesheet" href="{CARPETA}{f}">\n' if f.endswith('.css') else f'<script src="{CARPETA}{f}"></script>\n' for f in PENSAR)
     return G.sustituir(h, '<script src="offline-lista.js"></script>', extra + '<script src="offline-lista.js"></script>')
 G.pagina = pagina
 G.COPIAR = G.COPIAR + [CARPETA + f for f in PENSAR]

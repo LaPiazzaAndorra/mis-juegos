@@ -1,0 +1,81 @@
+/* ===== 4.ª entrega (ejemplos para revisar): Dibujos por partes y ¿Quién es? ===== */
+/* elegir dibujo */
+.grLista{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;padding:8px 16px 30px;align-content:start}
+.grCarta{background:#fff;border-radius:28px;box-shadow:var(--shadow);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.grDibW{flex:1;display:flex;justify-content:center}
+.grDib{width:100%;max-width:170px;aspect-ratio:1;display:block}
+.grMisterio text{font:900 420px ui-rounded,system-ui,sans-serif;fill:#a083ff}
+.grBotones{display:flex;flex-direction:column;gap:10px}
+.grModo{width:80px;height:80px;border-radius:22px;padding:8px;position:relative;background:var(--lila2,#efe6ff)}
+.grModo svg{width:100%;height:100%;display:block;pointer-events:none}
+.grHecho,.grSigue{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;border:3px solid #fff}
+.grHecho{background:var(--green,#5fd39b)}
+.grHecho:after{content:'';position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+.grSigue{background:#ffab73;right:auto;left:-6px;animation:puLate 1.2s ease-in-out infinite}
+@media (orientation:landscape) and (max-height:600px){ .grLista{grid-template-columns:repeat(3,1fr)} .grCarta{flex-direction:column} .grDib{max-width:120px} .grBotones{flex-direction:row} .grModo{width:64px;height:64px} }
+
+/* jugar */
+#etSvg{background:#fff;border-radius:28px;box-shadow:var(--shadow);touch-action:none;user-select:none;-webkit-user-select:none;display:block}
+.etSub{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;align-items:center}
+.etPasos{display:flex;gap:6px}
+.etPaso{width:44px;height:44px;border-radius:14px;background:#f4effd;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 0 2px #e2d8ef inset}
+.etPaso svg{width:36px;height:36px}
+.etPaso path{fill:none;stroke:#b3a6c6;stroke-width:60;stroke-linecap:round;stroke-linejoin:round}
+.etPaso b{font:900 22px ui-rounded,system-ui,sans-serif;color:#c9b6ff}
+.etPaso.ahora{background:#fff6d3;box-shadow:0 0 0 3px #ffb84d inset;transform:scale(1.08)}
+.etPaso.ahora path{stroke:#ffab73}
+.etPaso.hecho{background:#e6ffe9;box-shadow:0 0 0 2px #5fd39b inset}
+.etPaso.hecho path{stroke:#2b9a66}
+.etPaso.hecho:after{content:'';position:absolute;right:-4px;top:-4px;width:16px;height:16px;border-radius:50%;background:#5fd39b;border:2px solid #fff}
+.etOpc{display:flex;gap:6px}
+.etHecho path{fill:none;stroke:#2b2233;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.etHecho path.etNuevo{animation:etAparece .7s ease-out both}
+@keyframes etAparece{from{opacity:0;stroke-width:26px;stroke:#7a5cff}}
+#etapa .puNum{font-size:42px}
+#etapa .puPunto.sig .puNum{font-size:54px}
+#etapa .rpGuia.hecho,#etapa .rpLinea.hecho{opacity:.5}
+#etSvg.fin .puArte path{stroke-width:9}
+#etPista[hidden]{display:none}
+@media (orientation:landscape) and (max-height:600px){
+  #etapa .subbar{position:absolute;right:14px;top:74px;width:clamp(200px,34vw,330px);justify-content:center;z-index:2;padding:0}
+  #etapa .pnLado{padding-top:130px}
+  #etapa .pnWrap{padding-bottom:22px}
+  .etPaso{width:38px;height:38px}.etPaso svg{width:30px;height:30px}
+}
+
+/* ===== ¿Quién es? ===== */
+.qnWrap{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:4px 12px 34px}
+.qnPistas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:10px 12px}
+.qnPista{width:74px;height:74px;border-radius:18px;background:#faf6ff;box-shadow:0 0 0 3px #e2d8ef inset;position:relative;display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.qnPista>svg,.qnPista>.qnSil{width:56px;height:56px;display:block}
+.qnSil svg{width:100%;height:100%;filter:brightness(0);opacity:.5}
+.qnMarca{position:absolute;right:-8px;bottom:-8px;width:32px!important;height:32px!important}
+.qnMarca circle{stroke:#fff;stroke-width:4}.qnMarca path{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.qnMarca.si circle{fill:#2b9a66}.qnMarca.no circle{fill:#e5484d}
+.qnPista.mira{box-shadow:0 0 0 5px #ffb84d inset;transform:scale(1.12);animation:pista 1s infinite}
+.qnPista.bien{box-shadow:0 0 0 4px #5fd39b inset}
+.qnPistas.tapadas .qnPista{background:repeating-linear-gradient(45deg,#c9b6ff 0 10px,#b9a2ff 10px 20px)}
+.qnPistas.tapadas .qnPista>*{visibility:hidden}
+.qnPistas.tapadas .qnPista:after{content:'?';position:absolute;font:900 38px ui-rounded,system-ui,sans-serif;color:#fff}
+.qnListo{width:96px;height:96px;padding:8px;background:var(--lila2,#efe6ff);border-radius:28px;animation:puLate 1.6s ease-in-out infinite}
+.qnListo svg{width:100%;height:100%}
+.qnListo[hidden]{display:none}
+.qnRejilla{flex:1;min-height:0;width:100%;display:grid;grid-template-columns:repeat(var(--cols),var(--s,96px));gap:10px;justify-content:center;align-content:center}
+.qnRejilla.tapada{visibility:hidden}
+.qnCarta{width:var(--s,96px);height:var(--s,96px);min-width:0;min-height:0;margin:0;padding:6px;border-radius:20px;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;transition:opacity .3s,transform .3s}
+.qnCosas{display:grid;width:100%;height:100%;gap:2px;align-items:center;justify-items:center}
+.qnCosas.n2{grid-template-columns:1fr 1fr}
+.qnCosas.n3{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}.qnCosas.n3 .qnCosa:first-child{grid-column:1/3}
+.qnCosa{width:100%;height:100%;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0}
+.qnCosa svg{width:100%;height:100%;max-width:100%;max-height:100%}
+.qnCosas.n1 .qnCosa svg{width:80%;height:80%}
+.qnCarta.descartada{opacity:.28;transform:scale(.9)}
+.qnCarta.ok{box-shadow:0 0 0 5px #5fd39b,var(--shadow);transform:scale(1.08)}
+@media (orientation:landscape) and (max-height:600px){
+  .qnWrap{flex-direction:row;align-items:center;padding:2px 14px 26px}
+  .qnPistas{flex-direction:column;flex-wrap:nowrap;padding:8px}
+  .qnPista{width:58px;height:58px}.qnPista>svg,.qnPista>.qnSil{width:44px;height:44px}
+  .qnRejilla{height:100%}
+  .qnWrap .pnTexto{width:clamp(140px,22vw,220px);font-size:18px}
+}
+#qnPista[hidden]{display:none}

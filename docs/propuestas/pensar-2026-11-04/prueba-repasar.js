@@ -53,7 +53,7 @@ async function repasarTodo(p, off = 0) { const n = await p.evaluate(() => REPASA
     const { c, p } = await pagina(b);
     await p.evaluate(() => go('m-paint')); await p.waitForTimeout(300);
     const mp = await p.$$eval('#m-paint .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pintar: … Unir puntos y Repasar', mp.join('|') === 'Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos|Repasar', mp.join('|'));
+    ok('Menú Pintar: … Unir puntos y Repasar', mp.join('|').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos|Repasar'), mp.join('|'));
     await p.click('#m-paint [data-go="repasar"]'); await p.waitForTimeout(700);
     const ini = await p.evaluate(() => ({ voz: window.__voz.join(' '), demo: document.querySelector('#rpSvg .rpDemo').classList.contains('on'), marca: !!document.querySelector('#rpSvg .rpMarca'),
       flechas: document.querySelectorAll('#rpSvg .rpFlechas path').length, chips: document.querySelectorAll('#rpChips .pnChip svg').length, emoji: /\p{Extended_Pictographic}/u.test(document.querySelector('#rpChips').textContent + document.querySelector('#rpSvg').textContent) }));

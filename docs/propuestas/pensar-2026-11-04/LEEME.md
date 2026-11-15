@@ -17,6 +17,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 04/11/2026 | **2.ª entrega:** «¿Qué sigue?», «Sombras» y «El diferente» con dificultad progresiva + **«Unir puntos y pintar»** (ver abajo) | Probada en Chromium (35/35 y 9/9 sin conexión); **pendiente de probar en el iPhone**. |
 | 05/11/2026 | **Contar y Memoria publicados en `main`** (`021c67e`, versión `5889ab82ca5d`, D-035) | Publicado. Desde el 07/11, **solo el chat de `avatar-creador` reúne y publica**; este chat sigue en `juegos-pensar`. |
 | 07/11/2026 | **3.ª entrega: «Repasar dibujos»** (menú Pintar; ver abajo) | Probada en Chromium (28/28; sin conexión 10/10); **pendiente de probar en el iPhone**. La 2.ª entrega (`cf80691`) sigue pendiente de la prueba de la propietaria. |
+| 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Probada en Chromium; **pendiente de la revisión de la propietaria**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -271,6 +272,93 @@ de Unir puntos.
 
 ![Repasar en el iPhone: curva, círculo, varios trazos, terminado y pintado](capturas/repasar-iphone.png)
 
+## 4.ª entrega (15/11/2026): tres ejemplos completos para revisar
+
+Pedido de la propietaria (15/11/2026), resumido:
+- La 2.ª y la 3.ª se ven bien y se pueden pintar, pero **son demasiado básicas para Amaia**; no se aprueban todavía.
+- **Unir puntos:** dibujos completos y reconocibles (animales, personajes, vehículos, pequeñas escenas), en **varios
+  recorridos** que se descubren **por etapas**; niveles que lleguen a **30–60 puntos** sin amontonar números; **ayuda
+  opcional** (que el siguiente no brille siempre y poder pedir pista); pintar con varias zonas cerradas y guardar.
+- **Repasar:** dibujos completos con **varios trazos** (curvas, cambios de dirección, detalles interiores); **ver qué partes
+  se han hecho** y **seguir sin perder trabajo**; tolerancia para el dedo (la dificultad, del recorrido); pintar y guardar.
+- **Pensar:** juegos que exijan **descubrir reglas, recordar y combinar pistas**, con **niveles avanzados accesibles** sin
+  repetir antes los fáciles.
+- **Antes de ampliar el catálogo, tres ejemplos completos y elaborados**; nada de dibujos geométricos básicos como
+  resultado final; si hacen falta ilustraciones, decir exactamente qué contornos y capas generar.
+- Solo en la copia aislada, sin publicar ni cambiar las recompensas; comprobar en iPhone y sin conexión.
+
+**Los tres ejemplos:**
+
+| Ejemplo | Qué es | Dónde |
+| --- | --- | --- |
+| 1. **El búho** (animal en una pequeña escena) | El búho en su rama, de noche: cuerpo → cara → alas → rama con hoja → luna. Al final aparecen los ojos, el pico, las plumas, las patas y las estrellas. | Pintar → **Dibujos por partes** (unir puntos o repasar) |
+| 2. **La furgoneta de los helados** (vehículo) | Carrocería → ruedas → ventanas (la del conductor y la de vender) → toldo ondulado → cartel del cucurucho. Al final, tapacubos, faro, puerta, rayas del toldo, mostrador, carretera. | Pintar → **Dibujos por partes** |
+| 3. **El unicornio** (personaje) | Cabeza y cuello → oreja → cuerno → melena con rizos → cara (ojo y sonrisa) → estrella mágica. Al final, pestañas, moflete, espiral del cuerno y estrellas. | Pintar → **Dibujos por partes** |
+| + **¿Quién es?** (reto de Pensar) | Detective: combinar pistas dibujadas para encontrar la única tarjeta que las cumple; en los niveles altos hay que recordarlas. | Pensar → **¿Quién es?** |
+
+Archivos nuevos: **`ilustraciones.js`** (los tres dibujos), **`etapas.js`** (el juego), **`quien.js`** y
+**`etapas.css`**. No cambian `pensar.css`, `dibujos.js`, `pensar.js`, `figuras.js`, `pensar2.js` ni `repasar.js`, así
+que Unir puntos y Repasar de antes siguen igual (se pueden comparar).
+
+### Dibujos por partes (menú Pintar)
+
+- **Elegir:** tres tarjetas, cada una con dos botones dibujados: **unir puntos** o **repasar**. Hasta terminarlo, el
+  dibujo sale **en misterio** (solo la silueta de la primera parte y «?»); terminado, se ve entero. Un punto naranja que
+  late marca los que están **a medias**, y uno verde, los **terminados**.
+- **Por etapas:** arriba, una **tira con las partes**: las hechas (con su dibujo y marca verde), la de ahora (resaltada) y
+  las que faltan («?»). Cada parte hecha queda **dibujada en limpio** y aparece la siguiente con su voz («Ahora, las alas»).
+  En pantalla solo están los puntos o caminos de la parte de ahora: **no se amontonan**.
+- **Unir puntos:**
+  - Botones **30, 45 y 60** puntos por dibujo (el total real queda cerca: 30–38, 43–47 y 45–60). La **numeración sigue**
+    de una parte a otra (la cara del búho empieza en el 20…). Puntos separados **al menos 20 px** en el iPhone.
+  - Los puntos se reparten según **lo largo y lo curvo** de cada trazo, y **con más peso en lo que da la forma** (el
+    cuerpo, la carrocería, la cabeza); las esquinas siempre llevan punto. Los trazos muy cortos (el ojo y la sonrisa
+    del unicornio) aparecen solos.
+  - **Ayuda:** con 30 el siguiente brilla siempre; con 45 y 60, **no brilla** y se pide con **💡** (brilla un rato y
+    traza una rayita desde el anterior). El botón del sol la enciende o apaga cuando quiera.
+  - **Sin castigos:** tocar otro número dice cuál es («Ese es el 18. Busca el 2»); tras tres toques fuera, el siguiente
+    se ilumina solo.
+  - Al terminar con pocas ayudas, el **próximo** dibujo tendrá más puntos (nunca baja). Cambiar de puntos a medias no
+    borra nada: se aplica al próximo.
+- **Repasar:** los trazos de cada parte, uno tras otro (curvas, esquinas, rizos, ondas, detalles interiores), con el
+  camino ancho, las flechas, el punto que brilla y la **misma tolerancia** que Repasar (unos 34 px). Salirse no borra
+  nada; el trozo hecho se queda pintado.
+- **Seguir donde se dejó:** el avance se guarda **al momento** (cada punto, cada trazo y al levantar el dedo), también
+  al cerrar la app. Al volver: «¡Seguimos donde lo dejaste!», en la misma parte, el mismo número o el mismo sitio del
+  camino.
+- **Al terminar:** aparece el dibujo entero con sus detalles, lo dice («¡Es un búho en su rama, de noche!»), **+1 ⭐**
+  (como un dibujo de Unir puntos o de Repasar) y «🎨 ¡A pintar!». En Pintar se colorea con el cubo (**15, 21 y 15 zonas
+  cerradas**: búho, furgoneta, unicornio) y se guarda en «Mis dibujos»; la flecha vuelve a «Dibujos por partes».
+
+### ¿Quién es? (menú Pensar, 5 niveles)
+
+- Arriba, las **pistas dibujadas** (sin texto): **qué es** (la silueta), **de qué color** (una gota), **cuántos hay**
+  (puntos), con una marca verde (sí) o roja (**no**). La voz las dice. Abajo, las tarjetas.
+- **Hay que combinarlas:** solo una tarjeta las cumple todas y, por cada pista, hay una tarjeta que cumple todas las
+  demás menos esa (ninguna pista sobra; comprobado con 2.000 casos).
+- **Niveles:** 1) dos pistas, 6 tarjetas; 2) tres pistas, 9 tarjetas; 3) una pista de «no»; 4) **pistas escondidas**:
+  primero se miran, se toca la lupa y se tapan (hay que recordarlas); 5) **el gran reto**: dos pistas de «no», cuántos
+  hay, 12 tarjetas y pistas escondidas.
+- **Los cinco niveles se eligen directamente** con sus botones (sin repetir antes los fáciles); también sube solo tras
+  dos aciertos limpios. Sin reloj: las pistas se tapan cuando ella toca la lupa.
+- **Sin castigos:** una tarjeta equivocada se aparta, se ilumina la pista que no cumple y la dice («Esa no. Mira esta
+  pista: no es de color rojo»). **💡** vuelve a enseñar las pistas un rato. +1 ⭐ por acierto, como los demás juegos.
+
+### Ilustraciones: no ha hecho falta generar imágenes
+
+Los tres dibujos están hechos a mano como trazos (SVG en `ilustraciones.js`): funcionan sin conexión, se escalan sin
+perder calidad y cada trazo sirve a la vez para los puntos, para repasar y para el cubo de Pintar. Si para ampliar el
+catálogo se prefiere generarlos aquí, **cada dibujo necesita estas capas**, en 1000 × 1000 px, fondo transparente, trazo
+negro uniforme de 10 px, sin rellenos, sombras ni texturas:
+1. **Una capa por parte** (de 4 a 6, en el orden en que se descubren), cada una con sus **trazos sueltos**: contornos
+   **cerrados** para lo que se pinta (cuerpo, ala, rueda…) y trazos **abiertos** para rizos, ramas o sonrisas. Cada trazo,
+   de un solo gesto continuo y sin cruzarse consigo mismo.
+2. **Una capa de detalles** (ojos, rayas, estrellas…) que no se repasan pero cierran zonas para pintar.
+3. Todas juntas deben dejar **al menos 12 zonas cerradas**; entre líneas paralelas, **al menos 60 px** de separación
+   (para que los puntos no se amontonen).
+4. Lo ideal es entregarlas como **trazados vectoriales (SVG)**, una capa por parte; una imagen en píxeles habría que
+   convertirla a trazos.
+
 ## Datos
 
 - Todo va con el prefijo `pen1:` (`aislamiento.js`); sin service worker; manifiesto propio («PRUEBA PENSAR»).
@@ -283,6 +371,10 @@ de Unir puntos.
   `lv_sombras` y `lv_distinto` solo se leen: quien iba por 6 o más empieza en el nivel 2. Los dibujos de Unir puntos se
   guardan en «Mis dibujos» (`gal`), como cualquier dibujo de Pintar.
 - 3.ª entrega: `lv_repasar`, con la misma forma. Los dibujos pintados van a «Mis dibujos» (`gal`).
+- 4.ª entrega: **`lv_etapas`** (Dibujos por partes: `{v:1, nivel, ayuda, hechos:{"buho:pu":1…}, curso:{"buho:pu":{e, j, i,
+  pts}…, "furgoneta:rp":{e, j, prog}}}`; lo «a medias» incluye los puntos, para seguir igual) y **`lv_quien`** (con la
+  forma de los demás niveles). Si llegan con valores raros, se ignoran y se empieza de nuevo. Los dibujos pintados van a
+  «Mis dibujos» (`gal`).
 - Ninguna otra clave cambia: estrellas (solo suman), dibujos, Heladería, personaje, escenas, logros, voz y sonido.
 
 ## Pruebas (Chromium; iPhone e iPad simulados, app instalada y hoja de compartir simuladas)
@@ -293,8 +385,25 @@ python3 docs/propuestas/pensar-2026-11-04/preparar_copia.py      # regenera inde
 node docs/propuestas/pensar-2026-11-04/prueba-pensar.js          # 52 comprobaciones (Contar y Memoria)
 node docs/propuestas/pensar-2026-11-04/prueba-pensar2.js         # 35 comprobaciones (2.ª entrega)
 node docs/propuestas/pensar-2026-11-04/prueba-repasar.js        # 28 comprobaciones (3.ª entrega)
-node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 10 comprobaciones (modo avión, simulación de publicación)
+node docs/propuestas/pensar-2026-11-04/prueba-etapas.js         # 39 comprobaciones (4.ª entrega: Dibujos por partes)
+node docs/propuestas/pensar-2026-11-04/prueba-quien.js          # 22 comprobaciones (4.ª entrega: ¿Quién es?)
+node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 12 comprobaciones (modo avión, simulación de publicación)
 ```
+
+**4.ª entrega (15/11/2026): `prueba-etapas.js` 39/39, `prueba-quien.js` 22/22, `prueba-sin-conexion.js` 12/12.** Comprueban:
+- **Dibujos por partes:** menú, tarjetas en misterio, puntos solo de la parte de ahora (45 → 46 puntos, separados 28 px en el
+  iPhone), ayuda a petición y 💡, «Ese es el N» sin castigo, iluminar tras tres toques fuera, numeración seguida entre
+  partes, tira de partes, cerrar y volver (mismos puntos y mismo número), cambiar de puntos a medias sin borrar nada,
+  final con todos los detalles, +1 ⭐ sin logros, subir el próximo a 60, Pintar con el cubo y guardar, **15, 21 y 15
+  zonas cerradas**, Repasar con el dedo a 28 px, salirse sin perder nada, seguir a medio trazo tras cerrar la app, partes
+  con varios trazos, los 6 recorridos completos (3 dibujos × 2 maneras), copia de seguridad (también lo que está a
+  medias) y recuperarla dos veces, datos estropeados sin errores, y las cuatro pantallas.
+- **¿Quién es?:** 2.000 casos con solución única y sin pistas que sobren, pistas sin texto ni emojis, tarjeta equivocada
+  sin castigo, +1 ⭐, subir con dos aciertos limpios, el gran reto elegido directamente, pistas escondidas y 💡, su nivel
+  guardado y en la copia de seguridad, y las cuatro pantallas en los niveles 2 y 5.
+- **Sin conexión:** además de lo anterior, el búho por partes con pintar y guardar, y ¿Quién es? con pistas escondidas.
+- Las pruebas anteriores siguen correctas (52/52, 35/35, 28/28), con la comprobación de los menús ampliada a los botones
+  nuevos; `pruebas/prueba-juego.js` 21/21 y `pruebas/prueba-copia.js` 45/45.
 
 **3.ª entrega (07/11/2026): `prueba-repasar.js` 28/28.** Comprueba:
 - **Menú y voz:** el menú Pintar, que lo explique en voz alta y la demostración.
@@ -380,7 +489,24 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 
 Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
 
+**4.ª entrega (ejemplos para revisar; incluye todo lo anterior):**
+1. **Pintar → Dibujos por partes.** Elegir una tarjeta y los **puntos**. Unir la primera parte: ver cómo queda dibujada y
+   salen los puntos de la siguiente, con la tira de arriba marcándola.
+2. Probar **45** o **60**: el siguiente no brilla; tocar **💡** para la pista y tocar un número equivocado para oír cuál es.
+3. **Salir a medias** (incluso cerrar la app) y volver: debe seguir en el mismo número.
+4. Terminar → «🎨 ¡A pintar!» → pintar varias zonas con el cubo → Guardar → flecha.
+5. La misma tarjeta con el **lápiz** (repasar): las partes con varios trazos, salirse a propósito y seguir.
+6. **Pensar → ¿Quién es?**: probar el nivel 1 y, directamente, el de la **estrella** (gran reto): mirar las pistas,
+   tocar la lupa, buscar; tocar **💡** si no se acuerda.
+
+Enlace fijo de la 4.ª entrega: en el commit siguiente.
+
 ## Pendiente (decide la propietaria)
+
+- **4.ª entrega:** revisar los tres ejemplos y ¿Quién es?. Si la dirección es buena, ampliar el catálogo con más dibujos
+  por partes (otros animales, personajes, vehículos y escenas) y llevar la misma idea (descubrir reglas, recordar y
+  combinar) a más juegos de Pensar. Decidir también si «Dibujos por partes» **sustituye** a Unir puntos y Repasar de
+  antes o se queda junto a ellos.
 
 - **Integración:** la hace el chat de `avatar-creador` cuando apruebes cada entrega; los commits y archivos exactos están en [`INTEGRAR.md`](INTEGRAR.md).
 
