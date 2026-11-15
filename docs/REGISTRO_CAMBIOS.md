@@ -1,5 +1,35 @@
 # Registro de cambios
 
+### 2026-11-15 — D-037: Mi Mundo, cuidar a la muñeca (1.ª entrega) en una copia aislada
+
+- **Solicitado por:** la propietaria («Mi Mundo funciona bien. Quiero ampliarlo hacia un juego de cuidar a la muñeca y
+  representar su día a día, tipo Sims infantil… Empieza con una primera entrega completa: flechas de cámara, ventana
+  día/noche, sueño y diversión, con sus interacciones y la rutina del pijama… Trabaja en una copia aislada… No publiques
+  todavía. Envíame un enlace para revisar esta primera entrega.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `c7467d1`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Qué cambia:** copia nueva `docs/propuestas/prueba-cuidar-2026-11-15/` (datos `cui1:`; sobre la del salón; el arte, copia
+  exacta). Su motor de Mi Mundo añade:
+  - **cámara libre:** flechas, arrastrar el suelo, desplazar la vista al dejar el dedo junto al borde y un botón con su cara
+    para encontrarla; la vista no la sigue y cada escenario guarda la suya;
+  - **día y noche** en la ventana (`mm_ciclo`), con luz provisional y la lámpara del salón;
+  - **sueño y diversión** (`mm_necesidades`): indicadores ilustrados y avisos breves con voz, una vez; bajan solo jugando,
+    nunca de 15, y esperan en las misiones;
+  - **juegos** con la pelota, los cubos, el cuento y los peluches (va hasta ellos, responde con sus gestos y un bocadillo,
+    sube la diversión), y **dormir** sube el sueño;
+  - **rutina del pijama:** pregunta con dibujo, una vez por noche; «Dormir así» o ir a Vestir y «Guardar y volver» al mismo
+    escenario; de día, una propuesta de vestirse. Nunca cambia la ropa sola.
+  - Enlace: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-cuidar-2026-11-15/index.html>.
+- **Copia del salón:** su prueba del toque tolerante ya no falla cuando las tazas aparecen muy juntas (era de la prueba,
+  no del juego).
+- **Documentación:** D-037, `ESTADO_ACTUAL.md`, `ARQUITECTURA_Y_DATOS.md` (claves de Mi Mundo, que faltaban), `MANUAL_PROYECTO.md`,
+  `HOJA_DE_RUTA.md`, `COORDINACION_RAMAS.md`, `docs/propuestas/LEEME.md` y el `LEEME.md` de la copia (con el arte que falta).
+- **Datos guardados afectados:** ninguno del juego. Claves nuevas solo en la copia (`mm_necesidades`, `mm_ciclo`; `cam` dentro
+  de cada escenario), con el prefijo `mm_` (van en la copia de seguridad).
+- **Pruebas (Chromium, iPhone e iPad simulados):** `prueba-cuidar.js` 31/31; la del salón aplicada a esta copia 31/31; sin
+  conexión 9/9; la del salón en su copia 31/31 (tres veces); juego 21/21; copia de seguridad 45/45. **No probado en el iPhone ni
+  en el iPad reales.**
+- **Cómo revertir:** `git revert` de este commit (`main` no cambia).
+
 ### 2026-11-07 — D-034: el salón de Mi Mundo montado en una copia aislada; D-036: un solo generador y un solo encargado de publicar
 
 - **Solicitado por:** la propietaria («Continúa con el salón que dejaste preparado en 2073695… Móntalo en una copia aislada
@@ -8,7 +38,7 @@
   «Preparar la merienda para tres»; nuestra muñeca original y los peluches aprobados… Antes de la próxima publicación,
   unifica el generador con el que produjo la versión 5889ab82ca5d. A partir de ahora este chat será el único encargado de
   publicar… No vuelvas a publicar lo que ya está en main. El salón queda pendiente de mi prueba y aprobación…»).
-- **Rama y commit:** `avatar-creador`, este commit (sobre `2073695`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Rama y commit:** `avatar-creador`, `c7467d1` (sobre `2073695`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
 - **Salón (pendiente de la prueba y la aprobación):** copia nueva `docs/propuestas/prueba-salon-2026-11-07/` (datos `sal1:`;
   lo publicado con Contar y Memoria + Mi Mundo con habitación y salón). Motor `mimundo/mimundo.js` con varios escenarios
   (🛏️ habitación, 🏠 casa → salón; claves `mm_habitacion2` y `mm_salon`), cosas encima de muebles que los acompañan

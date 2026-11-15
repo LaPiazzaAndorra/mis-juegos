@@ -36,7 +36,7 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
 | `logros.js` | **No lo toca.** Las misiones dan ⭐ y se anotan en `mm_misiones`. Si se quiere que den logros, se añadirá una función pública en `logros.js` (por ejemplo `Logros.sumar(id)`), coordinada. | Puede cambiar retos (Contar, Colores). |
 | `progreso.js` («Guardar / Recuperar mi progreso») | Añade el prefijo `mm_` a `PREFIJOS` (una línea). | Si añade claves, que las ponga en `CLAVES` o con prefijo; no hace falta tocar la línea de `PREFIJOS`. |
 | `herramientas/publicar/` (sw, listas sin conexión) | Opción `--con-mimundo` (las listas salen de las carpetas, no a mano). | Si Contar o Memoria añaden archivos (imágenes, sonidos), se añaden a `COPIAR` o a una carpeta que el generador recorra. |
-| Claves de datos | `mm_habitacion2`, `mm_misiones` (no toca `mm_hab`, `sc_*`, `lv_*`). | `lv_*` (niveles), las suyas. |
+| Claves de datos | `mm_habitacion2`, `mm_misiones`; en las copias, `mm_salon`, `mm_necesidades` y `mm_ciclo` (D-037). No toca `mm_hab`, `sc_*`, `lv_*`. | `lv_*` (niveles), las suyas. |
 
 ## Cómo se juntan
 

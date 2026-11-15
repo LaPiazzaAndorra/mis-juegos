@@ -1,5 +1,23 @@
 # Registro de decisiones
 
+## D-037 · Mi Mundo: cuidar a la muñeca y su día a día (1.ª entrega) · 15/11/2026
+- **Pedido de la propietaria:** «Mi Mundo funciona bien. Quiero ampliarlo hacia un juego de cuidar a la muñeca y representar su día a día, tipo Sims infantil. 1. Cámara independiente: añade una flecha a cada lado para recorrer la habitación; mover la cámara no mueve a la muñeca ni hace que nos siga; al arrastrarla, permite llegar a otras zonas desplazando la vista cerca del borde; un botón permite volver a encontrarla si queda fuera de pantalla. 2. Día y noche: tocar la ventana alterna entre día y noche; cambian el exterior y la iluminación de la habitación; guarda el estado elegido. 3. Interacciones reales: los objetos deben servir para algo: dormir en la cama, comer la merienda, jugar con los juguetes, leer el cuento, etc. Cada acción debe producir una respuesta visible de la muñeca y afectar a la necesidad correspondiente. 4. Necesidades: sueño, hambre, higiene, diversión y ganas de ir al baño. Avisos breves, con dibujos claros y voz cuando esté disponible. Que evolucionen despacio mientras juega; nada de volver tras varios días y encontrarla mal. Sin enfermedades, castigos, pérdida de premios ni avisos constantes. Que se puedan atender jugando, sin convertirse en una sucesión de obligaciones. Solo activa cada necesidad cuando exista una acción y un objeto accesible para resolverla. Si faltan cocina, baño o ilustraciones, indícalo y deja esa necesidad pendiente. 5. Rutinas y ropa: para acostarla, pide ponerse el pijama; para salir de aventura, propone el conjunto de aventura; para otras actividades, ofrece ropa adecuada; desde el aviso debe poder ir directamente a Vestir y regresar al mismo escenario; reconoce lo que ya lleva puesto y no repitas peticiones; toda prenda necesaria debe estar disponible gratuitamente; nunca cambies su ropa sin que ella elija. Empieza con una primera entrega completa: flechas de cámara, ventana día/noche, sueño y diversión, con sus interacciones y la rutina del pijama. Después incorpora hambre, higiene y baño con sus espacios y objetos. Conserva el estilo ilustrado aprobado. No simules acciones que necesiten una postura nueva deformando la muñeca: dime qué arte hace falta. Trabaja en una copia aislada, conserva las partidas, el guardado y el funcionamiento sin conexión. No publiques todavía. Envíame un enlace para revisar esta primera entrega.»
+- **Primera entrega, en la copia aislada `docs/propuestas/prueba-cuidar-2026-11-15/`** (datos `cui1:`; parte de la copia del
+  salón, D-034), pendiente de su prueba y aprobación. Incluye la cámara libre (flechas, arrastrar el suelo, borde, botón con
+  su cara), el día y la noche en la ventana (guardado en `mm_ciclo`) y la lámpara del salón. También las necesidades
+  **sueño** y **diversión** (`mm_necesidades`) con sus indicadores ilustrados y avisos breves con voz, más los juegos con la
+  pelota, los cubos, el cuento y los peluches, y dormir. Por último, la rutina del pijama con ida y vuelta a Vestir y la
+  propuesta de vestirse de día.
+- **Reglas:** las necesidades bajan solo mientras se juega en Mi Mundo, nunca de 15, esperan durante las misiones, avisan
+  una vez al bajar (y como mucho cada 90 s), sin castigos ni pérdida de premios. Nunca se cambia la ropa sin que ella
+  elija; lo ya preguntado no se repite ese día o esa noche.
+- **Pendientes:** hambre, higiene y ganas de ir al baño (faltan la cocina, el baño, sus objetos y posturas); el conjunto de
+  aventura, para el parque. El arte necesario (posturas sentada, leyendo, abrazando, con la pelota, comiendo y lavándose;
+  fondos de noche; lámpara encendida; cuento abierto; cocina y baño) está en el `LEEME.md` de la copia. La noche actual
+  es un efecto de luz provisional sobre el arte de día.
+- **Nota:** la propietaria dice que Mi Mundo «funciona bien»; no se registra como aprobación formal del salón (D-034), que
+  sigue pendiente de que lo confirme.
+
 ## D-036 · Un solo encargado de publicar y un solo generador · 07/11/2026
 - **Pedido de la propietaria:** «Antes de la próxima publicación, unifica el generador con el que produjo la versión
   5889ab82ca5d. A partir de ahora este chat será el único encargado de publicar; el otro seguirá preparando los juegos. No

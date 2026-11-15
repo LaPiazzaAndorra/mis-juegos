@@ -53,6 +53,13 @@ cambiar nada importante.
 | `avatar` | Personaje guardado (el de «Mi Mundo»): `{v, piel, ojos, pelo, ropa, zapatos, accesorios, guardado}`, con identificadores del catálogo. | `avatar-creador` |
 | `avatar_draft` | Cambios en curso de «Vestir». | `avatar-creador` |
 | `mm_hab` | Habitación: posición del personaje, noche y lámpara. | `avatar-creador` |
+| `mm_habitacion2` | Mi Mundo ilustrado: la habitación (muñeca, objetos, lo que hay en la cesta; en la copia de D-037 también `cam`, la vista). | `main` (D-035) |
+| `mm_misiones` | Mi Mundo: misión en curso y veces que se ha completado cada una. | `main` (D-035) |
+| `mm_salon` | Mi Mundo: el salón (muñeca, muebles, lo que hay encima de cada uno, `cam`). | copias `prueba-salon-2026-11-07`, `prueba-cuidar-2026-11-15` |
+| `mm_necesidades` | Cuidar a la muñeca: `{v, sueno, diversion, avisado}` (0–100; solo cambian jugando en Mi Mundo). | copia `prueba-cuidar-2026-11-15` (D-037) |
+| `mm_ciclo` | Día o noche elegido en la ventana y lo ya preguntado ese día o esa noche (`{v, noche, preguntado}`). | copia `prueba-cuidar-2026-11-15` (D-037) |
+
+Todas las claves `mm_*` van en «Guardar / Recuperar mi progreso» (prefijo `mm_` en `PREFIJOS` de `progreso.js`).
 
 **IndexedDB:** base `misjuegos`, versión 1, almacén `tpl` (`{id, url}`) con las láminas importadas en «Pintar».
 

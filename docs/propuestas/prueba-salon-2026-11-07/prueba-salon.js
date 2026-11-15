@@ -198,16 +198,18 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   ok('iPhone vertical · las cosas más pequeñas (las tazas) miden 18 px o más; con el toque tolerante, 70 px', vis.every(v => v.min >= 18), vis.map(v => `${v.id} ${v.min}`).join(' · '));
   await p.screenshot({ path: path.join(OUT, '07-merienda-lista-iphone.png') });
   // toque tolerante: a 18 px de una taza, por un lado libre
-  const tUid = await p.evaluate(() => MM.estado().objetos.find(x => x.id === 'taza').uid);
-  // a 18 px del DIBUJO de la taza (no de la caja de su imagen, que tiene márgenes transparentes)
-  const punto18 = await p.evaluate(u => { const el = document.querySelector(`.mm-obj[data-uid="${u}"]`), rc = el.getBoundingClientRect();
+  // a 18 px del DIBUJO de una taza (no de la caja de su imagen, que tiene márgenes transparentes), por un lado libre (las
+  // cosas aparecen al azar: se prueba con las tres tazas)
+  let tUid = null, punto18 = null;
+  for (const u of await p.evaluate(() => MM.estado().objetos.filter(x => x.id === 'taza').map(x => x.uid))) { if (punto18) break; tUid = u; punto18 = await p.evaluate(u => { const el = document.querySelector(`.mm-obj[data-uid="${u}"]`), rc = el.getBoundingClientRect();
     const cv = document.createElement('canvas'); cv.width = el.naturalWidth; cv.height = el.naturalHeight; const cx = cv.getContext('2d'); cx.drawImage(el, 0, 0);
     const d = cx.getImageData(0, 0, cv.width, cv.height).data; let x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1;
     for (let y = 0; y < cv.height; y += 2) for (let x = 0; x < cv.width; x += 2) if (d[(y * cv.width + x) * 4 + 3] > 40) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
     const s = rc.width / cv.width, r = { left: rc.left + x0 * s, right: rc.left + x1 * s, top: rc.top + y0 * s, bottom: rc.top + y1 * s }; r.width = r.right - r.left; r.height = r.bottom - r.top;
     const otros = [...document.querySelectorAll('.mm-obj[data-capa="detras"]')].filter(e => e.dataset.uid !== u && /plato|taza|tetera|galletas|osito|conejito/.test(e.dataset.id)).map(e => e.getBoundingClientRect());
-    const libre = (x, y) => otros.every(o => Math.hypot(Math.max(o.left - x, 0, x - o.right), Math.max(o.top - y, 0, y - o.bottom)) > 30);
-    return [[r.left + r.width / 2, r.top - 18], [r.left - 18, r.top + r.height / 2], [r.right + 18, r.top + r.height / 2]].find(([x, y]) => libre(x, y)); }, tUid);
+    const libre = (x, y) => otros.every(o => Math.hypot(Math.max(o.left - x, 0, x - o.right), Math.max(o.top - y, 0, y - o.bottom)) > 22);
+    const dg = 18 / Math.SQRT2;
+    return [[r.left + r.width / 2, r.top - 18], [r.left - 18, r.top + r.height / 2], [r.right + 18, r.top + r.height / 2], [r.left - dg, r.top - dg], [r.right + dg, r.top - dg]].find(([x, y]) => libre(x, y) && document.elementFromPoint(x, y).closest('.mm-escena')); }, tUid); }
   if (punto18) { await p.mouse.click(punto18[0], punto18[1]); await p.waitForTimeout(400); }
   const elegido = await p.evaluate(() => (document.querySelector('.mm-obj.sel') || {}).dataset);
   ok('iPhone vertical · un toque a 18 px de una taza la selecciona (toque tolerante)', !!punto18 && elegido && elegido.uid === tUid, elegido ? elegido.id : 'nada');
