@@ -20,6 +20,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
 | 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
 | 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (commit `ddbe50c`; ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
+| 15/11/2026, 17:25 | La propietaria: aplicar la **norma de lectura a todas las entregas** (Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir puntos, Repasar, Dibujos por partes, ¿Quién es?), dividir en pasos en vez de un máximo rígido de palabras, comprobar ambas orientaciones del iPhone y dejar **una única versión de prueba** | **Versión única** con todo adaptado (`lectura.css` y `lectura.js`; ver «Norma de lectura en todas las entregas»). Probada en Chromium; **pendiente de la prueba en el iPhone**. La aprobación de los Retos sigue pendiente de probarlos con Amaia. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -361,6 +362,36 @@ negro uniforme de 10 px, sin rellenos, sombras ni texturas:
 4. Lo ideal es entregarlas como **trazados vectoriales (SVG)**, una capa por parte; una imagen en píxeles habría que
    convertirla a trazos.
 
+## Norma de lectura en todas las entregas (15/11/2026, 17:25): versión única de prueba
+
+Pedido de la propietaria (15/11/2026, 17:25), resumido:
+- Aplicar la norma de lectura a todas las entregas: Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir puntos,
+  Repasar, Dibujos por partes y ¿Quién es?.
+- **MAYÚSCULAS**, letra clara y grande, frases sencillas, apoyo visual o de voz.
+- **Sin un máximo rígido de palabras:** si una explicación lo necesita, se divide en pasos breves.
+- Simplificar el lenguaje **sin cambiar la dificultad ni revelar la respuesta**.
+- Que todo quepa y se toque bien en el iPhone, **en vertical y en horizontal**. Conservar el avance, los datos y las
+  recompensas.
+- **Una única versión de prueba** con todo, y `INTEGRAR.md` al día para el Chat 1. Sin publicar.
+
+**Cómo se ha hecho:** una capa común, `lectura.css` + `lectura.js`, que se carga la última y no cambia ningún dato, más
+ajustes concretos en cada juego.
+
+| Qué | Cómo queda |
+| --- | --- |
+| **Mayúsculas** | Todo lo que se ve en las pantallas de Pensar, el menú Pensar, el menú Memoria y los tres botones de Pensar del menú Pintar. Por dentro el texto sigue en minúsculas normales, para que la voz del iPhone lo lea bien. |
+| **Letra** | Nada por debajo de **16 px**. Los mensajes, de **22 a 30 px**. Los títulos largos ocupan dos líneas en lugar de cortarse con «…». |
+| **Pasos breves** | Un mensaje de varias frases se ve **una frase por línea**: «HAY 7 NUBES. / 6 SE VAN VOLANDO. / ¿CUÁNTAS QUEDAN?». No se cuentan palabras. |
+| **Voz** | Cada mensaje lleva un **altavoz** y, al tocarlo, se oye entero. Al tocar el título se oye el nombre del juego. Las pistas de ¿Quién es? se oyen al tocarlas. |
+| **Apoyo visual en ¿Quién es?** | Debajo de cada pista dibujada, su palabra: «ES ESTRELLA», «NO ES AZUL», «HAY 3». Cuando las pistas se esconden (niveles de memoria), las palabras también se esconden: no se revela la respuesta. |
+| **Frases simplificadas** | «¿Saltamos lo que ya sabes?» → «¿SALTAMOS LO FÁCIL?». «👀 Mira y escucha…» → «MIRA Y ESCUCHA.». «Mira bien las pistas y acuérdate.» → «MIRA LAS PISTAS. ACUÉRDATE.». En Repasar: «HAZ LLOVER SOBRE LA SETA.», «EL PEZ SALTA HASTA LA HOJA.», «LA MARIPOSA VUELA HASTA EL CORAZÓN.», «LLEVA LA LUNA HASTA LA NUBE.». En los dibujos por partes: «AHORA, LAS DOS VENTANAS.», «AHORA, LA RAMA.». |
+| **Sin revelar** | En Dibujos por partes, el título era el nombre del dibujo («EL UNICORNIO»), que desvelaba la sorpresa. Ahora dice «POR PARTES», y el nombre sale al terminar («¡ES UN UNICORNIO!»). |
+| **iPhone en horizontal** | El menú Pensar pasa a 4 columnas (los 7 juegos a la vista). La lista de Retos, a 3 columnas. Las pistas de ¿Quién es? son más compactas, con la palabra igual de grande. Las preguntas de «Tú preguntas» miden 122 px y las de vertical 123 px: caben «¿MARIQUITA?» y «¿AMARILLO?» sin reducir la letra. |
+| **Dificultad, datos y recompensas** | Iguales: mismos niveles, generadores, pistas, claves y estrellas. |
+
+Pendiente de decidir: el resto del menú Pintar («Pintar», «Hoja en blanco», «Colorear dibujos», «Mis dibujos») es del
+juego base y sigue en minúsculas (ver `INTEGRAR.md`).
+
 ## 5.ª entrega (15/11/2026): prueba de retos avanzados
 
 Pedido de la propietaria (15/11/2026, 09:42), resumido:
@@ -462,8 +493,7 @@ En vertical, las preguntas van en 3 columnas, y el mensaje y los botones en una 
 - **Dibujos más ricos** en Unir puntos y Repasar: la dificultad vendría de recorridos más largos y con más partes, no de
   más puntos o trazos diminutos; también después.
 - (Hecho el 15/11: las preguntas de «Tú preguntas» ya son grandes en horizontal; ver «Norma de lectura».)
-- **La norma de lectura** se ha aplicado a los Retos. Las entregas anteriores (Unir puntos, Repasar, Dibujos por partes,
-  ¿Quién es?) todavía tienen textos en minúsculas: habría que pasarles la misma norma antes de integrarlas.
+- (Hecho el 15/11, 17:25: la norma de lectura ya está en todas las entregas; ver «Norma de lectura en todas las entregas».)
 
 ## Datos
 
@@ -495,9 +525,24 @@ node docs/propuestas/pensar-2026-11-04/prueba-pensar2.js         # 35 comprobaci
 node docs/propuestas/pensar-2026-11-04/prueba-repasar.js        # 28 comprobaciones (3.ª entrega)
 node docs/propuestas/pensar-2026-11-04/prueba-etapas.js         # 39 comprobaciones (4.ª entrega: Dibujos por partes)
 node docs/propuestas/pensar-2026-11-04/prueba-quien.js          # 22 comprobaciones (4.ª entrega: ¿Quién es?)
+node docs/propuestas/pensar-2026-11-04/prueba-lectura.js        # 26 comprobaciones (norma de lectura en todas las entregas, 4 pantallas)
 node docs/propuestas/pensar-2026-11-04/prueba-retos.js          # 68 comprobaciones (5.ª entrega: Retos, con la norma de lectura)
 node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 13 comprobaciones (modo avión, simulación de publicación)
 ```
+
+**Norma de lectura en todas las entregas (15/11/2026, 17:25): `prueba-lectura.js` 26/26.**
+- Recorre 26 momentos de los 10 juegos (inicio, jugando, pistas, buscar, final) en el iPhone y el iPad, en vertical y en
+  horizontal. En cada uno comprueba:
+  - todo el texto visible en MAYÚSCULAS;
+  - nada por debajo de 16 px;
+  - mensajes de 22 px o más, con altavoz;
+  - nada fuera de la pantalla, encima de otra cosa ni cortado con «…»;
+  - todo lo que se toca, de 44 px o más.
+- Además:
+  - un enunciado de dos pasos de Contar se parte en una línea por frase;
+  - tocar el mensaje lo dice entero, en minúsculas normales, y tocar el título dice el nombre;
+  - ¿Quién es? lleva la palabra bajo cada pista, y la esconde con las pistas.
+- Las demás pruebas siguen correctas con la norma (ver «Pruebas» de cada entrega).
 
 **5.ª entrega con la norma de lectura (15/11/2026): `prueba-retos.js` 68/68.** Además de lo de abajo, comprueba:
 - **Mayúsculas y tamaño:** todo el texto visible está en MAYÚSCULAS y a 16 px o más. Se revisa en la lista, en los tres
@@ -628,6 +673,17 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 5. Salir y volver a entrar: sigue en su nivel.
 
 Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
+
+**Versión única (todas las entregas con la norma de lectura; la que hay que probar):** enlace en el commit siguiente.
+En el iPhone, en vertical y en horizontal:
+1. **Pensar**: los 7 juegos en mayúsculas; en horizontal, en 2 filas.
+2. **Contar**: entrar en el nivel 8 o más. El enunciado sale en pasos, uno por línea; tocarlo para oírlo.
+3. **Memoria**: ¿Dónde estaba? y Repite la serie. Títulos en dos líneas si no caben.
+4. **¿Quién es?**: la palabra bajo cada pista; en el nivel 4 o 5, se esconde con la pista.
+5. **Pintar → Unir puntos, Repasar y Dibujos por partes**: mensajes grandes con altavoz. En Dibujos por partes, el título ya
+   no dice el dibujo.
+6. **Retos**: igual que antes, más «Tú preguntas» en horizontal.
+7. Comprobar que siguen las estrellas, el nivel de cada juego y los dibujos guardados.
 
 **5.ª entrega (prueba de retos avanzados; incluye todo lo anterior):** **Pensar → Retos**.
 1. **¿Quién se esconde?** → botón **2**: escuchar las pistas, tachar los que no pueden ser y elegir con la lupa.

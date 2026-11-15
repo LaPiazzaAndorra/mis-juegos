@@ -80,13 +80,13 @@
   // primera vez: elegir entre empezar o hacer la prueba rápida
   function introHTML(ill) {
     return `<div class="pnIntro" hidden><div class="pnIntroCaja"><span class="ill" data-ill="${ill}"></span>
-      <p>¿Saltamos lo que ya sabes?</p>
+      <p>¿Saltamos lo fácil?</p>
       <button class="btn pnSi" type="button">⏩ Prueba rápida</button><button class="btn pnNo" type="button">▶ Empezar</button></div></div>`;
   }
   function intro(sec, nivel, alProbar, alEmpezar) {
     const box = sec.querySelector('.pnIntro');
     if (nivel.get().prueba) { box.hidden = true; return false; }
-    box.hidden = false; say('¿Saltamos lo que ya sabes? Puedes hacer una prueba rápida.');
+    box.hidden = false; say('¿Saltamos lo fácil? Puedes hacer una prueba rápida.');
     box.querySelector('.pnSi').onclick = () => { sfx.pop(); box.hidden = true; alProbar(); };
     box.querySelector('.pnNo').onclick = () => { sfx.pop(); box.hidden = true; nivel.marcar('saltada'); alEmpezar(); };
     return true;
@@ -394,7 +394,7 @@
   const sr = { fase: '', seq: [], pos: 0, fallos: 0, veces: 0, turno: 0, repaso: false, P: null };
   function encender(k, ms = 480) { const el = $('#sePads').children[k]; if (!el) return; el.classList.add('luz'); tone(PADS[k].f, .3, 'sine', .16); setTimeout(() => el.classList.remove('luz'), ms); }
   async function ensenar(t) {
-    sr.fase = 'mira'; sr.pos = 0; $$('#sePads .pnPad').forEach(b => b.classList.remove('pista')); $('#seTexto').textContent = '👀 Mira y escucha…'; puntosSe();
+    sr.fase = 'mira'; sr.pos = 0; $$('#sePads .pnPad').forEach(b => b.classList.remove('pista')); $('#seTexto').textContent = 'Mira y escucha.'; puntosSe();
     await espera(700);
     for (const k of sr.seq) { if (t !== sr.turno) return; encender(k); await espera(750); }
     if (t !== sr.turno) return; sr.fase = 'toca'; $('#seTexto').textContent = '¡Te toca!'; say('¡Te toca!'); marcarPistaSe();

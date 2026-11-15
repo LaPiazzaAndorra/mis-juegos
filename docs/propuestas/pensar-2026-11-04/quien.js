@@ -66,7 +66,13 @@
   const puntos = n => `<svg viewBox="0 0 100 100">${[[50], [30, 70], [22, 50, 78]][n - 1].map(x => `<circle cx="${x}" cy="50" r="12" fill="${INK}"/>`).join('')}</svg>`;
   function pistaHTML(p) {
     const dib = p.t === 'k' || p.t === 'noK' ? `<span class="qnSil">${P2.svgDe(it(p.v, -1))}</span>` : p.t === 'c' || p.t === 'noC' ? gota(p.v) : puntos(p.v);
-    return `<span class="qnPista" data-t="${p.t}">${dib}${p.t.startsWith('no') ? NO : SI}</span>`;
+    // norma de lectura: debajo del dibujo, la palabra corta (se ve en MAYÚSCULAS); al tocarla se oye la pista
+    return `<span class="qnPistaW" role="button" aria-label="${pistaVoz(p)}"><span class="qnPista" data-t="${p.t}">${dib}${p.t.startsWith('no') ? NO : SI}</span><b class="lxCap">${capPista(p)}</b></span>`;
+  }
+  function capPista(p) {
+    if (p.t === 'k') return `Es ${DB[p.v].s}`; if (p.t === 'noK') return `No es ${DB[p.v].s}`;
+    if (p.t === 'c') return `Es ${COL[p.v].n}`; if (p.t === 'noC') return `No es ${COL[p.v].n}`;
+    return `Hay ${p.v}`;
   }
   const art = k => DB[k].g === 'f' ? 'una' : 'un';
   function pistaVoz(p) {
@@ -113,11 +119,12 @@
     const t = ++qn.turno; L = L === undefined ? nv.get().L : L; chips();
     const caso = qn.caso = crearCaso(L); Object.assign(qn, { fallos: 0, vistas: 0, hecho: false, buscando: !caso.D.esconder });
     $('#qnPistas').innerHTML = caso.pistas.map(pistaHTML).join(''); $('#qnPistas').classList.remove('tapadas');
+    $$('#qnPistas .qnPistaW').forEach((e, i) => e.onclick = () => { if (!$('#qnPistas').classList.contains('tapadas')) say(pistaVoz(caso.pistas[i])); });
     const rej = $('#qnRejilla'); rej.innerHTML = ''; rej.style.setProperty('--cols', caso.D.cols); rej.classList.toggle('tapada', !qn.buscando);
     caso.cartas.forEach((c, i) => { const b = document.createElement('button'); b.className = 'qopt qnCarta'; b.dataset.i = i; b.innerHTML = tarjetaHTML(c);
       b.setAttribute('aria-label', `${NUM[c.n]} ${DB[c.k].s}, ${COL[c.c].n}`); b.onclick = () => elegir(b, c); rej.appendChild(b); });
     $('#qnListo').hidden = qn.buscando; $('#qnPista').hidden = !caso.D.esconder;
-    $('#qnTexto').textContent = qn.buscando ? '¿Quién es? Mira todas las pistas.' : 'Mira bien las pistas y acuérdate.';
+    $('#qnTexto').textContent = qn.buscando ? '¿Quién es? Mira todas las pistas.' : 'Mira las pistas. Acuérdate.';
     setTimeout(() => { if (t !== qn.turno) return;
       say((caso.D.esconder ? 'Acuérdate de las pistas. ' : 'Busca la tarjeta que cumple todas las pistas. ') + caso.pistas.map(pistaVoz).join(' ') + (caso.D.esconder ? ' Cuando te acuerdes, toca la lupa.' : '')); }, 300);
     requestAnimationFrame(ajustar); setTimeout(ajustar, 60);

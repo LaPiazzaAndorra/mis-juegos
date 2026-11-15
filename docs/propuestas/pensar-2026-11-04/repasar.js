@@ -18,15 +18,15 @@
   const NIVELES = [
     { n: 'líneas rectas', items: [
       { id: 'recta-pollito', voz: 'Lleva al pollito hasta la manzana.', fin: '¡Ya llegó a la manzana!', t: ['M260 500H740'], deco: [fig('pollito', .26, 130, 500), fig('manzana', .24, 875, 500)] },
-      { id: 'recta-nube', voz: 'Haz caer la lluvia de la nube hasta la seta.', fin: '¡Ya llueve sobre la seta!', t: ['M500 270V735'], deco: [fig('nube', .3, 500, 150), fig('seta', .24, 500, 865)] },
+      { id: 'recta-nube', voz: 'Haz llover sobre la seta.', fin: '¡Ya llueve sobre la seta!', t: ['M500 270V735'], deco: [fig('nube', .3, 500, 150), fig('seta', .24, 500, 865)] },
       { id: 'recta-globo', voz: 'Lleva el globo hasta la estrella.', fin: '¡El globo llegó a la estrella!', t: ['M265 740L735 270'], deco: [fig('globo', .26, 160, 845), fig('estrella', .26, 845, 155)] },
       { id: 'recta-gatito', voz: 'Lleva al gatito hasta el pez.', fin: '¡El gatito encontró el pez!', t: ['M260 265L740 735'], deco: [fig('gatito', .26, 150, 150), fig('pez', .26, 860, 850)] },
     ] },
     { n: 'curvas', items: [
-      { id: 'curva-pez', voz: 'El pez salta por encima del agua hasta la hoja.', fin: '¡Qué buen salto!', t: ['M250 690Q500 120 750 690'], deco: [fig('pez', .25, 140, 760), fig('hoja', .22, 860, 760)], extra: ['M60 930Q140 890 220 930T380 930T540 930T700 930T860 930'] },
-      { id: 'curva-mariposa', voz: 'La mariposa vuela haciendo olas hasta el corazón.', fin: '¡Ha llegado volando!', t: ['M250 500C330 320 420 320 500 500S670 680 750 500'], deco: [fig('mariposa', .25, 130, 500), fig('corazon', .22, 870, 500)] },
+      { id: 'curva-pez', voz: 'El pez salta hasta la hoja.', fin: '¡Qué buen salto!', t: ['M250 690Q500 120 750 690'], deco: [fig('pez', .25, 140, 760), fig('hoja', .22, 860, 760)], extra: ['M60 930Q140 890 220 930T380 930T540 930T700 930T860 930'] },
+      { id: 'curva-mariposa', voz: 'La mariposa vuela hasta el corazón.', fin: '¡Ha llegado volando!', t: ['M250 500C330 320 420 320 500 500S670 680 750 500'], deco: [fig('mariposa', .25, 130, 500), fig('corazon', .22, 870, 500)] },
       { id: 'curva-montana', voz: 'Sube y baja las montañas.', fin: '¡Has cruzado las montañas!', t: ['M150 760L320 380L500 760L680 380L850 760'], deco: [fig('pollito', .22, 85, 880), fig('estrella', .22, 915, 880)], extra: ['M60 760H940'] },
-      { id: 'curva-luna', voz: 'Lleva la luna hasta la nube por el camino curvo.', fin: '¡La luna llegó a la nube!', t: ['M310 250C760 320 240 680 690 750'], deco: [fig('luna', .24, 190, 170), fig('nube', .26, 830, 830)] },
+      { id: 'curva-luna', voz: 'Lleva la luna hasta la nube.', fin: '¡La luna llegó a la nube!', t: ['M310 250C760 320 240 680 690 750'], deco: [fig('luna', .24, 190, 170), fig('nube', .26, 830, 830)] },
     ] },
     { n: 'formas', items: [
       { id: 'forma-sol', voz: 'Repasa el círculo.', fin: '¡Es un sol!', t: [circT(500, 500, 250)],
@@ -50,7 +50,7 @@
       { id: 'var-helado', k: 'helado', t2: ['M300 520Q400 570 500 520Q600 570 700 520'] },
       { id: 'var-mariposa', k: 'mariposa', t2: ['M500 280C530 280 530 620 500 620C470 620 470 280 500 280Z'] },
       { id: 'var-gatito', k: 'gatito', t2: ['M250 230L262 380L365 302Z', 'M750 230L738 380L635 302Z'] },
-    ].map(o => ({ id: o.id, voz: 'Repasa el dibujo, trazo a trazo.', fin: `¡Es ${FIG[o.k].n}!`, t: [FIG[o.k].c, ...o.t2], extra: FIG[o.k].d.filter(d => !o.t2.includes(d)) })) },
+    ].map(o => ({ id: o.id, voz: 'Repasa el dibujo. Trazo a trazo.', fin: `¡Es ${FIG[o.k].n}!`, t: [FIG[o.k].c, ...o.t2], extra: FIG[o.k].d.filter(d => !o.t2.includes(d)) })) },
   ];
   const TODOS = {}; NIVELES.forEach(nv => nv.items.forEach(it => { TODOS[it.id] = it; it.extra = it.extra || []; it.deco = it.deco || []; }));
   const nvRp = Nivel('lv_repasar', NIVELES.length, 2);

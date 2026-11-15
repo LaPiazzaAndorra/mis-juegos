@@ -14,7 +14,7 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent; RAIZ = AQUI.parents[2]
 CARPETA = 'docs/propuestas/pensar-2026-11-04/'
-PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js', 'retos.css', 'retos.js']
+PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js', 'retos.css', 'retos.js', 'lectura.css', 'lectura.js']
 GEN = RAIZ / 'herramientas' / 'publicar' / 'preparar_publicacion.py'
 
 destino = Path(sys.argv[1]).resolve()

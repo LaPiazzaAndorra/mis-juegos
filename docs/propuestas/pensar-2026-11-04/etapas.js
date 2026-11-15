@@ -194,7 +194,7 @@
   function empezar(id, modo) {
     const t = ++et.turno, o = leer(), il = IL[id];
     Object.assign(et, { id, modo, il, e: 0, j: 0, i: 0, prog: 0, hecho: false, fallos: 0, fallosTot: 0, pistas: 0, fuera: 0, apuros: 0, sobre: false });
-    $('#etTitulo').textContent = il.titulo; $('#etFin').hidden = true; $('#etPista').hidden = false;
+    $('#etTitulo').textContent = 'Por partes';   // sin el nombre del dibujo: no se desvela la sorpresa (lo dice al terminar) $('#etFin').hidden = true; $('#etPista').hidden = false;
     ladoEt(); const tam = g().getBoundingClientRect().width || 340, minD = Math.max(60, 22 * 1080 / tam);
     const guardado = o.curso[id + ':' + modo]; let sigue = false;
     if (modo === 'pu') {

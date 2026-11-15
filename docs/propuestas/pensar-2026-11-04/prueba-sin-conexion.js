@@ -28,7 +28,7 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
 (async () => {
   const sal = execSync(`python3 ${path.join(__dirname, 'simular_publicacion.py')} "${DEST}"`, { cwd: RAIZ }).toString().trim();
   const lista = fs.readFileSync(path.join(DEST, 'offline-lista.js'), 'utf8');
-  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js', 'retos.css', 'retos.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
+  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js', 'retos.css', 'retos.js', 'lectura.css', 'lectura.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
     execSync('git status --porcelain', { cwd: RAIZ }).toString().split('\n').every(l => !l || l.includes('pensar-2026-11-04/')), sal);
   const srv = spawn('python3', ['-m', 'http.server', String(PUERTO), '--bind', '127.0.0.1'], { cwd: SITIO, stdio: 'ignore' });
   process.on('exit', () => srv.kill()); await new Promise(r => setTimeout(r, 900));
