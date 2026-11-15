@@ -19,6 +19,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 07/11/2026 | **3.ª entrega: «Repasar dibujos»** (menú Pintar; ver abajo) | Probada en Chromium (28/28; sin conexión 10/10); **pendiente de probar en el iPhone**. La 2.ª entrega (`cf80691`) sigue pendiente de la prueba de la propietaria. |
 | 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
 | 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
+| 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -385,6 +386,31 @@ que se quiera. Recuerda el último reto (resaltado) y el nivel de cada uno.
 - **Sin cronómetro:** las escenas y las pistas se miran el tiempo que quiera; se tapan cuando ella toca el ojo.
 - +1 ⭐ por reto resuelto (como un acierto en los demás juegos); sin logros nuevos.
 
+### Norma de lectura de Amaia (15/11/2026, aplicada a los Retos)
+
+Pedido de la propietaria: «todos los textos infantiles en MAYÚSCULAS, letra grande, frases cortas y apoyo visual o de voz.
+Incluye pistas, preguntas, respuestas, botones y explicaciones. […] Mantén la dificultad de los retos: simplifica cómo se
+explican, no lo que hay que resolver.»
+
+| Qué | Cómo queda |
+| --- | --- |
+| **Mensajes** | Una frase corta (7 palabras o menos) en MAYÚSCULAS, a 22–30 px, dentro de un globo con **altavoz**: al tocarlo se oye la frase entera. La voz explica algo más, en frases cortas y en minúsculas normales (para que el iPhone la lea bien). |
+| **Pistas** | Dibujo + palabra corta debajo: «NO ES AZUL», «MÁS DE 1», «PEZ AL LADO», «ESTRELLA ENCIMA». Al tocar una pista, se oye. |
+| **Preguntas y respuestas** («Tú preguntas») | Cada pregunta, dibujo + palabra: «¿ROJO?», «¿MÁS DE 2?», «¿PEZ AL LADO?». Al preguntar, **la respuesta se queda en su sitio** (verde «ES ROJO» o rosa «NO ES ROJO», con ✓/✗), así se ve todo lo que sabe. |
+| **Botones** | Dibujo + palabra: «TACHAR», «¡ES ESTE!», «COMPROBAR», «¡YA!», «OTRO». |
+| **Explicaciones** | La tabla: «1 NO VA. FILA: CORAZONES.», «COLUMNA: AZUL.»; la estantería: «AHÍ NO CAMBIÓ NADA.», «1 BIEN. FALTA OTRA.», «¡SÍ! HA DESAPARECIDO.». |
+| **Títulos** | Cortos y en mayúsculas para que quepan grandes: RETOS, DETECTIVE, DOS REGLAS, ¿QUÉ CAMBIÓ?; al tocarlos se oye el nombre completo. En la lista, «¿QUIÉN SE ESCONDE?», «LA TABLA DE DOS REGLAS», «¿QUÉ HA CAMBIADO?». |
+| **Tamaños** | Ninguna letra de menos de 16 px de cara a la niña; si no cabía, se ha reorganizado la pantalla, nunca se ha reducido la letra. |
+| **Dificultad** | La misma: mismos tableros, pistas, reglas y niveles. Solo cambia cómo se dice. |
+
+**«Tú preguntas» en el iPhone en horizontal**, reorganizado:
+- Los botones de nivel suben a la barra.
+- Las tarjetas van a la izquierda y el mensaje debajo.
+- Las 11 preguntas van a la derecha, grandes (116 × 75 px, con su palabra a 16 px).
+- «TACHAR» y «¡ES ESTE!» (y «OTRO» al terminar) van en la casilla que queda libre entre las preguntas.
+
+En vertical, las preguntas van en 3 columnas, y el mensaje y los botones en una fila.
+
 ### 1. ¿Quién se esconde? — combinar pistas y elegir buenas preguntas
 
 | Nivel | Qué es | Habilidad | Por qué es más difícil que ¿Quién es? |
@@ -435,8 +461,9 @@ que se quiera. Recuerda el último reto (resaltado) y el nivel de cada uno.
   siguiente tanda, según lo que se vea con estos tres.
 - **Dibujos más ricos** en Unir puntos y Repasar: la dificultad vendría de recorridos más largos y con más partes, no de
   más puntos o trazos diminutos; también después.
-- Las preguntas de «a su lado» en «Tú preguntas» se dibujan pequeñas en el iPhone en horizontal; si cuesta verlas, se
-  agrandan.
+- (Hecho el 15/11: las preguntas de «Tú preguntas» ya son grandes en horizontal; ver «Norma de lectura».)
+- **La norma de lectura** se ha aplicado a los Retos. Las entregas anteriores (Unir puntos, Repasar, Dibujos por partes,
+  ¿Quién es?) todavía tienen textos en minúsculas: habría que pasarles la misma norma antes de integrarlas.
 
 ## Datos
 
@@ -468,9 +495,19 @@ node docs/propuestas/pensar-2026-11-04/prueba-pensar2.js         # 35 comprobaci
 node docs/propuestas/pensar-2026-11-04/prueba-repasar.js        # 28 comprobaciones (3.ª entrega)
 node docs/propuestas/pensar-2026-11-04/prueba-etapas.js         # 39 comprobaciones (4.ª entrega: Dibujos por partes)
 node docs/propuestas/pensar-2026-11-04/prueba-quien.js          # 22 comprobaciones (4.ª entrega: ¿Quién es?)
-node docs/propuestas/pensar-2026-11-04/prueba-retos.js          # 62 comprobaciones (5.ª entrega: Retos)
+node docs/propuestas/pensar-2026-11-04/prueba-retos.js          # 68 comprobaciones (5.ª entrega: Retos, con la norma de lectura)
 node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 13 comprobaciones (modo avión, simulación de publicación)
 ```
+
+**5.ª entrega con la norma de lectura (15/11/2026): `prueba-retos.js` 68/68.** Además de lo de abajo, comprueba:
+- **Mayúsculas y tamaño:** todo el texto visible está en MAYÚSCULAS y a 16 px o más. Se revisa en la lista, en los tres
+  retos, en todos sus niveles, con pistas, respuestas y explicaciones a la vista.
+- **Mensajes cortos:** 7 palabras o menos, a 22 px o más.
+- **Voz:** tocar el mensaje lo dice entero, y tocar el título dice el nombre del reto.
+- **«Tú preguntas» en el iPhone en horizontal:**
+  - 11 preguntas de 116 px.
+  - Botones en la casilla libre, que funcionan.
+  - Tarjetas de 72 px.
 
 **5.ª entrega (15/11/2026): `prueba-retos.js` 62/62 y `prueba-sin-conexion.js` 13/13.** Comprueban:
 - **Lista de retos:** niveles a la vista, entrar directamente en uno avanzado, recordar el último reto y su nivel.
@@ -601,7 +638,8 @@ Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPi
    a mirar.
 4. Salir y volver a **Retos**: el último queda resaltado y cada uno en su nivel.
 
-Enlace fijo de la 5.ª entrega (commit `3e01b60`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/3e01b607d6d6c4e46075e409ee9bfc2cc52b92a2/docs/propuestas/pensar-2026-11-04/index.html>
+Enlace fijo de la 5.ª entrega **con la norma de lectura** (la que hay que probar): en el commit siguiente.
+Enlace fijo de la 5.ª entrega, primera versión (commit `3e01b60`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/3e01b607d6d6c4e46075e409ee9bfc2cc52b92a2/docs/propuestas/pensar-2026-11-04/index.html>
 
 **4.ª entrega (ejemplos para revisar; incluye todo lo anterior):**
 1. **Pintar → Dibujos por partes.** Elegir una tarjeta y los **puntos**. Unir la primera parte: ver cómo queda dibujada y

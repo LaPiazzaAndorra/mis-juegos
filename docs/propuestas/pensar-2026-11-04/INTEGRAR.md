@@ -12,7 +12,7 @@ que llevar al juego **cuando la propietaria apruebe cada entrega**: hasta entonc
 | 2.ª · ¿Qué sigue?, Sombras y El diferente progresivos + Unir puntos | `cf80691` (+ enlace `3a0b508`) | Probada el 15/11: **se ve bien, pero demasiado básica; no aprobada.** No publicar. |
 | 3.ª · Repasar dibujos | `9ca48f1` (+ enlace `025f294`) | Probada el 15/11: **se ve bien, pero demasiado básica; no aprobada.** No publicar. |
 | 4.ª · Ejemplos: Dibujos por partes (búho, furgoneta, unicornio) y ¿Quién es? | `5a7a226` (+ enlace en el commit siguiente; los archivos del juego son los de `5a7a226`) | La propietaria: funciona, pero sigue siendo fácil; **no aprobada**. No publicar. |
-| 5.ª · Prueba de retos avanzados (Pensar → Retos) | `3e01b60` (+ enlace en el commit siguiente; los archivos del juego son los de `3e01b60`) | **Pendiente de probarla con Amaia.** No publicar. |
+| 5.ª · Prueba de retos avanzados (Pensar → Retos) | `3e01b60`, **con la norma de lectura en el commit siguiente** (los archivos del juego son los de ese commit, no los de `3e01b60`) | **Pendiente de la prueba en el iPhone.** No publicar. |
 
 ## Archivos del juego (solo estos; todo en `docs/propuestas/pensar-2026-11-04/`)
 

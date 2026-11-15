@@ -44,7 +44,7 @@ const clic = (p, sel) => p.click(sel, { force: true });
     const { c, p } = await pagina(b);
     await p.evaluate(() => go('m-think')); await p.waitForTimeout(300);
     const mt = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pensar: lo de antes igual y, al final, «Retos»', mt.join('|') === 'Memoria|Contar|¿Qué sigue?|Sombras|El diferente|¿Quién es?|Retos', mt.join('|'));
+    ok('Menú Pensar: lo de antes igual y, al final, «RETOS»', mt.join('|') === 'Memoria|Contar|¿Qué sigue?|Sombras|El diferente|¿Quién es?|RETOS', mt.join('|'));
     await p.click('#m-think [data-go="retos"]'); await p.waitForTimeout(500);
     const li = await p.evaluate(() => ({ cartas: document.querySelectorAll('.reCarta').length, chips: [...document.querySelectorAll('.reCarta')].map(c => c.querySelectorAll('.pnChip').length).join(), emoji: /\p{Extended_Pictographic}/u.test(document.querySelector('#reLista').textContent) }));
     ok('Tres retos, cada uno con sus niveles a la vista (3, 4 y 4), sin emojis', li.cartas === 3 && li.chips === '3,4,4' && !li.emoji, JSON.stringify(li));
@@ -69,13 +69,13 @@ const clic = (p, sel) => p.click(sel, { force: true });
     ok('1.000 casos: 8 y 12 sospechosos; una sola respuesta; ninguna pista sola deja menos de 3; todas hacen falta', casos.malos === 0 && casos.n === '8,12', JSON.stringify(casos));
     ok('Pistas con negaciones, cantidades (más de / menos de) y relaciones (a su lado / encima)', /noK/.test(casos.t0) && /mas|menos/.test(casos.t0) && /lado/.test(casos.t1) && /encima/.test(casos.t1) && /noC/.test(casos.t1), casos.t0 + ' | ' + casos.t1);
     await nivel(p, 'detective', 1, 'rDet'); await p.waitForTimeout(700);
-    const ini = await p.evaluate(() => ({ cartas: document.querySelectorAll('#rdRej .rtCarta').length, pistas: document.querySelectorAll('#rdPistas .qnPista').length, voz: window.__voz.join(' '), es: document.querySelector('#rdEs').disabled }));
-    ok('12 sospechosos y 4 pistas dibujadas; la voz las dice; «¡Es este!» espera a que elija uno', ini.cartas === 12 && ini.pistas === 4 && /Pistas: /.test(ini.voz) && ini.es, JSON.stringify(ini));
+    const ini = await p.evaluate(() => ({ cartas: document.querySelectorAll('#rdRej .rtCarta').length, pistas: document.querySelectorAll('#rdPistas .rtPista').length, caps: [...document.querySelectorAll('#rdPistas .rtCap')].map(e => e.textContent).join('|'), voz: window.__voz.join(' '), es: document.querySelector('#rdEs').disabled }));
+    ok('12 sospechosos y 4 pistas con dibujo y palabra corta en MAYÚSCULAS; la voz las dice; «¡Es este!» espera a que elija uno', ini.cartas === 12 && ini.pistas === 4 && ini.caps.split('|').length === 4 && ini.caps === ini.caps.toLocaleUpperCase('es') && /Pistas: /.test(ini.voz) && ini.es, JSON.stringify(ini));
     const mal = await p.evaluate(() => RETOS.dt.caso.T.cartas.findIndex(t => t !== RETOS.dt.caso.sol)), bien = await p.evaluate(() => RETOS.dt.caso.T.cartas.indexOf(RETOS.dt.caso.sol));
     await p.click(`#rdRej .rtCarta >> nth=${mal}`); await clic(p, '#rdTachar'); await p.click(`#rdRej .rtCarta >> nth=${mal}`); await clic(p, '#rdTachar');
     ok('Tachar es su herramienta y se puede deshacer', await p.evaluate(i => !document.querySelectorAll('#rdRej .rtCarta')[i].classList.contains('tachada') && RETOS.dt.tachadas.size === 0, mal));
     const s0 = await p.evaluate(() => stars); await p.click(`#rdRej .rtCarta >> nth=${mal}`); await clic(p, '#rdEs'); await p.waitForTimeout(200);
-    const e1 = await p.evaluate(i => ({ tach: document.querySelectorAll('#rdRej .rtCarta')[i].classList.contains('tachada'), mira: document.querySelectorAll('#rdPistas .qnPista.mira').length, stars }), mal);
+    const e1 = await p.evaluate(i => ({ tach: document.querySelectorAll('#rdRej .rtCarta')[i].classList.contains('tachada'), mira: document.querySelectorAll('#rdPistas .rtPista.mira').length, stars }), mal);
     ok('Respuesta equivocada: explica qué pista no cumple, lo tacha y no quita nada', e1.tach && e1.mira === 1 && /^Ese no puede ser\. Mira esta pista: /.test(await voz(p)) && e1.stars === s0, JSON.stringify(e1));
     await clic(p, '#rdPista'); await p.waitForTimeout(100); const v1 = await voz(p), t1 = await p.evaluate(() => RETOS.dt.tachadas.size);
     await clic(p, '#rdPista'); await p.waitForTimeout(100); const t2 = await p.evaluate(() => RETOS.dt.tachadas.size);
@@ -96,8 +96,8 @@ const clic = (p, sel) => p.click(sel, { force: true });
       const idx = await p.evaluate(() => { const T = RETOS.dt.caso.T, viv = T.cartas.filter((_, j) => !RETOS.dt.tachadas.has(j)), q = RETOS.mejorPregunta(viv); return RETOS.preguntas(T).findIndex(x => x.t === q.t && x.v === q.v); });
       await clic(p, `#rdPreg .rtQ >> nth=${idx}`); await p.waitForTimeout(80); await clic(p, '#rdPista'); await clic(p, '#rdPista'); await p.waitForTimeout(80);
     }
-    const resp = await p.evaluate(() => ({ n: RETOS.dt.resp.length, coherentes: RETOS.dt.resp.every(r => RETOS.cumple(RETOS.dt.caso.T, RETOS.dt.caso.sol, r.q) === r.si), strip: document.querySelectorAll('#rdPistas .qnPista').length, sol: !RETOS.dt.tachadas.has(RETOS.dt.caso.T.cartas.indexOf(RETOS.dt.caso.sol)) }));
-    ok('Cada pregunta responde sí o no (coherente con el escondido) y queda arriba como pista; tachar nunca quita al escondido', resp.coherentes && resp.strip === resp.n && resp.sol && resp.n >= 2, JSON.stringify(resp));
+    const resp = await p.evaluate(() => ({ n: RETOS.dt.resp.length, coherentes: RETOS.dt.resp.every(r => RETOS.cumple(RETOS.dt.caso.T, RETOS.dt.caso.sol, r.q) === r.si), strip: document.querySelectorAll('#rdPreg .rtQ.hecha').length, sol: !RETOS.dt.tachadas.has(RETOS.dt.caso.T.cartas.indexOf(RETOS.dt.caso.sol)) }));
+    ok('Cada pregunta responde sí o no (coherente con el escondido) y la respuesta se queda en su pregunta; tachar nunca quita al escondido', resp.coherentes && resp.strip === resp.n && resp.sol && resp.n >= 2, JSON.stringify(resp));
     const s1 = await p.evaluate(() => stars); await p.click(`#rdRej .rtCarta >> nth=${await p.evaluate(() => RETOS.dt.caso.T.cartas.indexOf(RETOS.dt.caso.sol))}`); await clic(p, '#rdEs'); await p.waitForTimeout(300);
     ok(`Lo encuentra preguntando (${resp.n} preguntas con buena estrategia): +1 ⭐ y le dice cuántas ha usado`, await p.evaluate(() => stars) === s1 + 1 && /preguntas?!/.test(await voz(p)), await voz(p));
     await p.screenshot({ path: path.join(OUT, 'tu-preguntas.png') });
@@ -196,7 +196,49 @@ const clic = (p, sel) => p.click(sel, { force: true });
     ok('Datos estropeados: se corrigen al leerlos, sin errores', await p.evaluate(() => { const o = RETOS.leer(); return o.ultimo === '' && o.L.tabla === 3 && o.L.escena === undefined; }));
     await c.close();
   }
-  // ---------- 4. pantallas ----------
+  // ---------- 4. norma de lectura de Amaia: MAYÚSCULAS, letra grande, frases cortas, voz ----------
+  {
+    const { c, p } = await pagina(b);
+    const textos = s => p.evaluate(s => { const malos = [], chicos = [], largos = [];
+      const w = document.createTreeWalker(document.querySelector(s), NodeFilter.SHOW_TEXT); let n;
+      while ((n = w.nextNode())) { const t = n.textContent.trim(), e = n.parentElement; if (!t || !e || e.closest('svg') || !e.offsetParent || getComputedStyle(e).visibility === 'hidden') continue;
+        if (/^[0-9?¿!¡.,:+ -]*$/.test(t)) continue;
+        if (t !== t.toLocaleUpperCase('es')) malos.push(t);
+        if (parseFloat(getComputedStyle(e).fontSize) < 16) chicos.push(t + ' ' + getComputedStyle(e).fontSize);
+        if (e.closest('.rtTexto') && t.split(/\s+/).length > 7) largos.push(t); }
+      return { malos, chicos, largos }; }, s);
+    const fallos = [];
+    const revisar = async (n, s) => { const r = await textos(s); if (r.malos.length || r.chicos.length || r.largos.length) fallos.push(n + ': ' + JSON.stringify(r)); };
+    await p.evaluate(() => go('retos')); await p.waitForTimeout(400); await revisar('lista', '#retos');
+    for (const L of [0, 1, 2]) { await nivel(p, 'detective', L, 'rDet'); await p.waitForTimeout(600); await revisar('detective ' + L, '#rDet');
+      await p.click('#rdRej .rtCarta >> nth=0'); await clic(p, '#rdPista'); await clic(p, '#rdPista'); await p.waitForTimeout(100); await revisar('detective ayuda ' + L, '#rDet');
+      if (L === 2) { await clic(p, '#rdPreg .rtQ >> nth=0'); await clic(p, '#rdPreg .rtQ >> nth=3'); await p.waitForTimeout(100); await revisar('respuestas', '#rDet'); } }
+    for (const L of [0, 1, 2, 3]) { await nivel(p, 'tabla', L, 'rTab'); await p.waitForTimeout(500); await clic(p, '#rtPista'); await clic(p, '#rtPista'); await p.waitForTimeout(100); await revisar('tabla ' + L, '#rTab'); }
+    for (const L of [0, 1, 2]) { await nivel(p, 'escena', L, 'rEsc'); await p.waitForTimeout(500); await revisar('escena mirar ' + L, '#rEsc'); await clic(p, '#reYa'); await p.waitForTimeout(1200);
+      await clic(p, '#reRej .rtHueco >> nth=0'); await clic(p, '#rePista'); await p.waitForTimeout(100); await revisar('escena ' + L, '#rEsc'); }
+    ok('Todo el texto que ve la niña está en MAYÚSCULAS, a 16 px o más, y los mensajes tienen 7 palabras o menos (lista, pistas, preguntas, respuestas, botones y explicaciones)', !fallos.length, fallos.slice(0, 2).join(' || '));
+    const tam = await p.evaluate(() => ({ msg: parseFloat(getComputedStyle(document.querySelector('#reTexto span')).fontSize), boton: parseFloat(getComputedStyle(document.querySelector('#rEsc .rtBtn .rtCap')).fontSize), titulo: document.querySelector('#rEsc .bar .title').textContent }));
+    ok('Letra grande: los mensajes a 22 px o más y las palabras de los botones a 16 px; títulos cortos en mayúsculas', tam.msg >= 22 && tam.boton >= 16 && tam.titulo === '¿QUÉ CAMBIÓ?', JSON.stringify(tam));
+    const v0 = await p.evaluate(() => window.__voz.length); await clic(p, '#reTexto'); await p.waitForTimeout(100);
+    const v1 = await p.evaluate(() => ({ n: window.__voz.length, u: window.__voz.at(-1), t: document.querySelector('#reTexto span').textContent }));
+    ok('Apoyo de voz: al tocar el mensaje (con su altavoz) se oye la frase entera; la voz va en minúsculas normales', v1.n === v0 + 1 && v1.u !== v1.u.toLocaleUpperCase('es') && v1.u.length >= v1.t.length, JSON.stringify(v1));
+    await clic(p, '#rEsc .bar .title'); await p.waitForTimeout(100);
+    ok('Tocar el título dice el nombre del reto', await voz(p) === '¿Qué ha cambiado?');
+    await c.close();
+  }
+  {   // «Tú preguntas» en horizontal: preguntas grandes, sin reducir la letra
+    const { c, p } = await pagina(b, DEV['iPhone horizontal']); await nivel(p, 'detective', 2, 'rDet'); await p.waitForTimeout(800);
+    const m = await p.evaluate(() => { const q = [...document.querySelectorAll('#rdPreg .rtQ')].map(e => e.getBoundingClientRect()), cap = document.querySelector('#rdPreg .rtQ .rtCap');
+      const mini = [...document.querySelectorAll('#rdPreg .rtMini')].filter(e => e.offsetParent).map(e => e.getBoundingClientRect());
+      return { n: q.length, ancho: Math.round(Math.min(...q.map(r => r.width))), alto: Math.round(Math.min(...q.map(r => r.height))), letra: parseFloat(getComputedStyle(cap).fontSize),
+        dentro: [...q, ...mini].every(r => r.right <= innerWidth + 1 && r.bottom <= innerHeight + 1 && r.top >= 0), botones: mini.length, cartas: Math.round(document.querySelector('#rdRej .rtCarta').getBoundingClientRect().width) }; });
+    ok('Tú preguntas, iPhone en horizontal: 11 preguntas de 110 px o más con su palabra a 16 px; «TACHAR» y «¡ES ESTE!» en la casilla libre; tarjetas de 60 px o más', m.n === 11 && m.ancho >= 110 && m.alto >= 64 && m.letra >= 16 && m.dentro && m.botones === 2 && m.cartas >= 60, JSON.stringify(m));
+    await p.click('#rdRej .rtCarta >> nth=0'); await clic(p, '#rdPreg .rtMini >> nth=0'); await p.waitForTimeout(100);
+    ok('Los botones de la casilla libre hacen lo mismo (tachar)', await p.evaluate(() => RETOS.dt.tachadas.has(0)));
+    await p.screenshot({ path: path.join(OUT, 'tu-preguntas-horizontal.png') });
+    await c.close();
+  }
+  // ---------- 5. pantallas ----------
   for (const [n, d] of Object.entries(DEV)) for (const [r, L, s, prep] of [['detective', 1, 'rDet'], ['detective', 2, 'rDet'], ['tabla', 2, 'rTab'], ['tabla', 3, 'rTab'], ['escena', 1, 'rEsc', 'ya'], ['escena', 2, 'rEsc', 'ya']]) {
     const { c, p } = await pagina(b, d); await nivel(p, r, L, s); await p.waitForTimeout(700); if (prep) { await clic(p, '#reYa'); await p.waitForTimeout(1200); }
     const m = await p.evaluate(s => { const els = [...document.querySelectorAll(`#${s} .bar .btn, #${s} .subbar .pnChip, #${s} .rtCarta, #${s} .rtBtn, #${s} .qnPista`)].filter(e => e.offsetParent && getComputedStyle(e).visibility !== 'hidden'), R = els.map(e => e.getBoundingClientRect());
