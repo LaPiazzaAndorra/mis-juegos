@@ -11,7 +11,7 @@ que llevar al juego **cuando la propietaria apruebe cada entrega**: hasta entonc
 | 1.ª · Contar y Memoria | `5390dfc` (+ enlace `f9a2f40`) | **Publicada** en `main` `021c67e` (D-035). Ya unida a `avatar-creador` (`1884198`). |
 | 2.ª · ¿Qué sigue?, Sombras y El diferente progresivos + Unir puntos | `cf80691` (+ enlace `3a0b508`) | Probada el 15/11: **se ve bien, pero demasiado básica; no aprobada.** No publicar. |
 | 3.ª · Repasar dibujos | `9ca48f1` (+ enlace `025f294`) | Probada el 15/11: **se ve bien, pero demasiado básica; no aprobada.** No publicar. |
-| 4.ª · Ejemplos: Dibujos por partes (búho, furgoneta, unicornio) y ¿Quién es? | el commit que añade `etapas.js` y `quien.js` (su hash está en el registro de la rama: `git log -- docs/propuestas/pensar-2026-11-04/etapas.js`) | **Ejemplos para revisar, pendientes de la propietaria.** No publicar. |
+| 4.ª · Ejemplos: Dibujos por partes (búho, furgoneta, unicornio) y ¿Quién es? | `5a7a226` (+ enlace en el commit siguiente; los archivos del juego son los de `5a7a226`) | **Ejemplos para revisar, pendientes de la propietaria.** No publicar. |
 
 ## Archivos del juego (solo estos; todo en `docs/propuestas/pensar-2026-11-04/`)
 

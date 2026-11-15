@@ -17,7 +17,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 04/11/2026 | **2.ª entrega:** «¿Qué sigue?», «Sombras» y «El diferente» con dificultad progresiva + **«Unir puntos y pintar»** (ver abajo) | Probada en Chromium (35/35 y 9/9 sin conexión); **pendiente de probar en el iPhone**. |
 | 05/11/2026 | **Contar y Memoria publicados en `main`** (`021c67e`, versión `5889ab82ca5d`, D-035) | Publicado. Desde el 07/11, **solo el chat de `avatar-creador` reúne y publica**; este chat sigue en `juegos-pensar`. |
 | 07/11/2026 | **3.ª entrega: «Repasar dibujos»** (menú Pintar; ver abajo) | Probada en Chromium (28/28; sin conexión 10/10); **pendiente de probar en el iPhone**. La 2.ª entrega (`cf80691`) sigue pendiente de la prueba de la propietaria. |
-| 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Probada en Chromium; **pendiente de la revisión de la propietaria**. |
+| 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -499,7 +499,7 @@ Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPi
 6. **Pensar → ¿Quién es?**: probar el nivel 1 y, directamente, el de la **estrella** (gran reto): mirar las pistas,
    tocar la lupa, buscar; tocar **💡** si no se acuerda.
 
-Enlace fijo de la 4.ª entrega: en el commit siguiente.
+Enlace fijo de la 4.ª entrega (commit `5a7a226`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/5a7a226466e34e538399976a259a52638d7ccd2f/docs/propuestas/pensar-2026-11-04/index.html>
 
 ## Pendiente (decide la propietaria)
 
