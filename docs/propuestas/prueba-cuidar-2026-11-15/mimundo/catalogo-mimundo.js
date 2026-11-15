@@ -69,7 +69,7 @@ window.MM_CATALOGO = {
     { id: 'galletas', nombre: 'Galletas', unico: true, va: 'mesa', anchoM: 0.24, capas: { detras: 'galletas' } },
     { id: 'conejito', nombre: 'Conejito', unico: true, va: 'peluche', altoM: 0.36, capas: { detras: 'conejito' }, juego: { tipo: 'peluche', mas: 15, frases: ['¡Hola, conejito!', '¡Qué orejas tan suaves!', '¡Conejito, vamos a jugar!'] } },
   ],
-  // Necesidades (D-037): solo se activan si hay un objeto ilustrado para atenderlas. Bajan despacio y solo mientras se
+  // Necesidades (D-037): solo se activan si hay un objeto ilustrado para atenderlas (y no son «pendiente»). Bajan despacio y solo mientras se
   // juega en Mi Mundo (por segundo: «baja»; de noche, ×«noche»), nunca por debajo de «minimo»; avisan una vez al bajar de
   // «umbral» y no vuelven a avisar hasta subir de «rearme». «icono»: la pieza ilustrada que se ve en el aviso.
   necesidades: [
@@ -79,12 +79,17 @@ window.MM_CATALOGO = {
     { id: 'diversion', nombre: 'Diversión', icono: 'pelota', objetos: ['pelota', 'cubos', 'cuento', 'osito', 'conejito'], baja: 0.1, minimo: 15, umbral: 35, rearme: 60,
       avisos: ['¡Me aburro! ¿Jugamos?', '¿Jugamos con algo?'],
       bien: '¡Me lo estoy pasando genial!', regular: 'Me apetece jugar un poco.', donde: 'Los juguetes están en la bandeja de abajo' },
-  ],
-  // pendientes (no se activan): necesitan un espacio, objetos ilustrados y, para hacerlo de verdad, posturas nuevas
-  pendientes: [
-    { id: 'hambre', falta: 'la cocina o la mesa del comedor, comida ilustrada y la postura de comer (sentada, mano a la boca)' },
-    { id: 'higiene', falta: 'el baño (bañera o lavabo, jabón, toalla) y las posturas de lavarse' },
-    { id: 'bano', falta: 'el baño (inodoro infantil, lavabo) y una forma de representarlo sin postura nueva (puerta cerrada)' },
+    // PENDIENTES (no se activan aunque llegue el arte: «pendiente» las mantiene inactivas hasta que su acción esté
+    // programada, probada y aprobada). Propuesta de espacios, objetos e ilustraciones: docs/propuestas/mimundo-cocina-bano-2026-11-16/
+    { id: 'hambre', nombre: 'Hambre', pendiente: true, espacio: 'cocina', icono: 'galletas',
+      objetos: ['comida-fruta', 'comida-bocadillo', 'comida-cereales', 'vaso-leche', 'galletas'],
+      falta: 'la cocina (fondo, encimera con fregadero, fogones, nevera) y la comida en tres estados (entera, a medias, terminada)' },
+    { id: 'higiene', nombre: 'Higiene', pendiente: true, espacio: 'baño', icono: 'jabon',
+      objetos: ['lavabo', 'banera'],
+      falta: 'el baño (fondo, lavabo con jabón, bañera, toalla) y las posturas de lavarse las manos y de estar en la bañera' },
+    { id: 'bano', nombre: 'Ganas de ir al baño', pendiente: true, espacio: 'baño', icono: 'inodoro',
+      objetos: ['inodoro'],
+      falta: 'el baño (fondo, inodoro infantil y una cortina o puerta que se cierra; así no hace falta ninguna postura nueva)' },
   ],
   misiones: [
     { id: 'guardar-juguetes', titulo: 'Guardar los juguetes',

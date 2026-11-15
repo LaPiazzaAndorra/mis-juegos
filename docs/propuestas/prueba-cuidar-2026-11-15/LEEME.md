@@ -55,28 +55,31 @@ Solo se activan las que tienen **un objeto ilustrado y una acción** para atende
 
 - **Misiones**: al completarlas, +30 de diversión.
 
-### 5. Rutina del pijama (y la ropa de día)
-- **Al acostarla** (tocar la cama o soltarla encima), si no lleva el pijama, se le pregunta **«Para dormir, ¿nos ponemos el
-  pijama?»**. La pregunta lleva un dibujo de ella misma en pijama, solo para enseñarlo.
-  - **«👗 Ponerse el pijama»** lleva a **Vestir**, donde un botón flotante **«✅ Guardar y volver»** la devuelve **al mismo
-    escenario**; allí va a la cama y se duerme sola. ⬅️ también vuelve, sin guardar.
-  - **«Dormir así»**: se duerme con la ropa que lleva.
+### 5. Rutina del pijama (y la ropa de día) · ajustada el 16/11 a lo pedido
+- **Para dormir hace falta el pijama.**
+  - **Si ya lo lleva**, al llevarla a la cama (tocar la cama o soltarla encima) se acuesta directamente.
+  - **Si no**, se le pide «Para dormir, ¿nos ponemos el pijama?», con un dibujo de ella misma en pijama (solo para
+    enseñarlo), y dos opciones:
+    - **«👗 Ponerse el pijama»**: lleva a **Vestir**, donde el botón flotante **«✅ Guardar y volver»** la devuelve **al mismo
+      escenario**; si vuelve **con el pijama**, va a la cama y se duerme.
+    - **«Seguir jugando»**: no se acuesta y sigue jugando.
+  - Ya no existe «Dormir así».
+  - **Si vuelve de Vestir sin el pijama** (también con ⬅️), vuelve al mismo escenario pero **no se la acuesta**: «Para dormir
+    me pondré el pijama».
+  - La pregunta solo sale cuando se la lleva a la cama sin pijama (nunca por sí sola).
 - **Nunca se le cambia la ropa sin que ella elija.**
-- **Reconoce lo que lleva**: con el pijama puesto, no pregunta.
-- **No repite**: una vez por noche; la noche siguiente (al volver a tocar la ventana), otra vez.
-- **De día**, si lleva el pijama, propone una vez «¿Nos vestimos para jugar?», enseñando un vestido. Responde
-  «👗 Elegir la ropa» (Vestir y volver) o «Así está bien».
+- **De día**, si lleva el pijama, propone una vez «¿Nos vestimos para jugar?», enseñando un vestido. Responde «👗 Elegir la
+  ropa» (Vestir y volver) o «Así está bien».
 - Toda la ropa de Vestir es gratis (el pijama también).
 - **Conjunto de aventura**: queda para el parque. Todavía no hay ninguna actividad de «salir de aventura» a la que
   asociarlo.
 
 ## Pendiente (no se activa todavía)
 
-| Necesidad | Qué falta |
-| --- | --- |
-| Hambre | La cocina (o la mesa del comedor), comida ilustrada y la postura de comer. La merienda del salón es un juego de poner la mesa; ella no come. |
-| Higiene | El baño (bañera o lavabo, jabón, toalla) y las posturas de lavarse. |
-| Ganas de ir al baño | El baño (inodoro infantil y lavabo) y una forma de representarlo sin postura nueva (por ejemplo, entra y se cierra la puerta). |
+Hambre, higiene y ganas de ir al baño ya están **definidas en el catálogo como pendientes**: no se activan aunque llegue el
+arte (por ejemplo, las galletas ya tienen ilustración), ni guardan datos, hasta que su espacio y su acción estén
+programados y aprobados. Propuesta de la cocina y el baño, con las ilustraciones necesarias y las piezas reutilizadas:
+[`../mimundo-cocina-bano-2026-11-16/`](../mimundo-cocina-bano-2026-11-16/LEEME.md).
 
 ## Arte que falta para que las acciones se vean de verdad (sin deformar a la muñeca)
 
@@ -106,7 +109,7 @@ Solo se activan las que tienen **un objeto ilustrado y una acción** para atende
 | `mimundo/arte/` | Copia exacta del arte del salón (23 piezas y medidas.js), sin cambios. |
 | `preparar_copia.py` | Genera `index.html`, `progreso.js` y `logros.js` y copia el arte. |
 | `aislamiento.js`, `manifest.json` | Datos propios `cui1:`, «PRUEBA CUIDAR». |
-| `prueba-cuidar.js` | Prueba de esta entrega (31 comprobaciones; iPhone e iPad simulados). |
+| `prueba-cuidar.js` | Prueba de esta entrega (35 comprobaciones; iPhone e iPad simulados). |
 | `prueba-salon-aqui.js` | La prueba del salón aplicada a esta copia: lo anterior sigue igual (31). |
 | `prueba-sin-conexion.js` | Versión publicable con esta carpeta en una carpeta temporal (sin publicar), en modo avión (9). |
 

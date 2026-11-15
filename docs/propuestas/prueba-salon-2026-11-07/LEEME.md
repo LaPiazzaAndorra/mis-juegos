@@ -1,6 +1,6 @@
 # Copia aislada · el salón de Mi Mundo (D-034) · 07/11/2026
 
-**Pendiente de la prueba y la aprobación de la propietaria. No publicada.** No es el juego de Amaia: datos propios con
+**Aprobado en general por la propietaria (16/11/2026, D-034), sin dar por comprobados todos los casos. No publicado.** No es el juego de Amaia: datos propios con
 el prefijo `sal1:` (no lee ni cambia las partidas, ni las de otras copias) y sin service worker.
 
 Enlace de prueba (siempre lo último de la rama):
@@ -51,8 +51,7 @@ en su copia).
 
 ## Pendiente
 
-- La prueba de la propietaria en el iPhone (versión de pruebas) y su aprobación. **No probado en un iPhone ni en un iPad
-  reales**, solo en Chromium.
+- **Aprobado en general** (16/11), sin dar por comprobados todos los casos en el iPhone; publicarlo, cuando ella lo pida.
 - La muñeca no se sienta (necesita una postura sentada; los que se sientan son los peluches). Los desbloqueables se
   propondrán aparte. Después, el parque.
 - El osito es uno en cada escenario (cada escenario guarda lo suyo).

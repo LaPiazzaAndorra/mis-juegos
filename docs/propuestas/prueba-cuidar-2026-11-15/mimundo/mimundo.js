@@ -526,11 +526,12 @@
   const KEY_NEC = 'mm_necesidades', KEY_CICLO = 'mm_ciclo';
   const NECESIDADES = DATOS.necesidades || [];
   // una necesidad solo está activa si hay un objeto con su ilustración para atenderla (la cama, los juguetes…)
-  const activa = id => { const n = NECESIDADES.find(x => x.id === id); return !!n && n.objetos.some(o => conArte(porId(o))); };
+  // (las «pendiente», nunca: hambre, higiene y baño esperan a su cocina, su baño y su acción)
+  const activa = id => { const n = NECESIDADES.find(x => x.id === id); return !!n && !n.pendiente && n.objetos.some(o => conArte(porId(o))); };
   let nec = null, ciclo = null, volver = null, ultimoAviso = 0, latidos = 0, jugando = false;
   function cargarNec() {
     const d = store.get(KEY_NEC, null) || {}, r = { v: 1, avisado: Object.assign({}, d.avisado) };
-    NECESIDADES.forEach(n => { r[n.id] = typeof d[n.id] === 'number' ? clamp(d[n.id], n.minimo, 100) : 85; });
+    NECESIDADES.filter(n => !n.pendiente).forEach(n => { r[n.id] = typeof d[n.id] === 'number' ? clamp(d[n.id], n.minimo, 100) : 85; });
     return r;
   }
   const guardarNec = () => store.set(KEY_NEC, nec);
@@ -689,14 +690,14 @@
     caja.appendChild(p); say(texto);
     try { const st = Avatar.principal(); Avatar.mount(p.querySelector('.mm-prev'), Object.assign({}, st, { ropa, accesorios: (st.accesorios || []).filter(a => !['alas', 'varita', 'mochila'].includes(a)) })); } catch (e) {}
   }
-  // para acostarla, se le propone el pijama (una vez por noche); si ya lo lleva, a dormir
+  // para dormir hay que ponerse el pijama (D-037, 16/11): si ya lo lleva, se acuesta directamente; si no, se le pide
+  // (cada vez que se la lleva a la cama: es lo que ella ha pedido) con dos opciones, ir a Vestir o seguir jugando
+  const conPijama = () => Avatar.principal().ropa === 'pijama';
   function irADormir(uid) {
-    const st = Avatar.cargar() && Avatar.principal();
-    if (!st || st.ropa === 'pijama' || ciclo.preguntado.pijama) { if (st && st.ropa === 'pijama') bocadillo('¡Con mi pijama!'); acostar(uid); return; }
-    ciclo.preguntado.pijama = true; guardarCiclo();
+    if (conPijama()) { bocadillo('¡Con mi pijama!'); acostar(uid); return; }
     preguntar('Para dormir, ¿nos ponemos el pijama?', 'pijama', [
       ['👗 Ponerse el pijama', () => aVestir({ accion: 'dormir', uid })],
-      ['Dormir así', () => acostar(uid)],
+      ['Seguir jugando', () => { av.saludar(); bocadillo('¡Vale, a jugar!'); }],
     ]);
   }
   // de día, si lleva el pijama, se propone una vez vestirse para jugar
@@ -721,8 +722,10 @@
     if (v.accion === 'dormir') {
       const cama = est.objetos.find(x => x.uid === v.uid) || est.objetos.find(x => porId(x.id).acostar);
       if (!cama) return;
-      const o = porId(cama.id), k = escalaDe(o, cama.y), pij = Avatar.principal().ropa === 'pijama';
-      bocadillo(pij ? '¡Qué pijama tan cómodo!' : '¡A dormir!');
+      // vuelve de Vestir: con el pijama, a la cama; sin él, se queda jugando (no se la acuesta)
+      if (!conPijama()) { av.saludar(); bocadillo('Para dormir me pondré el pijama'); say('Para dormir me pondré el pijama'); return; }
+      const o = porId(cama.id), k = escalaDe(o, cama.y);
+      bocadillo('¡Qué pijama tan cómodo!');
       caminar(cama.x + 260 * k, cama.y + 8, () => acostar(cama.uid));
     } else { av.reaccionar(); bocadillo('¡Lista para jugar!'); say('¡Lista para jugar!'); }
   }

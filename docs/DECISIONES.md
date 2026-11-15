@@ -15,8 +15,15 @@
   aventura, para el parque. El arte necesario (posturas sentada, leyendo, abrazando, con la pelota, comiendo y lavándose;
   fondos de noche; lámpara encendida; cuento abierto; cocina y baño) está en el `LEEME.md` de la copia. La noche actual
   es un efecto de luz provisional sobre el arte de día.
-- **Nota:** la propietaria dice que Mi Mundo «funciona bien»; no se registra como aprobación formal del salón (D-034), que
-  sigue pendiente de que lo confirme.
+- **Nota:** el «funciona bien» se refería al salón; queda registrado como su aprobación general (D-034, 16/11).
+- **16/11/2026 · rutina ajustada a lo pedido:** «Ajusta la rutina: para dormir debe ponerse el pijama, como pedí. Quita
+  «Dormir así» y deja «Ponerse el pijama» y «Seguir jugando». Si ya lo lleva, se acuesta directamente. Si vuelve de Vestir
+  sin pijama, no la acuestes automáticamente.» Hecho en la copia.
+- **16/11/2026 · cocina y baño:** «Después prepara la propuesta de cocina y baño para atender hambre, higiene y ganas de ir
+  al baño. Indica las ilustraciones necesarias y reutiliza las piezas existentes. Mantén el estilo aprobado y deja las
+  necesidades nuevas inactivas hasta que puedan resolverse.» Propuesta en `docs/propuestas/mimundo-cocina-bano-2026-11-16/`
+  (pendiente de aprobación). Hambre, higiene y baño quedan en el catálogo como pendientes (inactivas).
+- **Estado:** la entrega sigue pendiente de la revisión de la propietaria; no se publica.
 
 ## D-036 · Un solo encargado de publicar y un solo generador · 07/11/2026
 - **Pedido de la propietaria:** «Antes de la próxima publicación, unifica el generador con el que produjo la versión
@@ -71,6 +78,7 @@
 - **Coordinación:** rama `juegos-pensar` (copia `pensar-2026-11-04`, Contar y Memoria) en `docs/COORDINACION_RAMAS.md`.
 - **Límites:** nada programado ni publicado; partidas, `main` y lo aprobado sin cambios; logros como hoy; desbloqueables,
   aparte.
+- **16/11/2026 · aprobado en general por la propietaria:** «Registra mi aprobación general anterior del salón: cuando dije «funciona bien» me refería a esa prueba, sin dar por comprobados todos los casos.» No se publica hasta que lo pida.
 - **07/11/2026 · montado en una copia aislada, pendiente de la prueba y la aprobación de la propietaria.** Pedido:
   «Continúa con el salón que dejaste preparado en 2073695. Ya tienes las 14 imágenes; no hace falta volver a pedirlas. Móntalo en una copia aislada con: Cambio entre habitación y salón, conservando la distribución de cada uno. Catálogo propio y objetos que se puedan colocar, mover y guardar. Objetos apoyados en la mesa o el sofá que los acompañen al moverlos. Juego libre y misión «Preparar la merienda para tres». Nuestra muñeca original y los peluches aprobados. Comprueba el uso en pantalla de iPhone, guardar y reabrir, copia de seguridad y funcionamiento sin conexión. Envíame el enlace de prueba y capturas para revisarlo. Antes de la próxima publicación, unifica el generador con el que produjo la versión 5889ab82ca5d. A partir de ahora este chat será el único encargado de publicar; el otro seguirá preparando los juegos. No vuelvas a publicar lo que ya está en main. El salón queda pendiente de mi prueba y aprobación, y las partidas de Amaia deben conservarse.»
   Copia `docs/propuestas/prueba-salon-2026-11-07/` (datos `sal1:`; lo publicado + Mi Mundo con habitación y salón): cambio

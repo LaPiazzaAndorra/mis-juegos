@@ -1,12 +1,41 @@
 # Registro de cambios
 
+### 2026-11-16 — D-034 aprobado en general; D-037: rutina del pijama ajustada y propuesta de cocina y baño
+
+- **Solicitado por:** la propietaria («Registra mi aprobación general anterior del salón: cuando dije «funciona bien» me
+  refería a esa prueba, sin dar por comprobados todos los casos. La nueva entrega de cuidar sigue pendiente de mi revisión.
+  Ajusta la rutina: para dormir debe ponerse el pijama, como pedí. Quita «Dormir así» y deja «Ponerse el pijama» y «Seguir
+  jugando». Si ya lo lleva, se acuesta directamente. Si vuelve de Vestir sin pijama, no la acuestes automáticamente. Después
+  prepara la propuesta de cocina y baño para atender hambre, higiene y ganas de ir al baño. Indica las ilustraciones
+  necesarias y reutiliza las piezas existentes. Mantén el estilo aprobado y deja las necesidades nuevas inactivas hasta que
+  puedan resolverse. Todo en la copia aislada, sin publicar todavía.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `53fb81f`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Salón (D-034):** aprobado en general (sin todos los casos en el iPhone); no publicado.
+- **Copia de cuidar** (`prueba-cuidar-2026-11-15/`, pendiente de revisión):
+  - para dormir hace falta el pijama: si lo lleva, se acuesta directamente; si no, «👗 Ponerse el pijama» (Vestir y volver)
+    o «Seguir jugando», y ya no existe «Dormir así»;
+  - si vuelve de Vestir sin pijama (también con ⬅️), vuelve al mismo escenario sin acostarla;
+  - hambre, higiene y ganas de ir al baño, definidas en el catálogo como pendientes: el motor no las activa aunque llegue
+    el arte (las galletas ya lo tienen) ni guarda datos de ellas.
+- **Propuesta nueva** `docs/propuestas/mimundo-cocina-bano-2026-11-16/` (pendiente de aprobación):
+  - distribución a escala de la cocina y el baño con la muñeca y las piezas aprobadas de verdad, y sus plantillas;
+  - las piezas reutilizadas (mesa, platos, tazas, tetera, galletas, cojines, cesta, peluches);
+  - las ilustraciones nuevas (fondos, encimera, fogones, nevera, comida en tres estados, bañera en dos capas, lavabo,
+    inodoro con cortina, toalla, jabón, patito…) y las posturas necesarias (sentada, comiendo, en la bañera, lavándose);
+  - qué puede funcionar ya sin postura nueva: la comida que mengua y el inodoro con la cortina.
+- **Datos guardados afectados:** ninguno del juego. En la copia, `mm_necesidades` solo guarda sueño y diversión.
+- **Pruebas (Chromium, iPhone e iPad simulados):** `prueba-cuidar.js` 35/35 (con la nueva rutina: dos opciones, sin pijama no
+  duerme, vuelta de Vestir sin pijama sin acostarla, con pijama directa; y las pendientes inactivas); la del salón aplicada a
+  esta copia 31/31; sin conexión 9/9; juego 21/21; copia de seguridad 45/45. **No probado en el iPhone ni en el iPad reales.**
+- **Cómo revertir:** `git revert` de este commit.
+
 ### 2026-11-15 — D-037: Mi Mundo, cuidar a la muñeca (1.ª entrega) en una copia aislada
 
 - **Solicitado por:** la propietaria («Mi Mundo funciona bien. Quiero ampliarlo hacia un juego de cuidar a la muñeca y
   representar su día a día, tipo Sims infantil… Empieza con una primera entrega completa: flechas de cámara, ventana
   día/noche, sueño y diversión, con sus interacciones y la rutina del pijama… Trabaja en una copia aislada… No publiques
   todavía. Envíame un enlace para revisar esta primera entrega.»).
-- **Rama y commit:** `avatar-creador`, este commit (sobre `c7467d1`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Rama y commit:** `avatar-creador`, `53fb81f` (sobre `c7467d1`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
 - **Qué cambia:** copia nueva `docs/propuestas/prueba-cuidar-2026-11-15/` (datos `cui1:`; sobre la del salón; el arte, copia
   exacta). Su motor de Mi Mundo añade:
   - **cámara libre:** flechas, arrastrar el suelo, desplazar la vista al dejar el dedo junto al borde y un botón con su cara

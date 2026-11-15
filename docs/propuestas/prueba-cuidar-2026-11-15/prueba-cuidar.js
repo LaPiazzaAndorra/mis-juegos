@@ -10,8 +10,9 @@
    cerca del borde, el botón para encontrarla) sin mover a la muñeca ni seguirla; la ventana alterna día y noche y se
    guarda; solo se activan sueño y diversión (hay cama y juguetes ilustrados), bajan despacio, no bajan del mínimo y avisan
    una sola vez; jugar con la pelota, los cubos, el cuento y el osito (respuesta visible y más diversión); dormir sube el
-   sueño; la rutina del pijama (pregunta con dibujo una vez por noche, «Dormir así» sin cambiarle la ropa, ir a Vestir y
-   volver al mismo escenario, con el pijama ya no pregunta); de día, una propuesta de vestirse; la lámpara del salón;
+   sueño; la rutina del pijama (para dormir hace falta el pijama: pregunta con dibujo y dos opciones, «Ponerse el pijama» y
+   «Seguir jugando»; sin pijama no se acuesta, tampoco al volver de Vestir sin él; con «Guardar y volver» y el pijama, al
+   mismo escenario y a la cama; con el pijama puesto, se acuesta directamente); de día, una propuesta de vestirse; la lámpara del salón;
    volver a abrir; «Guardar mi progreso» con las necesidades y el día o la noche; datos ajenos intactos; sin errores.
    ===================================================================== */
 const path = require('path'), os = require('os'), fs = require('fs');
@@ -60,6 +61,8 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   await abrir(p, 'habitacion');
   const hud = await p.evaluate(() => ({ act: MM.activas().join(), hud: [...document.querySelectorAll('.mm-nec-i')].map(b => b.dataset.id).join(), imgs: [...document.querySelectorAll('.mm-nec-i img')].every(i => i.complete && i.naturalWidth > 0) }));
   ok('Solo sueño y diversión activas (hay cama y juguetes ilustrados), con sus indicadores ilustrados', hud.act === 'sueno,diversion' && hud.hud === 'sueno,diversion' && hud.imgs, JSON.stringify(hud));
+  const pend = await p.evaluate(() => ({ pend: MM.CAT && window.MM_CATALOGO.necesidades.filter(n => n.pendiente).map(n => n.id).join(), galletas: MM.conArte(MM.CAT.find(o => o.id === 'galletas')), guardadas: Object.keys(MM.necesidades()).filter(k => !['v', 'avisado'].includes(k)).join() }));
+  ok('Hambre, higiene y baño, definidas pero inactivas (aunque las galletas ya tengan ilustración) y sin datos guardados', pend.pend === 'hambre,higiene,bano' && pend.galletas && pend.guardadas === 'sueno,diversion', JSON.stringify(pend));
   // ---------- cámara ----------
   const m0 = await muneca(p), c0 = await p.evaluate(() => MM.camara());
   ok('iPhone: se ven las flechas de los dos lados', await visible(p, '.mm-flecha.izq') && await visible(p, '.mm-flecha.der'));
@@ -136,15 +139,18 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   const preg = await p.evaluate(() => ({ txt: (document.querySelector('.mm-pregunta p') || {}).textContent, prev: !!document.querySelector('.mm-pregunta .mm-prev svg'), en: MM.estado().muneca.en }));
   ok('Al ir a la cama le pide el pijama, con dibujo de ella en pijama (aún no se acuesta)', /pijama/.test(preg.txt || '') && preg.prev && !preg.en, JSON.stringify(preg));
   await p.screenshot({ path: path.join(OUT, '05-pijama-pregunta-iphone.png') });
-  await p.click('.mm-pregunta button:has-text("Dormir así")'); await p.waitForTimeout(800);
-  const asi = await p.evaluate(() => ({ en: !!MM.estado().muneca.en, ropa: Avatar.cargar().ropa }));
-  ok('«Dormir así»: se acuesta y su ropa no cambia (nunca se la cambia sin que ella elija)', asi.en && asi.ropa === 'hada', JSON.stringify(asi));
-  const s0 = await p.evaluate(() => MM.necesidades().sueno); await p.evaluate(() => MM.avanzar(20));
-  ok('Dormida, el sueño se recupera (y la diversión no baja)', await p.evaluate(s => MM.necesidades().sueno >= s + 45, s0));
-  await p.mouse.click(...await tomar(p, '.mm-muneca')); await p.waitForTimeout(1500);
+  const ops = await p.evaluate(() => [...document.querySelectorAll('.mm-pregunta button')].map(b => b.textContent.trim()).join(' | '));
+  ok('Solo dos opciones: «Ponerse el pijama» y «Seguir jugando» (ya no «Dormir así»)', ops === '👗 Ponerse el pijama | Seguir jugando', ops);
+  await p.click('.mm-pregunta button:has-text("Seguir jugando")'); await p.waitForTimeout(800);
+  const sigue = await p.evaluate(() => ({ en: !!MM.estado().muneca.en, ropa: Avatar.cargar().ropa, preg: !!document.querySelector('.mm-pregunta') }));
+  ok('«Seguir jugando»: no se acuesta y su ropa no cambia (nunca se la cambia sin que ella elija)', !sigue.en && sigue.ropa === 'hada' && !sigue.preg, JSON.stringify(sigue));
   await p.mouse.click(...await camaEn()); await p.waitForTimeout(4500);
-  ok('La misma noche no vuelve a preguntar: se acuesta directamente', await p.evaluate(() => !document.querySelector('.mm-pregunta') && !!MM.estado().muneca.en));
-  await p.mouse.click(...await tomar(p, '.mm-muneca')); await p.waitForTimeout(1500);
+  ok('Sin pijama no duerme: al volver a llevarla a la cama, se lo vuelve a pedir', await p.evaluate(() => !!document.querySelector('.mm-pregunta') && !MM.estado().muneca.en));
+  // ir a Vestir y volver con ⬅️ sin ponerse el pijama: vuelve al mismo escenario y NO se la acuesta
+  await p.click('.mm-pregunta button:has-text("Ponerse el pijama")'); await p.waitForTimeout(900);
+  await p.click('#dress .bar [data-go]'); await p.waitForTimeout(3000);
+  const sinPij = await p.evaluate(() => ({ pant: current, esc: MM.escenario(), ropa: Avatar.cargar().ropa, en: !!MM.estado().muneca.en }));
+  ok('Vuelve de Vestir sin pijama: al mismo escenario, sin acostarla', sinPij.pant === 'scene' && sinPij.esc === 'habitacion' && sinPij.ropa === 'hada' && !sinPij.en, JSON.stringify(sinPij));
   await p.evaluate(() => document.querySelectorAll('.mm-panel').forEach(e => e.remove()));
   // una noche nueva: «Ponerse el pijama» → Vestir → «Guardar y volver» → a la cama
   await p.evaluate(() => MM.mirar(860, 500)); await p.waitForTimeout(700); await p.mouse.click(...await ventana(p)); await p.waitForTimeout(500);
@@ -158,8 +164,15 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   await p.screenshot({ path: path.join(OUT, '06-vestir-pijama-iphone.png') });
   await p.click('#mmVolver'); await p.waitForTimeout(6000);
   const vuelta = await p.evaluate(() => ({ pant: current, esc: MM.escenario(), ropa: Avatar.cargar().ropa, en: !!MM.estado().muneca.en, preg: !!document.querySelector('.mm-pregunta') }));
-  ok('Vuelve al mismo escenario y, ya con el pijama elegido, va a la cama y se duerme (sin volver a preguntar)', vuelta.pant === 'scene' && vuelta.esc === 'habitacion' && vuelta.ropa === 'pijama' && vuelta.en && !vuelta.preg, JSON.stringify(vuelta));
+  ok('Con el pijama elegido y «Guardar y volver»: vuelve al mismo escenario, va a la cama y se duerme', vuelta.pant === 'scene' && vuelta.esc === 'habitacion' && vuelta.ropa === 'pijama' && vuelta.en && !vuelta.preg, JSON.stringify(vuelta));
   await p.screenshot({ path: path.join(OUT, '07-dormida-pijama-iphone.png') });
+  const s0 = await p.evaluate(() => MM.necesidades().sueno); await p.evaluate(() => MM.avanzar(20));
+  ok('Dormida, el sueño se recupera (y la diversión no baja)', await p.evaluate(s => MM.necesidades().sueno >= Math.min(100, s + 45), s0));
+  await p.evaluate(() => { const c = MM.estado().objetos.find(o => o.id === 'cama'); MM.mirar(c.x, 700); }); await p.waitForTimeout(700);
+  await p.mouse.click(...await tomar(p, '.mm-muneca')); await p.waitForTimeout(1500);
+  await p.evaluate(() => document.querySelectorAll('.mm-panel').forEach(e => e.remove()));
+  await p.mouse.click(...await camaEn()); await p.waitForTimeout(4500);
+  ok('Con el pijama puesto, se acuesta directamente (sin preguntar)', await p.evaluate(() => !document.querySelector('.mm-pregunta') && !!MM.estado().muneca.en));
   // de día: una propuesta de vestirse (una vez); «Así está bien» no cambia nada
   await p.evaluate(() => MM.mirar(860, 500)); await p.waitForTimeout(700); await p.mouse.click(...await ventana(p)); await p.waitForTimeout(800);
   await p.evaluate(() => { const c = MM.estado().objetos.find(o => o.id === 'cama'); MM.mirar(c.x, 700); }); await p.waitForTimeout(700);
