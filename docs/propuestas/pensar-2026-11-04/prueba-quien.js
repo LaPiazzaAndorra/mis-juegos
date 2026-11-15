@@ -37,7 +37,7 @@ const iMal = p => p.evaluate(() => QUIEN.qn.caso.cartas.findIndex(t => t !== QUI
     const { c, p } = await pagina(b);
     await p.evaluate(() => go('m-think')); await p.waitForTimeout(300);
     const mt = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pensar: los juegos de antes igual y, al final, «¿Quién es?»', mt[mt.length - 1] === '¿Quién es?' && mt.slice(0, -1).join('|') === 'Memoria|Contar|¿Qué sigue?|Sombras|El diferente', mt.join('|'));
+    ok('Menú Pensar: los juegos de antes igual y, después, «¿Quién es?»', mt.join('|').startsWith('Memoria|Contar|¿Qué sigue?|Sombras|El diferente|¿Quién es?'), mt.join('|'));
     // casos: solución única entre las tarjetas y ninguna pista sobra
     const casos = await p.evaluate(() => { const malos = [];
       for (let L = 0; L < 5; L++) for (let i = 0; i < 400; i++) { const c = QUIEN.crearCaso(L), vale = t => c.pistas.every(q => QUIEN.cumple(t, q));

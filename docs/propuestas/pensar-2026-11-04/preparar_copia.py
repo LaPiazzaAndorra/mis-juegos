@@ -24,7 +24,8 @@ CC = importlib.util.module_from_spec(spec); spec.loader.exec_module(CC)   # solo
 sustituir = CC.sustituir
 EXTRA = (f'\n<link rel="stylesheet" href="{CARPETA}pensar.css">\n<script src="{CARPETA}dibujos.js"></script>'
          f'\n<script src="{CARPETA}pensar.js"></script>\n<script src="{CARPETA}figuras.js"></script>\n<script src="{CARPETA}pensar2.js"></script>\n<script src="{CARPETA}repasar.js"></script>'
-         f'\n<link rel="stylesheet" href="{CARPETA}etapas.css">\n<script src="{CARPETA}ilustraciones.js"></script>\n<script src="{CARPETA}etapas.js"></script>\n<script src="{CARPETA}quien.js"></script>')
+         f'\n<link rel="stylesheet" href="{CARPETA}etapas.css">\n<script src="{CARPETA}ilustraciones.js"></script>\n<script src="{CARPETA}etapas.js"></script>\n<script src="{CARPETA}quien.js"></script>'
+         f'\n<link rel="stylesheet" href="{CARPETA}retos.css">\n<script src="{CARPETA}retos.js"></script>')
 
 if __name__ == '__main__':
     h, pr = CC.juego_conjunto(CARPETA, 'PRUEBA PENSAR', 'PRUEBA PENSAR')

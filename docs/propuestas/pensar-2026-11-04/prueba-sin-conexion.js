@@ -8,7 +8,7 @@
       publicación de avatar-creador (sin modificarlo); nada va al repositorio ni a main;
    2. se sirve como GitHub Pages (/mis-juegos/), se abre con una partida, espera «Lista para jugar sin conexión»;
    3. en modo avión: Contar, Memoria (parejas, ¿dónde estaba?, serie), ¿Qué sigue?, Sombras, El diferente, Unir
-      puntos, Repasar y Dibujos por partes (con pintar y guardar) y ¿Quién es? funcionan, sin peticiones fallidas ni errores, y la partida no se pierde.
+      puntos, Repasar y Dibujos por partes (con pintar y guardar), ¿Quién es? y los Retos funcionan, sin peticiones fallidas ni errores, y la partida no se pierde.
    ===================================================================== */
 const path = require('path'), os = require('os'), fs = require('fs');
 const { execSync, spawn } = require('child_process');
@@ -28,7 +28,7 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
 (async () => {
   const sal = execSync(`python3 ${path.join(__dirname, 'simular_publicacion.py')} "${DEST}"`, { cwd: RAIZ }).toString().trim();
   const lista = fs.readFileSync(path.join(DEST, 'offline-lista.js'), 'utf8');
-  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
+  ok('Simulación escrita fuera del repositorio con Pensar en la lista para jugar sin conexión', ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js', 'retos.css', 'retos.js'].every(f => lista.includes('pensar-2026-11-04/' + f)) &&
     execSync('git status --porcelain', { cwd: RAIZ }).toString().split('\n').every(l => !l || l.includes('pensar-2026-11-04/')), sal);
   const srv = spawn('python3', ['-m', 'http.server', String(PUERTO), '--bind', '127.0.0.1'], { cwd: SITIO, stdio: 'ignore' });
   process.on('exit', () => srv.kill()); await new Promise(r => setTimeout(r, 900));
@@ -90,6 +90,18 @@ const PARTIDA = { stars: '37', gal: '[]', iceCoins: '5', lv_contar: '8', lv_sigu
   await p.evaluate(() => { QUIEN.nv.elegir(3); go('quien'); }); await p.waitForTimeout(600); await p.click('#qnListo', { force: true }); await p.waitForTimeout(300);
   const q0 = await p.evaluate(() => stars); await p.click(`#qnRejilla .qnCarta >> nth=${await p.evaluate(() => QUIEN.qn.caso.cartas.indexOf(QUIEN.qn.caso.sol))}`); await p.waitForTimeout(300);
   ok('Sin conexión: ¿Quién es? (pistas escondidas) se juega y suma su estrella', await p.evaluate(() => stars) === q0 + 1);
+  // Retos: uno de cada (¿Quién se esconde?, la tabla de dos reglas y ¿qué ha cambiado?)
+  const rt0 = await p.evaluate(() => stars);
+  await p.evaluate(() => { localStorage.setItem('lv_retos', JSON.stringify({ v: 1, L: { detective: 1, tabla: 2, escena: 0 } })); go('rDet'); }); await p.waitForTimeout(600);
+  await p.click(`#rdRej .rtCarta >> nth=${await p.evaluate(() => RETOS.dt.caso.T.cartas.indexOf(RETOS.dt.caso.sol))}`, { force: true }); await p.click('#rdEs', { force: true }); await p.waitForTimeout(200);
+  await p.evaluate(() => go('rTab')); await p.waitForTimeout(500);
+  for (const h of await p.evaluate(() => RETOS.tb.caso.huecos)) { const i = await p.evaluate(h => { const c = RETOS.tb.caso, us = new Set(Object.values(RETOS.tb.puestas).map(p => p.id)), libres = c.bandeja.filter(p => !us.has(p.id));
+      return libres.findIndex(p => p.k === c.celdas[h].k && p.c === c.celdas[h].c && p.n === c.celdas[h].n); }, h);
+    await p.click(`#rtBandeja .rtPieza >> nth=${i}`, { force: true }); await p.click(`#rtRej .rtCelda >> nth=${h}`, { force: true }); }
+  await p.click('#rtComp', { force: true }); await p.waitForTimeout(200);
+  await p.evaluate(() => go('rEsc')); await p.waitForTimeout(500); await p.click('#reYa', { force: true }); await p.waitForTimeout(1200);
+  await p.click(`#reRej .rtHueco >> nth=${await p.evaluate(() => RETOS.es.caso.cambios[0].celdas[0])}`, { force: true }); await p.waitForTimeout(200);
+  ok('Sin conexión: los tres retos (¿Quién se esconde?, la tabla de dos reglas y ¿qué ha cambiado?) se resuelven y suman su estrella', await p.evaluate(() => stars) === rt0 + 3);
   await p.screenshot({ path: path.join(OUT, 'sin-conexion-pintar.png') });
   const d = await p.evaluate(ks => Object.fromEntries(ks.map(k => [k, localStorage.getItem(k)])), Object.keys(PARTIDA));
   ok('La partida se conserva (solo suman estrellas y el dibujo nuevo)', ['iceCoins', 'lv_contar', 'lv_sigue', 'avatar', 'sound'].every(k => d[k] === PARTIDA[k]) && +d.stars > 37);

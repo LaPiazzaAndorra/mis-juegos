@@ -18,6 +18,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 05/11/2026 | **Contar y Memoria publicados en `main`** (`021c67e`, versión `5889ab82ca5d`, D-035) | Publicado. Desde el 07/11, **solo el chat de `avatar-creador` reúne y publica**; este chat sigue en `juegos-pensar`. |
 | 07/11/2026 | **3.ª entrega: «Repasar dibujos»** (menú Pintar; ver abajo) | Probada en Chromium (28/28; sin conexión 10/10); **pendiente de probar en el iPhone**. La 2.ª entrega (`cf80691`) sigue pendiente de la prueba de la propietaria. |
 | 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
+| 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Probada en Chromium; **pendiente de probarla con Amaia**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -359,6 +360,84 @@ negro uniforme de 10 px, sin rellenos, sombras ni texturas:
 4. Lo ideal es entregarlas como **trazados vectoriales (SVG)**, una capa por parte; una imagen en píxeles habría que
    convertirla a trazos.
 
+## 5.ª entrega (15/11/2026): prueba de retos avanzados
+
+Pedido de la propietaria (15/11/2026, 09:42), resumido:
+- La 4.ª funciona, pero **sigue siendo fácil para Amaia**: no ampliar el catálogo con ejercicios de la misma dificultad.
+- **Niveles avanzados disponibles directamente.** ¿Quién es? con 8–12 candidatos y 3–4 pistas que haya que combinar
+  (negaciones, cantidades y relaciones), sin que una sola pista dé la respuesta, y una modalidad en la que **ella elija qué
+  preguntar**. Patrones: dos reglas a la vez, huecos interiores, ordenar piezas. Memoria: qué cambió en una escena,
+  reconstruir posiciones, secuencias al revés. Contar: problemas de dos pasos, repartir y cuánto falta.
+- En Unir puntos y Repasar, dibujos más ricos, sin confundir más puntos o trazos diminutos con más dificultad.
+- Pistas voluntarias, sin cronómetro ni castigos; **elegir el reto y recordar dónde estaba**.
+- **Primero, tres retos avanzados distintos** para probarlos con ella: que tenga que **pensar, elegir una estrategia y
+  revisar su respuesta**. Solo en la copia aislada, sin publicar ni cambiar recompensas.
+
+Archivos nuevos: **`retos.js`** y **`retos.css`**. No cambia ningún archivo de las entregas anteriores. En el menú
+**Pensar → Retos**: una lista con los tres retos y los botones de sus niveles (1, 2, 3…), para entrar directamente en el
+que se quiera. Recuerda el último reto (resaltado) y el nivel de cada uno.
+
+**Lo común a los tres:**
+- **Revisar antes de dar por buena la respuesta:** se elige y luego se confirma (lupa) o se **comprueba** (botón verde).
+  Al comprobar, lo que está bien **se queda** y solo vuelve lo que no va, con la explicación.
+- **Sin castigos:** un error no quita nada; dice por qué no vale y deja seguir.
+- **Pistas voluntarias (💡), cada vez más concretas**; nunca salen solas.
+- **Sin cronómetro:** las escenas y las pistas se miran el tiempo que quiera; se tapan cuando ella toca el ojo.
+- +1 ⭐ por reto resuelto (como un acierto en los demás juegos); sin logros nuevos.
+
+### 1. ¿Quién se esconde? — combinar pistas y elegir buenas preguntas
+
+| Nivel | Qué es | Habilidad | Por qué es más difícil que ¿Quién es? |
+| --- | --- | --- | --- |
+| 1 | 8 sospechosos, 3 pistas: una de **«no es…»**, un color y una **cantidad comparada** («hay más de uno», «hay menos de tres») | Combinar condiciones, incluida una negación y una comparación | Antes eran 2 pistas iguales que el dibujo; ahora hay que traducir «no» y «más de / menos de» |
+| 2 | 12 sospechosos, 4 pistas: dos de «no», una cantidad y una **relación de posición** («a su lado hay un pez», «justo encima tiene una estrella») | Razonar sobre el tablero, no solo sobre cada tarjeta | La relación obliga a mirar a los vecinos de cada sospechoso |
+| 3 | **Tú preguntas:** 12 sospechosos y 11 preguntas dibujadas (qué es, qué color, más de 1 o de 2, qué tiene al lado); cada respuesta (sí/no) queda arriba como pista | **Estrategia**: elegir preguntas que descarten muchos, y tachar | Ella decide qué información pedir; al acabar le dice cuántas preguntas ha usado |
+
+- **Ninguna pista sola deja menos de 3 sospechosos** y **todas hacen falta** (por cada pista hay alguien que cumple las
+  demás menos esa). Comprobado con 1.000 casos.
+- **Tachar es su herramienta:** toca una tarjeta y la tacha (o la destacha) para pensar; con la lupa dice «¡es este!».
+- **Si se equivoca:** «Ese no puede ser. Mira esta pista…», se ilumina la pista que no cumple y se tacha.
+- **💡:** primero señala la pista que más descarta; si la pide otra vez, tacha los que no la cumplen. Si aún no ha
+  preguntado nada, le propone una buena pregunta.
+
+### 2. La tabla de dos reglas — descubrir reglas, huecos interiores y ordenar
+
+| Nivel | Qué es | Habilidad | Dificultad |
+| --- | --- | --- | --- |
+| 1 | Tabla 3 × 3: en cada fila, la misma cosa; en cada columna, el mismo color. 3 huecos (siempre el del centro) | Ver dos reglas a la vez (filas y columnas) | La bandeja trae piezas trampa que aciertan una regla y fallan la otra |
+| 2 | Filas: la misma cosa; columnas: **la misma cantidad**. 4 huecos | Cruzar «qué es» con «cuántos» | Más huecos y trampas con la cantidad equivocada |
+| 3 | **Cuadrado mágico:** en cada fila y columna está cada cosa **una sola vez**, y cada fila tiene su color. 4 huecos | Deducir por eliminación | Ninguna fila sola basta; se comprueba que **solo hay una manera** de llenarlo |
+| 4 | **Ordenar el final de la fila:** las cosas se repiten de 3 en 3 y los colores de 2 en 2; colocar las 3 últimas entre 6 piezas | Dos patrones con distinto ritmo y orden | Hay que seguir los dos ritmos a la vez para cada pieza |
+
+- Se toca una pieza y luego su hueco (se puede quitar y cambiar). **Comprobar** solo cuando están todos llenos.
+- **Al comprobar:** las buenas se quedan; las otras vuelven a la bandeja y se iluminan la fila y la columna de una, con sus
+  reglas en voz alta.
+- **💡 en tres pasos:** la regla de la fila, después también la de la columna y, si la vuelve a pedir, coloca esa pieza.
+
+### 3. ¿Qué ha cambiado? — memoria de escena
+
+| Nivel | Qué es | Habilidad | Dificultad |
+| --- | --- | --- | --- |
+| 1 | Estantería 3 × 3 con 6 cosas; se tapa y **una ha cambiado** (se ha movido, ha desaparecido, ha aparecido otra o ha cambiado de color). Tocar dónde | Recordar qué había y dónde | Hay que guardar a la vez qué cosas y sus sitios |
+| 2 | 4 × 3 con 7 cosas y **dos cambios** (también de color). Marcar dos y comprobar | Memoria más cargada y revisar | Al comprobar, el que está bien se queda y le dice que falta otro |
+| 3 | **Colocar de memoria:** 5 cosas; se vacía la estantería y hay que ponerlas donde estaban | Reconstruir posiciones | Planificar el orden y revisar al comprobar |
+| 4 | **Al revés:** 4 cosas brillan una tras otra; tocarlas en el **orden inverso** | Memoria de trabajo: guardar y dar la vuelta | Un toque fuera de orden no borra lo hecho |
+
+- **Se mira sin reloj** hasta tocar el ojo; entonces se cierran las casillas un momento y se abren con la escena nueva.
+- **💡 vuelve a enseñar cómo estaba** (fondo azul) las veces que quiera, y otra vez para volver; en «al revés», repite el
+  orden.
+- Cuando se equivoca: «Ahí no ha cambiado nada», «Una está bien: falta otra», «Dos no estaban ahí; las he devuelto»,
+  «Ese brilló, pero no toca ahora».
+
+### Qué queda para después de probarlos
+
+- **Contar** (dos pasos, repartir, cuánto falta, con objetos de apoyo opcionales): pedido, aún no hecho; irá en la
+  siguiente tanda, según lo que se vea con estos tres.
+- **Dibujos más ricos** en Unir puntos y Repasar: la dificultad vendría de recorridos más largos y con más partes, no de
+  más puntos o trazos diminutos; también después.
+- Las preguntas de «a su lado» en «Tú preguntas» se dibujan pequeñas en el iPhone en horizontal; si cuesta verlas, se
+  agrandan.
+
 ## Datos
 
 - Todo va con el prefijo `pen1:` (`aislamiento.js`); sin service worker; manifiesto propio («PRUEBA PENSAR»).
@@ -375,6 +454,8 @@ negro uniforme de 10 px, sin rellenos, sombras ni texturas:
   pts}…, "furgoneta:rp":{e, j, prog}}}`; lo «a medias» incluye los puntos, para seguir igual) y **`lv_quien`** (con la
   forma de los demás niveles). Si llegan con valores raros, se ignoran y se empieza de nuevo. Los dibujos pintados van a
   «Mis dibujos» (`gal`).
+- 5.ª entrega: **`lv_retos`** (`{v:1, ultimo, L:{detective, tabla, escena}, hechos:{…}}`: el último reto, el nivel elegido en
+  cada uno y cuántos ha resuelto). Si llega con valores raros, se corrigen al leerla.
 - Ninguna otra clave cambia: estrellas (solo suman), dibujos, Heladería, personaje, escenas, logros, voz y sonido.
 
 ## Pruebas (Chromium; iPhone e iPad simulados, app instalada y hoja de compartir simuladas)
@@ -387,8 +468,30 @@ node docs/propuestas/pensar-2026-11-04/prueba-pensar2.js         # 35 comprobaci
 node docs/propuestas/pensar-2026-11-04/prueba-repasar.js        # 28 comprobaciones (3.ª entrega)
 node docs/propuestas/pensar-2026-11-04/prueba-etapas.js         # 39 comprobaciones (4.ª entrega: Dibujos por partes)
 node docs/propuestas/pensar-2026-11-04/prueba-quien.js          # 22 comprobaciones (4.ª entrega: ¿Quién es?)
-node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 12 comprobaciones (modo avión, simulación de publicación)
+node docs/propuestas/pensar-2026-11-04/prueba-retos.js          # 62 comprobaciones (5.ª entrega: Retos)
+node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 13 comprobaciones (modo avión, simulación de publicación)
 ```
+
+**5.ª entrega (15/11/2026): `prueba-retos.js` 62/62 y `prueba-sin-conexion.js` 13/13.** Comprueban:
+- **Lista de retos:** niveles a la vista, entrar directamente en uno avanzado, recordar el último reto y su nivel.
+- **¿Quién se esconde?:**
+  - 1.000 casos, con una sola respuesta, ninguna pista que sola deje menos de 3 y todas necesarias.
+  - Pistas de negación, cantidad y relación.
+  - Tachar y destachar; un error sin castigo, con su explicación.
+  - 💡 en dos pasos, que nunca tacha al escondido.
+  - +1 ⭐, sin logros.
+  - «Tú preguntas», resuelto con 4 preguntas: respuestas coherentes con el escondido y su número dicho al final.
+- **La tabla:**
+  - 800 tablas, con el centro siempre vacío, la bandeja con lo que falta y trampas, y el cuadrado mágico con una sola solución.
+  - Comprobar devuelve solo la pieza equivocada y explica las dos reglas.
+  - 💡 en tres pasos; +1 ⭐; la fila para ordenar.
+- **¿Qué ha cambiado?:**
+  - 800 escenas con justo los cambios que tocan.
+  - Mirar sin reloj; tocar donde no cambió nada; 💡 para volver a mirar.
+  - Uno y dos cambios; colocar de memoria con dos cambiadas de sitio; al revés con un toque fuera de orden.
+- **Datos:** `lv_retos` guardado y en la copia de seguridad; datos estropeados.
+- **Pantallas:** iPhone e iPad, vertical y horizontal, en seis pantallas de los retos.
+- **Sin conexión:** los tres retos resueltos en modo avión.
 
 **4.ª entrega (15/11/2026): `prueba-etapas.js` 39/39, `prueba-quien.js` 22/22, `prueba-sin-conexion.js` 12/12.** Comprueban:
 - **Dibujos por partes:** menú, tarjetas en misterio, puntos solo de la parte de ahora (45 → 46 puntos, separados 28 px en el
@@ -489,6 +592,17 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 
 Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
 
+**5.ª entrega (prueba de retos avanzados; incluye todo lo anterior):** **Pensar → Retos**.
+1. **¿Quién se esconde?** → botón **2**: escuchar las pistas, tachar los que no pueden ser y elegir con la lupa.
+   Equivocarse a propósito para oír por qué. Luego el **3** (tú preguntas): ¿con cuántas preguntas lo encuentra?
+2. **La tabla de dos reglas** → botones **1** y **3** (el cuadrado mágico); probar el **4** (ordenar la fila). Poner alguna
+   pieza mal y comprobar.
+3. **¿Qué ha cambiado?** → **1** y **2**; luego **3** (colocar de memoria) y **4** (al revés). Probar la bombilla para volver
+   a mirar.
+4. Salir y volver a **Retos**: el último queda resaltado y cada uno en su nivel.
+
+Enlace fijo de la 5.ª entrega: en el commit siguiente.
+
 **4.ª entrega (ejemplos para revisar; incluye todo lo anterior):**
 1. **Pintar → Dibujos por partes.** Elegir una tarjeta y los **puntos**. Unir la primera parte: ver cómo queda dibujada y
    salen los puntos de la siguiente, con la tira de arriba marcándola.
@@ -503,6 +617,7 @@ Enlace fijo de la 4.ª entrega (commit `5a7a226`): <https://raw.githack.com/LaPi
 
 ## Pendiente (decide la propietaria)
 
+- **5.ª entrega:** probar los tres retos con Amaia y decidir el siguiente paso (Contar avanzado, más retos y dibujos más ricos).
 - **4.ª entrega:** revisar los tres ejemplos y ¿Quién es?. Si la dirección es buena, ampliar el catálogo con más dibujos
   por partes (otros animales, personajes, vehículos y escenas) y llevar la misma idea (descubrir reglas, recordar y
   combinar) a más juegos de Pensar. Decidir también si «Dibujos por partes» **sustituye** a Unir puntos y Repasar de
