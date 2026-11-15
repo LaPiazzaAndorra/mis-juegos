@@ -231,6 +231,13 @@ misión «Guardar los juguetes»): `main` = `021c67e`, versión `5889ab82ca5d` (
 en el iPad reales**. Anterior: rama `version-anterior-2026-11-05` (`031ce07`). Fuera: el salón,
 la 2.ª entrega de Pensar y el parque.
 
+**Norma de lectura (17/11, D-038):** `docs/NORMA_TEXTOS_INFANTILES.md`. Se aplica con la capa común
+`docs/propuestas/lectura-2026-11-17/` (MAYÚSCULAS con tildes y Ñ, 16 px o más, contraste, nada cortado, frases breves,
+voz de los mensajes), que carga la copia de cuidar. Mi Mundo ya está reescrito con la norma (una instrucción cada vez en
+las misiones). Pruebas en Chromium: `prueba-lectura.js` 16/16 en tres tamaños de iPhone. Contar y Memoria: sus frases, en
+`juegos-pensar`. Pendiente de la revisión de la propietaria; **sin probar en el iPhone ni en el iPad reales**. Enlace:
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/avatar-creador/docs/propuestas/prueba-cuidar-2026-11-15/index.html>.
+
 **Cuidar a la muñeca (15/11, D-037, 1.ª entrega): en una copia aislada, pendiente de la prueba y la aprobación de la
 propietaria.** `docs/propuestas/prueba-cuidar-2026-11-15/` (datos `cui1:`, sobre la copia del salón): cámara libre con
 flechas y botón para encontrarla, ventana de día y noche, necesidades de sueño y diversión con avisos, juegos con los
@@ -416,7 +423,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 16/11/2026 (D-034 aprobado en general; D-037: rutina del pijama ajustada y propuesta de cocina y baño, pendientes de aprobación) · **Rama:** `avatar-creador` ·
+**Última actualización:** 17/11/2026 (D-038: norma de lectura con su capa común, aplicada en la copia de cuidar; pendiente de revisión) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` `021c67e` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo, versión `5889ab82ca5d`);
 versiones anteriores en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).

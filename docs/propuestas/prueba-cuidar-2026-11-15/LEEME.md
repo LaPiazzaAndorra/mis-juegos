@@ -9,6 +9,12 @@ Enlace de prueba (siempre lo último de la rama):
 Parte de la copia del salón (`../prueba-salon-2026-11-07/`, D-034): lo publicado con Contar y Memoria + Mi Mundo con la
 habitación y el salón, y añade lo siguiente.
 
+**Norma de lectura (D-038, 17/11):** esta copia carga la capa común `../lectura-2026-11-17/` y sus textos de Mi Mundo
+siguen `docs/NORMA_TEXTOS_INFANTILES.md`:
+- MAYÚSCULAS, frases breves en primera persona («TENGO SUEÑO», «PONME EL PIJAMA») y botones con verbo («PONER EL
+  PIJAMA», «SEGUIR JUGANDO»);
+- las misiones dan **una instrucción cada vez** («GUARDA EL OSITO», «PON UN PLATO»), con el dibujo de esa pieza y su voz.
+
 ## Qué tiene esta entrega
 
 ### 1. Cámara independiente

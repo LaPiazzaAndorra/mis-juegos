@@ -74,14 +74,14 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   // ---------- habitación (aprobada) ----------
   await abrir(p, 'habitacion');
   let im = await imagenes(p);
-  ok('Habitación: su fondo y su catálogo de seis, con imagen', im.fondoSrc === 'fondo.webp' && im.bandeja === 'Cama,Cesta de juguetes,Osito,Pelota,Cubos de colores,Libro de cuentos' && im.imagenes === 6 && im.pegatinas === 'none', im.bandeja);
+  ok('Habitación: su fondo y su catálogo de seis, con imagen', im.fondoSrc === 'fondo.webp' && im.bandeja === 'Cama,Cesta,Osito,Pelota,Cubos,Cuento' && im.imagenes === 6 && im.pegatinas === 'none', im.bandeja);
   // D-037: para dormir hace falta el pijama; aquí la muñeca guardada ya lo lleva (la rutina se prueba en prueba-cuidar.js)
   await p.evaluate(h => { Avatar.guardar(Object.assign({}, h, { ropa: 'pijama', accesorios: [] })); scLoad(); }, HADA); await p.waitForTimeout(1500);
   let r = await caja(p, '.mm-obj[data-id=cama][data-capa=detras]'); await p.mouse.click(r.x + r.width * .5, r.y + r.height * .55); await p.waitForTimeout(4200);
   const ac = await p.evaluate(() => ({ en: !!MM.estado().muneca.en, dormida: document.querySelector('.mm-av svg').classList.contains('sleep'), preg: !!document.querySelector('.mm-pregunta'), ropa: Avatar.cargar().ropa }));
   ok('Habitación: con el pijama, tocar la cama la acuesta directamente (ojos cerrados; la muñeca guardada no cambia)', ac.en && ac.dormida && !ac.preg && ac.ropa === 'pijama', JSON.stringify(ac));
   r = await caja(p, '.mm-muneca'); await p.mouse.click(...centro(r)); await p.waitForTimeout(2600);
-  if (await p.$('.mm-pregunta')) { await p.click('.mm-pregunta button:has-text("Así está bien")'); await p.waitForTimeout(500); }   // D-037: de día, propone vestirse
+  if (await p.$('.mm-pregunta')) { await p.click('.mm-pregunta button:has-text("No, gracias")'); await p.waitForTimeout(500); }   // D-037: de día, propone vestirse
   const s0 = await p.evaluate(() => +localStorage.getItem('stars') || 0);
   await empezar(p, 'guardar-juguetes');
   for (const id of JUGUETES) await arrastrar(p, await tomar(p, `.mm-obj[data-id="${id}"]`), await tomar(p, '.mm-obj[data-id="cesta"]'));
@@ -111,7 +111,7 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   ok('Bandeja: platos, taza y tetera van a su sitio de la mesa; el cuarto plato no cabe y queda en el suelo', libre.mesa === 'plato,plato,plato,taza,tetera' && libre.suelo === 1, JSON.stringify(libre));
   await p.click('#stkRow .mm-item[data-id="plato"]'); await p.waitForTimeout(200); await p.click('#stkRow .mm-item[data-id="plato"]'); await p.waitForTimeout(200);
   await p.click('#stkRow .mm-item[data-id="plato"]'); await p.waitForTimeout(300);
-  ok('Como mucho 6 platos', await p.evaluate(() => MM.estado().objetos.filter(x => x.id === 'plato').length) === 6 && /ya hay 6/.test(await p.textContent('#toast')));
+  ok('Como mucho 6 platos', await p.evaluate(() => MM.estado().objetos.filter(x => x.id === 'plato').length) === 6 && /Ya no caben más/.test(await p.textContent('#toast')));
   // cojines de sofá al sofá; el conejito, sentado en un cojín
   await p.click('#stkRow .mm-item[data-id="cojin-corazon"]'); await p.waitForTimeout(250); await p.click('#stkRow .mm-item[data-id="cojin-estrella"]'); await p.waitForTimeout(250);
   await p.click('#stkRow .mm-item[data-id="conejito"]'); await p.waitForTimeout(300);

@@ -23,11 +23,15 @@ reproduce main 021c67e byte a byte (versión 5889ab82ca5d).
 Publica SOLO la sesión encargada de publicar (desde el 07/11/2026, la del avatar y Mi Mundo; ver
 docs/COORDINACION_RAMAS.md) y solo con la aprobación expresa de la propietaria. Lo que ya está en main no se vuelve a publicar.
 
-Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_publicacion.py DESTINO [--sin-git] [--con-pensar CARPETA] [--con-mimundo CARPETA]
+Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_publicacion.py DESTINO [--sin-git] [--con-lectura CARPETA] [--con-pensar CARPETA] [--con-mimundo CARPETA]
   --con-pensar CARPETA   añade los juegos de Pensar aprobados (juegos-pensar): los archivos de ARCHIVOS_PENSAR que haya en
                          CARPETA van en la página (antes que Mi Mundo) y en lo básico para jugar sin conexión. Sus datos
                          empiezan por «lv_», que «Guardar / Recuperar mi progreso» ya incluye. Ojo: si CARPETA tiene ya la
                          2.ª entrega (figuras.js, pensar2.js), también va: solo cuando esté aprobada.
+  --con-lectura CARPETA  añade la norma de lectura (D-038, docs/NORMA_TEXTOS_INFANTILES.md): lectura.css y lectura.js de
+                         CARPETA, en la página justo después de los logros (antes de Contar y Memoria y de Mi Mundo) y en lo
+                         básico para jugar sin conexión. Solo cambia la presentación (MAYÚSCULAS, letra, contraste, frases
+                         breves): ningún dato ni respuesta. Común a todas las ramas: docs/propuestas/lectura-2026-11-17.
   --con-mimundo CARPETA  añade Mi Mundo: TODOS los .js, .css y .webp de CARPETA (motor, estilos, catálogo y arte) van en la
                          página y en lo básico para jugar sin conexión, y «Guardar / Recuperar mi progreso» incluye sus datos
                          (prefijo «mm_»). Lo publicado (D-035): docs/propuestas/prueba-mimundo-2026-11-04/mimundo (solo la
@@ -77,10 +81,18 @@ if __name__ == '__main__':
     assert (destino / '.git').exists() or '--sin-git' in args, 'DESTINO debe ser una copia de trabajo de main'
     mm = args[args.index('--con-mimundo') + 1].strip('/') if '--con-mimundo' in args else None
     pe = args[args.index('--con-pensar') + 1].strip('/') if '--con-pensar' in args else None
+    le = args[args.index('--con-lectura') + 1].strip('/') if '--con-lectura' in args else None
     archivos = {'index.html': pagina().encode('utf-8'), 'offline.js': (AQUI / 'offline.js').read_bytes(), '.nojekyll': b''}
     for f in COPIAR + PIEZAS:
         archivos[f] = (RAIZ / f).read_bytes()
     basico = ['./', 'index.html', 'offline.js'] + [f for f in COPIAR if f != 'manifest-pruebas.json' and 'pruebas' not in f] + ['offline-lista.js']
+    if le:   # norma de lectura (D-038): primero, para que Pensar y Mi Mundo la encuentren ya puesta
+        lef = [f'{le}/lectura.css', f'{le}/lectura.js']
+        for f in lef:
+            archivos[f] = (RAIZ / f).read_bytes()
+        basico[-1:-1] = lef
+        etiquetas = f'<link rel="stylesheet" href="{lef[0]}">\n<script src="{lef[1]}"></script>\n'
+        archivos['index.html'] = sustituir(archivos['index.html'].decode('utf-8'), '<script src="offline-lista.js"></script>', etiquetas + '<script src="offline-lista.js"></script>').encode('utf-8')
     if pe:   # Pensar (juegos-pensar): Contar y Memoria…
         pef = [f'{pe}/{n}' for n in ARCHIVOS_PENSAR if (RAIZ / pe / n).is_file()]
         assert pef, 'no hay archivos de Pensar en ' + pe

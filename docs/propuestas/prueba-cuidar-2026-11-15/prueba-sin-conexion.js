@@ -21,7 +21,7 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   const mm = window.matchMedia.bind(window); window.matchMedia = q => /standalone/.test(q) ? { matches: true, media: q, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} } : mm(q); };
 
 (async () => {
-  execSync(`python3 herramientas/publicar/preparar_publicacion.py "${SITIO}/mis-juegos" --sin-git --con-pensar docs/propuestas/pensar-2026-11-04 --con-mimundo docs/propuestas/prueba-cuidar-2026-11-15/mimundo`, { cwd: RAIZ, stdio: 'ignore' });
+  execSync(`python3 herramientas/publicar/preparar_publicacion.py "${SITIO}/mis-juegos" --sin-git --con-lectura docs/propuestas/lectura-2026-11-17 --con-pensar docs/propuestas/pensar-2026-11-04 --con-mimundo docs/propuestas/prueba-cuidar-2026-11-15/mimundo`, { cwd: RAIZ, stdio: 'ignore' });
   const srv = spawn('python3', ['-m', 'http.server', String(PUERTO), '--bind', '127.0.0.1'], { cwd: SITIO, stdio: 'ignore' }); process.on('exit', () => srv.kill());
   await new Promise(r => setTimeout(r, 900));
   const b = await pw.chromium.launch(); const errs = [];
@@ -41,6 +41,7 @@ const INIT = () => { window.__comp = []; navigator.canShare = d => !!(d && d.fil
   const hab = await p.evaluate(() => ({ fondo: (document.querySelector('.mm-fondo') || {}).naturalWidth, cama: document.querySelectorAll('.mm-obj[data-id=cama]').length, esc: MM.escenario() }));
   ok('Sin conexión: la habitación abre con su fondo y su cama', hab.fondo === 1536 && hab.cama === 2 && hab.esc === 'habitacion', JSON.stringify(hab));
   // cuidar a la muñeca, sin conexión: indicadores, la ventana (de noche y otra vez de día) y jugar con la pelota
+  ok('Sin conexión: la norma de lectura está puesta (textos en MAYÚSCULAS)', await p.evaluate(() => document.documentElement.classList.contains('lectura') && getComputedStyle(document.querySelector('#home .big')).textTransform === 'uppercase'));
   const cui = await p.evaluate(() => ({ hud: [...document.querySelectorAll('.mm-nec-i img')].filter(i => i.naturalWidth > 0).length, act: MM.activas().join() }));
   await p.evaluate(() => MM.mirar(860, 500)); await p.waitForTimeout(700);
   const vent = await p.evaluate(() => { const v = MM.ESCENARIOS.habitacion.ventana, r = document.querySelector('.mm-escena').getBoundingClientRect(), k = r.width / 1536; return [r.left + (v[0] + v[2]) / 2 * k, r.top + (v[1] + v[3]) * .55 * k]; });

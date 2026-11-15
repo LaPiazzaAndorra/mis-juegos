@@ -64,10 +64,22 @@ const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', i
   // ---------- 2. se publica la nueva ----------
   servir(NUEVA);
   await p.reload(); await p.waitForTimeout(4000);       // la página vieja (de su caché) encuentra el service worker nuevo
-  await p.close(); p = await abrir(); await p.waitForTimeout(1500);
+  // y espera a que termine de instalarse la versión nueva (su caché completa y nada instalándose), sin un tiempo fijo:
+  // en una máquina lenta, 4 s no bastan y al volver a abrir seguiría la vieja (hasta 90 s)
+  const vNueva = fs.readFileSync(path.join(NUEVA, 'offline-lista.js'), 'utf8').match(/"version":\s*"([0-9a-f]+)"/)[1];
+  for (let i = 0; i < 180 && !await p.evaluate(async v => { const r = await navigator.serviceWorker.getRegistration(); return !!r && !r.installing && (await caches.keys()).includes('mis-juegos-' + v); }, vNueva).catch(() => false); i++) await p.waitForTimeout(500);
+  // cerrar la app: la versión nueva se activa cuando ya no queda ninguna página con la vieja (la versión nueva espera hasta
+  // entonces, o hasta «Actualizar»). Desde una página fuera del juego (fuera de su alcance) se espera a que esté activa,
+  // como pasa en el iPhone entre cerrar la app y volver a abrirla
+  await p.close();
+  { const fuera = await ctx.newPage(); await fuera.goto(`http://localhost:${PUERTO}/`);
+    for (let i = 0; i < 60 && !await fuera.evaluate(async () => { const r = await navigator.serviceWorker.getRegistration('/mis-juegos/'); return !!r && !r.waiting && !r.installing && !!r.active && r.active.state === 'activated'; }).catch(() => false); i++) await fuera.waitForTimeout(500);
+    if (process.env.DEPURAR) console.log('SW:', await fuera.evaluate(async () => { const r = await navigator.serviceWorker.getRegistration('/mis-juegos/'); return r ? JSON.stringify({ act: r.active && [r.active.scriptURL, r.active.state], wait: r.waiting && r.waiting.state, inst: r.installing && r.installing.state }) : 'sin registro'; }));
+    await fuera.close(); }
+  p = await abrir(); await p.waitForTimeout(1500);
   const ver = await p.evaluate(() => ({ offline: window.OFFLINE && OFFLINE.version, juego: window.Avatar && Avatar.JUEGO, pruebas: window.MODO_PRUEBAS, cinta: !!document.querySelector('.testbanner, #testBanner') && getComputedStyle(document.querySelector('.testbanner, #testBanner')).display }));
   const despues = await datos(p); despues.avatar = await p.evaluate(() => localStorage.getItem('avatar'));
-  ok('Al volver a abrir entra la versión nueva (muñeca nueva, sin modo de pruebas)', ver.offline && ver.juego === 'todo' && ver.pruebas === false, JSON.stringify(ver));
+  ok('Al volver a abrir entra la versión nueva (su número, la muñeca nueva, sin modo de pruebas)', ver.offline === vNueva && ver.juego === 'todo' && ver.pruebas === false, JSON.stringify(ver));
   ok('Ningún dato de la partida se ha perdido ni ha cambiado (también la lámina propia)', JSON.stringify(antes) === JSON.stringify(despues), Object.keys(PARTIDA).filter(k => antes[k] !== despues[k]).join(', ') || 'todo igual');
   ok('Lee la partida: ⭐ 37 y 🪙 5', await p.textContent('.sc') === '37');
   // ---------- 3. descarga completa ----------

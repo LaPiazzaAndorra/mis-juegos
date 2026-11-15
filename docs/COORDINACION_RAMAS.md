@@ -28,6 +28,18 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
 `logros.js` (Pensar: `pensar.css`, `dibujos.js`, `pensar.js`; Mi Mundo: `mimundo/…`). Pensar no cambia `progreso.js`
 (sus claves empiezan por `lv_`); Mi Mundo añade el prefijo `mm_`. Ninguna toca `logros.js`.
 
+## Norma de lectura (D-038, 17/11/2026): igual en las dos ramas
+
+- La norma está en `docs/NORMA_TEXTOS_INFANTILES.md` y también en `CLAUDE.md`.
+- La capa común es `docs/propuestas/lectura-2026-11-17/` (`lectura.css` y `lectura.js`). La mantiene `avatar-creador`;
+  `juegos-pensar` la copia **sin cambios** en su copia aislada y la carga justo después de `logros.js`, antes de
+  `pensar.css`. Si hace falta cambiarla, se acuerda y se cambia en las dos.
+- **Cada rama adapta sus frases en su código:** Mi Mundo en `avatar-creador` (hecho en la copia de cuidar), Contar,
+  Memoria y los demás juegos de Pensar en `juegos-pensar`. Sin cambiar datos (`lv_*`) ni respuestas.
+- Para dejar algo fuera (adultos o técnico), se le pone la clase `adulto`.
+- Antes de integrar: `node docs/propuestas/lectura-2026-11-17/prueba-lectura.js URL` en la copia de cada rama.
+- En la publicación: `--con-lectura docs/propuestas/lectura-2026-11-17` (antes de `--con-pensar` y `--con-mimundo`).
+
 ## Archivos compartidos y quién los toca
 
 | Archivo | Mi Mundo (D-033/D-034, `avatar-creador`) | Contar y Memoria (`juegos-pensar`) |

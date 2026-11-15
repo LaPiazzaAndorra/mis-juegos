@@ -1,5 +1,50 @@
 # Registro de cambios
 
+### 2026-11-17 — D-038: norma de textos para la niña (aprende a leer), con una capa común a las dos ramas
+
+- **Solicitado por:** la propietaria («Nueva norma para toda la interfaz infantil: Amaia está aprendiendo a leer. Todos sus
+  textos en MAYÚSCULAS, conservando tildes y Ñ… Aplica esta norma a los juegos y a Mi Mundo, incluidos avisos, pistas y
+  diálogos… No cambies datos guardados ni respuestas de los ejercicios al adaptar su presentación. Coordinad esta norma
+  para que quede igual al integrar ambas ramas.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `e5f8fd8`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Qué cambia:**
+  - **Norma** `docs/NORMA_TEXTOS_INFANTILES.md` (también en `CLAUDE.md`), para todas las ramas.
+  - **Capa común** `docs/propuestas/lectura-2026-11-17/` (`lectura.css`, `lectura.js`, `prueba-lectura.js`):
+    - MAYÚSCULAS con tildes y Ñ, también en los botones (el navegador no se las pasa por herencia);
+    - 16 px o más (antes había textos de 13–15 px);
+    - contraste de 4,5:1 o más: los grises de 4:1 se oscurecen y el «¡TOMA!» blanco sobre verde pasa a texto oscuro;
+    - títulos de las barras sin «…»: solo su icono, o en dos líneas si no tienen icono;
+    - «Mis logros» y Vestir sin cortes;
+    - frases más breves del juego base;
+    - voz de los mensajes.
+
+    La zona de adultos y lo técnico quedan fuera. No guarda nada.
+  - **Generador:** opción `--con-lectura` (sin ella, sigue reproduciendo `main` byte a byte).
+  - **Mi Mundo** (copia de cuidar, que carga la capa):
+    - frases breves en primera persona y botones con verbo;
+    - nombres cortos en el catálogo;
+    - **una instrucción cada vez en las misiones**, con el dibujo de la pieza y la voz;
+    - la barra de la misión, los avisos y los diálogos caben enteros en el iPhone pequeño.
+- **Coordinación:** `docs/COORDINACION_RAMAS.md`. `juegos-pensar` copia la capa sin cambios y adapta las frases de Contar,
+  Memoria y Pensar en su código.
+- **Datos guardados afectados:** ninguno. Comprobado: los mismos datos con la capa y sin ella, y Contar acepta la misma
+  respuesta.
+- **Pruebas (Chromium, iPhone 375 × 667, 390 × 844 y 430 × 932, e iPad):**
+  - `prueba-lectura.js` 16/16;
+  - `prueba-cuidar.js` 35/35;
+  - la del salón en la copia de cuidar 31/31;
+  - sin conexión con la capa 10/10;
+  - juego 21/21, copia de seguridad 45/45, publicación 23/23.
+- **Prueba de publicación (`prueba-publicacion.js`), más fiable:**
+  - en este equipo daba 21/23 porque esperaba un tiempo fijo y volvía a abrir antes de que la versión nueva estuviera
+    instalada y activa;
+  - además, la espera con `waitForFunction` asíncrono no esperaba nada;
+  - ahora espera de verdad a la instalación y a la activación, y comprueba que entra el número de la versión nueva;
+  - lo publicado no cambia.
+
+  **No probado en el iPhone ni en el iPad reales.**
+- **Cómo revertir:** `git revert` de este commit.
+
 ### 2026-11-16 — D-034 aprobado en general; D-037: rutina del pijama ajustada y propuesta de cocina y baño
 
 - **Solicitado por:** la propietaria («Registra mi aprobación general anterior del salón: cuando dije «funciona bien» me
@@ -9,7 +54,7 @@
   prepara la propuesta de cocina y baño para atender hambre, higiene y ganas de ir al baño. Indica las ilustraciones
   necesarias y reutiliza las piezas existentes. Mantén el estilo aprobado y deja las necesidades nuevas inactivas hasta que
   puedan resolverse. Todo en la copia aislada, sin publicar todavía.»).
-- **Rama y commit:** `avatar-creador`, este commit (sobre `53fb81f`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Rama y commit:** `avatar-creador`, `e5f8fd8` (sobre `53fb81f`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
 - **Salón (D-034):** aprobado en general (sin todos los casos en el iPhone); no publicado.
 - **Copia de cuidar** (`prueba-cuidar-2026-11-15/`, pendiente de revisión):
   - para dormir hace falta el pijama: si lo lleva, se acuesta directamente; si no, «👗 Ponerse el pijama» (Vestir y volver)

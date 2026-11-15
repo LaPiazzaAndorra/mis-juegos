@@ -200,7 +200,7 @@
     dormida();
     pintarTodo(); encajar(); pintarMision(); pintarNecesidades(); pintarLuces();
     caja.addEventListener('pointerdown', abajo);
-    if (!Avatar.cargar()) setTimeout(() => toast('Crea y guarda tu personaje en «Vestir» 👗'), 500);
+    if (!Avatar.cargar()) setTimeout(() => toast('Primero, viste a tu muñeca 👗'), 500);
   }
 
   /* ---------- la muñeca ---------- */
@@ -215,7 +215,7 @@
     est.muneca.en = null;
     if (cama) { est.muneca.x = Math.min(S().x1, cama.x + 300); est.muneca.y = Math.min(S().y1, cama.y + 10); }
     guardar(); av.set(Avatar.principal()); av.dormir(false); pintarMuneca(0);
-    if (saludo) { av.saludar(); const t = activa('sueno') && nec.sueno >= 90 ? '¡He dormido genial!' : '¡Ya me desperté!'; bocadillo(t); say(t);
+    if (saludo) { av.saludar(); const t = activa('sueno') && nec.sueno >= 90 ? '¡Qué bien he dormido!' : '¡Ya me desperté!'; bocadillo(t); say(t);
       setTimeout(proponerRopaDeDia, 1800); }
     return true;
   }
@@ -231,14 +231,14 @@
   function seleccionar(uid) { sel = uid; est.objetos.forEach(pintarObjeto); quitarBtn.style.display = uid ? '' : 'none'; }
   function nuevoUid() { return 'o' + Date.now().toString(36) + Math.floor(Math.random() * 1e4).toString(36); }
   function colocar(o) {
-    if (bloqueado(o)) { toast(`🔒 Se consigue con ${o.desbloqueo.logros} logros`); tone(300, .12, 'triangle'); return; }
+    if (bloqueado(o)) { toast(`🔒 ${o.desbloqueo.logros} LOGROS`); tone(300, .12, 'triangle'); return; }
     const ya = est.objetos.filter(x => x.id === o.id);
     if (o.unico && ya.length) {
       const it = ya[0];
       if (it.dentro) { sacarUno(it, est.objetos.find(x => x.uid === it.dentro)); guardar(); seleccionar(it.uid); return; }
-      seleccionar(it.uid); toast(`${o.nombre}: ya está en ${E.nombre === 'Salón' ? 'el salón' : 'la habitación'}`); return;
+      seleccionar(it.uid); toast(`${o.nombre}: ya está aquí`); return;
     }
-    if (o.max && ya.length >= o.max) { toast(`${o.nombre}: ya hay ${o.max}`); tone(300, .12, 'triangle'); return; }
+    if (o.max && ya.length >= o.max) { toast('Ya no caben más'); tone(300, .12, 'triangle'); return; }
     const [nx, ny] = E.sitioNuevo || [760, 820];
     const it = { uid: nuevoUid(), id: o.id, x: nx + Math.random() * 200, y: ny + Math.random() * 120 };
     // las cosas de la merienda van a un sitio libre de la mesa y los cojines de sofá, al sofá (los peluches, al suelo)
@@ -295,6 +295,19 @@
 
   /* ---------- misiones ---------- */
   const misionActiva = () => mis && mis.activa && misionesAqui().find(m => m.id === mis.activa && misionLista(m));
+  // el paso siguiente (D-038, una instrucción cada vez): [objeto, texto]
+  function pasoDe(m) {
+    const ob = m.objetivo;
+    if (ob.tipo === 'poner') {
+      const mueble = est.objetos.find(x => x.id === ob.mueble && !x.dentro);
+      for (const [id, c] of Object.entries(ob.cosas)) if (!mueble || est.objetos.filter(x => x.id === id && x.sobre === mueble.uid).length < c) return [id, m.pasos[id]];
+      for (const id of ob.sentar) { const it = est.objetos.find(x => x.id === id), p = it && padreDe(it); if (!(p && ob.asientos.includes(p.id))) return [id, m.pasos[id]]; }
+      return null;
+    }
+    const cont = est.objetos.find(x => x.id === ob.contenedor && !x.dentro);
+    const id = ob.objetos.find(i => !(cont && est.objetos.some(x => x.id === i && x.dentro === cont.uid)));
+    return id ? [id, m.pasos[id]] : null;
+  }
   const totalDe = m => m.objetivo.tipo === 'poner' ? Object.values(m.objetivo.cosas).reduce((a, b) => a + b, 0) + m.objetivo.sentar.length : m.objetivo.objetos.length;
   function progreso(m) {
     const ob = m.objetivo;
@@ -343,7 +356,7 @@
     }
     mis.activa = m.id; est.cam = m.vista ? [(m.vista[0] + m.vista[1]) / 2, m.foco[1]] : m.foco.slice();   // la vista, a la misión
     guardar(); guardarMis(); pintarTodo(); pintarMision(); encajar(); cerrarAviso(); pintarNecesidades();
-    say(m.inicio); tone(600, .1, 'triangle'); tone(800, .12, 'sine', .1, .1);
+    { const ps = pasoDe(m); say(m.inicio + (ps && ps[1] ? ' ' + ps[1] + '.' : '')); } tone(600, .1, 'triangle'); tone(800, .12, 'sine', .1, .1);
     return true;
   }
   function dejar() { mis.activa = null; guardarMis(); pintarMision(); encajar(); pintarNecesidades(); sfx.pop(); }
@@ -356,15 +369,16 @@
       if (m.premio && m.premio.estrellas) addStar(m.premio.estrellas);
       subir('diversion', 30);   // las misiones también divierten
       setTimeout(() => { confetti(); sfx.good(); say(m.fin); toast('⭐ ¡Misión cumplida!'); av && av.saludar(); pintarMision(); encajar(); pintarNecesidades(); }, 400);
-    } else say(`${pick(m.bien)} ${total - n === 1 ? 'Falta uno' : 'Faltan ' + (total - n)}`);
+    } else { const ps = pasoDe(m); say(`${pick(m.bien)} ${ps && ps[1] ? ps[1] : ''}`); }
   }
   function pintarMision() {
     if (!caja) return;
     let b = caja.querySelector('.mm-mision'); const m = misionActiva();
     if (!m) { if (b) b.remove(); return; }
     if (!b) { b = document.createElement('div'); b.className = 'mm-mision'; caja.appendChild(b); }
-    const n = progreso(m), total = totalDe(m);
-    b.innerHTML = `<b>${m.titulo}</b><span class="mm-puntos${total > 6 ? ' muchos' : ''}" aria-hidden="true">${Array.from({ length: total }, (_, i) => `<i class="${i < n ? 'si' : ''}"></i>`).join('')}</span>` +
+    const n = progreso(m), total = totalDe(m), ps = pasoDe(m), ob = ps && porId(ps[0]);
+    const icono = ob && conArte(ob) ? `<img class="mm-paso-img" src="${urlDe(MED()[ob.capas.detras].f)}" alt="" draggable="false">` : '';
+    b.innerHTML = `${icono}<b>${ps && ps[1] ? ps[1] : m.titulo}</b><span class="mm-puntos${total > 6 ? ' muchos' : ''}" aria-hidden="true">${Array.from({ length: total }, (_, i) => `<i class="${i < n ? 'si' : ''}"></i>`).join('')}</span>` +
       `<span class="mm-cuenta">${n} de ${total}</span><button class="btn" aria-label="Dejar la misión">✖</button>`;
     b.querySelector('button').onclick = e => { e.stopPropagation(); dejar(); };
     b.addEventListener('pointerdown', e => e.stopPropagation());
@@ -373,7 +387,7 @@
     cerrarPanel(); const lista = misionesAqui().filter(misionLista); if (!lista.length) return;
     const p = document.createElement('div'); p.className = 'mm-panel';
     p.innerHTML = '<div class="mm-panel-caja"><h3>Misiones</h3>' + lista.map(m => `<button class="btn mm-mis" data-id="${m.id}">${m.titulo}` +
-      `${mis.hechas[m.id] ? ` <small>✓ ${mis.hechas[m.id]}</small>` : ''}</button>`).join('') + '<button class="btn mm-cerrar">Jugar libre</button></div>';
+      `${mis.hechas[m.id] ? ` <small>✓ ${mis.hechas[m.id]}</small>` : ''}</button>`).join('') + '<button class="btn mm-cerrar">▶️ Jugar libre</button></div>';
     p.addEventListener('pointerdown', e => e.stopPropagation());
     p.onclick = e => { const b = e.target.closest('button'); if (!b) { cerrarPanel(); return; } if (b.dataset.id) empezar(b.dataset.id); else cerrarPanel(); };
     caja.appendChild(p); sfx.pop();
@@ -672,7 +686,7 @@
       else if (j.tipo === 'cubos') { av.reaccionar(); tone(600, .06, 'square', .05); tone(800, .06, 'square', .05, .2); }
       else if (j.tipo === 'cuento') { av.sonreir(3200); tone(500, .2, 'sine', .08); }
       else { av.saludar(); tone(750, .12, 'sine', .08); }
-      const t = pick(j.frases); bocadillo(t); say(t);
+      const f = pick(j.frases), [t, voz] = Array.isArray(f) ? f : [f, f]; bocadillo(t); say(voz);
       subir('diversion', j.mas);
       setTimeout(() => { jugando = false; }, 1200);
     });
@@ -695,16 +709,16 @@
   const conPijama = () => Avatar.principal().ropa === 'pijama';
   function irADormir(uid) {
     if (conPijama()) { bocadillo('¡Con mi pijama!'); acostar(uid); return; }
-    preguntar('Para dormir, ¿nos ponemos el pijama?', 'pijama', [
-      ['👗 Ponerse el pijama', () => aVestir({ accion: 'dormir', uid })],
-      ['Seguir jugando', () => { av.saludar(); bocadillo('¡Vale, a jugar!'); }],
+    preguntar('Ponme el pijama', 'pijama', [
+      ['👗 Poner el pijama', () => aVestir({ accion: 'dormir', uid })],
+      ['▶️ Seguir jugando', () => { av.saludar(); bocadillo('¡A jugar!'); }],
     ]);
   }
   // de día, si lleva el pijama, se propone una vez vestirse para jugar
   function proponerRopaDeDia() {
     if (!caja || ciclo.noche || ciclo.preguntado.dia || est.muneca.en || !Avatar.cargar() || Avatar.principal().ropa !== 'pijama' || caja.querySelector('.mm-panel')) return;
     ciclo.preguntado.dia = true; guardarCiclo();
-    preguntar('Ya es de día. ¿Nos vestimos para jugar?', 'princesa', [['👗 Elegir la ropa', () => aVestir({ accion: 'dia' })], ['Así está bien', () => {}]]);
+    preguntar('¡Ya es de día! ¿Me vistes?', 'princesa', [['👗 Vestir', () => aVestir({ accion: 'dia' })], ['No, gracias', () => {}]]);
   }
   // ir a Vestir y volver al mismo escenario
   const volverBtn = document.createElement('button'); volverBtn.className = 'btn save'; volverBtn.id = 'mmVolver'; volverBtn.style.display = 'none';
@@ -716,14 +730,14 @@
   }, true);
   function aVestir(pend) {
     volver = Object.assign({ escena: scKey }, pend); go('dress'); volverBtn.style.display = '';
-    setTimeout(() => toast(pend.accion === 'dormir' ? 'Elige el pijama 🌙 y toca «Guardar y volver»' : 'Elige la ropa y toca «Guardar y volver»'), 500);
+    setTimeout(() => toast(pend.accion === 'dormir' ? 'Elige el pijama 🌙' : 'Elige la ropa 👗'), 500);
   }
   function continuarRutina(v) {
     if (v.accion === 'dormir') {
       const cama = est.objetos.find(x => x.uid === v.uid) || est.objetos.find(x => porId(x.id).acostar);
       if (!cama) return;
       // vuelve de Vestir: con el pijama, a la cama; sin él, se queda jugando (no se la acuesta)
-      if (!conPijama()) { av.saludar(); bocadillo('Para dormir me pondré el pijama'); say('Para dormir me pondré el pijama'); return; }
+      if (!conPijama()) { av.saludar(); bocadillo('Para dormir, ponme el pijama'); say('Para dormir, ponme el pijama'); return; }
       const o = porId(cama.id), k = escalaDe(o, cama.y);
       bocadillo('¡Qué pijama tan cómodo!');
       caminar(cama.x + 260 * k, cama.y + 8, () => acostar(cama.uid));

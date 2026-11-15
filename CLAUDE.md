@@ -32,6 +32,11 @@ corregir la documentación.
 - No borrar, renombrar ni reiniciar claves de `localStorage` ni la base IndexedDB `misjuegos`
   (lista en `docs/ARQUITECTURA_Y_DATOS.md`) sin una migración probada y una copia previa.
 - Mantener los identificadores del catálogo del avatar (los personajes guardados los usan).
+- **Todo texto para la niña sigue `docs/NORMA_TEXTOS_INFANTILES.md` (D-038):** Amaia está aprendiendo a leer:
+  MAYÚSCULAS con tildes y Ñ, letra grande y con buen contraste, frases breves con una instrucción cada vez, botones con
+  un verbo («JUGAR», «GUARDAR», «VOLVER»), dibujo y voz, y nada cortado en el iPhone. Se aplica con la capa común
+  `docs/propuestas/lectura-2026-11-17/` (igual en todas las ramas) y se comprueba con su `prueba-lectura.js`. La zona de
+  adultos y lo técnico conservan su formato.
 - **Toda pieza o imagen de la muñeca sigue `docs/NORMA_VISUAL_MUNECA.md` (D-013):** nenita de unos
   5–6 años con la cara elegida en D-012; las piezas se adaptan a ella, nunca se deforma su cara.
   Esa dirección no se vuelve a debatir; cada resultado nuevo sí se revisa con su lista.

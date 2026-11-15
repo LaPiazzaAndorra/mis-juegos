@@ -44,11 +44,11 @@ window.MM_CATALOGO = {
     // ---------------- habitación ----------------
     { id: 'cama', nombre: 'Cama', unico: true, escala: 0.62, yRef: 979,
       capas: { detras: 'cama-detras', delante: 'cama-delante' }, acostar: { cx: 385, cy: 525, giro: -25, alto: 560 } },
-    { id: 'cesta', nombre: 'Cesta de juguetes', unico: true, contenedor: true, altoM: 0.40, capas: { detras: 'cesta' } },
-    { id: 'osito', nombre: 'Osito', unico: true, guardable: true, va: 'peluche', altoM: 0.34, capas: { detras: 'osito' }, juego: { tipo: 'peluche', mas: 15, frases: ['¡Hola, osito!', '¡Te quiero mucho, osito!', '¡Osito, vamos a jugar!'] } },
-    { id: 'pelota', nombre: 'Pelota', unico: true, guardable: true, altoM: 0.26, capas: { detras: 'pelota' }, juego: { tipo: 'pelota', mas: 25, frases: ['¡A jugar con la pelota!', '¡Bota, bota!', '¡Qué divertido!'] } },
-    { id: 'cubos', nombre: 'Cubos de colores', unico: true, guardable: true, altoM: 0.24, capas: { detras: 'cubos' }, juego: { tipo: 'cubos', mas: 20, frases: ['¡Qué colores tan bonitos!', '¡Rojo, azul y amarillo!', '¡Me encantan los cubos!'] } },
-    { id: 'cuento', nombre: 'Libro de cuentos', unico: true, guardable: true, altoM: 0.20, capas: { detras: 'cuento' }, juego: { tipo: 'cuento', mas: 20, frases: ['Había una vez un osito que quería ver las estrellas…', 'Érase una vez una casita llena de flores…', 'Había una vez un conejito muy dormilón…'] } },
+    { id: 'cesta', nombre: 'Cesta', unico: true, contenedor: true, altoM: 0.40, capas: { detras: 'cesta' } },
+    { id: 'osito', nombre: 'Osito', unico: true, guardable: true, va: 'peluche', altoM: 0.34, capas: { detras: 'osito' }, juego: { tipo: 'peluche', mas: 15, frases: ['¡Hola, osito!', '¡Te quiero, osito!'] } },
+    { id: 'pelota', nombre: 'Pelota', unico: true, guardable: true, altoM: 0.26, capas: { detras: 'pelota' }, juego: { tipo: 'pelota', mas: 25, frases: ['¡A jugar!', '¡Bota, bota!', '¡Qué divertido!'] } },
+    { id: 'cubos', nombre: 'Cubos', unico: true, guardable: true, altoM: 0.24, capas: { detras: 'cubos' }, juego: { tipo: 'cubos', mas: 20, frases: ['¡Qué colores!', '¡Rojo, azul y amarillo!'] } },
+    { id: 'cuento', nombre: 'Cuento', unico: true, guardable: true, altoM: 0.20, capas: { detras: 'cuento' }, juego: { tipo: 'cuento', mas: 20, frases: [['Había una vez… 📖', 'Había una vez un osito que quería ver las estrellas…'], ['Había una vez… 📖', 'Érase una vez una casita llena de flores…'], ['Había una vez… 📖', 'Había una vez un conejito muy dormilón…']] } },
     // ---------------- salón ----------------
     { id: 'sofa', nombre: 'Sofá', unico: true, anchoM: 1.90, capas: { detras: 'sofa' },
       encima: { peluche: [[430, 545], [887, 545], [1345, 545]], cojin: [[300, 520], [1475, 520]] } },
@@ -67,18 +67,18 @@ window.MM_CATALOGO = {
     { id: 'taza', nombre: 'Taza', max: 6, va: 'mesa', anchoM: 0.16, capas: { detras: 'taza' } },
     { id: 'tetera', nombre: 'Tetera', unico: true, va: 'mesa', anchoM: 0.26, capas: { detras: 'tetera' } },
     { id: 'galletas', nombre: 'Galletas', unico: true, va: 'mesa', anchoM: 0.24, capas: { detras: 'galletas' } },
-    { id: 'conejito', nombre: 'Conejito', unico: true, va: 'peluche', altoM: 0.36, capas: { detras: 'conejito' }, juego: { tipo: 'peluche', mas: 15, frases: ['¡Hola, conejito!', '¡Qué orejas tan suaves!', '¡Conejito, vamos a jugar!'] } },
+    { id: 'conejito', nombre: 'Conejito', unico: true, va: 'peluche', altoM: 0.36, capas: { detras: 'conejito' }, juego: { tipo: 'peluche', mas: 15, frases: ['¡Hola, conejito!', '¡Qué orejas!'] } },
   ],
   // Necesidades (D-037): solo se activan si hay un objeto ilustrado para atenderlas (y no son «pendiente»). Bajan despacio y solo mientras se
   // juega en Mi Mundo (por segundo: «baja»; de noche, ×«noche»), nunca por debajo de «minimo»; avisan una vez al bajar de
   // «umbral» y no vuelven a avisar hasta subir de «rearme». «icono»: la pieza ilustrada que se ve en el aviso.
   necesidades: [
     { id: 'sueno', nombre: 'Sueño', icono: 'cama-detras', objetos: ['cama'], baja: 0.067, noche: 2, recupera: 2.5, minimo: 15, umbral: 35, rearme: 60,
-      avisos: ['Tengo sueño…', '¡Qué sueño tengo!'], noche_aviso: 'Ya es de noche. ¿Vamos a dormir?',
-      bien: '¡No tengo nada de sueño!', regular: 'Tengo un poquito de sueño.', donde: 'La cama está en la habitación 🛏️' },
+      avisos: ['Tengo sueño'], noche_aviso: '¡A dormir!',
+      bien: 'No tengo sueño', regular: 'Tengo un poco de sueño', donde: 'La cama está en la habitación 🛏️' },
     { id: 'diversion', nombre: 'Diversión', icono: 'pelota', objetos: ['pelota', 'cubos', 'cuento', 'osito', 'conejito'], baja: 0.1, minimo: 15, umbral: 35, rearme: 60,
-      avisos: ['¡Me aburro! ¿Jugamos?', '¿Jugamos con algo?'],
-      bien: '¡Me lo estoy pasando genial!', regular: 'Me apetece jugar un poco.', donde: 'Los juguetes están en la bandeja de abajo' },
+      avisos: ['¿Jugamos?', 'Quiero jugar'],
+      bien: '¡Me lo paso genial!', regular: 'Quiero jugar un poco', donde: 'Los juguetes están abajo 👇' },
     // PENDIENTES (no se activan aunque llegue el arte: «pendiente» las mantiene inactivas hasta que su acción esté
     // programada, probada y aprobada). Propuesta de espacios, objetos e ilustraciones: docs/propuestas/mimundo-cocina-bano-2026-11-16/
     { id: 'hambre', nombre: 'Hambre', pendiente: true, espacio: 'cocina', icono: 'galletas',
@@ -92,17 +92,19 @@ window.MM_CATALOGO = {
       falta: 'el baño (fondo, inodoro infantil y una cortina o puerta que se cierra; así no hace falta ninguna postura nueva)' },
   ],
   misiones: [
-    { id: 'guardar-juguetes', titulo: 'Guardar los juguetes',
-      inicio: '¡Hay juguetes por el suelo! ¿Los guardamos en la cesta?',
+    { id: 'guardar-juguetes', titulo: 'Guarda los juguetes',
+      inicio: 'Guarda los juguetes en la cesta.',
       objetivo: { tipo: 'meter', contenedor: 'cesta', objetos: ['osito', 'pelota', 'cubos', 'cuento'] },
       // dónde aparecen los juguetes y la cesta: juntos, en el suelo libre a la derecha de la cama, para que en el iPhone
       // en vertical quepan en la pantalla (la cámara mira a «foco» durante la misión); la muñeca se aparta a «sitioMuneca»
       sitios: [[1100, 1000], [1180, 800], [1240, 960], [1380, 990], [1120, 870], [1440, 880], [1300, 1005]], sitioContenedor: [1330, 760],
       foco: [1260, 880], sitioMuneca: [990, 955],
+      // una instrucción cada vez (D-038): el paso siguiente, con su dibujo y su voz
+      pasos: { osito: 'Guarda el osito', pelota: 'Guarda la pelota', cubos: 'Guarda los cubos', cuento: 'Guarda el cuento' },
       bien: ['¡Muy bien!', '¡Genial!', '¡A la cesta!', '¡Así se hace!'],
-      fin: '¡Todo recogido! ¡Qué habitación tan ordenada!', premio: { estrellas: 1 } },
-    { id: 'merienda', titulo: 'Merienda para tres',
-      inicio: '¡Vamos a preparar la merienda para tres! Pon tres platos, tres tazas, la tetera y las galletas en la mesa, y sienta al osito y al conejito.',
+      fin: '¡Todo recogido!', premio: { estrellas: 1 } },
+    { id: 'merienda', titulo: 'Prepara la merienda',
+      inicio: 'Pon la mesa para tres.',
       // exactamente 3 platos y 3 tazas (la mesa tiene 3 sitios de cada), la tetera y las galletas; dos invitados sentados
       objetivo: { tipo: 'poner', mueble: 'mesa', cosas: { plato: 3, taza: 3, tetera: 1, galletas: 1 }, sentar: ['osito', 'conejito'], asientos: ['cojin-rosa', 'cojin-lila', 'sofa'] },
       // al empezar se prepara la mesa: la mesa y los dos cojines de suelo van a su sitio (con lo que tengan encima no: todo
@@ -112,7 +114,8 @@ window.MM_CATALOGO = {
       sitios: [[565, 1003], [683, 1003], [801, 1003], [919, 1003], [1037, 1003], [732, 962], [818, 962], [904, 962]],
       sitiosInvitados: [[560, 770], [1095, 770]], sitioMueble: [800, 860], sitiosAsientos: [[575, 950], [1040, 950]],
       foco: [830, 800], vista: [480, 1180], sitioMuneca: [830, 700],
+      pasos: { plato: 'Pon un plato', taza: 'Pon una taza', tetera: 'Pon la tetera', galletas: 'Pon las galletas', osito: 'Sienta al osito', conejito: 'Sienta al conejito' },
       bien: ['¡Muy bien!', '¡Qué bonito!', '¡Perfecto!', '¡Eso es!'],
-      fin: '¡La merienda está lista! ¡A merendar!', premio: { estrellas: 1 } },
+      fin: '¡A merendar!', premio: { estrellas: 1 } },
   ],
 };
