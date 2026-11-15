@@ -18,7 +18,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 05/11/2026 | **Contar y Memoria publicados en `main`** (`021c67e`, versión `5889ab82ca5d`, D-035) | Publicado. Desde el 07/11, **solo el chat de `avatar-creador` reúne y publica**; este chat sigue en `juegos-pensar`. |
 | 07/11/2026 | **3.ª entrega: «Repasar dibujos»** (menú Pintar; ver abajo) | Probada en Chromium (28/28; sin conexión 10/10); **pendiente de probar en el iPhone**. La 2.ª entrega (`cf80691`) sigue pendiente de la prueba de la propietaria. |
 | 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
-| 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Probada en Chromium; **pendiente de probarla con Amaia**. |
+| 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -601,7 +601,7 @@ Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPi
    a mirar.
 4. Salir y volver a **Retos**: el último queda resaltado y cada uno en su nivel.
 
-Enlace fijo de la 5.ª entrega: en el commit siguiente.
+Enlace fijo de la 5.ª entrega (commit `3e01b60`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/3e01b607d6d6c4e46075e409ee9bfc2cc52b92a2/docs/propuestas/pensar-2026-11-04/index.html>
 
 **4.ª entrega (ejemplos para revisar; incluye todo lo anterior):**
 1. **Pintar → Dibujos por partes.** Elegir una tarjeta y los **puntos**. Unir la primera parte: ver cómo queda dibujada y
