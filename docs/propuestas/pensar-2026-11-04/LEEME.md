@@ -19,7 +19,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 07/11/2026 | **3.ª entrega: «Repasar dibujos»** (menú Pintar; ver abajo) | Probada en Chromium (28/28; sin conexión 10/10); **pendiente de probar en el iPhone**. La 2.ª entrega (`cf80691`) sigue pendiente de la prueba de la propietaria. |
 | 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
 | 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
-| 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
+| 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (commit `ddbe50c`; ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -638,7 +638,7 @@ Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPi
    a mirar.
 4. Salir y volver a **Retos**: el último queda resaltado y cada uno en su nivel.
 
-Enlace fijo de la 5.ª entrega **con la norma de lectura** (la que hay que probar): en el commit siguiente.
+Enlace fijo de la 5.ª entrega **con la norma de lectura** (la que hay que probar; commit `ddbe50c`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/ddbe50ca03c86f400152e1f7d7d43212f846ccda/docs/propuestas/pensar-2026-11-04/index.html>
 Enlace fijo de la 5.ª entrega, primera versión (commit `3e01b60`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/3e01b607d6d6c4e46075e409ee9bfc2cc52b92a2/docs/propuestas/pensar-2026-11-04/index.html>
 
 **4.ª entrega (ejemplos para revisar; incluye todo lo anterior):**
