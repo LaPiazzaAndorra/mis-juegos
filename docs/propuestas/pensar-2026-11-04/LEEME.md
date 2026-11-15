@@ -20,7 +20,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 15/11/2026 | La propietaria prueba la 2.ª y la 3.ª: **se ven bien, pero son demasiado básicas; no aprobadas.** Pide, antes de ampliar el catálogo, **tres ejemplos completos y elaborados** | **4.ª entrega (ejemplos):** «Dibujos por partes» (búho, furgoneta y unicornio, para unir puntos o repasar) y el reto de Pensar «¿Quién es?» (ver abajo). Commit `5a7a226`. Probada en Chromium; **pendiente de la revisión de la propietaria**. |
 | 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
 | 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (commit `ddbe50c`; ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
-| 15/11/2026, 17:25 | La propietaria: aplicar la **norma de lectura a todas las entregas** (Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir puntos, Repasar, Dibujos por partes, ¿Quién es?), dividir en pasos en vez de un máximo rígido de palabras, comprobar ambas orientaciones del iPhone y dejar **una única versión de prueba** | **Versión única** con todo adaptado (`lectura.css` y `lectura.js`; ver «Norma de lectura en todas las entregas»). Probada en Chromium; **pendiente de la prueba en el iPhone**. La aprobación de los Retos sigue pendiente de probarlos con Amaia. |
+| 15/11/2026, 17:25 | La propietaria: aplicar la **norma de lectura a todas las entregas** (Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir puntos, Repasar, Dibujos por partes, ¿Quién es?), dividir en pasos en vez de un máximo rígido de palabras, comprobar ambas orientaciones del iPhone y dejar **una única versión de prueba** | **Versión única** `d0c9df5` con todo adaptado (`lectura.css` y `lectura.js`; ver «Norma de lectura en todas las entregas»). Probada en Chromium; **pendiente de la prueba en el iPhone**. La aprobación de los Retos sigue pendiente de probarlos con Amaia. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -674,7 +674,7 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 
 Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
 
-**Versión única (todas las entregas con la norma de lectura; la que hay que probar):** enlace en el commit siguiente.
+**Versión única (todas las entregas con la norma de lectura; la que hay que probar), commit `d0c9df5`:** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/d0c9df554f4300040126bc5e6b13a4368f9930ce/docs/propuestas/pensar-2026-11-04/index.html>
 En el iPhone, en vertical y en horizontal:
 1. **Pensar**: los 7 juegos en mayúsculas; en horizontal, en 2 filas.
 2. **Contar**: entrar en el nivel 8 o más. El enunciado sale en pasos, uno por línea; tocarlo para oírlo.

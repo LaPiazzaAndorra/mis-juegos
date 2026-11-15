@@ -17,7 +17,7 @@ quedan solo como historia; **no se integran por separado**.
 | 3.ª · Repasar | | Probada el 15/11: se ve bien, pero demasiado básica; **no aprobada**. |
 | 4.ª · Dibujos por partes y ¿Quién es? | | Funciona, pero sigue siendo fácil; **no aprobada**. |
 | 5.ª · Retos (Detective, Dos reglas, ¿Qué cambió?) | Niveles avanzados | **Pendiente de probarlos con Amaia**. |
-| **Versión única** · todas + norma de lectura | | El commit de la norma en todas las entregas: lo da `git log -1 --format=%h -- docs/propuestas/pensar-2026-11-04/lectura.js`; el enlace, en `LEEME.md`. **Pendiente de la prueba en el iPhone.** No publicar. |
+| **Versión única** · todas + norma de lectura | | **`d0c9df5`** (los 14 archivos del juego son los de este commit; el enlace, en `LEEME.md`). **Pendiente de la prueba en el iPhone.** No publicar. |
 
 Cuando la propietaria apruebe, se puede integrar **todo** o **solo lo aprobado** (ver «Si solo se aprueba una parte»).
 
