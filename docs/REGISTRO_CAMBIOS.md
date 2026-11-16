@@ -9,9 +9,9 @@
 - **Rama y commit:**
   - la prueba conjunta está en la rama aparte **`prueba-conjunta-2026-11-16`** (`05e6eca`): la unión de `juegos-pensar`
     (`bcb9f4d`) con `avatar-creador` (`4dd3a80`), sin conflictos, y la copia conjunta;
-  - **en `avatar-creador`, este commit** trae de esa rama solo lo suyo: la corrección de Mi Mundo, las mejoras de las
+  - **en `avatar-creador`, `aa2cd73`** trajo de esa rama solo lo suyo: la corrección de Mi Mundo, las mejoras de las
     pruebas y esta documentación;
-  - la unión con Pensar, la copia conjunta y el generador ampliado siguen solo en la rama conjunta;
+  - la unión con Pensar, la copia conjunta y el generador ampliado se integraron después (aprobados), en la entrada siguiente;
   - `juegos-pensar` y `main` no cambian.
 - **Copia conjunta** `docs/propuestas/prueba-conjunta-2026-11-16/` (datos `cnj1:`):
   - una sola capa común de lectura, después de `logros.js`;
@@ -55,7 +55,7 @@
 
   **No probado en el iPhone ni en el iPad reales.**
 - **Datos guardados afectados:** ninguno del juego.
-- **Cómo revertir:** borrar la rama `prueba-conjunta-2026-11-16`; en `avatar-creador`, `git revert` de este commit.
+- **Cómo revertir:** borrar la rama `prueba-conjunta-2026-11-16`; en `avatar-creador`, `git revert` de `aa2cd73`.
 
 ### 2026-11-16 — El salón responde en el iPhone (motor de Mi Mundo) y bucle de la capa de lectura corregido
 
