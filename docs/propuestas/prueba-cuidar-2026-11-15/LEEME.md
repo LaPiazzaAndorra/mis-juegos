@@ -9,11 +9,25 @@ Enlace de prueba (siempre lo último de la rama):
 Parte de la copia del salón (`../prueba-salon-2026-11-07/`, D-034): lo publicado con Contar y Memoria + Mi Mundo con la
 habitación y el salón, y añade lo siguiente.
 
-**Norma de lectura (D-038, 17/11):** esta copia carga la capa común `../lectura-2026-11-17/` y sus textos de Mi Mundo
+**Norma de lectura (D-038, 15/11):** esta copia carga la capa común `../lectura-2026-11-17/` y sus textos de Mi Mundo
 siguen `docs/NORMA_TEXTOS_INFANTILES.md`:
 - MAYÚSCULAS, frases breves en primera persona («TENGO SUEÑO», «PONME EL PIJAMA») y botones con verbo («PONER EL
   PIJAMA», «SEGUIR JUGANDO»);
 - las misiones dan **una instrucción cada vez** («GUARDA EL OSITO», «PON UN PLATO»), con el dibujo de esa pieza y su voz.
+
+**16/11 · el salón responde en el iPhone** (prueba real en `f3005ce`: en el salón no respondía nada):
+- **El último toque gana:** antes, tras cada juego, durante 1,2 a 8 s no respondía a nada.
+- **Cada mueble y objeto del salón responde:**
+  - el sofá («¡QUÉ BLANDITO!», descansa: algo de sueño);
+  - los cojines y la estantería (diversión);
+  - la mesa («¿PONEMOS LA MESA?» y el panel de la merienda);
+  - la lámpara (se enciende o se apaga y lo dice);
+  - los platos, las tazas, la tetera y las galletas.
+- **La alfombra se toca como el suelo:** la muñeca va allí. Se sigue arrastrando para moverla; al soltarla queda
+  seleccionada para poder quitarla.
+- **Pruebas:**
+  - `prueba-tactil.js`: toques y arrastres con el dedo de verdad, con la capa de lectura y sin ella, con el mismo resultado;
+  - `prueba-webkit.js`: el motor de Safari; requiere WebKitGTK, ver su cabecera.
 
 ## Qué tiene esta entrega
 
@@ -61,7 +75,7 @@ Solo se activan las que tienen **un objeto ilustrado y una acción** para atende
 
 - **Misiones**: al completarlas, +30 de diversión.
 
-### 5. Rutina del pijama (y la ropa de día) · ajustada el 16/11 a lo pedido
+### 5. Rutina del pijama (y la ropa de día) · ajustada el 15/11 a lo pedido
 - **Para dormir hace falta el pijama.**
   - **Si ya lo lleva**, al llevarla a la cama (tocar la cama o soltarla encima) se acuesta directamente.
   - **Si no**, se le pide «Para dormir, ¿nos ponemos el pijama?», con un dibujo de ella misma en pijama (solo para
@@ -117,6 +131,8 @@ programados y aprobados. Propuesta de la cocina y el baño, con las ilustracione
 | `aislamiento.js`, `manifest.json` | Datos propios `cui1:`, «PRUEBA CUIDAR». |
 | `prueba-cuidar.js` | Prueba de esta entrega (35 comprobaciones; iPhone e iPad simulados). |
 | `prueba-salon-aqui.js` | La prueba del salón aplicada a esta copia: lo anterior sigue igual (31). |
+| `prueba-tactil.js` | Toques y arrastres táctiles de verdad en el salón y la habitación (14), con la capa de lectura o sin ella. |
+| `prueba-webkit.js` | El salón en WebKit (motor de Safari) por WebDriver: cada mueble se mueve y responde. |
 | `prueba-sin-conexion.js` | Versión publicable con esta carpeta en una carpeta temporal (sin publicar), en modo avión (9). |
 
 Datos nuevos: `mm_necesidades` y `mm_ciclo` (y `cam` dentro de `mm_habitacion2` y `mm_salon`). Todos con el prefijo `mm_`:

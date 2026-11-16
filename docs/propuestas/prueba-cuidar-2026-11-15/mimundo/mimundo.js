@@ -517,9 +517,11 @@
       const d = destinoBajo(e, a.it);
       if (d && d.cont) meter(a.it, d.cont);
       else if (d) { ponerEn(a.it, d.padre, d.s); guardar(); pintarObjeto(d.padre); tone(700, .08, 'triangle'); revisarMision(); }
-      else { guardar(); sfx.pop(); pintarMision(); }
+      else { guardar(); sfx.pop(); pintarMision(); if (o.plano) seleccionar(a.it.uid); }   // la alfombra, movida: queda seleccionada (🗑️)
       return;
     }
+    // tocar la alfombra (plana, en el suelo) es tocar el suelo: la muñeca va allí (16/11: en el salón, tapaba el suelo)
+    if (o.plano) { seleccionar(null); cerrarPanel(); caminar(x, y); return; }
     seleccionar(a.it.uid);
     if (o.contenedor && est.objetos.some(x => x.dentro === a.it.uid) && !misionActiva()) { sacar(a.it); return; }
     if (o.acostar && est.muneca.en !== a.it.uid) {   // tocar la cama: va a la cama y (con la rutina del pijama) se acuesta
@@ -542,7 +544,7 @@
   // una necesidad solo está activa si hay un objeto con su ilustración para atenderla (la cama, los juguetes…)
   // (las «pendiente», nunca: hambre, higiene y baño esperan a su cocina, su baño y su acción)
   const activa = id => { const n = NECESIDADES.find(x => x.id === id); return !!n && !n.pendiente && n.objetos.some(o => conArte(porId(o))); };
-  let nec = null, ciclo = null, volver = null, ultimoAviso = 0, latidos = 0, jugando = false;
+  let nec = null, ciclo = null, volver = null, ultimoAviso = 0, latidos = 0;
   function cargarNec() {
     const d = store.get(KEY_NEC, null) || {}, r = { v: 1, avisado: Object.assign({}, d.avisado) };
     NECESIDADES.filter(n => !n.pendiente).forEach(n => { r[n.id] = typeof d[n.id] === 'number' ? clamp(d[n.id], n.minimo, 100) : 85; });
@@ -668,14 +670,16 @@
     Object.assign(el.style, { left: x - r + 'px', top: y - r + 'px', width: 2 * r + 'px', height: 2 * r + 'px' });
   }
   function pintarLuces() { est.objetos.filter(it => porId(it.id) && porId(it.id).interruptor).forEach(pintarLuz); }
-  function encender(it) { it.luz = !it.luz; guardar(); pintarLuz(it); tone(it.luz ? 900 : 500, .06, 'square', .06); }
+  function encender(it) { it.luz = !it.luz; guardar(); pintarLuz(it); tone(it.luz ? 900 : 500, .06, 'square', .06);
+    const t = it.luz ? '¡Luz!' : 'Apagada'; bocadillo(t); say(t); }
 
   /* ---------- jugar con los objetos ---------- */
   // la muñeca va junto al objeto y responde con lo que ya sabe hacer (saltar, saludar, sonreír, destellos), sin posturas
   // nuevas; el objeto se anima; sube la diversión
+  // (16/11) el último toque siempre gana: tocar otra cosa mientras va o juega la lleva a lo nuevo (caminar cancela el
+  // paseo anterior); antes, durante 1,2 s —u 8 s si se cortaba el paseo— no respondía a nada («el salón no responde»)
   function jugarCon(it) {
-    if (jugando) return;
-    const o = porId(it.id), j = o.juego; jugando = true;
+    const o = porId(it.id), j = o.juego;
     levantar(false); cerrarAviso();
     const p = padreDe(it), base = p ? p.y + 10 : it.y, k = escalaDe(o, base), ancho = MED()[o.capas.detras].px[0] * k;
     const lado = est.muneca.x <= it.x ? -1 : 1, x = clamp(it.x + lado * (ancho / 2 + 70), S().x0, S().x1);
@@ -687,10 +691,11 @@
       else if (j.tipo === 'cuento') { av.sonreir(3200); tone(500, .2, 'sine', .08); }
       else { av.saludar(); tone(750, .12, 'sine', .08); }
       const f = pick(j.frases), [t, voz] = Array.isArray(f) ? f : [f, f]; bocadillo(t); say(voz);
-      subir('diversion', j.mas);
-      setTimeout(() => { jugando = false; }, 1200);
+      if (j.mas) subir(j.necesidad || 'diversion', j.mas);
+      // la mesa invita a su misión (si se puede hacer y no está ya en marcha)
+      const mi = j.mision && misionesAqui().find(m => m.id === j.mision);
+      if (mi && misionLista(mi) && !misionActiva()) setTimeout(() => { if (caja && caja.isConnected && !caja.querySelector('.mm-panel') && est.objetos.includes(it) && !misionActiva()) abrirPanel(); }, 900);
     });
-    setTimeout(() => { jugando = false; }, 8000);   // por si se interrumpe el paseo
   }
 
   /* ---------- rutinas y ropa (nunca se cambia la ropa sin que ella elija) ---------- */
@@ -704,7 +709,7 @@
     caja.appendChild(p); say(texto);
     try { const st = Avatar.principal(); Avatar.mount(p.querySelector('.mm-prev'), Object.assign({}, st, { ropa, accesorios: (st.accesorios || []).filter(a => !['alas', 'varita', 'mochila'].includes(a)) })); } catch (e) {}
   }
-  // para dormir hay que ponerse el pijama (D-037, 16/11): si ya lo lleva, se acuesta directamente; si no, se le pide
+  // para dormir hay que ponerse el pijama (D-037, 15/11): si ya lo lleva, se acuesta directamente; si no, se le pide
   // (cada vez que se la lleva a la cama: es lo que ella ha pedido) con dos opciones, ir a Vestir o seguir jugando
   const conPijama = () => Avatar.principal().ropa === 'pijama';
   function irADormir(uid) {

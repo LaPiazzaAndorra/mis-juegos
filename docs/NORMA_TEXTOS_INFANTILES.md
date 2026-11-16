@@ -1,6 +1,6 @@
-# Norma de textos para la niña (D-038) · 17/11/2026
+# Norma de textos para la niña (D-038) · 15/11/2026
 
-**Amaia está aprendiendo a leer.** Pedido de la propietaria (17/11/2026):
+**Amaia está aprendiendo a leer.** Pedido de la propietaria (15/11/2026):
 
 > Todos sus textos en MAYÚSCULAS, conservando tildes y Ñ. Letra de imprenta clara, grande y con buen contraste. Frases
 > breves, vocabulario sencillo y una instrucción cada vez. Botones con acciones concretas: «JUGAR», «PINTAR», «GUARDAR»,
@@ -37,7 +37,7 @@
 
 ## 2. Cómo se ve (capa común de lectura)
 
-`docs/propuestas/lectura-2026-11-17/` (`lectura.css` y `lectura.js`) se carga **igual en todas las ramas**: en las copias
+`docs/propuestas/lectura-2026-11-17/` (la carpeta se llama `lectura-2026-11-17` por un error de fecha; se deja así porque esa ruta ya se ha compartido) (`lectura.css` y `lectura.js`) se carga **igual en todas las ramas**: en las copias
 de prueba y en la publicación (`preparar_publicacion.py --con-lectura`), **justo después de `logros.js`** y antes de Contar
 y Memoria y de Mi Mundo. La capa hace esto:
 - **MAYÚSCULAS** en todo el texto de la niña (también en los botones), con tildes y Ñ. Usa `text-transform`, que respeta el

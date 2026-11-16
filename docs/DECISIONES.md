@@ -1,6 +1,6 @@
 # Registro de decisiones
 
-## D-038 · Norma de textos para la niña: está aprendiendo a leer · 17/11/2026
+## D-038 · Norma de textos para la niña: está aprendiendo a leer · 15/11/2026
 - **Pedido de la propietaria:** «Nueva norma para toda la interfaz infantil: Amaia está aprendiendo a leer. Todos sus
   textos en MAYÚSCULAS, conservando tildes y Ñ. Letra de imprenta clara, grande y con buen contraste. Frases breves,
   vocabulario sencillo y una instrucción cada vez. Botones con acciones concretas: «JUGAR», «PINTAR», «GUARDAR», «VOLVER».
@@ -45,15 +45,31 @@
   aventura, para el parque. El arte necesario (posturas sentada, leyendo, abrazando, con la pelota, comiendo y lavándose;
   fondos de noche; lámpara encendida; cuento abierto; cocina y baño) está en el `LEEME.md` de la copia. La noche actual
   es un efecto de luz provisional sobre el arte de día.
-- **Nota:** el «funciona bien» se refería al salón; queda registrado como su aprobación general (D-034, 16/11).
-- **16/11/2026 · rutina ajustada a lo pedido:** «Ajusta la rutina: para dormir debe ponerse el pijama, como pedí. Quita
+- **Nota:** el «funciona bien» se refería al salón; queda registrado como su aprobación general (D-034, 15/11).
+- **15/11/2026 · rutina ajustada a lo pedido:** «Ajusta la rutina: para dormir debe ponerse el pijama, como pedí. Quita
   «Dormir así» y deja «Ponerse el pijama» y «Seguir jugando». Si ya lo lleva, se acuesta directamente. Si vuelve de Vestir
   sin pijama, no la acuestes automáticamente.» Hecho en la copia.
-- **16/11/2026 · cocina y baño:** «Después prepara la propuesta de cocina y baño para atender hambre, higiene y ganas de ir
+- **15/11/2026 · cocina y baño:** «Después prepara la propuesta de cocina y baño para atender hambre, higiene y ganas de ir
   al baño. Indica las ilustraciones necesarias y reutiliza las piezas existentes. Mantén el estilo aprobado y deja las
   necesidades nuevas inactivas hasta que puedan resolverse.» Propuesta en `docs/propuestas/mimundo-cocina-bano-2026-11-16/`
   (pendiente de aprobación). Hambre, higiene y baño quedan en el catálogo como pendientes (inactivas).
 - **Estado:** la entrega sigue pendiente de la revisión de la propietaria; no se publica.
+- **16/11/2026 · «el salón no responde» en el iPhone (prueba real de la propietaria en `f3005ce`):** la habitación
+  funcionaba; en el salón, los elementos no respondían.
+  - **No era la capa de lectura:** con toques reales (eventos táctiles en Chromium) y en el motor de Safari (WebKitGTK),
+    el salón se comporta igual con la capa y sin ella.
+  - **Causas en el motor de Mi Mundo:**
+    1. tras cada juego, durante 1,2 s (u 8 s si se cortaba el paseo) no se respondía a ningún otro toque;
+    2. los muebles del salón no tenían ninguna acción (tocarlos solo los marcaba);
+    3. la alfombra tapaba el suelo: tocarla la seleccionaba en lugar de llevar allí a la muñeca.
+  - **Corregido:**
+    - el último toque gana;
+    - cada mueble y objeto del salón responde (va la muñeca, se anima, dice algo y sube su necesidad; la mesa ofrece la
+      merienda; la lámpara se enciende y lo dice);
+    - la alfombra se toca como el suelo y se arrastra para moverla.
+  - Nueva prueba táctil (`prueba-tactil.js`) y otra en WebKit (`prueba-webkit.js`).
+  - Además, en la capa común: el ajuste de títulos se llamaba a sí mismo en bucle (unos 120 cambios por segundo en las
+    pantallas con título). Corregido y comunicado a `juegos-pensar`.
 
 ## D-036 · Un solo encargado de publicar y un solo generador · 07/11/2026
 - **Pedido de la propietaria:** «Antes de la próxima publicación, unifica el generador con el que produjo la versión
@@ -108,7 +124,7 @@
 - **Coordinación:** rama `juegos-pensar` (copia `pensar-2026-11-04`, Contar y Memoria) en `docs/COORDINACION_RAMAS.md`.
 - **Límites:** nada programado ni publicado; partidas, `main` y lo aprobado sin cambios; logros como hoy; desbloqueables,
   aparte.
-- **16/11/2026 · aprobado en general por la propietaria:** «Registra mi aprobación general anterior del salón: cuando dije «funciona bien» me refería a esa prueba, sin dar por comprobados todos los casos.» No se publica hasta que lo pida.
+- **15/11/2026 · aprobado en general por la propietaria:** «Registra mi aprobación general anterior del salón: cuando dije «funciona bien» me refería a esa prueba, sin dar por comprobados todos los casos.» No se publica hasta que lo pida.
 - **07/11/2026 · montado en una copia aislada, pendiente de la prueba y la aprobación de la propietaria.** Pedido:
   «Continúa con el salón que dejaste preparado en 2073695. Ya tienes las 14 imágenes; no hace falta volver a pedirlas. Móntalo en una copia aislada con: Cambio entre habitación y salón, conservando la distribución de cada uno. Catálogo propio y objetos que se puedan colocar, mover y guardar. Objetos apoyados en la mesa o el sofá que los acompañen al moverlos. Juego libre y misión «Preparar la merienda para tres». Nuestra muñeca original y los peluches aprobados. Comprueba el uso en pantalla de iPhone, guardar y reabrir, copia de seguridad y funcionamiento sin conexión. Envíame el enlace de prueba y capturas para revisarlo. Antes de la próxima publicación, unifica el generador con el que produjo la versión 5889ab82ca5d. A partir de ahora este chat será el único encargado de publicar; el otro seguirá preparando los juegos. No vuelvas a publicar lo que ya está en main. El salón queda pendiente de mi prueba y aprobación, y las partidas de Amaia deben conservarse.»
   Copia `docs/propuestas/prueba-salon-2026-11-07/` (datos `sal1:`; lo publicado + Mi Mundo con habitación y salón): cambio

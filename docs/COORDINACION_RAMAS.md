@@ -28,7 +28,7 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
 `logros.js` (Pensar: `pensar.css`, `dibujos.js`, `pensar.js`; Mi Mundo: `mimundo/…`). Pensar no cambia `progreso.js`
 (sus claves empiezan por `lv_`); Mi Mundo añade el prefijo `mm_`. Ninguna toca `logros.js`.
 
-## Norma de lectura (D-038, 17/11/2026): igual en las dos ramas
+## Norma de lectura (D-038, 15/11/2026): igual en las dos ramas
 
 - La norma está en `docs/NORMA_TEXTOS_INFANTILES.md` y también en `CLAUDE.md`.
 - La capa común es `docs/propuestas/lectura-2026-11-17/` (`lectura.css` y `lectura.js`). La mantiene `avatar-creador`;
@@ -38,6 +38,13 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
   Memoria y los demás juegos de Pensar en `juegos-pensar`. Sin cambiar datos (`lv_*`) ni respuestas.
 - Para dejar algo fuera (adultos o técnico), se le pone la clase `adulto`.
 - Antes de integrar: `node docs/propuestas/lectura-2026-11-17/prueba-lectura.js URL` en la copia de cada rama.
+- **16/11 · estado:** `juegos-pensar` (último commit `bd07038`, 15/11) tiene su **propia** versión en
+  `pensar-2026-11-04/lectura.css` y `lectura.js` (pasos breves, altavoz en los mensajes), distinta de la capa común. La
+  propietaria ha autorizado a esa sesión a integrar la capa común. Propuesta, para no pisarse:
+  - cargar la capa común sin cambios;
+  - renombrar lo propio de Pensar (por ejemplo `pensar-lectura.*`), cargado después de la capa común.
+- **16/11 · corrección de la capa común** (`lectura.js`: bucle de ajuste de títulos), comunicada a `juegos-pensar` para
+  que copie la versión nueva.
 - En la publicación: `--con-lectura docs/propuestas/lectura-2026-11-17` (antes de `--con-pensar` y `--con-mimundo`).
 
 ## Archivos compartidos y quién los toca

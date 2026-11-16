@@ -89,3 +89,7 @@
 .mm-mision b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.1;flex:1 1 auto}
 .mm-mision .mm-puntos{flex:0 0 auto}
 @media (max-width:520px){.mm-mision{width:calc(100% - 20px);box-sizing:border-box}.mm-mision .mm-puntos.muchos{display:grid;grid-template-columns:repeat(5,8px);gap:3px}}
+/* el salón responde (16/11): los cojines y el sofá se aplastan; la mesa late */
+.mm-obj.mm-j-cojin{animation:mmAplasta .45s ease-in-out 2}
+.mm-obj.mm-j-mesa{animation:mmLatir .8s ease-in-out 1}
+@keyframes mmAplasta{50%{transform:scale(1.06,.9)}}

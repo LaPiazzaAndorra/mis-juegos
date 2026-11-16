@@ -1,4 +1,4 @@
-# Mi Mundo · cocina y baño: propuesta para hambre, higiene y ganas de ir al baño (D-037, 2.ª entrega) · 16/11/2026
+# Mi Mundo · cocina y baño: propuesta para hambre, higiene y ganas de ir al baño (D-037, 2.ª entrega) · 15/11/2026
 
 **Solo propuesta, pendiente de aprobación.** Nada de esto está programado ni activo. En la copia de cuidar
 (`../prueba-cuidar-2026-11-15/`), las tres necesidades ya están definidas en el catálogo como **pendientes**, así que siguen

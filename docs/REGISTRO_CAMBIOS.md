@@ -1,12 +1,56 @@
 # Registro de cambios
 
-### 2026-11-17 — D-038: norma de textos para la niña (aprende a leer), con una capa común a las dos ramas
+### 2026-11-16 — El salón responde en el iPhone (motor de Mi Mundo) y bucle de la capa de lectura corregido
+
+- **Solicitado por:** la propietaria, tras probar `f3005ce` en su iPhone («HABITACIÓN: las interacciones funcionan
+  correctamente. SALÓN: los elementos no responden cuando intento interactuar con ellos… Comprueba si la nueva capa de
+  lectura está bloqueando los eventos táctiles… Compara con y sin la capa… Corrige sin alterar la habitación, los juegos,
+  las respuestas ni los datos… pruebas que simulen pulsaciones táctiles reales… Coordínate con esa sesión para que
+  cualquier corrección de la capa común se aplique también en su rama.»).
+- **Rama y commit:** `avatar-creador`, este commit (sobre `f3005ce`). `main` sin cambios (`021c67e`).
+- **Diagnóstico:**
+  - con toques reales (eventos táctiles de Chromium por CDP) y en WebKit (WebKitGTK por WebDriver, el motor de Safari), el
+    salón se comporta **igual con la capa de lectura y sin ella**: la capa no bloquea toques ni pone capas invisibles
+    encima;
+  - las causas estaban en el motor de Mi Mundo (copia de cuidar):
+    1. **un bloqueo tras cada juego:** durante 1,2 s, u 8 s si se cortaba el paseo, no respondía a ningún toque (la prueba
+       táctil lo reprodujo: uno sí, otro no);
+    2. **los muebles del salón no tenían acción:** tocarlos solo los marcaba;
+    3. **la alfombra tapaba el suelo:** tocarla la seleccionaba en vez de llevar allí a la muñeca.
+- **Corregido** (`prueba-cuidar-2026-11-15/mimundo/mimundo.js`, `catalogo-mimundo.js`, `mimundo.css`):
+  - el último toque gana;
+  - cada mueble y objeto del salón responde: sofá (descansa: sueño +8), cojines, estantería, mesa (ofrece la merienda),
+    lámpara (lo dice), platos, tazas, tetera y galletas;
+  - la alfombra se toca como el suelo y se arrastra para moverla (después queda seleccionada).
+  - La habitación no cambia.
+- **Capa común** (`lectura-2026-11-17/lectura.js`): el ajuste de títulos se volvía a llamar a sí mismo (unos 120 cambios por
+  segundo en las pantallas con título). Ahora solo actúa al cambiar de pantalla o con contenido nuevo; comunicado a
+  `juegos-pensar`.
+- **Fechas corregidas en la documentación:** D-038 y la entrada de `e5f8fd8` decían 17/11 y 16/11; fueron el 15/11 (como sus
+  commits). Las carpetas `lectura-2026-11-17` y `mimundo-cocina-bano-2026-11-16` conservan su nombre (rutas ya compartidas).
+- **Pruebas nuevas:** `prueba-tactil.js` (toques y arrastres táctiles reales, 14) y `prueba-webkit.js` (WebKit).
+- **Datos guardados afectados:** ninguno.
+- **Pruebas:**
+  - táctil 14/14 con la capa y 14/14 sin ella;
+  - WebKit correcto con la capa y sin ella;
+  - lectura 16/16;
+  - cuidar 35/35;
+  - salón en esta copia 31/31;
+  - sin conexión 10/10;
+  - juego 21/21;
+  - copia de seguridad 45/45;
+  - publicación 23/23.
+
+  **El iPhone real, pendiente de la nueva prueba de la propietaria.**
+- **Cómo revertir:** `git revert` de este commit.
+
+### 2026-11-15 — D-038: norma de textos para la niña (aprende a leer), con una capa común a las dos ramas
 
 - **Solicitado por:** la propietaria («Nueva norma para toda la interfaz infantil: Amaia está aprendiendo a leer. Todos sus
   textos en MAYÚSCULAS, conservando tildes y Ñ… Aplica esta norma a los juegos y a Mi Mundo, incluidos avisos, pistas y
   diálogos… No cambies datos guardados ni respuestas de los ejercicios al adaptar su presentación. Coordinad esta norma
   para que quede igual al integrar ambas ramas.»).
-- **Rama y commit:** `avatar-creador`, este commit (sobre `e5f8fd8`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
+- **Rama y commit:** `avatar-creador`, `f3005ce` (sobre `e5f8fd8`). `main` sin cambios (`021c67e`, versión `5889ab82ca5d`).
 - **Qué cambia:**
   - **Norma** `docs/NORMA_TEXTOS_INFANTILES.md` (también en `CLAUDE.md`), para todas las ramas.
   - **Capa común** `docs/propuestas/lectura-2026-11-17/` (`lectura.css`, `lectura.js`, `prueba-lectura.js`):
@@ -45,7 +89,7 @@
   **No probado en el iPhone ni en el iPad reales.**
 - **Cómo revertir:** `git revert` de este commit.
 
-### 2026-11-16 — D-034 aprobado en general; D-037: rutina del pijama ajustada y propuesta de cocina y baño
+### 2026-11-15 — D-034 aprobado en general; D-037: rutina del pijama ajustada y propuesta de cocina y baño
 
 - **Solicitado por:** la propietaria («Registra mi aprobación general anterior del salón: cuando dije «funciona bien» me
   refería a esa prueba, sin dar por comprobados todos los casos. La nueva entrega de cuidar sigue pendiente de mi revisión.
