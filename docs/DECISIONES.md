@@ -23,7 +23,8 @@
     comprobado y avisa «✨ Juego corregido · Abrir»;
   - Ajustes muestra «Versión del juego: … · 70 de 70 archivos comprobados ✓» (⚠️ si falta alguno).
 - **Datos:** no se toca ninguno (ni localStorage ni IndexedDB); no hay claves nuevas.
-- **Publicación (pendiente de la autorización expresa de la propietaria; preparada: versión `386dd1333d57`):** con la autorización de D-039 (la misma versión del juego; solo cambian `sw.js`, `offline.js` y
+- **Publicación:** `main` = `90f78b8`, versión `386dd1333d57`, autorizada expresamente por la propietaria el 16/11 («Autorizo
+  subir a main la corrección D-040, versión 386dd1333d57, conservando todos los datos de Amaia»). Antes, con la autorización de D-039 (la misma versión del juego; solo cambian `sw.js`, `offline.js` y
   `offline-lista.js`). Al abrir la app con internet se instala la versión nueva comprobada; entra al cerrar y volver a abrir
   la app o al tocar «Actualizar».
 

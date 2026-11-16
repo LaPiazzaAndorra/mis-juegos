@@ -54,7 +54,7 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
 - **A partir de aquí:** lo nuevo de `juegos-pensar` se une a `avatar-creador` cuando la propietaria lo apruebe, y se
   publica desde aquí (D-036).
 - La rama `prueba-conjunta-2026-11-16` queda como referencia.
-- **16/11, D-040 (preparado, sin publicar):** versión `386dd1333d57`: los mismos archivos de Pensar (`bcb9f4d`) y de Mi Mundo; solo
+- **16/11, D-040:** `main` = `90f78b8`, versión `386dd1333d57`: los mismos archivos de Pensar (`bcb9f4d`) y de Mi Mundo; solo
   cambia la publicación (cada archivo se comprueba con su huella). Al Chat 2 se le ha pedido confirmar que `bcb9f4d` es su
   última entrega y los archivos exactos.
 

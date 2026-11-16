@@ -1,13 +1,23 @@
 # Registro de cambios
 
+### 2026-11-16 — D-040 publicada en main (`90f78b8`, versión 386dd1333d57)
+
+- **Autorizado por:** la propietaria («Autorizo subir a main la corrección D-040, versión 386dd1333d57, conservando todos
+  los datos de Amaia. Publica lo ya probado, comprueba el despliegue…»).
+- **Rama y commit:** documentación en `avatar-creador`, este commit (el código es el de `7d89b21`); `main` = `90f78b8`.
+- **Datos guardados afectados:** ninguno. **Pruebas:** las de la entrada siguiente, sobre estos mismos archivos (comprobado
+  con `diff`). **Sin probar en el iPhone real.**
+- **Cómo revertir:** subir a `main` `bd8dcbb`.
+
 ### 2026-11-16 — D-040: la app comprueba cada archivo (Pensar antiguo con la versión 08d0743115d0)
 
 - **Solicitado por:** la propietaria («La app instalada muestra la versión 08d0743115d0, pero los juegos de Pensar siguen
   apareciendo antiguos. Comprueba los archivos realmente publicados en main y los que sirve la caché, no solo el número de
   versión… Reproduce la actualización desde la versión anterior y corrige lo que falte, conservando las partidas.»)
-- **Rama y commit:** `avatar-creador`, este commit; publicación preparada para `main`: commit local `90f78b8`, versión **`386dd1333d57`**,
-  **sin subir** (falta la autorización expresa de la propietaria para tocar `main`).
-- **Estado:** corrección probada en simulación; **pendiente de subir a `main`**. `main` sigue en `bd8dcbb`.
+- **Rama y commit:** `avatar-creador`, este commit; **`main` = `90f78b8`**, versión **`386dd1333d57`**: subida tras la autorización expresa de la
+  propietaria («Autorizo subir a main la corrección D-040, versión 386dd1333d57, conservando todos los datos de Amaia»);
+  despliegue de GitHub Pages: ejecución 43904619561.
+- **Estado:** publicado (lo mismo que se probó, byte a byte).
 - **Lo comprobado:**
   - `main` `bd8dcbb` tenía bien los 14 archivos de Pensar (idénticos a `juegos-pensar` `bcb9f4d`, el mismo orden que la copia
     del Chat 2, todos en la lista sin conexión; las claves de Pensar son `lv_*`, que ya van en la copia de seguridad);
@@ -34,9 +44,9 @@
 - **Riesgos y pendiente:** la propietaria debe abrir la app con internet, cerrarla del todo y volver a abrirla (o tocar
   «Actualizar»), y mirar en Ajustes «… archivos comprobados ✓». Coordinación: preguntado al Chat 2 si `bcb9f4d` es su última
   entrega.
-- **¿`main` intacta?:** sí, sigue en `bd8dcbb` (comprobado con `git ls-remote`).
-- **Cómo revertir:** revertir este commit en `avatar-creador`; si se llega a publicar, subir a `main` `bd8dcbb` (o la rama
-  `version-anterior-2026-11-16`, `021c67e`); los datos no se tocan.
+- **¿`main` intacta?:** no: `bd8dcbb` → `90f78b8`, autorizado; solo cambian `sw.js`, `offline.js` y `offline-lista.js`
+  (comprobado con `git ls-remote` y `git diff --stat`).
+- **Cómo revertir:** subir a `main` `bd8dcbb` (o la rama `version-anterior-2026-11-16`, `021c67e`); los datos no se tocan.
 
 ### 2026-11-16 — D-039: publicada en main la prueba conjunta (Pensar + Mi Mundo + norma de lectura)
 
