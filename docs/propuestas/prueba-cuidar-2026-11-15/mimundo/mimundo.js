@@ -550,8 +550,16 @@
     NECESIDADES.filter(n => !n.pendiente).forEach(n => { r[n.id] = typeof d[n.id] === 'number' ? clamp(d[n.id], n.minimo, 100) : 85; });
     return r;
   }
-  const guardarNec = () => store.set(KEY_NEC, nec);
-  nec = cargarNec();
+  // (16/11) nunca se pisa lo que haya cambiado otro (p. ej. «Recuperar mi progreso», que escribe los datos y recarga: al
+  // cerrarse la página, Mi Mundo guardaba encima las necesidades que tenía en memoria): si lo guardado ya no es lo último
+  // que leyó o escribió Mi Mundo, se vuelve a leer en vez de escribir
+  const leidoNec = () => JSON.stringify(store.get(KEY_NEC, null));
+  let ultimoNec = null;
+  function guardarNec() {
+    if (leidoNec() !== ultimoNec) { nec = cargarNec(); ultimoNec = leidoNec(); return; }
+    store.set(KEY_NEC, nec); ultimoNec = leidoNec();
+  }
+  nec = cargarNec(); ultimoNec = leidoNec();
   ciclo = Object.assign({ v: 1, noche: false, preguntado: {} }, store.get(KEY_CICLO, {}) || {});
   const guardarCiclo = () => store.set(KEY_CICLO, ciclo);
   function subir(id, n) {
@@ -574,7 +582,10 @@
     pintarNecesidades(); revisarAvisos();
   }
   setInterval(latido, 1000);
-  addEventListener('pagehide', () => { if (nec) guardarNec(); });
+  // (16/11) lo guardado siempre al día al salir de Mi Mundo; al cerrar la página, solo si se está en Mi Mundo (fuera de él no
+  // cambia nada, y así «Recuperar mi progreso», que se hace fuera y recarga la página, no queda pisado)
+  { const salir0 = onLeave.scene; onLeave.scene = function () { if (nec) guardarNec(); if (salir0) return salir0.apply(this, arguments); }; }
+  addEventListener('pagehide', () => { if (nec && current === 'scene') guardarNec(); });
   function revisarAvisos() {
     if (!caja || !est || est.muneca.en || caja.querySelector('.mm-aviso, .mm-panel') || Date.now() - ultimoAviso < 90000) return;
     const n = NECESIDADES.find(x => activa(x.id) && nec[x.id] < x.umbral && !nec.avisado[x.id]);

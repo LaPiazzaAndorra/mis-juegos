@@ -20,7 +20,7 @@ const SIN = process.argv[2] === 'sin', TIPO = process.argv[3] || 'touch';
   const evA = (f, ...a) => rq('POST', S + '/execute/async', { script: `const cb = arguments[arguments.length - 1]; Promise.resolve((${f}).apply(null, [...arguments].slice(0, -1))).then(cb, e => cb('ERR ' + e))`, args: a });
   try {
     await rq('POST', S + '/window/rect', { width: 390, height: 844 });
-    await rq('POST', S + '/url', { url: 'http://localhost:8765/docs/propuestas/prueba-cuidar-2026-11-15/index.html' });
+    await rq('POST', S + '/url', { url: process.env.COPIA_URL || 'http://localhost:8765/docs/propuestas/prueba-cuidar-2026-11-15/index.html' });   // otra copia: COPIA_URL=…
     await new Promise(r => setTimeout(r, 1500));
     console.log('motor:', await ev(() => navigator.userAgent.match(/AppleWebKit\/[\d.]+.*?(Version\/[\d.]+)?/)[0]), '· tamaño', await ev(() => innerWidth + '×' + innerHeight));
     if (SIN) { await ev(() => { document.documentElement.classList.remove('lectura'); }); }

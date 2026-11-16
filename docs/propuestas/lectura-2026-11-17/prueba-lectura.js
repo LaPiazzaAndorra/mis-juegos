@@ -6,6 +6,7 @@
      python3 -m http.server 8765 &
      node docs/propuestas/lectura-2026-11-17/prueba-lectura.js [URL de la copia] [carpeta-capturas]
 
+   Las pantallas se recorren como las abre la niña: con los botones de los menús y su dato (16/11).
    Comprueba: la capa está activa; los textos de la niña se ven en MAYÚSCULAS con tildes y Ñ (inicio, menús, Vestir, Mi
    Mundo, avisos, mensajes); los de adultos y los técnicos, no (Ajustes, mensajes de la copia de seguridad, cinta de
    pruebas); las frases simplificadas; la voz de los mensajes; NINGÚN texto de la niña cortado, con «…», fuera de la
@@ -107,8 +108,11 @@ function revisar(raiz) {
   for (const vp of [[375, 667], [390, 844], [430, 932]]) {
     ({ c, p } = await nueva(vp)); await preparar(p);
     const mal = [];
-    for (const id of await p.evaluate(() => [...document.querySelectorAll('section.screen')].map(s => s.id))) {
-      await p.evaluate(i => go(i), id); await p.waitForTimeout(1100); (await p.evaluate(revisar, `#${id}`)).forEach(m => mal.push(`${id}: ${m}`)); }
+    // las pantallas, como las abre la niña: cada botón de los menús con su dato (p. ej. obs(sombras), ice(pedidos));
+    // las pantallas internas que necesitan un dato no se abren a la fuerza (16/11: abrirlas así daba errores falsos)
+    const destinos = await p.evaluate(() => { const v = new Map([['home', undefined]]); document.querySelectorAll('[data-go]').forEach(b => { const k = b.dataset.go + '|' + (b.dataset.arg || ''); if (!v.has(k) && document.getElementById(b.dataset.go)) v.set(k, [b.dataset.go, b.dataset.arg]); }); return [...v.values()].filter(Boolean).concat([['home']]); });
+    for (const [id, arg] of destinos) {
+      await p.evaluate(([i, a]) => go(i, a), [id, arg]); await p.waitForTimeout(1100); (await p.evaluate(revisar, `#${id}`)).forEach(m => mal.push(`${id}${arg ? '(' + arg + ')' : ''}: ${m}`)); }
     // lo que aparece al jugar: misiones (con su instrucción), avisos, diálogos, panel de misiones y mensajes
     await p.evaluate(() => go('scene')); await p.waitForTimeout(1500);
     const estados = [
