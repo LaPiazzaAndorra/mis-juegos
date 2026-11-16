@@ -47,8 +47,9 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     execSync('python3 ' + CARP + 'preparar_copia.py', { cwd: RAIZ });
     const h = fs.readFileSync(path.join(RAIZ, CARP, 'index.html'), 'utf8');
     ok('La copia sigue siendo la prueba completa (lo publicado) + los archivos de Pensar, cargados al final', /pensar\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/figuras\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/pensar2\.js"><\/script>/.test(h));
-    const fuera = git(`git status --porcelain -- . ':!${CARP}'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}'`);
-    ok('Fuera de su carpeta no cambia nada (juego, sw.js, progreso.js, logros, Pintar, muñeca, Mi Mundo, otras copias)', fuera === '', fuera.slice(0, 200));
+    const fuera = git(`git status --porcelain -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`);
+    ok('Fuera de su carpeta (y de la capa común de lectura) no cambia nada (juego, sw.js, progreso.js, logros, Pintar, muñeca, Mi Mundo, otras copias)', fuera === '', fuera.slice(0, 200));
+    ok('La capa común de lectura (lectura-2026-11-17) es idéntica a la de avatar-creador f3005ce', git('git diff --stat f3005ce -- docs/propuestas/lectura-2026-11-17/') === '' && git('git status --porcelain -- docs/propuestas/lectura-2026-11-17/').split('\n').every(l => !l || /^A /.test(l)));
   }
   const b = await pw.chromium.launch();
   // ---------- 1. menús, datos y avance ----------
@@ -59,9 +60,9 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     const menu = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim() + '→' + e.dataset.go + (e.dataset.arg ? ':' + e.dataset.arg : '')));
     ok('Menú Pensar: Memoria, Contar y los tres juegos nuevos', menu.join('|').startsWith('Memoria→memoria|Contar→contar|¿Qué sigue?→obs:sigue|Sombras→obs:sombras|El diferente→obs:distinto'), menu.join('|'));
     const mp = await p.$$eval('#m-paint .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pintar: Hoja en blanco, Colorear dibujos, Mis dibujos y Unir puntos', mp.join('|').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos'), mp.join('|'));
+    ok('Menú Pintar: Hoja en blanco, Colorear dibujos, Mis dibujos y Unir puntos', mp.join('|').replace('COLOREAR', 'Colorear dibujos').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos'), mp.join('|'));
     await p.click('#m-think [data-arg="sigue"]', { force: true }).catch(() => p.evaluate(() => go('obs', 'sigue'))); await p.waitForTimeout(500);
-    ok('La primera vez ofrece «Prueba rápida» o «Empezar» y lo dice en voz alta', await p.isVisible('#obs .pnIntro .pnSi') && /Saltamos/.test((await p.evaluate(() => window.__voz)).join(' ')));
+    ok('La primera vez ofrece «Hacer la prueba» o «Empezar» y lo dice en voz alta', await p.isVisible('#obs .pnIntro .pnSi') && /Saltamos/.test((await p.evaluate(() => window.__voz)).join(' ')));
     await p.click('#obs .pnNo'); await p.waitForTimeout(500);
     ok('Quien ya iba avanzado en el juego (lv_sigue 8) no empieza por lo más fácil; lv_sombras 2, sí', (await nv(p, 'sigue')).L === 1 && (await nv(p, 'sombras')).L === 0);
     for (let i = 0; i < 2; i++) await acierto(p);
@@ -163,7 +164,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     // pintar en Pintar: cubo dentro sin salirse, guardar en Mis dibujos y volver a Unir puntos
     await p.click('#puPintar'); await p.waitForTimeout(1200);
     const enPintar = await p.evaluate(() => ({ tpl: P.tpl, tool: P.tool, atras: document.querySelector('#paint .ptools [data-go]').dataset.go }));
-    ok('«¡A pintar!» abre el dibujo en Pintar con el cubo; la flecha vuelve a Unir puntos', /^pz:/.test(enPintar.tpl) && enPintar.tool === 'fill' && enPintar.atras === 'puntos', JSON.stringify(enPintar));
+    ok('«Pintar» abre el dibujo en Pintar con el cubo; la flecha vuelve a Unir puntos', /^pz:/.test(enPintar.tpl) && enPintar.tool === 'fill' && enPintar.atras === 'puntos', JSON.stringify(enPintar));
     const g0 = await p.evaluate(() => (JSON.parse(localStorage.getItem('gal') || '[]')).length);
     await p.click('#colors .sw >> nth=2'); await p.click('#saveBtn').catch(() => {});
     await p.click('#saveBtn'); await p.waitForTimeout(300);

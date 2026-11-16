@@ -44,8 +44,9 @@ async function repasarTodo(p, off = 0) { const n = await p.evaluate(() => REPASA
     execSync('python3 ' + CARP + 'preparar_copia.py', { cwd: RAIZ });
     const h = fs.readFileSync(path.join(RAIZ, CARP, 'index.html'), 'utf8');
     ok('La copia carga repasar.js después de los demás archivos de Pensar', /pensar2\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/repasar\.js"><\/script>/.test(h));
-    const fuera = git(`git status --porcelain -- . ':!${CARP}'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}'`);
-    ok('Fuera de su carpeta no cambia nada (ni main, ni el juego, ni Pintar, ni los archivos de avatar-creador)', fuera === '', fuera.slice(0, 200));
+    const fuera = git(`git status --porcelain -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`);
+    ok('Fuera de su carpeta (y de la capa común de lectura) no cambia nada (ni main, ni el juego, ni Pintar, ni los archivos de avatar-creador)', fuera === '', fuera.slice(0, 200));
+    ok('La capa común de lectura (lectura-2026-11-17) es idéntica a la de avatar-creador f3005ce', git('git diff --stat f3005ce -- docs/propuestas/lectura-2026-11-17/') === '' && git('git status --porcelain -- docs/propuestas/lectura-2026-11-17/').split('\n').every(l => !l || /^A /.test(l)));
   }
   const b = await pw.chromium.launch();
   // ---------- 1. entrada, voz y niveles ----------
@@ -53,7 +54,7 @@ async function repasarTodo(p, off = 0) { const n = await p.evaluate(() => REPASA
     const { c, p } = await pagina(b);
     await p.evaluate(() => go('m-paint')); await p.waitForTimeout(300);
     const mp = await p.$$eval('#m-paint .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pintar: … Unir puntos y Repasar', mp.join('|').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos|Repasar'), mp.join('|'));
+    ok('Menú Pintar: … Unir puntos y Repasar', mp.join('|').replace('COLOREAR', 'Colorear dibujos').startsWith('Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos|Repasar'), mp.join('|'));
     await p.click('#m-paint [data-go="repasar"]'); await p.waitForTimeout(700);
     const ini = await p.evaluate(() => ({ voz: window.__voz.join(' '), demo: document.querySelector('#rpSvg .rpDemo').classList.contains('on'), marca: !!document.querySelector('#rpSvg .rpMarca'),
       flechas: document.querySelectorAll('#rpSvg .rpFlechas path').length, chips: document.querySelectorAll('#rpChips .pnChip svg').length, emoji: /\p{Extended_Pictographic}/u.test(document.querySelector('#rpChips').textContent + document.querySelector('#rpSvg').textContent) }));
@@ -67,7 +68,7 @@ async function repasarTodo(p, off = 0) { const n = await p.evaluate(() => REPASA
     const ids = await p.evaluate(() => Object.keys(REPASAR.TODOS)), mal = [], s0 = await p.evaluate(() => stars);
     for (const id of ids) { await p.evaluate(id => REPASAR.empezarRp(id), id); await p.waitForTimeout(120); await repasarTodo(p, 22);
       const e = await p.evaluate(() => ({ hecho: REPASAR.rp.hecho, arte: document.querySelectorAll('#rpSvg .puArte path').length, fin: !document.querySelector('#rpFin').hidden })); if (!e.hecho || !e.arte || !e.fin) mal.push(id); }
-    ok(`Los ${ids.length} recorridos se completan con el dedo a 22 px del centro del camino; al final, el dibujo entero y «¡A pintar!»`, !mal.length && ids.length === 33, mal.join());
+    ok(`Los ${ids.length} recorridos se completan con el dedo a 22 px del centro del camino; al final, el dibujo entero y «Pintar»`, !mal.length && ids.length === 33, mal.join());
     ok('Cada dibujo terminado da +1 ⭐ (como un acierto; nada más)', await p.evaluate(() => stars) === s0 + ids.length);
     await p.screenshot({ path: path.join(OUT, 'terminado.png') });
     await c.close();
@@ -111,7 +112,7 @@ async function repasarTodo(p, off = 0) { const n = await p.evaluate(() => REPASA
     await p.evaluate(() => REPASAR.empezarRp('forma-sol')); await repasarTodo(p, 5);
     await p.click('#rpPintar'); await p.waitForTimeout(1200);
     const enP = await p.evaluate(() => ({ tpl: P.tpl, tool: P.tool, atras: document.querySelector('#paint .ptools [data-go]').dataset.go }));
-    ok('«¡A pintar!» abre el dibujo en Pintar con el cubo; la flecha vuelve a Repasar', enP.tpl === 'rp:forma-sol' && enP.tool === 'fill' && enP.atras === 'repasar', JSON.stringify(enP));
+    ok('«Pintar» abre el dibujo en Pintar con el cubo; la flecha vuelve a Repasar', enP.tpl === 'rp:forma-sol' && enP.tool === 'fill' && enP.atras === 'repasar', JSON.stringify(enP));
     const g0 = await p.evaluate(() => JSON.parse(localStorage.getItem('gal') || '[]').length);
     const r = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON()); await p.mouse.click(r.x + r.width / 2, r.y + r.height / 2); await p.waitForTimeout(150);
     await p.click('#saveBtn'); await p.waitForTimeout(300);
@@ -158,7 +159,7 @@ async function repasarTodo(p, off = 0) { const n = await p.evaluate(() => REPASA
         lado: Math.round(document.querySelector('#rpSvg').getBoundingClientRect().width), ancho: document.documentElement.scrollWidth <= innerWidth + 1 }; });
     await repasarTodo(p, 10); const fin = await p.evaluate(() => { const r = [...document.querySelectorAll('#rpFin .btn')].map(e => e.getBoundingClientRect()); return r.every(q => q.bottom <= innerHeight + 1 && q.right <= innerWidth + 1 && q.height >= 44); });
     await p.screenshot({ path: path.join(OUT, `repasar-${n.replace(' ', '-').toLowerCase()}.png`) });
-    ok(`${n}: Repasar a la vista (dibujo de ${m.lado} px), sin solaparse, botones de 44 px o más; «¡A pintar!» a la vista`, m.dentro && !m.sol && m.min >= 44 && m.ancho && m.lado >= 280 && fin, JSON.stringify(m));
+    ok(`${n}: Repasar a la vista (dibujo de ${m.lado} px), sin solaparse, botones de 44 px o más; «Pintar» a la vista`, m.dentro && !m.sol && m.min >= 44 && m.ancho && m.lado >= 280 && fin, JSON.stringify(m));
     await c.close();
   }
   ok('Sin errores de JavaScript', !errores.length, errores.slice(0, 3).join(' | '));

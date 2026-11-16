@@ -59,9 +59,10 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     execSync('python3 ' + CARP + 'preparar_copia.py', { cwd: RAIZ });
     ok('El generador reproduce la copia y comprueba que es la prueba completa (lo publicado) + Contar y Memoria', git(`git status --porcelain -- ${CARP}index.html ${CARP}progreso.js ${CARP}logros.js`).split('\n').every(l => !l.startsWith(' M')));
     const h = fs.readFileSync(path.join(RAIZ, CARP, 'index.html'), 'utf8');
-    ok('Solo añade pensar.css, dibujos.js y pensar.js (después de todo lo demás)', /logros\.js"><\/script>\n<link rel="stylesheet" href="docs\/propuestas\/pensar-2026-11-04\/pensar\.css">\n<script src="docs\/propuestas\/pensar-2026-11-04\/dibujos\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/pensar\.js"><\/script>/.test(h));
-    const fuera = git(`git status --porcelain -- . ':!${CARP}'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}'`);
-    ok('Fuera de su carpeta no cambia nada (juego, sw.js, progreso.js, logros, muñeca, otras copias, documentos)', fuera === '', fuera.slice(0, 200));
+    ok('Después de logros.js, la capa común de lectura (lectura-2026-11-17) y luego pensar.css, dibujos.js y pensar.js', /logros\.js"><\/script>\n<link rel="stylesheet" href="docs\/propuestas\/lectura-2026-11-17\/lectura\.css">\n<script src="docs\/propuestas\/lectura-2026-11-17\/lectura\.js"><\/script>\n<link rel="stylesheet" href="docs\/propuestas\/pensar-2026-11-04\/pensar\.css">\n<script src="docs\/propuestas\/pensar-2026-11-04\/dibujos\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/pensar\.js"><\/script>/.test(h));
+    const fuera = git(`git status --porcelain -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`) + git(`git diff --stat 6a91012 -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`);
+    ok('Fuera de su carpeta (y de la capa común de lectura) no cambia nada (juego, sw.js, progreso.js, logros, muñeca, otras copias, documentos)', fuera === '', fuera.slice(0, 200));
+    ok('La capa común de lectura (lectura-2026-11-17) es idéntica a la de avatar-creador f3005ce', git('git diff --stat f3005ce -- docs/propuestas/lectura-2026-11-17/') === '' && git('git status --porcelain -- docs/propuestas/lectura-2026-11-17/').split('\n').every(l => !l || /^A /.test(l)));
   }
   const b = await pw.chromium.launch();
   // ---------- 1. datos ----------
@@ -77,7 +78,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     const menu = await p.$$eval('#m-think .big', x => x.map(e => e.lastChild.textContent.trim() + '→' + e.dataset.go));
     ok('Menú Pensar: Memoria y Contar nuevos (¿Qué sigue?, Sombras y El diferente: ver prueba-pensar2.js)', menu.join('|').startsWith('Memoria→memoria|Contar→contar|¿Qué sigue?→obs|Sombras→obs|El diferente→obs'), menu.join('|'));
     await p.click('#m-think [data-go="contar"]'); await p.waitForTimeout(500);
-    ok('La primera vez, Contar ofrece «Prueba rápida» o «Empezar»', await p.isVisible('#contar .pnIntro .pnSi') && await p.isVisible('#contar .pnIntro .pnNo'));
+    ok('La primera vez, Contar ofrece «Hacer la prueba» o «Empezar»', await p.isVisible('#contar .pnIntro .pnSi') && await p.isVisible('#contar .pnIntro .pnNo'));
     await p.click('#contar .pnNo'); await p.waitForTimeout(500);
     ok('Quien ya contaba hasta 10 en el juego (lv_contar 8) no empieza por lo más fácil: nivel 2', (await nv(p, 'nvCt')).L === 1);
     for (let i = 0; i < 2; i++) await aciertoCt(p);
@@ -195,7 +196,7 @@ const EMOJI = /\p{Extended_Pictographic}/u;
     // ¿Dónde estaba?
     await p.evaluate(() => go('donde')); await p.waitForTimeout(500); await p.click('#donde .pnNo'); await p.waitForTimeout(500);
     await p.waitForTimeout(5000);
-    ok('¿Dónde estaba?: sin cronómetro (tras 5 s los dibujos siguen a la vista hasta tocar «¡Ya me acuerdo!»)', await p.evaluate(() => PENSAR.dn.fase === 'mirar' && document.querySelectorAll('#doTablero .vista').length > 0));
+    ok('¿Dónde estaba?: sin cronómetro (tras 5 s los dibujos siguen a la vista hasta tocar «Esconder»)', await p.evaluate(() => PENSAR.dn.fase === 'mirar' && document.querySelectorAll('#doTablero .vista').length > 0));
     async function rondaDo(fallar = 0) {
       await p.waitForFunction(() => PENSAR.dn.fase === 'mirar'); const t0 = await p.evaluate(() => PENSAR.dn.turno); await p.click('#doListo');
       while (await p.evaluate(() => PENSAR.dn.fase === 'buscar')) {

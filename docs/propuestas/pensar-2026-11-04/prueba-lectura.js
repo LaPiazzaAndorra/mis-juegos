@@ -3,6 +3,7 @@
    Prueba de la NORMA DE LECTURA DE AMAIA en todos los juegos de Pensar (Chromium; iPhone e iPad, vertical y horizontal)
    Recorre cada pantalla y sus momentos (inicio, jugando, pistas, final) y comprueba:
      · todo el texto visible en MAYÚSCULAS y a 16 px o más; los mensajes, a 22 px o más, partidos en pasos y con voz;
+     · contraste de 4,5:1 o más (mismo criterio que la prueba de la capa común lectura-2026-11-17);
      · que todo cabe (nada fuera de la pantalla ni encima de otra cosa) y se toca cómodamente (44 px o más).
    Uso (desde la raíz del repositorio):
      python3 -m http.server 8765 &
@@ -17,7 +18,7 @@ const RAIZ = path.resolve(__dirname, '../../..');
 const OUT = process.argv[3] || fs.mkdtempSync(path.join(os.tmpdir(), 'prueba-lectura-')); fs.mkdirSync(OUT, { recursive: true });
 const res = []; const ok = (n, c, x = '') => { res.push(!!c); console.log((c ? '  ✅ ' : '  ❌ ') + n + (x ? ' · ' + x : '')); };
 const errores = [];
-const DEV = { 'iPhone vertical': [390, 844, true], 'iPhone horizontal': [844, 390, true], 'iPad vertical': [820, 1180, false], 'iPad horizontal': [1180, 820, false] };
+const DEV = { 'iPhone pequeño vertical': [375, 667, true], 'iPhone vertical': [390, 844, true], 'iPhone horizontal': [844, 390, true], 'iPad vertical': [820, 1180, false], 'iPad horizontal': [1180, 820, false] };
 const INIT = () => { window.__voz = []; const mm = window.matchMedia.bind(window);
   window.matchMedia = q => /standalone/.test(q) ? { matches: true, media: q, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} } : mm(q);
   Object.defineProperty(navigator, 'standalone', { value: true });
@@ -56,6 +57,32 @@ const MOMENTOS = [
   ['Retos: dos reglas', retos('tabla', 2, 'rTab')],
   ['Retos: ¿qué cambió?', retos('escena', 2, 'rEsc')],
 ];
+// el mismo criterio que la prueba de la capa común (docs/propuestas/lectura-2026-11-17/prueba-lectura.js, copiado sin cambios):
+// texto cortado, con «…», fuera de la pantalla, de menos de 16 px o con contraste de menos de 4,5:1 sobre su fondo liso
+function revisar(raiz) {
+  const out = [], W = innerWidth, FUERA = '#settings,#bkModal,#adModal,#offlineAviso,#pruebasCinta,svg,.adulto';
+  const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return null; const [r, g, b, a] = m.map(Number); if (a === 0) return null;
+    const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(r) + .7152 * f(g) + .0722 * f(b); };
+  for (const base of document.querySelectorAll(raiz)) {
+    const w = document.createTreeWalker(base, NodeFilter.SHOW_TEXT);
+    while (w.nextNode()) { const n = w.currentNode, t = n.nodeValue.trim(); if (!/[A-Za-zÁÉÍÓÚÑáéíóúñ]/.test(t)) continue;
+      const el = n.parentElement; if (!el || !el.getClientRects().length || el.closest(FUERA)) continue; const s = getComputedStyle(el);
+      if (s.visibility === 'hidden' || +s.opacity === 0) continue;
+      let vis = true; for (let a = el; a; a = a.parentElement) { const sa = getComputedStyle(a); if (sa.display === 'none' || +sa.opacity === 0 || sa.visibility === 'hidden') { vis = false; break; } } if (!vis) continue;
+      const rg = document.createRange(); rg.selectNodeContents(n); const rs = [...rg.getClientRects()]; if (!rs.length) continue;
+      let corta = false, desplaza = false, fondo = null;
+      for (let a = el; a && a !== document.documentElement; a = a.parentElement) { const sa = getComputedStyle(a), ra = a.getBoundingClientRect();
+        if (fondo === null) { if (sa.backgroundImage !== 'none') fondo = false; else { const l = lum(sa.backgroundColor); if (l !== null && +sa.backgroundColor.split(',')[3] !== 0 && !/,\s*0?\.\d+\)$/.test(sa.backgroundColor)) fondo = l; } }
+        if (/auto|scroll/.test(sa.overflowX + sa.overflowY)) { desplaza = true; continue; }
+        if (sa.textOverflow === 'ellipsis' && a.scrollWidth > a.clientWidth + 1) corta = true;
+        if (!desplaza && /hidden|clip/.test(sa.overflowX + sa.overflowY) && rs.some(r => r.left < ra.left - 1 || r.right > ra.right + 1 || r.top < ra.top - 2 || r.bottom > ra.bottom + 2)) corta = true; }
+      const fuera = !desplaza && rs.some(r => r.right > W + 1 || r.left < -1), fsz = parseFloat(s.fontSize);
+      const lt = lum(s.color), contraste = typeof fondo === 'number' && lt !== null ? (Math.max(lt, fondo) + .05) / (Math.min(lt, fondo) + .05) : null;
+      const malo = [corta && 'cortado', fuera && 'fuera', fsz < 16 && fsz + 'px', contraste !== null && contraste < 4.5 && 'contraste ' + contraste.toFixed(1)].filter(Boolean);
+      if (malo.length) out.push(`${t.slice(0, 32)} (${malo.join(', ')})`); }
+  }
+  return [...new Set(out)];
+}
 function medir() {   // se ejecuta en la página
   const sc = document.querySelector('section.screen.on'), malos = [], chicos = [], R = [];
   // en el menú Pintar (del juego base) solo son de estas entregas los tres últimos botones
@@ -84,30 +111,33 @@ function medir() {   // se ejecuta en la página
     const c = await b.newContext({ viewport: { width: d[0], height: d[1] }, hasTouch: true, isMobile: d[2], deviceScaleFactor: 1 }); await c.addInitScript(INIT);
     const p = await c.newPage(); p.on('pageerror', e => errores.push(e.message));
     await p.goto(COPIA); await p.evaluate(() => { localStorage.clear(); localStorage.setItem('stars', '37'); }); await p.reload(); await p.waitForTimeout(500);
-    const fallos = { mayus: [], letra: [], tocar: [], cabe: [], mensajes: [] };
+    const fallos = { mayus: [], letra: [], tocar: [], cabe: [], mensajes: [], capa: [] };
     for (const [nombre, llegar] of MOMENTOS) {
       await llegar(p); await p.waitForTimeout(700); const m = await p.evaluate(medir);
+      const rv = await p.evaluate(revisar, 'section.screen.on'); if (rv.length) fallos.capa.push(`${nombre}: ${rv.slice(0, 3).join(' | ')}`);
       if (m.malos.length) fallos.mayus.push(`${nombre}: ${m.malos.slice(0, 3).join(' | ')}`);
       if (m.chicos.length) fallos.letra.push(`${nombre}: ${m.chicos.slice(0, 3).join(' | ')}`);
       if (m.peque.length) fallos.tocar.push(`${nombre}: ${m.peque.slice(0, 3).join(' | ')}`);
       if (m.fuera.length || m.sol.length || !m.ancho || m.cortados.length) fallos.cabe.push(`${nombre}: fuera ${m.fuera.slice(0, 3).join(',')} encima ${m.sol.join(',')} cortado ${m.cortados.join(',')}`);
       m.textos.filter(x => x.t).forEach(x => { if (x.px < 22 || !x.voz) fallos.mensajes.push(`${nombre}: «${x.t.slice(0, 30)}» ${x.px}px voz:${x.voz}`); });
-      if (dn === 'iPhone vertical' || dn === 'iPhone horizontal') await p.screenshot({ path: path.join(OUT, `${dn.replace(' ', '-')}-${nombre.replace(/[^a-z0-9áéíóúñ]+/gi, '-')}.png`.toLowerCase()) });
+      if (dn.startsWith('iPhone')) await p.screenshot({ path: path.join(OUT, `${dn.replace(/ /g, '-')}-${nombre.replace(/[^a-z0-9áéíóúñ]+/gi, '-')}.png`.toLowerCase()) });
     }
     ok(`${dn}: todo el texto visible en MAYÚSCULAS (${MOMENTOS.length} momentos de los 10 juegos; en el menú Pintar, sus 3 botones)`, !fallos.mayus.length, fallos.mayus.slice(0, 3).join(' || '));
     ok(`${dn}: ninguna letra por debajo de 16 px`, !fallos.letra.length, fallos.letra.slice(0, 3).join(' || '));
     ok(`${dn}: mensajes a 22 px o más y con voz al tocarlos`, !fallos.mensajes.length, fallos.mensajes.slice(0, 3).join(' || '));
     ok(`${dn}: todo cabe (nada fuera, encima de otra cosa ni cortado con «…»)`, !fallos.cabe.length, fallos.cabe.slice(0, 3).join(' || '));
+    ok(`${dn}: criterio de la capa común: contraste de 4,5:1 o más y nada cortado, fuera ni de menos de 16 px`, !fallos.capa.length, fallos.capa.slice(0, 4).join(' || '));
     ok(`${dn}: todo lo que se toca mide 44 px o más`, !fallos.tocar.length, fallos.tocar.slice(0, 3).join(' || '));
     if (dn === 'iPhone vertical') {
       // pasos breves y voz
       for (let k = 0; k < 15; k++) { await p.evaluate(() => { PENSAR.nvCt.elegir(7); go('contar'); }); await p.waitForTimeout(400); await sinIntro(p); await p.waitForTimeout(300);
-        if (await p.evaluate(() => LECTURA.pasos(document.querySelector('#ctTexto').textContent.trim()).length >= 2)) break; }
-      const ct = await p.evaluate(() => { const e = document.querySelector('#ctTexto'); return { t: e.textContent, pasos: e.querySelectorAll('.lxPaso').length, frases: LECTURA.pasos(e.textContent.trim()).length }; });
+        if (await p.evaluate(() => LecturaPensar.pasos(document.querySelector('#ctTexto').textContent.trim()).length >= 2)) break; }
+      const ct = await p.evaluate(() => { const e = document.querySelector('#ctTexto'); return { t: e.textContent, pasos: e.querySelectorAll('.lxPaso').length, frases: LecturaPensar.pasos(e.textContent.trim()).length }; });
       ok('Un enunciado de varias frases (Contar, dos pasos) se ve en pasos: una frase por línea, sin cambiar lo que dice', ct.pasos === ct.frases && ct.frases >= 2, JSON.stringify(ct));
       const v0 = await p.evaluate(() => window.__voz.length); await clic(p, '#ctTexto'); await p.waitForTimeout(100);
       const v = await p.evaluate(() => ({ n: window.__voz.length, u: window.__voz.at(-1) }));
-      ok('Al tocar el mensaje se oye entero (en minúsculas normales, para que la voz lo lea bien)', v.n === v0 + 1 && v.u === ct.t.trim() && v.u !== v.u.toLocaleUpperCase('es'), JSON.stringify(v));
+      await clic(p, '#ctSay'); await p.waitForTimeout(100); const vb = await p.evaluate(() => window.__voz.at(-1));
+      ok('Al tocar el mensaje se oye la instrucción entera, como con el botón 🗣️ (en minúsculas normales, para que la voz lo lea bien)', v.n === v0 + 1 && v.u === vb && v.u.length >= ct.t.trim().length - 2 && v.u !== v.u.toLocaleUpperCase('es'), JSON.stringify(v));
       await clic(p, '#contar .bar .title'); await p.waitForTimeout(100);
       ok('Al tocar el título se oye el nombre del juego', await p.evaluate(() => window.__voz.at(-1)) === 'Contar');
       await p.evaluate(() => { QUIEN.nv.elegir(2); go('quien'); }); await p.waitForTimeout(500);

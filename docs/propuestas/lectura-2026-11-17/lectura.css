@@ -1,0 +1,38 @@
+/* =====================================================================
+   Norma de lectura (D-038, docs/NORMA_TEXTOS_INFANTILES.md): capa COMÚN a todas las ramas
+   ---------------------------------------------------------------------
+   Solo cambia la PRESENTACIÓN, nunca los datos ni las respuestas:
+     · todo el texto de la niña en MAYÚSCULAS (con tildes y Ñ: text-transform respeta el idioma «es»);
+     · letra de imprenta redonda (la del juego), gruesa y grande: ningún texto de la niña por debajo de 16 px;
+     · grises más oscuros para un buen contraste (4,5:1 o más sobre blanco).
+   Se activa con la clase «lectura» en <html> (la pone lectura.js). La zona de adultos y lo técnico conservan su formato:
+   Ajustes (#settings), la copia de seguridad (#bkModal), la puerta de adultos (#adModal), el aviso de descarga
+   (#offlineAviso), la cinta de pruebas (#pruebasCinta), los campos de texto y todo lo marcado con la clase «adulto».
+   ===================================================================== */
+html.lectura body,html.lectura body :is(button,select,option){text-transform:uppercase;letter-spacing:.02em}   /* los botones no heredan */
+html.lectura :is(#settings,#bkModal,#adModal,#offlineAviso,#pruebasCinta,input,textarea,.adulto),
+html.lectura :is(#settings,#bkModal,#adModal,#offlineAviso,#pruebasCinta,.adulto) *{text-transform:none;letter-spacing:normal}
+html.lectura #toast.adulto{text-transform:none;font-size:20px}
+
+/* tamaños mínimos (los que eran de 13–15 px) */
+/* (con !important: las reglas del juego para estas piezas son más específicas; solo suben, nunca bajan) */
+html.lectura :is(.avopt,.av-saved,.ilv,.lmarca,.pvacio,.pnNivel,.pnNv){font-size:17px!important}
+html.lectura .mm-item span{font-size:16px!important}
+html.lectura :is(.mm-mision,.mm-cuenta){font-size:17px!important}
+
+/* contraste: los grises claros (#8a7a9a, #8a7a9c: unos 4:1) pasan a uno más oscuro (unos 7:1) */
+html.lectura :is(.av-saved,.ilv,.lgtit,.pvacio,.dsec){color:#5b4a70!important}
+/* texto blanco sobre verde claro («¡TOMA!»: 1,9:1) → texto oscuro (más de 4,5:1) */
+html.lectura .igive{color:#1d4a32!important}
+
+/* un poco más de aire entre líneas en mayúsculas */
+html.lectura :is(#toast,.mm-aviso,.mm-bocadillo,.mm-pregunta p){line-height:1.25}
+
+/* los títulos de las barras: en una línea y sin «…»; si no caben, lectura.js deja solo su icono (👗, 🏅…) */
+html.lectura .bar .title{text-overflow:clip}
+html.lectura .bar .title.lt-icono .lt-txt{display:none}
+html.lectura .bar .title.lt-dos{white-space:normal;line-height:1.05;overflow-wrap:normal;overflow:visible}
+/* los retos de «Mis logros»: en los iPhone grandes, el dibujo encima del nombre (si no, el nombre no cabe) */
+@media (max-width:520px){html.lectura .lgretos .big{flex-direction:column;gap:4px;padding:12px 6px;min-height:110px}html.lectura .lgretos .big .ill{width:64px;height:64px}}
+/* las fichas de Vestir: el nombre en las líneas que necesite */
+html.lectura .avopt{height:auto;line-height:1.1}

@@ -70,7 +70,7 @@
     const o = nivel.get();
     el.innerHTML = `<span class="pnPasos">${Array.from({ length: nivel.total }, (_, i) =>
       `<i class="${i <= o.max ? 'hecho' : ''}${i === o.L && !prueba.activa ? ' actual' : ''}"></i>`).join('')}</span>` +
-      `<span class="pnNivel">${prueba.activa ? `⏩ Prueba rápida · ${prueba.i + 1} de ${prueba.lista.length}` : `Nivel ${o.L + 1} de ${nivel.total} · ${nombres[o.L]}`}</span>`;
+      `<span class="pnNivel">${prueba.activa ? `<span>⏩ Prueba rápida</span><span>${prueba.i + 1} de ${prueba.lista.length}</span>` : `<span>Nivel ${o.L + 1} de ${nivel.total}</span><span>${nombres[o.L]}</span>`}</span>`;   // norma D-038: sin «·», en dos líneas
   }
   function finPrueba(r, nivel, nombres) {
     const L = nivel.get().L;
@@ -81,7 +81,7 @@
   function introHTML(ill) {
     return `<div class="pnIntro" hidden><div class="pnIntroCaja"><span class="ill" data-ill="${ill}"></span>
       <p>¿Saltamos lo fácil?</p>
-      <button class="btn pnSi" type="button">⏩ Prueba rápida</button><button class="btn pnNo" type="button">▶ Empezar</button></div></div>`;
+      <button class="btn pnSi" type="button">⏩ Hacer la prueba</button><button class="btn pnNo" type="button">▶ Empezar</button></div></div>`;
   }
   function intro(sec, nivel, alProbar, alEmpezar) {
     const box = sec.querySelector('.pnIntro');
@@ -141,7 +141,7 @@
   ${barra('memoria', '¿Dónde estaba?', '<button class="btn" id="doSay" aria-label="Repetir">🗣️</button>')}
   <div class="pnFila"><div class="pnCamino" id="doCamino"></div><button class="btn pnSaltar" id="doPrueba">⏩ Saltar lo fácil</button></div>
   <div class="pnWrap"><div class="pnTablero" id="doTablero"></div><div class="pnLado"><div class="pnTexto" id="doTexto"></div><div class="pnBusca" id="doBusca"></div>
-    <div class="pnAcciones"><button class="btn pnAccion" id="doListo">🙈 ¡Ya me acuerdo!</button><button class="btn pnAccion" id="doOtra" hidden>👀 Mirar otra vez</button></div></div></div>
+    <div class="pnAcciones"><button class="btn pnAccion" id="doListo">🙈 Esconder</button><button class="btn pnAccion" id="doOtra" hidden>👀 Mirar otra vez</button></div></div></div>
   ${introHTML('donde')}
 </section>
 <section class="screen pn" id="serie">
@@ -352,7 +352,7 @@
     dn.celdas.forEach((id, i) => { const b = document.createElement('button'); b.className = 'pnCelda vista'; b.innerHTML = id ? `<span class="pnCara">${DB[id].svg}</span>` : '';
       b.setAttribute('aria-label', 'Casilla ' + (i + 1)); b.onclick = () => tocarDo(i, b); tb.appendChild(b); });
     $('#doBusca').innerHTML = ''; $('#doListo').hidden = false; $('#doOtra').hidden = true; ajustar();
-    $('#doTexto').textContent = '¡Mira dónde está cada uno!'; setTimeout(() => { if (t === dn.turno) say('¡Mira dónde está cada uno! Cuando te acuerdes, toca «Ya me acuerdo».'); }, 300);
+    $('#doTexto').textContent = '¡Mira dónde está cada uno!'; setTimeout(() => { if (t === dn.turno) say('¡Mira dónde está cada uno! Cuando te acuerdes, toca «Esconder».'); }, 300);
   }
   function preguntaDo() {
     const id = dn.pregs[dn.q], d = DB[id]; dn.fallosQ = 0;

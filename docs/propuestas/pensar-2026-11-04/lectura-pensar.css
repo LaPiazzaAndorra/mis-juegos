@@ -1,0 +1,74 @@
+/* =====================================================================
+   Norma de lectura (D-038) · lo PROPIO de Pensar, que se añade a la capa común
+   ---------------------------------------------------------------------
+   La capa común (docs/propuestas/lectura-2026-11-17/, del commit f3005ce de avatar-creador, sin cambios) ya pone:
+   MAYÚSCULAS en todo el texto de la niña (también en los botones), 16 px o más (17 px en .pnNivel y .pnNv), contraste
+   en el juego base y títulos de las barras sin «…» (en dos líneas o solo con su icono).
+   Esta hoja solo añade lo de los juegos de Pensar:
+     · mensajes (.pnTexto) grandes, en pasos y con altavoz (lectura-pensar.js);
+     · tamaños que la capa común no cubre (.pnCamino, .pnSaltar, botones de nivel);
+     · contraste de 4,5:1 o más en los colores de Pensar;
+     · palabras bajo las pistas de ¿Quién es? y menús de Pensar en el iPhone en horizontal.
+   Se carga la última; no cambia datos, niveles ni recompensas.
+   ===================================================================== */
+/* letra mínima: 16 px (lo que la capa común no cubre) */
+.pnSaltar{font-size:16px!important}
+.pnCamino{font-size:16px!important}
+.pn .pnChip{font-size:22px}
+.pn .pnAccion{font-size:max(20px,1em)}
+.pnIntroCaja p{font-size:24px;line-height:1.2}
+/* mensajes: grandes, en pasos y con altavoz */
+.pn .pnTexto{font-size:clamp(22px,5.8vw,30px)!important;line-height:1.18;letter-spacing:.3px}
+.pn .pnTexto.lxVoz{cursor:pointer;position:relative;padding-left:46px;min-height:44px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.pn .pnTexto.lxVoz:before{content:'';position:absolute;left:4px;top:50%;width:34px;height:34px;transform:translateY(-50%);
+  background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M14 38H34L58 18V82L34 62H14Z' fill='%23c9b6ff' stroke='%234a3a5c' stroke-width='7' stroke-linejoin='round'/%3E%3Cpath d='M70 34Q80 50 70 66M80 24Q96 50 80 76' fill='none' stroke='%234a3a5c' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E")}
+.pn .pnTexto.lxVoz:empty:before{display:none}
+.lxPaso{display:block}
+/* palabras bajo los dibujos de las pistas de ¿Quién es? */
+.qnPistaW{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
+.lxCap{display:block;font:900 16px/1.1 ui-rounded,system-ui,sans-serif;color:#4a3a5c;text-align:center;max-width:120px}
+.qnPistas.tapadas .lxCap{visibility:hidden}
+.pn .bar .title{cursor:pointer}
+@media (orientation:landscape) and (max-height:600px){
+  /* menú Pintar (los 3 del juego base + los 3 de Pensar): 3 columnas en 2 filas, para que ningún nombre se corte */
+  #m-paint .menu{grid-template-columns:repeat(3,1fr);gap:10px;padding:8px 14px 26px;align-content:stretch}
+  #m-paint .big{min-height:0;padding:6px 8px;gap:2px;font-size:20px;flex-direction:column;justify-content:center;text-align:center}
+  #m-paint .big .ill{width:min(76px,15vh);height:min(76px,15vh)}
+  /* menú Pensar (7 juegos): 4 columnas en 2 filas, para que se vea entero sin desplazar */
+  #m-think .menu{grid-template-columns:repeat(4,1fr);gap:10px;padding:8px 14px 26px;align-content:stretch}
+  #m-think .big{min-height:0;padding:6px 8px;gap:2px;font-size:20px;flex-direction:column;justify-content:center}
+  #m-think .big .ill{width:min(76px,15vh);height:min(76px,15vh)}
+  /* lista de retos: las tres tarjetas a la vista */
+  .reLista{grid-template-columns:repeat(3,1fr);gap:10px;padding:6px 12px 26px}
+  .reCarta{padding:8px;gap:6px}
+  .reAbrir{flex-direction:column;text-align:center;justify-content:center;gap:4px;font-size:20px;padding:6px}
+  .reAbrir svg{width:56px;height:56px}
+  .pn .pnTexto{font-size:22px!important}
+  .qnPistas .qnPista{width:54px;height:54px}.qnPistas .qnPista>svg,.qnPistas .qnPista>.qnSil{width:40px;height:40px}
+  .qnPistas{gap:6px;padding:6px}
+}
+/* iPhone pequeño (375 × 667) en vertical: las tres tarjetas de «Dibujos por partes» a la vista */
+@media (orientation:portrait) and (max-height:700px){
+  .grLista{gap:10px;padding:6px 14px 26px}
+  .grCarta{padding:6px 12px}
+  .grDib{max-width:118px}
+  .grModo{width:68px;height:68px}
+}
+/* iPhone estrecho: el botón 🗣️ de la barra deja sitio al título; su función la hace el mensaje con altavoz (lectura-pensar.js) */
+@media (max-width:400px){ section.pn:has(.pnTexto.lxVoz) .bar .btn[id$="Say"]{display:none} }
+/* «Tú preguntas» en el iPhone pequeño: los botones van a la casilla libre de las preguntas (como en horizontal) y el
+   mensaje se oculta: la voz lo dice y cada respuesta queda marcada en su pregunta */
+@media (orientation:portrait) and (max-height:700px){
+  /* Retos: mensaje y botones en una fila; dibujos de las pistas algo menores (las palabras, igual de grandes) */
+  .rt .rtAbajo{flex-wrap:nowrap;width:100%}
+  .rt .rtAbajo .rtTexto{flex:1;min-width:0}
+  .rt .rtBtn{min-width:70px;padding:4px 6px 6px}.rt .rtBtn svg{width:40px;height:40px}
+  .rt .rtPista .qnPista{width:44px;height:44px}.rt .rtPista .qnPista>svg,.rt .rtPista .qnPista>.qnSil{width:34px;height:34px}
+  .rt .rtPistas{padding:6px;gap:6px}
+  #rDet.preguntar .rtAbajo{display:none}
+  #rDet.preguntar .rtPregBotones{display:flex}
+  #rDet.preguntar .rtWrap{gap:6px;padding-bottom:28px}
+  #rDet.preguntar .rtRejilla{min-height:150px}
+}
+/* la etiqueta de nivel de Contar y Memoria, en dos líneas (sin «·»: norma D-038) */
+.pnNivel>span{display:block}

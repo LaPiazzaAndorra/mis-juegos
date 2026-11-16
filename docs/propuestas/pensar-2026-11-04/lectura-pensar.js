@@ -1,9 +1,10 @@
 /* =====================================================================
-   NORMA DE LECTURA DE AMAIA (15/11/2026) — apoyo de voz y pasos breves para todos los juegos de Pensar.
+   Norma de lectura (D-038) · lo PROPIO de Pensar (va con lectura-pensar.css, después de la capa común)
    - Cada mensaje (.pnTexto) de los juegos se parte en pasos: una frase por línea (sin cambiar lo que dice).
-   - Al tocar un mensaje se oye (lleva un altavoz dibujado); al tocar el título de la barra, también.
-   - Las mayúsculas y los tamaños están en lectura.css. Los Retos ya tienen su propio globo con altavoz.
-   No cambia ningún dato, nivel ni recompensa. Se carga el último.
+   - Al tocar un mensaje se oye la instrucción (lo mismo que el botón 🗣️ de su pantalla, que en los iPhone estrechos se
+     quita de la barra para que quepa el título); al tocar el título de la barra se oye su nombre.
+   Las MAYÚSCULAS, los tamaños mínimos y los títulos sin «…» los pone la capa común (lectura-2026-11-17).
+   No cambia ningún dato, nivel ni recompensa. Se carga la última.
    ===================================================================== */
 (function () {
   'use strict';
@@ -22,7 +23,9 @@
     document.querySelectorAll('section.pn .pnTexto').forEach(el => {
       if (el.classList.contains('lxVoz')) return;
       el.classList.add('lxVoz'); el.setAttribute('role', 'button'); el.setAttribute('aria-label', 'Escuchar');
-      el.addEventListener('click', () => { const t = el.textContent.trim(); if (t) say(t); });
+      // tocar el mensaje hace lo mismo que el botón 🗣️ de su pantalla (la instrucción entera); si no hay, lee el mensaje
+      el.addEventListener('click', () => { const b = el.closest('section') && el.closest('section').querySelector('.bar .btn[id$="Say"]');
+        if (b) b.click(); else { const t = el.textContent.trim(); if (t) say(t); } });
       preparar(el); vigilar.observe(el, { childList: true, characterData: true, subtree: true });
     });
     document.querySelectorAll('section.pn .bar .title').forEach(el => {
@@ -33,5 +36,5 @@
   enganchar();
   // por si alguna pantalla se crea más tarde
   new MutationObserver(enganchar).observe(document.body, { childList: true });
-  window.LECTURA = { pasos, enganchar };
+  window.LecturaPensar = { pasos, enganchar };
 })();

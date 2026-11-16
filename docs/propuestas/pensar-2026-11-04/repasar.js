@@ -62,7 +62,7 @@
   <div class="subbar" id="rpChips"></div>
   <div class="pnWrap"><div class="pnTablero2" id="rpTablero"><svg id="rpSvg" viewBox="-40 -40 1080 1080" aria-label="Camino para repasar"></svg></div>
     <div class="pnLado"><div class="pnTexto" id="rpTexto"></div>
-      <div class="pnAcciones" id="rpFin" hidden><button class="btn pnAccion pnPintar" id="rpPintar">🎨 ¡A pintar!</button><button class="btn pnAccion" id="rpOtro">▶ Otro</button></div></div></div>
+      <div class="pnAcciones" id="rpFin" hidden><button class="btn pnAccion pnPintar" id="rpPintar">🎨 Pintar</button><button class="btn pnAccion" id="rpOtro">▶ Hacer otro</button></div></div></div>
 </section>`);
   $$('#m-paint .menu').forEach(m => m.insertAdjacentHTML('beforeend', '<button class="big c4" data-go="repasar"><span class="ill" data-ill="repasar"></span>Repasar</button>'));
   ILL.repasar = svg(`<path d="M18 92C30 40 70 96 82 44" fill="none" stroke="#e7defe" stroke-width="18" stroke-linecap="round"/>

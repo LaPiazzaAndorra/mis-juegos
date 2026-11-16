@@ -253,7 +253,7 @@
   <div class="subbar" id="puChips"></div>
   <div class="pnWrap"><div class="pnTablero2" id="puTablero"><svg id="puSvg" viewBox="-40 -40 1080 1080" aria-label="Dibujo de puntos"></svg></div>
     <div class="pnLado"><div class="pnTexto" id="puTexto"></div>
-      <div class="pnAcciones" id="puFin" hidden><button class="btn pnAccion pnPintar" id="puPintar">🎨 ¡A pintar!</button><button class="btn pnAccion" id="puOtro">▶ Otro</button></div></div></div>
+      <div class="pnAcciones" id="puFin" hidden><button class="btn pnAccion pnPintar" id="puPintar">🎨 Pintar</button><button class="btn pnAccion" id="puOtro">▶ Hacer otro</button></div></div></div>
 </section>`);
   $$('#m-paint .menu').forEach(m => m.insertAdjacentHTML('beforeend', '<button class="big c3" data-go="puntos"><span class="ill" data-ill="puntos"></span>Unir puntos</button>'));
   ILL.puntos = svg(`<path d="M30 92L60 24L92 92Z" fill="none" stroke="#a083ff" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round"/>

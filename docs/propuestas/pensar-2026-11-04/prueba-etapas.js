@@ -52,8 +52,9 @@ async function repasarTodo(p, off = 0) { for (let n = 0; n < 60; n++) { const s 
     execSync('python3 ' + CARP + 'preparar_copia.py', { cwd: RAIZ });
     const h = fs.readFileSync(path.join(RAIZ, CARP, 'index.html'), 'utf8');
     ok('La copia carga etapas.css, ilustraciones.js y etapas.js después de Repasar', /repasar\.js"><\/script>\n<link rel="stylesheet" href="docs\/propuestas\/pensar-2026-11-04\/etapas\.css">\n<script src="docs\/propuestas\/pensar-2026-11-04\/ilustraciones\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/etapas\.js"><\/script>/.test(h));
-    const fuera = git(`git status --porcelain -- . ':!${CARP}'`);
-    ok('Fuera de su carpeta no cambia nada (ni main, ni el juego, ni Pintar, ni los archivos de avatar-creador)', fuera === '', fuera.slice(0, 200));
+    const fuera = git(`git status --porcelain -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`);
+    ok('Fuera de su carpeta (y de la capa común de lectura) no cambia nada (ni main, ni el juego, ni Pintar, ni los archivos de avatar-creador)', fuera === '', fuera.slice(0, 200));
+    ok('La capa común de lectura (lectura-2026-11-17) es idéntica a la de avatar-creador f3005ce', git('git diff --stat f3005ce -- docs/propuestas/lectura-2026-11-17/') === '' && git('git status --porcelain -- docs/propuestas/lectura-2026-11-17/').split('\n').every(l => !l || /^A /.test(l)));
   }
   const b = await pw.chromium.launch();
   // ---------- 1. menú y elegir dibujo ----------
@@ -61,7 +62,7 @@ async function repasarTodo(p, off = 0) { for (let n = 0; n < 60; n++) { const s 
     const { c, p } = await pagina(b);
     await p.evaluate(() => go('m-paint')); await p.waitForTimeout(300);
     const mp = await p.$$eval('#m-paint .big', x => x.map(e => e.lastChild.textContent.trim()));
-    ok('Menú Pintar: lo de antes igual y, al final, «Dibujos por partes»', mp.join('|') === 'Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos|Repasar|Dibujos por partes', mp.join('|'));
+    ok('Menú Pintar: lo de antes igual y, al final, «Dibujos por partes»', mp.join('|').replace('COLOREAR', 'Colorear dibujos') === 'Hoja en blanco|Colorear dibujos|Mis dibujos|Unir puntos|Repasar|Dibujos por partes', mp.join('|'));
     await p.click('#m-paint [data-go="grandes"]'); await p.waitForTimeout(500);
     const gr = await p.evaluate(() => ({ cartas: document.querySelectorAll('.grCarta').length, botones: document.querySelectorAll('.grCarta .grModo').length,
       misterio: document.querySelectorAll('.grCarta .grMisterio').length, emoji: /\p{Extended_Pictographic}/u.test(document.querySelector('#grLista').textContent), voz: window.__voz.join(' ') }));
@@ -114,14 +115,14 @@ async function repasarTodo(p, off = 0) { for (let n = 0; n < 60; n++) { const s 
     await unirHasta(p, () => false); await p.waitForTimeout(1500);
     const fin = await p.evaluate(() => ({ hecho: ETAPAS.et.hecho, arte: document.querySelectorAll('#etSvg .puArte path').length, n: Object.values(ILUSTRACIONES.buho.etapas).reduce((a, e) => a + e.t.length, 0) + ILUSTRACIONES.buho.extra.length,
       fin: !document.querySelector('#etFin').hidden, o: ETAPAS.leer(), voz: window.__voz.slice(-2).join(' '), pasos: document.querySelectorAll('.etPaso.hecho').length }));
-    ok('Dibujo terminado: aparece entero con sus detalles, «¡Es un búho…!» y «¡A pintar!»', fin.hecho && fin.arte === fin.n && fin.fin && /búho/.test(fin.voz) && fin.pasos === 5, JSON.stringify({ ...fin, o: 0 }));
+    ok('Dibujo terminado: aparece entero con sus detalles, «¡Es un búho…!» y «Pintar»', fin.hecho && fin.arte === fin.n && fin.fin && /búho/.test(fin.voz) && fin.pasos === 5, JSON.stringify({ ...fin, o: 0 }));
     ok('+1 ⭐ como cualquier dibujo terminado; sin logros nuevos', await p.evaluate(() => stars) === st0 + 1 && await p.evaluate(() => Logros.total()) === l0);
     ok('Se guarda como terminado, se borra lo «a medias» y, con pocas ayudas, el próximo tendrá 60 puntos', fin.o.hechos['buho:pu'] === 1 && !fin.o.curso['buho:pu'] && fin.o.nivel === 2, JSON.stringify(fin.o));
     await p.screenshot({ path: path.join(OUT, 'puntos-fin.png') });
     // pintar
     await p.click('#etPintar'); await p.waitForTimeout(1200);
     const enP = await p.evaluate(() => ({ tpl: P.tpl, tool: P.tool, atras: document.querySelector('#paint .ptools [data-go]').dataset.go, oculto: !Object.keys(TPL).some(k => k.startsWith('gd:')) }));
-    ok('«¡A pintar!» abre el dibujo en Pintar con el cubo; no sale en «Colorear dibujos»; la flecha vuelve a «Dibujos por partes»', enP.tpl === 'gd:buho' && enP.tool === 'fill' && enP.atras === 'grandes' && enP.oculto, JSON.stringify(enP));
+    ok('«Pintar» abre el dibujo en Pintar con el cubo; no sale en «Colorear dibujos»; la flecha vuelve a «Dibujos por partes»', enP.tpl === 'gd:buho' && enP.tool === 'fill' && enP.atras === 'grandes' && enP.oculto, JSON.stringify(enP));
     const g0 = await p.evaluate(() => JSON.parse(localStorage.getItem('gal') || '[]').length);
     const r = await p.evaluate(() => document.querySelector('#pc').getBoundingClientRect().toJSON()); await p.mouse.click(r.x + r.width * .43, r.y + r.height * .55); await p.waitForTimeout(150);
     await p.click('#saveBtn'); await p.waitForTimeout(300);
@@ -160,7 +161,7 @@ async function repasarTodo(p, off = 0) { for (let n = 0; n < 60; n++) { const s 
     ok('Varios trazos en una parte: al acabar uno, el de al lado sigue marcado como hecho y se enciende el otro', await p.evaluate(() => ETAPAS.et.j === 1 && document.querySelectorAll('#etSvg .rpGuia.hecho').length === 1 && document.querySelectorAll('#etSvg .rpGuia.espera').length === 0));
     const st0 = await p.evaluate(() => stars);
     await repasarTodo(p, 14);
-    ok('Todas las partes con el dedo algo desviado: dibujo entero, +1 ⭐ y «¡A pintar!»', await p.evaluate(() => ETAPAS.et.hecho && !document.querySelector('#etFin').hidden) && await p.evaluate(() => stars) === st0 + 1);
+    ok('Todas las partes con el dedo algo desviado: dibujo entero, +1 ⭐ y «Pintar»', await p.evaluate(() => ETAPAS.et.hecho && !document.querySelector('#etFin').hidden) && await p.evaluate(() => stars) === st0 + 1);
     await p.screenshot({ path: path.join(OUT, 'repasar-fin.png') });
     // los otros dos dibujos, de principio a fin
     const otros = [];

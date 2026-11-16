@@ -118,7 +118,7 @@
   <div class="subbar etSub"><div class="etPasos" id="etPasos"></div><div class="etOpc" id="etOpc"></div></div>
   <div class="pnWrap"><div class="pnTablero2" id="etTablero"><svg id="etSvg" viewBox="-40 -40 1080 1080" aria-label="Dibujo por partes"></svg></div>
     <div class="pnLado"><div class="pnTexto" id="etTexto"></div>
-      <div class="pnAcciones" id="etFin" hidden><button class="btn pnAccion pnPintar" id="etPintar">🎨 ¡A pintar!</button><button class="btn pnAccion" id="etOtro">▶ Otro</button></div></div></div>
+      <div class="pnAcciones" id="etFin" hidden><button class="btn pnAccion pnPintar" id="etPintar">🎨 Pintar</button><button class="btn pnAccion" id="etOtro">▶ Hacer otro</button></div></div></div>
 </section>`);
   $$('#m-paint .menu').forEach(m => m.insertAdjacentHTML('beforeend', '<button class="big c5" data-go="grandes"><span class="ill" data-ill="grandes"></span>Dibujos por partes</button>'));
   ILL.grandes = svg(`<g transform="translate(6 4) scale(.108)">

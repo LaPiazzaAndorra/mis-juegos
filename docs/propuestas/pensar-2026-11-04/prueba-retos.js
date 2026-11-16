@@ -36,7 +36,7 @@ const clic = (p, sel) => p.click(sel, { force: true });
   execSync('python3 ' + CARP + 'preparar_copia.py', { cwd: RAIZ });
   {
     const git = c => execSync(c, { cwd: RAIZ }).toString().trim();
-    ok('Fuera de su carpeta no cambia nada (ni main, ni el juego, ni los archivos de avatar-creador)', git(`git status --porcelain -- . ':!${CARP}'`) === '');
+    ok('Fuera de su carpeta (y de la capa común de lectura) no cambia nada (ni main, ni el juego, ni los archivos de avatar-creador)', git(`git status --porcelain -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`) === '');
   }
   const b = await pw.chromium.launch();
   // ---------- 0. menú, elegir reto y nivel, recordar ----------
@@ -70,7 +70,7 @@ const clic = (p, sel) => p.click(sel, { force: true });
     ok('Pistas con negaciones, cantidades (más de / menos de) y relaciones (a su lado / encima)', /noK/.test(casos.t0) && /mas|menos/.test(casos.t0) && /lado/.test(casos.t1) && /encima/.test(casos.t1) && /noC/.test(casos.t1), casos.t0 + ' | ' + casos.t1);
     await nivel(p, 'detective', 1, 'rDet'); await p.waitForTimeout(700);
     const ini = await p.evaluate(() => ({ cartas: document.querySelectorAll('#rdRej .rtCarta').length, pistas: document.querySelectorAll('#rdPistas .rtPista').length, caps: [...document.querySelectorAll('#rdPistas .rtCap')].map(e => e.textContent).join('|'), voz: window.__voz.join(' '), es: document.querySelector('#rdEs').disabled }));
-    ok('12 sospechosos y 4 pistas con dibujo y palabra corta en MAYÚSCULAS; la voz las dice; «¡Es este!» espera a que elija uno', ini.cartas === 12 && ini.pistas === 4 && ini.caps.split('|').length === 4 && ini.caps === ini.caps.toLocaleUpperCase('es') && /Pistas: /.test(ini.voz) && ini.es, JSON.stringify(ini));
+    ok('12 sospechosos y 4 pistas con dibujo y palabra corta en MAYÚSCULAS; la voz las dice; «Elegir» espera a que elija uno', ini.cartas === 12 && ini.pistas === 4 && ini.caps.split('|').length === 4 && ini.caps === ini.caps.toLocaleUpperCase('es') && /Pistas: /.test(ini.voz) && ini.es, JSON.stringify(ini));
     const mal = await p.evaluate(() => RETOS.dt.caso.T.cartas.findIndex(t => t !== RETOS.dt.caso.sol)), bien = await p.evaluate(() => RETOS.dt.caso.T.cartas.indexOf(RETOS.dt.caso.sol));
     await p.click(`#rdRej .rtCarta >> nth=${mal}`); await clic(p, '#rdTachar'); await p.click(`#rdRej .rtCarta >> nth=${mal}`); await clic(p, '#rdTachar');
     ok('Tachar es su herramienta y se puede deshacer', await p.evaluate(i => !document.querySelectorAll('#rdRej .rtCarta')[i].classList.contains('tachada') && RETOS.dt.tachadas.size === 0, mal));
@@ -150,7 +150,7 @@ const clic = (p, sel) => p.click(sel, { force: true });
       return { malos, tipos: [...tipos].sort().join() }; });
     ok('800 escenas: el número de cambios es el que toca y solo cambia eso (moverse, desaparecer, aparecer, cambiar de color)', esc.malos === 0 && esc.tipos === 'color,mover,poner,quitar', JSON.stringify(esc));
     await nivel(p, 'escena', 0, 'rEsc'); await p.waitForTimeout(600);
-    ok('Mirar sin reloj: la estantería se queda a la vista hasta que toca el ojo', await p.evaluate(() => RETOS.es.fase === 'mirar' && !document.querySelector('#reYa').hidden && document.querySelectorAll('#reRej .rtHueco svg').length === 6));
+    ok('Mirar sin reloj: la estantería se queda a la vista hasta que toca «Esconder»', await p.evaluate(() => RETOS.es.fase === 'mirar' && !document.querySelector('#reYa').hidden && document.querySelectorAll('#reRej .rtHueco svg').length === 6));
     await p.waitForTimeout(1500); ok('… también pasado un rato', await p.evaluate(() => RETOS.es.fase === 'mirar'));
     await clic(p, '#reYa'); await p.waitForTimeout(1200);
     const cel = await p.evaluate(() => RETOS.es.caso.cambios[0].celdas), otra = await p.evaluate(c => [...Array(9).keys()].find(i => !c.includes(i)), cel);

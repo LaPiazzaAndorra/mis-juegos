@@ -4,10 +4,10 @@ Desde el 07/11/2026, **solo el chat de `avatar-creador` reúne y publica**. Este
 `juegos-pensar` y no toca `main`, el generador de publicación ni los archivos de `avatar-creador`. Esta nota dice qué hay
 que llevar al juego **cuando la propietaria lo apruebe**: hasta entonces, nada.
 
-## Una sola versión de prueba (15/11/2026): todas las entregas con la norma de lectura
+## Una sola versión de prueba (16/11/2026): todas las entregas con la norma D-038 y la capa común
 
-Desde el 15/11 (17:25), **hay una única versión que vale**: la que reúne **todas las entregas con la norma de lectura de
-Amaia**. Su commit está en la tabla de abajo («versión única»), y su enlace fijo, en `LEEME.md`. Los commits anteriores
+Desde el 16/11, **hay una única versión que vale**: la que reúne **todas las entregas con la norma D-038**
+(`docs/NORMA_TEXTOS_INFANTILES.md` de `avatar-creador`) y **la capa común de lectura** de `f3005ce`, integrada sin cambios. Su commit está en la tabla de abajo («versión única»), y su enlace fijo, en `LEEME.md`. Los commits anteriores
 quedan solo como historia; **no se integran por separado**.
 
 | Entrega | Qué es | Estado (15/11) |
@@ -17,13 +17,17 @@ quedan solo como historia; **no se integran por separado**.
 | 3.ª · Repasar | | Probada el 15/11: se ve bien, pero demasiado básica; **no aprobada**. |
 | 4.ª · Dibujos por partes y ¿Quién es? | | Funciona, pero sigue siendo fácil; **no aprobada**. |
 | 5.ª · Retos (Detective, Dos reglas, ¿Qué cambió?) | Niveles avanzados | **Pendiente de probarlos con Amaia**. |
-| **Versión única** · todas + norma de lectura | | **`d0c9df5`** (los 14 archivos del juego son los de este commit; el enlace, en `LEEME.md`). **Pendiente de la prueba en el iPhone.** No publicar. |
+| **Versión única** · todas + D-038 + capa común | | El commit y el enlace, en `LEEME.md` («Versión única con la capa común»). **Pendiente de la prueba en el iPhone.** No publicar. Sustituye a `d0c9df5`. |
 
 Cuando la propietaria apruebe, se puede integrar **todo** o **solo lo aprobado** (ver «Si solo se aprueba una parte»).
 
 ## Archivos del juego (todos de la versión única; nunca mezclar commits)
 
-En la carpeta `docs/propuestas/pensar-2026-11-04/`, en este orden, después de `logros.js` y antes de Mi Mundo:
+**Antes de todo, justo después de `logros.js`: la capa común** `docs/propuestas/lectura-2026-11-17/` (`lectura.css` y
+`lectura.js`), igual que en vuestra rama. En la publicación, con `--con-lectura docs/propuestas/lectura-2026-11-17`. En
+`juegos-pensar` es **idéntica** a la de `f3005ce` (lo comprueban las pruebas).
+
+Después, en la carpeta `docs/propuestas/pensar-2026-11-04/`, en este orden y antes de Mi Mundo:
 
 | # | Archivo | Para qué |
 | --- | --- | --- |
@@ -39,10 +43,11 @@ En la carpeta `docs/propuestas/pensar-2026-11-04/`, en este orden, después de `
 | 10 | `quien.js` | ¿Quién es? (menú Pensar) |
 | 11 | `retos.css` | estilos de los Retos |
 | 12 | `retos.js` | Retos (menú Pensar) |
-| 13 | `lectura.css` | **norma de lectura**: mayúsculas, letra grande, títulos en dos líneas, menús en horizontal |
-| 14 | `lectura.js` | **norma de lectura**: mensajes en pasos y voz al tocar mensajes y títulos |
+| 13 | `lectura-pensar.css` | lo **propio de Pensar** en la norma: mensajes grandes con altavoz, tamaños que la capa común no cubre, menús de Pensar y Pintar en horizontal, ajustes del iPhone pequeño |
+| 14 | `lectura-pensar.js` | lo **propio de Pensar**: mensajes en pasos y voz al tocar mensajes (como el 🗣️) y títulos |
 
-- **`lectura.css` y `lectura.js` van los últimos**, porque ajustan lo que dejan los demás.
+- **La capa común va la primera** (después de `logros.js`). **`lectura-pensar.css` y `lectura-pensar.js` van los
+  últimos**, porque ajustan lo que dejan los demás.
 - **Siempre todos del mismo commit**: los archivos usan lo que exportan los anteriores en ese commit.
 - **Lo demás de la carpeta no va al juego**: `index.html`, `aislamiento.js`, `manifest.json`, `progreso.js`,
   `logros.js`, `preparar_copia.py`, `simular_publicacion.py`, las pruebas `prueba-*.js`, `capturas/`, `LEEME.md` y esta
@@ -50,8 +55,9 @@ En la carpeta `docs/propuestas/pensar-2026-11-04/`, en este orden, después de `
 
 ### Si solo se aprueba una parte
 
-- **Solo Contar y Memoria** (lo publicado) **con la norma de lectura**: `pensar.css`, `dibujos.js`, `pensar.js`,
-  `lectura.css` y `lectura.js`. La norma funciona sola: lo que no encuentra en la página, no lo toca.
+- **Solo Contar y Memoria** (lo publicado) **con la norma**: la capa común + `pensar.css`, `dibujos.js`, `pensar.js`,
+  `lectura-pensar.css` y `lectura-pensar.js`. Lo propio de Pensar funciona solo: lo que no encuentra en la página, no lo
+  toca.
 - Para añadir el resto, se suma cada archivo en el orden de la tabla. `repasar.js` necesita `figuras.js` y `pensar2.js`;
   `etapas.js` y `quien.js` necesitan `pensar2.js`; `retos.js` necesita `etapas.css`.
 
@@ -63,27 +69,40 @@ En la carpeta `docs/propuestas/pensar-2026-11-04/`, en este orden, después de `
 1. Unir `juegos-pensar` hasta el commit de la versión única. Solo cambia la carpeta `docs/propuestas/pensar-2026-11-04/`.
 2. Ampliar la lista del generador con los archivos aprobados, en el orden de la tabla. Con todo:
    `['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js', 'repasar.js', 'etapas.css', 'ilustraciones.js',
-   'etapas.js', 'quien.js', 'retos.css', 'retos.js', 'lectura.css', 'lectura.js']`.
+   'etapas.js', 'quien.js', 'retos.css', 'retos.js', 'lectura-pensar.css', 'lectura-pensar.js']`, con `--con-lectura`
+   para la capa común.
    - Los `.css` van como hoja de estilos (`<link rel="stylesheet">`) y los `.js` como script.
    - Todos van en la página y en lo básico sin conexión.
    - `simular_publicacion.py` de esta carpeta enseña cómo hacerlo sin tocar el generador.
 3. Generar y comprobar con sus pruebas de publicación. La versión (huella) cambia sola y la caché sin conexión se renueva.
 
 `simular_publicacion.py` + `prueba-sin-conexion.js` de esta carpeta hacen lo mismo en una carpeta temporal, para
-comprobar antes el modo avión (13/13 con todo).
+comprobar antes el modo avión (13/13 con todo, también la capa común).
 
-## Norma de lectura de Amaia: qué toca
+## Norma D-038: qué toca
 
-- **Toca todas las pantallas de Pensar** (`section.pn`, el menú Memoria y el menú Pensar) y **solo los tres botones de
-  Pensar del menú Pintar** (Unir puntos, Repasar, Dibujos por partes).
-- **Decisión pendiente:** el resto del menú Pintar («Pintar», «Hoja en blanco», «Colorear dibujos», «Mis dibujos») es del
-  juego base y sigue en minúsculas. Si la propietaria quiere todo el menú igual, basta con añadir `#m-paint .big` y
-  `#m-paint .bar .title` a la primera regla de `lectura.css`.
-- **Cómo se hace:**
-  - Las mayúsculas, con `text-transform` en `lectura.css`. El texto sigue en minúsculas normales por dentro, para que la
-    voz del iPhone lo lea bien.
-  - Los Retos ya escriben sus textos en mayúsculas.
-- **No toca ningún dato, nivel ni recompensa.**
+- **La capa común** (`lectura-2026-11-17`, sin cambios) pone:
+  - las MAYÚSCULAS en todo el juego, también en los botones y en el menú Pintar, menos en la zona de adultos;
+  - 16 px o más;
+  - el contraste;
+  - los títulos sin «…».
+
+  Ya no queda ninguna decisión pendiente sobre el menú Pintar.
+- **`lectura-pensar.*`** solo añade lo de Pensar:
+  - los mensajes en pasos, con altavoz (tocarlos hace lo mismo que el 🗣️, que en los iPhone de 400 px o menos sale de la
+    barra para que quepa el título);
+  - las palabras bajo las pistas de ¿Quién es?;
+  - los tamaños de `.pnCamino` y `.pnSaltar`;
+  - los menús de Pensar y Pintar en horizontal (6 o 7 botones);
+  - el iPhone pequeño (375 × 667).
+- **Textos de Pensar según D-038:**
+  - botones con verbo: «PINTAR», «HACER OTRO», «JUGAR OTRO», «ESCONDER», «ELEGIR», «HACER LA PRUEBA»;
+  - la etiqueta de nivel en dos líneas, sin «·»;
+  - los números en cifra («¡SOLO QUEDA 1!»).
+- **Contraste:** medido con el mismo criterio que la prueba común. Ningún texto de Pensar baja de 4,5:1.
+- **No toca ningún dato, nivel, respuesta ni recompensa.**
+- **El salón:** ver `SALON_Y_LECTURA.md`. En Chromium la capa común no cambia nada en el salón y no se ha encontrado la
+  causa. Falta comprobarlo en el iPhone.
 
 ## Datos (nada que migrar)
 

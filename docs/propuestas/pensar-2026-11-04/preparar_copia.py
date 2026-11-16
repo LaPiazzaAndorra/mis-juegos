@@ -22,11 +22,13 @@ COMPLETA = P / 'prueba-completa-2026-10-22'; CC_CARPETA = 'docs/propuestas/prueb
 spec = importlib.util.spec_from_file_location('prueba_completa', COMPLETA / 'preparar_copia.py')
 CC = importlib.util.module_from_spec(spec); spec.loader.exec_module(CC)   # solo define funciones y constantes
 sustituir = CC.sustituir
-EXTRA = (f'\n<link rel="stylesheet" href="{CARPETA}pensar.css">\n<script src="{CARPETA}dibujos.js"></script>'
+COMUN = 'docs/propuestas/lectura-2026-11-17/'   # capa común de lectura (D-038), del commit f3005ce de avatar-creador, sin cambios
+EXTRA = (f'\n<link rel="stylesheet" href="{COMUN}lectura.css">\n<script src="{COMUN}lectura.js"></script>'
+         f'\n<link rel="stylesheet" href="{CARPETA}pensar.css">\n<script src="{CARPETA}dibujos.js"></script>'
          f'\n<script src="{CARPETA}pensar.js"></script>\n<script src="{CARPETA}figuras.js"></script>\n<script src="{CARPETA}pensar2.js"></script>\n<script src="{CARPETA}repasar.js"></script>'
          f'\n<link rel="stylesheet" href="{CARPETA}etapas.css">\n<script src="{CARPETA}ilustraciones.js"></script>\n<script src="{CARPETA}etapas.js"></script>\n<script src="{CARPETA}quien.js"></script>'
          f'\n<link rel="stylesheet" href="{CARPETA}retos.css">\n<script src="{CARPETA}retos.js"></script>'
-         f'\n<link rel="stylesheet" href="{CARPETA}lectura.css">\n<script src="{CARPETA}lectura.js"></script>')
+         f'\n<link rel="stylesheet" href="{CARPETA}lectura-pensar.css">\n<script src="{CARPETA}lectura-pensar.js"></script>')
 
 if __name__ == '__main__':
     h, pr = CC.juego_conjunto(CARPETA, 'PRUEBA PENSAR', 'PRUEBA PENSAR')

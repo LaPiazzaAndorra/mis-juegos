@@ -21,6 +21,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
 | 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (commit `ddbe50c`; ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
 | 15/11/2026, 17:25 | La propietaria: aplicar la **norma de lectura a todas las entregas** (Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir puntos, Repasar, Dibujos por partes, ¿Quién es?), dividir en pasos en vez de un máximo rígido de palabras, comprobar ambas orientaciones del iPhone y dejar **una única versión de prueba** | **Versión única** `d0c9df5` con todo adaptado (`lectura.css` y `lectura.js`; ver «Norma de lectura en todas las entregas»). Probada en Chromium; **pendiente de la prueba en el iPhone**. La aprobación de los Retos sigue pendiente de probarlos con Amaia. |
+| 16/11/2026, 06:03 | La propietaria autoriza **integrar la capa común de lectura** de `avatar-creador` `f3005ce` sin cambios, quitar lo duplicado, adaptar los textos a **D-038** (botones con verbo, sin «·», números en cifra, contraste de 4,5:1) sin tocar lógica, dificultad, respuestas ni datos, y **comprobar si la capa bloquea el salón** | **Versión única con la capa común** (ver abajo) y diagnóstico del salón en `SALON_Y_LECTURA.md`. Probada en Chromium; **pendiente de la prueba en el iPhone**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -362,6 +363,35 @@ negro uniforme de 10 px, sin rellenos, sombras ni texturas:
 4. Lo ideal es entregarlas como **trazados vectoriales (SVG)**, una capa por parte; una imagen en píxeles habría que
    convertirla a trazos.
 
+## Versión única con la capa común de lectura (16/11/2026)
+
+Pedido de la propietaria (16/11/2026, 06:03), resumido:
+- Integrar la capa común del commit `f3005ce` de `avatar-creador` **sin modificarla** y quitar de la de Pensar lo
+  duplicado.
+- Adaptar los textos de Pensar a la norma **D-038**: botones con verbo, sin «·», números en cifras y contraste de 4,5:1.
+- **Conservar exactamente** la lógica, la dificultad, las respuestas y los datos guardados.
+- Hacer todas las pruebas y dejar una única versión para revisar en el iPhone.
+- **El salón** de la versión del Chat 1 no responde en su iPhone (la habitación sí): comprobar si la capa común interfiere,
+  sin tocar el código del salón; si se encuentra la causa, documentarla y coordinarla.
+
+**Lo hecho:**
+
+| Qué | Cómo |
+| --- | --- |
+| **Capa común** | `docs/propuestas/lectura-2026-11-17/`, **idéntica** a la de `f3005ce` (lo comprueban las pruebas). Se carga justo después de `logros.js`. Pone las MAYÚSCULAS en todo el juego (también en el menú Pintar), 16 px o más, el contraste y los títulos sin «…». |
+| **Lo propio de Pensar** | `lectura.css` y `lectura.js` pasan a llamarse **`lectura-pensar.css` y `lectura-pensar.js`**, y se les quita lo que ya hace la capa común (mayúsculas, tamaño de `.pnNv`, títulos). Se quedan: los mensajes en pasos con altavoz, la voz al tocar el título, las palabras bajo las pistas de ¿Quién es? y los menús en horizontal. |
+| **El mensaje suena como el 🗣️** | Tocar el mensaje hace lo mismo que el botón 🗣️ de su pantalla (la instrucción entera). En los iPhone de 400 px o menos, ese botón sale de la barra para que quepa el título («POR PARTES», «¿QUIÉN ES?»), y su función la hace el mensaje. |
+| **Botones con verbo** | «¡A PINTAR!» → **PINTAR**. «OTRO» → **HACER OTRO** (dibujos) y **JUGAR OTRO** (retos). «¡YA ME ACUERDO!» y «¡YA!» → **ESCONDER**. «¡ES ESTE!» → **ELEGIR**. «PRUEBA RÁPIDA» → **HACER LA PRUEBA** (y la voz dice «toca Esconder», «pulsa Elegir»). |
+| **Sin «·» y números en cifra** | La etiqueta de nivel, en dos líneas: «NIVEL 8 DE 10» / «SUMAR Y QUITAR HASTA 10». «¡SOLO QUEDA 1!». |
+| **Contraste** | Medido en todas las pantallas con el criterio de la prueba común (copiado sin cambios): ningún texto de Pensar baja de 4,5:1. |
+| **iPhone pequeño (375 × 667)** | Las tres tarjetas de «Dibujos por partes» a la vista. En los Retos, el mensaje y los botones en una fila y las pistas más compactas (la palabra, igual de grande). En «Tú preguntas», los botones en la casilla libre, como en horizontal (la voz dice el mensaje y cada respuesta queda marcada en su pregunta). |
+| **iPhone horizontal** | El menú Pintar (6 botones) en 3 columnas, para que no se corten «HOJA EN BLANCO», «COLOREAR» y «MIS DIBUJOS». |
+| **Datos, dificultad, respuestas y recompensas** | Iguales: mismas claves, niveles, generadores, pistas y estrellas. |
+
+**El salón:** ver `SALON_Y_LECTURA.md`. En Chromium, con el dedo emulado, la capa común no cambia nada en el salón, y no
+se ha encontrado la causa. No se ha podido probar en WebKit (el motor del iPhone). La comprobación que falta en el iPhone
+está en esa nota.
+
 ## Norma de lectura en todas las entregas (15/11/2026, 17:25): versión única de prueba
 
 Pedido de la propietaria (15/11/2026, 17:25), resumido:
@@ -525,10 +555,18 @@ node docs/propuestas/pensar-2026-11-04/prueba-pensar2.js         # 35 comprobaci
 node docs/propuestas/pensar-2026-11-04/prueba-repasar.js        # 28 comprobaciones (3.ª entrega)
 node docs/propuestas/pensar-2026-11-04/prueba-etapas.js         # 39 comprobaciones (4.ª entrega: Dibujos por partes)
 node docs/propuestas/pensar-2026-11-04/prueba-quien.js          # 22 comprobaciones (4.ª entrega: ¿Quién es?)
-node docs/propuestas/pensar-2026-11-04/prueba-lectura.js        # 26 comprobaciones (norma de lectura en todas las entregas, 4 pantallas)
+node docs/propuestas/pensar-2026-11-04/prueba-lectura.js        # 36 comprobaciones (norma D-038 + capa común, 5 pantallas, contraste)
 node docs/propuestas/pensar-2026-11-04/prueba-retos.js          # 68 comprobaciones (5.ª entrega: Retos, con la norma de lectura)
 node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 13 comprobaciones (modo avión, simulación de publicación)
 ```
+
+**Versión única con la capa común (16/11/2026): `prueba-lectura.js` 36/36.**
+- Las mismas comprobaciones de antes, y además:
+  - el **iPhone pequeño (375 × 667)**;
+  - el **contraste de 4,5:1** y el texto cortado, con el criterio de la prueba común;
+  - que tocar el mensaje suena igual que el 🗣️.
+- **La capa común:** las pruebas de Pensar comprueban que es idéntica a la de `f3005ce`.
+- **Su propia prueba** necesita Mi Mundo (ver `SALON_Y_LECTURA.md`).
 
 **Norma de lectura en todas las entregas (15/11/2026, 17:25): `prueba-lectura.js` 26/26.**
 - Recorre 26 momentos de los 10 juegos (inicio, jugando, pistas, buscar, final) en el iPhone y el iPad, en vertical y en
@@ -674,7 +712,16 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 
 Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
 
-**Versión única (todas las entregas con la norma de lectura; la que hay que probar), commit `d0c9df5`:** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/d0c9df554f4300040126bc5e6b13a4368f9930ce/docs/propuestas/pensar-2026-11-04/index.html>
+**Versión única con la capa común (la que hay que probar ahora):** enlace en el commit siguiente.
+En el iPhone, en vertical y en horizontal (si se puede, también en uno pequeño):
+1. **Inicio, Pintar y Pensar:** todo en mayúsculas (también «HOJA EN BLANCO» y «COLOREAR»).
+2. **Contar:** la etiqueta de nivel en dos líneas, sin «·»; tocar el mensaje (dice la instrucción entera).
+3. **Botones con verbo:** «HACER LA PRUEBA», «ESCONDER» (¿Dónde estaba?), «PINTAR» y «HACER OTRO» (Unir puntos,
+   Repasar, Dibujos por partes), «ELEGIR» y «JUGAR OTRO» (Retos).
+4. **¿Quién es? y los Retos:** las palabras bajo las pistas; en «Tú preguntas», todo a la vista.
+5. Comprobar que siguen las estrellas, el nivel de cada juego y los dibujos guardados.
+
+**Versión única anterior (sin la capa común), commit `d0c9df5`:** <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/d0c9df554f4300040126bc5e6b13a4368f9930ce/docs/propuestas/pensar-2026-11-04/index.html>
 En el iPhone, en vertical y en horizontal:
 1. **Pensar**: los 7 juegos en mayúsculas; en horizontal, en 2 filas.
 2. **Contar**: entrar en el nivel 8 o más. El enunciado sale en pasos, uno por línea; tocarlo para oírlo.

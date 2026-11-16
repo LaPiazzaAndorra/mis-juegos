@@ -110,7 +110,7 @@
   <div class="rtWrap">
     <div class="rtArriba"><div class="rtPistas" id="rdPistas"></div><div class="rtPreg" id="rdPreg"></div></div>
     <div class="rtRejilla" id="rdRej"></div>
-    <div class="rtAbajo">${texto('rdTexto')}<div class="rtBotones">${boton('rdTachar', 'tachar', 'Tachar')}${boton('rdEs', 'es', '¡Es este!', 'rtSi')}${boton('rdOtro', 'otro', 'Otro', 'rtSi')}</div></div>
+    <div class="rtAbajo">${texto('rdTexto')}<div class="rtBotones">${boton('rdTachar', 'tachar', 'Tachar')}${boton('rdEs', 'es', 'Elegir', 'rtSi')}${boton('rdOtro', 'otro', 'Jugar otro', 'rtSi')}</div></div>
   </div>
 </section>
 <section class="screen pn rt" id="rTab">
@@ -119,7 +119,7 @@
   <div class="rtWrap">
     <div class="rtRejilla rtTabla" id="rtRej"></div>
     <div class="rtBandeja" id="rtBandeja"></div>
-    <div class="rtAbajo">${texto('rtTexto')}<div class="rtBotones">${boton('rtComp', 'comprobar', 'Comprobar', 'rtSi')}${boton('rtOtro', 'otro', 'Otro', 'rtSi')}</div></div>
+    <div class="rtAbajo">${texto('rtTexto')}<div class="rtBotones">${boton('rtComp', 'comprobar', 'Comprobar', 'rtSi')}${boton('rtOtro', 'otro', 'Jugar otro', 'rtSi')}</div></div>
   </div>
 </section>
 <section class="screen pn rt" id="rEsc">
@@ -128,7 +128,7 @@
   <div class="rtWrap">
     <div class="rtRejilla rtEstante" id="reRej"></div>
     <div class="rtBandeja" id="reBandeja"></div>
-    <div class="rtAbajo">${texto('reTexto')}<div class="rtBotones">${boton('reYa', 'ojo', '¡Ya!', 'rtSi')}${boton('reComp', 'comprobar', 'Comprobar', 'rtSi')}${boton('reOtro', 'otro', 'Otro', 'rtSi')}</div></div>
+    <div class="rtAbajo">${texto('reTexto')}<div class="rtBotones">${boton('reYa', 'ojo', 'Esconder', 'rtSi')}${boton('reComp', 'comprobar', 'Comprobar', 'rtSi')}${boton('reOtro', 'otro', 'Jugar otro', 'rtSi')}</div></div>
   </div>
 </section>`);
   ['rdTexto', 'rtTexto', 'reTexto'].forEach(id => { $('#' + id).onclick = () => { if (VOZ['#' + id]) say(VOZ['#' + id]); }; });
@@ -276,7 +276,7 @@
     const box = $('#rdPreg'); box.innerHTML = ''; if (!dt.caso.D.preguntar) return;
     preguntas(dt.caso.T).forEach(q => { const b = document.createElement('button'); b.className = 'btn rtPista rtQ'; b.innerHTML = tarjetaPista(q, 'preg', capPregunta(q)); b.setAttribute('aria-label', vozPregunta(q));
       b.onclick = () => preguntar(q, b); box.appendChild(b); });
-    // en horizontal no cabe una fila de botones: «Tachar», «¡Es este!» y «Otro» van en la casilla libre de las preguntas
+    // en horizontal no cabe una fila de botones: «Tachar», «Elegir» y «Jugar otro» van en la casilla libre de las preguntas
     const hueco = document.createElement('div'); hueco.className = 'rtPregBotones';
     ['rdTachar', 'rdEs', 'rdOtro'].forEach(id => { const o = $('#' + id), c = document.createElement('button'); c.className = 'btn rtMini ' + o.className.replace('btn rtBtn', '').trim(); c.dataset.de = id;
       c.innerHTML = o.innerHTML; c.setAttribute('aria-label', o.getAttribute('aria-label')); c.onclick = () => o.click(); hueco.appendChild(c); });
@@ -300,7 +300,7 @@
     if (dt.sel < 0 || dt.hecho) return; const i = dt.sel, b = $$('#rdRej .rtCarta')[i]; sfx.pop();
     if (dt.tachadas.has(i)) { dt.tachadas.delete(i); b.classList.remove('tachada'); } else { dt.tachadas.add(i); b.classList.add('tachada'); }
     dt.sel = -1; b.classList.remove('sel'); botonesDet();
-    const quedan = dt.caso.T.cartas.filter((_, j) => !dt.tachadas.has(j)).length; if (quedan === 1) habla('#rdTexto', '¡Solo queda uno!', 'Solo queda uno. ¿Es ese? Tócalo y pulsa la lupa.');
+    const quedan = dt.caso.T.cartas.filter((_, j) => !dt.tachadas.has(j)).length; if (quedan === 1) habla('#rdTexto', '¡Solo queda 1!', 'Solo queda uno. ¿Es ese? Tócalo y pulsa «Elegir».');
   };
   $('#rdEs').onclick = () => {
     if (dt.sel < 0 || dt.hecho) return; const i = dt.sel, c = dt.caso.T.cartas[i], b = $$('#rdRej .rtCarta')[i];
@@ -332,7 +332,7 @@
     const lista = dt.caso.D.preguntar ? dt.resp.map(r => ({ f: t => cumple(T, t, r.q) === r.si, v: vozPista(r.q, r.si) })) : dt.caso.pistas.map(p => ({ f: t => cumple(T, t, p), v: vozPista(p) }));
     let mejor = -1, m = 0; lista.forEach((x, i) => { const n = vivas.filter(t => !x.f(t)).length; if (n > m) { m = n; mejor = i; } });
     if (mejor < 0) {
-      if (dt.caso.D.preguntar) { if (vivas.length === 1) habla('#rdTexto', '¡Solo queda uno!', 'Solo queda uno: ¡elígelo!'); else sugerir(mejorPregunta(vivas), 'Ya has tachado bien. '); }
+      if (dt.caso.D.preguntar) { if (vivas.length === 1) habla('#rdTexto', '¡Solo queda 1!', 'Solo queda uno: ¡elígelo!'); else sugerir(mejorPregunta(vivas), 'Ya has tachado bien. '); }
       else habla('#rdTexto', '¿Cuál queda?', 'Ya has tachado todos los que no pueden ser. ¿Cuál queda?');
       return;
     }
@@ -503,7 +503,7 @@
     habla('#reTexto', txt, null);
     setTimeout(() => { if (t !== es.turno) return;
       if (caso.D.modo === 'reves') { habla('#reTexto', txt, 'Mira en qué orden brillan. Luego, tócalos al revés. Empieza por el último.'); setTimeout(() => { if (t === es.turno) brillar(); }, 2200); }
-      else habla('#reTexto', txt, caso.D.modo === 'colocar' ? 'Mira dónde está cada cosa. Acuérdate. Cuando estés lista, toca el ojo.' : 'Mira bien la estantería. Acuérdate. Cuando estés lista, toca el ojo.'); }, 300);
+      else habla('#reTexto', txt, caso.D.modo === 'colocar' ? 'Mira dónde está cada cosa. Acuérdate. Cuando estés lista, toca «Esconder».' : 'Mira bien la estantería. Acuérdate. Cuando estés lista, toca «Esconder».'); }, 300);
     requestAnimationFrame(ajustarEsc); setTimeout(ajustarEsc, 120);
   }
   function ajustarEsc() { if (es.caso) { encajar($('#reRej'), es.caso.D.c, es.caso.D.f, 120); $('#reBandeja').style.setProperty('--s', '72px'); } }
@@ -587,7 +587,7 @@
   // 💡: volver a ver cómo estaba (o volver a ver el orden), las veces que quiera
   $('#rePista').onclick = () => {
     const c = es.caso; if (!c || es.hecho) return; sfx.pop();
-    if (es.fase === 'mirar') { habla('#reTexto', 'Sin prisa. Luego, el ojo.', 'Tómate tu tiempo. Cuando te acuerdes, toca el ojo.'); return; }
+    if (es.fase === 'mirar') { habla('#reTexto', 'Sin prisa. Luego, toca Esconder.', 'Tómate tu tiempo. Cuando te acuerdes, toca «Esconder».'); return; }
     es.ayudas++;
     if (c.D.modo === 'reves') { if (es.fase === 'reves') { es.paso = 0; habla('#reTexto', 'Mira otra vez.', 'Mira otra vez.'); setTimeout(brillar, 700); } return; }
     if (es.viendo) { es.viendo = false; $('#reRej').classList.remove('recuerdo');
