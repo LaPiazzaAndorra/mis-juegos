@@ -18,7 +18,7 @@ quedan solo como historia; **no se integran por separado**.
 | 3.ª · Repasar | | Probada el 15/11: se ve bien, pero demasiado básica; **no aprobada**. |
 | 4.ª · Dibujos por partes y ¿Quién es? | | Funciona, pero sigue siendo fácil; **no aprobada**. |
 | 5.ª · Retos (Detective, Dos reglas, ¿Qué cambió?) | Niveles avanzados | **Pendiente de probarlos con Amaia**. |
-| **Versión única** · todas + D-038 + capa común | | El commit y el enlace, en `LEEME.md` («Versión única con la capa común»). **Pendiente de la prueba en el iPhone.** No publicar. Sustituye a `d0c9df5`. |
+| **Versión única** · todas + D-038 + capa común | | **Commit `1821923`** (capa común de `4dd3a80`); el enlace, en `LEEME.md` («Versión única con la capa común»). **Pendiente de la prueba en el iPhone.** No publicar. Sustituye a `d0c9df5`. |
 
 Cuando la propietaria apruebe, se puede integrar **todo** o **solo lo aprobado** (ver «Si solo se aprueba una parte»).
 

@@ -715,7 +715,10 @@ Enlace fijo de la 2.ª entrega (commit `cf80691`): <https://raw.githack.com/LaPi
 
 Enlace fijo de la 3.ª entrega (commit `9ca48f1`): <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/9ca48f1f5194320b73131de8848704378dffd551/docs/propuestas/pensar-2026-11-04/index.html>
 
-**Versión única con la capa común (la que hay que probar ahora):** enlace en el commit siguiente.
+**Versión única con la capa común (la que hay que probar ahora), commit `1821923`** (capa de `4dd3a80`):
+<https://raw.githack.com/LaPiazzaAndorra/mis-juegos/18219239c21c3197a90a2b5de41bf6a99886f11d/docs/propuestas/pensar-2026-11-04/index.html>
+
+La de `013e094` (capa de `f3005ce`, con el bucle) queda solo como historia.
 En el iPhone, en vertical y en horizontal (si se puede, también en uno pequeño):
 1. **Inicio, Pintar y Pensar:** todo en mayúsculas (también «HOJA EN BLANCO» y «COLOREAR»).
 2. **Contar:** la etiqueta de nivel en dos líneas, sin «·»; tocar el mensaje (dice la instrucción entera).
