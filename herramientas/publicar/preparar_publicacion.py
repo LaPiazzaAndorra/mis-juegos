@@ -27,7 +27,9 @@ Uso (desde la raíz de avatar-creador):  python3 herramientas/publicar/preparar_
   --con-pensar CARPETA   añade los juegos de Pensar aprobados (juegos-pensar): los archivos de ARCHIVOS_PENSAR que haya en
                          CARPETA van en la página (antes que Mi Mundo) y en lo básico para jugar sin conexión. Sus datos
                          empiezan por «lv_», que «Guardar / Recuperar mi progreso» ya incluye. Ojo: si CARPETA tiene ya la
-                         2.ª entrega (figuras.js, pensar2.js), también va: solo cuando esté aprobada.
+                         2.ª entrega (figuras.js, pensar2.js), también va: solo cuando esté aprobada. (16/11, rama de la prueba
+                         conjunta: los 12 archivos de los juegos de Pensar de juegos-pensar bcb9f4d, y sus ajustes de lectura,
+                         lectura-pensar.css y .js, al final, después de Mi Mundo.)
   --con-lectura CARPETA  añade la norma de lectura (D-038, docs/NORMA_TEXTOS_INFANTILES.md): lectura.css y lectura.js de
                          CARPETA, en la página justo después de los logros (antes de Contar y Memoria y de Mi Mundo) y en lo
                          básico para jugar sin conexión. Solo cambia la presentación (MAYÚSCULAS, letra, contraste, frases
@@ -49,7 +51,9 @@ COPIAR = ['manifest.json', 'manifest-pruebas.json', 'icon-192.png', 'icon-512.pn
           'plantilla/plantilla.js', 'avatar/avatar.css', 'avatar/catalogo.js', 'avatar/catalogo-muneca.js',
           CC + 'progreso.js', CC + 'logros.js', CC + 'avatar/motor.js', CC + 'avatar/catalogo-todo.js', CC + 'avatar/arte/piezas.js'] + \
          [LAM + n + '.png' for n in LAMINAS]
-ARCHIVOS_PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js']   # en este orden; solo los que existan
+ARCHIVOS_PENSAR = ['pensar.css', 'dibujos.js', 'pensar.js', 'figuras.js', 'pensar2.js',   # en este orden; solo los que existan
+                   'repasar.js', 'etapas.css', 'ilustraciones.js', 'etapas.js', 'quien.js', 'retos.css', 'retos.js']   # (16/11: los de juegos-pensar bcb9f4d)
+ARCHIVOS_PENSAR_FINAL = ['lectura-pensar.css', 'lectura-pensar.js']   # ajustes propios de Pensar para la lectura: los últimos (después de Mi Mundo)
 PIEZAS = sorted(str(p.relative_to(RAIZ)) for d in ('avatar/arte/m', 'avatar/arte/s', CC + 'avatar/arte/todo') for p in (RAIZ / d).glob('*.webp'))
 
 
@@ -111,6 +115,14 @@ if __name__ == '__main__':
         archivos['index.html'] = sustituir(archivos['index.html'].decode('utf-8'), '<script src="offline-lista.js"></script>', etiquetas + '<script src="offline-lista.js"></script>').encode('utf-8')
         archivos[CC + 'progreso.js'] = sustituir(archivos[CC + 'progreso.js'].decode('utf-8'), "  const PREFIJOS = ['sc_', 'lv_'];",
                                                  "  const PREFIJOS = ['sc_', 'lv_', 'mm_'];   // Mi Mundo (D-033): habitación y misiones").encode('utf-8')
+    if pe:   # los ajustes propios de Pensar para la lectura, los últimos (después de Mi Mundo), si existen
+        fin = [f'{pe}/{n}' for n in ARCHIVOS_PENSAR_FINAL if (RAIZ / pe / n).is_file()]
+        if fin:
+            for f in fin:
+                archivos[f] = (RAIZ / f).read_bytes()
+            basico[-1:-1] = fin
+            etiquetas = ''.join(f'<link rel="stylesheet" href="{f}">\n' if f.endswith('.css') else f'<script src="{f}"></script>\n' for f in fin)
+            archivos['index.html'] = sustituir(archivos['index.html'].decode('utf-8'), '<script src="offline-lista.js"></script>', etiquetas + '<script src="offline-lista.js"></script>').encode('utf-8')
     huella = hashlib.sha256(b''.join(hashlib.sha256(archivos[k]).digest() for k in sorted(archivos)) + (AQUI / 'sw-plantilla.js').read_bytes()).hexdigest()[:12]
     lista = 'self.OFFLINE = ' + json.dumps(dict(version=huella, basico=basico, piezas=PIEZAS), ensure_ascii=False) + ';\n'
     archivos['offline-lista.js'] = ('/* Generado por herramientas/publicar/preparar_publicacion.py: versión y archivos para jugar sin conexión */\n' + lista).encode('utf-8')

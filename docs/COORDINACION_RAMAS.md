@@ -47,6 +47,22 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
   que copie la versión nueva.
 - En la publicación: `--con-lectura docs/propuestas/lectura-2026-11-17` (antes de `--con-pensar` y `--con-mimundo`).
 
+## Prueba conjunta (16/11/2026, sin publicar)
+
+- `juegos-pensar` (`1821923`/`bcb9f4d`) ya carga la capa común de `4dd3a80` sin cambios (después de `logros.js`). Sus
+  ajustes propios son `pensar-2026-11-04/lectura-pensar.css` y `lectura-pensar.js`, cargados después de sus juegos (nota en
+  `pensar-2026-11-04/SALON_Y_LECTURA.md`).
+- **Rama aparte `prueba-conjunta-2026-11-16`:** `avatar-creador` (`4dd3a80`) + `juegos-pensar` (`bcb9f4d`), unidas sin
+  conflictos. Tiene una sola copia de la capa común (la misma ruta en las dos ramas) y los ajustes de Pensar por separado.
+  Copia `docs/propuestas/prueba-conjunta-2026-11-16/`. Ni `avatar-creador` ni `juegos-pensar` cambian.
+- **Cambios solo en esa rama:**
+  - el generador incluye en `--con-pensar` los 12 archivos de los juegos de Pensar y `lectura-pensar.*` al final;
+  - la prueba común `prueba-lectura.js` recorre las pantallas por los botones de los menús (antes abría a la fuerza
+    pantallas internas y daba errores falsos). Comunicado a `juegos-pensar`.
+- **En esa rama, el generador ya no reproduce `main`** con los argumentos de D-036: la carpeta de Pensar es la nueva. Para
+  reproducir `main`, usar `avatar-creador`.
+- **Integración definitiva y publicación:** solo con la autorización de la propietaria, después de su prueba.
+
 ## Archivos compartidos y quién los toca
 
 | Archivo | Mi Mundo (D-033/D-034, `avatar-creador`) | Contar y Memoria (`juegos-pensar`) |

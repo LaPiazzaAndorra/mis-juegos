@@ -18,7 +18,7 @@ const path = require('path'), os = require('os'), fs = require('fs');
 const { execSync } = require('child_process');
 let pw; try { pw = require('playwright'); } catch (e) { pw = require(path.join(execSync('npm root -g').toString().trim(), 'playwright')); }
 const SIN = process.argv[2] === 'sin';
-const URL = 'http://localhost:8765/docs/propuestas/prueba-cuidar-2026-11-15/index.html';
+const URL = process.env.COPIA_URL || 'http://localhost:8765/docs/propuestas/prueba-cuidar-2026-11-15/index.html';   // otra copia: COPIA_URL=…
 const OUT = process.argv[3] || fs.mkdtempSync(path.join(os.tmpdir(), 'prueba-tactil-')); fs.mkdirSync(OUT, { recursive: true });
 const res = []; const ok = (n, c, x = '') => { res.push(!!c); console.log((c ? '  ✅ ' : '  ❌ ') + n + (x ? ' · ' + x : '')); };
 const HADA = { piel: 'dorada', ojos: { color: 'azul' }, pelo: { estilo: 'coleta', color: 'chocolate' }, ropa: 'hada', accesorios: ['alas', 'varita'] };

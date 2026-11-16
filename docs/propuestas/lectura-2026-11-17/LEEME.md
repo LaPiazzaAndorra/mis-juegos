@@ -28,3 +28,8 @@ opción, el resultado es el de siempre: comprobado que sigue reproduciendo `main
 sin parar. Ahora solo se ajusta al cambiar de pantalla o al aparecer contenido nuevo fuera de los títulos, y solo cambia la
 clase si hace falta. Comprobado: 0 cambios en «Mis logros» y los títulos siguen ajustados. La capa no bloquea los toques del
 salón: mismo resultado con ella y sin ella (prueba táctil y WebKit). Comunicado a `juegos-pensar`.
+
+**16/11 · `prueba-lectura.js`** (solo la prueba; `lectura.css` y `lectura.js` no cambian): las pantallas se recorren como
+las abre la niña, con los botones de los menús y su dato (`obs(sombras)`, `ice(pedidos)`…). Antes abría a la fuerza
+pantallas internas que necesitan un dato y, con los juegos nuevos de Pensar, daba errores falsos. Comunicado a
+`juegos-pensar`.

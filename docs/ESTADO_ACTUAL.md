@@ -231,6 +231,28 @@ misión «Guardar los juguetes»): `main` = `021c67e`, versión `5889ab82ca5d` (
 en el iPad reales**. Anterior: rama `version-anterior-2026-11-05` (`031ce07`). Fuera: el salón,
 la 2.ª entrega de Pensar y el parque.
 
+**16/11 · PRUEBA CONJUNTA (sin publicar; pendiente de la prueba de la propietaria):** rama `prueba-conjunta-2026-11-16`
+= `avatar-creador` (`4dd3a80`) + `juegos-pensar` (`bcb9f4d`), unidas sin conflictos.
+- Copia `docs/propuestas/prueba-conjunta-2026-11-16/` (datos `cnj1:`): carga una sola vez la capa común de lectura,
+  después los juegos de Pensar, Mi Mundo y, al final, los ajustes de lectura propios de Pensar.
+- Pruebas en Chromium y WebKit, todas en verde:
+
+  | Prueba | Resultado |
+  | --- | --- |
+  | Conjunta con el dedo | 9/9 |
+  | Lectura | 16/16 |
+  | Táctil de Mi Mundo | 14/14 |
+  | Cuidar | 35/35 |
+  | Salón | 31/31 |
+  | Sin conexión de la versión publicable conjunta | 11/11 |
+  | Pruebas de Pensar | Bien en todo lo de los juegos |
+  | Juego | 21/21 |
+  | Copia de seguridad | 45/45 |
+  | Actualización desde `main` a la versión conjunta | 23/23 |
+
+- **Sin probar en el iPhone ni en el iPad reales.**
+- Enlace: <https://raw.githack.com/LaPiazzaAndorra/mis-juegos/prueba-conjunta-2026-11-16/docs/propuestas/prueba-conjunta-2026-11-16/index.html>.
+
 **16/11 · salón en el iPhone (prueba real de la propietaria en `f3005ce`): la habitación funcionaba y el salón «no
 respondía».** No era la capa de lectura (mismo comportamiento con ella y sin ella, con toques reales y en WebKit). Las
 causas estaban en el motor de Mi Mundo:
@@ -434,7 +456,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 16/11/2026 (el salón responde en el iPhone: corrección del motor de Mi Mundo y de un bucle de la capa de lectura; pendiente de la prueba de la propietaria) · **Rama:** `avatar-creador` ·
+**Última actualización:** 16/11/2026 (prueba conjunta de Pensar + Mi Mundo + lectura en la rama `prueba-conjunta-2026-11-16`, sin publicar) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` `021c67e` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo, versión `5889ab82ca5d`);
 versiones anteriores en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).

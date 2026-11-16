@@ -1,5 +1,60 @@
 # Registro de cambios
 
+### 2026-11-16 — Prueba conjunta (sin publicar): juegos de Pensar + Mi Mundo + norma de lectura
+
+- **Solicitado por:** la propietaria («El Chat 2 confirma que en juegos-pensar, commit 1821923, ya está integrada tu capa
+  común de lectura de 4dd3a80 sin cambios… Al reunir las ramas, conserva una sola copia de la capa común y los ajustes
+  propios de Pensar por separado. Comprueba juntos los juegos y Mi Mundo, especialmente los toques, arrastres, contraste y
+  textos cortados. No publiques todavía: primero envíame una única prueba que reúna ambas partes.»).
+- **Rama y commit:** rama aparte **`prueba-conjunta-2026-11-16`**:
+  - la unión de `juegos-pensar` (`bcb9f4d`) con `avatar-creador` (`4dd3a80`), sin conflictos;
+  - este commit, la copia conjunta.
+
+  `avatar-creador` recibe aparte la corrección de Mi Mundo y las pruebas (ver abajo). `juegos-pensar` y `main` no cambian.
+- **Copia conjunta** `docs/propuestas/prueba-conjunta-2026-11-16/` (datos `cnj1:`):
+  - una sola capa común de lectura, después de `logros.js`;
+  - los 12 archivos de los juegos de Pensar, en su orden;
+  - Mi Mundo de la copia de cuidar;
+  - al final, `lectura-pensar.*`.
+
+  Con su prueba táctil `prueba-conjunta.js` y su prueba sin conexión.
+- **Generador (solo en esta rama):**
+  - `ARCHIVOS_PENSAR` con los 12 archivos de Pensar, y `lectura-pensar.*` al final, después de Mi Mundo;
+  - en esta rama ya no reproduce `main` con los argumentos de D-036 (la carpeta de Pensar es la nueva).
+- **Fallo de datos encontrado y corregido** (Mi Mundo, `prueba-cuidar-2026-11-15/mimundo/mimundo.js`): al «Recuperar mi
+  progreso», la página se recargaba y Mi Mundo escribía encima sus necesidades en memoria (sueño y diversión), perdiendo
+  las recuperadas. Lo detectó la prueba de actualización.
+  - Ahora se guardan al salir de Mi Mundo.
+  - Al cerrar la página, solo se guardan si se está en Mi Mundo.
+  - Nunca se escriben encima de un cambio ajeno.
+- **Pruebas mejoradas:**
+  - `prueba-lectura.js` (común) recorre las pantallas por los botones de los menús, con su dato (antes abría a la fuerza
+    pantallas internas: errores falsos con los juegos nuevos);
+  - `prueba-tactil.js` y `prueba-webkit.js` aceptan otra copia (`COPIA_URL`);
+  - `prueba-publicacion.js` dice qué claves difieren tras recuperar.
+  - el toque tolerante de las pruebas del salón mide 18 px desde un píxel dibujado de la taza (antes, desde su caja: en
+    las esquinas redondeadas quedaba a más de 26 px del dibujo y fallaba a veces).
+- **Pruebas (Chromium; iPhone 375, 390 y 430 de ancho; y WebKit):**
+
+  | Prueba | Resultado |
+  | --- | --- |
+  | Conjunta con el dedo | 9/9 |
+  | Lectura en la conjunta / en cuidar | 16/16 y 16/16 |
+  | Táctil en la conjunta / en cuidar | 14/14 y 14/14 |
+  | WebKit en la conjunta | Todo responde |
+  | Cuidar | 35/35 |
+  | Salón | 31/31 |
+  | Mi Mundo en la conjunta | 35/35 y 31/31 |
+  | Pruebas de Pensar en la conjunta | Todo lo de los juegos (solo fallan, a propósito, las de «su rama no toca nada fuera») |
+  | Sin conexión conjunta / cuidar | 11/11 y 10/10 |
+  | Juego | 21/21 |
+  | Copia de seguridad | 45/45 |
+  | Actualización de `main` a la versión conjunta, con una partida | 23/23 |
+
+  **No probado en el iPhone ni en el iPad reales.**
+- **Datos guardados afectados:** ninguno del juego.
+- **Cómo revertir:** borrar la rama `prueba-conjunta-2026-11-16`; en `avatar-creador`, `git revert` de su commit.
+
 ### 2026-11-16 — El salón responde en el iPhone (motor de Mi Mundo) y bucle de la capa de lectura corregido
 
 - **Solicitado por:** la propietaria, tras probar `f3005ce` en su iPhone («HABITACIÓN: las interacciones funcionan
@@ -7,7 +62,7 @@
   lectura está bloqueando los eventos táctiles… Compara con y sin la capa… Corrige sin alterar la habitación, los juegos,
   las respuestas ni los datos… pruebas que simulen pulsaciones táctiles reales… Coordínate con esa sesión para que
   cualquier corrección de la capa común se aplique también en su rama.»).
-- **Rama y commit:** `avatar-creador`, este commit (sobre `f3005ce`). `main` sin cambios (`021c67e`).
+- **Rama y commit:** `avatar-creador`, `4dd3a80` (sobre `f3005ce`). `main` sin cambios (`021c67e`).
 - **Diagnóstico:**
   - con toques reales (eventos táctiles de Chromium por CDP) y en WebKit (WebKitGTK por WebDriver, el motor de Safari), el
     salón se comporta **igual con la capa de lectura y sin ella**: la capa no bloquea toques ni pone capas invisibles
