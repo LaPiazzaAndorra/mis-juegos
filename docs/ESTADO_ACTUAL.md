@@ -231,6 +231,16 @@ misión «Guardar los juguetes»): `main` = `021c67e`, versión `5889ab82ca5d` (
 en el iPad reales**. Anterior: rama `version-anterior-2026-11-05` (`031ce07`). Fuera: el salón,
 la 2.ª entrega de Pensar y el parque.
 
+**PUBLICADO (16/11, D-039):** `main` = `bd8dcbb`, versión **`08d0743115d0`** (en Ajustes).
+- Incluye la norma de lectura, todos los juegos de Pensar (`juegos-pensar` `bcb9f4d`) y Mi Mundo con la habitación, el
+  salón y cuidar a la muñeca.
+- Integrado en `avatar-creador` (`00a1f7a`).
+- Versión anterior: rama `version-anterior-2026-11-16` (`021c67e`).
+- GitHub Pages: despliegue completado con éxito (ejecución 43888293971, 16/11).
+- 23/23 en la prueba de actualización sobre esta versión exacta (Chromium); **sin probar en el iPhone real con la app
+  instalada**.
+- Fuera: la cocina y el baño (propuesta pendiente).
+
 **16/11 · PRUEBA CONJUNTA (sin publicar; pendiente de la prueba de la propietaria):** rama `prueba-conjunta-2026-11-16`
 = `avatar-creador` (`4dd3a80`) + `juegos-pensar` (`bcb9f4d`), unidas sin conflictos.
 - Copia `docs/propuestas/prueba-conjunta-2026-11-16/` (datos `cnj1:`): carga una sola vez la capa común de lectura,
@@ -456,7 +466,7 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 16/11/2026 (prueba conjunta de Pensar + Mi Mundo + lectura en la rama `prueba-conjunta-2026-11-16`, sin publicar) · **Rama:** `avatar-creador` ·
+**Última actualización:** 16/11/2026 (D-039: publicada en main la versión 08d0743115d0 —Pensar, Mi Mundo y norma de lectura—) · **Rama:** `avatar-creador` ·
 **Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
 integrada), probado solo en simulación · **`main`:** `031ce07` `021c67e` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo, versión `5889ab82ca5d`);
 versiones anteriores en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).

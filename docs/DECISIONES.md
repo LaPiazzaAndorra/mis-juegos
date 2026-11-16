@@ -1,5 +1,35 @@
 # Registro de decisiones
 
+## D-039 · Publicación en main de la prueba conjunta: Pensar + Mi Mundo + norma de lectura · 16/11/2026
+- **Autorización de la propietaria:** «La prueba conjunta está bien. Integra y publica esta versión para actualizar la app, conservando los datos y el funcionamiento sin conexión».
+- **Integración:** la rama `prueba-conjunta-2026-11-16` (`05e6eca`) se ha unido a `avatar-creador` (`00a1f7a`).
+  - Respecto a lo probado solo cambia el registro de cambios.
+  - `juegos-pensar` no cambia.
+- **Publicado:** `main` = `bd8dcbb`, versión **`08d0743115d0`** (visible en Ajustes: «Versión del juego: 08d0743115d0»).
+  - Generado con `preparar_publicacion.py --con-lectura docs/propuestas/lectura-2026-11-17 --con-pensar
+    docs/propuestas/pensar-2026-11-04 --con-mimundo docs/propuestas/prueba-cuidar-2026-11-15/mimundo`.
+  - **Entra:**
+    - la norma de lectura (capa común, una vez);
+    - todos los juegos de Pensar de `juegos-pensar` `bcb9f4d` (Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir
+      puntos, Repasar, Dibujos por partes, ¿Quién es? y Retos) con sus ajustes de lectura;
+    - Mi Mundo con la habitación, el salón y cuidar a la muñeca: cámara, día y noche, sueño y diversión, juegos, rutina del
+      pijama y misiones.
+  - **Fuera:** la cocina y el baño (propuesta sin aprobar; hambre, higiene y baño siguen inactivas).
+- **Referencia para volver atrás:** rama `version-anterior-2026-11-16` (`021c67e`, la versión `5889ab82ca5d`).
+- **Datos:** ninguna clave se borra ni se reinicia.
+  - La habitación sigue en `mm_habitacion2`, con el mismo formato.
+  - Claves nuevas: `mm_salon`, `mm_necesidades` y `mm_ciclo`, todas con el prefijo `mm_`, que ya va en la copia de
+    seguridad.
+- **Comprobado sobre esta versión exacta:** `prueba-publicacion.js` **23/23**.
+  - Actualizando desde `021c67e` con una partida: ningún dato perdido (tampoco la lámina propia).
+  - Una sola caché con 630 archivos.
+  - En modo avión funcionan Pintar, Heladería, Vestir, logros, Contar, Memoria, Mi Mundo con su misión, y «Guardar» y
+    «Recuperar mi progreso».
+  - Una actualización posterior no mezcla archivos.
+  - Además, la prueba conjunta: con el dedo 9/9, lectura 16/16, táctil 14/14, WebKit, Mi Mundo 35/35 y 31/31, Pensar,
+    sin conexión 11/11, juego 21/21 y copia de seguridad 45/45.
+  - **Sin probar en el iPhone ni en el iPad reales con la app instalada.**
+
 ## D-038 · Norma de textos para la niña: está aprendiendo a leer · 15/11/2026
 - **Pedido de la propietaria:** «Nueva norma para toda la interfaz infantil: Amaia está aprendiendo a leer. Todos sus
   textos en MAYÚSCULAS, conservando tildes y Ñ. Letra de imprenta clara, grande y con buen contraste. Frases breves,

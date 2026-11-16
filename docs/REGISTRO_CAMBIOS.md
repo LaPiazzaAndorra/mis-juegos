@@ -1,5 +1,31 @@
 # Registro de cambios
 
+### 2026-11-16 — D-039: publicada en main la prueba conjunta (Pensar + Mi Mundo + norma de lectura)
+
+- **Autorizado por:** la propietaria («La prueba conjunta está bien. Integra y publica esta versión para actualizar la app, conservando los datos y el funcionamiento sin conexión».)
+- **Rama y commit:**
+  - integración en `avatar-creador`: `00a1f7a` (unión de `prueba-conjunta-2026-11-16` `05e6eca`; solo cambia el registro);
+  - documentación: este commit;
+  - **`main` = `bd8dcbb`**, versión **`08d0743115d0`**;
+  - versión anterior: rama `version-anterior-2026-11-16` (`021c67e`).
+- **Qué entra:**
+  - norma de lectura;
+  - todos los juegos de Pensar (`juegos-pensar` `bcb9f4d`) con sus ajustes de lectura;
+  - Mi Mundo (habitación, salón y cuidar a la muñeca).
+
+  La cocina y el baño, no.
+- **Datos guardados afectados:** ninguno se borra ni se reinicia. Claves nuevas de Mi Mundo con el prefijo `mm_`, que van en
+  la copia de seguridad.
+- **Pruebas:**
+  - `prueba-publicacion.js` 23/23 sobre esta versión exacta: actualizando desde `021c67e` con una partida, sin conexión, y
+    «Guardar» y «Recuperar mi progreso»;
+  - las de la prueba conjunta (entrada siguiente).
+
+  GitHub Pages: despliegue completado con éxito (ejecución 43888293971). **Sin probar en el iPhone real con la app
+  instalada.**
+- **Cómo volver atrás:** subir a `main` la rama `version-anterior-2026-11-16`. La app vuelve a la versión anterior al
+  abrirse con internet; los datos no se tocan.
+
 ### 2026-11-16 — Prueba conjunta (sin publicar): juegos de Pensar + Mi Mundo + norma de lectura
 
 - **Solicitado por:** la propietaria («El Chat 2 confirma que en juegos-pensar, commit 1821923, ya está integrada tu capa

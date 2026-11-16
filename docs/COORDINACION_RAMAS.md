@@ -47,6 +47,14 @@ no cambian ningún archivo del juego ni de otras carpetas y cargan sus archivos 
   que copie la versión nueva.
 - En la publicación: `--con-lectura docs/propuestas/lectura-2026-11-17` (antes de `--con-pensar` y `--con-mimundo`).
 
+## Publicado (16/11/2026, D-039)
+
+- `main` = `bd8dcbb`, versión `08d0743115d0`: la prueba conjunta aprobada, integrada en `avatar-creador` (`00a1f7a`).
+  Incluye la capa común de lectura, `juegos-pensar` `bcb9f4d` y Mi Mundo de la copia de cuidar.
+- **A partir de aquí:** lo nuevo de `juegos-pensar` se une a `avatar-creador` cuando la propietaria lo apruebe, y se
+  publica desde aquí (D-036).
+- La rama `prueba-conjunta-2026-11-16` queda como referencia.
+
 ## Prueba conjunta (16/11/2026, sin publicar)
 
 - `juegos-pensar` (`1821923`/`bcb9f4d`) ya carga la capa común de `4dd3a80` sin cambios (después de `logros.js`). Sus
