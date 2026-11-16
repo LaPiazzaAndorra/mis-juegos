@@ -1,5 +1,32 @@
 # Registro de decisiones
 
+## D-040 · La app comprueba cada archivo, no solo el número de versión · 16/11/2026
+- **Lo que vio la propietaria:** la app instalada decía «Versión del juego: 08d0743115d0» (`main` `bd8dcbb`), pero los juegos
+  de Pensar eran los antiguos.
+- **Comprobado:**
+  - lo publicado en `main` es correcto: los 14 archivos de Pensar son idénticos byte a byte a los de `juegos-pensar`
+    `bcb9f4d`; el `index.html` los carga todos, en el orden de la copia del Chat 2; están en la lista sin conexión;
+  - en Chromium y en WebKit (el motor de Safari), actualizando desde `021c67e` con un camino limpio, la caché sirve todo
+    igual que `main` y salen RETOS, ¿QUIÉN ES?, UNIR PUNTOS, REPASAR y DIBUJOS POR PARTES.
+- **Causa (reproducida):**
+  - la versión anterior ya tenía `pensar.js`, `pensar.css` y `dibujos.js` en las mismas direcciones;
+  - el service worker de `08d0743115d0` guardaba lo que le llegaba sin comprobarlo;
+  - si por el camino (la red de GitHub Pages o la caché de Safari) llega la copia vieja de esos tres archivos, queda el
+    número nuevo con el Pensar antiguo (y errores de JavaScript, al mezclarse con los juegos nuevos);
+  - `herramientas/publicar/prueba-copias-viejas.js` lo reproduce exactamente así.
+- **Corrección (solo la publicación; ningún juego cambia):**
+  - `offline-lista.js` lleva la huella (SHA-256) de cada archivo básico;
+  - al instalarse, el service worker los pide con `?v=<versión>` (otra dirección: ninguna copia vieja guardada) y comprueba
+    la huella; si no coincide, lo pide otra vez con una dirección única; si aun así no coincide, **no se instala** y sigue
+    la versión anterior entera;
+  - en cada arranque, `offline.js` vuelve a comprobar la caché; si un archivo no es el bueno, lo vuelve a descargar
+    comprobado y avisa «✨ Juego corregido · Abrir»;
+  - Ajustes muestra «Versión del juego: … · 70 de 70 archivos comprobados ✓» (⚠️ si falta alguno).
+- **Datos:** no se toca ninguno (ni localStorage ni IndexedDB); no hay claves nuevas.
+- **Publicación (pendiente de la autorización expresa de la propietaria; preparada: versión `386dd1333d57`):** con la autorización de D-039 (la misma versión del juego; solo cambian `sw.js`, `offline.js` y
+  `offline-lista.js`). Al abrir la app con internet se instala la versión nueva comprobada; entra al cerrar y volver a abrir
+  la app o al tocar «Actualizar».
+
 ## D-039 · Publicación en main de la prueba conjunta: Pensar + Mi Mundo + norma de lectura · 16/11/2026
 - **Autorización de la propietaria:** «La prueba conjunta está bien. Integra y publica esta versión para actualizar la app, conservando los datos y el funcionamiento sin conexión».
 - **Integración:** la rama `prueba-conjunta-2026-11-16` (`05e6eca`) se ha unido a `avatar-creador` (`00a1f7a`).

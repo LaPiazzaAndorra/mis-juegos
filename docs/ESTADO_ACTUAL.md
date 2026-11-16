@@ -466,10 +466,14 @@ históricos, no pruebas ejecutadas en esta sesión. Ojos verdes: mencionados por
 pero no encontrados en los originales ni en el catálogo premium de `2dc61c7`; no se dan por
 perdidos ni se rehacen sin localizar antes su fuente.
 
-**Última actualización:** 16/11/2026 (D-039: publicada en main la versión 08d0743115d0 —Pensar, Mi Mundo y norma de lectura—) · **Rama:** `avatar-creador` ·
-**Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md` (copia
-integrada), probado solo en simulación · **`main`:** `031ce07` `021c67e` (05/11/2026, D-035: + Contar y Memoria y la habitación de Mi Mundo, versión `5889ab82ca5d`);
-versiones anteriores en las ramas `version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).
+**Última actualización:** 16/11/2026 (D-040: la app comprueba cada archivo; corregido «versión 08d0743115d0 con Pensar antiguo») · **Rama:** `avatar-creador` ·
+**Último commit funcional:** el de la entrada más reciente de `docs/REGISTRO_CAMBIOS.md`, probado solo en simulación ·
+**`main`:** `bd8dcbb` (D-039, `08d0743115d0`). **Preparada sin publicar** (D-040): versión `386dd1333d57`, con cada archivo
+comprobado; falta la autorización para subirla a `main`; versiones anteriores en las ramas `version-anterior-2026-11-16` (`021c67e`),
+`version-anterior-2026-11-05` (`031ce07`) y `version-anterior-2026-10-11` (`4bbf51d`).
+**Pendiente:** autorización para `main`; después, en el iPhone real: abrir la app con internet, cerrarla y volver a abrirla; en Ajustes debe decir «Versión del
+juego: 386dd1333d57 · 70 de 70 archivos comprobados ✓», y deben verse ¿QUIÉN ES? y RETOS en Pensar, y UNIR PUNTOS, REPASAR y
+DIBUJOS POR PARTES en Pintar.
 
 ## Repositorio
 

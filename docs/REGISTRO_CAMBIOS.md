@@ -1,5 +1,43 @@
 # Registro de cambios
 
+### 2026-11-16 — D-040: la app comprueba cada archivo (Pensar antiguo con la versión 08d0743115d0)
+
+- **Solicitado por:** la propietaria («La app instalada muestra la versión 08d0743115d0, pero los juegos de Pensar siguen
+  apareciendo antiguos. Comprueba los archivos realmente publicados en main y los que sirve la caché, no solo el número de
+  versión… Reproduce la actualización desde la versión anterior y corrige lo que falte, conservando las partidas.»)
+- **Rama y commit:** `avatar-creador`, este commit; publicación preparada para `main`: commit local `90f78b8`, versión **`386dd1333d57`**,
+  **sin subir** (falta la autorización expresa de la propietaria para tocar `main`).
+- **Estado:** corrección probada en simulación; **pendiente de subir a `main`**. `main` sigue en `bd8dcbb`.
+- **Lo comprobado:**
+  - `main` `bd8dcbb` tenía bien los 14 archivos de Pensar (idénticos a `juegos-pensar` `bcb9f4d`, el mismo orden que la copia
+    del Chat 2, todos en la lista sin conexión; las claves de Pensar son `lv_*`, que ya van en la copia de seguridad);
+  - con un camino limpio, la actualización desde `021c67e` funciona en Chromium y en WebKit.
+- **Causa, reproducida:** si por el camino llega la copia vieja de `pensar.js`, `pensar.css` y `dibujos.js` (ya existían en
+  `021c67e`, en las mismas direcciones), el service worker de `08d0743115d0` la guardaba sin comprobar: número nuevo, Pensar
+  antiguo (menú de 5 juegos, Pintar sin UNIR PUNTOS, REPASAR ni DIBUJOS POR PARTES) y errores de JavaScript.
+- **Cambios** (solo la publicación; ningún juego cambia, los 631 archivos del juego son idénticos a `bd8dcbb`):
+  - `herramientas/publicar/preparar_publicacion.py`: huella SHA-256 de cada archivo básico en `offline-lista.js`;
+  - `herramientas/publicar/sw-plantilla.js`: descarga con `?v=<versión>`, comprueba la huella, segundo intento con dirección
+    única, y si no coincide no se instala; las descargas «&r=…» de la página van a la red;
+  - `herramientas/publicar/offline.js`: comprueba la caché en cada arranque, repara y avisa «✨ Juego corregido · Abrir»;
+    Ajustes: «Versión del juego: … · 70 de 70 archivos comprobados ✓»;
+  - `herramientas/publicar/prueba-copias-viejas.js` (nueva); `prueba-publicacion.js` y `prueba-actualizacion.js` aceptan
+    la línea nueva de Ajustes.
+- **Datos guardados afectados:** ninguno; sin claves nuevas.
+- **Pruebas (Chromium, iPhone simulado, app instalada simulada):**
+  - `prueba-copias-viejas.js` 17/17 (021c67e → bd8dcbb reproduce el fallo; → versión nueva: caché = disco byte a byte, Pensar
+    completo, RETOS, DIBUJOS POR PARTES y REPASAR abren, partida igual; archivo estropeado → se repara; copias viejas sin
+    arreglo → no se instala y sigue la anterior);
+  - `prueba-publicacion.js` 23/23 desde `bd8dcbb` con una partida (sin conexión, Guardar y Recuperar mi progreso);
+  - WebKit (motor de Safari): la versión publicada carga Pensar entero, sin errores de sintaxis.
+  - **Sin probar en el iPhone real.**
+- **Riesgos y pendiente:** la propietaria debe abrir la app con internet, cerrarla del todo y volver a abrirla (o tocar
+  «Actualizar»), y mirar en Ajustes «… archivos comprobados ✓». Coordinación: preguntado al Chat 2 si `bcb9f4d` es su última
+  entrega.
+- **¿`main` intacta?:** sí, sigue en `bd8dcbb` (comprobado con `git ls-remote`).
+- **Cómo revertir:** revertir este commit en `avatar-creador`; si se llega a publicar, subir a `main` `bd8dcbb` (o la rama
+  `version-anterior-2026-11-16`, `021c67e`); los datos no se tocan.
+
 ### 2026-11-16 — D-039: publicada en main la prueba conjunta (Pensar + Mi Mundo + norma de lectura)
 
 - **Autorizado por:** la propietaria («La prueba conjunta está bien. Integra y publica esta versión para actualizar la app, conservando los datos y el funcionamiento sin conexión».)

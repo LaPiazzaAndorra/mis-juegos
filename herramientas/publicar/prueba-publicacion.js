@@ -89,7 +89,7 @@ const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', i
   // la versión visible, en Ajustes (la que se le dice a la propietaria para comprobar que la app se ha actualizado)
   await p.tap('#setBtn').catch(() => {}); await p.waitForTimeout(500);
   const verAj = await p.evaluate(() => ({ t: (document.getElementById('verApp') || {}).textContent || '', v: window.OFFLINE && OFFLINE.version }));
-  ok('Ajustes muestra la versión del juego (la de esta publicación)', verAj.v && verAj.t === 'Versión del juego: ' + verAj.v, verAj.t);
+  ok('Ajustes muestra la versión del juego (la de esta publicación)', verAj.v && (verAj.t === 'Versión del juego: ' + verAj.v || new RegExp('^Versión del juego: ' + verAj.v + ' · (\\d+) de \\1 archivos comprobados ✓$').test(verAj.t)), verAj.t);
   await p.tap('#setClose').catch(() => {}); await p.waitForTimeout(300);
   await p.screenshot({ path: path.join(OUT, '1-lista.png') });
   // ---------- 4. modo avión ----------
@@ -175,8 +175,10 @@ const PARTIDA = { stars: '37', gal: JSON.stringify([DIB, DIB]), iceCoins: '5', i
   await ctx.setOffline(false);
   const N2 = fs.mkdtempSync(path.join(os.tmpdir(), 'nueva2-')); execSync(`cp -a "${NUEVA}/." "${N2}/"`);
   const v1 = await p.evaluate(() => OFFLINE.version), v2 = 'act' + v1.slice(3);
-  for (const f of ['offline-lista.js', 'sw.js']) fs.writeFileSync(path.join(N2, f), fs.readFileSync(path.join(N2, f), 'utf8').split(v1).join(v2));
+  const h16 = f => require('crypto').createHash('sha256').update(fs.readFileSync(path.join(N2, f))).digest('hex').slice(0, 16), hIdx0 = h16('index.html');
   fs.appendFileSync(path.join(N2, 'index.html'), '\n<!-- versión de prueba de actualización -->\n');
+  const hIdx1 = h16('index.html');   // la versión nueva lleva la huella de su index.html (si no, no se instalaría: D-040)
+  for (const f of ['offline-lista.js', 'sw.js']) fs.writeFileSync(path.join(N2, f), fs.readFileSync(path.join(N2, f), 'utf8').split(v1).join(v2).split(hIdx0).join(hIdx1));
   servir(N2);
   await p.reload(); await p.waitForTimeout(5000);
   const esperando = await p.evaluate(async () => ({ ver: OFFLINE.version, reg: !!(await navigator.serviceWorker.getRegistration()).waiting, aviso: document.getElementById('offlineAviso').textContent, caches: await caches.keys() }));

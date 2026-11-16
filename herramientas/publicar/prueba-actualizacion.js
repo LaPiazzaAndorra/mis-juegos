@@ -64,7 +64,7 @@ const volcar = p => p.evaluate(() => { const o = {}; for (let i = 0; i < localSt
   ok('Al tocar «Actualizar» se abre la nueva entera, se descarga y queda una sola caché', v1 !== v0 && cach.length === 1 && cach[0] === 'mis-juegos-' + v1 && /Lista/.test(await p.textContent('#offlineAviso')), `${v0} → ${v1} · ${cach}`);
   await p.tap('#setBtn'); await p.waitForTimeout(500);
   const ver = await p.textContent('#verApp').catch(() => '');
-  ok('La versión se ve en Ajustes', ver === 'Versión del juego: ' + v1, ver); await p.screenshot({ path: path.join(OUT, 'ajustes-version.png') }); await p.tap('#setClose');
+  ok('La versión se ve en Ajustes', ver === 'Versión del juego: ' + v1 || new RegExp('^Versión del juego: ' + v1 + ' · (\\d+) de \\1 archivos comprobados ✓$').test(ver), ver); await p.screenshot({ path: path.join(OUT, 'ajustes-version.png') }); await p.tap('#setClose');
   const desp = await volcar(p), idb = await p.evaluate(() => new Promise(ok => { const r = indexedDB.open('misjuegos'); r.onsuccess = () => { const db = r.result; if (!db.objectStoreNames.contains('tpl')) return ok(null);
     const g = db.transaction('tpl').objectStore('tpl').get('u:mi-lamina'); g.onsuccess = () => ok(g.result && g.result.id); }; }));
   const cambian = Object.keys(antes).filter(k => antes[k] !== desp[k]), nuevas = Object.keys(desp).filter(k => !(k in antes));

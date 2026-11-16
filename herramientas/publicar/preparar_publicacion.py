@@ -13,6 +13,9 @@ prueba completa (así el código aprobado no cambia de rutas):
   · los archivos que carga: progreso.js, logros.js, motor, catálogo y piezas de la muñeca (prueba completa), láminas de
     Pintar, plantilla.js, avatar.css y los catálogos del juego, manifiestos e iconos; y .nojekyll (GitHub Pages sin Jekyll).
 La versión es una huella de todos los archivos: si cambia cualquiera, cambia la caché (no se mezclan versiones).
+Además, cada archivo básico lleva su propia huella en offline-lista.js (16/11/2026): el service worker la comprueba al
+descargarlo (con «?v=<versión>» para no recibir una copia vieja guardada por el camino) y offline.js vuelve a comprobar la
+caché en cada arranque (Ajustes: «Versión del juego: … · 71 de 71 archivos comprobados»).
 
 Generador ÚNICO (07/11/2026): el de la rama publicacion-2026-11-05 (f1bd6e1), que produjo main 021c67e (versión
 5889ab82ca5d, visible en Ajustes como «Versión del juego»), unido a avatar-creador. Las pruebas de avatar-creador (Contar,
@@ -124,7 +127,10 @@ if __name__ == '__main__':
             etiquetas = ''.join(f'<link rel="stylesheet" href="{f}">\n' if f.endswith('.css') else f'<script src="{f}"></script>\n' for f in fin)
             archivos['index.html'] = sustituir(archivos['index.html'].decode('utf-8'), '<script src="offline-lista.js"></script>', etiquetas + '<script src="offline-lista.js"></script>').encode('utf-8')
     huella = hashlib.sha256(b''.join(hashlib.sha256(archivos[k]).digest() for k in sorted(archivos)) + (AQUI / 'sw-plantilla.js').read_bytes()).hexdigest()[:12]
-    lista = 'self.OFFLINE = ' + json.dumps(dict(version=huella, basico=basico, piezas=PIEZAS), ensure_ascii=False) + ';\n'
+    # huella de cada archivo básico: el service worker comprueba que lo que descarga es ESTE archivo (y no una copia vieja
+    # guardada por el camino: la red de GitHub, la caché de Safari…); offline-lista.js se comprueba por su versión
+    huellas = {u: hashlib.sha256(archivos['index.html' if u == './' else u]).hexdigest()[:16] for u in basico if u != 'offline-lista.js'}
+    lista = 'self.OFFLINE = ' + json.dumps(dict(version=huella, basico=basico, piezas=PIEZAS, huellas=huellas), ensure_ascii=False) + ';\n'
     archivos['offline-lista.js'] = ('/* Generado por herramientas/publicar/preparar_publicacion.py: versión y archivos para jugar sin conexión */\n' + lista).encode('utf-8')
     archivos['sw.js'] = (AQUI / 'sw-plantilla.js').read_text(encoding='utf-8').replace('__LISTA__', lista).encode('utf-8')
     # limpiar lo que ya no se publica (salvo .git) y escribir
