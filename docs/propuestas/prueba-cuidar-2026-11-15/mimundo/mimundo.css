@@ -1,0 +1,95 @@
+/* Mi Mundo · habitación y salón ilustrados jugables (D-033, D-034) y cuidar a la muñeca (D-037) */
+.mm{position:absolute;inset:0;overflow:hidden;touch-action:none}
+.mm-escena{position:absolute;left:0;top:0;width:1536px;height:1024px;transform-origin:0 0;transition:transform .5s ease-out}
+.mm-fondo{position:absolute;left:0;top:0;width:1536px;height:1024px;pointer-events:none;user-select:none}
+.mm-obj{position:absolute;user-select:none;-webkit-user-drag:none;cursor:grab;transition:transform .35s ease-in,opacity .35s ease-in;transform-origin:50% 100%}
+.mm-obj[data-capa="delante"]{pointer-events:none}
+.mm-obj.sel[data-capa="detras"]{filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #a083ff)}
+.mm-obj.encima[data-capa="detras"]{filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #5fd39b)}
+.mm-obj.mm-entra{transform:scale(.2) translateY(-40px);opacity:0}
+.mm-muneca{position:absolute;transition-property:left,top,width,height;transition-timing-function:linear;transform-origin:50% 50%;cursor:grab}
+.mm-muneca>.mm-av{width:100%;height:100%}
+.mm-zzz{display:none;position:absolute;left:62%;top:2%;font:900 34px system-ui,sans-serif;color:#a083ff;text-shadow:0 2px 0 #fff;animation:zzz 2s ease-in-out infinite;pointer-events:none}
+.mm-muneca.acostada .mm-zzz{display:block}
+.mm-item{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:auto;min-width:92px;padding:0 10px}
+.mm-item img{height:52px;width:auto;pointer-events:none}
+.mm-item span{font:700 13px system-ui,sans-serif;color:#5a4a6a}
+.mm-item i{position:absolute;right:4px;top:2px;font-style:normal;font-size:20px}
+.mm-item.bloq img{filter:grayscale(1) opacity(.55)}
+.mm-mision{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;
+  padding:6px 8px 6px 18px;font:700 16px system-ui,sans-serif;color:#5a4a6a;box-shadow:0 4px 14px rgba(0,0,0,.16);white-space:nowrap;max-width:calc(100% - 20px)}
+.mm-mision .btn{min-width:44px;min-height:44px;padding:0;font-size:18px}
+.mm-puntos{display:flex;gap:5px}.mm-puntos i{width:14px;height:14px;border-radius:50%;background:#eadff5}.mm-puntos i.si{background:#5fd39b}
+.mm-panel{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;background:rgba(60,40,80,.25)}
+.mm-panel-caja{background:#fff;border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:260px;box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.mm-panel-caja h3{margin:0 0 4px;font:800 22px system-ui,sans-serif;color:#5a4a6a;text-align:center}
+.mm-panel-caja .btn{min-height:52px;font:800 18px system-ui,sans-serif;justify-content:center}
+.mm-panel-caja small{font-weight:700;color:#3a9a6a}
+.mm-mision b{overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:520px){.mm-mision{font-size:17px;gap:7px;padding:4px 4px 4px 12px}.mm-mision .mm-cuenta{display:none}.mm-puntos i{width:12px;height:12px}}
+/* salón (D-034): misiones con muchos pasos (merienda: 10 puntos) */
+.mm-puntos.muchos{gap:3px}.mm-puntos.muchos i{width:10px;height:10px}
+@media (max-width:520px){.mm-puntos.muchos i{width:8px;height:8px}.mm-puntos.muchos{gap:2px}}
+/* ---------- cuidar a la muñeca (D-037) ---------- */
+.mm-escena.mm-sinanim{transition:none}
+/* cámara: flechas a los lados y botón con su cara para encontrarla */
+.mm-flecha{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:48px;height:72px;border:0;border-radius:16px;background:rgba(255,255,255,.82);
+  box-shadow:0 3px 12px rgba(0,0,0,.18);font:900 24px system-ui,sans-serif;color:#8a6ac8;display:none;align-items:center;justify-content:center;cursor:pointer}
+.mm-flecha.on{display:flex}.mm-flecha.izq{left:8px}.mm-flecha.der{right:8px}
+.mm-buscar{position:absolute;right:10px;bottom:10px;z-index:4;width:58px;height:58px;border-radius:50%;border:3px solid #fff;background:#f4eaff;padding:0;overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.22);display:none;cursor:pointer;animation:mmLatir 1.6s ease-in-out infinite}
+.mm-buscar.on{display:block}
+.mm-buscar-cara{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mm-buscar-cara>span{position:absolute;left:50%;top:-6px;width:96px;height:161px;transform:translateX(-50%)}
+@keyframes mmLatir{50%{transform:scale(1.08)}}
+/* día y noche (provisional: luz azulada y cielo oscuro en la ventana; falta el arte de noche) */
+.mm-noche{position:absolute;left:0;top:0;width:1536px;height:1024px;z-index:99990;pointer-events:none;background:#3c4a96;mix-blend-mode:multiply;opacity:0;transition:opacity .8s}
+.mm-cielo{position:absolute;z-index:99991;pointer-events:none;background:linear-gradient(#0f1a4a,#2b3a7a);mix-blend-mode:multiply;opacity:0;transition:opacity .8s}
+.mm-escena.noche .mm-noche{opacity:.72}.mm-escena.noche .mm-cielo{opacity:.9}
+.mm-luz{position:absolute;z-index:99992;pointer-events:none;border-radius:50%;background:radial-gradient(rgba(255,214,140,.9),rgba(255,190,110,.35) 40%,rgba(255,190,110,0) 70%);
+  mix-blend-mode:screen;opacity:.45;transition:opacity .4s}
+.mm-escena.noche .mm-luz{opacity:1}
+/* necesidades: indicadores pequeños arriba a la izquierda (con el dibujo del objeto que las atiende) */
+.mm-nec{position:absolute;left:8px;top:8px;z-index:4;display:flex;gap:6px}
+.mm-nec-i{display:flex;align-items:center;gap:6px;height:44px;padding:0 10px 0 6px;border:0;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 2px 8px rgba(0,0,0,.15);cursor:pointer}
+.mm-nec-i img{height:32px;width:40px;object-fit:contain;pointer-events:none}
+.mm-nec-i i{display:block;width:54px;height:10px;border-radius:6px;background:#eee4f6;overflow:hidden}
+.mm-nec-i b{display:block;height:100%;border-radius:6px;background:#5fd39b;transition:width .6s}
+.mm-nec-i[data-nivel="medio"] b{background:#ffc35a}.mm-nec-i[data-nivel="bajo"] b{background:#ff8fb1}
+/* aviso breve */
+.mm-aviso{position:absolute;left:50%;top:72px;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:10px;max-width:calc(100% - 24px);
+  border:0;border-radius:22px;background:#fff;padding:6px 16px 6px 8px;font:800 17px system-ui,sans-serif;color:#5a4a6a;box-shadow:0 5px 18px rgba(0,0,0,.2);
+  animation:mmAviso .45s ease-out;cursor:pointer}
+.mm-aviso img{height:52px;width:64px;object-fit:contain;pointer-events:none}
+@keyframes mmAviso{from{transform:translate(-50%,-14px);opacity:0}}
+/* bocadillo de la muñeca */
+.mm-bocadillo{position:absolute;z-index:5;transform:translate(-50%,-100%) scale(.6);opacity:0;pointer-events:none;max-width:240px;background:#fff;border-radius:18px;
+  padding:8px 14px;font:800 16px system-ui,sans-serif;color:#5a4a6a;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.18);transition:opacity .25s,transform .25s}
+.mm-bocadillo::after{content:'';position:absolute;left:50%;bottom:-9px;margin-left:-9px;border:9px solid transparent;border-bottom:0;border-top-color:#fff}
+.mm-bocadillo.on{opacity:1;transform:translate(-50%,-100%) scale(1)}
+/* los juguetes responden */
+.mm-obj.mm-j-pelota{animation:mmBota .65s ease-in-out 3}
+.mm-obj.mm-j-cubos{animation:mmBaila .4s ease-in-out 4}
+.mm-obj.mm-j-cuento{animation:mmLatir .8s ease-in-out 2}
+.mm-obj.mm-j-peluche{animation:mmBota .55s ease-in-out 2}
+@keyframes mmBota{50%{transform:translateY(-22%)}}
+@keyframes mmBaila{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+/* pregunta con la vista previa de la ropa */
+.mm-pregunta .mm-panel-caja{align-items:stretch;max-width:340px}
+.mm-pregunta p{margin:0;font:800 19px system-ui,sans-serif;color:#5a4a6a;text-align:center}
+.mm-prev{height:200px;width:120px;margin:0 auto}
+@media (max-width:520px){.mm-nec-i i{width:40px}.mm-nec-i img{width:32px}.mm-aviso{font-size:17px}.mm-flecha{width:40px;height:64px}}
+/* Vestir con una rutina pendiente: «Guardar y volver», flotante y bien visible (la barra no cabe en el iPhone) */
+#mmVolver{position:fixed;left:50%;bottom:calc(52px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;min-height:56px;padding:0 22px;
+  font:800 18px system-ui,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.25);white-space:nowrap}
+/* una instrucción cada vez (D-038): el paso siguiente de la misión, con su dibujo */
+.mm-mision .mm-paso-img{height:40px;width:48px;object-fit:contain;margin-left:-8px;pointer-events:none}
+/* la instrucción de la misión se lee entera: puede ocupar dos líneas (nunca «…») */
+.mm-mision{white-space:normal}
+.mm-mision b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.1;flex:1 1 auto}
+.mm-mision .mm-puntos{flex:0 0 auto}
+@media (max-width:520px){.mm-mision{width:calc(100% - 20px);box-sizing:border-box}.mm-mision .mm-puntos.muchos{display:grid;grid-template-columns:repeat(5,8px);gap:3px}}
+/* el salón responde (16/11): los cojines y el sofá se aplastan; la mesa late */
+.mm-obj.mm-j-cojin{animation:mmAplasta .45s ease-in-out 2}
+.mm-obj.mm-j-mesa{animation:mmLatir .8s ease-in-out 1}
+@keyframes mmAplasta{50%{transform:scale(1.06,.9)}}

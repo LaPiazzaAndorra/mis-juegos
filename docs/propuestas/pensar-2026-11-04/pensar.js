@@ -70,7 +70,7 @@
     const o = nivel.get();
     el.innerHTML = `<span class="pnPasos">${Array.from({ length: nivel.total }, (_, i) =>
       `<i class="${i <= o.max ? 'hecho' : ''}${i === o.L && !prueba.activa ? ' actual' : ''}"></i>`).join('')}</span>` +
-      `<span class="pnNivel">${prueba.activa ? `⏩ Prueba rápida · ${prueba.i + 1} de ${prueba.lista.length}` : `Nivel ${o.L + 1} de ${nivel.total} · ${nombres[o.L]}`}</span>`;
+      `<span class="pnNivel">${prueba.activa ? `<span>⏩ Prueba rápida</span><span>${prueba.i + 1} de ${prueba.lista.length}</span>` : `<span>Nivel ${o.L + 1} de ${nivel.total}</span><span>${nombres[o.L]}</span>`}</span>`;   // norma D-038: sin «·», en dos líneas
   }
   function finPrueba(r, nivel, nombres) {
     const L = nivel.get().L;
@@ -80,13 +80,13 @@
   // primera vez: elegir entre empezar o hacer la prueba rápida
   function introHTML(ill) {
     return `<div class="pnIntro" hidden><div class="pnIntroCaja"><span class="ill" data-ill="${ill}"></span>
-      <p>¿Saltamos lo que ya sabes?</p>
-      <button class="btn pnSi" type="button">⏩ Prueba rápida</button><button class="btn pnNo" type="button">▶ Empezar</button></div></div>`;
+      <p>¿Saltamos lo fácil?</p>
+      <button class="btn pnSi" type="button">⏩ Hacer la prueba</button><button class="btn pnNo" type="button">▶ Empezar</button></div></div>`;
   }
   function intro(sec, nivel, alProbar, alEmpezar) {
     const box = sec.querySelector('.pnIntro');
     if (nivel.get().prueba) { box.hidden = true; return false; }
-    box.hidden = false; say('¿Saltamos lo que ya sabes? Puedes hacer una prueba rápida.');
+    box.hidden = false; say('¿Saltamos lo fácil? Puedes hacer una prueba rápida.');
     box.querySelector('.pnSi').onclick = () => { sfx.pop(); box.hidden = true; alProbar(); };
     box.querySelector('.pnNo').onclick = () => { sfx.pop(); box.hidden = true; nivel.marcar('saltada'); alEmpezar(); };
     return true;
@@ -141,7 +141,7 @@
   ${barra('memoria', '¿Dónde estaba?', '<button class="btn" id="doSay" aria-label="Repetir">🗣️</button>')}
   <div class="pnFila"><div class="pnCamino" id="doCamino"></div><button class="btn pnSaltar" id="doPrueba">⏩ Saltar lo fácil</button></div>
   <div class="pnWrap"><div class="pnTablero" id="doTablero"></div><div class="pnLado"><div class="pnTexto" id="doTexto"></div><div class="pnBusca" id="doBusca"></div>
-    <div class="pnAcciones"><button class="btn pnAccion" id="doListo">🙈 ¡Ya me acuerdo!</button><button class="btn pnAccion" id="doOtra" hidden>👀 Mirar otra vez</button></div></div></div>
+    <div class="pnAcciones"><button class="btn pnAccion" id="doListo">🙈 Esconder</button><button class="btn pnAccion" id="doOtra" hidden>👀 Mirar otra vez</button></div></div></div>
   ${introHTML('donde')}
 </section>
 <section class="screen pn" id="serie">
@@ -352,7 +352,7 @@
     dn.celdas.forEach((id, i) => { const b = document.createElement('button'); b.className = 'pnCelda vista'; b.innerHTML = id ? `<span class="pnCara">${DB[id].svg}</span>` : '';
       b.setAttribute('aria-label', 'Casilla ' + (i + 1)); b.onclick = () => tocarDo(i, b); tb.appendChild(b); });
     $('#doBusca').innerHTML = ''; $('#doListo').hidden = false; $('#doOtra').hidden = true; ajustar();
-    $('#doTexto').textContent = '¡Mira dónde está cada uno!'; setTimeout(() => { if (t === dn.turno) say('¡Mira dónde está cada uno! Cuando te acuerdes, toca «Ya me acuerdo».'); }, 300);
+    $('#doTexto').textContent = '¡Mira dónde está cada uno!'; setTimeout(() => { if (t === dn.turno) say('¡Mira dónde está cada uno! Cuando te acuerdes, toca «Esconder».'); }, 300);
   }
   function preguntaDo() {
     const id = dn.pregs[dn.q], d = DB[id]; dn.fallosQ = 0;
@@ -394,7 +394,7 @@
   const sr = { fase: '', seq: [], pos: 0, fallos: 0, veces: 0, turno: 0, repaso: false, P: null };
   function encender(k, ms = 480) { const el = $('#sePads').children[k]; if (!el) return; el.classList.add('luz'); tone(PADS[k].f, .3, 'sine', .16); setTimeout(() => el.classList.remove('luz'), ms); }
   async function ensenar(t) {
-    sr.fase = 'mira'; sr.pos = 0; $$('#sePads .pnPad').forEach(b => b.classList.remove('pista')); $('#seTexto').textContent = '👀 Mira y escucha…'; puntosSe();
+    sr.fase = 'mira'; sr.pos = 0; $$('#sePads .pnPad').forEach(b => b.classList.remove('pista')); $('#seTexto').textContent = 'Mira y escucha.'; puntosSe();
     await espera(700);
     for (const k of sr.seq) { if (t !== sr.turno) return; encender(k); await espera(750); }
     if (t !== sr.turno) return; sr.fase = 'toca'; $('#seTexto').textContent = '¡Te toca!'; say('¡Te toca!'); marcarPistaSe();
@@ -433,5 +433,6 @@
   onShow.serie = () => { sr.turno++; showStars(); if (intro($('#serie'), nvSe, () => { prSe.empezar(); rondaSe(); }, rondaSe)) { pintarCamino($('#seCamino'), nvSe, prSe, SE_NOM); $('#sePads').innerHTML = ''; } else rondaSe(); };
   onLeave.serie = () => { sr.turno++; prSe.activa = false; };
 
+  window.PENSAR_UTIL = { Nivel, Prueba, pintarCamino, finPrueba, introHTML, intro, encajar, TAM, espera, may, barra, lado };   // para pensar2.js
   window.PENSAR = { crearCt, CT_PRUEBA, nvCt, nvPj, nvDo, nvSe, prCt, prDo, prSe, ct, pj, dn, sr, CT, PJ, DO, SE };   // para las pruebas
 })();
