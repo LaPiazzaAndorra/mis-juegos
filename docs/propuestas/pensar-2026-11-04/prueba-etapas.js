@@ -54,7 +54,7 @@ async function repasarTodo(p, off = 0) { for (let n = 0; n < 60; n++) { const s 
     ok('La copia carga etapas.css, ilustraciones.js y etapas.js después de Repasar', /repasar\.js"><\/script>\n<link rel="stylesheet" href="docs\/propuestas\/pensar-2026-11-04\/etapas\.css">\n<script src="docs\/propuestas\/pensar-2026-11-04\/ilustraciones\.js"><\/script>\n<script src="docs\/propuestas\/pensar-2026-11-04\/etapas\.js"><\/script>/.test(h));
     const fuera = git(`git status --porcelain -- . ':!${CARP}' ':!docs/propuestas/lectura-2026-11-17/'`);
     ok('Fuera de su carpeta (y de la capa común de lectura) no cambia nada (ni main, ni el juego, ni Pintar, ni los archivos de avatar-creador)', fuera === '', fuera.slice(0, 200));
-    ok('La capa común de lectura (lectura-2026-11-17) es idéntica a la de avatar-creador f3005ce', git('git diff --stat f3005ce -- docs/propuestas/lectura-2026-11-17/') === '' && git('git status --porcelain -- docs/propuestas/lectura-2026-11-17/').split('\n').every(l => !l || /^A /.test(l)));
+    ok('La capa común de lectura (lectura-2026-11-17) es idéntica a la de avatar-creador 4dd3a80', git('git diff --stat 4dd3a80 -- docs/propuestas/lectura-2026-11-17/') === '' && git('git status --porcelain -- docs/propuestas/lectura-2026-11-17/').split('\n').every(l => !l || /^[AM] /.test(l)));
   }
   const b = await pw.chromium.launch();
   // ---------- 1. menú y elegir dibujo ----------

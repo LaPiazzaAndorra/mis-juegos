@@ -21,7 +21,7 @@ ni modifiques los archivos en los que esté trabajando el otro chat.»
 | 15/11/2026, 09:42 | La propietaria: la 4.ª funciona, **pero sigue siendo fácil**; no ampliar el catálogo con la misma dificultad. Pide **tres retos avanzados distintos**, disponibles directamente | **5.ª entrega (prueba de retos avanzados):** Pensar → **Retos** (¿Quién se esconde?, La tabla de dos reglas y ¿Qué ha cambiado?; ver abajo). Commit `3e01b60`. Probada en Chromium; **pendiente de probarla con Amaia**. |
 | 15/11/2026, 10:20 | La propietaria, antes de integrar la 5.ª: aplicar la **norma de lectura de Amaia** (MAYÚSCULAS, letra grande, frases cortas, apoyo visual o de voz) y agrandar las preguntas de «Tú preguntas» en horizontal, **sin cambiar la dificultad** | Aplicada en los Retos (commit `ddbe50c`; ver «Norma de lectura» abajo). Probada en Chromium; **pendiente de la prueba en el iPhone**. |
 | 15/11/2026, 17:25 | La propietaria: aplicar la **norma de lectura a todas las entregas** (Contar, Memoria, ¿Qué sigue?, Sombras, El diferente, Unir puntos, Repasar, Dibujos por partes, ¿Quién es?), dividir en pasos en vez de un máximo rígido de palabras, comprobar ambas orientaciones del iPhone y dejar **una única versión de prueba** | **Versión única** `d0c9df5` con todo adaptado (`lectura.css` y `lectura.js`; ver «Norma de lectura en todas las entregas»). Probada en Chromium; **pendiente de la prueba en el iPhone**. La aprobación de los Retos sigue pendiente de probarlos con Amaia. |
-| 16/11/2026, 06:03 | La propietaria autoriza **integrar la capa común de lectura** de `avatar-creador` `f3005ce` sin cambios, quitar lo duplicado, adaptar los textos a **D-038** (botones con verbo, sin «·», números en cifra, contraste de 4,5:1) sin tocar lógica, dificultad, respuestas ni datos, y **comprobar si la capa bloquea el salón** | **Versión única con la capa común** (ver abajo) y diagnóstico del salón en `SALON_Y_LECTURA.md`. Probada en Chromium; **pendiente de la prueba en el iPhone**. |
+| 16/11/2026, 06:03 | La propietaria autoriza **integrar la capa común de lectura** de `avatar-creador` `f3005ce` sin cambios (integrada la de `4dd3a80`, que corrige su bucle), quitar lo duplicado, adaptar los textos a **D-038** (botones con verbo, sin «·», números en cifra, contraste de 4,5:1) sin tocar lógica, dificultad, respuestas ni datos, y **comprobar si la capa bloquea el salón** | **Versión única con la capa común** (ver abajo) y diagnóstico del salón en `SALON_Y_LECTURA.md`. Probada en Chromium; **pendiente de la prueba en el iPhone**. |
 | Al integrar | Pasar Contar y Memoria al juego (`index.html`, generador de publicación, versión de `sw.js`) | Lo coordina la propietaria. |
 
 ## De dónde parte
@@ -367,7 +367,9 @@ negro uniforme de 10 px, sin rellenos, sombras ni texturas:
 
 Pedido de la propietaria (16/11/2026, 06:03), resumido:
 - Integrar la capa común del commit `f3005ce` de `avatar-creador` **sin modificarla** y quitar de la de Pensar lo
-  duplicado.
+  duplicado. **Integrada la de `4dd3a80`**, también sin modificarla. `avatar-creador` la subió mientras tanto con la
+  corrección de un bucle de `f3005ce`: unos 60 cambios por segundo en cada pantalla con título, medidos también en
+  Pensar.
 - Adaptar los textos de Pensar a la norma **D-038**: botones con verbo, sin «·», números en cifras y contraste de 4,5:1.
 - **Conservar exactamente** la lógica, la dificultad, las respuestas y los datos guardados.
 - Hacer todas las pruebas y dejar una única versión para revisar en el iPhone.
@@ -378,7 +380,7 @@ Pedido de la propietaria (16/11/2026, 06:03), resumido:
 
 | Qué | Cómo |
 | --- | --- |
-| **Capa común** | `docs/propuestas/lectura-2026-11-17/`, **idéntica** a la de `f3005ce` (lo comprueban las pruebas). Se carga justo después de `logros.js`. Pone las MAYÚSCULAS en todo el juego (también en el menú Pintar), 16 px o más, el contraste y los títulos sin «…». |
+| **Capa común** | `docs/propuestas/lectura-2026-11-17/`, **idéntica** a la de `4dd3a80` (lo comprueban las pruebas; con la de `f3005ce` había 120 cambios en 2 s en cada pantalla de Pensar, y con esta, 0). Se carga justo después de `logros.js`. Pone las MAYÚSCULAS en todo el juego (también en el menú Pintar), 16 px o más, el contraste y los títulos sin «…». |
 | **Lo propio de Pensar** | `lectura.css` y `lectura.js` pasan a llamarse **`lectura-pensar.css` y `lectura-pensar.js`**, y se les quita lo que ya hace la capa común (mayúsculas, tamaño de `.pnNv`, títulos). Se quedan: los mensajes en pasos con altavoz, la voz al tocar el título, las palabras bajo las pistas de ¿Quién es? y los menús en horizontal. |
 | **El mensaje suena como el 🗣️** | Tocar el mensaje hace lo mismo que el botón 🗣️ de su pantalla (la instrucción entera). En los iPhone de 400 px o menos, ese botón sale de la barra para que quepa el título («POR PARTES», «¿QUIÉN ES?»), y su función la hace el mensaje. |
 | **Botones con verbo** | «¡A PINTAR!» → **PINTAR**. «OTRO» → **HACER OTRO** (dibujos) y **JUGAR OTRO** (retos). «¡YA ME ACUERDO!» y «¡YA!» → **ESCONDER**. «¡ES ESTE!» → **ELEGIR**. «PRUEBA RÁPIDA» → **HACER LA PRUEBA** (y la voz dice «toca Esconder», «pulsa Elegir»). |
@@ -388,9 +390,9 @@ Pedido de la propietaria (16/11/2026, 06:03), resumido:
 | **iPhone horizontal** | El menú Pintar (6 botones) en 3 columnas, para que no se corten «HOJA EN BLANCO», «COLOREAR» y «MIS DIBUJOS». |
 | **Datos, dificultad, respuestas y recompensas** | Iguales: mismas claves, niveles, generadores, pistas y estrellas. |
 
-**El salón:** ver `SALON_Y_LECTURA.md`. En Chromium, con el dedo emulado, la capa común no cambia nada en el salón, y no
-se ha encontrado la causa. No se ha podido probar en WebKit (el motor del iPhone). La comprobación que falta en el iPhone
-está en esa nota.
+**El salón:** ver `SALON_Y_LECTURA.md`. La capa común no bloqueaba los toques (aquí, en Chromium con el dedo emulado; el
+Chat 1, también en WebKit). La causa estaba en el motor de Mi Mundo y el Chat 1 la ha corregido en `4dd3a80`. Además, la
+capa de `f3005ce` tenía un bucle en las pantallas con título, también corregido en `4dd3a80`.
 
 ## Norma de lectura en todas las entregas (15/11/2026, 17:25): versión única de prueba
 
@@ -555,17 +557,18 @@ node docs/propuestas/pensar-2026-11-04/prueba-pensar2.js         # 35 comprobaci
 node docs/propuestas/pensar-2026-11-04/prueba-repasar.js        # 28 comprobaciones (3.ª entrega)
 node docs/propuestas/pensar-2026-11-04/prueba-etapas.js         # 39 comprobaciones (4.ª entrega: Dibujos por partes)
 node docs/propuestas/pensar-2026-11-04/prueba-quien.js          # 22 comprobaciones (4.ª entrega: ¿Quién es?)
-node docs/propuestas/pensar-2026-11-04/prueba-lectura.js        # 36 comprobaciones (norma D-038 + capa común, 5 pantallas, contraste)
+node docs/propuestas/pensar-2026-11-04/prueba-lectura.js        # 37 comprobaciones (norma D-038 + capa común, 5 pantallas, contraste, sin bucles)
 node docs/propuestas/pensar-2026-11-04/prueba-retos.js          # 68 comprobaciones (5.ª entrega: Retos, con la norma de lectura)
 node docs/propuestas/pensar-2026-11-04/prueba-sin-conexion.js    # 13 comprobaciones (modo avión, simulación de publicación)
 ```
 
-**Versión única con la capa común (16/11/2026): `prueba-lectura.js` 36/36.**
+**Versión única con la capa común (16/11/2026): `prueba-lectura.js` 37/37.**
 - Las mismas comprobaciones de antes, y además:
+  - **sin bucles**: con la pantalla quieta, 0 cambios en 2 s;
   - el **iPhone pequeño (375 × 667)**;
   - el **contraste de 4,5:1** y el texto cortado, con el criterio de la prueba común;
   - que tocar el mensaje suena igual que el 🗣️.
-- **La capa común:** las pruebas de Pensar comprueban que es idéntica a la de `f3005ce`.
+- **La capa común:** las pruebas de Pensar comprueban que es idéntica a la de `4dd3a80`.
 - **Su propia prueba** necesita Mi Mundo (ver `SALON_Y_LECTURA.md`).
 
 **Norma de lectura en todas las entregas (15/11/2026, 17:25): `prueba-lectura.js` 26/26.**

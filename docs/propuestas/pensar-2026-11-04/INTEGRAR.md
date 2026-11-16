@@ -7,7 +7,8 @@ que llevar al juego **cuando la propietaria lo apruebe**: hasta entonces, nada.
 ## Una sola versión de prueba (16/11/2026): todas las entregas con la norma D-038 y la capa común
 
 Desde el 16/11, **hay una única versión que vale**: la que reúne **todas las entregas con la norma D-038**
-(`docs/NORMA_TEXTOS_INFANTILES.md` de `avatar-creador`) y **la capa común de lectura** de `f3005ce`, integrada sin cambios. Su commit está en la tabla de abajo («versión única»), y su enlace fijo, en `LEEME.md`. Los commits anteriores
+(`docs/NORMA_TEXTOS_INFANTILES.md` de `avatar-creador`) y **la capa común de lectura** de `avatar-creador` **`4dd3a80`** (la que corrige el bucle de títulos de `f3005ce`), integrada
+sin cambios. Su commit está en la tabla de abajo («versión única»), y su enlace fijo, en `LEEME.md`. Los commits anteriores
 quedan solo como historia; **no se integran por separado**.
 
 | Entrega | Qué es | Estado (15/11) |
@@ -25,7 +26,7 @@ Cuando la propietaria apruebe, se puede integrar **todo** o **solo lo aprobado**
 
 **Antes de todo, justo después de `logros.js`: la capa común** `docs/propuestas/lectura-2026-11-17/` (`lectura.css` y
 `lectura.js`), igual que en vuestra rama. En la publicación, con `--con-lectura docs/propuestas/lectura-2026-11-17`. En
-`juegos-pensar` es **idéntica** a la de `f3005ce` (lo comprueban las pruebas).
+`juegos-pensar` es **idéntica** a la de `4dd3a80` (lo comprueban las pruebas). Si cambia en vuestra rama, se vuelve a traer igual.
 
 Después, en la carpeta `docs/propuestas/pensar-2026-11-04/`, en este orden y antes de Mi Mundo:
 
@@ -101,8 +102,8 @@ comprobar antes el modo avión (13/13 con todo, también la capa común).
   - los números en cifra («¡SOLO QUEDA 1!»).
 - **Contraste:** medido con el mismo criterio que la prueba común. Ningún texto de Pensar baja de 4,5:1.
 - **No toca ningún dato, nivel, respuesta ni recompensa.**
-- **El salón:** ver `SALON_Y_LECTURA.md`. En Chromium la capa común no cambia nada en el salón y no se ha encontrado la
-  causa. Falta comprobarlo en el iPhone.
+- **El salón:** ver `SALON_Y_LECTURA.md`. La capa no bloqueaba los toques. La causa estaba en el motor de Mi Mundo y el
+  bucle de títulos de `f3005ce`; las dos cosas están corregidas en `4dd3a80`.
 
 ## Datos (nada que migrar)
 

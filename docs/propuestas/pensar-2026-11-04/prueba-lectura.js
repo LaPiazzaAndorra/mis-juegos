@@ -129,6 +129,11 @@ function medir() {   // se ejecuta en la página
     ok(`${dn}: criterio de la capa común: contraste de 4,5:1 o más y nada cortado, fuera ni de menos de 16 px`, !fallos.capa.length, fallos.capa.slice(0, 4).join(' || '));
     ok(`${dn}: todo lo que se toca mide 44 px o más`, !fallos.tocar.length, fallos.tocar.slice(0, 3).join(' || '));
     if (dn === 'iPhone vertical') {
+      // sin bucles: con la pantalla quieta, nada cambia en la página (la capa de f3005ce hacía unos 60 cambios por segundo)
+      const quietos = [];
+      for (const ir of [() => go('contar'), () => go('quien'), () => go('etapa', 'buho:pu'), () => go('rTab')]) { await p.evaluate(ir); await p.waitForTimeout(1500);
+        quietos.push(await p.evaluate(() => new Promise(r => { let n = 0; const o = new MutationObserver(ms => { n += ms.length; }); o.observe(document.body, { subtree: true, attributes: true, childList: true, characterData: true }); setTimeout(() => { o.disconnect(); r(n); }, 2000); }))); }
+      ok('Sin bucles: con la pantalla quieta no cambia nada en 2 s (Contar, ¿Quién es?, Dibujos por partes y Dos reglas)', quietos.every(n => n === 0), quietos.join(', '));
       // pasos breves y voz
       for (let k = 0; k < 15; k++) { await p.evaluate(() => { PENSAR.nvCt.elegir(7); go('contar'); }); await p.waitForTimeout(400); await sinIntro(p); await p.waitForTimeout(300);
         if (await p.evaluate(() => LecturaPensar.pasos(document.querySelector('#ctTexto').textContent.trim()).length >= 2)) break; }

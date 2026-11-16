@@ -1,4 +1,6 @@
-# Capa común de lectura (D-038) · 17/11/2026
+# Capa común de lectura (D-038) · 15/11/2026
+
+(El nombre de la carpeta lleva «11-17» por un error de fecha; se deja así porque esa ruta ya se ha compartido con `juegos-pensar`.)
 
 La norma está en [`docs/NORMA_TEXTOS_INFANTILES.md`](../../NORMA_TEXTOS_INFANTILES.md). Esta carpeta es su aplicación
 **común a todas las ramas**. **No está publicada.** Se prueba en la copia de cuidar a la muñeca, que la carga:
@@ -20,3 +22,9 @@ La norma está en [`docs/NORMA_TEXTOS_INFANTILES.md`](../../NORMA_TEXTOS_INFANTI
 En la publicación se carga con la opción `--con-lectura docs/propuestas/lectura-2026-11-17` de
 `herramientas/publicar/preparar_publicacion.py`, que la pone en ese orden y en lo básico para jugar sin conexión. Sin esa
 opción, el resultado es el de siempre: comprobado que sigue reproduciendo `main` `021c67e` byte a byte.
+
+**16/11 · corrección compartida (`lectura.js`):** el ajuste de los títulos de las barras se volvía a llamar a sí mismo
+(cambiaba la clase del título, eso lo despertaba otra vez…): en las pantallas con título eran unos 120 cambios por segundo
+sin parar. Ahora solo se ajusta al cambiar de pantalla o al aparecer contenido nuevo fuera de los títulos, y solo cambia la
+clase si hace falta. Comprobado: 0 cambios en «Mis logros» y los títulos siguen ajustados. La capa no bloquea los toques del
+salón: mismo resultado con ella y sin ella (prueba táctil y WebKit). Comunicado a `juegos-pensar`.

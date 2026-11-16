@@ -70,18 +70,33 @@
     }
     if (n.nodeType === 1 && !n.matches(FUERA)) for (const c of n.childNodes) pasar(c);
   }
-  const obs = new MutationObserver(ms => { for (const m of ms) { if (m.type === 'characterData') pasar(m.target); else if (m.type === 'childList') m.addedNodes.forEach(pasar); } pronto(); });
+  // (16/11) los títulos se vuelven a ajustar solo cuando cambia la pantalla (clase de una .screen) o hay contenido nuevo
+  // fuera de los títulos: los cambios que hace ajustarTitulos en los títulos ya no lo vuelven a llamar (antes, en las
+  // pantallas con título, era un bucle de unos 120 cambios por segundo) y los cambios de clase del juego (selección,
+  // animaciones) no lo despiertan
+  const enTitulo = n => { const e = n.nodeType === 1 ? n : n.parentElement; return !!(e && e.closest('.bar .title')); };
+  const obs = new MutationObserver(ms => {
+    let ajustar = false;
+    for (const m of ms) {
+      if (m.type === 'characterData') { pasar(m.target); if (!enTitulo(m.target)) ajustar = true; }
+      else if (m.type === 'childList') { m.addedNodes.forEach(pasar); if (!enTitulo(m.target)) ajustar = true; }
+      else if (m.target.classList && m.target.classList.contains('screen')) ajustar = true;
+    }
+    if (ajustar) pronto();
+  });
   // los títulos de las barras que no caben en una línea: solo su icono (el nombre queda en la etiqueta para la voz)
   const ICONO = /^((?:\p{Extended_Pictographic}|\uFE0F|\u200D)+)\s*(.+)$/u;
   function ajustarTitulos() {
     document.querySelectorAll('.bar .title').forEach(el => {
       if (!el.getClientRects().length) return;
       // sin icono: en dos líneas
-      if (!el.querySelector('.lt-txt') && !ICONO.test(el.textContent.trim())) { el.classList.remove('lt-dos'); if (el.scrollWidth > el.clientWidth + 1) el.classList.add('lt-dos'); return; }
+      if (!el.querySelector('.lt-txt') && !ICONO.test(el.textContent.trim())) { const tenia = el.classList.contains('lt-dos'); if (tenia) el.classList.remove('lt-dos'); if (el.scrollWidth > el.clientWidth + 1) el.classList.add('lt-dos'); return; }
       if (!el.querySelector('.lt-txt')) { const m = el.textContent.trim().match(ICONO); if (!m) return;
         el.textContent = ''; const i = document.createElement('span'); i.className = 'lt-ico'; i.textContent = m[1] + ' ';
         const s = document.createElement('span'); s.className = 'lt-txt'; s.textContent = m[2]; el.append(i, s); el.setAttribute('aria-label', m[2]); }
-      el.classList.remove('lt-icono'); if (el.scrollWidth > el.clientWidth + 1) el.classList.add('lt-icono');
+      // se mide sin la clase y solo se cambia si hace falta (sin cambios inútiles)
+      const tenia = el.classList.contains('lt-icono'); if (tenia) el.classList.remove('lt-icono');
+      const falta = el.scrollWidth > el.clientWidth + 1; if (falta) el.classList.add('lt-icono');
     });
   }
   let rafT = 0; const pronto = () => { if (!rafT) rafT = requestAnimationFrame(() => { rafT = 0; ajustarTitulos(); }); };
