@@ -5,7 +5,8 @@
 (function () {
   'use strict';
   // versión visible en Ajustes (para comprobar que la app instalada se ha actualizado)
-  { const listo = document.getElementById('setClose'); if (listo && window.OFFLINE) { const v = document.createElement('p'); v.id = 'verApp';
+  let verApp = null;
+  { const listo = document.getElementById('setClose'); if (listo && window.OFFLINE) { const v = verApp = document.createElement('p'); v.id = 'verApp';
     v.textContent = 'Versión del juego: ' + OFFLINE.version; v.style.cssText = 'margin:2px 0 0;text-align:center;font:700 13px system-ui,sans-serif;color:#8a7a9a';
     listo.parentNode.insertBefore(v, listo); } }
   if (!('serviceWorker' in navigator) || !location.protocol.startsWith('http') || !window.caches) return;
@@ -51,6 +52,24 @@
       else poner(navigator.onLine ? `⚠️ Falta descargar un poco (${pct()} %): vuelve a abrir con internet` : `📴 Sin conexión: falta descargar (${pct()} %)`);
     } finally { descargando = false; }
   }
+  // comprobar en cada arranque que los archivos guardados son los de ESTA versión (su huella), no solo el número de versión;
+  // si alguno no lo es (una copia vieja que llegó por el camino), se vuelve a descargar comprobado y se pide volver a abrir
+  const huella = async b => [...new Uint8Array(await crypto.subtle.digest('SHA-256', b))].slice(0, 8).map(x => x.toString(16).padStart(2, '0')).join('');
+  async function comprobar() {
+    if (!OFFLINE.huellas || !(window.crypto && crypto.subtle)) return;
+    const c = await caches.open(C), lista = OFFLINE.basico.filter(u => OFFLINE.huellas[u]), mal = [];
+    for (const u of lista) { const r = await c.match(new URL(u, location.href).href); if (!r || await huella(await r.arrayBuffer()) !== OFFLINE.huellas[u]) mal.push(u); }
+    let arreglados = 0;
+    for (const u of mal) {
+      if (!navigator.onLine) break;
+      try { const r = await fetch(u + (u.includes('?') ? '&' : '?') + 'v=' + OFFLINE.version + '&r=' + Date.now(), { cache: 'reload' }), b = r.ok && await r.arrayBuffer();
+        if (b && await huella(b) === OFFLINE.huellas[u]) { await c.put(new URL(u, location.href).href, new Response(b, { status: 200, headers: r.headers })); arreglados++; } } catch (e) {}
+    }
+    const bien = lista.length - mal.length + arreglados;
+    window.OfflineEstado.comprobados = { bien, total: lista.length, corregidos: arreglados, mal: mal.length - arreglados };
+    if (verApp) verApp.textContent = `Versión del juego: ${OFFLINE.version} · ${bien} de ${lista.length} archivos comprobados` + (bien < lista.length ? ' ⚠️' : ' ✓');
+    if (arreglados) poner('✨ Juego corregido', { texto: 'Abrir', accion: () => location.reload() });
+  }
   addEventListener('online', () => descargar());
   navigator.serviceWorker.register('sw.js').then(reg => {
     const nueva = () => {
@@ -66,7 +85,7 @@
   // solo se descarga en la caché de ESTA versión cuando la controla su propio service worker
   navigator.serviceWorker.ready.then(async () => {
     if (!navigator.serviceWorker.controller) return;
-    if ((await caches.keys()).includes(C)) descargar();
+    if ((await caches.keys()).includes(C)) { descargar(); setTimeout(() => comprobar().catch(() => {}), 1500); }
     else poner('⬇️ Preparando para jugar sin conexión…');
   });
 })();
